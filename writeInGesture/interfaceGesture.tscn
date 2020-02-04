@@ -1,0 +1,607 @@
+[gd_scene format=2]
+
+[node name="Control45" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 0
+custom_constants/margin_left = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 1024.0
+margin_bottom = 600.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Retour" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 20.0
+text = "Retour"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_top = 30.0
+margin_right = 1024.0
+margin_bottom = 44.0
+text = "Description des sons"
+align = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+follow_focus = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+margin_right = 1012.0
+margin_bottom = 1344.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 50
+custom_constants/margin_left = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer"]
+margin_left = 50.0
+margin_right = 962.0
+margin_bottom = 1344.0
+size_flags_horizontal = 3
+custom_constants/separation = 41
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Voyelles Orales" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_right = 912.0
+margin_bottom = 374.0
+custom_constants/separation = 30
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales"]
+margin_right = 912.0
+margin_bottom = 14.0
+text = "Voyelles Orale"
+align = 1
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales"]
+margin_top = 44.0
+margin_right = 912.0
+margin_bottom = 44.0
+
+[node name="[i] pire [piʁ]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales/Control"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[i] pire [piʁ]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales"]
+margin_top = 74.0
+margin_right = 912.0
+margin_bottom = 74.0
+
+[node name="[e] pré [pʁe]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales/Control2"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[e] pré [pʁe]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control3" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales"]
+margin_top = 104.0
+margin_right = 912.0
+margin_bottom = 104.0
+
+[node name="[ɛ] père [pɛʁ]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales/Control3"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[ɛ] père [pɛʁ]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control4" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales"]
+margin_top = 134.0
+margin_right = 912.0
+margin_bottom = 134.0
+
+[node name="[a] mal [mal]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales/Control4"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[a] mal [mal]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control5" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales"]
+margin_top = 164.0
+margin_right = 912.0
+margin_bottom = 164.0
+
+[node name="[y] vu [vy]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales/Control5"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[y] vu [vy]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control6" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales"]
+margin_top = 194.0
+margin_right = 912.0
+margin_bottom = 194.0
+
+[node name="[ø] peu [pø]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales/Control6"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[ø] peu [pø]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control7" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales"]
+margin_top = 224.0
+margin_right = 912.0
+margin_bottom = 224.0
+
+[node name="[ə] je [ʒə]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales/Control7"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[ə] je [ʒə]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control8" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales"]
+margin_top = 254.0
+margin_right = 912.0
+margin_bottom = 254.0
+
+[node name="[œ] peur [pœʁ]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales/Control8"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[œ] peur [pœʁ]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control9" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales"]
+margin_top = 284.0
+margin_right = 912.0
+margin_bottom = 284.0
+
+[node name="[u] mou [mu]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales/Control9"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[u] mou [mu]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control10" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales"]
+margin_top = 314.0
+margin_right = 912.0
+margin_bottom = 314.0
+
+[node name="[o] zéro [zeʁo]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales/Control10"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[o] zéro [zeʁo]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control11" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales"]
+margin_top = 344.0
+margin_right = 912.0
+margin_bottom = 344.0
+
+[node name="[ɔ] sort [sɔʁ]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales/Control11"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[ɔ] sort [sɔʁ]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control12" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales"]
+margin_top = 374.0
+margin_right = 912.0
+margin_bottom = 374.0
+
+[node name="[ɑ] pâle [pɑl]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales/Control12"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[ɑ] pâle [pɑl]"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Voyelles Nasales" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 415.0
+margin_right = 912.0
+margin_bottom = 549.0
+custom_constants/separation = 30
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Nasales"]
+margin_right = 912.0
+margin_bottom = 14.0
+text = "Voyelles Nasales"
+align = 1
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Nasales"]
+margin_top = 44.0
+margin_right = 912.0
+margin_bottom = 44.0
+
+[node name="[ɛ̃] pain [pɛ̃]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Nasales/Control"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[ɛ̃] pain [pɛ̃]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Nasales"]
+margin_top = 74.0
+margin_right = 912.0
+margin_bottom = 74.0
+
+[node name="[œ̃] un [œ̃] " type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Nasales/Control2"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[œ̃] un [œ̃] "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control3" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Nasales"]
+margin_top = 104.0
+margin_right = 912.0
+margin_bottom = 104.0
+
+[node name="[ɛ] père [pɛʁ]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Nasales/Control3"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[ɔ̃] bon [bɔ̃]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control4" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Nasales"]
+margin_top = 134.0
+margin_right = 912.0
+margin_bottom = 134.0
+
+[node name="[ɑ̃] blanc [blɑ̃]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Nasales/Control4"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[a] mal [mal]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Semi-Consonne" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 590.0
+margin_right = 912.0
+margin_bottom = 694.0
+custom_constants/separation = 30
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Semi-Consonne"]
+margin_right = 912.0
+margin_bottom = 14.0
+text = "Sami-Consonnes"
+align = 1
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Semi-Consonne"]
+margin_top = 44.0
+margin_right = 912.0
+margin_bottom = 44.0
+
+[node name="[j] bille [bij]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Semi-Consonne/Control"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[i] pire [piʁ]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Semi-Consonne"]
+margin_top = 74.0
+margin_right = 912.0
+margin_bottom = 74.0
+
+[node name="[w] ouate [wat]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Semi-Consonne/Control2"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[e] pré [pʁe]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control3" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Semi-Consonne"]
+margin_top = 104.0
+margin_right = 912.0
+margin_bottom = 104.0
+
+[node name="[ɥ] huile [ɥil]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Semi-Consonne/Control3"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[ɛ] père [pɛʁ]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Consonnes Orales" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 735.0
+margin_right = 912.0
+margin_bottom = 1169.0
+custom_constants/separation = 30
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
+margin_right = 912.0
+margin_bottom = 14.0
+text = "Consonnes Orales"
+align = 1
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
+margin_top = 44.0
+margin_right = 912.0
+margin_bottom = 44.0
+
+[node name="[p] pile [pil]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales/Control"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[i] pire [piʁ]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
+margin_top = 74.0
+margin_right = 912.0
+margin_bottom = 74.0
+
+[node name="[b] bête [bɛt]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales/Control2"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[e] pré [pʁe]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control3" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
+margin_top = 104.0
+margin_right = 912.0
+margin_bottom = 104.0
+
+[node name="[t] tête [tɛt]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales/Control3"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[ɛ] père [pɛʁ]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control4" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
+margin_top = 134.0
+margin_right = 912.0
+margin_bottom = 134.0
+
+[node name="[d] dame [dam]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales/Control4"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[a] mal [mal]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control5" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
+margin_top = 164.0
+margin_right = 912.0
+margin_bottom = 164.0
+
+[node name="[f] flamme [flam]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales/Control5"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[y] vu [vy]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control6" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
+margin_top = 194.0
+margin_right = 912.0
+margin_bottom = 194.0
+
+[node name="[v] ville [vil]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales/Control6"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[ø] peu [pø]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control7" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
+margin_top = 224.0
+margin_right = 912.0
+margin_bottom = 224.0
+
+[node name="[k] calme [kalm]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales/Control7"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[ə] je [ʒə]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control8" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
+margin_top = 254.0
+margin_right = 912.0
+margin_bottom = 254.0
+
+[node name="[g] galop [galo]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales/Control8"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[œ] peur [pœʁ]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control9" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
+margin_top = 284.0
+margin_right = 912.0
+margin_bottom = 284.0
+
+[node name="[s] site [sit]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales/Control9"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[u] mou [mu]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control10" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
+margin_top = 314.0
+margin_right = 912.0
+margin_bottom = 314.0
+
+[node name="[z] zut [zyt]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales/Control10"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[o] zéro [zeʁo]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control11" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
+margin_top = 344.0
+margin_right = 912.0
+margin_bottom = 344.0
+
+[node name="[ʃ] chocolat [ʃokola]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales/Control11"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[ɔ] sort [sɔʁ]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control12" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
+margin_top = 374.0
+margin_right = 912.0
+margin_bottom = 374.0
+
+[node name="[ʒ] journal [ʒuʁnal]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales/Control12"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[ɑ] pâle [pɑl]"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Control13" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
+margin_top = 404.0
+margin_right = 912.0
+margin_bottom = 404.0
+
+[node name="[ʁ] rousse [ʁus]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales/Control13"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[ɑ] pâle [pɑl]"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Control14" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
+margin_top = 434.0
+margin_right = 912.0
+margin_bottom = 434.0
+
+[node name="[l] loup [lu]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales/Control14"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[ɑ] pâle [pɑl]"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Consonnes Nasales" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 1210.0
+margin_right = 912.0
+margin_bottom = 1344.0
+custom_constants/separation = 30
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales"]
+margin_right = 912.0
+margin_bottom = 14.0
+text = "Consonnes Nasales"
+align = 1
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales"]
+margin_top = 44.0
+margin_right = 912.0
+margin_bottom = 44.0
+
+[node name="[m] matou [matu]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales/Control"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[i] pire [piʁ]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales"]
+margin_top = 74.0
+margin_right = 912.0
+margin_bottom = 74.0
+
+[node name="[n] nul [nyl]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales/Control2"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[e] pré [pʁe]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control3" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales"]
+margin_top = 104.0
+margin_right = 912.0
+margin_bottom = 104.0
+
+[node name="[ɲ] agneau [aɲo]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales/Control3"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[ɛ] père [pɛʁ]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control4" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales"]
+margin_top = 134.0
+margin_right = 912.0
+margin_bottom = 134.0
+
+[node name="[ŋ] parking [paʁkŋ]" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales/Control4"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[a] mal [mal]"
+__meta__ = {
+"_edit_use_anchors_": false
+}

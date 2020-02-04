@@ -42,11 +42,13 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
 margin_left = 120.0
 margin_right = 904.0
+
 margin_bottom = 600.0
 alignment = 1
 
 [node name="Logo" type="Label" parent="MarginContainer2/VBoxContainer"]
 margin_top = 16.0
+
 margin_right = 784.0
 margin_bottom = 96.0
 custom_fonts/font = SubResource( 1 )
@@ -54,13 +56,16 @@ text = "LOGO"
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/VBoxContainer"]
+
 margin_top = 100.0
 margin_right = 784.0
 margin_bottom = 535.0
 
+
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/VBoxContainer/HBoxContainer"]
 margin_right = 289.0
-margin_bottom = 435.0
+margin_bottom = 447.0
+custom_constants/separation = 10
 
 [node name="NamePlayer" type="Label" parent="MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_right = 289.0
@@ -70,18 +75,22 @@ text = "Xavier L'autiste"
 align = 1
 
 [node name="Picture" type="TextureRect" parent="MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+
 margin_top = 44.0
+
 margin_right = 289.0
-margin_bottom = 411.0
+margin_bottom = 417.0
 texture = ExtResource( 2 )
 
 [node name="Change" type="Button" parent="MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+
 margin_top = 415.0
 margin_right = 289.0
-margin_bottom = 435.0
+margin_bottom = 447.0
 text = "Modifier"
 
 [node name="Play" type="Button" parent="MarginContainer2/VBoxContainer/HBoxContainer"]
+
 margin_left = 293.0
 margin_right = 337.0
 margin_bottom = 435.0

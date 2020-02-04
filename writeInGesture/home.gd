@@ -18,4 +18,8 @@ func _ready():
 
 func _on_Admin_pressed():
 	get_tree().change_scene("res://speechTherapistMenu.tscn")
+  pass # Replace with function body.
+
+func _on_Play_pressed():
+	get_tree().change_scene("res://ExerciceMenu.tscn")
 	pass # Replace with function body.

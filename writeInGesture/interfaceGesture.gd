@@ -16,6 +16,5 @@ func _ready():
 #	pass
 
 
-func _on_Retour_pressed():
+func _on_Back_pressed():
 	get_tree().change_scene("res://home.tscn")
-	pass # Replace with function body.

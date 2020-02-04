@@ -16,15 +16,6 @@ func _ready():
 #	pass
 
 
-func _on_Admin_pressed():
-	get_tree().change_scene("res://speechTherapistMenu.tscn")
-	pass # Replace with function body.
-
-func _on_Play_pressed():
-	get_tree().change_scene("res://ExerciceMenu.tscn")
-	pass # Replace with function body.
-
-
-func _on_Help_pressed():
-	get_tree().change_scene("res://interfaceGesture.tscn")
+func _on_Retour_pressed():
+	get_tree().change_scene("res://home.tscn")
 	pass # Replace with function body.

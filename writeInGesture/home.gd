@@ -28,4 +28,5 @@ func _on_Help_pressed():
 	get_tree().change_scene("res://interfaceGesture.tscn")
 
 func _on_SpeakTest_pressed():
-	tts.speakText("Ceci est un test pour la synthèse vocale !")
+	if(tts != null):
+		tts.speakText("Ceci est un test pour la synthèse vocale !")

@@ -20,6 +20,6 @@ func _on_Back_pressed():
 	get_tree().change_scene("res://interfaceGesture.tscn")
 
 
-func _on_Button_pressed():
+func _on_Speak_pressed():
 	if(tts != null):
 		tts.speakText(find_node("Name").text)

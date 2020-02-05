@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://fonts/HelloGrizellesans.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://art/imgBorel/[o].png" type="Texture" id=2]
+[ext_resource path="res://art/imgBorel/o.png" type="Texture" id=2]
 [ext_resource path="res://home.gd" type="Script" id=3]
 [ext_resource path="res://fonts/phonetic.tres" type="Theme" id=4]
 

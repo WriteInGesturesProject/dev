@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/[on].png-c2db2677ec57cc6cd092280cc8248f85.stex"
+path="res://.import/eu.png-6a012cc7f39d65bdf1a3adc58e53b184.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/imgBorel/[on].png"
-dest_files=[ "res://.import/[on].png-c2db2677ec57cc6cd092280cc8248f85.stex" ]
+source_file="res://art/imgBorel/eu.png"
+dest_files=[ "res://.import/eu.png-6a012cc7f39d65bdf1a3adc58e53b184.stex" ]
 
 [params]
 

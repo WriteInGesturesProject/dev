@@ -8,14 +8,15 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "global",
+"language": "GDScript",
+"path": "res://Global.gd"
+} ]
 _global_script_class_icons={
-
+"global": ""
 }
-
-[android]
-
-modules="org/godotengine/godot/GodotTextToSpeech"
 
 [application]
 
@@ -23,11 +24,9 @@ config/name="ArtiGest"
 run/main_scene="res://home.tscn"
 config/icon="res://art/icon.png"
 
-[display]
+[autoload]
 
-window/size/resizable=false
-window/size/borderless=true
-window/size/fullscreen=true
+Global="*res://Global.gd"
 
 [rendering]
 

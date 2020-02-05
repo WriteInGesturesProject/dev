@@ -23,6 +23,7 @@ func _on_Admin_pressed():
 func _on_Play_pressed():
 	get_tree().change_scene("res://ExerciceMenu.tscn")
 
+
 func _on_Help_pressed():
 	get_tree().change_scene("res://interfaceGesture.tscn")
 

@@ -17,20 +17,20 @@ func _ready():
 
 
 func _on_MyGame_pressed():
+	Global.game = 1
 	get_tree().change_scene("res://GameLevel.tscn")
-
 
 func _on_Count_pressed():
+	Global.game = 2
 	get_tree().change_scene("res://GameLevel.tscn")
-
 
 func _on_WeekDays_pressed():
+	Global.game = 3
 	get_tree().change_scene("res://GameLevel.tscn")
-
 
 func _on_MonoSyllabe_pressed():
+	Global.game = 4
 	get_tree().change_scene("res://GameLevel.tscn")
-
 
 func _on_Back_pressed():
 	get_tree().change_scene("res://home.tscn")

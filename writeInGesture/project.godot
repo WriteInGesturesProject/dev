@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "global",
+"language": "GDScript",
+"path": "res://Global.gd"
+} ]
 _global_script_class_icons={
-
+"global": ""
 }
 
 [application]
@@ -18,6 +23,10 @@ _global_script_class_icons={
 config/name="ArtiGest"
 run/main_scene="res://home.tscn"
 config/icon="res://art/icon.png"
+
+[autoload]
+
+Global="*res://Global.gd"
 
 [rendering]
 

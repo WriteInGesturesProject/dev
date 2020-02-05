@@ -23,3 +23,15 @@ func _ready():
 
 func _on_Back_pressed():
 	get_tree().change_scene("res://ExerciceMenu.tscn")
+
+
+func _on_Normal_pressed():
+	get_tree().change_scene("res://GameNormal.tscn")
+
+
+func _on_Easy_pressed():
+	get_tree().change_scene("res://GameEasy.tscn")
+
+
+func _on_Hard_pressed():
+	get_tree().change_scene("res://GameHard.tscn")

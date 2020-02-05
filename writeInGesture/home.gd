@@ -15,6 +15,9 @@ func _ready():
 #func _process(delta):
 #	pass
 
+func _on_Change_pressed():
+	get_tree().change_scene("res://avatarspace.tscn")
+	pass # Replace with function body.
 
 func _on_Admin_pressed():
 	get_tree().change_scene("res://speechTherapistMenu.tscn")

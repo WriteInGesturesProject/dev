@@ -99,6 +99,7 @@ margin_top = 569.0
 margin_right = 784.0
 margin_bottom = 589.0
 text = "Ortophoniste"
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer/Change" to="." method="_on_Change_pressed"]
 [connection signal="pressed" from="MarginContainer2/VBoxContainer/HBoxContainer/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="MarginContainer2/VBoxContainer/Help" to="." method="_on_Help_pressed"]
 [connection signal="pressed" from="MarginContainer2/VBoxContainer/Admin" to="." method="_on_Admin_pressed"]

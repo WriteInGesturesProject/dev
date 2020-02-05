@@ -50,6 +50,7 @@ align = 1
 margin_top = 72.0
 margin_right = 1024.0
 margin_bottom = 580.0
+mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 follow_focus = true
@@ -59,7 +60,8 @@ __meta__ = {
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
 margin_right = 1012.0
-margin_bottom = 3180.0
+margin_bottom = 3250.0
+mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 50
@@ -68,7 +70,7 @@ custom_constants/margin_left = 50
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer"]
 margin_left = 50.0
 margin_right = 962.0
-margin_bottom = 3180.0
+margin_bottom = 3250.0
 size_flags_horizontal = 3
 custom_constants/separation = 70
 alignment = 1
@@ -191,7 +193,7 @@ anchor_right = 1.0
 margin_bottom = 20.0
 text = "[œ] peur [pœʁ]"
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="Control9" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales"]
@@ -255,6 +257,7 @@ custom_constants/separation = 70
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Nasales"]
 margin_right = 912.0
 margin_bottom = 62.0
+mouse_filter = 1
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Voyelles Nasales"
 align = 1
@@ -277,7 +280,7 @@ margin_top = 202.0
 margin_right = 912.0
 margin_bottom = 202.0
 
-[node name="un " type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Nasales/Control2"]
+[node name="un" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Nasales/Control2"]
 anchor_right = 1.0
 margin_bottom = 20.0
 text = "[œ̃] un [œ̃] "
@@ -372,6 +375,7 @@ custom_constants/separation = 70
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
 margin_right = 912.0
 margin_bottom = 62.0
+mouse_filter = 1
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Consonnes Orales"
 align = 1
@@ -561,7 +565,7 @@ __meta__ = {
 [node name="Consonnes Nasales" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
 margin_top = 2838.0
 margin_right = 912.0
-margin_bottom = 3180.0
+margin_bottom = 3250.0
 custom_constants/separation = 70
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales"]
@@ -623,6 +627,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Control5" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales"]
+margin_top = 412.0
+margin_right = 912.0
+margin_bottom = 412.0
+
+[node name="parking" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales/Control5"]
+anchor_right = 1.0
+margin_bottom = 20.0
+text = "[ŋ] parking [paʁkŋ]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Back" type="Button" parent="."]
 margin_right = 12.0
 margin_bottom = 20.0
@@ -643,7 +660,7 @@ __meta__ = {
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales/Control11/sort" to="." method="_on_allbutton_pressed" binds= [ "sort" ]]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales/Control12/pale" to="." method="_on_allbutton_pressed" binds= [ "pale" ]]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Nasales/Control/pain" to="." method="_on_allbutton_pressed" binds= [ "pain" ]]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Nasales/Control2/un " to="." method="_on_allbutton_pressed" binds= [ "un" ]]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Nasales/Control2/un" to="." method="_on_allbutton_pressed" binds= [ "un" ]]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Nasales/Control3/pere" to="." method="_on_allbutton_pressed" binds= [ "pere" ]]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Nasales/Control4/blanc" to="." method="_on_allbutton_pressed" binds= [ "blanc" ]]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Semi-Consonne/Control/bille" to="." method="_on_allbutton_pressed" binds= [ "bille" ]]
@@ -665,7 +682,7 @@ __meta__ = {
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales/Control14/loup" to="." method="_on_allbutton_pressed" binds= [ "loup" ]]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales/Control/matou" to="." method="_on_allbutton_pressed" binds= [ "matou" ]]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales/Control2/nul" to="." method="_on_allbutton_pressed" binds= [ "nul" ]]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales/Control3/agneau" to="." method="_on_agneau_pressed" binds= [ "agneau" ]]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales/Control3/agneau" to="." method="_on_allbutton_pressed" binds= [ "agneau" ]]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales/Control4/parking" to="." method="_on_allbutton_pressed" binds= [ "parking" ]]
-
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales/Control5/parking" to="." method="_on_allbutton_pressed" binds= [ "parking" ]]
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]

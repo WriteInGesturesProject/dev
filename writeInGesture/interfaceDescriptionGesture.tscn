@@ -76,8 +76,8 @@ icon = ExtResource( 2 )
 expand_icon = true
 
 [node name="Back" type="Button" parent="."]
-margin_right = 12.0
-margin_bottom = 20.0
+margin_right = 100.0
+margin_bottom = 50.0
 text = "Retour"
 __meta__ = {
 "_edit_use_anchors_": false

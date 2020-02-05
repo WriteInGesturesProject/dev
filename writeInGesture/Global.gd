@@ -11,7 +11,7 @@ class_name global
 func _ready():
 	pass # Replace with function body.
 
-func save(path, content):
+func saveStringInFile(path, content):
 	var file = File.new()
 	file.open("res://data/"+path, file.READ_WRITE)
 	file.seek_end()

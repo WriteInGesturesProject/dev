@@ -31,13 +31,12 @@ func _on_addWord_pressed():
 	stateAddLabel.add_color_override("font_color", Color(0,0,0))
 	var text = get_node("MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/TextEdit").get_text()
 	if !(contentFile.has(text)) && contentFile.size() < 20:
-		Global.currentSize += 1
 		contentFile.append(text)	
 		var currentLabel = Label.new()
 		currentLabel.set_text(text)
 		currentLabel.add_color_override("font_color", Color(0,0,0))
 		get_node("MarginContainer/HBoxContainer/VBoxContainer").add_child(currentLabel)
-		Global.save("wordsAvailable",text)
+		Global.saveStringInFile("wordsAvailable",text)
 		stateAddLabel.set_text("Le mot a été ajouté.")
 	else:
 		if contentFile.size() >= 20:

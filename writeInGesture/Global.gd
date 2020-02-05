@@ -22,7 +22,6 @@ func saveStringInFile(path, content):
 func loadFileInArray(path):
 	var file = File.new()
 	file.open("res://data/"+path, file.READ)
-	#var content = file.get_as_text()
 	var content = []
 	var currentLine = file.get_line()
 	while  currentLine != "":

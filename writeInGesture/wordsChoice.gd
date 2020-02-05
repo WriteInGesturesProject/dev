@@ -26,7 +26,6 @@ func _on_Retour_pressed():
 
 
 func _on_addWord_pressed():
-	#for i in range(0, Global.words.size()):
 	var stateAddLabel = get_node("MarginContainer/HBoxContainer/VBoxContainer2/stateAddLabel")
 	stateAddLabel.add_color_override("font_color", Color(0,0,0))
 	var text = get_node("MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/TextEdit").get_text()
@@ -43,4 +42,3 @@ func _on_addWord_pressed():
 			stateAddLabel.set_text("Trop de mots ont été ajouté.")
 		else :
 			stateAddLabel.set_text("Le mot existe déjà.")
-	#get_node("MarginContainer/HBoxContainer/VBoxContainer").remove_child(stateAddLabel)

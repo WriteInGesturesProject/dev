@@ -1,10 +1,12 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://interfaceGesture.gd" type="Script" id=1]
+[ext_resource path="res://fonts/phonetic.tres" type="Theme" id=2]
 
 [node name="Control45" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 2 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -39,13 +41,13 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 margin_right = 1024.0
-margin_bottom = 14.0
+margin_bottom = 62.0
 custom_colors/font_color = Color( 0.00392157, 0, 0, 1 )
 text = "Description des sons"
 align = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 24.0
+margin_top = 72.0
 margin_right = 1024.0
 margin_bottom = 580.0
 size_flags_horizontal = 3
@@ -57,7 +59,7 @@ __meta__ = {
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
 margin_right = 1012.0
-margin_bottom = 1344.0
+margin_bottom = 3180.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 50
@@ -66,9 +68,9 @@ custom_constants/margin_left = 50
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer"]
 margin_left = 50.0
 margin_right = 962.0
-margin_bottom = 1344.0
+margin_bottom = 3180.0
 size_flags_horizontal = 3
-custom_constants/separation = 41
+custom_constants/separation = 70
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -76,20 +78,20 @@ __meta__ = {
 
 [node name="Voyelles Orales" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
 margin_right = 912.0
-margin_bottom = 374.0
-custom_constants/separation = 30
+margin_bottom = 902.0
+custom_constants/separation = 70
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales"]
 margin_right = 912.0
-margin_bottom = 14.0
+margin_bottom = 62.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Voyelles Orale"
 align = 1
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales"]
-margin_top = 44.0
+margin_top = 132.0
 margin_right = 912.0
-margin_bottom = 44.0
+margin_bottom = 132.0
 
 [node name="pire" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales/Control"]
 anchor_right = 1.0
@@ -100,22 +102,24 @@ __meta__ = {
 }
 
 [node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales"]
-margin_top = 74.0
+margin_top = 202.0
 margin_right = 912.0
-margin_bottom = 74.0
+margin_bottom = 202.0
 
 [node name="pré" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales/Control2"]
 anchor_right = 1.0
 margin_bottom = 20.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 text = "[e] pré [pʁe]"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Control3" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales"]
-margin_top = 104.0
+margin_top = 272.0
 margin_right = 912.0
-margin_bottom = 104.0
+margin_bottom = 272.0
 
 [node name="père" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales/Control3"]
 anchor_right = 1.0
@@ -126,9 +130,9 @@ __meta__ = {
 }
 
 [node name="Control4" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales"]
-margin_top = 134.0
+margin_top = 342.0
 margin_right = 912.0
-margin_bottom = 134.0
+margin_bottom = 342.0
 
 [node name="mal" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales/Control4"]
 anchor_right = 1.0
@@ -139,9 +143,9 @@ __meta__ = {
 }
 
 [node name="Control5" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales"]
-margin_top = 164.0
+margin_top = 412.0
 margin_right = 912.0
-margin_bottom = 164.0
+margin_bottom = 412.0
 
 [node name="vu" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales/Control5"]
 anchor_right = 1.0
@@ -152,9 +156,9 @@ __meta__ = {
 }
 
 [node name="Control6" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales"]
-margin_top = 194.0
+margin_top = 482.0
 margin_right = 912.0
-margin_bottom = 194.0
+margin_bottom = 482.0
 
 [node name="peu" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales/Control6"]
 anchor_right = 1.0
@@ -165,9 +169,9 @@ __meta__ = {
 }
 
 [node name="Control7" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales"]
-margin_top = 224.0
+margin_top = 552.0
 margin_right = 912.0
-margin_bottom = 224.0
+margin_bottom = 552.0
 
 [node name="je" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales/Control7"]
 anchor_right = 1.0
@@ -178,9 +182,9 @@ __meta__ = {
 }
 
 [node name="Control8" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales"]
-margin_top = 254.0
+margin_top = 622.0
 margin_right = 912.0
-margin_bottom = 254.0
+margin_bottom = 622.0
 
 [node name="peur" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales/Control8"]
 anchor_right = 1.0
@@ -191,9 +195,9 @@ __meta__ = {
 }
 
 [node name="Control9" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales"]
-margin_top = 284.0
+margin_top = 692.0
 margin_right = 912.0
-margin_bottom = 284.0
+margin_bottom = 692.0
 
 [node name="mou" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales/Control9"]
 anchor_right = 1.0
@@ -204,9 +208,9 @@ __meta__ = {
 }
 
 [node name="Control10" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales"]
-margin_top = 314.0
+margin_top = 762.0
 margin_right = 912.0
-margin_bottom = 314.0
+margin_bottom = 762.0
 
 [node name="zero" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales/Control10"]
 anchor_right = 1.0
@@ -217,9 +221,9 @@ __meta__ = {
 }
 
 [node name="Control11" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales"]
-margin_top = 344.0
+margin_top = 832.0
 margin_right = 912.0
-margin_bottom = 344.0
+margin_bottom = 832.0
 
 [node name="sort" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales/Control11"]
 anchor_right = 1.0
@@ -230,9 +234,9 @@ __meta__ = {
 }
 
 [node name="Control12" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales"]
-margin_top = 374.0
+margin_top = 902.0
 margin_right = 912.0
-margin_bottom = 374.0
+margin_bottom = 902.0
 
 [node name="pale" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Orales/Control12"]
 anchor_right = 1.0
@@ -243,22 +247,22 @@ __meta__ = {
 }
 
 [node name="Voyelles Nasales" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
-margin_top = 415.0
+margin_top = 972.0
 margin_right = 912.0
-margin_bottom = 549.0
-custom_constants/separation = 30
+margin_bottom = 1314.0
+custom_constants/separation = 70
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Nasales"]
 margin_right = 912.0
-margin_bottom = 14.0
+margin_bottom = 62.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Voyelles Nasales"
 align = 1
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Nasales"]
-margin_top = 44.0
+margin_top = 132.0
 margin_right = 912.0
-margin_bottom = 44.0
+margin_bottom = 132.0
 
 [node name="pain" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Nasales/Control"]
 anchor_right = 1.0
@@ -269,9 +273,9 @@ __meta__ = {
 }
 
 [node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Nasales"]
-margin_top = 74.0
+margin_top = 202.0
 margin_right = 912.0
-margin_bottom = 74.0
+margin_bottom = 202.0
 
 [node name="un " type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Nasales/Control2"]
 anchor_right = 1.0
@@ -282,9 +286,9 @@ __meta__ = {
 }
 
 [node name="Control3" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Nasales"]
-margin_top = 104.0
+margin_top = 272.0
 margin_right = 912.0
-margin_bottom = 104.0
+margin_bottom = 272.0
 
 [node name="pere" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Nasales/Control3"]
 anchor_right = 1.0
@@ -295,9 +299,9 @@ __meta__ = {
 }
 
 [node name="Control4" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Nasales"]
-margin_top = 134.0
+margin_top = 342.0
 margin_right = 912.0
-margin_bottom = 134.0
+margin_bottom = 342.0
 
 [node name="blanc" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Voyelles Nasales/Control4"]
 anchor_right = 1.0
@@ -308,22 +312,22 @@ __meta__ = {
 }
 
 [node name="Semi-Consonne" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
-margin_top = 590.0
+margin_top = 1384.0
 margin_right = 912.0
-margin_bottom = 694.0
-custom_constants/separation = 30
+margin_bottom = 1656.0
+custom_constants/separation = 70
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Semi-Consonne"]
 margin_right = 912.0
-margin_bottom = 14.0
+margin_bottom = 62.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Sami-Consonnes"
 align = 1
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Semi-Consonne"]
-margin_top = 44.0
+margin_top = 132.0
 margin_right = 912.0
-margin_bottom = 44.0
+margin_bottom = 132.0
 
 [node name="bille" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Semi-Consonne/Control"]
 anchor_right = 1.0
@@ -334,9 +338,9 @@ __meta__ = {
 }
 
 [node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Semi-Consonne"]
-margin_top = 74.0
+margin_top = 202.0
 margin_right = 912.0
-margin_bottom = 74.0
+margin_bottom = 202.0
 
 [node name="ouate" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Semi-Consonne/Control2"]
 anchor_right = 1.0
@@ -347,9 +351,9 @@ __meta__ = {
 }
 
 [node name="Control3" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Semi-Consonne"]
-margin_top = 104.0
+margin_top = 272.0
 margin_right = 912.0
-margin_bottom = 104.0
+margin_bottom = 272.0
 
 [node name="huile" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Semi-Consonne/Control3"]
 anchor_right = 1.0
@@ -360,22 +364,22 @@ __meta__ = {
 }
 
 [node name="Consonnes Orales" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
-margin_top = 735.0
+margin_top = 1726.0
 margin_right = 912.0
-margin_bottom = 1169.0
-custom_constants/separation = 30
+margin_bottom = 2768.0
+custom_constants/separation = 70
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
 margin_right = 912.0
-margin_bottom = 14.0
+margin_bottom = 62.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Consonnes Orales"
 align = 1
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
-margin_top = 44.0
+margin_top = 132.0
 margin_right = 912.0
-margin_bottom = 44.0
+margin_bottom = 132.0
 
 [node name="pile" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales/Control"]
 anchor_right = 1.0
@@ -386,9 +390,9 @@ __meta__ = {
 }
 
 [node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
-margin_top = 74.0
+margin_top = 202.0
 margin_right = 912.0
-margin_bottom = 74.0
+margin_bottom = 202.0
 
 [node name="bete" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales/Control2"]
 anchor_right = 1.0
@@ -399,9 +403,9 @@ __meta__ = {
 }
 
 [node name="Control3" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
-margin_top = 104.0
+margin_top = 272.0
 margin_right = 912.0
-margin_bottom = 104.0
+margin_bottom = 272.0
 
 [node name="tete" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales/Control3"]
 anchor_right = 1.0
@@ -412,9 +416,9 @@ __meta__ = {
 }
 
 [node name="Control4" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
-margin_top = 134.0
+margin_top = 342.0
 margin_right = 912.0
-margin_bottom = 134.0
+margin_bottom = 342.0
 
 [node name="dame" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales/Control4"]
 anchor_right = 1.0
@@ -425,9 +429,9 @@ __meta__ = {
 }
 
 [node name="Control5" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
-margin_top = 164.0
+margin_top = 412.0
 margin_right = 912.0
-margin_bottom = 164.0
+margin_bottom = 412.0
 
 [node name="flamme" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales/Control5"]
 anchor_right = 1.0
@@ -438,9 +442,9 @@ __meta__ = {
 }
 
 [node name="Control6" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
-margin_top = 194.0
+margin_top = 482.0
 margin_right = 912.0
-margin_bottom = 194.0
+margin_bottom = 482.0
 
 [node name="ville" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales/Control6"]
 anchor_right = 1.0
@@ -451,9 +455,9 @@ __meta__ = {
 }
 
 [node name="Control7" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
-margin_top = 224.0
+margin_top = 552.0
 margin_right = 912.0
-margin_bottom = 224.0
+margin_bottom = 552.0
 
 [node name="calme" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales/Control7"]
 anchor_right = 1.0
@@ -464,9 +468,9 @@ __meta__ = {
 }
 
 [node name="Control8" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
-margin_top = 254.0
+margin_top = 622.0
 margin_right = 912.0
-margin_bottom = 254.0
+margin_bottom = 622.0
 
 [node name="galop" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales/Control8"]
 anchor_right = 1.0
@@ -477,9 +481,9 @@ __meta__ = {
 }
 
 [node name="Control9" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
-margin_top = 284.0
+margin_top = 692.0
 margin_right = 912.0
-margin_bottom = 284.0
+margin_bottom = 692.0
 
 [node name="site" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales/Control9"]
 anchor_right = 1.0
@@ -490,9 +494,9 @@ __meta__ = {
 }
 
 [node name="Control10" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
-margin_top = 314.0
+margin_top = 762.0
 margin_right = 912.0
-margin_bottom = 314.0
+margin_bottom = 762.0
 
 [node name="zut" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales/Control10"]
 anchor_right = 1.0
@@ -503,9 +507,9 @@ __meta__ = {
 }
 
 [node name="Control11" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
-margin_top = 344.0
+margin_top = 832.0
 margin_right = 912.0
-margin_bottom = 344.0
+margin_bottom = 832.0
 
 [node name="chocolat" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales/Control11"]
 anchor_right = 1.0
@@ -516,9 +520,9 @@ __meta__ = {
 }
 
 [node name="Control12" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
-margin_top = 374.0
+margin_top = 902.0
 margin_right = 912.0
-margin_bottom = 374.0
+margin_bottom = 902.0
 
 [node name="journal" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales/Control12"]
 anchor_right = 1.0
@@ -529,9 +533,9 @@ __meta__ = {
 }
 
 [node name="Control13" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
-margin_top = 404.0
+margin_top = 972.0
 margin_right = 912.0
-margin_bottom = 404.0
+margin_bottom = 972.0
 
 [node name="rousse" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales/Control13"]
 anchor_right = 1.0
@@ -542,9 +546,9 @@ __meta__ = {
 }
 
 [node name="Control14" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales"]
-margin_top = 434.0
+margin_top = 1042.0
 margin_right = 912.0
-margin_bottom = 434.0
+margin_bottom = 1042.0
 
 [node name="loup" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Orales/Control14"]
 anchor_right = 1.0
@@ -555,22 +559,22 @@ __meta__ = {
 }
 
 [node name="Consonnes Nasales" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
-margin_top = 1210.0
+margin_top = 2838.0
 margin_right = 912.0
-margin_bottom = 1344.0
-custom_constants/separation = 30
+margin_bottom = 3180.0
+custom_constants/separation = 70
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales"]
 margin_right = 912.0
-margin_bottom = 14.0
+margin_bottom = 62.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Consonnes Nasales"
 align = 1
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales"]
-margin_top = 44.0
+margin_top = 132.0
 margin_right = 912.0
-margin_bottom = 44.0
+margin_bottom = 132.0
 
 [node name="matou" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales/Control"]
 anchor_right = 1.0
@@ -581,9 +585,9 @@ __meta__ = {
 }
 
 [node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales"]
-margin_top = 74.0
+margin_top = 202.0
 margin_right = 912.0
-margin_bottom = 74.0
+margin_bottom = 202.0
 
 [node name="nul" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales/Control2"]
 anchor_right = 1.0
@@ -594,9 +598,9 @@ __meta__ = {
 }
 
 [node name="Control3" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales"]
-margin_top = 104.0
+margin_top = 272.0
 margin_right = 912.0
-margin_bottom = 104.0
+margin_bottom = 272.0
 
 [node name="agneau" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales/Control3"]
 anchor_right = 1.0
@@ -607,9 +611,9 @@ __meta__ = {
 }
 
 [node name="Control4" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales"]
-margin_top = 134.0
+margin_top = 342.0
 margin_right = 912.0
-margin_bottom = 134.0
+margin_bottom = 342.0
 
 [node name="parking" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales/Control4"]
 anchor_right = 1.0
@@ -663,4 +667,5 @@ __meta__ = {
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales/Control2/nul" to="." method="_on_allbutton_pressed" binds= [ "nul" ]]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales/Control3/agneau" to="." method="_on_agneau_pressed" binds= [ "agneau" ]]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Consonnes Nasales/Control4/parking" to="." method="_on_allbutton_pressed" binds= [ "parking" ]]
+
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]

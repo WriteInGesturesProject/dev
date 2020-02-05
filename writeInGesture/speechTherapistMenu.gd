@@ -18,4 +18,8 @@ func _ready():
 
 func _on_Button_pressed():
 	get_tree().change_scene("res://home.tscn")
-	pass # Replace with function body.
+
+
+
+func _on_wordsChoice_pressed():
+	get_tree().change_scene("res://wordsChoice.tscn")

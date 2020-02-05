@@ -48,14 +48,14 @@ margin_bottom = 215.0
 theme = ExtResource( 2 )
 text = "Stastistiques"
 
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="wordsChoice" type="Button" parent="MarginContainer/VBoxContainer"]
 margin_top = 225.0
 margin_right = 784.0
 margin_bottom = 293.0
 theme = ExtResource( 2 )
 text = "Choix des mots"
 
-[node name="Button" type="Button" parent="."]
+[node name="retour" type="Button" parent="."]
 margin_right = 12.0
 margin_bottom = 20.0
 theme = ExtResource( 2 )
@@ -63,4 +63,5 @@ text = "Retour"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/wordsChoice" to="." method="_on_wordsChoice_pressed"]
+[connection signal="pressed" from="retour" to="." method="_on_Button_pressed"]

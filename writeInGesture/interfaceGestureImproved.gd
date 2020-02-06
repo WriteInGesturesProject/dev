@@ -8,19 +8,48 @@ var swipe_mouse_start
 var swipe_mouse_times = []
 var swipe_mouse_positions = []
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var dict = Global.loadJSonInDic("phonetic.json")
+	for i in range(0, dict.size()):
+		var currentVbox = VBoxContainer.new()
+		var paragraph = dict.keys()[i]
+		var array = dict[paragraph]
+		var label = Label.new()
+		label.text = paragraph
+		label.add_color_override("font_color", Color(0,0,0))
+		label.size_flags_horizontal = SIZE_EXPAND_FILL
+		label.align = Label.ALIGN_CENTER
+		currentVbox.add_child(label)
+		for j in range(0, array.size()):
+			var currentButton = Button.new()
+			var text = ""
+			var dict2 = array[j]
+			#print(dict2)
+			for k in range (0,dict2.size()):
+				if(k<3):
+					var phonetic = dict2[dict2.keys()[k]]
+					if(k>=1):
+						text += " "
+					text += phonetic
+			currentButton.text = text
+			currentVbox.add_child(currentButton)
+			currentButton.name = text
+			currentButton.connect("pressed",self,"_on_allbutton_pressed",[currentButton])
+			currentButton.editor_description = dict2["ressource_path"]
+		find_node("MainContainer").add_child(currentVbox)
+		
 	
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
+
 func _on_Back_pressed():
 	get_tree().change_scene("res://home.tscn")
-
 
 
 func _on_allbutton_pressed(arg):
@@ -28,16 +57,18 @@ func _on_allbutton_pressed(arg):
 		var description = load("res://interfaceDescriptionGesture.tscn")
 		var root = get_tree().get_root()
 		var current_scene = root.get_child(root.get_child_count() - 1)
-		var button = current_scene.find_node(arg)
+		
 		current_scene = description.instance()
 		get_tree().get_root().add_child(current_scene)
 		current_scene = root.get_child(root.get_child_count() - 1)
-		current_scene.find_node("Name").set_text(button.get_text())
+		current_scene.find_node("Name").set_text(arg.get_text())
 		
-		var parsed_name = button.get_text().split(" ")
+		var parsed_name = arg.get_text().split(" ")
 		current_scene = root.get_child(root.get_child_count() - 1)
 		current_scene.find_node("Sound").set_text(parsed_name[0])
 		current_scene.find_node("Name").set_text(parsed_name[1])
+		current_scene.find_node("Borel").texture = load("res://art/imgBorel/"+arg.editor_description)
+		
 
 
 # Allows you to scroll a scroll container by dragging.
@@ -46,7 +77,7 @@ func _on_allbutton_pressed(arg):
 func _input(ev):
 	if swiping and ev is InputEventMouseMotion:
 		var delta = ev.position - swipe_mouse_start
-		print(delta.length())
+		#print(delta.length())
 		if(delta.length()>10):
 			$"MarginContainer/VBoxContainer/ScrollContainer".set_h_scroll(swipe_start.x - delta.x)
 			$"MarginContainer/VBoxContainer/ScrollContainer".set_v_scroll(swipe_start.y - delta.y)
@@ -84,7 +115,7 @@ func _input(ev):
 				tween.interpolate_method(self, 'set_v_scroll', source.y, target.y, flick_dur, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 				tween.interpolate_callback(tween, flick_dur, 'queue_free')
 				tween.start()
-			print(isswipping)
+			#print(isswipping)
 			if isswipping:
 				release = true
 			else:

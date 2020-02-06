@@ -47,7 +47,7 @@ margin_right = 624.0
 margin_bottom = 141.0
 theme = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Description"
+text = "Description du son"
 align = 1
 
 [node name="Sound" type="Label" parent="MarginContainer/VBoxContainer"]

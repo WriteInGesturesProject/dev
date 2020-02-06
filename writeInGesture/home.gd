@@ -8,7 +8,11 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	print("eee")
+	if get_node("/root/global").get_text() != null and get_node("/root/global").get_avatar() != null:
+		get_node("MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer/NamePlayer").text=get_node("/root/global").get_text()
+		get_node("MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer/Picture").texture=get_node("/root/global").get_avatar()
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

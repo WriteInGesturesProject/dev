@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://avatarspace.gd" type="Script" id=1]
 [ext_resource path="res://art/users/assistant.png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://art/users/welder.png" type="Texture" id=17]
 [ext_resource path="res://art/users/showman.png" type="Texture" id=18]
 [ext_resource path="res://art/users/thief.png" type="Texture" id=19]
+[ext_resource path="res://art/users/checkk.png" type="Texture" id=20]
 
 [node name="Control" type="Control"]
 anchor_left = 0.00216115
@@ -30,6 +31,14 @@ margin_top = 8.28427
 margin_right = -0.240723
 margin_bottom = 8.28528
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1054.0
+margin_bottom = 607.0
+color = Color( 0.882353, 0.882353, 0.882353, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -247,6 +256,18 @@ margin_top = 515.0
 margin_right = 616.0
 margin_bottom = 552.0
 text = "GO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+margin_left = 80.0
+margin_top = 78.0
+margin_right = 146.0
+margin_bottom = 143.0
+texture = ExtResource( 20 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

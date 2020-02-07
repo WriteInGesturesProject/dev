@@ -33,6 +33,14 @@ func saveStringInFile(path, content):
 	file.store_string(content)
 	file.close()
 
+func searchInDictionnary(carac):
+	var dico = loadJSonInDic("phonetic.json")
+	for b in dico:
+		for w in dico[b]:
+			if(w["phonetic"] == "["+carac+"]"):
+				return w["ressource_path"]
+	return ""
+
 func rewriteFile(path, content):
 	var file = File.new()
 	file.open("res://data/"+path, file.WRITE)

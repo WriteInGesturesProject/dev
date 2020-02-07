@@ -28,10 +28,17 @@ func saveStringInFile(path, content):
 	var file = File.new()
 	file.open("res://data/"+path, file.READ_WRITE)
 	file.seek_end()
-	file.store_string("\n")
+	if file.get_len() != 0 :
+		file.store_string("\n")
 	file.store_string(content)
 	file.close()
-	
+
+func rewriteFile(path, content):
+	var file = File.new()
+	file.open("res://data/"+path, file.WRITE)
+	file.store_string(content)
+	file.close()
+
 func loadFileInArray(path):
 	var file = File.new()
 	file.open("res://data/"+path, file.READ)

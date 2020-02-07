@@ -47,19 +47,19 @@
 			"phonetic" :"[œ]",
 			"example":"peur",
 			"example_phonetic":"[pœʁ]",
-			"ressource_path" : "a.png"
+			"ressource_path" : "e.png"
 		},
 		{
 			"phonetic" :"[u]",
 			"example":"mou",
 			"example_phonetic":"[mu]",
-			"ressource_path" : "a.png"
+			"ressource_path" : "ou.png"
 		},
 		{
 			"phonetic" :"[o]",
 			"example":"zéro",
 			"example_phonetic":"[zeʁo]",
-			"ressource_path" : "a.png"
+			"ressource_path" : "o.png"
 		},
 		{
 			"phonetic" :"[ɔ]",
@@ -80,7 +80,7 @@
 			"phonetic" :"[ɛ̃]",
 			"example":"pain",
 			"example_phonetic":"[pɛ̃]",
-			"ressource_path" : "a.png"
+			"ressource_path" : "in.png"
 		},
 		{
 			"phonetic" :"[œ̃]",
@@ -98,7 +98,7 @@
 			"phonetic" :"[ɑ̃]",
 			"example":"blanc",
 			"example_phonetic":"[blɑ̃]",
-			"ressource_path" : "a.png"
+			"ressource_path" : "an.png"
 		}
 	],
 	"SEMI-CONSONNES":
@@ -107,13 +107,13 @@
 			"phonetic" :"[j]",
 			"example":"bille",
 			"example_phonetic":"[bij]",
-			"ressource_path" : "a.png"
+			"ressource_path" : "ill.png"
 		},
 		{
 			"phonetic" :"[w]",
 			"example":"ouate",
 			"example_phonetic":"[wat]",
-			"ressource_path" : "a.png"
+			"ressource_path" : "ou.png"
 		},
 		{
 			"phonetic" :"[ɥ]",
@@ -128,67 +128,67 @@
 			"phonetic" :"[p]",
 			"example":"pile",
 			"example_phonetic":"[pil]",
-			"ressource_path" : "a.png"
+			"ressource_path" : "p.png"
 		},
 		{
 			"phonetic" :"[b]",
 			"example":"bête",
 			"example_phonetic":"[bɛt]",
-			"ressource_path" : "a.png"
+			"ressource_path" : "b.png"
 		},
 		{
 			"phonetic" :"[t]",
 			"example":"tête",
 			"example_phonetic":"[tɛt]",
-			"ressource_path" : "a.png"
+			"ressource_path" : "t.png"
 		},
 		{
 			"phonetic" :"[d]",
 			"example":"dame",
 			"example_phonetic":"[dam]",
-			"ressource_path" : "a.png"
+			"ressource_path" : "d.png"
 		},
 		{
 			"phonetic" :"[f]",
 			"example":"flamme",
 			"example_phonetic":"[flam]",
-			"ressource_path" : "a.png"
+			"ressource_path" : "f.png"
 		},
 		{
 			"phonetic" :"[v]",
 			"example":"ville",
 			"example_phonetic":"[vil]",
-			"ressource_path" : "a.png"
+			"ressource_path" : "v.png"
 		},
 		{
 			"phonetic" :"[k]",
 			"example":"calme",
 			"example_phonetic":"[kalm]",
-			"ressource_path" : "a.png"
+			"ressource_path" : "c.png"
 		},
 		{
 			"phonetic" :"[g]",
 			"example":"galop",
 			"example_phonetic":"[galo]",
-			"ressource_path" : "a.png"
+			"ressource_path" : "g.png"
 		},
 		{
 			"phonetic" :"[s]",
 			"example":"site",
 			"example_phonetic":"[sit]",
-			"ressource_path" : "a.png"
+			"ressource_path" : "s.png"
 		},
 			{
 			"phonetic" :"[z]",
 			"example":"zut",
 			"example_phonetic":"[zyt]",
-			"ressource_path" : "a.png"
+			"ressource_path" : "z.png"
 		},
 		{
 			"phonetic" :"[ʃ]",
 			"example":"chocolat",
 			"example_phonetic":"[ʃokola]",
-			"ressource_path" : "a.png"
+			"ressource_path" : "ch.png"
 		},
 		{
 			"phonetic" :"[ʒ]",
@@ -200,13 +200,13 @@
 			"phonetic" :"[ʁ]",
 			"example":"rousse",
 			"example_phonetic":"[ʁus]",
-			"ressource_path" : "a.png"
+			"ressource_path" : "r.png"
 		},
 		{
 			"phonetic" :"[l]",
 			"example":"loup",
 			"example_phonetic":"[lu]",
-			"ressource_path" : "a.png"
+			"ressource_path" : "l.png"
 		}
 
 	],
@@ -216,19 +216,19 @@
 			"phonetic" :"[m]",
 			"example":"matou",
 			"example_phonetic":"[matu]",
-			"ressource_path" : "a.png"
+			"ressource_path" : "m.png"
 		},
 		{
 			"phonetic" :"[n]",
 			"example":"nul",
 			"example_phonetic":"[nyl]",
-			"ressource_path" : "a.png"
+			"ressource_path" : "n.png"
 		},
 		{
 			"phonetic" :"[ɲ]",
 			"example":"agneau",
 			"example_phonetic":"[aɲo]",
-			"ressource_path" : "a.png"
+			"ressource_path" : "gn.png"
 		},
 		{
 			"phonetic" :"[ŋ]",

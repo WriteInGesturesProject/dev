@@ -1,17 +1,15 @@
 extends Node
 class_name global
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-#var words = Array()
-#words.add("Chibre")
-
 var level = 1
 var progress1 = [85,85,85,20]
 var progress2 = [0,0,85,0]
 var progress3 = [0,0,0,0]
+var progress = [progress1, progress2, progress3]
+var score1 = [0,0,0,0]
+var score2 = [0,0,0,0]
+var score3 = [0,0,0,0]
+var score = [score1, score2, score3]
 
 var game = 1
 

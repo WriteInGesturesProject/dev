@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [android]
 
-modules="org/godotengine/godot/GodotTextToSpeech"
+modules="org/godotengine/godot/GodotTextToSpeech,org/godotengine/godot/GodotSpeech"
 
 [application]
 

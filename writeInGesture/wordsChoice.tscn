@@ -32,47 +32,73 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 margin_left = 120.0
 margin_top = 80.0
-margin_right = 904.0
+margin_right = 959.0
 margin_bottom = 520.0
 theme = ExtResource( 2 )
+custom_constants/separation = 100
+alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="wordsAvailableContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 margin_right = 400.0
 margin_bottom = 440.0
 rect_min_size = Vector2( 400, 0 )
 theme = ExtResource( 2 )
+custom_constants/separation = 10
 
-[node name="availableWords" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="availableWords" type="Label" parent="MarginContainer/HBoxContainer/wordsAvailableContainer"]
 margin_right = 400.0
 margin_bottom = 62.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Les mots disponibles :"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-margin_left = 404.0
-margin_right = 697.0
+[node name="editContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+margin_left = 500.0
+margin_right = 839.0
 margin_bottom = 440.0
 theme = ExtResource( 2 )
+custom_constants/separation = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
-margin_right = 293.0
-margin_bottom = 72.0
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/editContainer"]
+margin_right = 339.0
+margin_bottom = 68.0
 rect_clip_content = true
 
-[node name="addWorldField" type="LineEdit" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
-margin_right = 154.0
-margin_bottom = 72.0
+[node name="addWordField" type="TextEdit" parent="MarginContainer/HBoxContainer/editContainer/HBoxContainer"]
+visible = false
+margin_right = 150.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 150, 0 )
 
-[node name="addWord" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
-margin_left = 158.0
-margin_right = 293.0
-margin_bottom = 72.0
+[node name="newWord" type="Label" parent="MarginContainer/HBoxContainer/editContainer/HBoxContainer"]
+margin_top = 3.0
+margin_right = 200.0
+margin_bottom = 65.0
+rect_min_size = Vector2( 200, 0 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+
+[node name="addWord" type="Button" parent="MarginContainer/HBoxContainer/editContainer/HBoxContainer"]
+margin_left = 204.0
+margin_right = 339.0
+margin_bottom = 68.0
 text = "Ajouter"
 
-[node name="stateAddLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 76.0
-margin_right = 293.0
-margin_bottom = 138.0
+[node name="keyBoardContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer/editContainer"]
+margin_top = 78.0
+margin_right = 339.0
+margin_bottom = 78.0
+
+[node name="gridKeyboard" type="GridContainer" parent="MarginContainer/HBoxContainer/editContainer/keyBoardContainer"]
+margin_left = 169.0
+margin_right = 169.0
+columns = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="stateAddLabel" type="Label" parent="MarginContainer/HBoxContainer/editContainer"]
+margin_top = 88.0
+margin_right = 339.0
+margin_bottom = 150.0
 
 [node name="retour" type="Button" parent="."]
 margin_right = 12.0
@@ -82,5 +108,5 @@ text = "Retour"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/addWord" to="." method="_on_addWord_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/editContainer/HBoxContainer/addWord" to="." method="_on_addWord_pressed"]
 [connection signal="pressed" from="retour" to="." method="_on_Retour_pressed"]

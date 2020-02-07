@@ -20,6 +20,8 @@ var words_count = ["un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit
 var img_count = ["res://art/imgBorel/a.png", "res://art/imgBorel/eu.png", "res://art/imgBorel/a.png", "res://art/imgBorel/i.png", "res://art/imgBorel/o.png", "res://art/imgBorel/u.png", "res://art/imgBorel/et.png", "res://art/imgBorel/ai.png", "res://art/imgBorel/e.png", "res://art/imgBorel/ou.png"]
 var index = 0
 
+var dictionaryPhonetic = loadJSonInDic("phonetic.json")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

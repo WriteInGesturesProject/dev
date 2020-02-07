@@ -42,6 +42,16 @@ func loadFileInArray(path):
 		currentLine = file.get_line()
 	file.close()
 	return content
+	
+func loadJSonInDic(path):
+	var file = File.new()
+	file.open("res://data/"+path, file.READ)
+	var text = file.get_as_text()
+	var tmp  =JSON.parse(text)
+	var dict = tmp.result
+	file.close()
+	return dict
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

@@ -25,7 +25,7 @@ func _on_Play_pressed():
 
 
 func _on_Help_pressed():
-	get_tree().change_scene("res://interfaceGesture.tscn")
+	get_tree().change_scene("res://interfaceGestureImproved.tscn")
 
 func _on_SpeakTest_pressed():
 	if(tts != null):

@@ -24,14 +24,14 @@ func _ready():
 func _on_Back_pressed():
 	get_tree().change_scene("res://ExerciceMenu.tscn")
 
-
-func _on_Normal_pressed():
-	get_tree().change_scene("res://GameNormal.tscn")
-
-
 func _on_Easy_pressed():
 	get_tree().change_scene("res://GameEasy.tscn")
-
+	Global.level = 0
+	
+func _on_Normal_pressed():
+	get_tree().change_scene("res://GameNormal.tscn")
+	Global.level = 1
 
 func _on_Hard_pressed():
 	get_tree().change_scene("res://GameHard.tscn")
+	Global.level = 2

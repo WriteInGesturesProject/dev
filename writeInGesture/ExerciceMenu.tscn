@@ -67,7 +67,7 @@ margin_top = 443.0
 margin_right = 624.0
 margin_bottom = 511.0
 theme = ExtResource( 2 )
-text = "Mono Syllabe"
+text = "Mono Syllable"
 expand_icon = true
 
 [node name="Back" type="Button" parent="."]

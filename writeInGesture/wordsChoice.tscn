@@ -50,30 +50,29 @@ text = "Les mots disponibles :"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 margin_left = 404.0
-margin_right = 693.0
+margin_right = 697.0
 margin_bottom = 440.0
 theme = ExtResource( 2 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
-margin_right = 289.0
-margin_bottom = 68.0
+margin_right = 293.0
+margin_bottom = 72.0
 rect_clip_content = true
 
-[node name="TextEdit" type="TextEdit" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
-margin_right = 150.0
-margin_bottom = 68.0
-rect_min_size = Vector2( 150, 0 )
+[node name="addWorldField" type="LineEdit" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+margin_right = 154.0
+margin_bottom = 72.0
 
 [node name="addWord" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
-margin_left = 154.0
-margin_right = 289.0
-margin_bottom = 68.0
+margin_left = 158.0
+margin_right = 293.0
+margin_bottom = 72.0
 text = "Ajouter"
 
 [node name="stateAddLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 72.0
-margin_right = 289.0
-margin_bottom = 134.0
+margin_top = 76.0
+margin_right = 293.0
+margin_bottom = 138.0
 
 [node name="retour" type="Button" parent="."]
 margin_right = 12.0

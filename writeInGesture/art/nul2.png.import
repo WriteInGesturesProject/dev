@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/nul.png-e78af4bfc8a4199044f99b7fc3c82bdf.stex"
+path="res://.import/nul2.png-a40f88d93c2f0d919a200bc457c39d26.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/nul.png"
-dest_files=[ "res://.import/nul.png-e78af4bfc8a4199044f99b7fc3c82bdf.stex" ]
+source_file="res://art/nul2.png"
+dest_files=[ "res://.import/nul2.png-a40f88d93c2f0d919a200bc457c39d26.stex" ]
 
 [params]
 

@@ -1,0 +1,240 @@
+{
+	"VOYELLES_ORALES" :
+	[
+		{
+			"phonetic" :"[i]",
+			"example":"pire",
+			"example_phonetic":"[piʁ]",
+			"ressource_path" : "i.png"
+		},
+		{
+			"phonetic" :"[e]",
+			"example":"pré",
+			"example_phonetic":"[pʁe]",
+			"ressource_path" : "et.png"
+		},
+		{
+			"phonetic" :"[ɛ]",
+			"example":"père",
+			"example_phonetic":"[pɛʁ]",
+			"ressource_path" : "ai.png"
+		},
+		{
+			"phonetic" :"[a]",
+			"example":"mal",
+			"example_phonetic":"[mal]",
+			"ressource_path" : "a.png"
+		},
+		{
+			"phonetic" :"[y]",
+			"example":"vu",
+			"example_phonetic":"[vy]",
+			"ressource_path" : "u.png"
+		},
+		{
+			"phonetic" :"[ø]",
+			"example":"peu",
+			"example_phonetic":"[pø]",
+			"ressource_path" : "eu.png"
+		},
+		{
+			"phonetic" :"[ə]",
+			"example":"je",
+			"example_phonetic":"[ʒə]",
+			"ressource_path" : "e.png"
+		},
+		{
+			"phonetic" :"[œ]",
+			"example":"peur",
+			"example_phonetic":"[pœʁ]",
+			"ressource_path" : "e.png"
+		},
+		{
+			"phonetic" :"[u]",
+			"example":"mou",
+			"example_phonetic":"[mu]",
+			"ressource_path" : "ou.png"
+		},
+		{
+			"phonetic" :"[o]",
+			"example":"zéro",
+			"example_phonetic":"[zeʁo]",
+			"ressource_path" : "o.png"
+		},
+		{
+			"phonetic" :"[ɔ]",
+			"example":"sort",
+			"example_phonetic":"[sɔʁ]",
+			"ressource_path" : "a.png"
+		},
+		{
+			"phonetic" :"[ɑ]",
+			"example":"pâle",
+			"example_phonetic":"[pɑl]",
+			"ressource_path" : "a.png"
+		}
+	],
+	"VOYELLES_NASALES":
+	[
+		{
+			"phonetic" :"[ɛ̃]",
+			"example":"pain",
+			"example_phonetic":"[pɛ̃]",
+			"ressource_path" : "in.png"
+		},
+		{
+			"phonetic" :"[œ̃]",
+			"example":"un",
+			"example_phonetic":"[œ̃]",
+			"ressource_path" : "a.png"
+		},
+		{
+			"phonetic" :"[ɔ̃]",
+			"example":"bon",
+			"example_phonetic":"[bɔ̃]",
+			"ressource_path" : "on.png"
+		},
+		{
+			"phonetic" :"[ɑ̃]",
+			"example":"blanc",
+			"example_phonetic":"[blɑ̃]",
+			"ressource_path" : "an.png"
+		}
+	],
+	"SEMI-CONSONNES":
+	[
+		{
+			"phonetic" :"[j]",
+			"example":"bille",
+			"example_phonetic":"[bij]",
+			"ressource_path" : "ill.png"
+		},
+		{
+			"phonetic" :"[w]",
+			"example":"ouate",
+			"example_phonetic":"[wat]",
+			"ressource_path" : "ou.png"
+		},
+		{
+			"phonetic" :"[ɥ]",
+			"example":"huile",
+			"example_phonetic":"[ɥil]",
+			"ressource_path" : "a.png"
+		}
+	],
+	"CONSONNES_ORALES":
+	[
+		{
+			"phonetic" :"[p]",
+			"example":"pile",
+			"example_phonetic":"[pil]",
+			"ressource_path" : "p.png"
+		},
+		{
+			"phonetic" :"[b]",
+			"example":"bête",
+			"example_phonetic":"[bɛt]",
+			"ressource_path" : "b.png"
+		},
+		{
+			"phonetic" :"[t]",
+			"example":"tête",
+			"example_phonetic":"[tɛt]",
+			"ressource_path" : "t.png"
+		},
+		{
+			"phonetic" :"[d]",
+			"example":"dame",
+			"example_phonetic":"[dam]",
+			"ressource_path" : "d.png"
+		},
+		{
+			"phonetic" :"[f]",
+			"example":"flamme",
+			"example_phonetic":"[flam]",
+			"ressource_path" : "f.png"
+		},
+		{
+			"phonetic" :"[v]",
+			"example":"ville",
+			"example_phonetic":"[vil]",
+			"ressource_path" : "v.png"
+		},
+		{
+			"phonetic" :"[k]",
+			"example":"calme",
+			"example_phonetic":"[kalm]",
+			"ressource_path" : "c.png"
+		},
+		{
+			"phonetic" :"[g]",
+			"example":"galop",
+			"example_phonetic":"[galo]",
+			"ressource_path" : "g.png"
+		},
+		{
+			"phonetic" :"[s]",
+			"example":"site",
+			"example_phonetic":"[sit]",
+			"ressource_path" : "s.png"
+		},
+			{
+			"phonetic" :"[z]",
+			"example":"zut",
+			"example_phonetic":"[zyt]",
+			"ressource_path" : "z.png"
+		},
+		{
+			"phonetic" :"[ʃ]",
+			"example":"chocolat",
+			"example_phonetic":"[ʃokola]",
+			"ressource_path" : "ch.png"
+		},
+		{
+			"phonetic" :"[ʒ]",
+			"example":"journal",
+			"example_phonetic":"[ʒuʁnal]",
+			"ressource_path" : "a.png"
+		},
+		{
+			"phonetic" :"[ʁ]",
+			"example":"rousse",
+			"example_phonetic":"[ʁus]",
+			"ressource_path" : "r.png"
+		},
+		{
+			"phonetic" :"[l]",
+			"example":"loup",
+			"example_phonetic":"[lu]",
+			"ressource_path" : "l.png"
+		}
+
+	],
+	"CONSONNES NASALES":
+	[
+		{
+			"phonetic" :"[m]",
+			"example":"matou",
+			"example_phonetic":"[matu]",
+			"ressource_path" : "m.png"
+		},
+		{
+			"phonetic" :"[n]",
+			"example":"nul",
+			"example_phonetic":"[nyl]",
+			"ressource_path" : "n.png"
+		},
+		{
+			"phonetic" :"[ɲ]",
+			"example":"agneau",
+			"example_phonetic":"[aɲo]",
+			"ressource_path" : "gn.png"
+		},
+		{
+			"phonetic" :"[ŋ]",
+			"example":"parking",
+			"example_phonetic":"[paʁkŋ]",
+			"ressource_path" : "a.png"
+		},
+	]
+}

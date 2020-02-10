@@ -1,0 +1,1558 @@
+diff --git a/writeInGesture/ExerciceMenu.tscn b/writeInGesture/ExerciceMenu.tscn
+index 9531acc..121ec75 100644
+--- a/writeInGesture/ExerciceMenu.tscn
++++ b/writeInGesture/ExerciceMenu.tscn
+@@ -1,69 +1,79 @@
+-[gd_scene load_steps=2 format=2]
++[gd_scene load_steps=3 format=2]
+ 
+ [ext_resource path="res://ExerciceMenu.gd" type="Script" id=1]
++[ext_resource path="res://fonts/phonetic.tres" type="Theme" id=2]
+ 
+ [node name="Control" type="Control"]
+ anchor_right = 1.0
+ anchor_bottom = 1.0
++theme = ExtResource( 2 )
+ script = ExtResource( 1 )
+ __meta__ = {
+ "_edit_use_anchors_": false
+ }
+ 
+ [node name="ColorRect" type="ColorRect" parent="."]
+-margin_right = 1024.0
+-margin_bottom = 600.0
++anchor_right = 1.0
++anchor_bottom = 1.0
++theme = ExtResource( 2 )
+ color = Color( 0.882353, 0.882353, 0.882353, 1 )
+ 
+ [node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+ anchor_right = 1.0
+ anchor_bottom = 1.0
++theme = ExtResource( 2 )
+ custom_constants/margin_right = 200
+ custom_constants/margin_top = 0
+ custom_constants/margin_left = 200
+ custom_constants/margin_bottom = 0
+ __meta__ = {
+-"_edit_use_anchors_": true
++"_edit_use_anchors_": false
+ }
+ 
+ [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
+ margin_left = 200.0
+ margin_right = 824.0
+ margin_bottom = 600.0
++theme = ExtResource( 2 )
+ custom_constants/separation = 50
+ alignment = 1
+ 
+ [node name="MyGame" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
+-margin_top = 185.0
++margin_top = 89.0
+ margin_right = 624.0
+-margin_bottom = 205.0
++margin_bottom = 157.0
++theme = ExtResource( 2 )
+ text = "Mes Jeux"
+ expand_icon = true
+ 
+ [node name="Count" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
+-margin_top = 255.0
++margin_top = 207.0
+ margin_right = 624.0
+ margin_bottom = 275.0
++theme = ExtResource( 2 )
+ text = "Compter"
+ expand_icon = true
+ 
+ [node name="WeekDays" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
+ margin_top = 325.0
+ margin_right = 624.0
+-margin_bottom = 345.0
++margin_bottom = 393.0
++theme = ExtResource( 2 )
+ text = "Jours Semaine"
+ expand_icon = true
+ 
+ [node name="MonoSyllabe" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
+-margin_top = 395.0
++margin_top = 443.0
+ margin_right = 624.0
+-margin_bottom = 415.0
++margin_bottom = 511.0
++theme = ExtResource( 2 )
+ text = "Mono Syllabe"
+ expand_icon = true
+ 
+ [node name="Back" type="Button" parent="."]
+ margin_right = 12.0
+ margin_bottom = 20.0
++theme = ExtResource( 2 )
+ text = "Retour"
+ __meta__ = {
+ "_edit_use_anchors_": false
+diff --git a/writeInGesture/GameEasy.gd b/writeInGesture/GameEasy.gd
+new file mode 100644
+index 0000000..5f4490d
+--- /dev/null
++++ b/writeInGesture/GameEasy.gd
+@@ -0,0 +1,36 @@
++extends Control
++
++
++# Declare member variables here. Examples:
++# var a = 2
++# var b = "text"
++
++
++# Called when the node enters the scene tree for the first time.
++func _ready():
++	if(Global.game == 2):
++		get_node("ColorRect/MarginContainer/VBoxContainer/Number").set_text(Global.Number[Global.index])
++		get_node("ColorRect/MarginContainer/VBoxContainer/TextureRect").texture = load(Global.img_count[Global.index])
++		get_node("ColorRect/MarginContainer/VBoxContainer/TextureRect2").visible = false
++		get_node("ColorRect/MarginContainer/VBoxContainer/Word").visible = true
++		get_node("ColorRect/MarginContainer/VBoxContainer/Word").set_text(Global.words_count[Global.index])
++# Called every frame. 'delta' is the elapsed time since the previous frame.
++#func _process(delta):
++#	pass
++
++
++func _on_Back_pressed():
++	get_tree().change_scene("res://GameLevel.tscn")
++
++
++func _on_Next_pressed():
++	if(Global.game == 2):
++		Global.index += 1
++		if(Global.index == 10):
++			get_tree().change_scene("res://GameEnd.tscn")
++		else:
++			get_node("ColorRect/MarginContainer/VBoxContainer/Number").set_text(Global.Number[Global.index])
++			get_node("ColorRect/MarginContainer/VBoxContainer/TextureRect").texture = load(Global.img_count[Global.index])
++			get_node("ColorRect/MarginContainer/VBoxContainer/TextureRect2").visible = false
++			get_node("ColorRect/MarginContainer/VBoxContainer/Word").visible = true
++			get_node("ColorRect/MarginContainer/VBoxContainer/Word").set_text(Global.words_count[Global.index])
+diff --git a/writeInGesture/GameEasy.tscn b/writeInGesture/GameEasy.tscn
+new file mode 100644
+index 0000000..d3806e6
+--- /dev/null
++++ b/writeInGesture/GameEasy.tscn
+@@ -0,0 +1,109 @@
++[gd_scene load_steps=5 format=2]
++
++[ext_resource path="res://GameEasy.gd" type="Script" id=1]
++[ext_resource path="res://art/imgBorel/[on].png" type="Texture" id=2]
++[ext_resource path="res://art/icon.png" type="Texture" id=3]
++[ext_resource path="res://fonts/phonetic.tres" type="Theme" id=4]
++
++[node name="Control" type="Control"]
++anchor_right = 1.0
++anchor_bottom = 1.0
++theme = ExtResource( 4 )
++script = ExtResource( 1 )
++__meta__ = {
++"_edit_use_anchors_": false
++}
++
++[node name="ColorRect" type="ColorRect" parent="."]
++anchor_right = 1.0
++anchor_bottom = 1.0
++theme = ExtResource( 4 )
++__meta__ = {
++"_edit_use_anchors_": false
++}
++
++[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
++anchor_right = 1.0
++anchor_bottom = 1.0
++theme = ExtResource( 4 )
++__meta__ = {
++"_edit_use_anchors_": false
++}
++
++[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
++margin_right = 1024.0
++margin_bottom = 600.0
++theme = ExtResource( 4 )
++
++[node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/VBoxContainer"]
++margin_right = 1024.0
++margin_bottom = 108.0
++theme = ExtResource( 4 )
++texture = ExtResource( 2 )
++stretch_mode = 6
++
++[node name="TextureRect2" type="TextureRect" parent="ColorRect/MarginContainer/VBoxContainer"]
++margin_top = 112.0
++margin_right = 1024.0
++margin_bottom = 176.0
++theme = ExtResource( 4 )
++texture = ExtResource( 3 )
++stretch_mode = 4
++
++[node name="Number" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
++margin_top = 180.0
++margin_right = 1024.0
++margin_bottom = 242.0
++theme = ExtResource( 4 )
++custom_colors/font_color = Color( 0, 0, 0, 1 )
++align = 1
++
++[node name="Word" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
++visible = false
++margin_top = 505.0
++margin_right = 1024.0
++margin_bottom = 519.0
++theme = ExtResource( 4 )
++custom_colors/font_color = Color( 0, 0, 0, 1 )
++align = 1
++
++[node name="Speak" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
++margin_top = 246.0
++margin_right = 1024.0
++margin_bottom = 314.0
++theme = ExtResource( 4 )
++text = "Speak"
++__meta__ = {
++"_edit_use_anchors_": false
++}
++
++[node name="Record" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
++margin_top = 318.0
++margin_right = 1024.0
++margin_bottom = 386.0
++theme = ExtResource( 4 )
++text = "Enregistrer"
++
++[node name="Back" type="Button" parent="."]
++margin_right = 12.0
++margin_bottom = 20.0
++theme = ExtResource( 4 )
++text = "Retour"
++__meta__ = {
++"_edit_use_anchors_": false
++}
++
++[node name="Next" type="Button" parent="."]
++anchor_left = 1.0
++anchor_top = 1.0
++anchor_right = 1.0
++anchor_bottom = 1.0
++margin_left = -134.0
++margin_top = -68.0
++theme = ExtResource( 4 )
++text = "Suivant"
++__meta__ = {
++"_edit_use_anchors_": false
++}
++[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
++[connection signal="pressed" from="Next" to="." method="_on_Next_pressed"]
+diff --git a/writeInGesture/GameEnd.gd b/writeInGesture/GameEnd.gd
+new file mode 100644
+index 0000000..04cc98c
+--- /dev/null
++++ b/writeInGesture/GameEnd.gd
+@@ -0,0 +1,21 @@
++extends Control
++
++
++# Declare member variables here. Examples:
++# var a = 2
++# var b = "text"
++
++
++# Called when the node enters the scene tree for the first time.
++func _ready():
++	pass # Replace with function body.
++
++
++# Called every frame. 'delta' is the elapsed time since the previous frame.
++#func _process(delta):
++#	pass
++
++
++func _on_Home_pressed():
++	Global.index = 0
++	get_tree().change_scene("res://home.tscn")
+diff --git a/writeInGesture/GameEnd.tscn b/writeInGesture/GameEnd.tscn
+new file mode 100644
+index 0000000..bbd5eea
+--- /dev/null
++++ b/writeInGesture/GameEnd.tscn
+@@ -0,0 +1,42 @@
++[gd_scene load_steps=3 format=2]
++
++[ext_resource path="res://GameEnd.gd" type="Script" id=1]
++[ext_resource path="res://fonts/phonetic.tres" type="Theme" id=2]
++
++[node name="Control" type="Control"]
++anchor_right = 1.0
++anchor_bottom = 1.0
++theme = ExtResource( 2 )
++script = ExtResource( 1 )
++__meta__ = {
++"_edit_use_anchors_": false
++}
++
++[node name="ColorRect" type="ColorRect" parent="."]
++anchor_right = 1.0
++anchor_bottom = 1.0
++theme = ExtResource( 2 )
++
++[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
++anchor_right = 1.0
++anchor_bottom = 1.0
++theme = ExtResource( 2 )
++
++[node name="Label" type="Label" parent="ColorRect/MarginContainer"]
++margin_top = 269.0
++margin_right = 1024.0
++margin_bottom = 331.0
++theme = ExtResource( 2 )
++custom_colors/font_color = Color( 0, 0, 0, 1 )
++text = "Bravo !!!"
++align = 1
++
++[node name="Home" type="Button" parent="."]
++margin_right = 12.0
++margin_bottom = 20.0
++theme = ExtResource( 2 )
++text = "Accueil"
++__meta__ = {
++"_edit_use_anchors_": false
++}
++[connection signal="pressed" from="Home" to="." method="_on_Home_pressed"]
+diff --git a/writeInGesture/GameHard.gd b/writeInGesture/GameHard.gd
+new file mode 100644
+index 0000000..5541293
+--- /dev/null
++++ b/writeInGesture/GameHard.gd
+@@ -0,0 +1,20 @@
++extends Control
++
++
++# Declare member variables here. Examples:
++# var a = 2
++# var b = "text"
++
++
++# Called when the node enters the scene tree for the first time.
++func _ready():
++	pass # Replace with function body.
++
++
++# Called every frame. 'delta' is the elapsed time since the previous frame.
++#func _process(delta):
++#	pass
++
++
++func _on_Back_pressed():
++	get_tree().change_scene("res://GameLevel.tscn")
+diff --git a/writeInGesture/GameHard.tscn b/writeInGesture/GameHard.tscn
+new file mode 100644
+index 0000000..66b3572
+--- /dev/null
++++ b/writeInGesture/GameHard.tscn
+@@ -0,0 +1,30 @@
++[gd_scene load_steps=3 format=2]
++
++[ext_resource path="res://GameHard.gd" type="Script" id=1]
++[ext_resource path="res://fonts/phonetic.tres" type="Theme" id=2]
++
++[node name="Control" type="Control"]
++anchor_right = 1.0
++anchor_bottom = 1.0
++theme = ExtResource( 2 )
++script = ExtResource( 1 )
++__meta__ = {
++"_edit_use_anchors_": false
++}
++
++[node name="ColorRect" type="ColorRect" parent="."]
++anchor_right = 1.0
++anchor_bottom = 1.0
++theme = ExtResource( 2 )
++
++[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
++anchor_right = 1.0
++anchor_bottom = 1.0
++theme = ExtResource( 2 )
++
++[node name="Back" type="Button" parent="."]
++margin_right = 12.0
++margin_bottom = 20.0
++theme = ExtResource( 2 )
++text = "Retour"
++[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
+diff --git a/writeInGesture/GameLevel.gd b/writeInGesture/GameLevel.gd
+index cb893f2..c13db33 100644
+--- a/writeInGesture/GameLevel.gd
++++ b/writeInGesture/GameLevel.gd
+@@ -23,3 +23,15 @@ func _ready():
+ 
+ func _on_Back_pressed():
+ 	get_tree().change_scene("res://ExerciceMenu.tscn")
++
++
++func _on_Normal_pressed():
++	get_tree().change_scene("res://GameNormal.tscn")
++
++
++func _on_Easy_pressed():
++	get_tree().change_scene("res://GameEasy.tscn")
++
++
++func _on_Hard_pressed():
++	get_tree().change_scene("res://GameHard.tscn")
+diff --git a/writeInGesture/GameLevel.tscn b/writeInGesture/GameLevel.tscn
+index 6e595a7..42a2ff5 100644
+--- a/writeInGesture/GameLevel.tscn
++++ b/writeInGesture/GameLevel.tscn
+@@ -1,11 +1,13 @@
+-[gd_scene load_steps=3 format=2]
++[gd_scene load_steps=4 format=2]
+ 
+ [ext_resource path="res://GameLevel.gd" type="Script" id=1]
+ [ext_resource path="res://art/lock.png" type="Texture" id=2]
++[ext_resource path="res://fonts/phonetic.tres" type="Theme" id=3]
+ 
+ [node name="Control" type="Control"]
+ anchor_right = 1.0
+ anchor_bottom = 1.0
++theme = ExtResource( 3 )
+ script = ExtResource( 1 )
+ __meta__ = {
+ "_edit_use_anchors_": false
+@@ -14,6 +16,7 @@ __meta__ = {
+ [node name="ColorRect" type="ColorRect" parent="."]
+ anchor_right = 1.0
+ anchor_bottom = 1.0
++theme = ExtResource( 3 )
+ color = Color( 0.737255, 0.870588, 0.909804, 1 )
+ __meta__ = {
+ "_edit_use_anchors_": false
+@@ -22,6 +25,7 @@ __meta__ = {
+ [node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+ anchor_right = 1.0
+ anchor_bottom = 1.0
++theme = ExtResource( 3 )
+ custom_constants/margin_right = 200
+ custom_constants/margin_left = 200
+ __meta__ = {
+@@ -32,56 +36,68 @@ __meta__ = {
+ margin_left = 200.0
+ margin_right = 824.0
+ margin_bottom = 600.0
++theme = ExtResource( 3 )
+ custom_constants/separation = 40
+ alignment = 1
+ 
+ [node name="Easy" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
+-margin_top = 226.0
++margin_top = 158.0
+ margin_right = 624.0
+-margin_bottom = 246.0
++margin_bottom = 226.0
++theme = ExtResource( 3 )
+ text = "Facile"
+ 
+ [node name="MarginContainer2" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+-margin_top = 286.0
++margin_top = 266.0
+ margin_right = 624.0
+-margin_bottom = 310.0
++margin_bottom = 334.0
++theme = ExtResource( 3 )
+ __meta__ = {
+ "_edit_use_anchors_": false
+ }
+ 
+ [node name="Normal" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/MarginContainer2"]
+ margin_right = 624.0
+-margin_bottom = 24.0
++margin_bottom = 68.0
++theme = ExtResource( 3 )
+ disabled = true
+ text = "Moyen"
+ expand_icon = true
+ 
+ [node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/VBoxContainer/MarginContainer2"]
+ margin_right = 624.0
+-margin_bottom = 24.0
++margin_bottom = 68.0
++theme = ExtResource( 3 )
+ texture = ExtResource( 2 )
+ 
+ [node name="MarginContainer3" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+-margin_top = 350.0
++margin_top = 374.0
+ margin_right = 624.0
+-margin_bottom = 374.0
++margin_bottom = 442.0
++theme = ExtResource( 3 )
+ 
+ [node name="Hard" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/MarginContainer3"]
+ margin_right = 624.0
+-margin_bottom = 24.0
++margin_bottom = 68.0
++theme = ExtResource( 3 )
+ disabled = true
+ text = "Difficile"
+ 
+ [node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/VBoxContainer/MarginContainer3"]
+ margin_right = 624.0
+-margin_bottom = 24.0
++margin_bottom = 68.0
++theme = ExtResource( 3 )
+ texture = ExtResource( 2 )
+ 
+ [node name="Back" type="Button" parent="."]
+ margin_right = 12.0
+ margin_bottom = 20.0
++theme = ExtResource( 3 )
+ text = "Retour"
+ __meta__ = {
+ "_edit_use_anchors_": false
+ }
++[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/Easy" to="." method="_on_Easy_pressed"]
++[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/MarginContainer2/Normal" to="." method="_on_Normal_pressed"]
++[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/MarginContainer3/Hard" to="." method="_on_Hard_pressed"]
+ [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
+diff --git a/writeInGesture/GameNormal.gd b/writeInGesture/GameNormal.gd
+new file mode 100644
+index 0000000..5541293
+--- /dev/null
++++ b/writeInGesture/GameNormal.gd
+@@ -0,0 +1,20 @@
++extends Control
++
++
++# Declare member variables here. Examples:
++# var a = 2
++# var b = "text"
++
++
++# Called when the node enters the scene tree for the first time.
++func _ready():
++	pass # Replace with function body.
++
++
++# Called every frame. 'delta' is the elapsed time since the previous frame.
++#func _process(delta):
++#	pass
++
++
++func _on_Back_pressed():
++	get_tree().change_scene("res://GameLevel.tscn")
+diff --git a/writeInGesture/GameNormal.tscn b/writeInGesture/GameNormal.tscn
+new file mode 100644
+index 0000000..86b4c40
+--- /dev/null
++++ b/writeInGesture/GameNormal.tscn
+@@ -0,0 +1,36 @@
++[gd_scene load_steps=3 format=2]
++
++[ext_resource path="res://GameNormal.gd" type="Script" id=1]
++[ext_resource path="res://fonts/phonetic.tres" type="Theme" id=2]
++
++[node name="Control" type="Control"]
++anchor_right = 1.0
++anchor_bottom = 1.0
++theme = ExtResource( 2 )
++script = ExtResource( 1 )
++__meta__ = {
++"_edit_use_anchors_": false
++}
++
++[node name="ColorRect" type="ColorRect" parent="."]
++anchor_right = 1.0
++anchor_bottom = 1.0
++theme = ExtResource( 2 )
++
++[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
++anchor_right = 1.0
++anchor_bottom = 1.0
++theme = ExtResource( 2 )
++__meta__ = {
++"_edit_use_anchors_": false
++}
++
++[node name="Back" type="Button" parent="."]
++margin_right = 12.0
++margin_bottom = 20.0
++theme = ExtResource( 2 )
++text = "Retour"
++__meta__ = {
++"_edit_use_anchors_": false
++}
++[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
+diff --git a/writeInGesture/Global.gd b/writeInGesture/Global.gd
+index b35baf9..f5321fd 100644
+--- a/writeInGesture/Global.gd
++++ b/writeInGesture/Global.gd
+@@ -4,6 +4,10 @@ class_name global
+ # Declare member variables here. Examples:
+ # var a = 2
+ # var b = "text"
++
++#var words = Array()
++#words.add("Chibre")
++
+ var level = 1
+ var progress1 = [85,85,85,20]
+ var progress2 = [0,0,85,0]
+@@ -11,10 +15,33 @@ var progress3 = [0,0,0,0]
+ 
+ var game = 1
+ 
++var Number = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
++var words_count = ["un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf", "dix"]
++var img_count = ["res://art/imgBorel/[a].png", "res://art/imgBorel/[eu].png", "res://art/imgBorel/[a].png", "res://art/imgBorel/[i].png", "res://art/imgBorel/[o].png", "res://art/imgBorel/[u].png", "res://art/imgBorel/[é].png", "res://art/imgBorel/[è].png", "res://art/imgBorel/[e].png", "res://art/imgBorel/[ou].png"]
++var index = 0
++
+ # Called when the node enters the scene tree for the first time.
+ func _ready():
+ 	pass # Replace with function body.
+ 
++func saveStringInFile(path, content):
++	var file = File.new()
++	file.open("res://data/"+path, file.READ_WRITE)
++	file.seek_end()
++	file.store_string("\n")
++	file.store_string(content)
++	file.close()
++	
++func loadFileInArray(path):
++	var file = File.new()
++	file.open("res://data/"+path, file.READ)
++	var content = []
++	var currentLine = file.get_line()
++	while  currentLine != "":
++		content.append(currentLine)
++		currentLine = file.get_line()
++	file.close()
++	return content
+ 
+ # Called every frame. 'delta' is the elapsed time since the previous frame.
+ #func _process(delta):
+diff --git a/writeInGesture/art/imgBorel/[a].png b/writeInGesture/art/imgBorel/[a].png
+new file mode 100644
+index 0000000..d00f0bc
+Binary files /dev/null and b/writeInGesture/art/imgBorel/[a].png differ
+diff --git a/writeInGesture/art/imgBorel/[a].png.import b/writeInGesture/art/imgBorel/[a].png.import
+new file mode 100644
+index 0000000..bea3cac
+--- /dev/null
++++ b/writeInGesture/art/imgBorel/[a].png.import
+@@ -0,0 +1,34 @@
++[remap]
++
++importer="texture"
++type="StreamTexture"
++path="res://.import/[a].png-d4c0927145735355c81b9331c4028b70.stex"
++metadata={
++"vram_texture": false
++}
++
++[deps]
++
++source_file="res://art/imgBorel/[a].png"
++dest_files=[ "res://.import/[a].png-d4c0927145735355c81b9331c4028b70.stex" ]
++
++[params]
++
++compress/mode=0
++compress/lossy_quality=0.7
++compress/hdr_mode=0
++compress/bptc_ldr=0
++compress/normal_map=0
++flags/repeat=0
++flags/filter=true
++flags/mipmaps=false
++flags/anisotropic=false
++flags/srgb=2
++process/fix_alpha_border=true
++process/premult_alpha=false
++process/HDR_as_SRGB=false
++process/invert_color=false
++stream=false
++size_limit=0
++detect_3d=true
++svg/scale=1.0
+diff --git a/writeInGesture/art/imgBorel/[e].png b/writeInGesture/art/imgBorel/[e].png
+new file mode 100644
+index 0000000..b9c3b2c
+Binary files /dev/null and b/writeInGesture/art/imgBorel/[e].png differ
+diff --git a/writeInGesture/art/imgBorel/[e].png.import b/writeInGesture/art/imgBorel/[e].png.import
+new file mode 100644
+index 0000000..3c4ce0f
+--- /dev/null
++++ b/writeInGesture/art/imgBorel/[e].png.import
+@@ -0,0 +1,34 @@
++[remap]
++
++importer="texture"
++type="StreamTexture"
++path="res://.import/[e].png-f2dabd7559f3fbc45fec35642f1bb55f.stex"
++metadata={
++"vram_texture": false
++}
++
++[deps]
++
++source_file="res://art/imgBorel/[e].png"
++dest_files=[ "res://.import/[e].png-f2dabd7559f3fbc45fec35642f1bb55f.stex" ]
++
++[params]
++
++compress/mode=0
++compress/lossy_quality=0.7
++compress/hdr_mode=0
++compress/bptc_ldr=0
++compress/normal_map=0
++flags/repeat=0
++flags/filter=true
++flags/mipmaps=false
++flags/anisotropic=false
++flags/srgb=2
++process/fix_alpha_border=true
++process/premult_alpha=false
++process/HDR_as_SRGB=false
++process/invert_color=false
++stream=false
++size_limit=0
++detect_3d=true
++svg/scale=1.0
+diff --git a/writeInGesture/art/imgBorel/[eu].png b/writeInGesture/art/imgBorel/[eu].png
+new file mode 100644
+index 0000000..ed554f5
+Binary files /dev/null and b/writeInGesture/art/imgBorel/[eu].png differ
+diff --git a/writeInGesture/art/imgBorel/[eu].png.import b/writeInGesture/art/imgBorel/[eu].png.import
+new file mode 100644
+index 0000000..fb34175
+--- /dev/null
++++ b/writeInGesture/art/imgBorel/[eu].png.import
+@@ -0,0 +1,34 @@
++[remap]
++
++importer="texture"
++type="StreamTexture"
++path="res://.import/[eu].png-ffae2b406a71bb934b0ddceccf140573.stex"
++metadata={
++"vram_texture": false
++}
++
++[deps]
++
++source_file="res://art/imgBorel/[eu].png"
++dest_files=[ "res://.import/[eu].png-ffae2b406a71bb934b0ddceccf140573.stex" ]
++
++[params]
++
++compress/mode=0
++compress/lossy_quality=0.7
++compress/hdr_mode=0
++compress/bptc_ldr=0
++compress/normal_map=0
++flags/repeat=0
++flags/filter=true
++flags/mipmaps=false
++flags/anisotropic=false
++flags/srgb=2
++process/fix_alpha_border=true
++process/premult_alpha=false
++process/HDR_as_SRGB=false
++process/invert_color=false
++stream=false
++size_limit=0
++detect_3d=true
++svg/scale=1.0
+diff --git a/writeInGesture/art/imgBorel/[i].png b/writeInGesture/art/imgBorel/[i].png
+new file mode 100644
+index 0000000..23d28a9
+Binary files /dev/null and b/writeInGesture/art/imgBorel/[i].png differ
+diff --git a/writeInGesture/art/imgBorel/[i].png.import b/writeInGesture/art/imgBorel/[i].png.import
+new file mode 100644
+index 0000000..c59adb2
+--- /dev/null
++++ b/writeInGesture/art/imgBorel/[i].png.import
+@@ -0,0 +1,34 @@
++[remap]
++
++importer="texture"
++type="StreamTexture"
++path="res://.import/[i].png-6f4febe06b9827809721f28c9abf33cb.stex"
++metadata={
++"vram_texture": false
++}
++
++[deps]
++
++source_file="res://art/imgBorel/[i].png"
++dest_files=[ "res://.import/[i].png-6f4febe06b9827809721f28c9abf33cb.stex" ]
++
++[params]
++
++compress/mode=0
++compress/lossy_quality=0.7
++compress/hdr_mode=0
++compress/bptc_ldr=0
++compress/normal_map=0
++flags/repeat=0
++flags/filter=true
++flags/mipmaps=false
++flags/anisotropic=false
++flags/srgb=2
++process/fix_alpha_border=true
++process/premult_alpha=false
++process/HDR_as_SRGB=false
++process/invert_color=false
++stream=false
++size_limit=0
++detect_3d=true
++svg/scale=1.0
+diff --git a/writeInGesture/art/imgBorel/[o].png b/writeInGesture/art/imgBorel/[o].png
+new file mode 100644
+index 0000000..bbb1048
+Binary files /dev/null and b/writeInGesture/art/imgBorel/[o].png differ
+diff --git a/writeInGesture/art/imgBorel/[o].png.import b/writeInGesture/art/imgBorel/[o].png.import
+new file mode 100644
+index 0000000..050e118
+--- /dev/null
++++ b/writeInGesture/art/imgBorel/[o].png.import
+@@ -0,0 +1,34 @@
++[remap]
++
++importer="texture"
++type="StreamTexture"
++path="res://.import/[o].png-0fb122a544fa04a640a5fb1cc2bb4d6e.stex"
++metadata={
++"vram_texture": false
++}
++
++[deps]
++
++source_file="res://art/imgBorel/[o].png"
++dest_files=[ "res://.import/[o].png-0fb122a544fa04a640a5fb1cc2bb4d6e.stex" ]
++
++[params]
++
++compress/mode=0
++compress/lossy_quality=0.7
++compress/hdr_mode=0
++compress/bptc_ldr=0
++compress/normal_map=0
++flags/repeat=0
++flags/filter=true
++flags/mipmaps=false
++flags/anisotropic=false
++flags/srgb=2
++process/fix_alpha_border=true
++process/premult_alpha=false
++process/HDR_as_SRGB=false
++process/invert_color=false
++stream=false
++size_limit=0
++detect_3d=true
++svg/scale=1.0
+diff --git a/writeInGesture/art/imgBorel/[on].png b/writeInGesture/art/imgBorel/[on].png
+new file mode 100644
+index 0000000..db0a9e8
+Binary files /dev/null and b/writeInGesture/art/imgBorel/[on].png differ
+diff --git a/writeInGesture/art/imgBorel/[on].png.import b/writeInGesture/art/imgBorel/[on].png.import
+new file mode 100644
+index 0000000..6a63116
+--- /dev/null
++++ b/writeInGesture/art/imgBorel/[on].png.import
+@@ -0,0 +1,34 @@
++[remap]
++
++importer="texture"
++type="StreamTexture"
++path="res://.import/[on].png-c2db2677ec57cc6cd092280cc8248f85.stex"
++metadata={
++"vram_texture": false
++}
++
++[deps]
++
++source_file="res://art/imgBorel/[on].png"
++dest_files=[ "res://.import/[on].png-c2db2677ec57cc6cd092280cc8248f85.stex" ]
++
++[params]
++
++compress/mode=0
++compress/lossy_quality=0.7
++compress/hdr_mode=0
++compress/bptc_ldr=0
++compress/normal_map=0
++flags/repeat=0
++flags/filter=true
++flags/mipmaps=false
++flags/anisotropic=false
++flags/srgb=2
++process/fix_alpha_border=true
++process/premult_alpha=false
++process/HDR_as_SRGB=false
++process/invert_color=false
++stream=false
++size_limit=0
++detect_3d=true
++svg/scale=1.0
+diff --git a/writeInGesture/art/imgBorel/[ou].png b/writeInGesture/art/imgBorel/[ou].png
+new file mode 100644
+index 0000000..bc1b66f
+Binary files /dev/null and b/writeInGesture/art/imgBorel/[ou].png differ
+diff --git a/writeInGesture/art/imgBorel/[ou].png.import b/writeInGesture/art/imgBorel/[ou].png.import
+new file mode 100644
+index 0000000..764d290
+--- /dev/null
++++ b/writeInGesture/art/imgBorel/[ou].png.import
+@@ -0,0 +1,34 @@
++[remap]
++
++importer="texture"
++type="StreamTexture"
++path="res://.import/[ou].png-8dc8957362052483dec014412e2319a5.stex"
++metadata={
++"vram_texture": false
++}
++
++[deps]
++
++source_file="res://art/imgBorel/[ou].png"
++dest_files=[ "res://.import/[ou].png-8dc8957362052483dec014412e2319a5.stex" ]
++
++[params]
++
++compress/mode=0
++compress/lossy_quality=0.7
++compress/hdr_mode=0
++compress/bptc_ldr=0
++compress/normal_map=0
++flags/repeat=0
++flags/filter=true
++flags/mipmaps=false
++flags/anisotropic=false
++flags/srgb=2
++process/fix_alpha_border=true
++process/premult_alpha=false
++process/HDR_as_SRGB=false
++process/invert_color=false
++stream=false
++size_limit=0
++detect_3d=true
++svg/scale=1.0
+diff --git a/writeInGesture/art/imgBorel/[u].png b/writeInGesture/art/imgBorel/[u].png
+new file mode 100644
+index 0000000..e59d2d1
+Binary files /dev/null and b/writeInGesture/art/imgBorel/[u].png differ
+diff --git a/writeInGesture/art/imgBorel/[u].png.import b/writeInGesture/art/imgBorel/[u].png.import
+new file mode 100644
+index 0000000..da9d55b
+--- /dev/null
++++ b/writeInGesture/art/imgBorel/[u].png.import
+@@ -0,0 +1,34 @@
++[remap]
++
++importer="texture"
++type="StreamTexture"
++path="res://.import/[u].png-f530e2649f362ab3f724e810ac91e6e4.stex"
++metadata={
++"vram_texture": false
++}
++
++[deps]
++
++source_file="res://art/imgBorel/[u].png"
++dest_files=[ "res://.import/[u].png-f530e2649f362ab3f724e810ac91e6e4.stex" ]
++
++[params]
++
++compress/mode=0
++compress/lossy_quality=0.7
++compress/hdr_mode=0
++compress/bptc_ldr=0
++compress/normal_map=0
++flags/repeat=0
++flags/filter=true
++flags/mipmaps=false
++flags/anisotropic=false
++flags/srgb=2
++process/fix_alpha_border=true
++process/premult_alpha=false
++process/HDR_as_SRGB=false
++process/invert_color=false
++stream=false
++size_limit=0
++detect_3d=true
++svg/scale=1.0
+diff --git "a/writeInGesture/art/imgBorel/[\303\250].png" "b/writeInGesture/art/imgBorel/[\303\250].png"
+new file mode 100644
+index 0000000..d5c32ae
+Binary files /dev/null and "b/writeInGesture/art/imgBorel/[\303\250].png" differ
+diff --git "a/writeInGesture/art/imgBorel/[\303\250].png.import" "b/writeInGesture/art/imgBorel/[\303\250].png.import"
+new file mode 100644
+index 0000000..3c4760f
+--- /dev/null
++++ "b/writeInGesture/art/imgBorel/[\303\250].png.import"
+@@ -0,0 +1,34 @@
++[remap]
++
++importer="texture"
++type="StreamTexture"
++path="res://.import/[è].png-fdaca3d1a63fda671639327d7a240063.stex"
++metadata={
++"vram_texture": false
++}
++
++[deps]
++
++source_file="res://art/imgBorel/[è].png"
++dest_files=[ "res://.import/[è].png-fdaca3d1a63fda671639327d7a240063.stex" ]
++
++[params]
++
++compress/mode=0
++compress/lossy_quality=0.7
++compress/hdr_mode=0
++compress/bptc_ldr=0
++compress/normal_map=0
++flags/repeat=0
++flags/filter=true
++flags/mipmaps=false
++flags/anisotropic=false
++flags/srgb=2
++process/fix_alpha_border=true
++process/premult_alpha=false
++process/HDR_as_SRGB=false
++process/invert_color=false
++stream=false
++size_limit=0
++detect_3d=true
++svg/scale=1.0
+diff --git "a/writeInGesture/art/imgBorel/[\303\251].png" "b/writeInGesture/art/imgBorel/[\303\251].png"
+new file mode 100644
+index 0000000..a27bc88
+Binary files /dev/null and "b/writeInGesture/art/imgBorel/[\303\251].png" differ
+diff --git "a/writeInGesture/art/imgBorel/[\303\251].png.import" "b/writeInGesture/art/imgBorel/[\303\251].png.import"
+new file mode 100644
+index 0000000..ad67840
+--- /dev/null
++++ "b/writeInGesture/art/imgBorel/[\303\251].png.import"
+@@ -0,0 +1,34 @@
++[remap]
++
++importer="texture"
++type="StreamTexture"
++path="res://.import/[é].png-2eb457e2b0b153d3d647593834af6540.stex"
++metadata={
++"vram_texture": false
++}
++
++[deps]
++
++source_file="res://art/imgBorel/[é].png"
++dest_files=[ "res://.import/[é].png-2eb457e2b0b153d3d647593834af6540.stex" ]
++
++[params]
++
++compress/mode=0
++compress/lossy_quality=0.7
++compress/hdr_mode=0
++compress/bptc_ldr=0
++compress/normal_map=0
++flags/repeat=0
++flags/filter=true
++flags/mipmaps=false
++flags/anisotropic=false
++flags/srgb=2
++process/fix_alpha_border=true
++process/premult_alpha=false
++process/HDR_as_SRGB=false
++process/invert_color=false
++stream=false
++size_limit=0
++detect_3d=true
++svg/scale=1.0
+diff --git a/writeInGesture/data/wordsAvailable b/writeInGesture/data/wordsAvailable
+new file mode 100644
+index 0000000..71da6c6
+--- /dev/null
++++ b/writeInGesture/data/wordsAvailable
+@@ -0,0 +1,9 @@
++Coucou
++Tête
++Pied
++Ok
++Bien
++Bonjour
++Coucou
++
++Manon
+\ No newline at end of file
+diff --git a/writeInGesture/home.tscn b/writeInGesture/home.tscn
+index 103427b..0b1ea09 100644
+--- a/writeInGesture/home.tscn
++++ b/writeInGesture/home.tscn
+@@ -1,8 +1,9 @@
+-[gd_scene load_steps=6 format=2]
++[gd_scene load_steps=7 format=2]
+ 
+ [ext_resource path="res://fonts/HelloGrizellesans.ttf" type="DynamicFontData" id=1]
+-[ext_resource path="res://art/xavier.jpg" type="Texture" id=2]
++[ext_resource path="res://art/imgBorel/[o].png" type="Texture" id=2]
+ [ext_resource path="res://home.gd" type="Script" id=3]
++[ext_resource path="res://fonts/phonetic.tres" type="Theme" id=4]
+ 
+ [sub_resource type="DynamicFont" id=1]
+ size = 80
+@@ -15,6 +16,7 @@ font_data = ExtResource( 1 )
+ [node name="Control" type="Control"]
+ anchor_right = 1.0
+ anchor_bottom = 1.0
++theme = ExtResource( 4 )
+ script = ExtResource( 3 )
+ __meta__ = {
+ "_edit_use_anchors_": false
+@@ -23,6 +25,7 @@ __meta__ = {
+ [node name="ColorRect" type="ColorRect" parent="."]
+ anchor_right = 1.0
+ anchor_bottom = 1.0
++theme = ExtResource( 4 )
+ color = Color( 0.882353, 0.882353, 0.882353, 1 )
+ __meta__ = {
+ "_edit_use_anchors_": false
+@@ -31,6 +34,7 @@ __meta__ = {
+ [node name="MarginContainer2" type="MarginContainer" parent="."]
+ anchor_right = 1.0
+ anchor_bottom = 1.0
++theme = ExtResource( 4 )
+ custom_constants/margin_right = 120
+ custom_constants/margin_top = 0
+ custom_constants/margin_left = 120
+@@ -43,60 +47,71 @@ __meta__ = {
+ margin_left = 120.0
+ margin_right = 904.0
+ margin_bottom = 600.0
++theme = ExtResource( 4 )
+ alignment = 1
+ 
+ [node name="Logo" type="Label" parent="MarginContainer2/VBoxContainer"]
+-margin_top = 16.0
++margin_top = 74.0
+ margin_right = 784.0
+-margin_bottom = 96.0
++margin_bottom = 154.0
++theme = ExtResource( 4 )
+ custom_fonts/font = SubResource( 1 )
+ text = "LOGO"
+ align = 1
+ 
+ [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/VBoxContainer"]
+-margin_top = 100.0
++margin_top = 158.0
+ margin_right = 784.0
+-margin_bottom = 535.0
++margin_bottom = 382.0
++theme = ExtResource( 4 )
+ 
+ [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/VBoxContainer/HBoxContainer"]
+-margin_right = 289.0
+-margin_bottom = 435.0
++margin_right = 176.0
++margin_bottom = 224.0
++theme = ExtResource( 4 )
+ 
+ [node name="NamePlayer" type="Label" parent="MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+-margin_right = 289.0
++margin_right = 176.0
+ margin_bottom = 40.0
++theme = ExtResource( 4 )
+ custom_fonts/font = SubResource( 2 )
+ text = "Xavier L'autiste"
+ align = 1
+ 
+ [node name="Picture" type="TextureRect" parent="MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+ margin_top = 44.0
+-margin_right = 289.0
+-margin_bottom = 411.0
++margin_right = 176.0
++margin_bottom = 152.0
++theme = ExtResource( 4 )
+ texture = ExtResource( 2 )
+ 
+ [node name="Change" type="Button" parent="MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+-margin_top = 415.0
+-margin_right = 289.0
+-margin_bottom = 435.0
++margin_top = 156.0
++margin_right = 176.0
++margin_bottom = 224.0
++theme = ExtResource( 4 )
+ text = "Modifier"
+ 
+ [node name="Play" type="Button" parent="MarginContainer2/VBoxContainer/HBoxContainer"]
+-margin_left = 293.0
+-margin_right = 337.0
+-margin_bottom = 435.0
++margin_left = 180.0
++margin_right = 784.0
++margin_bottom = 224.0
++size_flags_horizontal = 3
++theme = ExtResource( 4 )
+ text = "Jouer"
+ 
+ [node name="Help" type="Button" parent="MarginContainer2/VBoxContainer"]
+-margin_top = 539.0
++margin_top = 386.0
+ margin_right = 784.0
+-margin_bottom = 559.0
++margin_bottom = 454.0
++theme = ExtResource( 4 )
+ text = "Aide"
+ 
+ [node name="Admin" type="Button" parent="MarginContainer2/VBoxContainer"]
+-margin_top = 563.0
++margin_top = 458.0
+ margin_right = 784.0
+-margin_bottom = 583.0
++margin_bottom = 526.0
++theme = ExtResource( 4 )
+ text = "Ortophoniste"
+ [connection signal="pressed" from="MarginContainer2/VBoxContainer/HBoxContainer/Play" to="." method="_on_Play_pressed"]
+ [connection signal="pressed" from="MarginContainer2/VBoxContainer/Help" to="." method="_on_Help_pressed"]
+diff --git a/writeInGesture/interfaceDescriptionGesture.tscn b/writeInGesture/interfaceDescriptionGesture.tscn
+index b4218f9..d1947e3 100644
+--- a/writeInGesture/interfaceDescriptionGesture.tscn
++++ b/writeInGesture/interfaceDescriptionGesture.tscn
+@@ -1,12 +1,14 @@
+-[gd_scene load_steps=4 format=2]
++[gd_scene load_steps=5 format=2]
+ 
+-[ext_resource path="res://art/imgBorel/test.jpg" type="Texture" id=1]
++[ext_resource path="res://art/imgBorel/[a].png" type="Texture" id=1]
+ [ext_resource path="res://art/speaker.png" type="Texture" id=2]
+ [ext_resource path="res://interfaceDescriptionGesture.gd" type="Script" id=3]
++[ext_resource path="res://fonts/phonetic.tres" type="Theme" id=4]
+ 
+ [node name="Control" type="Control"]
+ anchor_right = 1.0
+ anchor_bottom = 1.0
++theme = ExtResource( 4 )
+ script = ExtResource( 3 )
+ __meta__ = {
+ "_edit_use_anchors_": false
+@@ -15,11 +17,13 @@ __meta__ = {
+ [node name="ColorRect" type="ColorRect" parent="."]
+ anchor_right = 1.0
+ anchor_bottom = 1.0
++theme = ExtResource( 4 )
+ color = Color( 0.882353, 0.882353, 0.882353, 1 )
+ 
+ [node name="MarginContainer" type="MarginContainer" parent="."]
+ anchor_right = 1.0
+ anchor_bottom = 1.0
++theme = ExtResource( 4 )
+ custom_constants/margin_right = 200
+ custom_constants/margin_top = 0
+ custom_constants/margin_left = 200
+@@ -33,44 +37,50 @@ margin_right = 824.0
+ margin_bottom = 600.0
+ size_flags_horizontal = 3
+ size_flags_vertical = 3
++theme = ExtResource( 4 )
+ custom_constants/separation = 20
+ alignment = 1
+ 
+ [node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+-margin_top = 21.0
++margin_top = 79.0
+ margin_right = 624.0
+-margin_bottom = 35.0
++margin_bottom = 141.0
++theme = ExtResource( 4 )
+ custom_colors/font_color = Color( 0, 0, 0, 1 )
+ text = "Description"
+ align = 1
+ 
+ [node name="Sound" type="Label" parent="MarginContainer/VBoxContainer"]
+-margin_top = 55.0
++margin_top = 161.0
+ margin_right = 624.0
+-margin_bottom = 69.0
++margin_bottom = 223.0
++theme = ExtResource( 4 )
+ custom_colors/font_color = Color( 0, 0, 0, 1 )
+ text = "[u]"
+ align = 1
+ 
+ [node name="Name" type="Label" parent="MarginContainer/VBoxContainer"]
+-margin_top = 89.0
++margin_top = 243.0
+ margin_right = 624.0
+-margin_bottom = 103.0
++margin_bottom = 305.0
++theme = ExtResource( 4 )
+ custom_colors/font_color = Color( 0, 0, 0, 1 )
+ text = "Uluberlu"
+ align = 1
+ 
+ [node name="Borel" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+-margin_top = 123.0
++margin_top = 325.0
+ margin_right = 624.0
+-margin_bottom = 538.0
++margin_bottom = 432.0
++theme = ExtResource( 4 )
+ texture = ExtResource( 1 )
+ stretch_mode = 4
+ 
+ [node name="Speak" type="Button" parent="MarginContainer/VBoxContainer"]
+-margin_top = 558.0
++margin_top = 452.0
+ margin_right = 624.0
+-margin_bottom = 578.0
++margin_bottom = 520.0
++theme = ExtResource( 4 )
+ text = "Écouter"
+ icon = ExtResource( 2 )
+ expand_icon = true
+@@ -78,6 +88,7 @@ expand_icon = true
+ [node name="Back" type="Button" parent="."]
+ margin_right = 100.0
+ margin_bottom = 50.0
++theme = ExtResource( 4 )
+ text = "Retour"
+ __meta__ = {
+ "_edit_use_anchors_": false
+diff --git a/writeInGesture/speechTherapistMenu.gd b/writeInGesture/speechTherapistMenu.gd
+index 216b629..92fcede 100644
+--- a/writeInGesture/speechTherapistMenu.gd
++++ b/writeInGesture/speechTherapistMenu.gd
+@@ -18,4 +18,8 @@ func _ready():
+ 
+ func _on_Button_pressed():
+ 	get_tree().change_scene("res://home.tscn")
+-	pass # Replace with function body.
++
++
++
++func _on_wordsChoice_pressed():
++	get_tree().change_scene("res://wordsChoice.tscn")
+diff --git a/writeInGesture/speechTherapistMenu.tscn b/writeInGesture/speechTherapistMenu.tscn
+index 9803a77..647b1cf 100644
+--- a/writeInGesture/speechTherapistMenu.tscn
++++ b/writeInGesture/speechTherapistMenu.tscn
+@@ -1,10 +1,12 @@
+-[gd_scene load_steps=2 format=2]
++[gd_scene load_steps=3 format=2]
+ 
+ [ext_resource path="res://speechTherapistMenu.gd" type="Script" id=1]
++[ext_resource path="res://fonts/phonetic.tres" type="Theme" id=2]
+ 
+ [node name="Control" type="Control"]
+ anchor_right = 1.0
+ anchor_bottom = 1.0
++theme = ExtResource( 2 )
+ script = ExtResource( 1 )
+ __meta__ = {
+ "_edit_use_anchors_": false
+@@ -13,10 +15,12 @@ __meta__ = {
+ [node name="ColorRect" type="ColorRect" parent="."]
+ anchor_right = 1.0
+ anchor_bottom = 1.0
++theme = ExtResource( 2 )
+ 
+ [node name="MarginContainer" type="MarginContainer" parent="."]
+ anchor_right = 1.0
+ anchor_bottom = 1.0
++theme = ExtResource( 2 )
+ custom_constants/margin_right = 120
+ custom_constants/margin_top = 80
+ custom_constants/margin_left = 120
+@@ -30,6 +34,7 @@ margin_left = 120.0
+ margin_top = 80.0
+ margin_right = 904.0
+ margin_bottom = 520.0
++theme = ExtResource( 2 )
+ custom_constants/separation = 10
+ alignment = 1
+ __meta__ = {
+@@ -37,22 +42,26 @@ __meta__ = {
+ }
+ 
+ [node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+-margin_top = 195.0
++margin_top = 147.0
+ margin_right = 784.0
+ margin_bottom = 215.0
++theme = ExtResource( 2 )
+ text = "Stastistiques"
+ 
+-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer"]
++[node name="wordsChoice" type="Button" parent="MarginContainer/VBoxContainer"]
+ margin_top = 225.0
+ margin_right = 784.0
+-margin_bottom = 245.0
++margin_bottom = 293.0
++theme = ExtResource( 2 )
+ text = "Choix des mots"
+ 
+-[node name="Button" type="Button" parent="."]
++[node name="retour" type="Button" parent="."]
+ margin_right = 12.0
+ margin_bottom = 20.0
++theme = ExtResource( 2 )
+ text = "Retour"
+ __meta__ = {
+ "_edit_use_anchors_": false
+ }
+-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
++[connection signal="pressed" from="MarginContainer/VBoxContainer/wordsChoice" to="." method="_on_wordsChoice_pressed"]
++[connection signal="pressed" from="retour" to="." method="_on_Button_pressed"]
+diff --git a/writeInGesture/wordsChoice.gd b/writeInGesture/wordsChoice.gd
+new file mode 100644
+index 0000000..5db4cfe
+--- /dev/null
++++ b/writeInGesture/wordsChoice.gd
+@@ -0,0 +1,44 @@
++extends Control
++
++
++# Declare member variables here. Examples:
++# var a = 2
++# var b = "text"
++var contentFile = Global.loadFileInArray("wordsAvailable")
++
++# Called when the node enters the scene tree for the first time.
++func _ready():
++	print(contentFile)
++	for i in range(0, contentFile.size()):
++		var currentLabel = Label.new()
++		currentLabel.set_text(contentFile[i])
++		currentLabel.add_color_override("font_color", Color(0,0,0))
++		get_node("MarginContainer/HBoxContainer/VBoxContainer").add_child(currentLabel)
++
++
++# Called every frame. 'delta' is the elapsed time since the previous frame.
++#func _process(delta):
++#	pass
++
++
++func _on_Retour_pressed():
++	get_tree().change_scene("res://speechTherapistMenu.tscn")
++
++
++func _on_addWord_pressed():
++	var stateAddLabel = get_node("MarginContainer/HBoxContainer/VBoxContainer2/stateAddLabel")
++	stateAddLabel.add_color_override("font_color", Color(0,0,0))
++	var text = get_node("MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/TextEdit").get_text()
++	if !(contentFile.has(text)) && contentFile.size() < 20:
++		contentFile.append(text)	
++		var currentLabel = Label.new()
++		currentLabel.set_text(text)
++		currentLabel.add_color_override("font_color", Color(0,0,0))
++		get_node("MarginContainer/HBoxContainer/VBoxContainer").add_child(currentLabel)
++		Global.saveStringInFile("wordsAvailable",text)
++		stateAddLabel.set_text("Le mot a été ajouté.")
++	else:
++		if contentFile.size() >= 20:
++			stateAddLabel.set_text("Trop de mots ont été ajouté.")
++		else :
++			stateAddLabel.set_text("Le mot existe déjà.")
+diff --git a/writeInGesture/wordsChoice.tscn b/writeInGesture/wordsChoice.tscn
+new file mode 100644
+index 0000000..225df3b
+--- /dev/null
++++ b/writeInGesture/wordsChoice.tscn
+@@ -0,0 +1,87 @@
++[gd_scene load_steps=3 format=2]
++
++[ext_resource path="res://wordsChoice.gd" type="Script" id=1]
++[ext_resource path="res://fonts/phonetic.tres" type="Theme" id=2]
++
++[node name="Control" type="Control"]
++anchor_right = 1.0
++anchor_bottom = 1.0
++theme = ExtResource( 2 )
++script = ExtResource( 1 )
++__meta__ = {
++"_edit_use_anchors_": false
++}
++
++[node name="ColorRect" type="ColorRect" parent="."]
++anchor_right = 1.0
++anchor_bottom = 1.0
++theme = ExtResource( 2 )
++
++[node name="MarginContainer" type="MarginContainer" parent="."]
++anchor_right = 1.0
++anchor_bottom = 1.0
++theme = ExtResource( 2 )
++custom_constants/margin_right = 120
++custom_constants/margin_top = 80
++custom_constants/margin_left = 120
++custom_constants/margin_bottom = 80
++__meta__ = {
++"_edit_use_anchors_": false
++}
++
++[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
++margin_left = 120.0
++margin_top = 80.0
++margin_right = 904.0
++margin_bottom = 520.0
++theme = ExtResource( 2 )
++
++[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
++margin_right = 400.0
++margin_bottom = 440.0
++rect_min_size = Vector2( 400, 0 )
++theme = ExtResource( 2 )
++
++[node name="availableWords" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
++margin_right = 400.0
++margin_bottom = 62.0
++custom_colors/font_color = Color( 0, 0, 0, 1 )
++text = "Les mots disponibles :"
++
++[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
++margin_left = 404.0
++margin_right = 693.0
++margin_bottom = 440.0
++theme = ExtResource( 2 )
++
++[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
++margin_right = 289.0
++margin_bottom = 68.0
++rect_clip_content = true
++
++[node name="TextEdit" type="TextEdit" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
++margin_right = 150.0
++margin_bottom = 68.0
++rect_min_size = Vector2( 150, 0 )
++
++[node name="addWord" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
++margin_left = 154.0
++margin_right = 289.0
++margin_bottom = 68.0
++text = "Ajouter"
++
++[node name="stateAddLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
++margin_top = 72.0
++margin_right = 289.0
++margin_bottom = 134.0
++
++[node name="retour" type="Button" parent="."]
++margin_right = 12.0
++margin_bottom = 20.0
++theme = ExtResource( 2 )
++text = "Retour"
++__meta__ = {
++"_edit_use_anchors_": false
++}
++[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/addWord" to="." method="_on_addWord_pressed"]
++[connection signal="pressed" from="retour" to="." method="_on_Retour_pressed"]

@@ -111,6 +111,6 @@ func _on_TextureRect25_gui_input(event):
 func _on_Button_gui_input(event):
 	if (event is InputEventMouseButton):
 		var name=get_node("TextEdit").text
-		get_node("/root/global").set_avatar(avatar.texture)
-		get_node("/root/global").set_name(name)
+		Global.set_avatar(avatar.texture)
+		Global.set_name(name)
 		get_tree().change_scene("res://home.tscn")

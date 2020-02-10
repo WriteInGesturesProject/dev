@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "global",
+"language": "GDScript",
+"path": "res://Global.gd"
+} ]
 _global_script_class_icons={
-
+"global": ""
 }
 
 [application]
@@ -21,7 +26,7 @@ config/icon="res://art/icon.png"
 
 [autoload]
 
-global="*res://global.gd"
+Global="*res://Global.gd"
 
 [rendering]
 

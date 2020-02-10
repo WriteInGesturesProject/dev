@@ -1,8 +1,13 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://speechTherapistMenu.gd" type="Script" id=1]
+[ext_resource path="res://fonts/phonetic.tres" type="Theme" id=2]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -10,10 +15,12 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 2 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 2 )
 custom_constants/margin_right = 120
 custom_constants/margin_top = 80
 custom_constants/margin_left = 120
@@ -27,17 +34,42 @@ margin_left = 120.0
 margin_top = 80.0
 margin_right = 904.0
 margin_bottom = 520.0
+theme = ExtResource( 2 )
 custom_constants/separation = 10
 alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_top = 195.0
+margin_top = 108.0
 margin_right = 784.0
-margin_bottom = 215.0
+margin_bottom = 176.0
+theme = ExtResource( 2 )
 text = "Stastistiques"
 
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_top = 225.0
+[node name="wordsChoice" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_top = 186.0
 margin_right = 784.0
-margin_bottom = 245.0
+margin_bottom = 254.0
+theme = ExtResource( 2 )
 text = "Choix des mots"
+
+[node name="Connection" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_top = 264.0
+margin_right = 784.0
+margin_bottom = 332.0
+theme = ExtResource( 2 )
+text = "Connexion"
+
+[node name="retour" type="Button" parent="."]
+margin_right = 12.0
+margin_bottom = 20.0
+theme = ExtResource( 2 )
+text = "Retour"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="MarginContainer/VBoxContainer/wordsChoice" to="." method="_on_wordsChoice_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Connection" to="." method="_on_Connection_pressed"]
+[connection signal="pressed" from="retour" to="." method="_on_Button_pressed"]

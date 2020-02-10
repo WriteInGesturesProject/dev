@@ -19,6 +19,21 @@ var img_count = ["res://art/imgBorel/a.png", "res://art/imgBorel/eu.png", "res:/
 var index = 0
 
 var dictionaryPhonetic = loadJSonInDic("phonetic.json")
+var current_scene = null
+var text
+var avatar
+
+func set_avatar(avatar):
+	self.avatar = avatar
+
+func set_name(text):
+	self.text = text
+
+func get_avatar():
+	return avatar
+
+func get_text():
+	return text
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

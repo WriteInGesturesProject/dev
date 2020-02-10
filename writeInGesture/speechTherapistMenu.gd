@@ -23,3 +23,7 @@ func _on_Button_pressed():
 
 func _on_wordsChoice_pressed():
 	get_tree().change_scene("res://wordsChoice.tscn")
+
+
+func _on_Connection_pressed():
+	get_tree().change_scene("res://login.tscn")

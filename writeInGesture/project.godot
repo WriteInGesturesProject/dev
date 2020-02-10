@@ -18,6 +18,10 @@ _global_script_class_icons={
 "global": ""
 }
 
+[android]
+
+modules="org/godotengine/godot/GodotTextToSpeech,org/godotengine/godot/GodotSpeech"
+
 [application]
 
 config/name="ArtiGest"

@@ -42,4 +42,5 @@ func _on_SpeakTest_pressed():
 
 
 func _on_Popup_popup_hide():
-	find_node("backgroundDark").visible = false
+	if(find_node("backgroundDark") != null):
+		find_node("backgroundDark").visible = false

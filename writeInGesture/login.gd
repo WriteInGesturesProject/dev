@@ -23,7 +23,6 @@ func _on_submit_pressed():
 		get_tree().change_scene("res://speechTherapistMenu.tscn")
 	else :
 		errorMsg.visible = true
-	print("ok")
 
 
 func _on_resetPsswd_pressed():

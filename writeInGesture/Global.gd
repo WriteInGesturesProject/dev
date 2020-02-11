@@ -40,13 +40,19 @@ func _ready():
 	pass # Replace with function body.
 
 func saveStringInFile(path, content):
+	print("[SAVE_STRING_INFILE]")
 	var file = File.new()
-	file.open("res://data/"+path, file.READ_WRITE)
+	var err = file.open("user://data/"+path, file.READ_WRITE)
+	if(err) :
+		print("File : user://data/", path, "doesn't exist")
+		rewriteFile(path,content)
+		file.open("user://data/"+path, file.READ_WRITE)
 	file.seek_end()
 	if file.get_len() != 0 :
 		file.store_string("\n")
 	file.store_string(content)
 	file.close()
+	print("[SAVE_STRING_INFILE]")
 
 func searchInDictionnary(carac):
 	var dico = loadJSonInDic("phonetic.json")
@@ -57,20 +63,58 @@ func searchInDictionnary(carac):
 	return ""
 
 func rewriteFile(path, content):
-	var file = File.new()
-	file.open("res://data/"+path, file.WRITE)
-	file.store_string(content)
-	file.close()
+	print("[WRITINGFILE]")
+	var dir = Directory.new()
+	var dir_name = "data"
+	var user_dir = "user://"
+	dir.open(user_dir)
+	print( "User directory: " + user_dir )
+	if( !dir.dir_exists( dir_name ) ):
+		print( dir_name + " doesn't exist." )
+		dir.make_dir_recursive( dir_name )
+	else:
+		print( dir_name + " exists." )
+	var fp_user = File.new()
+	var f_name = user_dir + dir_name + "/" + path;
+	var err = fp_user.open( f_name, File.WRITE )
+	print( f_name + " opened." )
+	print( "fp_user error code: " + str(err) )
+	fp_user.store_string(content)
+	print( f_name + " written." )
+	fp_user.close()
+	print("[END_WRITINGFILE]")
+	
 
 func loadFileInArray(path):
+	print("[LOADFILE]")
 	var file = File.new()
-	file.open("res://data/"+path, file.READ)
 	var content = []
-	var currentLine = file.get_line()
-	while  currentLine != "":
-		content.append(currentLine)
-		currentLine = file.get_line()
-	file.close()
+	print("Trying to search path in user data : user://data/",path)
+	var err = file.open( "user://data/"+path, File.READ )
+	if(err) :
+		print("File doesn't find in user data, trying in res data ")
+		var err_res = file.open("res://data/"+path, file.READ)
+		if(err_res):
+			print("File doesn't found anywhere")
+			return null;
+		else :
+			print("File found in res data, reading file and write in user data")
+			var currentLine = file.get_line()
+			var writing = ""
+			while  currentLine != "":
+				content.append(currentLine)
+				currentLine = file.get_line()
+				writing += currentLine
+			file.close()
+			rewriteFile(path,writing)
+	else :
+		print("File found in user data, reading file")
+		var currentLine = file.get_line()
+		while  currentLine != "":
+			content.append(currentLine)
+			currentLine = file.get_line()
+		file.close()
+	print("[ENDLOADFILE]")
 	return content
 	
 func loadJSonInDic(path):

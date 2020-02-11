@@ -18,7 +18,6 @@ func _ready():
 #	pass
 
 func _on_submit_pressed():
-	Global.removeFile("userLog")
 	var content = Global.loadFileInArray("userLog")
 	if content[0] == find_node("id").text && content[1] == find_node("psswd").text :
 		get_tree().change_scene("res://speechTherapistMenu.tscn")

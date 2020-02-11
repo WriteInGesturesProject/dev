@@ -106,11 +106,11 @@ func loadFileInArray(path):
 		else :
 			print("File found in res data, reading file and write in user data")
 			var currentLine = file.get_line()
-			var writing = ""
+			var writing = currentLine
 			while  currentLine != "":
 				content.append(currentLine)
 				currentLine = file.get_line()
-				writing += currentLine
+				writing += "\n" + currentLine
 			file.close()
 			rewriteFile(path,writing)
 	else :

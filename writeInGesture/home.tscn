@@ -197,6 +197,7 @@ placeholder_text = "Identifiant"
 margin_top = 263.0
 margin_right = 724.0
 margin_bottom = 335.0
+max_length = 20
 secret = true
 placeholder_text = "Mot de passe"
 
@@ -252,6 +253,7 @@ placeholder_text = "Ancien mot de passe"
 margin_top = 261.0
 margin_right = 724.0
 margin_bottom = 333.0
+max_length = 20
 secret = true
 placeholder_text = "Nouveau mot de passe"
 
@@ -259,6 +261,7 @@ placeholder_text = "Nouveau mot de passe"
 margin_top = 358.0
 margin_right = 724.0
 margin_bottom = 430.0
+max_length = 20
 secret = true
 placeholder_text = "Confirmer le nouveau mot de passe"
 

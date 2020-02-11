@@ -1,0 +1,12 @@
+{
+	"version" :{
+		"numero": "1.0",
+		"numberwords":"3"
+	},
+	
+	"words" : [
+		"manon",
+		"te",
+		"aime",
+	]
+}

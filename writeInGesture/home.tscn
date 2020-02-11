@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://fonts/HelloGrizellesans.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://art/imgBorel/o.png" type="Texture" id=2]
 [ext_resource path="res://home.gd" type="Script" id=3]
 [ext_resource path="res://fonts/phonetic.tres" type="Theme" id=4]
+[ext_resource path="res://fonts/ButtonTheme.tres" type="Theme" id=5]
+[ext_resource path="res://fonts/background.png" type="Texture" id=6]
+[ext_resource path="res://resetPassword.gd" type="Script" id=7]
+[ext_resource path="res://login.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
@@ -23,11 +27,11 @@ __meta__ = {
 "_edit_vertical_guides_": [ -25.9097 ]
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 4 )
-color = Color( 0.882353, 0.882353, 0.882353, 1 )
+texture = ExtResource( 6 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -44,76 +48,231 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2"]
 margin_left = 120.0
-margin_right = 904.0
+margin_right = 956.0
 margin_bottom = 600.0
-theme = ExtResource( 4 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 100
 alignment = 1
 
-[node name="Logo" type="Label" parent="MarginContainer2/VBoxContainer"]
-margin_top = 74.0
-margin_right = 784.0
-margin_bottom = 154.0
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/HBoxContainer"]
+margin_right = 183.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Picture" type="TextureRect" parent="MarginContainer2/HBoxContainer/VBoxContainer"]
+margin_top = 193.0
+margin_right = 183.0
+margin_bottom = 301.0
+theme = ExtResource( 4 )
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="Change" type="Button" parent="MarginContainer2/HBoxContainer/VBoxContainer"]
+margin_top = 305.0
+margin_right = 183.0
+margin_bottom = 407.0
+theme = ExtResource( 5 )
+text = "Modifier"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer2/HBoxContainer"]
+margin_left = 283.0
+margin_right = 466.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 80
+alignment = 1
+
+[node name="Logo" type="Label" parent="MarginContainer2/HBoxContainer/VBoxContainer2"]
+margin_top = 76.0
+margin_right = 183.0
+margin_bottom = 156.0
 theme = ExtResource( 4 )
 custom_fonts/font = SubResource( 1 )
 text = "LOGO"
 align = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/VBoxContainer"]
-margin_top = 158.0
-margin_right = 784.0
-margin_bottom = 382.0
-theme = ExtResource( 4 )
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/HBoxContainer/VBoxContainer2"]
+margin_top = 236.0
+margin_right = 183.0
+margin_bottom = 342.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/VBoxContainer/HBoxContainer"]
-margin_right = 176.0
-margin_bottom = 224.0
-theme = ExtResource( 4 )
+[node name="Label" type="Label" parent="MarginContainer2/HBoxContainer/VBoxContainer2/VBoxContainer"]
+margin_right = 183.0
+margin_bottom = 62.0
+text = "Bienvenue "
+align = 1
 
-[node name="NamePlayer" type="Label" parent="MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_right = 176.0
-margin_bottom = 40.0
+[node name="NamePlayer" type="Label" parent="MarginContainer2/HBoxContainer/VBoxContainer2/VBoxContainer"]
+margin_top = 66.0
+margin_right = 183.0
+margin_bottom = 106.0
 theme = ExtResource( 4 )
 custom_fonts/font = SubResource( 2 )
 text = "Xavier L'autiste"
 align = 1
 
-[node name="Picture" type="TextureRect" parent="MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 44.0
-margin_right = 176.0
-margin_bottom = 152.0
-theme = ExtResource( 4 )
-texture = ExtResource( 2 )
-
-[node name="Change" type="Button" parent="MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 156.0
-margin_right = 176.0
-margin_bottom = 224.0
-theme = ExtResource( 4 )
-text = "Modifier"
-
-[node name="Play" type="Button" parent="MarginContainer2/VBoxContainer/HBoxContainer"]
-margin_left = 180.0
-margin_right = 784.0
-margin_bottom = 224.0
+[node name="Play" type="Button" parent="MarginContainer2/HBoxContainer/VBoxContainer2"]
+margin_top = 422.0
+margin_right = 183.0
+margin_bottom = 524.0
 size_flags_horizontal = 3
-theme = ExtResource( 4 )
+theme = ExtResource( 5 )
 text = "Jouer"
 
-[node name="Help" type="Button" parent="MarginContainer2/VBoxContainer"]
-margin_top = 386.0
-margin_right = 784.0
-margin_bottom = 454.0
-theme = ExtResource( 4 )
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer2/HBoxContainer"]
+margin_left = 566.0
+margin_right = 836.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Help" type="Button" parent="MarginContainer2/HBoxContainer/VBoxContainer3"]
+margin_top = 188.0
+margin_right = 270.0
+margin_bottom = 290.0
+theme = ExtResource( 5 )
 text = "Aide"
 
-[node name="Admin" type="Button" parent="MarginContainer2/VBoxContainer"]
-margin_top = 458.0
-margin_right = 784.0
-margin_bottom = 526.0
-theme = ExtResource( 4 )
+[node name="Admin" type="Button" parent="MarginContainer2/HBoxContainer/VBoxContainer3"]
+margin_top = 310.0
+margin_right = 270.0
+margin_bottom = 412.0
+theme = ExtResource( 5 )
 text = "Orthophoniste"
-[connection signal="pressed" from="MarginContainer2/VBoxContainer/HBoxContainer/Play" to="." method="_on_Play_pressed"]
-[connection signal="pressed" from="MarginContainer2/VBoxContainer/Help" to="." method="_on_Help_pressed"]
-[connection signal="pressed" from="MarginContainer2/VBoxContainer/Admin" to="." method="_on_Admin_pressed"]
+
+[node name="backgroundDark" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.878431 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Popup" type="WindowDialog" parent="."]
+margin_left = 120.0
+margin_right = 904.0
+margin_bottom = 600.0
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 30.0
+margin_right = -30.0
+custom_constants/separation = 25
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="Popup/VBoxContainer"]
+margin_top = 79.0
+margin_right = 724.0
+margin_bottom = 141.0
+text = "Connexion"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="id" type="LineEdit" parent="Popup/VBoxContainer"]
+margin_top = 166.0
+margin_right = 724.0
+margin_bottom = 238.0
+max_length = 20
+placeholder_text = "Identifiant"
+
+[node name="psswd" type="LineEdit" parent="Popup/VBoxContainer"]
+margin_top = 263.0
+margin_right = 724.0
+margin_bottom = 335.0
+secret = true
+placeholder_text = "Mot de passe"
+
+[node name="submit" type="Button" parent="Popup/VBoxContainer"]
+margin_top = 360.0
+margin_right = 724.0
+margin_bottom = 428.0
+text = "Envoyer"
+
+[node name="resetPsswd" type="Button" parent="Popup/VBoxContainer"]
+margin_top = 453.0
+margin_right = 724.0
+margin_bottom = 521.0
+text = "Reinitialiser le mot de passe"
+
+[node name="PopupReset" type="WindowDialog" parent="Popup"]
+margin_right = 784.0
+margin_bottom = 600.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Popup/PopupReset"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 30.0
+margin_right = -30.0
+custom_constants/separation = 25
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="Popup/PopupReset/VBoxContainer"]
+margin_top = 77.0
+margin_right = 724.0
+margin_bottom = 139.0
+text = "Connexion"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="oldPsswd" type="LineEdit" parent="Popup/PopupReset/VBoxContainer"]
+margin_top = 164.0
+margin_right = 724.0
+margin_bottom = 236.0
+max_length = 20
+placeholder_text = "Ancien mot de passe"
+
+[node name="psswd" type="LineEdit" parent="Popup/PopupReset/VBoxContainer"]
+margin_top = 261.0
+margin_right = 724.0
+margin_bottom = 333.0
+secret = true
+placeholder_text = "Nouveau mot de passe"
+
+[node name="psswd2" type="LineEdit" parent="Popup/PopupReset/VBoxContainer"]
+margin_top = 358.0
+margin_right = 724.0
+margin_bottom = 430.0
+secret = true
+placeholder_text = "Confirmer le nouveau mot de passe"
+
+[node name="submit" type="Button" parent="Popup/PopupReset/VBoxContainer"]
+margin_top = 455.0
+margin_right = 724.0
+margin_bottom = 523.0
+text = "Envoyer"
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer/Change" to="." method="_on_Change_pressed"]
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer2/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer3/Help" to="." method="_on_Help_pressed"]
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer3/Admin" to="." method="_on_Admin_pressed"]
+[connection signal="popup_hide" from="Popup" to="." method="_on_Popup_popup_hide"]
+[connection signal="pressed" from="Popup/VBoxContainer/submit" to="Popup" method="_on_submit_pressed"]
+[connection signal="pressed" from="Popup/VBoxContainer/resetPsswd" to="Popup" method="_on_resetPsswd_pressed"]
+[connection signal="pressed" from="Popup/PopupReset/VBoxContainer/submit" to="Popup/PopupReset" method="_on_submit_pressed"]

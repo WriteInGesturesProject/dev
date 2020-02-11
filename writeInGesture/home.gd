@@ -8,8 +8,8 @@ var tts = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if Global.get_text() != null and Global.get_avatar() != null:
-		get_node("MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer/NamePlayer").text=Global.get_text()
-		get_node("MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer/Picture").texture=Global.get_avatar()
+		find_node("NamePlayer").text=Global.get_text()
+		find_node("Picture").texture=Global.get_avatar()
 	if(Engine.has_singleton("GodotTextToSpeech")):
 		tts = Engine.get_singleton("GodotTextToSpeech")
 		tts.fireTTS() # fires up the TextToSpeech engine
@@ -18,9 +18,7 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func _input(event):
-	if (event is InputEventMouseButton or event is InputEventKey) and find_node("Popup").visible == false: 
-		find_node("backgroundDark").visible = false
+
 
 func _on_Change_pressed():
 	get_tree().change_scene("res://avatarspace.tscn")
@@ -41,3 +39,7 @@ func _on_Help_pressed():
 func _on_SpeakTest_pressed():
 	if(tts != null):
 		tts.speakText("Ceci est un test pour la synthèse vocale !")
+
+
+func _on_Popup_popup_hide():
+	find_node("backgroundDark").visible = false

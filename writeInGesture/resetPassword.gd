@@ -26,4 +26,3 @@ func _on_submit_pressed():
 		self.visible = false
 	else :
 		errorMsg.visible = true
-	print("ok")

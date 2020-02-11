@@ -84,6 +84,12 @@ func rewriteFile(path, content):
 	fp_user.close()
 	print("[END_WRITINGFILE]")
 	
+func removeFile(path):
+	print("[REMOVEFILE]")
+	var dir = Directory.new()
+	dir.remove("user://data/"+path)
+	print("[END_REMOVEFILE] : user://data/",path )
+	
 
 func loadFileInArray(path):
 	print("[LOADFILE]")

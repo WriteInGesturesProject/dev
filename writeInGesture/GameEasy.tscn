@@ -81,7 +81,7 @@ margin_top = 248.0
 margin_right = 1024.0
 margin_bottom = 316.0
 theme = ExtResource( 4 )
-text = "Parle"
+text = "Ecouter"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -94,8 +94,8 @@ theme = ExtResource( 4 )
 text = "Enregistrer"
 
 [node name="Oui" type="Sprite" parent="ColorRect/MarginContainer/VBoxContainer"]
-position = Vector2( 508.283, 491.708 )
-scale = Vector2( 0.23676, 0.193754 )
+position = Vector2( 514.422, 488.025 )
+scale = Vector2( 0.256372, 0.205521 )
 texture = ExtResource( 5 )
 
 [node name="Non" type="Sprite" parent="ColorRect/MarginContainer/VBoxContainer"]

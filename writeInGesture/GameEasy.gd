@@ -42,12 +42,14 @@ func _ready():
 	Global.score[Global.level][Global.game - 1] = 0
 	
 func _process(delta):
-	if(stt != null):
+	if(stt != null && stt.isListening()):
+		find_node("Record").set_text("En écoute")
+	if(stt != null && !stt.isListening()):
+		find_node("Record").set_text("Enregistrer")
+	if(stt != null && display && stt.isDetectDone()):
 		words = stt.getWords()
-		if(display == false):
-			find_node("Oui").visible = false
-			find_node("Non").visible = false
-		elif(words == find_node("Word").text || words == find_node("Number").text):
+		find_node("Record").set_text("Vous avez dit : " + words)
+		if(words == find_node("Word").text || words == find_node("Number").text):
 			find_node("Oui").visible = true
 			find_node("Non").visible = false
 			find_node("Record").disabled = true
@@ -57,12 +59,18 @@ func _process(delta):
 		else:
 			find_node("Oui").visible = false
 			find_node("Non").visible = true
+	else:
+		find_node("Oui").visible = false
+		find_node("Non").visible = false
 
 func _on_Back_pressed():
 	get_tree().change_scene("res://GameLevel.tscn")
 
 func _on_Next_pressed():
 	find_node("Record").disabled = false
+	find_node("Record").set_text("Enregistrer")
+	find_node("Oui").visible = false
+	find_node("Non").visible = false
 	display = false
 	if(Global.game == 2):
 		Global.index += 1
@@ -101,5 +109,9 @@ func _on_Speak_pressed(extra_arg_0):
 
 func _on_Record_pressed():
 	if(stt != null):
-		stt.doListen()
-		display = true
+		if(stt.isListening() == false):
+			stt.doListen()
+			display = true
+		else :
+			stt.stopListen()
+			find_node("Record").set_text("Enregistrer")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://fonts/HelloGrizellesans.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://art/icon.png" type="Texture" id=2]
+[ext_resource path="res://art/imgBorel/o.png" type="Texture" id=2]
 [ext_resource path="res://home.gd" type="Script" id=3]
 [ext_resource path="res://fonts/phonetic.tres" type="Theme" id=4]
 
@@ -51,25 +51,24 @@ theme = ExtResource( 4 )
 alignment = 1
 
 [node name="Logo" type="Label" parent="MarginContainer2/VBoxContainer"]
-margin_top = 90.0
+margin_top = 74.0
 margin_right = 784.0
-margin_bottom = 170.0
+margin_bottom = 154.0
 theme = ExtResource( 4 )
 custom_fonts/font = SubResource( 1 )
 text = "LOGO"
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/VBoxContainer"]
-margin_top = 174.0
+margin_top = 158.0
 margin_right = 784.0
-margin_bottom = 366.0
+margin_bottom = 382.0
 theme = ExtResource( 4 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/VBoxContainer/HBoxContainer"]
 margin_right = 176.0
-margin_bottom = 192.0
+margin_bottom = 224.0
 theme = ExtResource( 4 )
-custom_constants/separation = 10
 
 [node name="NamePlayer" type="Label" parent="MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_right = 176.0
@@ -80,41 +79,40 @@ text = "Xavier L'autiste"
 align = 1
 
 [node name="Picture" type="TextureRect" parent="MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 50.0
+margin_top = 44.0
 margin_right = 176.0
-margin_bottom = 114.0
+margin_bottom = 152.0
 theme = ExtResource( 4 )
 texture = ExtResource( 2 )
 
 [node name="Change" type="Button" parent="MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 124.0
+margin_top = 156.0
 margin_right = 176.0
-margin_bottom = 192.0
+margin_bottom = 224.0
 theme = ExtResource( 4 )
 text = "Modifier"
 
 [node name="Play" type="Button" parent="MarginContainer2/VBoxContainer/HBoxContainer"]
 margin_left = 180.0
 margin_right = 784.0
-margin_bottom = 192.0
+margin_bottom = 224.0
 size_flags_horizontal = 3
 theme = ExtResource( 4 )
 text = "Jouer"
 
 [node name="Help" type="Button" parent="MarginContainer2/VBoxContainer"]
-margin_top = 370.0
+margin_top = 386.0
 margin_right = 784.0
-margin_bottom = 438.0
+margin_bottom = 454.0
 theme = ExtResource( 4 )
 text = "Aide"
 
 [node name="Admin" type="Button" parent="MarginContainer2/VBoxContainer"]
-margin_top = 442.0
+margin_top = 458.0
 margin_right = 784.0
-margin_bottom = 510.0
+margin_bottom = 526.0
 theme = ExtResource( 4 )
-text = "Ortophoniste"
-[connection signal="pressed" from="MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer/Change" to="." method="_on_Change_pressed"]
+text = "Orthophoniste"
 [connection signal="pressed" from="MarginContainer2/VBoxContainer/HBoxContainer/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="MarginContainer2/VBoxContainer/Help" to="." method="_on_Help_pressed"]
 [connection signal="pressed" from="MarginContainer2/VBoxContainer/Admin" to="." method="_on_Admin_pressed"]

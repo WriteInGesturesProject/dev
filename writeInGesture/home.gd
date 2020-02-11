@@ -7,7 +7,6 @@ var tts = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("eee")
 	if Global.get_text() != null and Global.get_avatar() != null:
 		get_node("MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer/NamePlayer").text=Global.get_text()
 		get_node("MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer/Picture").texture=Global.get_avatar()

@@ -14,17 +14,20 @@ func _ready():
 		tts = Engine.get_singleton("GodotTextToSpeech")
 		tts.fireTTS() # fires up the TextToSpeech engine
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
 
 func _on_Change_pressed():
 	get_tree().change_scene("res://avatarspace.tscn")
 	pass # Replace with function body.
 
 func _on_Admin_pressed():
-	get_tree().change_scene("res://speechTherapistMenu.tscn")
+	find_node("Popup").popup_centered_ratio(0.75)
+	find_node("backgroundDark").visible = true
+	#get_tree().change_scene("res://speechTherapistMenu.tscn")
 
 func _on_Play_pressed():
 	get_tree().change_scene("res://ExerciceMenu.tscn")
@@ -36,3 +39,7 @@ func _on_Help_pressed():
 func _on_SpeakTest_pressed():
 	if(tts != null):
 		tts.speakText("Ceci est un test pour la synthèse vocale !")
+
+
+func _on_Popup_popup_hide():
+	find_node("backgroundDark").visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://fonts/HelloGrizellesans.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://art/imgBorel/o.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://fonts/phonetic.tres" type="Theme" id=4]
 [ext_resource path="res://fonts/ButtonTheme.tres" type="Theme" id=5]
 [ext_resource path="res://fonts/background.png" type="Texture" id=6]
+[ext_resource path="res://resetPassword.gd" type="Script" id=7]
+[ext_resource path="res://login.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
@@ -144,7 +146,132 @@ margin_right = 270.0
 margin_bottom = 412.0
 theme = ExtResource( 5 )
 text = "Orthophoniste"
+
+[node name="backgroundDark" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.878431 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Popup" type="WindowDialog" parent="."]
+margin_left = 120.0
+margin_right = 904.0
+margin_bottom = 600.0
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 30.0
+margin_right = -30.0
+custom_constants/separation = 25
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="Popup/VBoxContainer"]
+margin_top = 79.0
+margin_right = 724.0
+margin_bottom = 141.0
+text = "Connexion"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="id" type="LineEdit" parent="Popup/VBoxContainer"]
+margin_top = 166.0
+margin_right = 724.0
+margin_bottom = 238.0
+max_length = 20
+placeholder_text = "Identifiant"
+
+[node name="psswd" type="LineEdit" parent="Popup/VBoxContainer"]
+margin_top = 263.0
+margin_right = 724.0
+margin_bottom = 335.0
+secret = true
+placeholder_text = "Mot de passe"
+
+[node name="submit" type="Button" parent="Popup/VBoxContainer"]
+margin_top = 360.0
+margin_right = 724.0
+margin_bottom = 428.0
+text = "Envoyer"
+
+[node name="resetPsswd" type="Button" parent="Popup/VBoxContainer"]
+margin_top = 453.0
+margin_right = 724.0
+margin_bottom = 521.0
+text = "Reinitialiser le mot de passe"
+
+[node name="PopupReset" type="WindowDialog" parent="Popup"]
+margin_right = 784.0
+margin_bottom = 600.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Popup/PopupReset"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 30.0
+margin_right = -30.0
+custom_constants/separation = 25
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="Popup/PopupReset/VBoxContainer"]
+margin_top = 77.0
+margin_right = 724.0
+margin_bottom = 139.0
+text = "Connexion"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="oldPsswd" type="LineEdit" parent="Popup/PopupReset/VBoxContainer"]
+margin_top = 164.0
+margin_right = 724.0
+margin_bottom = 236.0
+max_length = 20
+placeholder_text = "Ancien mot de passe"
+
+[node name="psswd" type="LineEdit" parent="Popup/PopupReset/VBoxContainer"]
+margin_top = 261.0
+margin_right = 724.0
+margin_bottom = 333.0
+secret = true
+placeholder_text = "Nouveau mot de passe"
+
+[node name="psswd2" type="LineEdit" parent="Popup/PopupReset/VBoxContainer"]
+margin_top = 358.0
+margin_right = 724.0
+margin_bottom = 430.0
+secret = true
+placeholder_text = "Confirmer le nouveau mot de passe"
+
+[node name="submit" type="Button" parent="Popup/PopupReset/VBoxContainer"]
+margin_top = 455.0
+margin_right = 724.0
+margin_bottom = 523.0
+text = "Envoyer"
 [connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer/Change" to="." method="_on_Change_pressed"]
 [connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer2/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer3/Help" to="." method="_on_Help_pressed"]
 [connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer3/Admin" to="." method="_on_Admin_pressed"]
+[connection signal="popup_hide" from="Popup" to="." method="_on_Popup_popup_hide"]
+[connection signal="pressed" from="Popup/VBoxContainer/submit" to="Popup" method="_on_submit_pressed"]
+[connection signal="pressed" from="Popup/VBoxContainer/resetPsswd" to="Popup" method="_on_resetPsswd_pressed"]
+[connection signal="pressed" from="Popup/PopupReset/VBoxContainer/submit" to="Popup/PopupReset" method="_on_submit_pressed"]

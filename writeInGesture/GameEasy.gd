@@ -1,25 +1,30 @@
 extends Control
 
+const TTSDriver = preload("res://modules/TTS/TTSDriver.gdns")
 var tts = null
 var stt = null
 var words = ""
 var display = false
 var incremented = false
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var os = ""
 var myWords = Global.loadFileInArray("wordsAvailable")
 var index = 0
 var container = HBoxContainer.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if(Engine.has_singleton("GodotTextToSpeech")):
-		tts = Engine.get_singleton("GodotTextToSpeech")
-		tts.fireTTS()
-	if(Engine.has_singleton("GodotSpeech")):
-		stt = Engine.get_singleton("GodotSpeech")
+	os = OS.get_name()
+	match os:
+		"X11":
+			tts = TTSDriver.new()
+			set_process(true)
+			tts.set_voice("French (France)")
+		"Android":
+			if(Engine.has_singleton("GodotTextToSpeech")):
+				tts = Engine.get_singleton("GodotTextToSpeech")
+				tts.fireTTS()
+			if(Engine.has_singleton("GodotSpeech")):
+				stt = Engine.get_singleton("GodotSpeech")
 	if(Global.game == 2):
 		get_node("ColorRect/MarginContainer/VBoxContainer/Number").set_text(Global.Number[Global.index])
 		find_node("TextureRect").texture = load(Global.img_count[Global.index])
@@ -105,7 +110,12 @@ func _on_Next_pressed():
 
 func _on_Speak_pressed(extra_arg_0):
 	if(tts != null):
-		tts.speakText(find_node("Word").text)
+		var text = find_node("Word").text
+		match os:
+			"X11":
+				tts.speak(text, false)
+			"Android":
+				tts.speakText(text)
 
 func _on_Record_pressed():
 	if(stt != null):

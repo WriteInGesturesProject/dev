@@ -19,7 +19,8 @@ anchor_bottom = 1.0
 theme = ExtResource( 4 )
 script = ExtResource( 3 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ -25.9097 ]
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]

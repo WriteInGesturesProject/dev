@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://fonts/HelloGrizellesans.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://art/icon.png" type="Texture" id=2]
+[ext_resource path="res://art/imgBorel/o.png" type="Texture" id=2]
 [ext_resource path="res://home.gd" type="Script" id=3]
 [ext_resource path="res://fonts/phonetic.tres" type="Theme" id=4]
+[ext_resource path="res://fonts/ButtonTheme.tres" type="Theme" id=5]
+[ext_resource path="res://fonts/background.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
@@ -22,11 +24,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 4 )
-color = Color( 0.882353, 0.882353, 0.882353, 1 )
+texture = ExtResource( 6 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -43,78 +45,106 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2"]
 margin_left = 120.0
-margin_right = 904.0
+margin_right = 956.0
 margin_bottom = 600.0
-theme = ExtResource( 4 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 100
 alignment = 1
 
-[node name="Logo" type="Label" parent="MarginContainer2/VBoxContainer"]
-margin_top = 90.0
-margin_right = 784.0
-margin_bottom = 170.0
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/HBoxContainer"]
+margin_right = 183.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Picture" type="TextureRect" parent="MarginContainer2/HBoxContainer/VBoxContainer"]
+margin_top = 193.0
+margin_right = 183.0
+margin_bottom = 301.0
+theme = ExtResource( 4 )
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="Change" type="Button" parent="MarginContainer2/HBoxContainer/VBoxContainer"]
+margin_top = 305.0
+margin_right = 183.0
+margin_bottom = 407.0
+theme = ExtResource( 5 )
+text = "Modifier"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer2/HBoxContainer"]
+margin_left = 283.0
+margin_right = 466.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 80
+alignment = 1
+
+[node name="Logo" type="Label" parent="MarginContainer2/HBoxContainer/VBoxContainer2"]
+margin_top = 76.0
+margin_right = 183.0
+margin_bottom = 156.0
 theme = ExtResource( 4 )
 custom_fonts/font = SubResource( 1 )
 text = "LOGO"
 align = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/VBoxContainer"]
-margin_top = 174.0
-margin_right = 784.0
-margin_bottom = 366.0
-theme = ExtResource( 4 )
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/HBoxContainer/VBoxContainer2"]
+margin_top = 236.0
+margin_right = 183.0
+margin_bottom = 342.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/VBoxContainer/HBoxContainer"]
-margin_right = 176.0
-margin_bottom = 192.0
-theme = ExtResource( 4 )
-custom_constants/separation = 10
+[node name="Label" type="Label" parent="MarginContainer2/HBoxContainer/VBoxContainer2/VBoxContainer"]
+margin_right = 183.0
+margin_bottom = 62.0
+text = "Bienvenue "
+align = 1
 
-[node name="NamePlayer" type="Label" parent="MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_right = 176.0
-margin_bottom = 40.0
+[node name="NamePlayer" type="Label" parent="MarginContainer2/HBoxContainer/VBoxContainer2/VBoxContainer"]
+margin_top = 66.0
+margin_right = 183.0
+margin_bottom = 106.0
 theme = ExtResource( 4 )
 custom_fonts/font = SubResource( 2 )
 text = "Xavier L'autiste"
 align = 1
 
-[node name="Picture" type="TextureRect" parent="MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 50.0
-margin_right = 176.0
-margin_bottom = 114.0
-theme = ExtResource( 4 )
-texture = ExtResource( 2 )
-
-[node name="Change" type="Button" parent="MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 124.0
-margin_right = 176.0
-margin_bottom = 192.0
-theme = ExtResource( 4 )
-text = "Modifier"
-
-[node name="Play" type="Button" parent="MarginContainer2/VBoxContainer/HBoxContainer"]
-margin_left = 180.0
-margin_right = 784.0
-margin_bottom = 192.0
+[node name="Play" type="Button" parent="MarginContainer2/HBoxContainer/VBoxContainer2"]
+margin_top = 422.0
+margin_right = 183.0
+margin_bottom = 524.0
 size_flags_horizontal = 3
-theme = ExtResource( 4 )
+theme = ExtResource( 5 )
 text = "Jouer"
 
-[node name="Help" type="Button" parent="MarginContainer2/VBoxContainer"]
-margin_top = 370.0
-margin_right = 784.0
-margin_bottom = 438.0
-theme = ExtResource( 4 )
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer2/HBoxContainer"]
+margin_left = 566.0
+margin_right = 836.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Help" type="Button" parent="MarginContainer2/HBoxContainer/VBoxContainer3"]
+margin_top = 188.0
+margin_right = 270.0
+margin_bottom = 290.0
+theme = ExtResource( 5 )
 text = "Aide"
 
-[node name="Admin" type="Button" parent="MarginContainer2/VBoxContainer"]
-margin_top = 442.0
-margin_right = 784.0
-margin_bottom = 510.0
-theme = ExtResource( 4 )
-text = "Ortophoniste"
-[connection signal="pressed" from="MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer/Change" to="." method="_on_Change_pressed"]
-[connection signal="pressed" from="MarginContainer2/VBoxContainer/HBoxContainer/Play" to="." method="_on_Play_pressed"]
-[connection signal="pressed" from="MarginContainer2/VBoxContainer/Help" to="." method="_on_Help_pressed"]
-[connection signal="pressed" from="MarginContainer2/VBoxContainer/Admin" to="." method="_on_Admin_pressed"]
+[node name="Admin" type="Button" parent="MarginContainer2/HBoxContainer/VBoxContainer3"]
+margin_top = 310.0
+margin_right = 270.0
+margin_bottom = 412.0
+theme = ExtResource( 5 )
+text = "Orthophoniste"
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer/Change" to="." method="_on_Change_pressed"]
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer2/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer3/Help" to="." method="_on_Help_pressed"]
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer3/Admin" to="." method="_on_Admin_pressed"]

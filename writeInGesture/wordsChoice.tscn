@@ -8,7 +8,6 @@
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 3 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -26,7 +25,10 @@ __meta__ = {
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 2 )
+margin_left = -4.43213
+margin_top = -7.75623
+margin_right = 78.5679
+margin_bottom = -7.75623
 custom_constants/margin_right = 120
 custom_constants/margin_top = 80
 custom_constants/margin_left = 120
@@ -52,7 +54,7 @@ margin_bottom = 440.0
 margin_right = 400.0
 margin_bottom = 62.0
 size_flags_vertical = 0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0.901961, 0.905882, 0.858824, 1 )
 text = "Les mots disponibles :"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -76,7 +78,6 @@ custom_constants/separation = 10
 margin_left = 500.0
 margin_right = 867.0
 margin_bottom = 440.0
-theme = ExtResource( 2 )
 custom_constants/separation = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/editContainer"]
@@ -95,7 +96,7 @@ margin_top = 20.0
 margin_right = 200.0
 margin_bottom = 82.0
 rect_min_size = Vector2( 200, 0 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0.901961, 0.905882, 0.858824, 1 )
 
 [node name="addWord" type="Button" parent="MarginContainer/HBoxContainer/editContainer/HBoxContainer"]
 margin_left = 204.0
@@ -112,6 +113,7 @@ margin_bottom = 112.0
 [node name="gridKeyboard" type="GridContainer" parent="MarginContainer/HBoxContainer/editContainer/keyBoardContainer"]
 margin_left = 183.0
 margin_right = 183.0
+theme = ExtResource( 2 )
 columns = 6
 __meta__ = {
 "_edit_use_anchors_": false
@@ -123,8 +125,8 @@ margin_right = 367.0
 margin_bottom = 184.0
 
 [node name="retour" type="Button" parent="."]
-margin_right = 12.0
-margin_bottom = 20.0
+margin_right = 82.0
+margin_bottom = 54.0
 theme = ExtResource( 3 )
 text = "Retour"
 __meta__ = {

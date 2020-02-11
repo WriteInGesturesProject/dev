@@ -42,7 +42,7 @@ __meta__ = {
 [node name="Description" type="Label" parent="MarginContainer/VBoxContainer"]
 margin_right = 1024.0
 margin_bottom = 62.0
-custom_colors/font_color = Color( 0.00392157, 0, 0, 1 )
+custom_colors/font_color = Color( 0.901961, 0.905882, 0.858824, 1 )
 text = "Description des sons"
 align = 1
 

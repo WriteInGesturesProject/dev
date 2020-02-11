@@ -92,7 +92,7 @@ func _on_Next_pressed():
 				container.add_child(imgBorel)
 			find_node("ImgBorel").add_child(container)
 			#get_node("ColorRect/MarginContainer/VBoxContainer/TextureRect2").textue = image du mot
-			get_node("ColorRect/MarginContainer/VBoxContainer/Word").set_text(myWords[index])
+			find_node("Word").set_text(myWords[index])
 	incremented = false
 
 func _on_Speak_pressed(extra_arg_0):

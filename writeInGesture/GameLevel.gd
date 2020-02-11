@@ -9,11 +9,11 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if((Global.progress1[Global.game-1] >= 80)):
-		get_node("ColorRect/MarginContainer/VBoxContainer/MarginContainer2/TextureRect").visible = false
-		get_node("ColorRect/MarginContainer/VBoxContainer/MarginContainer2/Normal").disabled = false
+		find_node("TextureRect").visible = false
+		find_node("Normal").disabled = false
 	if( Global.progress2[Global.game-1] >= 80):
-		get_node("ColorRect/MarginContainer/VBoxContainer/MarginContainer3/TextureRect").visible = false
-		get_node("ColorRect/MarginContainer/VBoxContainer/MarginContainer3/Hard").disabled = false
+		find_node("TextureRect").visible = false
+		find_node("Hard").disabled = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

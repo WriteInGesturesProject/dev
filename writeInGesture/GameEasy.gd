@@ -11,14 +11,14 @@ var myWords = Global.loadFileInArray("wordsAvailable")
 var index = 0
 var container = HBoxContainer.new()
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	os = OS.get_name()
 	match os:
 		"X11":
 			#tts = TTSDriver.new()
 			set_process(true)
-			tts.set_voice("French (France)")
+			if(tts != null):
+				tts.set_voice("French (France)")
 		"Android":
 			if(Engine.has_singleton("GodotTextToSpeech")):
 				tts = Engine.get_singleton("GodotTextToSpeech")
@@ -42,7 +42,6 @@ func _ready():
 			imgBorel.texture = load("res://art/imgBorel/"+img)
 			container.add_child(imgBorel)
 		find_node("ImgBorel").add_child(container)
-		#get_node("ColorRect/MarginContainer/VBoxContainer/TextureRect2").textue = image du mot
 		find_node("Word").set_text(myWords[index])
 	Global.score[Global.level][Global.game - 1] = 0
 	
@@ -104,7 +103,6 @@ func _on_Next_pressed():
 				imgBorel.texture = load("res://art/imgBorel/"+img)
 				container.add_child(imgBorel)
 			find_node("ImgBorel").add_child(container)
-			#get_node("ColorRect/MarginContainer/VBoxContainer/TextureRect2").textue = image du mot
 			find_node("Word").set_text(myWords[index])
 	incremented = false
 

@@ -18,7 +18,16 @@
 		"nbWords" : 0,
 		"Words" : [
 			{
-				"word" : "",
+				"word" : {
+					"phonetic" : "liːvʁ",
+					"word" : "livre",
+					"path" : "image.png",
+					"homonym" : [""],
+					"nbSyllable" : 0,
+					"SyllableStruct" : "cv, cvv, cvc, n",
+					"VowelsType" : "O, N, SV",
+					"ConsonantsType" : "O, C, N"
+				},
 				"nbSuccess" : 0
 			},
 		]

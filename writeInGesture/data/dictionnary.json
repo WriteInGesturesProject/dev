@@ -8,7 +8,7 @@
 				"phonetic" : "liːvʁ",
 				"word" : "livre",
 				"path" : "image.png",
-				"homonym" : [""],
+				"homonym" : ["livre"],
 				"nbSyllable" : 0,
 				"SyllableStruct" : "cv, cvv, cvc, n",
 				"VowelsType" : "O, N, SV",

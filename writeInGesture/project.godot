@@ -31,7 +31,6 @@ config/icon="res://art/icon.png"
 [autoload]
 
 Global="*res://Global.gd"
-DataBase="*res://dataBase.gd"
 
 [rendering]
 

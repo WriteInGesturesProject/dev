@@ -6,6 +6,6 @@
 		"age" : 0,
 		"integibility" : 0,
 		"spokenLanguage" : "Français",
-		"picture_path" : "assistant.png"
+		"picturePath" : "assistant.png"
 	}
 }

@@ -5,12 +5,12 @@ extends Node
 # var a = 2
 # var b = "text"
 
-const Sqlite = preload("res://addons/gd-sqlite/gdsqlite.gdns");
+const SQLite = preload("res://lib/gdsqlite.gdns");
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var db = Sqlite.new();
-	var created = db.open("user://data/database.sql")
+	var db = SQLite.new();
+	var created = db.open_db("user://data/database.sql")
 	if(!created):
 		return
 	var query_Player = "CREATE TABLE IF NOT EXISTS player ( "

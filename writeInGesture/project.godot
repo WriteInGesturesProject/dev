@@ -9,42 +9,12 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Reference",
-"class": "GDSQLITE",
-"language": "GDScript",
-"path": "res://addons/gd-sqlite/constants.gd"
-}, {
-"base": "",
-"class": "GDSQLite",
-"language": "NativeScript",
-"path": "res://addons/gd-sqlite/gdsqlite.gdns"
-}, {
-"base": "Control",
-"class": "GDSQLiteBinaryDownloader",
-"language": "GDScript",
-"path": "res://addons/gd-sqlite/scenes/binary_downloader.gd"
-}, {
-"base": "",
-"class": "GDSQLiteDatabase",
-"language": "NativeScript",
-"path": "res://addons/gd-sqlite/database.gdns"
-}, {
-"base": "",
-"class": "GDSQLiteStatement",
-"language": "NativeScript",
-"path": "res://addons/gd-sqlite/statement.gdns"
-}, {
 "base": "Node",
 "class": "global",
 "language": "GDScript",
 "path": "res://Global.gd"
 } ]
 _global_script_class_icons={
-"GDSQLITE": "",
-"GDSQLite": "",
-"GDSQLiteBinaryDownloader": "",
-"GDSQLiteDatabase": "",
-"GDSQLiteStatement": "",
 "global": ""
 }
 
@@ -61,6 +31,7 @@ config/icon="res://art/icon.png"
 [autoload]
 
 Global="*res://Global.gd"
+DataBase="*res://dataBase.gd"
 
 [rendering]
 

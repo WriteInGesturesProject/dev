@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://GameEnd.gd" type="Script" id=1]
 [ext_resource path="res://fonts/phonetic.tres" type="Theme" id=2]
 [ext_resource path="res://fonts/arial.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://fonts/ButtonTheme.tres" type="Theme" id=4]
+[ext_resource path="res://fonts/background.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -18,12 +20,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 2 )
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 2 )
@@ -31,12 +37,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 margin_right = 1024.0
 margin_bottom = 600.0
 alignment = 1
 
-[node name="Comment" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+[node name="Comment" type="Label" parent="MarginContainer/VBoxContainer"]
 margin_top = 244.0
 margin_right = 1024.0
 margin_bottom = 306.0
@@ -44,7 +50,7 @@ theme = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 
-[node name="Score" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+[node name="Score" type="Label" parent="MarginContainer/VBoxContainer"]
 margin_top = 310.0
 margin_right = 1024.0
 margin_bottom = 356.0
@@ -53,9 +59,9 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 
 [node name="Home" type="Button" parent="."]
-margin_right = 12.0
-margin_bottom = 20.0
-theme = ExtResource( 2 )
+margin_right = 165.0
+margin_bottom = 102.0
+theme = ExtResource( 4 )
 text = "Accueil"
 __meta__ = {
 "_edit_use_anchors_": false

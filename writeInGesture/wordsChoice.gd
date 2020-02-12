@@ -9,7 +9,6 @@ var contentFile = Global.loadFileInArray(nameFile)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(contentFile)
 	for i in range(0, contentFile.size()):
 		var currentHbox = _createAvailableWordsList(str(i), contentFile[i], str(i), "X")
 		find_node("wordsAvailableContainer").add_child(currentHbox)
@@ -19,12 +18,14 @@ func _createKeyboard():
 	for b in Global.dictionaryPhonetic:
 		for w in Global.dictionaryPhonetic[b]:
 			var keyButton = Button.new()
+			keyButton.theme = load("res://fonts/phonetic.tres")
 			keyButton.text = w["phonetic"]
 			keyButton.connect("pressed",self,"_on_keyButton_pressed", [keyButton])
 			keyButton.rect_min_size = Vector2(100,0)
 			find_node("gridKeyboard").add_child(keyButton)
 	var keyDeleteButton = Button.new()
 	keyDeleteButton.text = "delete"
+	keyDeleteButton.theme = load("res://fonts/phonetic.tres")
 	keyDeleteButton.connect("pressed",self,"_on_keyButton_pressed", [keyDeleteButton])
 	find_node("gridKeyboard").add_child(keyDeleteButton)
 	
@@ -59,6 +60,7 @@ func _createAvailableWordsList(nameLabel, textLabel, nameButton, textButton):
 	var currentLabel = Label.new()
 	currentLabel.name = nameLabel
 	var buttonDelete = Button.new()
+	buttonDelete.theme = load("res://fonts/ButtonTheme.tres")
 	currentLabel.size_flags_horizontal = SIZE_EXPAND_FILL
 	hBoxContainer.add_child(currentLabel)
 	hBoxContainer.add_child(buttonDelete)
@@ -67,7 +69,7 @@ func _createAvailableWordsList(nameLabel, textLabel, nameButton, textButton):
 	buttonDelete.connect("gui_input",self,"input_event",[])
 	buttonDelete.connect("pressed",self,"_on_deleteButton_pressed", [buttonDelete, currentLabel])
 	currentLabel.set_text(textLabel)
-	currentLabel.add_color_override("font_color", Color(0,0,0))
+	currentLabel.add_color_override("font_color", Color(255,255,255))
 	return hBoxContainer
 
 func _on_deleteButton_pressed(button, label):

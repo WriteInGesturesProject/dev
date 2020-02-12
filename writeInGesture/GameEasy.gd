@@ -1,6 +1,6 @@
 extends Control
 
-const TTSDriver = preload("res://modules/TTS/TTSDriver.gdns")
+#const TTSDriver = preload("res://modules/TTS/TTSDriver.gdns")
 var tts = null
 var stt = null
 var words = ""
@@ -16,7 +16,7 @@ func _ready():
 	os = OS.get_name()
 	match os:
 		"X11":
-			tts = TTSDriver.new()
+			#tts = TTSDriver.new()
 			set_process(true)
 			tts.set_voice("French (France)")
 		"Android":

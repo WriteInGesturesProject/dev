@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://fonts/HelloGrizellesans.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://art/imgBorel/o.png" type="Texture" id=2]
+[ext_resource path="res://art/users/cashier.png" type="Texture" id=2]
 [ext_resource path="res://home.gd" type="Script" id=3]
 [ext_resource path="res://fonts/phonetic.tres" type="Theme" id=4]
 [ext_resource path="res://fonts/ButtonTheme.tres" type="Theme" id=5]
@@ -38,6 +38,8 @@ __meta__ = {
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 1.21252
+margin_right = 53.2125
 theme = ExtResource( 4 )
 custom_constants/margin_right = 120
 custom_constants/margin_top = 0
@@ -61,20 +63,29 @@ margin_right = 183.0
 margin_bottom = 600.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/separation = 250
 alignment = 1
 
-[node name="Picture" type="TextureRect" parent="MarginContainer2/HBoxContainer/VBoxContainer"]
-margin_top = 193.0
+[node name="Control" type="Control" parent="MarginContainer2/HBoxContainer/VBoxContainer"]
+margin_top = 124.0
 margin_right = 183.0
-margin_bottom = 301.0
+margin_bottom = 124.0
+
+[node name="Picture" type="TextureRect" parent="MarginContainer2/HBoxContainer/VBoxContainer/Control"]
+margin_top = 20.0
+margin_right = 200.0
+margin_bottom = 220.0
 theme = ExtResource( 4 )
 texture = ExtResource( 2 )
-stretch_mode = 4
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Change" type="Button" parent="MarginContainer2/HBoxContainer/VBoxContainer"]
-margin_top = 305.0
+margin_top = 374.0
 margin_right = 183.0
-margin_bottom = 407.0
+margin_bottom = 476.0
 theme = ExtResource( 5 )
 text = "Modifier"
 
@@ -82,8 +93,6 @@ text = "Modifier"
 margin_left = 283.0
 margin_right = 466.0
 margin_bottom = 600.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
 custom_constants/separation = 80
 alignment = 1
 
@@ -197,6 +206,7 @@ placeholder_text = "Identifiant"
 margin_top = 263.0
 margin_right = 724.0
 margin_bottom = 335.0
+max_length = 20
 secret = true
 placeholder_text = "Mot de passe"
 
@@ -252,6 +262,7 @@ placeholder_text = "Ancien mot de passe"
 margin_top = 261.0
 margin_right = 724.0
 margin_bottom = 333.0
+max_length = 20
 secret = true
 placeholder_text = "Nouveau mot de passe"
 
@@ -259,6 +270,7 @@ placeholder_text = "Nouveau mot de passe"
 margin_top = 358.0
 margin_right = 724.0
 margin_bottom = 430.0
+max_length = 20
 secret = true
 placeholder_text = "Confirmer le nouveau mot de passe"
 

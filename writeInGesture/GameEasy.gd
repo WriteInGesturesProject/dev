@@ -21,11 +21,11 @@ func _ready():
 	if(Engine.has_singleton("GodotSpeech")):
 		stt = Engine.get_singleton("GodotSpeech")
 	if(Global.game == 2):
-		get_node("ColorRect/MarginContainer/VBoxContainer/Number").set_text(Global.Number[Global.index])
+		find_node("Number").set_text(Global.Number[Global.index])
 		find_node("TextureRect").texture = load(Global.img_count[Global.index])
-		get_node("ColorRect/MarginContainer/VBoxContainer/TextureRect2").visible = false
-		get_node("ColorRect/MarginContainer/VBoxContainer/Number").visible = true
-		get_node("ColorRect/MarginContainer/VBoxContainer/Word").set_text(Global.words_count[Global.index])
+		find_node("TextureRect2").visible = false
+		find_node("Number").visible = true
+		find_node("Word").set_text(Global.words_count[Global.index])
 	elif(Global.game == 1):
 		var img = ""
 		find_node("TextureRect").visible = false
@@ -38,7 +38,7 @@ func _ready():
 			container.add_child(imgBorel)
 		find_node("ImgBorel").add_child(container)
 		#get_node("ColorRect/MarginContainer/VBoxContainer/TextureRect2").textue = image du mot
-		get_node("ColorRect/MarginContainer/VBoxContainer/Word").set_text(myWords[index])
+		find_node("Word").set_text(myWords[index])
 	Global.score[Global.level][Global.game - 1] = 0
 	
 func _process(delta):
@@ -69,11 +69,11 @@ func _on_Next_pressed():
 		if(Global.index == 10):
 			get_tree().change_scene("res://GameEnd.tscn")
 		else:
-			get_node("ColorRect/MarginContainer/VBoxContainer/Number").set_text(Global.Number[Global.index])
+			find_node("Number").set_text(Global.Number[Global.index])
 			find_node("TextureRect").texture = load(Global.img_count[Global.index])
-			get_node("ColorRect/MarginContainer/VBoxContainer/TextureRect2").visible = false
-			get_node("ColorRect/MarginContainer/VBoxContainer/Word").visible = true
-			get_node("ColorRect/MarginContainer/VBoxContainer/Word").set_text(Global.words_count[Global.index])
+			find_node("TextureRect2").visible = false
+			find_node("Word").visible = true
+			find_node("Word").set_text(Global.words_count[Global.index])
 	elif(Global.game == 1):
 		index += 1
 		container.remove_and_skip()
@@ -92,7 +92,7 @@ func _on_Next_pressed():
 				container.add_child(imgBorel)
 			find_node("ImgBorel").add_child(container)
 			#get_node("ColorRect/MarginContainer/VBoxContainer/TextureRect2").textue = image du mot
-			get_node("ColorRect/MarginContainer/VBoxContainer/Word").set_text(myWords[index])
+			find_node("Word").set_text(myWords[index])
 	incremented = false
 
 func _on_Speak_pressed(extra_arg_0):

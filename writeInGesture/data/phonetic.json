@@ -32,12 +32,6 @@
 			"ressource_path" : "u.png"
 		},
 		{
-			"phonetic" :"[ø]",
-			"example":"peu",
-			"example_phonetic":"[pø]",
-			"ressource_path" : "eu.png"
-		},
-		{
 			"phonetic" :"[ə]",
 			"example":"je",
 			"example_phonetic":"[ʒə]",
@@ -67,12 +61,6 @@
 			"example_phonetic":"[sɔʁ]",
 			"ressource_path" : "a.png"
 		},
-		{
-			"phonetic" :"[ɑ]",
-			"example":"pâle",
-			"example_phonetic":"[pɑl]",
-			"ressource_path" : "a.png"
-		}
 	],
 	"VOYELLES_NASALES":
 	[
@@ -81,12 +69,6 @@
 			"example":"pain",
 			"example_phonetic":"[pɛ̃]",
 			"ressource_path" : "in.png"
-		},
-		{
-			"phonetic" :"[œ̃]",
-			"example":"un",
-			"example_phonetic":"[œ̃]",
-			"ressource_path" : "a.png"
 		},
 		{
 			"phonetic" :"[ɔ̃]",
@@ -197,9 +179,9 @@
 			"ressource_path" : "a.png"
 		},
 		{
-			"phonetic" :"[ʁ]",
+			"phonetic" :"[r]",
 			"example":"rousse",
-			"example_phonetic":"[ʁus]",
+			"example_phonetic":"[rus]",
 			"ressource_path" : "r.png"
 		},
 		{

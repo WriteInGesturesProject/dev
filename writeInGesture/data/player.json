@@ -1,0 +1,11 @@
+{
+	"User":
+	{
+		"id" : "N6CG",
+		"name" : "TonNom",
+		"age" : 0,
+		"integibility" : 0,
+		"spokenLanguage" : "Français",
+		"picture_path" : "assistant.png"
+	}
+}

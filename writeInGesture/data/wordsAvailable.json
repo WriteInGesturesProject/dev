@@ -1,12 +1,19 @@
 {
-	"version" :{
-		"numero": "1.0",
-		"numberwords":"3"
-	},
-	
-	"words" : [
-		"manon",
-		"te",
-		"aime",
-	]
+	"WordsAvailable":
+	{
+		"version" : 1.0,
+		"userId" : 0,
+		"words" : [
+			{
+				"phonetic" : "liːvʁ",
+				"word" : "livre",
+				"path" : "image.png",
+				"homonym" : [""],
+				"nbSyllable" : 0,
+				"SyllableStruct" : "cv, cvv, cvc, n",
+				"VowelsType" : "O, N, SV",
+				"ConsonantsType" : "O, C, N"
+			},
+		]
+	}
 }

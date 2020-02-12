@@ -1,0 +1,26 @@
+{
+	"Exercise":
+	{
+		"version" : 1.0,
+		"UserId" : 0,
+		"name" : "Exemple Nom",
+		"type" : {
+			"type" : "Entrainement",
+			"Catégorie" : "Custom, MonoSyllabe, BiSyllable, TriSyllable",
+			"SyllableStruct" : "cv, cvv, cvc, n",
+			"VowelsType" : "O, N, SV",
+			"ConsonantsType" : "O, C, N"
+
+		},
+		"difficulty" : 0,
+		"successPercentage" : 0.0,
+		"nbOccurrences" : 0,
+		"nbWords" : 0,
+		"Words" : [
+			{
+				"word" : "",
+				"nbSuccess" : 0
+			},
+		]
+	}
+}

@@ -280,6 +280,11 @@ margin_top = 455.0
 margin_right = 724.0
 margin_bottom = 523.0
 text = "Envoyer"
+
+[node name="Button" type="Button" parent="."]
+margin_right = 40.0
+margin_bottom = 62.0
+text = "Test"
 [connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer/Change" to="." method="_on_Change_pressed"]
 [connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer2/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer3/Help" to="." method="_on_Help_pressed"]
@@ -288,3 +293,4 @@ text = "Envoyer"
 [connection signal="pressed" from="Popup/VBoxContainer/submit" to="Popup" method="_on_submit_pressed"]
 [connection signal="pressed" from="Popup/VBoxContainer/resetPsswd" to="Popup" method="_on_resetPsswd_pressed"]
 [connection signal="pressed" from="Popup/PopupReset/VBoxContainer/submit" to="Popup/PopupReset" method="_on_submit_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

@@ -47,3 +47,7 @@ func _on_SpeakTest_pressed():
 func _on_Popup_popup_hide():
 	if(find_node("backgroundDark") != null):
 		find_node("backgroundDark").visible = false
+
+
+func _on_Button_pressed():
+	get_tree().change_scene("res://GooseGameEasy.tscn")

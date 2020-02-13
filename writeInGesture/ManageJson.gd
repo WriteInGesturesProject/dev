@@ -6,12 +6,18 @@ extends Node
 var userPath = "user://data/"
 var resPath = "res://data/"
 const Word = preload("res://Word.gd")
+const Player = preload("res://Player.gd")
+const WordsAvailable = preload("res://WordsAvailable.gd")
+const Exercise = preload("res://Exercise.gd")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var node = Word.new()
-	if(getElement("exercise.json", "Exercise/words/word", node)):
-		print(node.toString())
+	var player = Player.new()
+	var wordsAvailable = WordsAvailable.new()
+	var exercice = Exercise.new()
+	if(getElement("exercise.json", "Exercise", exercice)):
+		print(exercice.toString())
 
 #pathFile : String 
 #pathAttribute : String ex:"Exercice/Words"
@@ -47,14 +53,14 @@ func getElement(nameFile : String, pathAttribute : String, node : Node):
 	var dict = tmp.result
 	var attributs = pathAttribute.split("/");
 	for el in attributs :
-		print(dict)
+		#print(dict)
 		dict  = dict[el] 
 		if(dict == null) :
 			print("Wrong pathAttribute")
 			return 0
 	for field in dict :
 		node.setAttribut(field, dict[field])
-		#print (field, dict[field])
+		#print (field," : ", dict[field])
 	return 1
 	
 #node : Node

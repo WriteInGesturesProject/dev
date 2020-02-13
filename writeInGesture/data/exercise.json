@@ -5,8 +5,8 @@
 		"UserId" : 0,
 		"name" : "Exemple Nom",
 		"type" : {
-			"type" : "Entrainement",
-			"catégorie" : "Custom, MonoSyllabe, BiSyllable, TriSyllable",
+			"name" : "Entrainement",
+			"categorie" : "Custom, MonoSyllabe, BiSyllable, TriSyllable",
 			"syllableStruct" : "cv, cvv, cvc, n",
 			"vowelsType" : "O, N, SV",
 			"consonantsType" : "O, C, N"
@@ -15,9 +15,9 @@
 		"difficulty" : 0,
 		"successPercentage" : 0.0,
 		"nbOccurrences" : 0,
-		"nbWords" : 0,
+		"nbWords" : 1,
 		"words" : {
-			"word" : {
+			"liːvʁ" : {
 				"phonetic" : "liːvʁ",
 				"word" : "livre",
 				"path" : "image.png",
@@ -27,7 +27,8 @@
 				"vowelsType" : "O, N, SV",
 				"consonantsType" : "O, C, N"
 			},
-			"nbSuccess" : 0
 		},
+		"nbSuccess" : 0
+
 	}
 }

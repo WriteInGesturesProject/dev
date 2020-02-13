@@ -68,7 +68,7 @@ func _process(delta):
 		find_node("Non").visible = false
 
 func _on_Back_pressed():
-	get_tree().change_scene("res://GameLevel.tscn")
+	get_tree().change_scene("res://ExerciceMenu.tscn")
 
 func _on_Next_pressed():
 	find_node("Record").disabled = false

@@ -129,4 +129,4 @@ func _on_Record_pressed():
 
 
 func _on_Back_pressed():
-	get_tree().change_scene("res://home.tscn")
+	get_tree().change_scene("res://GameChoose.tscn")

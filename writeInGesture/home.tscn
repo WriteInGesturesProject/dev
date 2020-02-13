@@ -39,8 +39,6 @@ __meta__ = {
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1.21252
-margin_right = 53.2125
 theme = ExtResource( 4 )
 custom_constants/margin_right = 120
 custom_constants/margin_top = 0
@@ -52,7 +50,7 @@ __meta__ = {
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2"]
 margin_left = 120.0
-margin_right = 956.0
+margin_right = 1000.0
 margin_bottom = 600.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -92,34 +90,34 @@ text = "Modifier"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer2/HBoxContainer"]
 margin_left = 283.0
-margin_right = 466.0
+margin_right = 510.0
 margin_bottom = 600.0
-custom_constants/separation = 80
+custom_constants/separation = 40
 alignment = 1
 
 [node name="Logo" type="Label" parent="MarginContainer2/HBoxContainer/VBoxContainer2"]
-margin_top = 76.0
-margin_right = 183.0
-margin_bottom = 156.0
+margin_top = 45.0
+margin_right = 227.0
+margin_bottom = 125.0
 theme = ExtResource( 4 )
 custom_fonts/font = SubResource( 1 )
 text = "LOGO"
 align = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/HBoxContainer/VBoxContainer2"]
-margin_top = 236.0
-margin_right = 183.0
-margin_bottom = 342.0
+margin_top = 165.0
+margin_right = 227.0
+margin_bottom = 271.0
 
 [node name="Label" type="Label" parent="MarginContainer2/HBoxContainer/VBoxContainer2/VBoxContainer"]
-margin_right = 183.0
+margin_right = 227.0
 margin_bottom = 62.0
 text = "Bienvenue "
 align = 1
 
 [node name="NamePlayer" type="Label" parent="MarginContainer2/HBoxContainer/VBoxContainer2/VBoxContainer"]
 margin_top = 66.0
-margin_right = 183.0
+margin_right = 227.0
 margin_bottom = 106.0
 theme = ExtResource( 4 )
 custom_fonts/font = SubResource( 2 )
@@ -127,16 +125,23 @@ text = "Xavier L'autiste"
 align = 1
 
 [node name="Play" type="Button" parent="MarginContainer2/HBoxContainer/VBoxContainer2"]
-margin_top = 422.0
-margin_right = 183.0
-margin_bottom = 524.0
+margin_top = 311.0
+margin_right = 227.0
+margin_bottom = 413.0
 size_flags_horizontal = 3
 theme = ExtResource( 5 )
 text = "Jouer"
 
+[node name="Training" type="Button" parent="MarginContainer2/HBoxContainer/VBoxContainer2"]
+margin_top = 453.0
+margin_right = 227.0
+margin_bottom = 555.0
+theme = ExtResource( 5 )
+text = "M'entrainer"
+
 [node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer2/HBoxContainer"]
-margin_left = 566.0
-margin_right = 836.0
+margin_left = 610.0
+margin_right = 880.0
 margin_bottom = 600.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -280,21 +285,12 @@ margin_top = 455.0
 margin_right = 724.0
 margin_bottom = 523.0
 text = "Envoyer"
-
-[node name="Button" type="Button" parent="."]
-margin_right = 40.0
-margin_bottom = 62.0
-theme = ExtResource( 5 )
-text = "Test"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 [connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer/Change" to="." method="_on_Change_pressed"]
 [connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer2/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer2/Training" to="." method="_on_Training_pressed"]
 [connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer3/Help" to="." method="_on_Help_pressed"]
 [connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer3/Admin" to="." method="_on_Admin_pressed"]
 [connection signal="popup_hide" from="Popup" to="." method="_on_Popup_popup_hide"]
 [connection signal="pressed" from="Popup/VBoxContainer/submit" to="Popup" method="_on_submit_pressed"]
 [connection signal="pressed" from="Popup/VBoxContainer/resetPsswd" to="Popup" method="_on_resetPsswd_pressed"]
 [connection signal="pressed" from="Popup/PopupReset/VBoxContainer/submit" to="Popup/PopupReset" method="_on_submit_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

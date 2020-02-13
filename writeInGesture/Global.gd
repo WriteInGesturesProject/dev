@@ -20,20 +20,6 @@ var index = 0
 
 var dictionaryPhonetic = loadJSonInDic("phonetic.json")
 var current_scene = null
-var text
-var avatar
-
-func set_avatar(avatar):
-	self.avatar = avatar
-
-func set_name(text):
-	self.text = text
-
-func get_avatar():
-	return avatar
-
-func get_text():
-	return text
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -64,6 +50,8 @@ func rewriteFile(path, content):
 
 func loadFileInArray(path):
 	var file = File.new()
+	if (!file.exists("res://data/"+path)):
+		return null
 	file.open("res://data/"+path, file.READ)
 	var content = []
 	var currentLine = file.get_line()

@@ -47,6 +47,4 @@ func toString() -> String :
 	res += "vowelsType : "+ vowelsType +"\n"	
 	res += "consonantsType : "+ consonantsType +"\n"	
 	return res
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+

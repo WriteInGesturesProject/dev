@@ -5,14 +5,31 @@ extends Node
 # var b = "text"
 var userPath = "user://data/"
 var resPath = "res://data/"
+
 const Dictionnary = preload("res://Dictionnary.gd")
+const Word = preload("res://Word.gd")
+const Player = preload("res://Player.gd")
+const WordsAvailable = preload("res://WordsAvailable.gd")
+const Exercise = preload("res://Exercise.gd")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var node = Dictionnary.new()
-	if(getElement("dictionnary.json", "Dictionnary", node)):
-		print(node.toString())
-	putElement("exercise.json", "Exercise/words/word/phonetic", "teteDeBite")
+	var text = checkFileExistUserPath("test.json")
+	if text == "": 
+		return 0
+	var tmp = JSON.parse(text)
+	var test = tmp.result
+	print(test)
+	var dictionnary = Dictionnary.new()
+	var player = Player.new()
+	var wordsAvailable = WordsAvailable.new()
+	var exercice = Exercise.new()
+	getElement("dictionnary.json", "Dictionnary", dictionnary)
+	getElement("player.json", "User", player)
+	getElement("wordsAvailable.json", "WordsAvailable", wordsAvailable)
+	getElement("exercice.json", "Exercice", exercice)
+	putElement("exercise.json", "Exercise/words/ni/phonetic", "test")
+	addElement("wordsAvailable.json", "WordsAvailable/words", test)
 
 func checkFileExistUserPath(nameFile:String)->String:
 	var file = File.new()
@@ -53,8 +70,23 @@ func putElement(nameFile, pathAttribute, content):
 #pathFile : String 
 #pathAttribute : String ex:"Exercice/Words"
 #This function can put one element in a JSON File from the path file
-func addElement(nameFile, pathAttribute, node):
-	return 0
+func addElement(nameFile, pathAttribute, dictionnary):
+	var text = checkFileExistUserPath(nameFile)
+	if text == "": 
+		return 0
+	var tmp = JSON.parse(text)
+	var dict = tmp.result
+	var attributs = pathAttribute.split("/");
+	var dictTmp = dict
+	for el in dict :
+		dictTmp = dictTmp[el]
+		if(dict == null) :
+			print("Wrong pathAttribute")
+			return 0
+	dictTmp[dictionnary.keys()[0]] = dictionnary.get(dictionnary.keys()[0])
+	var jtstr = JSON.print(dict)
+	rewriteFile(nameFile, jtstr)
+	return 1
 	
 #nameFile : String 
 #pathAttribute : String ex:"Exercice/Words"
@@ -75,7 +107,7 @@ func getElement(nameFile : String, pathAttribute : String, node : Node):
 			return 0
 	for field in dict :
 		node.setAttribut(field, dict[field])
-		#print (field, dict[field])
+		#print (field," : ", dict[field])
 	return 1
 	
 #node : Node

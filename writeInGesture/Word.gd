@@ -44,8 +44,8 @@ func toString() -> String :
 	res += "homonym : "+ String(homonym) +"\n"	
 	res += "nbSyllable : "+String(nbSyllable) +"\n"	
 	res += "syllableStruct : "+ syllableStruct +"\n"	
-	res += "vowelsType : "+vowelsType+"\n"	
-	res += "consonantsType : "+consonantsType+"\n"	
+	res += "vowelsType : "+ vowelsType +"\n"	
+	res += "consonantsType : "+ consonantsType +"\n"	
 	return res
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

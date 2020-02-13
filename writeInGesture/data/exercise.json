@@ -5,12 +5,11 @@
 		"UserId" : 0,
 		"name" : "Exemple Nom",
 		"type" : {
-			"type" : "Entrainement",
-			"catégorie" : "Custom, MonoSyllabe, BiSyllable, TriSyllable",
+			"name" : "Entrainement",
+			"categorie" : "Custom, MonoSyllabe, BiSyllable, TriSyllable",
 			"syllableStruct" : "cv, cvv, cvc, n",
 			"vowelsType" : "O, N, SV",
 			"consonantsType" : "O, C, N"
-
 		},
 		"difficulty" : 0,
 		"successPercentage" : 0.0,

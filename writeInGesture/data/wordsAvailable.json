@@ -1,17 +1,17 @@
 {
 	"WordsAvailable":
 	{
-		"words" : [
-			{
+		"words" : {
+			"liːvʁ" : {
 				"phonetic" : "liːvʁ",
 				"word" : "livre",
 				"path" : "image.png",
-				"homonym" : [""],
+				"homonym" : ["livre"],
 				"nbSyllable" : 0,
-				"SyllableStruct" : "cv, cvv, cvc, n",
-				"VowelsType" : "O, N, SV",
-				"ConsonantsType" : "O, C, N"
+				"syllableStruct" : "cv, cvv, cvc, n",
+				"vowelsType" : "O, N, SV",
+				"consonantsType" : "O, C, N"
 			},
-		]
+		}
 	}
 }

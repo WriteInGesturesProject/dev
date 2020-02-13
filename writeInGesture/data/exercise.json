@@ -6,30 +6,28 @@
 		"name" : "Exemple Nom",
 		"type" : {
 			"type" : "Entrainement",
-			"Catégorie" : "Custom, MonoSyllabe, BiSyllable, TriSyllable",
-			"SyllableStruct" : "cv, cvv, cvc, n",
-			"VowelsType" : "O, N, SV",
-			"ConsonantsType" : "O, C, N"
+			"catégorie" : "Custom, MonoSyllabe, BiSyllable, TriSyllable",
+			"syllableStruct" : "cv, cvv, cvc, n",
+			"vowelsType" : "O, N, SV",
+			"consonantsType" : "O, C, N"
 
 		},
 		"difficulty" : 0,
 		"successPercentage" : 0.0,
 		"nbOccurrences" : 0,
 		"nbWords" : 0,
-		"Words" : [
-			{
-				"word" : {
-					"phonetic" : "liːvʁ",
-					"word" : "livre",
-					"path" : "image.png",
-					"homonym" : [""],
-					"nbSyllable" : 0,
-					"SyllableStruct" : "cv, cvv, cvc, n",
-					"VowelsType" : "O, N, SV",
-					"ConsonantsType" : "O, C, N"
-				},
-				"nbSuccess" : 0
+		"words" : {
+			"word" : {
+				"phonetic" : "liːvʁ",
+				"word" : "livre",
+				"path" : "image.png",
+				"homonym" : [""],
+				"nbSyllable" : 0,
+				"syllableStruct" : "cv, cvv, cvc, n",
+				"vowelsType" : "O, N, SV",
+				"consonantsType" : "O, C, N"
 			},
-		]
+			"nbSuccess" : 0
+		},
 	}
 }

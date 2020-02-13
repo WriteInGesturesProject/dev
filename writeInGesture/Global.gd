@@ -38,6 +38,14 @@ func get_text():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
+	
+func ArrayToString(content):
+	var newContent = ""
+	for i in range(0,content.size()):
+		newContent += content[i]
+		if(i != content.size()-1):
+			newContent += "\n"
+	return newContent
 
 func saveStringInFile(path, content):
 	print("[SAVE_STRING_INFILE]")
@@ -132,7 +140,6 @@ func loadJSonInDic(path):
 	file.close()
 	return dict
 	
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

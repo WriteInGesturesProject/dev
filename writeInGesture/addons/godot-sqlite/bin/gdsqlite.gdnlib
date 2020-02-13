@@ -1,0 +1,22 @@
+[general]
+
+singleton=false
+load_once=true
+symbol_prefix="godot_"
+reloadable=false
+
+[entry]
+
+Android.armeabi-v7a="res://addons/godot-sqlite/bin/x11/libgdsqlite.so"
+OSX.64="res://addons/godot-sqlite/bin/osx/libgdsqlite.dylib"
+Windows.64="res://addons/godot-sqlite/bin/win64/libgdsqlite.dll"
+X11.64="res://addons/godot-sqlite/bin/x11/libgdsqlite.so"
+Android="res://addons/godot-sqlite/bin/x11/libgdsqlite.so"
+
+[dependencies]
+
+Android.armeabi-v7a=[  ]
+OSX.64=[  ]
+Windows.64=[  ]
+X11.64=[  ]
+Android=[  ]

@@ -7,8 +7,15 @@ extends Control
 var tts = null
 var stt = null
 var os = ""
+var words = ""
 var display = false
 var incremented = false
+var myWords = Global.loadFileInArray("wordsAvailable")
+var index = 0
+var img = ""
+var container = HBoxContainer.new()
+
+var count = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -36,17 +43,67 @@ func _ready():
 				image.texture = load("res://art/users/assistant.png")
 				image.expand = true
 				image.stretch_mode = TextureRect.STRETCH_SCALE_ON_EXPAND
-				image.rect_size.x = 80
-				image.rect_size.y = 80
+				image.rect_size.x = get_viewport().size.y / 8
+				image.rect_size.y = get_viewport().size.y / 8
+				find_node("gridImage").add_constant_override("vseparation",  get_viewport().size.y / 8)
+				find_node("gridImage").add_constant_override("hseparation",  (get_viewport().size.y / 8)+10)
 				control_img.add_child(image)
 				find_node("gridImage").add_child(control_img)
+	for c in myWords[index]:
+			container = HBoxContainer.new()
+			container.alignment = HBoxContainer.ALIGN_CENTER
+			img = Global.searchInDictionnary(c)
+			var imgBorel = TextureRect.new()
+			imgBorel.texture = load("res://art/imgBorel/"+img)
+			container.add_child(imgBorel)
+	find_node("ImgBorel").add_child(container)
+	find_node("Word").text = myWords[index]
 
-func _on_Speak_pressed(extra_arg_0):
+func _change():
+	count = 0
+	find_node("Record").disabled = false
+	find_node("Record").set_text("Enregistrer")
+	display = false
+	index += 1
+	container.remove_and_skip()
+	var img = ""
+	if(index >= myWords.size()):
+		get_tree().change_scene("res://GameEnd.tscn")
+	else :
+		container = HBoxContainer.new()
+		container.alignment = HBoxContainer.ALIGN_CENTER
+		container.name = "HBoxContainer"
+		for c in myWords[index]:
+			img = Global.searchInDictionnary(c)
+			var imgBorel = TextureRect.new()
+			imgBorel.texture = load("res://art/imgBorel/"+img)
+			container.add_child(imgBorel)
+		find_node("ImgBorel").add_child(container)
+		find_node("Word").set_text(myWords[index])
+	incremented = false
+
+func _process(delta):
+	if(stt != null && stt.isListening()):
+		find_node("Record").set_text("En écoute")
+	if(stt != null && !stt.isListening()):
+		find_node("Record").set_text("Enregistrer")
+	if(stt != null && display && stt.isDetectDone()):
+		words = stt.getWords()
+		print(words)
+		find_node("Record").set_text("Vous avez dit : " + words)
+		if(words == find_node("Word").text):
+			find_node("Record").disabled = true
+			if(incremented == false):
+				Global.score[Global.level][Global.game - 1] += 1
+				incremented = true
+				_change()
+
+func _on_Speak_pressed():
 	if(stt != null && stt.isListening()):
 		stt.stopListen()
 		find_node("Record").set_text("Enregistrer")
 	if(tts != null):
-		var text = "bonjour"
+		var text = myWords[index]
 		match os:
 			"X11":
 				tts.speak(text, false)
@@ -54,6 +111,10 @@ func _on_Speak_pressed(extra_arg_0):
 				tts.speakText(text)
 
 func _on_Record_pressed():
+	if(count == 2):
+		_change()
+		return
+	count += 1
 	if(stt != null):
 		if(stt.isListening() == false):
 			stt.doListen()
@@ -65,3 +126,7 @@ func _on_Record_pressed():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_Back_pressed():
+	get_tree().change_scene("res://home.tscn")

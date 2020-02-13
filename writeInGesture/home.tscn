@@ -284,7 +284,11 @@ text = "Envoyer"
 [node name="Button" type="Button" parent="."]
 margin_right = 40.0
 margin_bottom = 62.0
+theme = ExtResource( 5 )
 text = "Test"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer/Change" to="." method="_on_Change_pressed"]
 [connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer2/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer3/Help" to="." method="_on_Help_pressed"]

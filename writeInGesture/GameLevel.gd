@@ -22,10 +22,13 @@ func _ready():
 
 
 func _on_Back_pressed():
-	get_tree().change_scene("res://ExerciceMenu.tscn")
+	get_tree().change_scene("res://GameChoose.tscn")
 
 func _on_Easy_pressed():
-	get_tree().change_scene("res://GameEasy.tscn")
+	if(Global.play == 1):
+		get_tree().change_scene("res://GooseGameEasy.tscn")
+	elif (Global.play == 2):
+		get_tree().change_scene("res://ListenPlayEasy.tscn")
 	Global.level = 0
 	
 func _on_Normal_pressed():

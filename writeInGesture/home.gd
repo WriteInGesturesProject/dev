@@ -33,7 +33,7 @@ func _on_Admin_pressed():
 	#get_tree().change_scene("res://speechTherapistMenu.tscn")
 
 func _on_Play_pressed():
-	get_tree().change_scene("res://ExerciceMenu.tscn")
+	get_tree().change_scene("res://GameChoose.tscn")
 
 
 func _on_Help_pressed():
@@ -47,3 +47,6 @@ func _on_SpeakTest_pressed():
 func _on_Popup_popup_hide():
 	if(find_node("backgroundDark") != null):
 		find_node("backgroundDark").visible = false
+
+func _on_Training_pressed():
+	get_tree().change_scene("res://ExerciceMenu.tscn")

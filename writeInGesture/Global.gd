@@ -12,6 +12,7 @@ var score3 = [0,0,0,0]
 var score = [score1, score2, score3]
 
 var game = 1
+var play = 1
 
 var Number = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 var words_count = ["un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf", "dix"]

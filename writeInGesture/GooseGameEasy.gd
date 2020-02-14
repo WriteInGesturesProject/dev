@@ -14,6 +14,7 @@ var myWords = Global.loadFileInArray("wordsAvailable")
 var index = 0
 var img = ""
 var container = HBoxContainer.new()
+var board = []
 
 var count = 0
 
@@ -32,6 +33,7 @@ func _ready():
 				tts.fireTTS()
 			if(Engine.has_singleton("GodotSpeech")):
 				stt = Engine.get_singleton("GodotSpeech")
+	var numb = 0
 	for b in range(0,5):
 		for w in range(0,8):
 			if((b==0 && w==7) || (b==2 && (w==7 || w ==0)) || (b==4 && w==0) || (b==1 && w!=7) || (b==3 && w!=0)):
@@ -45,6 +47,7 @@ func _ready():
 				image.stretch_mode = TextureRect.STRETCH_SCALE_ON_EXPAND
 				image.rect_size.x = get_viewport().size.y / 8
 				image.rect_size.y = get_viewport().size.y / 8
+				board.append(image)
 				find_node("gridImage").add_constant_override("vseparation",  get_viewport().size.y / 8)
 				find_node("gridImage").add_constant_override("hseparation",  (get_viewport().size.y / 8)+10)
 				control_img.add_child(image)
@@ -58,6 +61,7 @@ func _ready():
 			container.add_child(imgBorel)
 	find_node("ImgBorel").add_child(container)
 	find_node("Word").text = myWords[index]
+	board[0].modulate = "e86767"
 
 func _change():
 	count = 0
@@ -65,6 +69,8 @@ func _change():
 	find_node("Record").set_text("Enregistrer")
 	display = false
 	index += 1
+	board[index-1].modulate = "ffffff"
+	board[index].modulate = "e86767"
 	container.remove_and_skip()
 	var img = ""
 	if(index >= myWords.size()):
@@ -89,7 +95,6 @@ func _process(delta):
 		find_node("Record").set_text("Enregistrer")
 	if(stt != null && display && stt.isDetectDone()):
 		words = stt.getWords()
-		print(words)
 		find_node("Record").set_text("Vous avez dit : " + words)
 		if(words == find_node("Word").text):
 			find_node("Record").disabled = true

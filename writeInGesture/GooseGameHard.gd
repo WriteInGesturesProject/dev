@@ -52,15 +52,6 @@ func _ready():
 				find_node("gridImage").add_constant_override("hseparation",  (get_viewport().size.y / 8)+10)
 				control_img.add_child(image)
 				find_node("gridImage").add_child(control_img)
-	for c in myWords[index]:
-			container = HBoxContainer.new()
-			container.alignment = HBoxContainer.ALIGN_CENTER
-			img = Global.searchInDictionnary(c)
-			var imgBorel = TextureRect.new()
-			imgBorel.texture = load("res://art/imgBorel/"+img)
-			container.add_child(imgBorel)
-	find_node("ImgBorel").add_child(container)
-	find_node("Word").text = myWords[index]
 	board[0].modulate = "e86767"
 
 func _change():
@@ -75,17 +66,6 @@ func _change():
 	var img = ""
 	if(index >= myWords.size()):
 		get_tree().change_scene("res://GameEnd.tscn")
-	else :
-		container = HBoxContainer.new()
-		container.alignment = HBoxContainer.ALIGN_CENTER
-		container.name = "HBoxContainer"
-		for c in myWords[index]:
-			img = Global.searchInDictionnary(c)
-			var imgBorel = TextureRect.new()
-			imgBorel.texture = load("res://art/imgBorel/"+img)
-			container.add_child(imgBorel)
-		find_node("ImgBorel").add_child(container)
-		find_node("Word").set_text(myWords[index])
 	incremented = false
 
 func _process(delta):

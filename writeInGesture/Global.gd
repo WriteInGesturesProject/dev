@@ -3,7 +3,7 @@ class_name global
 
 var level = 1
 var progress1 = [85,85,85,20]
-var progress2 = [0,0,85,0]
+var progress2 = [85,0,85,0]
 var progress3 = [0,0,0,0]
 var progress = [progress1, progress2, progress3]
 var score1 = [0,0,0,0]

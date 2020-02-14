@@ -85,7 +85,7 @@ theme = ExtResource( 4 )
 disabled = true
 text = "Difficile"
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer3"]
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer3"]
 margin_right = 624.0
 margin_bottom = 102.0
 theme = ExtResource( 4 )

@@ -8,11 +8,11 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if((Global.progress1[Global.game-1] >= 80)):
+	if((Global.progress1[Global.play-1] >= 80)):
 		find_node("TextureRect").visible = false
 		find_node("Normal").disabled = false
-	if( Global.progress2[Global.game-1] >= 80):
-		find_node("TextureRect").visible = false
+	if( Global.progress2[Global.play-1] >= 80):
+		find_node("TextureRect2").visible = false
 		find_node("Hard").disabled = false
 
 
@@ -36,5 +36,6 @@ func _on_Normal_pressed():
 	Global.level = 1
 
 func _on_Hard_pressed():
-	get_tree().change_scene("res://GameHard.tscn")
+	if(Global.play == 1):
+		get_tree().change_scene("res://GooseGameHard.tscn")
 	Global.level = 2

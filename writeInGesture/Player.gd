@@ -8,7 +8,48 @@ var pathPicture : String
 var pathFile : String
 #name is already in Node class
 
+##Function getter and setter. It must to use beacause field of this class is private
+func getId():
+	return id
 
+func setId(identifier : String):
+	id = identifier
+	return ManageJson.putElement(pathFile, "User/id", identifier)
+
+func getAge():
+	return age
+
+func setAge(a : int):
+	age = a
+	return ManageJson.putElement(pathFile, "User/age", age)
+
+func getIntegibility():
+	return integibility
+
+func setIntegibility(inte : float) :
+	integibility = inte
+	return ManageJson.putElement(pathFile, "User/integibility", integibility)
+	
+func getPathPicture() :
+	return pathPicture
+
+func setPathPicture(pathp : String) :
+	pathPicture = pathp
+	return ManageJson.putElement(pathFile, "User/pathPicture", pathPicture)
+
+func getspokenLanguage() :
+	return spokenLanguage
+
+func setspokenLanguage(splan : String) :
+	spokenLanguage = splan
+	return ManageJson.putElement(pathFile, "User/spokenLanguage", spokenLanguage)
+	
+func getPathFile() :
+	return pathFile
+func setPathFile(pathF : String) :
+	pathFile = pathF
+	return 1
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

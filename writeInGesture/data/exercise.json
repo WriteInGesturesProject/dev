@@ -10,22 +10,21 @@
 			"syllableStruct" : "cv, cvv, cvc, n",
 			"vowelsType" : "O, N, SV",
 			"consonantsType" : "O, C, N"
-
 		},
 		"difficulty" : 0,
 		"successPercentage" : 0.0,
 		"nbOccurrences" : 0,
 		"nbWords" : 1,
 		"words" : {
-			"liːvʁ" : {
-				"phonetic" : "liːvʁ",
-				"word" : "livre",
-				"path" : "image.png",
-				"homonym" : [""],
-				"nbSyllable" : 0,
-				"syllableStruct" : "cv, cvv, cvc, n",
-				"vowelsType" : "O, N, SV",
-				"consonantsType" : "O, C, N"
+			"ni" : {
+				"phonetic" : "ni",
+				"word" : "nid",
+				"path" : "nid.png",
+				"homonym" : ["nid","ni"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
 			},
 		},
 		"nbSuccess" : 0

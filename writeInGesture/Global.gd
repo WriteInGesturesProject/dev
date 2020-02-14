@@ -50,7 +50,7 @@ func rewriteFile(path, content):
 
 func loadFileInArray(path):
 	var file = File.new()
-	if (!file.exists("res://data/"+path)):
+	if (!file.file_exists("res://data/"+path)):
 		return null
 	file.open("res://data/"+path, file.READ)
 	var content = []

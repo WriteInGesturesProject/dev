@@ -23,8 +23,8 @@ func _ready():
 				current_avatar = get_node("MarginContainer/VBoxContainer/HBoxContainer"+str(int((i-1)/6) +1)+"/TextureRect" + str(i))
 				current_texture = current_avatar.texture
 				current_avatar.texture = check
-		var name=get_node("MarginContainer/VBoxContainer/LineEdit").text
-		name.text = content[0]
+		var name=get_node("MarginContainer/VBoxContainer/LineEdit")
+		name.text =content[0]
 			
 func after_click(number):
 	avatar = get_node("MarginContainer/VBoxContainer/HBoxContainer"+str(int((number-1)/6) +1)+"/TextureRect" + str(number))
@@ -126,6 +126,12 @@ func _on_TextureRect18_gui_input(event):
 	if (event is InputEventMouseButton):
 		after_click(18)
 
+#test
+func _input(ev):
+	if ev is InputEventKey and ev.scancode == KEY_K:
+		var name=get_node("MarginContainer/VBoxContainer/LineEdit").text
+		Global.rewriteFile("userinfo",name+"\n"+str(current_texture.resource_path))
+		get_tree().change_scene("res://home.tscn")
 
 func _on_Button_gui_input(event):
 	if (event is InputEventMouseButton):

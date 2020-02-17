@@ -7,9 +7,9 @@ var tts = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if Global.get_text() != null and Global.get_avatar() != null:
-		find_node("NamePlayer").text=Global.get_text()
-		find_node("Picture").texture=Global.get_avatar()
+#	if Global.get_text() != null and Global.get_avatar() != null:
+#		find_node("NamePlayer").text=Global.get_text()
+#		find_node("Picture").texture=Global.get_avatar()
 	if(Engine.has_singleton("GodotTextToSpeech")):
 		tts = Engine.get_singleton("GodotTextToSpeech")
 		tts.fireTTS() # fires up the TextToSpeech engine

@@ -5,7 +5,7 @@ var age : int
 var integibility : float
 var spokenLanguage : String
 var pathPicture : String
-var pathFile : String
+var nameFile : String
 #name is already in Node class
 
 
@@ -14,47 +14,47 @@ func getName():
 
 func setName(na : String) :
 	name = na
-	return ManageJson.putElement(pathFile, "User/name", name)
+	return ManageJson.putElement(nameFile, "User/name", name)
 ##Function getter and setter. It must to use beacause field of this class is private
 func getId():
 	return id
 
 func setId(identifier : String):
 	id = identifier
-	return ManageJson.putElement(pathFile, "User/id", identifier)
+	return ManageJson.putElement(nameFile, "User/id", identifier)
 
 func getAge():
 	return age
 
 func setAge(a : int):
 	age = a
-	return ManageJson.putElement(pathFile, "User/age", age)
+	return ManageJson.putElement(nameFile, "User/age", age)
 
 func getIntegibility():
 	return integibility
 
 func setIntegibility(inte : float) :
 	integibility = inte
-	return ManageJson.putElement(pathFile, "User/integibility", integibility)
+	return ManageJson.putElement(nameFile, "User/integibility", integibility)
 	
 func getPathPicture() :
 	return pathPicture
 
 func setPathPicture(pathp : String) :
 	pathPicture = pathp
-	return ManageJson.putElement(pathFile, "User/pathPicture", pathPicture)
+	return ManageJson.putElement(nameFile, "User/pathPicture", pathPicture)
 
 func getspokenLanguage() :
 	return spokenLanguage
 
 func setspokenLanguage(splan : String) :
 	spokenLanguage = splan
-	return ManageJson.putElement(pathFile, "User/spokenLanguage", spokenLanguage)
+	return ManageJson.putElement(nameFile, "User/spokenLanguage", spokenLanguage)
 	
 func getPathFile() :
-	return pathFile
+	return nameFile
 func setPathFile(pathF : String) :
-	pathFile = pathF
+	nameFile = pathF
 	return 1
 	
 
@@ -77,8 +77,8 @@ func setAttribut(field : String, input):
 			spokenLanguage = input
 		"pathPicture" : 
 			pathPicture = input
-		"pathFile" : 
-			pathFile = input
+		"nameFile" : 
+			nameFile = input
 	return
 
 func toString() -> String : 
@@ -88,5 +88,5 @@ func toString() -> String :
 	res += "integibility : "+String(integibility)+"\n"	
 	res += "spokenLanguage : "+spokenLanguage +"\n"	
 	res += "pathPicture : "+ pathPicture +"\n"	
-	res += "pathFile : "+pathFile+"\n"	
+	res += "nameFile : "+nameFile+"\n"	
 	return res

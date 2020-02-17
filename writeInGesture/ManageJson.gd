@@ -32,6 +32,15 @@ func _ready():
 	addElement("wordsAvailable.json", "WordsAvailable/words", test)
 	removeElement("wordsAvailable.json", "WordsAvailable/words", "test")
 
+
+func removeFile(path):
+	print("[REMOVEFILE]")
+	var dir = Directory.new()
+	dir.remove("user://data/"+path)
+	print("[END_REMOVEFILE] : user://data/",path )
+	
+
+
 func checkFileExistUserPath(nameFile:String)->String:
 	var file = File.new()
 	var err = file.open(userPath+nameFile, file.READ)

@@ -10,5 +10,4 @@ func _ready():
 #	pass
 
 func _on_Home_pressed():
-	Global.index = 0
 	get_tree().change_scene("res://home.tscn")

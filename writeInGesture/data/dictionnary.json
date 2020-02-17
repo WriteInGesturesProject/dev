@@ -234,11 +234,11 @@
 				"vowelsType" : "N",
 				"consonantsType" : "O,N"
 			},
-			"nœ" : {
-				"phonetic" : "nœ",
-				"word" : "noeuf",
-				"path" : "noeuf.png",
-				"homonym" : ["noeuf"],
+			"nœf" : {
+				"phonetic" : "nœf",
+				"word" : "neuf",
+				"path" : "neuf.png",
+				"homonym" : ["neuf"],
 				"nbSyllable" : 1,
 				"syllableStruct" : "cv",
 				"vowelsType" : "N",
@@ -286,9 +286,9 @@
 			},
 			"kɛ̃z" : {
 				"phonetic" : "kɛ̃z",
-				"word" : "quatorze",
-				"path" : "quatorze.png",
-				"homonym" : ["quatorze"],
+				"word" : "quinze",
+				"path" : "quinze.png",
+				"homonym" : ["quinze"],
 				"nbSyllable" : 1,
 				"syllableStruct" : "cv",
 				"vowelsType" : "N",

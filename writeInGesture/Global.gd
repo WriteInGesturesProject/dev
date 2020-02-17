@@ -19,12 +19,12 @@ var score = [score1, score2, score3]
 var game = 1
 var play = 1
 
-var customExercice = Exercise.new()
-var countExercice = Exercise.new()
-var weekExercice = Exercise.new()
-var colorExercie = Exercise.new()
-var GooseExercice = Exercise.new()
-var ListenAndChooseExercice = Exercise.new()
+var customExercise = Exercise.new()
+var countExercise : Exercise = Exercise.new()
+var weekExercise = Exercise.new()
+var colorExercise = Exercise.new()
+var GooseExercise = Exercise.new()
+var ListenAndChooseExercise = Exercise.new()
 var player = Player.new()
 var wordsAvailable = WordsAvailable.new()
 var wordDictionnary = MyDictionnary.new()
@@ -37,14 +37,23 @@ func _ready():
 func loadEntity():
 	#We need to remplace file by lastest version
 	
-	ManageJson.getElement("exercise.json", "Exercise", customExercice)
-	customExercice.setAttribut("nameFile", "exercise.json")
+	ManageJson.getElement("exercise.json", "Exercise", customExercise)
+	customExercise.setAttribut("nameFile", "exercise.json")
 	
 	ManageJson.getElement("wordsAvailable.json", "WordsAvailable", wordsAvailable)
 	wordsAvailable.setAttribut("nameFile", "wordsAvailable.json")
 	
 	ManageJson.getElement("dictionnary.json", "Dictionnary", wordDictionnary)
 	wordDictionnary.setAttribut("nameFile", "dictionnary.json")
+	
+#	ManageJson.getElement("colors.json", "Exercise", colorExercise)
+#	colorExercise.setAttribut("nameFile", "colors.json")
+	
+	ManageJson.getElement("week.json", "Exercise", weekExercise)
+	weekExercise.setAttribut("nameFile", "week.json")
+	
+	ManageJson.getElement("number.json", "Exercise", countExercise)
+	countExercise.setAttribut("nameFile", "number.json")
 	
 	var text = ManageJson.checkFileExistUserPath("phonetic.json")
 	if text == "": 

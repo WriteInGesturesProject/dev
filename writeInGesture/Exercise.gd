@@ -55,6 +55,9 @@ func setNbOccurrences(no : int):
 	nbOccurrences = no
 	return ManageJson.putElement(nameFile, "Exercise/nbOccurrences", nbOccurrences)
 
+func getAllWords() -> Array :
+	return words
+
 func getNbWords(): 
 	return nbWords
 

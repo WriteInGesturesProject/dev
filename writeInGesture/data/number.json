@@ -1,18 +1,183 @@
 {
-	"un" :"",
-	"deux":"",
-	"trois":"",
-	"quatre" : "",
-	"cinq" :"",
-	"six":"",
-	"sept":"",
-	"huit":"",
-	"neuf":"",
-	"dix":"",
-	"onze":"",
-	"douze":"",
-	"treize":"",
-	"quatorze":"",
-	"quinze":"",
-	"seize":"",
+	"Exercise":
+	{
+		"version" : 1.0,
+		"userId" : 0,
+		"name" : "Numbers",
+		"type" : {
+			"name" : "Entrainement",
+			"categorie" : "Custom, MonoSyllabe, BiSyllable, TriSyllable",
+			"syllableStruct" : "cv, cvv, cvc, n",
+			"vowelsType" : "O, N, SV",
+			"consonantsType" : "O, C, N"
+		},
+		"difficulty" : 0,
+		"successPercentage" : 0.0,
+		"nbOccurrences" : 0,
+		"nbWords" : 16,
+		"words" : {
+			"ɛ̃" : {
+				"phonetic" : "ɛ̃",
+				"word" : "un",
+				"path" : "1",
+				"homonym" : ["un"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"dœ" : {
+				"phonetic" : "dœ",
+				"word" : "deux",
+				"path" : "2",
+				"homonym" : ["deux", "de"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"trwa" : {
+				"phonetic" : "trwa",
+				"word" : "trois",
+				"path" : "3",
+				"homonym" : ["trois"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"katr" : {
+				"phonetic" : "katr",
+				"word" : "quatres",
+				"path" : "4",
+				"homonym" : ["quatres"],
+				"nbSyllable" : 2,
+				"syllableStruct" : "cvccv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"sɛ̃k" : {
+				"phonetic" : "sɛ̃k",
+				"word" : "cinq",
+				"path" : "5",
+				"homonym" : ["cinq"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"sis" : {
+				"phonetic" : "sis",
+				"word" : "six",
+				"path" : "6",
+				"homonym" : ["six"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"sɛt" : {
+				"phonetic" : "sɛt",
+				"word" : "sept",
+				"path" : "7",
+				"homonym" : ["sept"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"wit" : {
+				"phonetic" : "wit",
+				"word" : "huit",
+				"path" : "8",
+				"homonym" : ["huit"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"nœf" : {
+				"phonetic" : "nœf",
+				"word" : "neuf",
+				"path" : "9",
+				"homonym" : ["neuf"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"dis" : {
+				"phonetic" : "dis",
+				"word" : "dix",
+				"path" : "10",
+				"homonym" : ["dix"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"ɔ̃z" : {
+				"phonetic" : "ɔ̃z",
+				"word" : "onze",
+				"path" : "11",
+				"homonym" : ["onze"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"duz" : {
+				"phonetic" : "duz",
+				"word" : "douze",
+				"path" : "12",
+				"homonym" : ["douze"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"trɛz" : {
+				"phonetic" : "trɛz",
+				"word" : "treize",
+				"path" : "13",
+				"homonym" : ["treize"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"katɔrz" : {
+				"phonetic" : "katɔrz",
+				"word" : "quatorze",
+				"path" : "14",
+				"homonym" : ["quatorze"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"kɛ̃z" : {
+				"phonetic" : "kɛ̃z",
+				"word" : "quinze",
+				"path" : "15",
+				"homonym" : ["quinze"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"sɛz" : {
+				"phonetic" : "sɛz",
+				"word" : "seize",
+				"path" : "16",
+				"homonym" : ["seize"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+		},
+		"nbSuccess" : 0
+
+	}
 }

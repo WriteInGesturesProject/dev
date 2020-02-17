@@ -22,7 +22,7 @@ func setPhonetic(phon : String):
 	return updateParent()
 	
 func getWord():
-	return phonetic
+	return word
 
 func setWord(w : String):
 	word = w

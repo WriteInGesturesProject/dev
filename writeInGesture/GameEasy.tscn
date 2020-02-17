@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://GameEasy.gd" type="Script" id=1]
-[ext_resource path="res://art/imgBorel/on.png" type="Texture" id=2]
 [ext_resource path="res://art/icon.png" type="Texture" id=3]
 [ext_resource path="res://fonts/phonetic.tres" type="Theme" id=4]
 [ext_resource path="res://art/bravo.jpg" type="Texture" id=5]
@@ -42,22 +41,14 @@ theme = ExtResource( 4 )
 
 [node name="ImgBorel" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 margin_right = 1024.0
-margin_bottom = 110.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/ImgBorel"]
-margin_right = 1024.0
-margin_bottom = 110.0
-theme = ExtResource( 4 )
-texture = ExtResource( 2 )
-stretch_mode = 6
-
 [node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer"]
-margin_top = 114.0
+margin_top = 4.0
 margin_right = 1024.0
-margin_bottom = 178.0
+margin_bottom = 68.0
 theme = ExtResource( 4 )
 texture = ExtResource( 3 )
 stretch_mode = 4
@@ -72,17 +63,17 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 
 [node name="Word" type="Label" parent="MarginContainer/VBoxContainer"]
-margin_top = 182.0
+margin_top = 72.0
 margin_right = 1024.0
-margin_bottom = 244.0
+margin_bottom = 134.0
 theme = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 
 [node name="Speak" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_top = 248.0
+margin_top = 138.0
 margin_right = 1024.0
-margin_bottom = 350.0
+margin_bottom = 240.0
 theme = ExtResource( 7 )
 text = "Parle"
 __meta__ = {
@@ -90,9 +81,9 @@ __meta__ = {
 }
 
 [node name="Record" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_top = 354.0
+margin_top = 244.0
 margin_right = 1024.0
-margin_bottom = 456.0
+margin_bottom = 346.0
 theme = ExtResource( 7 )
 text = "Enregistrer"
 

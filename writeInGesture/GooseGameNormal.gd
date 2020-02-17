@@ -42,7 +42,7 @@ func _ready():
 			else :
 				var control_img = Control.new()
 				var image = TextureRect.new()
-				image.texture = load("res://art/users/assistant.png")
+				image.texture = load("res://art/questionmark.png")
 				image.expand = true
 				image.stretch_mode = TextureRect.STRETCH_SCALE_ON_EXPAND
 				image.rect_size.x = get_viewport().size.y / 8
@@ -52,6 +52,14 @@ func _ready():
 				find_node("gridImage").add_constant_override("hseparation",  (get_viewport().size.y / 8)+10)
 				control_img.add_child(image)
 				find_node("gridImage").add_child(control_img)
+	for c in myWords[index]:
+			container = HBoxContainer.new()
+			container.alignment = HBoxContainer.ALIGN_CENTER
+			img = Global.searchInDictionnary(c)
+			var imgBorel = TextureRect.new()
+			imgBorel.texture = load("res://art/imgBorel/"+img)
+			container.add_child(imgBorel)
+	find_node("ImgBorel").add_child(container)
 	board[0].modulate = "e86767"
 
 func _change():
@@ -62,10 +70,21 @@ func _change():
 	index += 1
 	board[index-1].modulate = "ffffff"
 	board[index].modulate = "e86767"
+	board[index-1].texture = load("res://art/users/assistant.png")
 	container.remove_and_skip()
 	var img = ""
 	if(index >= myWords.size()):
 		get_tree().change_scene("res://GameEnd.tscn")
+	else :
+		container = HBoxContainer.new()
+		container.alignment = HBoxContainer.ALIGN_CENTER
+		container.name = "HBoxContainer"
+		for c in myWords[index]:
+			img = Global.searchInDictionnary(c)
+			var imgBorel = TextureRect.new()
+			imgBorel.texture = load("res://art/imgBorel/"+img)
+			container.add_child(imgBorel)
+		find_node("ImgBorel").add_child(container)
 	incremented = false
 
 func _process(delta):

@@ -32,7 +32,8 @@ func _on_Easy_pressed():
 	Global.level = 0
 	
 func _on_Normal_pressed():
-	get_tree().change_scene("res://GameNormal.tscn")
+	if(Global.play == 1):
+		get_tree().change_scene("res://GooseGameNormal.tscn")
 	Global.level = 1
 
 func _on_Hard_pressed():

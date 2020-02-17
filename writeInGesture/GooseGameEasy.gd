@@ -99,7 +99,7 @@ func _process(delta):
 			find_node("Record").set_text("Suivant")
 		else :
 			find_node("Record").set_text("Vous avez dit : " + words)
-			if(words == find_node("Word").text):
+			if(words.to_lower() == (find_node("Word").text).to_lower()):
 				find_node("Record").disabled = true
 				if(incremented == false):
 					Global.score[Global.level][Global.game - 1] += 1

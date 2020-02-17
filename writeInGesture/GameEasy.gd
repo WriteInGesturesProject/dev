@@ -53,7 +53,7 @@ func _process(delta):
 	if(stt != null && display && stt.isDetectDone()):
 		words = stt.getWords()
 		find_node("Record").set_text("Vous avez dit : " + words)
-		if(words == find_node("Word").text || words == find_node("Number").text):
+		if(words.to_lower() == (find_node("Word").text).to_lower() || words == find_node("Number").text):
 			find_node("Oui").visible = true
 			find_node("Non").visible = false
 			find_node("Record").disabled = true

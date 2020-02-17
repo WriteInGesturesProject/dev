@@ -8,6 +8,13 @@ var pathPicture : String
 var pathFile : String
 #name is already in Node class
 
+
+func getName():
+	return name
+
+func setName(na : String) :
+	name = na
+	return ManageJson.putElement(pathFile, "User/name", name)
 ##Function getter and setter. It must to use beacause field of this class is private
 func getId():
 	return id

@@ -6,9 +6,26 @@ var nameFile : String;
 
 const Word = preload("res://Word.gd")
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func getAllWords() -> Array :
+	return words
+
+func getWord(phonetic : String) -> Word :
+	for currentWord in words :
+		if(currentWord.getPhonetic() == phonetic):
+			return currentWord
+	print("Mot avec la phonetic :"+phonetic+" non trouvé")
+	return null
+
+func addWord(word) -> int :
+	words.append(word)
+	return ManageJson.addElement(nameFile, "WordsAvailable/words", word)
+
+func removeWord(word) -> int :
+	var error = words.erase(word)
+	return ManageJson.removeElement(nameFile, "WordsAvailable/words", word.getPhonetic())
+
+func getNameFile() -> String : 
+	return nameFile
 
 func setAttribut(field : String, input):
 	match field : 

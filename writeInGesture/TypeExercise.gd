@@ -4,13 +4,37 @@ extends Node
 var category : String
 var syllableStruct : String
 var vowelsType : String 
-var ConsonantsType : String
+var consonantsType : String
 
+func getName() -> String:
+	return name
 
+func setName(name):
+	self.name = name
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func getCategory():
+	return category
+
+func setCategory(category):
+	self.category = category
+
+func getSyllableStruct():
+	return syllableStruct
+
+func setSyllableStruct(syllableStruct):
+	self.syllableStruct = syllableStruct
+
+func getVowelsType():
+	return vowelsType
+
+func setVowelsType(vowelsType):
+	self.vowelsType = vowelsType
+
+func getConsonantsType():
+	return consonantsType
+
+func setConsonantsType(consonantsType):
+	self.consonantsType = consonantsType
 
 func setAttribut(field : String, input):
 	match field : 
@@ -22,8 +46,8 @@ func setAttribut(field : String, input):
 			syllableStruct = input
 		"vowelsType" : 
 			vowelsType = input
-		"ConsonantsType" : 
-			ConsonantsType = input
+		"consonantsType" : 
+			consonantsType = input
 	return 
 	
 func toString() -> String : 
@@ -31,5 +55,5 @@ func toString() -> String :
 	res +="category : "+category+"\n"
 	res += "syllableStruct : "+syllableStruct+"\n"	
 	res += "vowelsType : "+vowelsType+"\n"	
-	res += "ConsonantsType : "+ConsonantsType +"\n"	
+	res += "consonantsType : "+consonantsType +"\n"	
 	return res

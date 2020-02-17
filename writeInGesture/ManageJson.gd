@@ -30,6 +30,7 @@ func _ready():
 	getElement("exercice.json", "Exercice", exercice)
 	putElement("exercise.json", "Exercise/words/ni/phonetic", "test")
 	addElement("wordsAvailable.json", "WordsAvailable/words", test)
+	removeElement("wordsAvailable.json", "WordsAvailable/words", "test")
 
 func checkFileExistUserPath(nameFile:String)->String:
 	var file = File.new()
@@ -59,7 +60,7 @@ func putElement(nameFile, pathAttribute, content):
 	var Dicttmp = dict
 	for el in range(0, attributs.size()-1) :
 		Dicttmp = Dicttmp[attributs[el]]
-		if(dict == null) :
+		if(Dicttmp == null) :
 			print("Wrong pathAttribute")
 			return 0
 	Dicttmp[attributs[-1]] = content 
@@ -77,17 +78,18 @@ func addElement(nameFile, pathAttribute, dictionnary):
 	var tmp = JSON.parse(text)
 	var dict = tmp.result
 	var attributs = pathAttribute.split("/");
-	var dictTmp = dict
-	for el in dict :
-		dictTmp = dictTmp[el]
-		if(dict == null) :
+	var Dicttmp = dict
+	for el in range(0, attributs.size()) :
+		Dicttmp = Dicttmp[attributs[el]]
+		if(Dicttmp == null) :
 			print("Wrong pathAttribute")
 			return 0
-	dictTmp[dictionnary.keys()[0]] = dictionnary.get(dictionnary.keys()[0])
+	print(Dicttmp)
+	Dicttmp[dictionnary.keys()[0]] = dictionnary.get(dictionnary.keys()[0])
 	var jtstr = JSON.print(dict)
 	rewriteFile(nameFile, jtstr)
 	return 1
-	
+
 #nameFile : String 
 #pathAttribute : String ex:"Exercice/Words"
 #node : Node ex:"Word"
@@ -109,7 +111,30 @@ func getElement(nameFile : String, pathAttribute : String, node : Node):
 		node.setAttribut(field, dict[field])
 		#print (field," : ", dict[field])
 	return 1
-	
+
+#nameFile : String 
+#pathAttribute : String ex:"Exercice/Words"
+#This function can change one element in a JSON File from the path file
+func removeElement(nameFile, pathAttribute, content):
+	var text = checkFileExistUserPath(nameFile)
+	if text == "": 
+		return 0
+	var tmp = JSON.parse(text)
+	var dict = tmp.result
+	var attributs = pathAttribute.split("/");
+	var Dicttmp = dict
+	for el in range(0, attributs.size()) :
+		Dicttmp = Dicttmp[attributs[el]]
+		if(Dicttmp == null) :
+			print("Wrong pathAttribute")
+			return 0
+	print(Dicttmp.has(content))
+	print("DICT TEMP : \n",Dicttmp)
+	Dicttmp.erase(content)
+	var jtstr = JSON.print(dict)
+	rewriteFile(nameFile, jtstr)
+	return 1
+
 #node : Node
 #version : float
 #userId : int 

@@ -10,9 +10,87 @@ var successPercentage : float
 var nbOccurrences : int
 var nbWords : int = 0
 var words : Array = []
-var nameFile : String 
 var nbSuccess : int
+var nameFile : String 
 
+func getVersion() : 
+	return version
+
+func setVersion(ver : float):
+	version = ver
+	return ManageJson.putElement(nameFile, "Exercise/version", version)
+
+func getUserId() : 
+	return userId
+
+func setUserId(user : float):
+	userId = user
+	return ManageJson.putElement(nameFile, "Exercise/userId", userId)
+
+func getType() : 
+	return type
+
+func setType(t : TypeExercise):
+	type = t
+	return ManageJson.putElement(nameFile, "Exercise/type", type)
+
+func getDifficulty() : 
+	return difficulty
+
+func setDifficulty(dif : int):
+	difficulty = dif
+	return ManageJson.putElement(nameFile, "Exercise/difficulty", difficulty)
+	
+func getSucessPercentage() : 
+	return successPercentage
+
+func setSucessPercentage(sp : float):
+	successPercentage = sp
+	return ManageJson.putElement(nameFile, "Exercise/successPercentage", successPercentage)
+
+func getNbOccurrences(): 
+	return nbOccurrences
+
+func setNbOccurrences(no : int):
+	nbOccurrences = no
+	return ManageJson.putElement(nameFile, "Exercise/nbOccurrences", nbOccurrences)
+
+func getNbWords(): 
+	return nbWords
+
+func setNbWords(nb : int):
+	nbWords = nb
+	return ManageJson.putElement(nameFile, "Exercise/nbWords", nbOccurrences)
+
+func getWord(phonetic) -> Word :
+	for currentWord in words :
+		if(currentWord.getPhonetic() == phonetic):
+			return currentWord
+	print("Mot avec la phonetic :"+phonetic+" non trouvé")
+	return null
+
+func addWord(word) -> int :
+	var result = words.append(word)
+	if(result == null):
+		return 0
+	setNbWords(words.size())
+	return ManageJson.addElement(nameFile ,"Exercise/nbWords", word)
+	
+#var nameFile : String 
+
+func getNbSuccess(): 
+	return nbSuccess
+
+func setNbSuccess(nb : int):
+	nbSuccess = nb
+	return ManageJson.putElement(nameFile, "Exercise/nbSuccesss", nbSuccess)
+	
+func getNameFile(): 
+	return nameFile
+
+func setNameFile(nF : String):
+	nameFile = nF
+	return 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -80,17 +80,11 @@ func _on_deleteButton_pressed(button, label):
 		var index = contentFile.find(label.get_text())
 		contentFile.remove(index)
 		print(contentFile)
-		var newContent = _convertArrayToString(contentFile)
+		var newContent = Global.ArrayToString(contentFile)
 		Global.rewriteFile(nameFile, newContent)
 		swiping = false 
 
-func _convertArrayToString(content):
-	var newContent = ""
-	for i in range(0,content.size()):
-		newContent += content[i]
-		if(i != content.size()-1):
-			newContent += "\n"
-	return newContent
+
 
 func _on_Retour_pressed():
 	get_tree().change_scene("res://speechTherapistMenu.tscn")

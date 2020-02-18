@@ -186,9 +186,9 @@
 			},
 			"katr" : {
 				"phonetic" : "katr",
-				"word" : "quatres",
+				"word" : "quatre",
 				"path" : "quatres.png",
-				"homonym" : ["quatres"],
+				"homonym" : ["quatre"],
 				"nbSyllable" : 2,
 				"syllableStruct" : "cvccv",
 				"vowelsType" : "N",

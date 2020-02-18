@@ -48,9 +48,9 @@
 			},
 			"katr" : {
 				"phonetic" : "katr",
-				"word" : "quatres",
+				"word" : "quatre",
 				"path" : "4",
-				"homonym" : ["quatres"],
+				"homonym" : ["quatre"],
 				"nbSyllable" : 2,
 				"syllableStruct" : "cvccv",
 				"vowelsType" : "N",

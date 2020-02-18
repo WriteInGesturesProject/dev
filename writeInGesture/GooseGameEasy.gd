@@ -119,7 +119,7 @@ func _on_Speak_pressed():
 		stt.stopListen()
 		find_node("Record").set_text("Enregistrer")
 	if(tts != null):
-		var text = myWords[index]
+		var text = myWords[index].getWord()
 		match os:
 			"X11":
 				tts.speak(text, false)

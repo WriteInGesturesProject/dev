@@ -20,7 +20,6 @@ var score = [score1, score2, score3]
 var game = 1
 var play = 1
 
-
 var config : Config = Config.new()
 var customExercise : Exercise = Exercise.new()
 var countExercise : Exercise = Exercise.new()

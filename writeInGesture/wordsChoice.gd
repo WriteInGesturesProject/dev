@@ -142,7 +142,7 @@ func _input(ev):
 				tween.interpolate_method(self, 'set_v_scroll', source.y, target.y, flick_dur, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 				tween.interpolate_callback(tween, flick_dur, 'queue_free')
 				tween.start()
-			print("is swipping :",isswipping)
+#			print("is swipping :",isswipping)
 			if isswipping:
 				release = true
 			else:

@@ -56,8 +56,8 @@
 				"vowelsType" : "N",
 				"consonantsType" : "O,N"
 			},
-			"vâdrədi" : {
-				"phonetic" : "vâdrədi",
+			"vɑdrədi" : {
+				"phonetic" : "vɑdrədi",
 				"word" : "vendredi",
 				"path" : "vendredi.png",
 				"homonym" : ["vendredi"],
@@ -76,8 +76,8 @@
 				"vowelsType" : "N",
 				"consonantsType" : "O,N"
 			},
-			"dimâʃ" : {
-				"phonetic" : "dimâʃ",
+			"dimɑʃ" : {
+				"phonetic" : "dimɑʃ",
 				"word" : "dimanche",
 				"path" : "dimanche.png",
 				"homonym" : ["dimanche"],

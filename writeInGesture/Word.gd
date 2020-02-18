@@ -116,4 +116,21 @@ func toString() -> String :
 	res += "consonantsType : "+consonantsType+"\n"	
 	#res += "parent Node : "+parent.to_string()+"\n"
 	return res
+	
+func toDictionnary() :
+	var res ={}
+	var dic = {}
+	
+	dic["phonetic"]  = getPhonetic()
+	dic["word"]  = getWord()
+	dic["path"]  = getPath()
+	dic["homonym"]  = getHomonym()
+	dic["nbSyllable"]  = getNbSyllable()
+	dic["syllableStruct"]  = getSyllableStruct()
+	dic["vowelsType"]  = getVowelsType()
+	dic["consonantsType"]  = getConsonantsType()
+	res[getPhonetic()] = dic
+
+	#print("Dictionnary",res)
+	return res
 

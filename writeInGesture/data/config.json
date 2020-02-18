@@ -2,7 +2,8 @@
 	"Config":
 	{
 		"version" : 1.0,
-		"pathUserFile" : "",
-		"pathExerciseFile" : [""]
+		"pathExercisesFiles" : [""],
+		"loginAdmin" : "admin",
+		"passWordAdmin" : "admin"
 	}
 }

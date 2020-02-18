@@ -24,11 +24,22 @@ func setVersion(version : float) -> void :
 func setUserId(userId : int) -> void :
 	self.userId = userId
 
-#func getWords(phonetic : String) -> Word : 
-#	return;
-#
-#func addWord(word : Word) -> int :
-#	return;
+func getAllWord() : 
+	return words
+
+func getWord(phonetic) -> Word :
+	for currentWord in words :
+		if(currentWord.getPhonetic() == phonetic):
+			return currentWord
+	print("Mot avec la phonetic :"+phonetic+" non trouvé")
+	return null
+
+func addWord(word) -> int :
+	var result = words.append(word)
+	if(result == null):
+		return 0
+	return 1
+	
 
 func setAttribut(field : String, input):
 	match field : 

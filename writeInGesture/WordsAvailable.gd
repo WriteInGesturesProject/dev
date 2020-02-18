@@ -18,7 +18,7 @@ func getWord(phonetic : String) -> Word :
 
 func addWord(word) -> int :
 	words.append(word)
-	return ManageJson.addElement(nameFile, "WordsAvailable/words", word)
+	return ManageJson.addElement(nameFile, "WordsAvailable/words", word.toDictionnary())
 
 func removeWord(word) -> int :
 	var error = words.erase(word)

@@ -46,8 +46,8 @@ func loadEntity():
 	ManageJson.getElement("dictionnary.json", "Dictionnary", wordDictionnary)
 	wordDictionnary.setAttribut("nameFile", "dictionnary.json")
 	
-#	ManageJson.getElement("colors.json", "Exercise", colorExercise)
-#	colorExercise.setAttribut("nameFile", "colors.json")
+	ManageJson.getElement("colors.json", "Exercise", colorExercise)
+	colorExercise.setAttribut("nameFile", "colors.json")
 	
 	ManageJson.getElement("week.json", "Exercise", weekExercise)
 	weekExercise.setAttribut("nameFile", "week.json")

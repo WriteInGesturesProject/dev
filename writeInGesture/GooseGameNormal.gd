@@ -10,7 +10,7 @@ var os = ""
 var words = ""
 var display = false
 var incremented = false
-var myWords = Global.loadFileInArray("wordsAvailable")
+var myWords = Global.customExercise.getAllWords()
 var index = 0
 var img = ""
 var container = HBoxContainer.new()
@@ -52,10 +52,14 @@ func _ready():
 				find_node("gridImage").add_constant_override("hseparation",  (get_viewport().size.y / 8)+10)
 				control_img.add_child(image)
 				find_node("gridImage").add_child(control_img)
-	for c in myWords[index]:
+	for c in myWords[index].getPhonetic():
 			container = HBoxContainer.new()
 			container.alignment = HBoxContainer.ALIGN_CENTER
-			img = Global.searchInDictionnary(c)
+			for b in Global.phoneticDictionnary:
+				for w in Global.phoneticDictionnary[b]:
+					if(c == w["phonetic"][1]):
+						img = w["ressource_path"]
+						break
 			var imgBorel = TextureRect.new()
 			imgBorel.texture = load("res://art/imgBorel/"+img)
 			container.add_child(imgBorel)
@@ -79,8 +83,12 @@ func _change():
 		container = HBoxContainer.new()
 		container.alignment = HBoxContainer.ALIGN_CENTER
 		container.name = "HBoxContainer"
-		for c in myWords[index]:
-			img = Global.searchInDictionnary(c)
+		for c in myWords[index].getPhonetic():
+			for b in Global.phoneticDictionnary:
+				for w in Global.phoneticDictionnary[b]:
+					if(c == w["phonetic"][1]):
+						img = w["ressource_path"]
+						break
 			var imgBorel = TextureRect.new()
 			imgBorel.texture = load("res://art/imgBorel/"+img)
 			container.add_child(imgBorel)

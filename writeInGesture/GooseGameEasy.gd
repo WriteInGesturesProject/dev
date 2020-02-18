@@ -1,6 +1,6 @@
 extends Control
 
-
+const Exercise = preload("res://Exercise.gd")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -10,7 +10,7 @@ var os = ""
 var words = ""
 var display = false
 var incremented = false
-var myWords = Global.loadFileInArray("wordsAvailable")
+var myWords = Global.customExercise.getAllWords()
 var index = 0
 var img = ""
 var container = HBoxContainer.new()
@@ -52,15 +52,19 @@ func _ready():
 				find_node("gridImage").add_constant_override("hseparation",  (get_viewport().size.y / 8)+10)
 				control_img.add_child(image)
 				find_node("gridImage").add_child(control_img)
-	for c in myWords[index]:
+	for c in myWords[index].getPhonetic():
 			container = HBoxContainer.new()
 			container.alignment = HBoxContainer.ALIGN_CENTER
-			img = Global.searchInDictionnary(c)
+			for b in Global.phoneticDictionnary:
+				for w in Global.phoneticDictionnary[b]:
+					if(c == w["phonetic"][1]):
+						img = w["ressource_path"]
+						break
 			var imgBorel = TextureRect.new()
 			imgBorel.texture = load("res://art/imgBorel/"+img)
 			container.add_child(imgBorel)
 	find_node("ImgBorel").add_child(container)
-	find_node("Word").text = myWords[index]
+	find_node("Word").text = myWords[index].getWord()
 	board[0].modulate = "e86767"
 
 func _change():
@@ -79,13 +83,17 @@ func _change():
 		container = HBoxContainer.new()
 		container.alignment = HBoxContainer.ALIGN_CENTER
 		container.name = "HBoxContainer"
-		for c in myWords[index]:
-			img = Global.searchInDictionnary(c)
+		for c in myWords[index].getPhonetic():
+			for b in Global.phoneticDictionnary:
+				for w in Global.phoneticDictionnary[b]:
+					if(c == w["phonetic"][1]):
+						img = w["ressource_path"]
+						break
 			var imgBorel = TextureRect.new()
 			imgBorel.texture = load("res://art/imgBorel/"+img)
 			container.add_child(imgBorel)
 		find_node("ImgBorel").add_child(container)
-		find_node("Word").set_text(myWords[index])
+		find_node("Word").set_text(myWords[index].getWord())
 	incremented = false
 
 func _process(delta):

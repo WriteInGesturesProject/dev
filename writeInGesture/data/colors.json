@@ -125,6 +125,7 @@
 				"syllableStruct" : "cv",
 				"vowelsType" : "N",
 				"consonantsType" : "O,N"
+			}
 			
 		},
 		"nbSuccess" : 0

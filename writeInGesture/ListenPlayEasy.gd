@@ -10,7 +10,7 @@ var os = ""
 var words = ""
 var display = false
 var incremented = false
-var myWords = Global.loadFileInArray("wordsAvailable")
+var myWords = Global.customExercise.getAllWords()
 var index = 0
 var img = ""
 var container = HBoxContainer.new()
@@ -25,11 +25,15 @@ func _ready():
 				control_img.add_child(colorR)
 				var vBox = VBoxContainer.new()
 				var word = Label.new()
-				word.text = myWords[index]
-				for c in myWords[index]:
+				word.text = myWords[index].getWord()
+				for c in myWords[index].getPhonetic():
 					container = HBoxContainer.new()
 					container.alignment = HBoxContainer.ALIGN_CENTER
-					img = Global.searchInDictionnary(c)
+					for b in Global.phoneticDictionnary:
+						for w in Global.phoneticDictionnary[b]:
+							if(c == w["phonetic"][1]):
+								img = w["ressource_path"]
+								break
 					var boxImg = Control.new()
 					var imgBorel = TextureRect.new()
 					imgBorel.texture = load("res://art/imgBorel/"+img)

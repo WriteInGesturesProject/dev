@@ -91,21 +91,21 @@ func _on_Next_pressed():
 	find_node("Non").visible = false
 	display = false
 	index += 1
-	if(Global.game == 2):
-		if(index == myWords.size()):
-			get_tree().change_scene("res://GameEnd.tscn")
-		else:
-			find_node("Number").set_text(myWords[index].getPath())
-			find_node("TextureRect2").visible = false
-			find_node("Word").visible = true
-			find_node("Word").set_text(myWords[index].getWord())
-	else :
-		find_node("TextureRect2").texture = load("res://art/"+myWords[index].getPath())
-	container.remove_and_skip()
-	var img = ""
 	if(index >= myWords.size()):
 		get_tree().change_scene("res://GameEnd.tscn")
 	else :
+		if(Global.game == 2):
+			if(index == myWords.size()):
+				get_tree().change_scene("res://GameEnd.tscn")
+			else:
+				find_node("Number").set_text(myWords[index].getPath())
+				find_node("TextureRect2").visible = false
+				find_node("Word").visible = true
+				find_node("Word").set_text(myWords[index].getWord())
+		else :
+			find_node("TextureRect2").texture = load("res://art/"+myWords[index].getPath())
+		container.remove_and_skip()
+		var img = ""
 		container = HBoxContainer.new()
 		container.alignment = HBoxContainer.ALIGN_CENTER
 		container.name = "HBoxContainer"

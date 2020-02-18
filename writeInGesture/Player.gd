@@ -8,7 +8,6 @@ var pathPicture : String
 var nameFile : String
 #name is already in Node class
 
-
 func getName():
 	return name
 

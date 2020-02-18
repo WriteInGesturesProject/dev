@@ -5,6 +5,7 @@ const MyDictionnary = preload("res://Dictionnary.gd")
 const Player = preload("res://Player.gd")
 const WordsAvailable = preload("res://WordsAvailable.gd")
 const Exercise = preload("res://Exercise.gd")
+const Config = preload("res://Config.gd")
 
 var level = 1
 var progress1 = [85,85,85,20]
@@ -19,6 +20,7 @@ var score = [score1, score2, score3]
 var game = 1
 var play = 1
 
+var config : Config = Config.new()
 var customExercice = Exercise.new()
 var countExercice = Exercise.new()
 var weekExercice = Exercise.new()
@@ -36,6 +38,8 @@ func _ready():
 
 func loadEntity():
 	#We need to remplace file by lastest version
+	ManageJson.getElement("config.json", "Config", config)
+	config.setAttribut("nameFile", "config.json")
 	
 	ManageJson.getElement("exercise.json", "Exercise", customExercice)
 	customExercice.setAttribut("nameFile", "exercise.json")

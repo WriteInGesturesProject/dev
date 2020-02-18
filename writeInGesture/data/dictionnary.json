@@ -1,0 +1,489 @@
+{
+	"Dictionnary":
+	{
+		"version" : 1.0,
+		"userId" : 0,
+		"words" : {
+			"bɛ̃" : {
+				"phonetic" : "bɛ̃",
+				"word" : "bain",
+				"path" : "bain.png",
+				"homonym" : ["bain"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"mɛ̃" : {
+				"phonetic" : "mɛ̃",
+				"word" : "main",
+				"path" : "main.png",
+				"homonym" : ["main"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"pɛ̃" : {
+				"phonetic" : "pɛ̃",
+				"word" : "pain",
+				"path" : "pain.png",
+				"homonym" : ["pain"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"ni" : {
+				"phonetic" : "ni",
+				"word" : "nid",
+				"path" : "nid.png",
+				"homonym" : ["nid","ni"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"pi" : {
+				"phonetic" : "pi",
+				"word" : "pie",
+				"path" : "pie.png",
+				"homonym" : ["pie"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"pɛ" : {
+				"phonetic" : "pɛ",
+				"word" : "pet",
+				"path" : "pet.png",
+				"homonym" : ["pet"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"vɛ̃" : {
+				"phonetic" : "vɛ̃",
+				"word" : "vin",
+				"path" : "vin.png",
+				"homonym" : ["vin", "vingt"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"nœ" : {
+				"phonetic" : "nœ",
+				"word" : "noeud",
+				"path" : "noeud.png",
+				"homonym" : ["noeud", "vingt"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"dœ" : {
+				"phonetic" : "dœ",
+				"word" : "deux",
+				"path" : "deux.png",
+				"homonym" : ["deux", "de"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"ɔ̃z" : {
+				"phonetic" : "ɔ̃z",
+				"word" : "onze",
+				"path" : "onze.png",
+				"homonym" : ["onze"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"mu" : {
+				"phonetic" : "mu",
+				"word" : "mou",
+				"path" : "mou.png",
+				"homonym" : ["mou", "moue"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"rɛ" : {
+				"phonetic" : "rɛ",
+				"word" : "raie",
+				"path" : "raie.png",
+				"homonym" : ["raie"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"kɛ" : {
+				"phonetic" : "kɛ",
+				"word" : "queue",
+				"path" : "queue.png",
+				"homonym" : ["queue", "que"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"to" : {
+				"phonetic" : "to",
+				"word" : "tôt",
+				"path" : "tot.png",
+				"homonym" : ["tôt", "taux"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"mo" : {
+				"phonetic" : "mo",
+				"word" : "mot",
+				"path" : "mot.png",
+				"homonym" : ["mot", "maux"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"bo" : {
+				"phonetic" : "bo",
+				"word" : "beau",
+				"path" : "beau.png",
+				"homonym" : ["beau"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"ɛ̃" : {
+				"phonetic" : "ɛ̃",
+				"word" : "un",
+				"path" : "un.png",
+				"homonym" : ["un"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"trwa" : {
+				"phonetic" : "trwa",
+				"word" : "trois",
+				"path" : "trois.png",
+				"homonym" : ["trois"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"katr" : {
+				"phonetic" : "katr",
+				"word" : "quatres",
+				"path" : "quatres.png",
+				"homonym" : ["quatres"],
+				"nbSyllable" : 2,
+				"syllableStruct" : "cvccv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"sɛ̃k" : {
+				"phonetic" : "sɛ̃k",
+				"word" : "cinq",
+				"path" : "cinq.png",
+				"homonym" : ["cinq"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"sis" : {
+				"phonetic" : "sis",
+				"word" : "six",
+				"path" : "six.png",
+				"homonym" : ["six"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"sɛt" : {
+				"phonetic" : "sɛt",
+				"word" : "sept",
+				"path" : "sept.png",
+				"homonym" : ["sept"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"wit" : {
+				"phonetic" : "wit",
+				"word" : "huit",
+				"path" : "huit.png",
+				"homonym" : ["huit"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"nœf" : {
+				"phonetic" : "nœf",
+				"word" : "neuf",
+				"path" : "neuf.png",
+				"homonym" : ["neuf"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"dis" : {
+				"phonetic" : "dis",
+				"word" : "dix",
+				"path" : "dix.png",
+				"homonym" : ["dix"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"duz" : {
+				"phonetic" : "duz",
+				"word" : "douze",
+				"path" : "douze.png",
+				"homonym" : ["douze"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"trɛz" : {
+				"phonetic" : "trɛz",
+				"word" : "treize",
+				"path" : "treize.png",
+				"homonym" : ["treize"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"katɔrz" : {
+				"phonetic" : "katɔrz",
+				"word" : "quatorze",
+				"path" : "quatorze.png",
+				"homonym" : ["quatorze"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"kɛ̃z" : {
+				"phonetic" : "kɛ̃z",
+				"word" : "quinze",
+				"path" : "quinze.png",
+				"homonym" : ["quinze"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"sɛz" : {
+				"phonetic" : "sɛz",
+				"word" : "seize",
+				"path" : "seize.png",
+				"homonym" : ["seize"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"blœ" : {
+				"phonetic" : "blœ",
+				"word" : "bleu",
+				"path" : "bleu.png",
+				"homonym" : ["bleu"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"ruʒ" : {
+				"phonetic" : "ruʒ",
+				"word" : "rouge",
+				"path" : "rouge.png",
+				"homonym" : ["rouge"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"ʒon" : {
+				"phonetic" : "ʒon",
+				"word" : "jaune",
+				"path" : "jaune.png",
+				"homonym" : ["jaune"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"vɛt" : {
+				"phonetic" : "vɛt",
+				"word" : "vert",
+				"path" : "vert.png",
+				"homonym" : ["vert", "verre", "vers", "ver"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"marɔ̃" : {
+				"phonetic" : "marɔ̃",
+				"word" : "marron",
+				"path" : "marron.png",
+				"homonym" : ["marron"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"gri" : {
+				"phonetic" : "gri",
+				"word" : "gris",
+				"path" : "gris.png",
+				"homonym" : ["gris"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"blâ" : {
+				"phonetic" : "blâ",
+				"word" : "blanc",
+				"path" : "blanc.png",
+				"homonym" : ["blanc"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"nwar" : {
+				"phonetic" : "nwar",
+				"word" : "noir",
+				"path" : "noir.png",
+				"homonym" : ["noir"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"vjolɛ" : {
+				"phonetic" : "vjolɛ",
+				"word" : "violet",
+				"path" : "violet.png",
+				"homonym" : ["violet"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"roz" : {
+				"phonetic" : "roz",
+				"word" : "rose",
+				"path" : "rose.png",
+				"homonym" : ["rose"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"orâz" : {
+				"phonetic" : "orâz",
+				"word" : "orange",
+				"path" : "orange.png",
+				"homonym" : ["orange"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"lɛ̃di" : {
+				"phonetic" : "lɛ̃di",
+				"word" : "lundi",
+				"path" : "lundi.png",
+				"homonym" : ["lundi"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"mardi" : {
+				"phonetic" : "mardi",
+				"word" : "mardi",
+				"path" : "mardi.png",
+				"homonym" : ["mardi"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"mɛrkrədi" : {
+				"phonetic" : "mɛrkrədi",
+				"word" : "mercredi",
+				"path" : "mercredi.png",
+				"homonym" : ["mercredi"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"ʒœdi" : {
+				"phonetic" : "ʒœdi",
+				"word" : "jeudi",
+				"path" : "jeudi.png",
+				"homonym" : ["jeudi"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"vâdrədi" : {
+				"phonetic" : "vâdrədi",
+				"word" : "vendredi",
+				"path" : "vendredi.png",
+				"homonym" : ["vendredi"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"samədi" : {
+				"phonetic" : "samədi",
+				"word" : "samedi",
+				"path" : "samedi.png",
+				"homonym" : ["samedi"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"dimâʃ" : {
+				"phonetic" : "dimâʃ",
+				"word" : "dimanche",
+				"path" : "dimanche.png",
+				"homonym" : ["dimanche"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+		}
+	}
+}

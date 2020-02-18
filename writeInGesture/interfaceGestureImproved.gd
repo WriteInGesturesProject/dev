@@ -11,7 +11,7 @@ var swipe_mouse_positions = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var dict = Global.dictionaryPhonetic
+	var dict = Global.phoneticDictionnary
 	for i in range(0, dict.size()):
 		var currentVbox = VBoxContainer.new()
 		var paragraph = dict.keys()[i]

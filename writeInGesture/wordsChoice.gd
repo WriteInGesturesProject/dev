@@ -1,22 +1,25 @@
 extends Control
 
+const Word = preload("res://Word.gd")
+const WordsAvailable = preload("res://WordsAvailable.gd")
+const MyDictionnary = preload("res://Dictionnary.gd")
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var nameFile = "wordsAvailable"
-var contentFile = Global.loadFileInArray(nameFile)
+
+var wordsAvailable : WordsAvailable = Global.wordsAvailable
+var dictionnary : MyDictionnary = Global.wordDictionnary
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for i in range(0, contentFile.size()):
-		var currentHbox = _createAvailableWordsList(str(i), contentFile[i], str(i), "X")
+	var words : Array = wordsAvailable.getAllWords()
+	for i in range(0, words.size()):
+		var currentHbox = _createAvailableWordsList(str(i), words[i], str(i), "X")
 		find_node("wordsAvailableContainer").add_child(currentHbox)
 	_createKeyboard()
 
 func _createKeyboard():
-	for b in Global.dictionaryPhonetic:
-		for w in Global.dictionaryPhonetic[b]:
+	for b in Global.phoneticDictionnary:
+		for w in Global.phoneticDictionnary[b]:
 			var keyButton = Button.new()
 			keyButton.theme = load("res://fonts/phonetic.tres")
 			keyButton.text = w["phonetic"]
@@ -35,26 +38,27 @@ func _on_keyButton_pressed(keyButton):
 	if (keyButton.text == "delete") and (newWordLabel.text.length()>0) :
 		newWordLabel.text[-1] = ""
 	elif (keyButton.text != "delete") :
-		newWordLabel.text += keyButton.text[1]
+		newWordLabel.text += keyButton.text.split("[")[1].split("]")[0]
 	
 func _on_addWord_pressed():
 	var stateAddLabel = find_node("stateAddLabel")
 	stateAddLabel.add_color_override("font_color", Color(0,0,0))
+	
 	var text = find_node("newWord").get_text()
-	if !(contentFile.has(text)) && contentFile.size() :# < 20:
-		contentFile.append(text)
-		var currentHbox = _createAvailableWordsList(text, text, text, "X")
-		find_node("wordsAvailableContainer").add_child(currentHbox)
-		Global.saveStringInFile(nameFile,text)
-		stateAddLabel.set_text("Le mot a été ajouté.")
-		find_node("newWord").text = ""
+	if !(wordsAvailable.getWord(text)) :# < 20:
+		var word = dictionnary.getWord(text)
+		if(word != null) :
+			var currentHbox = _createAvailableWordsList(text, word, text, "X")
+			find_node("wordsAvailableContainer").add_child(currentHbox)
+			wordsAvailable.addWord(word)
+			stateAddLabel.set_text("Le mot a été ajouté.")
+			find_node("newWord").text = ""
+		else :
+			print ("Le mot n'existe pas dans le dictionnaire, Voulez vous l'ajouter ?'")
 	else:
-		#if contentFile.size() >= 20:
-		#	stateAddLabel.set_text("Trop de mots ont été ajouté.")
-		#else :
 		stateAddLabel.set_text("Le mot existe déjà.")
 
-func _createAvailableWordsList(nameLabel, textLabel, nameButton, textButton):
+func _createAvailableWordsList(nameLabel, word : Word, nameButton, textButton):
 	var hBoxContainer = HBoxContainer.new()
 	hBoxContainer.mouse_filter =Control.MOUSE_FILTER_PASS
 	var currentLabel = Label.new()
@@ -66,9 +70,8 @@ func _createAvailableWordsList(nameLabel, textLabel, nameButton, textButton):
 	hBoxContainer.add_child(buttonDelete)
 	buttonDelete.name = nameButton
 	buttonDelete.text = textButton
-	buttonDelete.connect("gui_input",self,"input_event",[])
 	buttonDelete.connect("pressed",self,"_on_deleteButton_pressed", [buttonDelete, currentLabel])
-	currentLabel.set_text(textLabel)
+	currentLabel.set_text(word.getPhonetic())
 	currentLabel.add_color_override("font_color", Color(255,255,255))
 	return hBoxContainer
 
@@ -77,20 +80,10 @@ func _on_deleteButton_pressed(button, label):
 	if(!release) :
 		button.get_parent().remove_and_skip()
 		print("label text : ",label.get_text())
-		var index = contentFile.find(label.get_text())
-		contentFile.remove(index)
-		print(contentFile)
-		var newContent = _convertArrayToString(contentFile)
-		Global.rewriteFile(nameFile, newContent)
 		swiping = false 
-
-func _convertArrayToString(content):
-	var newContent = ""
-	for i in range(0,content.size()):
-		newContent += content[i]
-		if(i != content.size()-1):
-			newContent += "\n"
-	return newContent
+		if(!wordsAvailable.removeWord(wordsAvailable.getWord(label.get_text()))) :
+			print ("le mot n'est pas supprimé dans le fichier'")
+		return 
 
 func _on_Retour_pressed():
 	get_tree().change_scene("res://speechTherapistMenu.tscn")
@@ -149,7 +142,7 @@ func _input(ev):
 				tween.interpolate_method(self, 'set_v_scroll', source.y, target.y, flick_dur, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 				tween.interpolate_callback(tween, flick_dur, 'queue_free')
 				tween.start()
-			print("is swipping :",isswipping)
+#			print("is swipping :",isswipping)
 			if isswipping:
 				release = true
 			else:

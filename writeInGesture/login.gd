@@ -18,8 +18,9 @@ func _ready():
 #	pass
 
 func _on_submit_pressed():
-	var content = Global.loadFileInArray("userLog")
-	if content[0] == find_node("id").text && content[1] == find_node("psswd").text :
+	var login = Global.config.getLoginAdmin()
+	var psswd = Global.config.getPassWordAdmin()
+	if login == find_node("id").text && psswd == find_node("psswd").text :
 		get_tree().change_scene("res://speechTherapistMenu.tscn")
 	else :
 		errorMsg.visible = true

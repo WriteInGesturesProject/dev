@@ -1,0 +1,93 @@
+{
+	"Exercise":
+	{
+		"version" : 1.0,
+		"userId" : 0,
+		"name" : "Week days",
+		"type" : {
+			"name" : "Entrainement",
+			"categorie" : "Custom, MonoSyllabe, BiSyllable, TriSyllable",
+			"syllableStruct" : "cv, cvv, cvc, n",
+			"vowelsType" : "O, N, SV",
+			"consonantsType" : "O, C, N"
+		},
+		"difficulty" : 0,
+		"successPercentage" : 0.0,
+		"nbOccurrences" : 0,
+		"nbWords" : 7,
+		"words" : {
+			"lɛ̃di" : {
+				"phonetic" : "lɛ̃di",
+				"word" : "lundi",
+				"path" : "lundi.png",
+				"homonym" : ["lundi"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"mardi" : {
+				"phonetic" : "mardi",
+				"word" : "mardi",
+				"path" : "mardi.png",
+				"homonym" : ["mardi"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"mɛrkrədi" : {
+				"phonetic" : "mɛrkrədi",
+				"word" : "mercredi",
+				"path" : "mercredi.png",
+				"homonym" : ["mercredi"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"ʒœdi" : {
+				"phonetic" : "ʒœdi",
+				"word" : "jeudi",
+				"path" : "jeudi.png",
+				"homonym" : ["jeudi"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"vâdrədi" : {
+				"phonetic" : "vâdrədi",
+				"word" : "vendredi",
+				"path" : "vendredi.png",
+				"homonym" : ["vendredi"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"samədi" : {
+				"phonetic" : "samədi",
+				"word" : "samedi",
+				"path" : "samedi.png",
+				"homonym" : ["samedi"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+			"dimâʃ" : {
+				"phonetic" : "dimâʃ",
+				"word" : "dimanche",
+				"path" : "dimanche.png",
+				"homonym" : ["dimanche"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			}
+		},
+		"nbSuccess" : 0
+
+	}
+}

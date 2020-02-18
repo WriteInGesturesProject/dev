@@ -1,0 +1,33 @@
+{
+	"Exercise":
+	{
+		"version" : 1.0,
+		"userId" : 0,
+		"name" : "Exemple Nom",
+		"type" : {
+			"name" : "Entrainement",
+			"categorie" : "Custom, MonoSyllabe, BiSyllable, TriSyllable",
+			"syllableStruct" : "cv, cvv, cvc, n",
+			"vowelsType" : "O, N, SV",
+			"consonantsType" : "O, C, N"
+		},
+		"difficulty" : 0,
+		"successPercentage" : 0.0,
+		"nbOccurrences" : 0,
+		"nbWords" : 1,
+		"words" : {
+			"ni" : {
+				"phonetic" : "ni",
+				"word" : "nid",
+				"path" : "nid.png",
+				"homonym" : ["nid","ni"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+		},
+		"nbSuccess" : 0
+
+	}
+}

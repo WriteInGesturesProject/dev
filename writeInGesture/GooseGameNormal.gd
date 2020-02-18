@@ -1,6 +1,6 @@
 extends Control
 
-const Exercise = preload("res://Exercise.gd")
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -42,7 +42,7 @@ func _ready():
 			else :
 				var control_img = Control.new()
 				var image = TextureRect.new()
-				image.texture = load("res://art/users/assistant.png")
+				image.texture = load("res://art/questionmark.png")
 				image.expand = true
 				image.stretch_mode = TextureRect.STRETCH_SCALE_ON_EXPAND
 				image.rect_size.x = get_viewport().size.y / 8
@@ -64,7 +64,6 @@ func _ready():
 			imgBorel.texture = load("res://art/imgBorel/"+img)
 			container.add_child(imgBorel)
 	find_node("ImgBorel").add_child(container)
-	find_node("Word").text = myWords[index].getWord()
 	board[0].modulate = "e86767"
 
 func _change():
@@ -75,6 +74,7 @@ func _change():
 	index += 1
 	board[index-1].modulate = "ffffff"
 	board[index].modulate = "e86767"
+	board[index-1].texture = load("res://art/users/assistant.png")
 	container.remove_and_skip()
 	var img = ""
 	if(index >= myWords.size()):
@@ -93,7 +93,6 @@ func _change():
 			imgBorel.texture = load("res://art/imgBorel/"+img)
 			container.add_child(imgBorel)
 		find_node("ImgBorel").add_child(container)
-		find_node("Word").set_text(myWords[index].getWord())
 	incremented = false
 
 func _process(delta):
@@ -107,7 +106,7 @@ func _process(delta):
 			find_node("Record").set_text("Suivant")
 		else :
 			find_node("Record").set_text("Vous avez dit : " + words)
-			if(words.to_lower() == (find_node("Word").text).to_lower()):
+			if(words.to_lower() == myWords[index].to_lower()):
 				find_node("Record").disabled = true
 				if(incremented == false):
 					Global.score[Global.level][Global.game - 1] += 1

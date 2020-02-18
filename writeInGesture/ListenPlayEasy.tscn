@@ -20,6 +20,46 @@ anchor_bottom = 1.0
 texture = ExtResource( 3 )
 expand = true
 
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 102.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Speak" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 450.0
+margin_right = 573.0
+margin_bottom = 102.0
+theme = ExtResource( 1 )
+text = "Parle"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+margin_top = 122.0
+margin_right = 1024.0
+margin_bottom = 132.0
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="gridCard" type="GridContainer" parent="VBoxContainer/MarginContainer"]
+margin_left = 10.0
+margin_right = 1024.0
+custom_constants/vseparation = 90
+custom_constants/hseparation = 90
+columns = 3
+
 [node name="Back" type="Button" parent="."]
 margin_right = 12.0
 margin_bottom = 20.0

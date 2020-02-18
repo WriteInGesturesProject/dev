@@ -31,6 +31,7 @@ config/icon="res://art/icon.png"
 [autoload]
 
 Global="*res://Global.gd"
+ManageJson="*res://ManageJson.gd"
 
 [rendering]
 

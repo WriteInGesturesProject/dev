@@ -1,0 +1,27 @@
+{
+	"WordsAvailable":
+	{
+		"words" : {
+			"liːvʁ" : {
+				"phonetic" : "liːvʁ",
+				"word" : "livre",
+				"path" : "image.png",
+				"homonym" : ["livre"],
+				"nbSyllable" : 0,
+				"syllableStruct" : "cv, cvv, cvc, n",
+				"vowelsType" : "O, N, SV",
+				"consonantsType" : "O, C, N"
+			},
+			"liːvʁ2" : {
+				"phonetic" : "liːvʁ2",
+				"word" : "livre",
+				"path" : "image.png",
+				"homonym" : ["livre"],
+				"nbSyllable" : 0,
+				"syllableStruct" : "cv, cvv, cvc, n",
+				"vowelsType" : "O, N, SV",
+				"consonantsType" : "O, C, N"
+			},
+		}
+	}
+}

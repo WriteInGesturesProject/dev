@@ -1,13 +1,16 @@
 extends Control
 
 #const TTSDriver = preload("res://modules/TTS/TTSDriver.gdns")
+
+const Exercise = preload("res://Exercise.gd")
+
 var tts = null
 var stt = null
 var words = ""
 var display = false
 var incremented = false
 var os = ""
-var myWords = Global.loadFileInArray("wordsAvailable")
+var myWords : Array = []
 var index = 0
 var container = HBoxContainer.new()
 
@@ -25,24 +28,35 @@ func _ready():
 				tts.fireTTS()
 			if(Engine.has_singleton("GodotSpeech")):
 				stt = Engine.get_singleton("GodotSpeech")
+	match (Global.game):
+		1:
+			myWords = Global.customExercise.getAllWords()
+		2:
+			myWords = Global.countExercise.getAllWords()
+		3:
+			myWords = Global.weekExercise.getAllWords()
+		4:
+			myWords = Global.colorExercise.getAllWords()
 	if(Global.game == 2):
-		find_node("Number").set_text(Global.Number[Global.index])
-		find_node("TextureRect").texture = load(Global.img_count[Global.index])
+		find_node("Number").set_text(myWords[index].getPath())
 		find_node("TextureRect2").visible = false
 		find_node("Number").visible = true
-		find_node("Word").set_text(Global.words_count[Global.index])
-	elif(Global.game == 1):
-		var img = ""
-		find_node("TextureRect").visible = false
-		container = HBoxContainer.new()
-		container.alignment = HBoxContainer.ALIGN_CENTER
-		for c in myWords[index]:
-			img = Global.searchInDictionnary(c)
-			var imgBorel = TextureRect.new()
-			imgBorel.texture = load("res://art/imgBorel/"+img)
-			container.add_child(imgBorel)
-		find_node("ImgBorel").add_child(container)
-		find_node("Word").set_text(myWords[index])
+		find_node("Word").set_text(myWords[index].getWord())
+	else :
+		find_node("TextureRect2").texture = load("res://art/"+myWords[index].getPath())
+	var img = ""
+	container = HBoxContainer.new()
+	container.alignment = HBoxContainer.ALIGN_CENTER
+	for c in myWords[index].getPhonetic():
+		for b in Global.phoneticDictionnary:
+			for w in Global.phoneticDictionnary[b]:
+				if(c == w["phonetic"][1]):
+					img = w["ressource_path"]
+		var imgBorel = TextureRect.new()
+		imgBorel.texture = load("res://art/imgBorel/"+img)
+		container.add_child(imgBorel)
+	find_node("ImgBorel").add_child(container)
+	find_node("Word").set_text(myWords[index].getWord())
 	Global.score[Global.level][Global.game - 1] = 0
 	
 func _process(delta):
@@ -53,7 +67,7 @@ func _process(delta):
 	if(stt != null && display && stt.isDetectDone()):
 		words = stt.getWords()
 		find_node("Record").set_text("Vous avez dit : " + words)
-		if(words == find_node("Word").text || words == find_node("Number").text):
+		if(words.to_lower() == (find_node("Word").text).to_lower() || words == find_node("Number").text):
 			find_node("Oui").visible = true
 			find_node("Non").visible = false
 			find_node("Record").disabled = true
@@ -76,34 +90,36 @@ func _on_Next_pressed():
 	find_node("Oui").visible = false
 	find_node("Non").visible = false
 	display = false
-	if(Global.game == 2):
-		Global.index += 1
-		if(Global.index == 10):
-			get_tree().change_scene("res://GameEnd.tscn")
-		else:
-			find_node("Number").set_text(Global.Number[Global.index])
-			find_node("TextureRect").texture = load(Global.img_count[Global.index])
-			find_node("TextureRect2").visible = false
-			find_node("Word").visible = true
-			find_node("Word").set_text(Global.words_count[Global.index])
-	elif(Global.game == 1):
-		index += 1
+	index += 1
+	if(index >= myWords.size()):
+		get_tree().change_scene("res://GameEnd.tscn")
+	else :
+		if(Global.game == 2):
+			if(index == myWords.size()):
+				get_tree().change_scene("res://GameEnd.tscn")
+			else:
+				find_node("Number").set_text(myWords[index].getPath())
+				find_node("TextureRect2").visible = false
+				find_node("Word").visible = true
+				find_node("Word").set_text(myWords[index].getWord())
+		else :
+			find_node("TextureRect2").texture = load("res://art/"+myWords[index].getPath())
 		container.remove_and_skip()
 		var img = ""
-		find_node("TextureRect").visible = false
-		if(index >= myWords.size()):
-			get_tree().change_scene("res://GameEnd.tscn")
-		else :
-			container = HBoxContainer.new()
-			container.alignment = HBoxContainer.ALIGN_CENTER
-			container.name = "HBoxContainer"
-			for c in myWords[index]:
-				img = Global.searchInDictionnary(c)
-				var imgBorel = TextureRect.new()
-				imgBorel.texture = load("res://art/imgBorel/"+img)
-				container.add_child(imgBorel)
-			find_node("ImgBorel").add_child(container)
-			find_node("Word").set_text(myWords[index])
+		container = HBoxContainer.new()
+		container.alignment = HBoxContainer.ALIGN_CENTER
+		container.name = "HBoxContainer"
+		for c in myWords[index].getPhonetic():
+			for b in Global.phoneticDictionnary:
+				for w in Global.phoneticDictionnary[b]:
+					if(c == w["phonetic"][1]):
+						img = w["ressource_path"]
+						break
+			var imgBorel = TextureRect.new()
+			imgBorel.texture = load("res://art/imgBorel/"+img)
+			container.add_child(imgBorel)
+		find_node("ImgBorel").add_child(container)
+		find_node("Word").set_text(myWords[index].getWord())
 	incremented = false
 
 func _on_Speak_pressed(extra_arg_0):

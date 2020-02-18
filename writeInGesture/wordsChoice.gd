@@ -9,6 +9,8 @@ var nameFile = "wordsAvailable"
 var wordsAvailable : WordsAvailable = Global.wordsAvailable
 var dictionnary : MyDictionnary = Global.wordDictionnary
 
+var bg = ColorRect.new()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var words : Array = wordsAvailable.getAllWords()
@@ -16,6 +18,8 @@ func _ready():
 		var currentHbox = _createAvailableWordsList(str(i), words[i], str(i), "X")
 		find_node("wordsAvailableContainer").add_child(currentHbox)
 	_createKeyboard()
+	
+	self.add_child(bg)
 
 func _createKeyboard():
 	for b in Global.phoneticDictionnary:
@@ -54,9 +58,58 @@ func _on_addWord_pressed():
 			stateAddLabel.set_text("Le mot a été ajouté.")
 			find_node("newWord").text = ""
 		else :
-			print ("Le mot n'existe pas dans le dictionnaire, Voulez vous l'ajouter ?'")
+			find_node("addWordLabel").text = "Le mot n'existe pas voulez vous l'ajouter ? \nLe mot est : \n"+ find_node("newWord").text 
+			find_node("Popup").popup_centered_ratio(0.75)
+			bg.color = (Color(0,0,0,224))
+			bg.visible = true
+			bg.anchor_bottom = 1 
+			bg.anchor_right = 1
 	else:
 		stateAddLabel.set_text("Le mot existe déjà.")
+
+#######################################ADD_WORD_IN_DICTIONNARY###############################
+func _on_Popup_hide():
+		bg.visible = false
+
+func _on_no_pressed():
+	find_node("Popup").visible = false
+	find_node("Popup2").visible = false
+
+func _on_yes_pressed():
+	find_node("Popup2").popup_centered_ratio(0.75)
+	find_node("LinePhonetic").text = find_node("newWord").text
+	pass
+
+func _on_Confirm_pressed():
+	var newWord = Word.new()
+	newWord.setAttribut("phonetic", find_node("LinePhonetic").text)
+	newWord.setAttribut("word", find_node("LineWord").text)
+	newWord.setAttribut("nbSyllable", find_node("LineNbSyllable").text.to_int())
+	newWord.setAttribut("syllableStruct", find_node("LineStruct").text)
+	newWord.setHomonym(findHomonym(newWord.getWord()))
+	var err = dictionnary.addWord(newWord)
+	if(err) :
+		print("le mot a bien été ajouté")
+		find_node("Popup").visible = false
+		find_node("Popup2").visible = false
+		_on_addWord_pressed()
+	else :
+		print("le mot n'a pas été ajouté")
+	
+func findHomonym(word : String) :
+	var res = []
+	var text = ManageJson.checkFileExistUserPath("homonym.json")
+	if text == "": 
+		return 0
+	var tmp = JSON.parse(text)
+	var dict = tmp.result
+	var array = dict["Homonyms"]
+	for homo in array:
+		for el in homo :
+			if(el == word) :
+				res= homo
+	return res
+#######################################END_ADD_WORD_IN_DICTIONNARY###############################
 
 func _createAvailableWordsList(nameLabel, word : Word, nameButton, textButton):
 	var hBoxContainer = HBoxContainer.new()
@@ -150,3 +203,4 @@ func _input(ev):
 			swiping = false
 			isswipping =false
 				
+

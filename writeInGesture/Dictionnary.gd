@@ -20,9 +20,11 @@ func getUserId() -> int :
 
 func setVersion(version : float) -> void :
 	self.version = version
+	ManageJson.putElement(nameFile, "Dictionnary/version", version)
 
 func setUserId(userId : int) -> void :
 	self.userId = userId
+	ManageJson.putElement(nameFile, "Dictionnary/userId", version)
 
 func getAllWord() : 
 	return words
@@ -36,10 +38,16 @@ func getWord(phonetic) -> Word :
 
 func addWord(word) -> int :
 	var result = words.append(word)
-	if(result == null):
-		return 0
-	return 1
+	var w = words.find(word)
+	word.setAttribut("parent", self)
+	return ManageJson.addElement(nameFile, "Dictionnary/words", word.toDictionnary())
 	
+func updateWord(word : Word) :
+	var err = ManageJson.removeElement(nameFile, "Dictionary/words", word.getPhonetic())
+	if(!err):
+		return ManageJson.addElement(nameFile, "Dictionnary/words", word.toDictionnary())
+	else :
+		return 0
 
 func setAttribut(field : String, input):
 	match field : 

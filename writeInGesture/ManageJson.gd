@@ -94,7 +94,6 @@ func addElement(nameFile, pathAttribute, dictionnary):
 		if(Dicttmp == null) :
 			print("Wrong pathAttribute")
 			return 0
-	print(Dicttmp)
 	Dicttmp[dictionnary.keys()[0]] = dictionnary.get(dictionnary.keys()[0])
 	var jtstr = JSON.print(dict)
 	rewriteFile(nameFile, jtstr)
@@ -138,8 +137,7 @@ func removeElement(nameFile, pathAttribute, content):
 		if(Dicttmp == null) :
 			print("Wrong pathAttribute")
 			return 0
-	print(Dicttmp.has(content))
-	print("DICT TEMP : \n",Dicttmp)
+
 	Dicttmp.erase(content)
 	var jtstr = JSON.print(dict)
 	rewriteFile(nameFile, jtstr)

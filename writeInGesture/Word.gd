@@ -1,18 +1,22 @@
 extends Node
 
 
-var phonetic : String
-var word : String
-var path : String
-var homonym : Array
-var nbSyllable : int 
-var syllableStruct : String
-var vowelsType :String
-var consonantsType : String
-var parent : Node # We need to know the parent's node for update word in file
+var phonetic : String = ""
+var word : String = ""
+var path : String = ""
+var homonym : Array = []
+var nbSyllable : int = 0
+var syllableStruct : String = ""
+var vowelsType : String = ""
+var consonantsType : String = ""
+var parent : Node = null # We need to know the parent's node for update word in file
 
 func updateParent() : 
-	return parent.updateWord(self)
+	if(parent != null) :
+		return parent.updateWord(self)
+	else :
+		print("this word has no parent node")
+		return 0
 
 func getPhonetic():
 	return phonetic

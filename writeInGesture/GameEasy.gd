@@ -47,14 +47,22 @@ func _ready():
 	var img = ""
 	container = HBoxContainer.new()
 	container.alignment = HBoxContainer.ALIGN_CENTER
-	for c in myWords[index].getPhonetic():
-		for b in Global.phoneticDictionnary:
-			for w in Global.phoneticDictionnary[b]:
-				if(c == w["phonetic"][1]):
-					img = w["ressource_path"]
+	var c = 0
+	var p = myWords[index].getPhonetic()
+	while (c < len(p)):
+		print(p[c].to_ascii()[0])
+		if(c+1 < len(p) && p[c].to_ascii()[0] == 91 && p[c+1].to_ascii()[0] == 3):
+			img = "in.png"
+			c += 1
+		else :
+			for b in Global.phoneticDictionnary:
+				for w in Global.phoneticDictionnary[b]:
+					if(p[c] == w["phonetic"][1]):
+						img = w["ressource_path"]
 		var imgBorel = TextureRect.new()
 		imgBorel.texture = load("res://art/imgBorel/"+img)
 		container.add_child(imgBorel)
+		c += 1
 	find_node("ImgBorel").add_child(container)
 	find_node("Word").set_text(myWords[index].getWord())
 	Global.score[Global.level][Global.game - 1] = 0
@@ -109,15 +117,28 @@ func _on_Next_pressed():
 		container = HBoxContainer.new()
 		container.alignment = HBoxContainer.ALIGN_CENTER
 		container.name = "HBoxContainer"
-		for c in myWords[index].getPhonetic():
-			for b in Global.phoneticDictionnary:
-				for w in Global.phoneticDictionnary[b]:
-					if(c == w["phonetic"][1]):
-						img = w["ressource_path"]
-						break
+		var c = 0
+		var p = myWords[index].getPhonetic()
+		print(myWords[index].getWord())
+		while (c < len(p)):
+			print(p[c].to_ascii()[0])
+			if(c+1 < len(p) && p[c].to_ascii()[0] == 91 && p[c+1].to_ascii()[0] == 3):
+				img = "in.png"
+				c += 1
+			elif(c+1 < len(p) && p[c].to_ascii()[0] == 84 && p[c+1].to_ascii()[0] == 3):
+				img = "on.png"
+				c += 1
+			elif(p[c].to_ascii()[0] == 226):
+				img = "an.png"
+			else :
+				for b in Global.phoneticDictionnary:
+					for w in Global.phoneticDictionnary[b]:
+						if(p[c] == w["phonetic"][1]):
+							img = w["ressource_path"]
 			var imgBorel = TextureRect.new()
 			imgBorel.texture = load("res://art/imgBorel/"+img)
 			container.add_child(imgBorel)
+			c += 1
 		find_node("ImgBorel").add_child(container)
 		find_node("Word").set_text(myWords[index].getWord())
 	incremented = false

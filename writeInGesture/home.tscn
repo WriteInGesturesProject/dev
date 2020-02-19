@@ -192,9 +192,9 @@ __meta__ = {
 }
 
 [node name="title" type="Label" parent="Popup/VBoxContainer"]
-margin_top = 85.0
+margin_top = 79.0
 margin_right = 724.0
-margin_bottom = 147.0
+margin_bottom = 141.0
 text = "Connexion"
 align = 1
 __meta__ = {
@@ -202,22 +202,22 @@ __meta__ = {
 }
 
 [node name="id" type="LineEdit" parent="Popup/VBoxContainer"]
-margin_top = 172.0
+margin_top = 166.0
 margin_right = 724.0
-margin_bottom = 244.0
+margin_bottom = 238.0
 max_length = 20
 placeholder_text = "Identifiant"
 
 [node name="psswd" type="LineEdit" parent="Popup/VBoxContainer"]
-margin_top = 269.0
+margin_top = 263.0
 margin_right = 724.0
-margin_bottom = 341.0
+margin_bottom = 335.0
 max_length = 20
 secret = true
 placeholder_text = "Mot de passe"
 
 [node name="submit" type="Button" parent="Popup/VBoxContainer"]
-margin_top = 366.0
+margin_top = 360.0
 margin_right = 724.0
 margin_bottom = 428.0
 text = "Envoyer"
@@ -225,7 +225,7 @@ text = "Envoyer"
 [node name="resetPsswd" type="Button" parent="Popup/VBoxContainer"]
 margin_top = 453.0
 margin_right = 724.0
-margin_bottom = 515.0
+margin_bottom = 521.0
 text = "Reinitialiser le mot de passe"
 
 [node name="PopupReset" type="WindowDialog" parent="Popup"]

@@ -3,15 +3,16 @@ const Word = preload("res://Word.gd")
 const TypeExercise = preload("res://TypeExercise.gd")
 
 var version : float
-var userId : int
+var userId : String
 var type : TypeExercise
 var difficulty : int
-var successPercentage : float
-var nbOccurrences : int
+var successPercentage : Array = []
 var nbWords : int = 0
 var words : Array = []
-var nbSuccess : int
+var nbSuccess : int = 0
 var nameFile : String 
+var nbWordsOccurrences : Array =[]
+var wordsSuccess : Array
 
 func getVersion() : 
 	return version
@@ -23,7 +24,7 @@ func setVersion(ver : float):
 func getUserId() : 
 	return userId
 
-func setUserId(user : float):
+func setUserId(user : String):
 	userId = user
 	return ManageJson.putElement(nameFile, "Exercise/userId", userId)
 
@@ -44,16 +45,25 @@ func setDifficulty(dif : int):
 func getSucessPercentage() : 
 	return successPercentage
 
-func setSucessPercentage(sp : float):
+func setSucessPercentage(index : int, value : int):
+	successPercentage[index] = value
+	return ManageJson.putElement(nameFile, "Exercise/successPercentage", successPercentage)
+
+func putSucessPercentage(sp : Array):
 	successPercentage = sp
 	return ManageJson.putElement(nameFile, "Exercise/successPercentage", successPercentage)
 
-func getNbOccurrences(): 
-	return nbOccurrences
+func getNbWordOccurrence(index : int): 
+	return nbWordsOccurrences[index]
 
-func setNbOccurrences(no : int):
-	nbOccurrences = no
-	return ManageJson.putElement(nameFile, "Exercise/nbOccurrences", nbOccurrences)
+func setNbWordOccurrence(index : int, value : int):
+	nbWordsOccurrences[index] = value
+	return ManageJson.putElement(nameFile, "Exercise/nbWordsOccurrences", nbWordsOccurrences)
+
+func putNbWordOccurrence(word : Array):
+	nbWordsOccurrences = word
+	return ManageJson.putElement(nameFile, "Exercise/nbWordsOccurrences", nbWordsOccurrences)
+
 
 func getAllWords() -> Array :
 	return words
@@ -63,7 +73,7 @@ func getNbWords():
 
 func setNbWords(nb : int):
 	nbWords = nb
-	return ManageJson.putElement(nameFile, "Exercise/nbWords", nbOccurrences)
+	return ManageJson.putElement(nameFile, "Exercise/nbWords", nbWords)
 
 func getWord(phonetic) -> Word :
 	for currentWord in words :
@@ -74,19 +84,22 @@ func getWord(phonetic) -> Word :
 
 func addWord(word) -> int :
 	var result = words.append(word)
-	if(result == null):
-		return 0
 	setNbWords(words.size())
-	return ManageJson.addElement(nameFile ,"Exercise/nbWords", word)
-	
-#var nameFile : String 
+	return ManageJson.addElement(nameFile ,"Exercise/words", word.toDictionnary())
 
 func getNbSuccess(): 
 	return nbSuccess
 
 func setNbSuccess(nb : int):
 	nbSuccess = nb
-	return ManageJson.putElement(nameFile, "Exercise/nbSuccesss", nbSuccess)
+	return ManageJson.putElement(nameFile, "Exercise/nbSuccess", nbSuccess)
+
+func getName(): 
+	return name
+
+func setName(n : String):
+	name = n
+	return ManageJson.putElement(nameFile, "Exercise/name", name)
 	
 func getNameFile(): 
 	return nameFile
@@ -95,28 +108,52 @@ func setNameFile(nF : String):
 	nameFile = nF
 	return 1
 
+func getWordSuccess(index : int) -> Array: 
+	return wordsSuccess[index]
+
+func setWordSuccess(index : int, value : Array):
+	wordsSuccess[index] = value
+	return ManageJson.putElement(nameFile, "Exercise/wordsSuccess", wordsSuccess)
+
+func putWordSucess(word : Array):
+	wordsSuccess = word
+	return ManageJson.putElement(nameFile, "Exercise/wordsSuccess", wordsSuccess)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
+	
+func updateType(t : TypeExercise):
+	ManageJson.putElement(nameFile, "Exercise/type/name", type.name)
+	ManageJson.putElement(nameFile, "Exercise/type/categorie", type.category)
+	ManageJson.putElement(nameFile, "Exercise/type/syllableStruct", type.syllableStruct)
+	ManageJson.putElement(nameFile, "Exercise/type/vowelsType", type.vowelsType)
+	ManageJson.putElement(nameFile, "Exercise/type/consonantsType", type.consonantsType)
 
 func setAttribut(field : String, input):
 	match field : 
+		"name" :
+			name = input
 		"version" :
 			version = float(input)
 		"userId" :
 			userId = input
 		"type" :
 			type = TypeExercise.new()
+			type.setAttribut("parent", self)
 			for x in input:
 				type.setAttribut(x, input[x])
 		"difficulty" :
 			difficulty = int(input)
 		"successPercentage" :
-			successPercentage = float(input)
-		"nbOccurrences" :
-			nbOccurrences = int(input)
+			successPercentage = input
+		"nbWordsOccurrences" :
+			for i in input:
+				nbWordsOccurrences.append((i))
 		"nbWords" :
 			nbWords = int(input)
+		"wordsSucess" :
+			for i in (input):
+				wordsSuccess.append((i))
 		"words" : 
 			for word in input:
 				var inputWord = Word.new()
@@ -137,7 +174,7 @@ func toString() -> String :
 	res += "type : "+type.toString()+"\n"	
 	res += "difficulty : "+String(difficulty)+"\n"	
 	res += "successPercentage : "+String(successPercentage)+"\n"	
-	res += "nbOccurrences : "+String(nbOccurrences)+"\n"	
+#	res += "nbWordsOccurrences : "+String(nbOccurrences)+"\n"	
 	res += "nbWords : "+String(nbWords)+"\n"	
 	res += "words : ["
 	for word in words :

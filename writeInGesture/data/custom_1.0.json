@@ -2,8 +2,8 @@
 	"Exercise":
 	{
 		"version" : 1.0,
-		"userId" : 0,
-		"name" : "Exemple Nom",
+		"userId" : "0",
+		"name" : "Mes jeux",
 		"type" : {
 			"name" : "Entrainement",
 			"categorie" : "Custom, MonoSyllabe, BiSyllable, TriSyllable",
@@ -12,9 +12,19 @@
 			"consonantsType" : "O, C, N"
 		},
 		"difficulty" : 0,
-		"successPercentage" : 0.0,
-		"nbOccurrences" : 0,
+		"successPercentage" : [0.0,0.0,0.0],
+		"nbSuccess" : 0,
+		"nbWordsOccurrences" : [
+			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+		],
 		"nbWords" : 19,
+		"wordsSuccess" :[
+			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+		],
 		"words" : {
 			"bɛ̃" : {
 				"phonetic" : "bɛ̃",
@@ -26,6 +36,18 @@
 				"vowelsType" : "N",
 				"consonantsType" : "O,N"
 			},
+
+			"vert" : {
+				"phonetic" : "vert",
+				"word" : "vert",
+				"path" : "bain.png",
+				"homonym" : ["vers","vert","verre"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+
 			"mɛ̃" : {
 				"phonetic" : "mɛ̃",
 				"word" : "main",
@@ -207,7 +229,5 @@
 				"consonantsType" : "O,N"
 			}
 		},
-		"nbSuccess" : 0
-
 	}
 }

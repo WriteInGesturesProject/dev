@@ -17,16 +17,20 @@ var score2 = [0,0,0,0]
 var score3 = [0,0,0,0]
 var score = [score1, score2, score3]
 
+var nbDifficulty = 3
 var game = 1
 var play = 1
+var dev = 1
 
 var config : Config = Config.new()
 var customExercise : Exercise = Exercise.new()
 var countExercise : Exercise = Exercise.new()
 var weekExercise : Exercise = Exercise.new()
 var colorExercise : Exercise = Exercise.new()
+var exercises = [customExercise, countExercise, weekExercise, colorExercise]
+
 var player = Player.new()
-var wordsAvailable = WordsAvailable.new()
+var wordsAvailable  : WordsAvailable = WordsAvailable.new()
 var wordDictionnary = MyDictionnary.new()
 var phoneticDictionnary
 
@@ -39,8 +43,8 @@ func loadEntity():
 	ManageJson.getElement("config.json", "Config", config)
 	config.setAttribut("nameFile", "config.json")
 	
-	ManageJson.getElement("exercise.json", "Exercise", customExercise)
-	customExercise.setAttribut("nameFile", "exercise.json")
+	ManageJson.getElement(config.getPathExercisesFiles()[0], "Exercise", customExercise)
+	customExercise.setAttribut("nameFile", config.getPathExercisesFiles()[0])
 	
 	ManageJson.getElement("wordsAvailable.json", "WordsAvailable", wordsAvailable)
 	wordsAvailable.setAttribut("nameFile", "wordsAvailable.json")

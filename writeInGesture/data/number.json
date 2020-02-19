@@ -2,8 +2,8 @@
 	"Exercise":
 	{
 		"version" : 1.0,
-		"userId" : 0,
-		"name" : "Numbers",
+		"userId" : "0",
+		"name" : "Nombres",
 		"type" : {
 			"name" : "Entrainement",
 			"categorie" : "Custom, MonoSyllabe, BiSyllable, TriSyllable",
@@ -12,9 +12,19 @@
 			"consonantsType" : "O, C, N"
 		},
 		"difficulty" : 0,
-		"successPercentage" : 0.0,
-		"nbOccurrences" : 0,
+		"successPercentage" : [0.0,0.0,0.0],
+		"nbSuccess" : 0,
+		"nbWordsOccurrences" : [
+			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+		],
 		"nbWords" : 16,
+		"wordsSuccess" : [
+			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+		],
 		"words" : {
 			"ɛ̃" : {
 				"phonetic" : "ɛ̃",
@@ -177,7 +187,5 @@
 				"consonantsType" : "O,N"
 			},
 		},
-		"nbSuccess" : 0
-
 	}
 }

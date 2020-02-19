@@ -3,6 +3,7 @@ extends Control
 #const TTSDriver = preload("res://modules/TTS/TTSDriver.gdns")
 
 const Exercise = preload("res://Exercise.gd")
+const MyDictionnary = preload("res://Dictionnary.gd")
 
 var tts = null
 var stt = null
@@ -66,7 +67,15 @@ func _ready():
 	find_node("ImgBorel").add_child(container)
 	find_node("Word").set_text(myWords[index].getWord())
 	Global.score[Global.level][Global.game - 1] = 0
-	
+
+func check_homonyms(said):
+	var word = Global.wordDictionnary.getWord(myWords[index].getPhonetic())
+	var h = word.getHomonym()
+	for i in range(0,len(h)):
+		if(said == h[i].to_lower()):
+			return true
+	return false
+
 func _process(delta):
 	if(stt != null && stt.isListening()):
 		find_node("Record").set_text("En écoute")
@@ -75,7 +84,7 @@ func _process(delta):
 	if(stt != null && display && stt.isDetectDone()):
 		words = stt.getWords()
 		find_node("Record").set_text("Vous avez dit : " + words)
-		if(words.to_lower() == (find_node("Word").text).to_lower() || words == find_node("Number").text):
+		if(words == find_node("Number").text || check_homonyms(stt.getWords().to_lower())):
 			find_node("Oui").visible = true
 			find_node("Non").visible = false
 			find_node("Record").disabled = true

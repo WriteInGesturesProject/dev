@@ -364,7 +364,7 @@
 				"vowelsType" : "N",
 				"consonantsType" : "O,N"
 			},
-			"blâ" : {
+			"blɑ" : {
 				"phonetic" : "blâ",
 				"word" : "blanc",
 				"path" : "blanc.png",
@@ -404,7 +404,7 @@
 				"vowelsType" : "N",
 				"consonantsType" : "O,N"
 			},
-			"orâz" : {
+			"orɑz" : {
 				"phonetic" : "orâz",
 				"word" : "orange",
 				"path" : "orange.png",
@@ -454,7 +454,7 @@
 				"vowelsType" : "N",
 				"consonantsType" : "O,N"
 			},
-			"vâdrədi" : {
+			"vɑdrədi" : {
 				"phonetic" : "vâdrədi",
 				"word" : "vendredi",
 				"path" : "vendredi.png",
@@ -474,7 +474,7 @@
 				"vowelsType" : "N",
 				"consonantsType" : "O,N"
 			},
-			"dimâʃ" : {
+			"dimɑʃ" : {
 				"phonetic" : "dimâʃ",
 				"word" : "dimanche",
 				"path" : "dimanche.png",

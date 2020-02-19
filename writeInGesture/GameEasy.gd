@@ -3,6 +3,7 @@ extends Control
 #const TTSDriver = preload("res://modules/TTS/TTSDriver.gdns")
 
 const Exercise = preload("res://Exercise.gd")
+const MyDictionnary = preload("res://Dictionnary.gd")
 
 var tts = null
 var stt = null
@@ -47,18 +48,34 @@ func _ready():
 	var img = ""
 	container = HBoxContainer.new()
 	container.alignment = HBoxContainer.ALIGN_CENTER
-	for c in myWords[index].getPhonetic():
-		for b in Global.phoneticDictionnary:
-			for w in Global.phoneticDictionnary[b]:
-				if(c == w["phonetic"][1]):
-					img = w["ressource_path"]
+	var c = 0
+	var p = myWords[index].getPhonetic()
+	while (c < len(p)):
+		print(p[c].to_ascii()[0])
+		if(c+1 < len(p) && p[c].to_ascii()[0] == 91 && p[c+1].to_ascii()[0] == 3):
+			img = "in.png"
+			c += 1
+		else :
+			for b in Global.phoneticDictionnary:
+				for w in Global.phoneticDictionnary[b]:
+					if(p[c] == w["phonetic"][1]):
+						img = w["ressource_path"]
 		var imgBorel = TextureRect.new()
 		imgBorel.texture = load("res://art/imgBorel/"+img)
 		container.add_child(imgBorel)
+		c += 1
 	find_node("ImgBorel").add_child(container)
 	find_node("Word").set_text(myWords[index].getWord())
 	Global.score[Global.level][Global.game - 1] = 0
-	
+
+func check_homonyms(said):
+	var word = Global.wordDictionnary.getWord(myWords[index].getPhonetic())
+	var h = word.getHomonym()
+	for i in range(0,len(h)):
+		if(said == h[i].to_lower()):
+			return true
+	return false
+
 func _process(delta):
 	if(stt != null && stt.isListening()):
 		find_node("Record").set_text("En écoute")
@@ -67,7 +84,7 @@ func _process(delta):
 	if(stt != null && display && stt.isDetectDone()):
 		words = stt.getWords()
 		find_node("Record").set_text("Vous avez dit : " + words)
-		if(words.to_lower() == (find_node("Word").text).to_lower() || words == find_node("Number").text):
+		if(words == find_node("Number").text || check_homonyms(stt.getWords().to_lower())):
 			find_node("Oui").visible = true
 			find_node("Non").visible = false
 			find_node("Record").disabled = true
@@ -109,15 +126,28 @@ func _on_Next_pressed():
 		container = HBoxContainer.new()
 		container.alignment = HBoxContainer.ALIGN_CENTER
 		container.name = "HBoxContainer"
-		for c in myWords[index].getPhonetic():
-			for b in Global.phoneticDictionnary:
-				for w in Global.phoneticDictionnary[b]:
-					if(c == w["phonetic"][1]):
-						img = w["ressource_path"]
-						break
+		var c = 0
+		var p = myWords[index].getPhonetic()
+		print(myWords[index].getWord())
+		while (c < len(p)):
+			print(p[c].to_ascii()[0])
+			if(c+1 < len(p) && p[c].to_ascii()[0] == 91 && p[c+1].to_ascii()[0] == 3):
+				img = "in.png"
+				c += 1
+			elif(c+1 < len(p) && p[c].to_ascii()[0] == 84 && p[c+1].to_ascii()[0] == 3):
+				img = "on.png"
+				c += 1
+			elif(p[c].to_ascii()[0] == 226):
+				img = "an.png"
+			else :
+				for b in Global.phoneticDictionnary:
+					for w in Global.phoneticDictionnary[b]:
+						if(p[c] == w["phonetic"][1]):
+							img = w["ressource_path"]
 			var imgBorel = TextureRect.new()
 			imgBorel.texture = load("res://art/imgBorel/"+img)
 			container.add_child(imgBorel)
+			c += 1
 		find_node("ImgBorel").add_child(container)
 		find_node("Word").set_text(myWords[index].getWord())
 	incremented = false

@@ -2,7 +2,7 @@
 	"Exercise":
 	{
 		"version" : 1.0,
-		"userId" : 0,
+		"userId" : "0",
 		"name" : "Jours de la semaine",
 		"type" : {
 			"name" : "Entrainement",
@@ -12,11 +12,19 @@
 			"consonantsType" : "O, C, N"
 		},
 		"difficulty" : 0,
-		"successPercentage" : 0.0,
+		"successPercentage" : [0.0,0.0,0.0],
 		"nbSuccess" : 0,
-		"nbWordsOccurrences" : [10,8,10,2,14,10,8],
+		"nbWordsOccurrences" : [
+			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+		],
 		"nbWords" : 7,
-		"wordsSuccess" : [8,4,2,2,3,8,2],
+		"wordsSuccess" : [
+			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+		],
 		"words" : {
 			"lɛ̃di" : {
 				"phonetic" : "lɛ̃di",
@@ -58,8 +66,8 @@
 				"vowelsType" : "N",
 				"consonantsType" : "O,N"
 			},
-			"vâdrədi" : {
-				"phonetic" : "vâdrədi",
+			"vɑdrədi" : {
+				"phonetic" : "vɑdrədi",
 				"word" : "vendredi",
 				"path" : "vendredi.png",
 				"homonym" : ["vendredi"],
@@ -78,8 +86,8 @@
 				"vowelsType" : "N",
 				"consonantsType" : "O,N"
 			},
-			"dimâʃ" : {
-				"phonetic" : "dimâʃ",
+			"dimɑʃ" : {
+				"phonetic" : "dimɑʃ",
 				"word" : "dimanche",
 				"path" : "dimanche.png",
 				"homonym" : ["dimanche"],

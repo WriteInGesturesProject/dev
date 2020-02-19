@@ -6,22 +6,27 @@ var exerciseSelected : Exercise
 var percentage : Array
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var optionButton = find_node("listStatsAvailable")
+	var optionButton = find_node("exerciseChoice")
 	optionButton.text = "Choisi un exercice"
 	optionButton.add_item("Choisi un exercice")
 	for exercise in Global.exercises:
 		optionButton.add_item(exercise.name)
 
-func _on_listStatsAvailable_item_selected(id):
-	var selected = find_node("listStatsAvailable").selected
-	var itemSelected = find_node("listStatsAvailable").get_item_text(selected)
+func _on_exerciseChoice_item_selected(id):
+	var selected = find_node("exerciseChoice").selected
+	var itemSelected = find_node("exerciseChoice").get_item_text(selected)
 	for exercise in Global.exercises:
 		if exercise.name == itemSelected : 
 			exerciseSelected = exercise
+			displayDifficultyChoice()
 #			displayProgressBar()
-			displayStatisticsAllWords()
-			displayStatisticsWordsEasy()
+#			displayStatisticsAllWords()
+#			displayStatisticsWordsEasy()
 			return;
+
+func displayDifficultyChoice():
+	find_node("difficultyChoice").visible = true
+	
 
 #func displayProgressBar():
 	

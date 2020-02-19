@@ -94,7 +94,6 @@ func addElement(nameFile, pathAttribute, dictionnary):
 		if(Dicttmp == null) :
 			print("Wrong pathAttribute")
 			return 0
-	print(Dicttmp)
 	Dicttmp[dictionnary.keys()[0]] = dictionnary.get(dictionnary.keys()[0])
 	var jtstr = JSON.print(dict)
 	rewriteFile(nameFile, jtstr)
@@ -138,29 +137,24 @@ func removeElement(nameFile, pathAttribute, content):
 		if(Dicttmp == null) :
 			print("Wrong pathAttribute")
 			return 0
-	print(Dicttmp.has(content))
-	print("DICT TEMP : \n",Dicttmp)
+
 	Dicttmp.erase(content)
 	var jtstr = JSON.print(dict)
 	rewriteFile(nameFile, jtstr)
 	return 1
 
-#node : Node
-#version : float
-#userId : int 
-func createNewFile(node, version, userId):
-	return 0
-
 
 func rewriteFile(nameFile, content):
-	print("[WRITINGFILE]")
+	#print("[WRITINGFILE]")
 	var dir = Directory.new()
 	var fp_user = File.new()
-	var f_name = userPath+ nameFile;
+	if(!dir.dir_exists(userPath)):
+		dir.make_dir(userPath)
+	var f_name = userPath + nameFile;
 	var err = fp_user.open( f_name, File.WRITE )
-	print( f_name + " opened." )
-	print( "fp_user error code: " + str(err) )
+	#print( f_name + " opened." )
+	#print( "fp_user error code: " + str(err) )
 	fp_user.store_string(content)
 	print( f_name + " written." )
 	fp_user.close()
-	print("[END_WRITINGFILE]")
+	#print("[END_WRITINGFILE]")

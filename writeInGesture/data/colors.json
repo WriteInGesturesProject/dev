@@ -2,7 +2,7 @@
 	"Exercise":
 	{
 		"version" : 1.0,
-		"userId" : 0,
+		"userId" : "0",
 		"name" : "Couleurs",
 		"type" : {
 			"name" : "Entrainement",
@@ -12,11 +12,19 @@
 			"consonantsType" : "O, C, N"
 		},
 		"difficulty" : 0,
-		"successPercentage" : 0.0,
+		"successPercentage" : [0.0,0.0,0.0],
 		"nbSuccess" : 0,
-		"nbWordsOccurrences" : [0,0,0,0,0,0,0,0,0,0,0],
+		"nbWordsOccurrences" : [
+			[0,0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0,0]
+		],
 		"nbWords" : 11,
-		"wordsSuccess" : [0,0,0,0,0,0,0,0,0,0,0],
+		"wordsSuccess" : [
+			[0,0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0,0]
+		],
 		"words" : {
 			"blœ" : {
 				"phonetic" : "blœ",
@@ -78,8 +86,8 @@
 				"vowelsType" : "N",
 				"consonantsType" : "O,N"
 			},
-			"blâ" : {
-				"phonetic" : "blâ",
+			"blɑ" : {
+				"phonetic" : "blɑ",
 				"word" : "blanc",
 				"path" : "blanc.png",
 				"homonym" : ["blanc"],
@@ -118,8 +126,8 @@
 				"vowelsType" : "N",
 				"consonantsType" : "O,N"
 			},
-			"orâz" : {
-				"phonetic" : "orâz",
+			"orɑz" : {
+				"phonetic" : "orɑz",
 				"word" : "orange",
 				"path" : "orange.png",
 				"homonym" : ["orange"],

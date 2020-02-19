@@ -186,7 +186,6 @@ theme = ExtResource( 3 )
 text = "Non"
 
 [node name="Popup2" type="WindowDialog" parent="."]
-visible = true
 margin_left = 115.568
 margin_top = 72.2438
 margin_right = 982.568

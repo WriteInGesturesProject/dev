@@ -93,8 +93,6 @@ public class GodotSpeech extends Godot.SingletonBase implements RecognitionListe
                                         recognizerIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
                                         recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
                                                         RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-                                        recognizerIntent.putExtra("android.speech.extra.EXTRA_ADDITIONAL_LANGUAGES",
-                                                        new String[] { "fr" });
                                         recognizerIntent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE,
                                                         localContext.getPackageName());
                                         // turn all mute from whatever

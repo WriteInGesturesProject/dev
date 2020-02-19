@@ -21,7 +21,6 @@ var game = 1
 var play = 1
 var dev = 1
 
-
 var config : Config = Config.new()
 var customExercise : Exercise = Exercise.new()
 var countExercise : Exercise = Exercise.new()

@@ -3,7 +3,7 @@
 	{
 		"version" : 1.0,
 		"userId" : 0,
-		"name" : "Colors",
+		"name" : "Couleurs",
 		"type" : {
 			"name" : "Entrainement",
 			"categorie" : "Custom, MonoSyllabe, BiSyllable, TriSyllable",
@@ -13,8 +13,10 @@
 		},
 		"difficulty" : 0,
 		"successPercentage" : 0.0,
-		"nbOccurrences" : 0,
+		"nbSuccess" : 0,
+		"nbWordsOccurrences" : [0,0,0,0,0,0,0,0,0,0,0],
 		"nbWords" : 11,
+		"wordsSuccess" : [0,0,0,0,0,0,0,0,0,0,0],
 		"words" : {
 			"blœ" : {
 				"phonetic" : "blœ",
@@ -128,7 +130,5 @@
 			}
 			
 		},
-		"nbSuccess" : 0
-
 	}
 }

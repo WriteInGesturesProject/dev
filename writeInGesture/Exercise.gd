@@ -7,11 +7,12 @@ var userId : int
 var type : TypeExercise
 var difficulty : int
 var successPercentage : float
-var nbOccurrences : int
 var nbWords : int = 0
 var words : Array = []
 var nbSuccess : int
 var nameFile : String 
+var nbWordsOccurrences : Array
+var wordsSuccess : Array
 
 func getVersion() : 
 	return version
@@ -48,12 +49,12 @@ func setSucessPercentage(sp : float):
 	successPercentage = sp
 	return ManageJson.putElement(nameFile, "Exercise/successPercentage", successPercentage)
 
-func getNbOccurrences(): 
-	return nbOccurrences
+func getNbWordOccurrence(index : int): 
+	return nbWordsOccurrences[index]
 
-func setNbOccurrences(no : int):
-	nbOccurrences = no
-	return ManageJson.putElement(nameFile, "Exercise/nbOccurrences", nbOccurrences)
+func setNbWordOccurrence(index : int, value : int):
+	nbWordsOccurrences[index] = value
+	return ManageJson.putElement(nameFile, "Exercise/nbWordsOccurrences", nbWordsOccurrences)
 
 func getAllWords() -> Array :
 	return words
@@ -63,7 +64,7 @@ func getNbWords():
 
 func setNbWords(nb : int):
 	nbWords = nb
-	return ManageJson.putElement(nameFile, "Exercise/nbWords", nbOccurrences)
+	return ManageJson.putElement(nameFile, "Exercise/nbWords", nbWords)
 
 func getWord(phonetic) -> Word :
 	for currentWord in words :
@@ -78,15 +79,13 @@ func addWord(word) -> int :
 		return 0
 	setNbWords(words.size())
 	return ManageJson.addElement(nameFile ,"Exercise/nbWords", word)
-	
-#var nameFile : String 
 
 func getNbSuccess(): 
 	return nbSuccess
 
 func setNbSuccess(nb : int):
 	nbSuccess = nb
-	return ManageJson.putElement(nameFile, "Exercise/nbSuccesss", nbSuccess)
+	return ManageJson.putElement(nameFile, "Exercise/nbSuccess", nbSuccess)
 	
 func getNameFile(): 
 	return nameFile
@@ -95,12 +94,21 @@ func setNameFile(nF : String):
 	nameFile = nF
 	return 1
 
+func getwordSuccess(index : int) -> int: 
+	return wordsSuccess[index]
+
+func setWordSuccess(index : int, value : int):
+	wordsSuccess[index] = value
+	return ManageJson.putElement(nameFile, "Exercise/wordsSuccess", wordsSuccess)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 func setAttribut(field : String, input):
 	match field : 
+		"name" :
+			name = input
 		"version" :
 			version = float(input)
 		"userId" :
@@ -113,10 +121,14 @@ func setAttribut(field : String, input):
 			difficulty = int(input)
 		"successPercentage" :
 			successPercentage = float(input)
-		"nbOccurrences" :
-			nbOccurrences = int(input)
+		"nbWordsOccurrences" :
+			for i in range(input):
+				nbWordsOccurrences.append(int(input))
 		"nbWords" :
 			nbWords = int(input)
+		"wordsSucess" :
+			for i in range(input):
+				wordsSuccess.append(int(input))
 		"words" : 
 			for word in input:
 				var inputWord = Word.new()
@@ -137,7 +149,7 @@ func toString() -> String :
 	res += "type : "+type.toString()+"\n"	
 	res += "difficulty : "+String(difficulty)+"\n"	
 	res += "successPercentage : "+String(successPercentage)+"\n"	
-	res += "nbOccurrences : "+String(nbOccurrences)+"\n"	
+#	res += "nbWordsOccurrences : "+String(nbOccurrences)+"\n"	
 	res += "nbWords : "+String(nbWords)+"\n"	
 	res += "words : ["
 	for word in words :

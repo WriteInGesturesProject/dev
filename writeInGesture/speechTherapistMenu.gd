@@ -10,20 +10,17 @@ extends Control
 func _ready():
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func _on_Button_pressed():
-	get_tree().change_scene("res://home.tscn")
-
-
-
 func _on_wordsChoice_pressed():
 	get_tree().change_scene("res://wordsChoice.tscn")
 
 
 func _on_Connection_pressed():
 	get_tree().change_scene("res://login.tscn")
+
+
+func _on_statsButton_pressed():
+	get_tree().change_scene("res://statistics.tscn")
+
+
+func _on_back_pressed():
+	get_tree().change_scene("res://home.tscn")

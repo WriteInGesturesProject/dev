@@ -81,12 +81,16 @@ func _on_yes_pressed():
 	pass
 
 func _on_Confirm_pressed():
-	var newWord = Word.new()
+	var newWord : Word = Word.new()
 	newWord.setAttribut("phonetic", find_node("LinePhonetic").text)
 	newWord.setAttribut("word", find_node("LineWord").text)
 	newWord.setAttribut("nbSyllable", find_node("LineNbSyllable").text.to_int())
 	newWord.setAttribut("syllableStruct", find_node("LineStruct").text)
+	newWord.setAttribut("vowelsType", find_node("LineVoyelsType").text)
+	newWord.setAttribut("consonantsType", find_node("LineConsType").text)
 	newWord.setHomonym(findHomonym(newWord.getWord()))
+	if(newWord.getHomonym().size() == 0) :
+		newWord.addHomonym(newWord.getWord())
 	var err = dictionnary.addWord(newWord)
 	if(err) :
 		print("le mot a bien été ajouté")

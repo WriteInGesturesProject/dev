@@ -12,10 +12,6 @@ var progress1 = [85,85,85,20]
 var progress2 = [85,0,85,0]
 var progress3 = [0,0,0,0]
 var progress = [progress1, progress2, progress3]
-var score1 = [0,0,0,0]
-var score2 = [0,0,0,0]
-var score3 = [0,0,0,0]
-var score = [score1, score2, score3]
 
 var nbDifficulty = 3
 var game = 1
@@ -29,8 +25,8 @@ var weekExercise : Exercise = Exercise.new()
 var colorExercise : Exercise = Exercise.new()
 var exercises = [customExercise, countExercise, weekExercise, colorExercise]
 
-var player = Player.new()
-var wordsAvailable  : WordsAvailable = WordsAvailable.new()
+var player : Player = Player.new()
+var wordsAvailable : WordsAvailable = WordsAvailable.new()
 var wordDictionnary = MyDictionnary.new()
 var phoneticDictionnary
 
@@ -66,7 +62,6 @@ func loadEntity():
 		return 0
 	var tmp = JSON.parse(text)
 	phoneticDictionnary = tmp.result
-	
 	
 	ManageJson.getElement("player.json", "User", player)
 	player.setAttribut("nameFile", "player.json")

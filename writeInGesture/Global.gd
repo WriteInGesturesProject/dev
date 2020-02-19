@@ -17,6 +17,7 @@ var score2 = [0,0,0,0]
 var score3 = [0,0,0,0]
 var score = [score1, score2, score3]
 
+var nbDifficulty = 3
 var game = 1
 var play = 1
 var dev = 1

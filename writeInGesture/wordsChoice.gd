@@ -13,20 +13,23 @@ var dictionnary : MyDictionnary = Global.wordDictionnary
 
 var bg = ColorRect.new()
 
-# Called when the node enters the scene tree for the first time.
+#######################################FUNCTION_FOR_SCENE###############################
 func _ready():
 	var words : Array = wordsAvailable.getAllWords()
-	for i in range(0, words.size()):
-		var currentHbox = _createAvailableWordsList(str(i), words[i], str(i), "X")
-		find_node("wordsAvailableContainer").add_child(currentHbox)
+	makeListWord()
 	_createKeyboard()
-	
 	self.add_child(bg)
 	
 func removeAllChildren(nameNode):
 	# remove all children of nameNode
 	for i in range(0, find_node(nameNode).get_child_count()):
-		find_node(nameNode).get_child(i).queue_free
+		find_node(nameNode).get_child(i).queue_free()
+
+func makeListWord() :
+	removeAllChildren("wordsAvailableContainer")
+	for word in wordsAvailable.getAllWords() :
+		find_node("wordsAvailableContainer").add_child(createAvailableWordsList(word))
+	pass
 
 func _createKeyboard():
 	for b in Global.phoneticDictionnary:
@@ -59,11 +62,10 @@ func _on_addWord_pressed():
 	if !(wordsAvailable.getWord(text)) :# < 20:
 		var word = dictionnary.getWord(text)
 		if(word != null) :
-			var currentHbox = _createAvailableWordsList(text, word, text, "X")
-			find_node("wordsAvailableContainer").add_child(currentHbox)
 			wordsAvailable.addWord(word)
 			stateAddLabel.set_text("Le mot a été ajouté.")
 			find_node("newWord").text = ""
+			makeListWord()
 		else :
 			find_node("addWordLabel").text = "Le mot n'existe pas voulez vous l'ajouter ? \nLe mot est : \n"+ find_node("newWord").text 
 			find_node("Popup").popup_centered_ratio(0.75)
@@ -73,6 +75,50 @@ func _on_addWord_pressed():
 			bg.anchor_right = 1
 	else:
 		stateAddLabel.set_text("Le mot existe déjà.")
+
+func createAvailableWordsList(word : Word):
+	var hBoxContainer = HBoxContainer.new()
+	hBoxContainer.mouse_filter =Control.MOUSE_FILTER_PASS
+	var currentLabel = Label.new()
+	var wordLabel = Label.new()
+	currentLabel.name = word.getWord()
+	wordLabel.name = word.getWord()
+	wordLabel.size_flags_horizontal = SIZE_EXPAND_FILL
+	
+	var buttonDelete = Button.new()
+	buttonDelete.name = word.getWord()
+	buttonDelete.icon = load("res://art/delete.png")
+	buttonDelete.expand_icon = true
+	buttonDelete.rect_size = Vector2(60,60)
+	buttonDelete.connect("pressed",self,"_on_deleteButton_pressed", [buttonDelete, currentLabel])
+	
+	var control = Control.new()
+	control.rect_min_size = buttonDelete.rect_size
+	control.size_flags_horizontal
+	control.add_child(buttonDelete)
+	
+	hBoxContainer.add_child(currentLabel)
+	hBoxContainer.add_child(wordLabel)
+	hBoxContainer.add_child(control)
+	
+	currentLabel.set_text(word.getPhonetic())
+	wordLabel.set_text(" : " + word.getWord())
+	return hBoxContainer
+
+func _on_deleteButton_pressed(button, label):
+	print("release : ", release)
+	if(!release) :
+		button.get_parent().get_parent().remove_and_skip()
+		print("label text : ",label.get_text())
+		swiping = false 
+		if(!wordsAvailable.removeWord(wordsAvailable.getWord(label.get_text()))) :
+			print ("le mot n'est pas supprimé dans le fichier'")
+		return 
+
+func _on_Retour_pressed():
+	get_tree().change_scene("res://speechTherapistMenu.tscn")
+
+#######################################END_FUNCTION_FOR_SCENE###############################
 
 #######################################ADD_WORD_IN_DICTIONNARY###############################
 func _on_Popup_hide():
@@ -136,12 +182,22 @@ func _on_Creation_pressed():
 	newCustomExercise.setNbWords(wordsAvailable.getAllWords().size())
 	var nbWordsOccurrences =[]
 	var wordsSuccess = []
+	var sucessPercentage =[]
+	for i in range(0,Global.nbDifficulty):
+		var tmp = []
+		for word in wordsAvailable.getAllWords():
+			tmp.append(0)
+		nbWordsOccurrences.append(tmp)
+		wordsSuccess.append(tmp)
+		sucessPercentage.append(0.0)
+
 	for word in wordsAvailable.getAllWords():
 		newCustomExercise.addWord(word)
-		nbWordsOccurrences.append(0)
-		wordsSuccess.append(0)
+
 	newCustomExercise.putNbWordOccurrence(nbWordsOccurrences)
 	newCustomExercise.putWordSucess(wordsSuccess)
+	newCustomExercise.putSucessPercentage(sucessPercentage)
+	
 	
 	Global.config.setPathExercisesFiles(Global.customExercise.getNameFile(),newCustomExercise.getNameFile())
 	Global.customExercise = newCustomExercise
@@ -151,8 +207,6 @@ func _on_Creation_pressed():
 	for word in tmp :
 		wordsAvailable.removeWord(word)
 	
-
-
 func creationFileExercice():
 	var exerciseTemplate = {}
 	var text = ManageJson.checkFileExistUserPath("exerciseTemplate.json")
@@ -171,37 +225,7 @@ func creationFileExercice():
 	
 #######################################END_CREATION_OF_EXERCISE##################################
 
-func _createAvailableWordsList(nameLabel, word : Word, nameButton, textButton):
-	var hBoxContainer = HBoxContainer.new()
-	hBoxContainer.mouse_filter =Control.MOUSE_FILTER_PASS
-	var currentLabel = Label.new()
-	currentLabel.name = nameLabel
-	var buttonDelete = Button.new()
-	buttonDelete.theme = load("res://fonts/ButtonTheme.tres")
-	currentLabel.size_flags_horizontal = SIZE_EXPAND_FILL
-	hBoxContainer.add_child(currentLabel)
-	hBoxContainer.add_child(buttonDelete)
-	buttonDelete.name = nameButton
-	buttonDelete.text = textButton
-	buttonDelete.connect("pressed",self,"_on_deleteButton_pressed", [buttonDelete, currentLabel])
-	currentLabel.set_text(word.getPhonetic())
-	currentLabel.add_color_override("font_color", Color(255,255,255))
-	return hBoxContainer
-
-func _on_deleteButton_pressed(button, label):
-	print("release : ", release)
-	if(!release) :
-		button.get_parent().remove_and_skip()
-		print("label text : ",label.get_text())
-		swiping = false 
-		if(!wordsAvailable.removeWord(wordsAvailable.getWord(label.get_text()))) :
-			print ("le mot n'est pas supprimé dans le fichier'")
-		return 
-
-func _on_Retour_pressed():
-	get_tree().change_scene("res://speechTherapistMenu.tscn")
-
-
+#######################################SCROLLING#################################################
 #variable for scrolling 
 var swiping = false
 var release = false
@@ -263,5 +287,5 @@ func _input(ev):
 			swiping = false
 			isswipping =false
 				
-
+#######################################END_SCROLLING#################################################
 

@@ -12,11 +12,19 @@
 			"consonantsType" : ""
 		},
 		"difficulty" : 0,
-		"successPercentage" : 0.0,
+		"successPercentage" : [0.0, 0.0, 0.0],
 		"nbSuccess" : 0,
-		"nbWordsOccurrences" : [],
+		"nbWordsOccurrences" : [
+			[],
+			[],
+			[]
+		],
 		"nbWords" : 0,
-		"wordsSuccess" : [],
+		"wordsSuccess" : [
+			[],
+			[],
+			[],
+		],
 		"words" : {
 		},
 	}

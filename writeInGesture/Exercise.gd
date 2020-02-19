@@ -6,10 +6,10 @@ var version : float
 var userId : String
 var type : TypeExercise
 var difficulty : int
-var successPercentage : float
+var successPercentage : Array = []
 var nbWords : int = 0
 var words : Array = []
-var nbSuccess : int
+var nbSuccess : int = 0
 var nameFile : String 
 var nbWordsOccurrences : Array =[]
 var wordsSuccess : Array
@@ -45,7 +45,11 @@ func setDifficulty(dif : int):
 func getSucessPercentage() : 
 	return successPercentage
 
-func setSucessPercentage(sp : float):
+func setSucessPercentage(index : int, value : int):
+	successPercentage[index] = value
+	return ManageJson.putElement(nameFile, "Exercise/successPercentage", successPercentage)
+
+func putSucessPercentage(sp : Array):
 	successPercentage = sp
 	return ManageJson.putElement(nameFile, "Exercise/successPercentage", successPercentage)
 
@@ -141,15 +145,15 @@ func setAttribut(field : String, input):
 		"difficulty" :
 			difficulty = int(input)
 		"successPercentage" :
-			successPercentage = float(input)
+			successPercentage = input
 		"nbWordsOccurrences" :
 			for i in input:
-				nbWordsOccurrences.append(int(i))
+				nbWordsOccurrences.append((i))
 		"nbWords" :
 			nbWords = int(input)
 		"wordsSucess" :
 			for i in (input):
-				wordsSuccess.append(int(i))
+				wordsSuccess.append((i))
 		"words" : 
 			for word in input:
 				var inputWord = Word.new()

@@ -51,70 +51,7 @@ func _ready():
 					colorR.rect_size.x = get_viewport().size.y / 2.2
 					colorR.rect_size.y = get_viewport().size.y / 2.2
 					control_img.add_child(colorR)
-					var marg = MarginContainer.new()
-					marg.margin_top = 20
-					marg.margin_left = 20
-					var vBox = VBoxContainer.new()
-					vBox.rect_size.x = get_viewport().size.y / 2.2
-					vBox.rect_size.y = get_viewport().size.y / 2.2
-					vBox.alignment = VBoxContainer.ALIGN_CENTER
-					vBox.add_constant_override("separation", (get_viewport().size.y / 2.2)/ (mySize(myWords[index].getPhonetic())+0.5))
-					
-					var word = Label.new()
-					word.text = myWords[index].getWord()
-					word.align = Label.ALIGN_CENTER
-					
-					if(mySize(myWords[index].getPhonetic()) > 3):
-						container = VBoxContainer.new()
-						line1 = HBoxContainer.new()
-						line2 = HBoxContainer.new()
-						container.add_constant_override("separation",(get_viewport().size.y / 2.2)/ 4.5 +10)
-						line1.add_constant_override("separation", (get_viewport().size.y / 2.2)/ 4.5 +10)
-						line2.add_constant_override("separation", (get_viewport().size.y / 2.2)/ 4.5 +10)
-					else :
-						container = HBoxContainer.new()
-						container.add_constant_override("separation",(get_viewport().size.y / 2.2)/  (mySize(myWords[index].getPhonetic())+0.5) +10)
-					var c = 0
-					var p = myWords[index].getPhonetic()
-					while (c < len(p)):
-						if(c+1 < len(p) && p[c].to_ascii()[0] == 91 && p[c+1].to_ascii()[0] == 3):
-							img = "in.png"
-							c += 1
-						elif(c+1 < len(p) && p[c].to_ascii()[0] == 84 && p[c+1].to_ascii()[0] == 3):
-							img = "on.png"
-							c += 1
-						elif(p[c].to_ascii()[0] == 226):
-							img = "an.png"
-						else :
-							for b in Global.phoneticDictionnary:
-								for w in Global.phoneticDictionnary[b]:
-									if(p[c] == w["phonetic"][1]):
-										img = w["ressource_path"]
-						var imgBorel = TextureRect.new()
-						imgBorel.texture = load("res://art/imgBorel/"+img)
-						imgBorel.expand = true
-						imgBorel.stretch_mode = TextureRect.STRETCH_SCALE_ON_EXPAND
-						if(mySize(myWords[index].getPhonetic()) > 3):
-							imgBorel.rect_size.x = (get_viewport().size.y / 2.2)/  4.5
-							imgBorel.rect_size.y = (get_viewport().size.y / 2.2)/  4.5
-						else :
-							imgBorel.rect_size.x = (get_viewport().size.y / 2.2)/  (mySize(myWords[index].getPhonetic())+0.5)
-							imgBorel.rect_size.y = (get_viewport().size.y / 2.2)/  (mySize(myWords[index].getPhonetic())+0.5)
-						var boxImg = Control.new()
-						boxImg.add_child(imgBorel)
-						c += 1
-						if(mySize(myWords[index].getPhonetic()) > 3):
-							if(line1.get_child_count() < 3):
-								line1.add_child(boxImg)
-							else :
-								line2.add_child(boxImg)
-						else :
-							container.add_child(boxImg)
 					index += 1
-					if(mySize(myWords[index].getPhonetic()) > 3):
-						container.add_child(line1)
-						container.add_child(line2)
-					vBox.add_child(container)
 					var box_image = Control.new()
 					var hBox = HBoxContainer.new()
 					hBox.alignment = HBoxContainer.ALIGN_CENTER
@@ -122,16 +59,13 @@ func _ready():
 					image.texture = load("res://art/users/assistant.png")
 					image.expand = true
 					image.stretch_mode = TextureRect.STRETCH_SCALE_ON_EXPAND
-					image.rect_size.x = (get_viewport().size.y / 2.2)/4
-					image.rect_size.y = (get_viewport().size.y / 2.2)/4
+					image.rect_size.x = (get_viewport().size.y / 2.2) - 10
+					image.rect_size.y = (get_viewport().size.y / 2.2) -10
 					box_image.add_child(image)
 					hBox.add_child(box_image)
 					var vBox2 = VBoxContainer.new()
-					vBox2.add_child(word)
 					vBox2.add_child(hBox)
-					vBox.add_child(vBox2)
-					marg.add_child(vBox)
-					control_img.add_child(marg)
+					control_img.add_child(vBox2)
 					find_node("gridCard").add_constant_override("hseparation",  (get_viewport().size.y / 2)+10)
 					find_node("gridCard").add_child(control_img)
 		find_node("Choice").add_constant_override("separation", (get_viewport().size.y / 2.2)/2)

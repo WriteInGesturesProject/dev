@@ -165,6 +165,7 @@ func findHomonym(word : String) :
 		for el in homo :
 			if(el == word) :
 				res= homo
+	print(res)
 	return res
 #######################################END_ADD_WORD_IN_DICTIONNARY###############################
 

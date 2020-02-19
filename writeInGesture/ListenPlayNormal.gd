@@ -57,13 +57,7 @@ func _ready():
 					var vBox = VBoxContainer.new()
 					vBox.rect_size.x = get_viewport().size.y / 2.2
 					vBox.rect_size.y = get_viewport().size.y / 2.2
-					vBox.alignment = VBoxContainer.ALIGN_CENTER
 					vBox.add_constant_override("separation", (get_viewport().size.y / 2.2)/ (mySize(myWords[index].getPhonetic())+0.5))
-					
-					var word = Label.new()
-					word.text = myWords[index].getWord()
-					word.align = Label.ALIGN_CENTER
-					
 					if(mySize(myWords[index].getPhonetic()) > 3):
 						container = VBoxContainer.new()
 						line1 = HBoxContainer.new()
@@ -115,21 +109,6 @@ func _ready():
 						container.add_child(line1)
 						container.add_child(line2)
 					vBox.add_child(container)
-					var box_image = Control.new()
-					var hBox = HBoxContainer.new()
-					hBox.alignment = HBoxContainer.ALIGN_CENTER
-					var image = TextureRect.new()
-					image.texture = load("res://art/users/assistant.png")
-					image.expand = true
-					image.stretch_mode = TextureRect.STRETCH_SCALE_ON_EXPAND
-					image.rect_size.x = (get_viewport().size.y / 2.2)/4
-					image.rect_size.y = (get_viewport().size.y / 2.2)/4
-					box_image.add_child(image)
-					hBox.add_child(box_image)
-					var vBox2 = VBoxContainer.new()
-					vBox2.add_child(word)
-					vBox2.add_child(hBox)
-					vBox.add_child(vBox2)
 					marg.add_child(vBox)
 					control_img.add_child(marg)
 					find_node("gridCard").add_constant_override("hseparation",  (get_viewport().size.y / 2)+10)

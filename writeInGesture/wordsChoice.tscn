@@ -325,9 +325,15 @@ margin_right = 867.0
 margin_bottom = 624.0
 alignment = 1
 
+[node name="SearchButton" type="Button" parent="Popup2/VBoxPopup2/HBoxContainer8"]
+margin_left = 85.0
+margin_right = 450.0
+margin_bottom = 102.0
+text = "Rechercher une image"
+
 [node name="OpenButton" type="Button" parent="Popup2/VBoxPopup2/HBoxContainer8"]
-margin_left = 269.0
-margin_right = 597.0
+margin_left = 454.0
+margin_right = 782.0
 margin_bottom = 102.0
 theme = ExtResource( 3 )
 text = "Ouvrir une image"
@@ -356,11 +362,19 @@ text = "Annuler"
 [node name="FileDialog" type="FileDialog" parent="."]
 margin_right = 658.0
 margin_bottom = 310.0
-window_title = "Enregistrer un fichier"
+window_title = "Ouvrir un fichier"
+mode = 0
+access = 2
+filters = PoolStringArray( "*.png ; PNG Images", "*.jpg ; JPG Images", "*.jpeg ; JPEG Images" )
+current_dir = "/mnt/DATA/Polytech/S10/Projet/dev/writeInGesture"
+current_path = "/mnt/DATA/Polytech/S10/Projet/dev/writeInGesture/"
 [connection signal="pressed" from="MarginContainer/HBoxContainer/editContainer/HBoxContainer/addWord" to="." method="_on_addWord_pressed"]
 [connection signal="pressed" from="retour" to="." method="_on_Retour_pressed"]
 [connection signal="hide" from="Popup" to="." method="_on_Popup_hide"]
 [connection signal="pressed" from="Popup/VBoxPopup/HBoxContainer/yes" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="Popup/VBoxPopup/HBoxContainer/no" to="." method="_on_no_pressed"]
+[connection signal="pressed" from="Popup2/VBoxPopup2/HBoxContainer8/SearchButton" to="." method="_on_SearchButton_pressed"]
+[connection signal="pressed" from="Popup2/VBoxPopup2/HBoxContainer8/OpenButton" to="." method="_on_OpenButton_pressed"]
 [connection signal="pressed" from="Popup2/VBoxPopup2/HBoxContainer/Confirm" to="." method="_on_Confirm_pressed"]
 [connection signal="pressed" from="Popup2/VBoxPopup2/HBoxContainer/Cancel" to="." method="_on_no_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]

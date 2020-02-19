@@ -5,6 +5,7 @@ const WordsAvailable = preload("res://WordsAvailable.gd")
 const MyDictionnary = preload("res://Dictionnary.gd")
 
 var nameFile = "wordsAvailable"
+var ImagePath = ""
 
 var wordsAvailable : WordsAvailable = Global.wordsAvailable
 var dictionnary : MyDictionnary = Global.wordDictionnary
@@ -88,6 +89,7 @@ func _on_Confirm_pressed():
 	newWord.setAttribut("syllableStruct", find_node("LineStruct").text)
 	newWord.setAttribut("vowelsType", find_node("LineVoyelsType").text)
 	newWord.setAttribut("consonantsType", find_node("LineConsType").text)
+	newWord.setPath(ImagePath)
 	newWord.setHomonym(findHomonym(newWord.getWord()))
 	if(newWord.getHomonym().size() == 0) :
 		newWord.addHomonym(newWord.getWord())
@@ -207,3 +209,32 @@ func _input(ev):
 			swiping = false
 			isswipping =false
 
+func _on_OpenButton_pressed():
+	var word = find_node("LineWord").text
+	if(word == null || word == ""):
+		return
+	find_node("FileDialog").rect_size.x = get_viewport().size.x - 10
+	find_node("FileDialog").rect_size.y = get_viewport().size.y - 10
+	find_node("FileDialog").set_current_dir(OS.get_system_dir(OS.SYSTEM_DIR_DOWNLOADS))
+	find_node("FileDialog").popup()
+
+func _on_SearchButton_pressed():
+	var word = find_node("LineWord").text
+	if(word == null || word == ""):
+		return
+	var url = "https://www.google.fr/search?q="
+	url += word
+	url += "&tbm=isch&tbs=sur%3Af"
+	OS.shell_open(url)
+
+func _on_FileDialog_file_selected(path):
+	var word = find_node("LineWord").text
+	if(word == null || word == ""):
+		return
+	ImagePath = "user://art/" + word + "." + path.get_extension()
+	var dir = Directory.new()
+	dir.open("user://")
+	if(!dir.dir_exists("art")):
+		dir.make_dir("art")
+	dir.copy(path, ImagePath)
+	find_node("OpenButton").set_text(path.get_file())

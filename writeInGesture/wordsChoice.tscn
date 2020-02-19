@@ -186,6 +186,7 @@ theme = ExtResource( 3 )
 text = "Non"
 
 [node name="Popup2" type="WindowDialog" parent="."]
+visible = true
 margin_left = 115.568
 margin_top = 72.2438
 margin_right = 982.568
@@ -281,47 +282,60 @@ margin_bottom = 72.0
 max_length = 20
 
 [node name="HBoxContainer6" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 294.0
+margin_top = 370.0
 margin_right = 867.0
-margin_bottom = 366.0
+margin_bottom = 442.0
 alignment = 1
 
 [node name="VoyelsType" type="Label" parent="Popup2/VBoxPopup2/HBoxContainer6"]
-margin_left = 189.0
+margin_left = 223.0
 margin_top = 5.0
-margin_right = 520.0
+margin_right = 485.0
 margin_bottom = 67.0
 text = "Type de voyelle"
 
 [node name="LineVoyelsType" type="LineEdit" parent="Popup2/VBoxPopup2/HBoxContainer6"]
-margin_left = 524.0
-margin_right = 678.0
+margin_left = 489.0
+margin_right = 643.0
 margin_bottom = 72.0
 max_length = 20
 
 [node name="HBoxContainer7" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 294.0
+margin_top = 446.0
 margin_right = 867.0
-margin_bottom = 366.0
+margin_bottom = 518.0
 alignment = 1
 
 [node name="ConsType" type="Label" parent="Popup2/VBoxPopup2/HBoxContainer7"]
-margin_left = 189.0
+margin_left = 206.0
 margin_top = 5.0
-margin_right = 520.0
+margin_right = 502.0
 margin_bottom = 67.0
 text = "Type de consonne"
 
 [node name="LineConsType" type="LineEdit" parent="Popup2/VBoxPopup2/HBoxContainer7"]
-margin_left = 524.0
-margin_right = 678.0
+margin_left = 506.0
+margin_right = 660.0
 margin_bottom = 72.0
 max_length = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 370.0
+[node name="HBoxContainer8" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
+margin_top = 522.0
 margin_right = 867.0
-margin_bottom = 472.0
+margin_bottom = 624.0
+alignment = 1
+
+[node name="OpenButton" type="Button" parent="Popup2/VBoxPopup2/HBoxContainer8"]
+margin_left = 269.0
+margin_right = 597.0
+margin_bottom = 102.0
+theme = ExtResource( 3 )
+text = "Ouvrir une image"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
+margin_top = 628.0
+margin_right = 867.0
+margin_bottom = 730.0
 custom_constants/separation = 20
 alignment = 1
 
@@ -338,6 +352,11 @@ margin_right = 633.0
 margin_bottom = 102.0
 theme = ExtResource( 3 )
 text = "Annuler"
+
+[node name="FileDialog" type="FileDialog" parent="."]
+margin_right = 658.0
+margin_bottom = 310.0
+window_title = "Enregistrer un fichier"
 [connection signal="pressed" from="MarginContainer/HBoxContainer/editContainer/HBoxContainer/addWord" to="." method="_on_addWord_pressed"]
 [connection signal="pressed" from="retour" to="." method="_on_Retour_pressed"]
 [connection signal="hide" from="Popup" to="." method="_on_Popup_hide"]

@@ -206,5 +206,4 @@ func _input(ev):
 				release = false
 			swiping = false
 			isswipping =false
-				
 

@@ -143,22 +143,16 @@ func removeElement(nameFile, pathAttribute, content):
 	rewriteFile(nameFile, jtstr)
 	return 1
 
-#node : Node
-#version : float
-#userId : int 
-func createNewFile(node, version, userId):
-	return 0
-
 
 func rewriteFile(nameFile, content):
-	print("[WRITINGFILE]")
+	#print("[WRITINGFILE]")
 	var dir = Directory.new()
 	var fp_user = File.new()
 	var f_name = userPath+ nameFile;
 	var err = fp_user.open( f_name, File.WRITE )
-	print( f_name + " opened." )
-	print( "fp_user error code: " + str(err) )
+	#print( f_name + " opened." )
+	#print( "fp_user error code: " + str(err) )
 	fp_user.store_string(content)
 	print( f_name + " written." )
 	fp_user.close()
-	print("[END_WRITINGFILE]")
+	#print("[END_WRITINGFILE]")

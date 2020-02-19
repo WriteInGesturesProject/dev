@@ -27,7 +27,7 @@ var countExercise : Exercise = Exercise.new()
 var weekExercise : Exercise = Exercise.new()
 var colorExercise : Exercise = Exercise.new()
 var player = Player.new()
-var wordsAvailable = WordsAvailable.new()
+var wordsAvailable  : WordsAvailable = WordsAvailable.new()
 var wordDictionnary = MyDictionnary.new()
 var phoneticDictionnary
 
@@ -40,8 +40,8 @@ func loadEntity():
 	ManageJson.getElement("config.json", "Config", config)
 	config.setAttribut("nameFile", "config.json")
 	
-	ManageJson.getElement("exercise.json", "Exercise", customExercise)
-	customExercise.setAttribut("nameFile", "exercise.json")
+	ManageJson.getElement(config.getPathExercisesFiles()[0], "Exercise", customExercise)
+	customExercise.setAttribut("nameFile", config.getPathExercisesFiles()[0])
 	
 	ManageJson.getElement("wordsAvailable.json", "WordsAvailable", wordsAvailable)
 	wordsAvailable.setAttribut("nameFile", "wordsAvailable.json")

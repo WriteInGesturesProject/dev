@@ -3,6 +3,8 @@ extends Control
 const Word = preload("res://Word.gd")
 const WordsAvailable = preload("res://WordsAvailable.gd")
 const MyDictionnary = preload("res://Dictionnary.gd")
+const Exercise = preload("res://Exercise.gd")
+const TypeExercise = preload("res://TypeExercise.gd")
 
 var nameFile = "wordsAvailable"
 
@@ -20,6 +22,11 @@ func _ready():
 	_createKeyboard()
 	
 	self.add_child(bg)
+	
+func removeAllChildren(nameNode):
+	# remove all children of nameNode
+	for i in range(0, find_node(nameNode).get_child_count()):
+		find_node(nameNode).get_child(i).queue_free
 
 func _createKeyboard():
 	for b in Global.phoneticDictionnary:
@@ -115,6 +122,55 @@ func findHomonym(word : String) :
 	return res
 #######################################END_ADD_WORD_IN_DICTIONNARY###############################
 
+#######################################CREATION_OF_EXERCISE######################################
+func _on_Creation_pressed():
+	var fileName = creationFileExercice()
+	var newCustomExercise = Exercise.new()
+	newCustomExercise.setNameFile(fileName)
+	ManageJson.getElement(fileName, "Exercise", newCustomExercise)
+	newCustomExercise.setVersion(Global.customExercise.getVersion()+0.1)
+	newCustomExercise.setUserId(Global.player.getId())
+	newCustomExercise.setName(Global.customExercise.getName())
+	newCustomExercise.getType().setName("Entrainement")
+	newCustomExercise.getType().setCategory("Custom")
+	newCustomExercise.setNbWords(wordsAvailable.getAllWords().size())
+	var nbWordsOccurrences =[]
+	var wordsSuccess = []
+	for word in wordsAvailable.getAllWords():
+		newCustomExercise.addWord(word)
+		nbWordsOccurrences.append(0)
+		wordsSuccess.append(0)
+	newCustomExercise.putNbWordOccurrence(nbWordsOccurrences)
+	newCustomExercise.putWordSucess(wordsSuccess)
+	
+	Global.config.setPathExercisesFiles(Global.customExercise.getNameFile(),newCustomExercise.getNameFile())
+	Global.customExercise = newCustomExercise
+	
+	find_node("stateAddLabel").text = "L'exercice a bien été créé"
+	var tmp = wordsAvailable.getAllWords()
+	for word in tmp :
+		wordsAvailable.removeWord(word)
+	
+
+
+func creationFileExercice():
+	var exerciseTemplate = {}
+	var text = ManageJson.checkFileExistUserPath("exerciseTemplate.json")
+	if text == "": 
+		return 0
+	var tmp = JSON.parse(text)
+	var dict = tmp.result
+	var fileName = Global.customExercise.getNameFile()
+	var version = Global.customExercise.getVersion()
+	version += 0.1
+	fileName = fileName.split("_")[0]+"_"+String(version)+".json"
+	ManageJson.rewriteFile(fileName, JSON.print(dict))
+	return fileName
+	
+	
+	
+#######################################END_CREATION_OF_EXERCISE##################################
+
 func _createAvailableWordsList(nameLabel, word : Word, nameButton, textButton):
 	var hBoxContainer = HBoxContainer.new()
 	hBoxContainer.mouse_filter =Control.MOUSE_FILTER_PASS
@@ -207,4 +263,5 @@ func _input(ev):
 			swiping = false
 			isswipping =false
 				
+
 

@@ -43,7 +43,8 @@ func setAttribut(field : String, input):
 	match field : 
 		"version" :
 			version = input
-		"pathExerciseFile" : 
+		"pathExercisesFiles" : 
+
 			for path in input:
 				pathExercisesFiles.append(path)
 		"loginAdmin" : 

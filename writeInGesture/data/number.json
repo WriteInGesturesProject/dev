@@ -2,7 +2,7 @@
 	"Exercise":
 	{
 		"version" : 1.0,
-		"userId" : 0,
+		"userId" : "0",
 		"name" : "Nombres",
 		"type" : {
 			"name" : "Entrainement",

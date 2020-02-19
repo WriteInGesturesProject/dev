@@ -148,7 +148,9 @@ func rewriteFile(nameFile, content):
 	#print("[WRITINGFILE]")
 	var dir = Directory.new()
 	var fp_user = File.new()
-	var f_name = userPath+ nameFile;
+	if(!dir.dir_exists(userPath)):
+		dir.make_dir(userPath)
+	var f_name = userPath + nameFile;
 	var err = fp_user.open( f_name, File.WRITE )
 	#print( f_name + " opened." )
 	#print( "fp_user error code: " + str(err) )

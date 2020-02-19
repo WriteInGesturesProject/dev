@@ -36,6 +36,18 @@
 				"vowelsType" : "N",
 				"consonantsType" : "O,N"
 			},
+
+			"vert" : {
+				"phonetic" : "vert",
+				"word" : "vert",
+				"path" : "bain.png",
+				"homonym" : ["vers","vert","verre"],
+				"nbSyllable" : 1,
+				"syllableStruct" : "cv",
+				"vowelsType" : "N",
+				"consonantsType" : "O,N"
+			},
+
 			"mɛ̃" : {
 				"phonetic" : "mɛ̃",
 				"word" : "main",

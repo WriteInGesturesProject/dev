@@ -281,47 +281,67 @@ margin_bottom = 72.0
 max_length = 20
 
 [node name="HBoxContainer6" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 294.0
+margin_top = 370.0
 margin_right = 867.0
-margin_bottom = 366.0
+margin_bottom = 442.0
 alignment = 1
 
 [node name="VoyelsType" type="Label" parent="Popup2/VBoxPopup2/HBoxContainer6"]
-margin_left = 189.0
+margin_left = 223.0
 margin_top = 5.0
-margin_right = 520.0
+margin_right = 485.0
 margin_bottom = 67.0
 text = "Type de voyelle"
 
 [node name="LineVoyelsType" type="LineEdit" parent="Popup2/VBoxPopup2/HBoxContainer6"]
-margin_left = 524.0
-margin_right = 678.0
+margin_left = 489.0
+margin_right = 643.0
 margin_bottom = 72.0
 max_length = 20
 
 [node name="HBoxContainer7" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 294.0
+margin_top = 446.0
 margin_right = 867.0
-margin_bottom = 366.0
+margin_bottom = 518.0
 alignment = 1
 
 [node name="ConsType" type="Label" parent="Popup2/VBoxPopup2/HBoxContainer7"]
-margin_left = 189.0
+margin_left = 206.0
 margin_top = 5.0
-margin_right = 520.0
+margin_right = 502.0
 margin_bottom = 67.0
 text = "Type de consonne"
 
 [node name="LineConsType" type="LineEdit" parent="Popup2/VBoxPopup2/HBoxContainer7"]
-margin_left = 524.0
-margin_right = 678.0
+margin_left = 506.0
+margin_right = 660.0
 margin_bottom = 72.0
 max_length = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 370.0
+[node name="HBoxContainer8" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
+margin_top = 522.0
 margin_right = 867.0
-margin_bottom = 472.0
+margin_bottom = 624.0
+alignment = 1
+
+[node name="SearchButton" type="Button" parent="Popup2/VBoxPopup2/HBoxContainer8"]
+margin_left = 85.0
+margin_right = 450.0
+margin_bottom = 102.0
+theme = ExtResource( 3 )
+text = "Rechercher une image"
+
+[node name="OpenButton" type="Button" parent="Popup2/VBoxPopup2/HBoxContainer8"]
+margin_left = 454.0
+margin_right = 782.0
+margin_bottom = 102.0
+theme = ExtResource( 3 )
+text = "Ouvrir une image"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
+margin_top = 628.0
+margin_right = 867.0
+margin_bottom = 730.0
 custom_constants/separation = 20
 alignment = 1
 
@@ -338,11 +358,24 @@ margin_right = 633.0
 margin_bottom = 102.0
 theme = ExtResource( 3 )
 text = "Annuler"
+
+[node name="FileDialog" type="FileDialog" parent="."]
+margin_right = 658.0
+margin_bottom = 310.0
+window_title = "Ouvrir un fichier"
+mode = 0
+access = 2
+filters = PoolStringArray( "*.png ; PNG Images", "*.jpg ; JPG Images", "*.jpeg ; JPEG Images" )
+current_dir = "/home/guillaume/Documents/RICM5/Projet/dev/writeInGesture"
+current_path = "/home/guillaume/Documents/RICM5/Projet/dev/writeInGesture/"
 [connection signal="pressed" from="MarginContainer/HBoxContainer/editContainer/HBoxContainer/addWord" to="." method="_on_addWord_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/editContainer/Creation" to="." method="_on_Creation_pressed"]
 [connection signal="pressed" from="retour" to="." method="_on_Retour_pressed"]
 [connection signal="hide" from="Popup" to="." method="_on_Popup_hide"]
 [connection signal="pressed" from="Popup/VBoxPopup/HBoxContainer/yes" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="Popup/VBoxPopup/HBoxContainer/no" to="." method="_on_no_pressed"]
+[connection signal="pressed" from="Popup2/VBoxPopup2/HBoxContainer8/SearchButton" to="." method="_on_SearchButton_pressed"]
+[connection signal="pressed" from="Popup2/VBoxPopup2/HBoxContainer8/OpenButton" to="." method="_on_OpenButton_pressed"]
 [connection signal="pressed" from="Popup2/VBoxPopup2/HBoxContainer/Confirm" to="." method="_on_Confirm_pressed"]
 [connection signal="pressed" from="Popup2/VBoxPopup2/HBoxContainer/Cancel" to="." method="_on_no_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]

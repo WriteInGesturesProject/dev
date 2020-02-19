@@ -14,9 +14,9 @@
 		"difficulty" : 0,
 		"successPercentage" : 0.0,
 		"nbSuccess" : 0,
-		"nbWordsOccurrences" : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+		"nbWordsOccurrences" : [10,8,10,2,14,10,8],
 		"nbWords" : 7,
-		"wordsSuccess" : [0,0,0,0,0,0,0],
+		"wordsSuccess" : [8,4,2,2,3,8,2],
 		"words" : {
 			"lɛ̃di" : {
 				"phonetic" : "lɛ̃di",

@@ -94,7 +94,7 @@ func setNameFile(nF : String):
 	nameFile = nF
 	return 1
 
-func getwordSuccess(index : int) -> int: 
+func getWordSuccess(index : int) -> int: 
 	return wordsSuccess[index]
 
 func setWordSuccess(index : int, value : int):
@@ -122,13 +122,13 @@ func setAttribut(field : String, input):
 		"successPercentage" :
 			successPercentage = float(input)
 		"nbWordsOccurrences" :
-			for i in range(input):
-				nbWordsOccurrences.append(int(input))
+			for i in input:
+				nbWordsOccurrences.append(int(i))
 		"nbWords" :
 			nbWords = int(input)
-		"wordsSucess" :
-			for i in range(input):
-				wordsSuccess.append(int(input))
+		"wordsSuccess" :
+			for i in input:
+				wordsSuccess.append(int(i))
 		"words" : 
 			for word in input:
 				var inputWord = Word.new()

@@ -1,18 +1,62 @@
 extends Control
 
+const Exercise = preload("res://Exercise.gd")
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
+var exerciseSelected : Exercise
+var percentage : Array
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var optionButton = find_node("listStatsAvailable")
-	optionButton.add_item(Global.customExercise.name)
-	optionButton.add_item(Global.countExercise.name)
-	optionButton.add_item(Global.weekExercise.name)
-	optionButton.add_item(Global.colorExercise.name)
+	optionButton.text = "Choisi un exercice"
+	optionButton.add_item("Choisi un exercice")
+	for exercise in Global.exercises:
+		optionButton.add_item(exercise.name)
+
+func _on_listStatsAvailable_item_selected(id):
+	var selected = find_node("listStatsAvailable").selected
+	var itemSelected = find_node("listStatsAvailable").get_item_text(selected)
+	for exercise in Global.exercises:
+		if exercise.name == itemSelected : 
+			exerciseSelected = exercise
+#			displayProgressBar()
+			displayStatisticsAllWords()
+			displayStatisticsWordsEasy()
+			return;
+
+#func displayProgressBar():
+	
+
+func displayStatisticsWordsEasy():
+	removeAllChildren("wordsEasy")
+	print(percentage)
+
+func displayStatisticsAllWords():
+#	percentage.clear()
+	removeAllChildren("statsExercises")
+	var words = exerciseSelected.getAllWords()
+	var index = 0
+	for word in words:
+		var hBox = HBoxContainer.new()
+		var wordLabel = Label.new()
+		wordLabel.text = word.getWord()
+		hBox.add_child(wordLabel)
+		var nbOccurs = exerciseSelected.getNbWordOccurrence(index)
+		var nbSuccess = exerciseSelected.getWordSuccess(index)
+		var stats = Label.new()
+		var currentPercentage = 0
+		if nbOccurs != 0:
+			currentPercentage = (float(nbSuccess)/float(nbOccurs))*100
+			percentage.append(currentPercentage)
+		stats.text = " - Succès : "+String(nbSuccess)+"/"+String(nbOccurs)+" = "+String(int(currentPercentage))+"%"
+		hBox.add_child(stats)
+		index += 1
+		find_node("statsExercises").add_child(hBox)
+
+#func displayStatisticsWordsEasy():
+func removeAllChildren(nameNode):
+	# remove all children of node "statsExercises"
+	for i in range(0, find_node(nameNode).get_child_count()):
+		find_node(nameNode).get_child(i).queue_free()
 
 func _on_back_pressed():
 	get_tree().change_scene("res://speechTherapistMenu.tscn")

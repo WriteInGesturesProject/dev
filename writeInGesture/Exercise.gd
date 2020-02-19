@@ -11,7 +11,7 @@ var nbWords : int = 0
 var words : Array = []
 var nbSuccess : int
 var nameFile : String 
-var nbWordsOccurrences : Array
+var nbWordsOccurrences : Array =[]
 var wordsSuccess : Array
 
 func getVersion() : 
@@ -122,13 +122,14 @@ func setAttribut(field : String, input):
 		"successPercentage" :
 			successPercentage = float(input)
 		"nbWordsOccurrences" :
-			for i in range(input):
-				nbWordsOccurrences.append(int(input))
+			print(input)
+			for i in input:
+				nbWordsOccurrences.append(int(i))
 		"nbWords" :
 			nbWords = int(input)
 		"wordsSucess" :
-			for i in range(input):
-				wordsSuccess.append(int(input))
+			for i in (input):
+				wordsSuccess.append(int(i))
 		"words" : 
 			for word in input:
 				var inputWord = Word.new()

@@ -108,10 +108,10 @@ func setNameFile(nF : String):
 	nameFile = nF
 	return 1
 
-func getwordSuccess(index : int) -> int: 
+func getWordSuccess(index : int) -> Array: 
 	return wordsSuccess[index]
 
-func setWordSuccess(index : int, value : int):
+func setWordSuccess(index : int, value : Array):
 	wordsSuccess[index] = value
 	return ManageJson.putElement(nameFile, "Exercise/wordsSuccess", wordsSuccess)
 

@@ -52,12 +52,59 @@ margin_bottom = 62.0
 text = "Statistiques"
 align = 1
 
-[node name="listStatsAvailable" type="OptionButton" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="exerciseChoice" type="OptionButton" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer"]
 margin_top = 66.0
 margin_right = 784.0
 margin_bottom = 128.0
-text = "Ce que tu veux"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="difficultyChoice" type="OptionButton" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer"]
+visible = false
+margin_top = 132.0
+margin_right = 784.0
+margin_bottom = 194.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="progressTitle" type="Label" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer"]
+visible = false
+margin_top = 132.0
+margin_right = 784.0
+margin_bottom = 194.0
+text = "Progression"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer"]
+visible = false
+margin_top = 132.0
+margin_right = 784.0
+margin_bottom = 194.0
+value = 50.0
+
+[node name="wordsEasy" type="VBoxContainer" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 132.0
+margin_right = 784.0
+margin_bottom = 132.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="wordsHard" type="VBoxContainer" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 136.0
+margin_right = 784.0
+margin_bottom = 136.0
+
+[node name="statsExercises" type="VBoxContainer" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 140.0
+margin_right = 784.0
+margin_bottom = 140.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -70,4 +117,5 @@ text = "Retour"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="item_selected" from="TextureRect/MarginContainer/ScrollContainer/VBoxContainer/exerciseChoice" to="." method="_on_exerciseChoice_item_selected"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]

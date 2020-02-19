@@ -27,6 +27,8 @@ var customExercise : Exercise = Exercise.new()
 var countExercise : Exercise = Exercise.new()
 var weekExercise : Exercise = Exercise.new()
 var colorExercise : Exercise = Exercise.new()
+var exercises = [customExercise, countExercise, weekExercise, colorExercise]
+
 var player = Player.new()
 var wordsAvailable  : WordsAvailable = WordsAvailable.new()
 var wordDictionnary = MyDictionnary.new()

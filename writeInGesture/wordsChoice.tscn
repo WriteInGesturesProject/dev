@@ -57,7 +57,7 @@ margin_right = 400.0
 margin_bottom = 62.0
 size_flags_vertical = 0
 custom_colors/font_color = Color( 0.901961, 0.905882, 0.858824, 1 )
-text = "Les mots disponibles :"
+text = "Mots ajoutés :"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -126,7 +126,7 @@ margin_top = 122.0
 margin_right = 367.0
 margin_bottom = 184.0
 
-[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/editContainer"]
+[node name="Creation" type="Button" parent="MarginContainer/HBoxContainer/editContainer"]
 margin_top = 194.0
 margin_right = 367.0
 margin_bottom = 296.0
@@ -328,6 +328,7 @@ alignment = 1
 margin_left = 85.0
 margin_right = 450.0
 margin_bottom = 102.0
+theme = ExtResource( 3 )
 text = "Rechercher une image"
 
 [node name="OpenButton" type="Button" parent="Popup2/VBoxPopup2/HBoxContainer8"]
@@ -365,9 +366,10 @@ window_title = "Ouvrir un fichier"
 mode = 0
 access = 2
 filters = PoolStringArray( "*.png ; PNG Images", "*.jpg ; JPG Images", "*.jpeg ; JPEG Images" )
-current_dir = "/mnt/DATA/Polytech/S10/Projet/dev/writeInGesture"
-current_path = "/mnt/DATA/Polytech/S10/Projet/dev/writeInGesture/"
+current_dir = "/home/guillaume/Documents/RICM5/Projet/dev/writeInGesture"
+current_path = "/home/guillaume/Documents/RICM5/Projet/dev/writeInGesture/"
 [connection signal="pressed" from="MarginContainer/HBoxContainer/editContainer/HBoxContainer/addWord" to="." method="_on_addWord_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/editContainer/Creation" to="." method="_on_Creation_pressed"]
 [connection signal="pressed" from="retour" to="." method="_on_Retour_pressed"]
 [connection signal="hide" from="Popup" to="." method="_on_Popup_hide"]
 [connection signal="pressed" from="Popup/VBoxPopup/HBoxContainer/yes" to="." method="_on_yes_pressed"]

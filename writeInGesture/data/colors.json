@@ -2,7 +2,7 @@
 	"Exercise":
 	{
 		"version" : 1.0,
-		"userId" : 0,
+		"userId" : "0",
 		"name" : "Couleurs",
 		"type" : {
 			"name" : "Entrainement",
@@ -12,11 +12,19 @@
 			"consonantsType" : "O, C, N"
 		},
 		"difficulty" : 0,
-		"successPercentage" : 0.0,
+		"successPercentage" : [0.0,0.0,0.0],
 		"nbSuccess" : 0,
-		"nbWordsOccurrences" : [0,0,0,0,0,0,0,0,0,0,0],
+		"nbWordsOccurrences" : [
+			[0,0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0,0]
+		],
 		"nbWords" : 11,
-		"wordsSuccess" : [0,0,0,0,0,0,0,0,0,0,0],
+		"wordsSuccess" : [
+			[0,0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0,0]
+		],
 		"words" : {
 			"blœ" : {
 				"phonetic" : "blœ",

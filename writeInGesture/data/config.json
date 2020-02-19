@@ -2,7 +2,7 @@
 	"Config":
 	{
 		"version" : 1.0,
-		"pathExercisesFiles" : ["custom_1.0.json"],
+		"pathExercisesFiles" : ["custom_1.0.json", "goose_1.0.json", "memory_1.0.json", "third_1.0.json"],
 		"loginAdmin" : "admin",
 		"passWordAdmin" : "admin"
 	}

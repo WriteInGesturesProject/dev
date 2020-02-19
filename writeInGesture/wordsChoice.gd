@@ -5,6 +5,7 @@ const WordsAvailable = preload("res://WordsAvailable.gd")
 const MyDictionnary = preload("res://Dictionnary.gd")
 const Exercise = preload("res://Exercise.gd")
 const TypeExercise = preload("res://TypeExercise.gd")
+const CreationExercise = preload("res://CreationExercise.gd")
 
 var nameFile = "wordsAvailable"
 var ImagePath = ""
@@ -28,6 +29,10 @@ func removeAllChildren(nameNode):
 
 func makeListWord() :
 	removeAllChildren("wordsAvailableContainer")
+	if(wordsAvailable.getAllWords().size() == 0):
+		find_node("Creation").visible = false
+	else :
+		find_node("Creation").visible = true
 	for word in wordsAvailable.getAllWords() :
 		find_node("wordsAvailableContainer").add_child(createAvailableWordsList(word))
 	pass
@@ -74,6 +79,7 @@ func _on_addWord_pressed():
 			bg.visible = true
 			bg.anchor_bottom = 1 
 			bg.anchor_right = 1
+		
 	else:
 		stateAddLabel.set_text("Le mot existe déjà.")
 
@@ -114,6 +120,7 @@ func _on_deleteButton_pressed(button, label):
 		swiping = false 
 		if(!wordsAvailable.removeWord(wordsAvailable.getWord(label.get_text()))) :
 			print ("le mot n'est pas supprimé dans le fichier'")
+		makeListWord()
 		return 
 
 func _on_Retour_pressed():
@@ -151,6 +158,7 @@ func _on_Confirm_pressed():
 		print("le mot a bien été ajouté")
 		find_node("Popup").visible = false
 		find_node("Popup2").visible = false
+		find_node("Creation").visible = true
 		_on_addWord_pressed()
 	else :
 		print("le mot n'a pas été ajouté")
@@ -173,60 +181,23 @@ func findHomonym(word : String) :
 
 #######################################CREATION_OF_EXERCISE######################################
 func _on_Creation_pressed():
-	var fileName = creationFileExercice()
-	var newCustomExercise = Exercise.new()
-	newCustomExercise.setNameFile(fileName)
-	ManageJson.getElement(fileName, "Exercise", newCustomExercise)
-	newCustomExercise.setVersion(Global.customExercise.getVersion()+0.1)
-	newCustomExercise.setUserId(Global.player.getId())
-	newCustomExercise.setName(Global.customExercise.getName())
-	newCustomExercise.getType().setName("Entrainement")
-	newCustomExercise.getType().setCategory("Custom")
-	newCustomExercise.setNbWords(wordsAvailable.getAllWords().size())
-	var nbWordsOccurrences =[]
-	var wordsSuccess = []
-	var sucessPercentage =[]
-	for i in range(0,Global.nbDifficulty):
-		var tmp = []
-		for word in wordsAvailable.getAllWords():
-			tmp.append(0)
-		nbWordsOccurrences.append(tmp)
-		wordsSuccess.append(tmp)
-		sucessPercentage.append(0.0)
-
-	for word in wordsAvailable.getAllWords():
-		newCustomExercise.addWord(word)
-
-	newCustomExercise.putNbWordOccurrence(nbWordsOccurrences)
-	newCustomExercise.putWordSucess(wordsSuccess)
-	newCustomExercise.putSucessPercentage(sucessPercentage)
+	var creation = CreationExercise.new()
+	print("Creation of custom exercise")
+	Global.customExercise = creation.creationExercise(Global.customExercise, wordsAvailable.getAllWords())
+	print("Creation of goose exercise")
+	Global.gooseExercise = creation.creationExercise(Global.gooseExercise, wordsAvailable.getAllWords())
+	print("Creation of memory exercise")
+	Global.memoryExercise = creation.creationExercise(Global.memoryExercise, wordsAvailable.getAllWords())
+	print("Creation of third exercise")
+	Global.thirdExercise = creation.creationExercise(Global.thirdExercise, wordsAvailable.getAllWords())
 	
 	
-	Global.config.setPathExercisesFiles(Global.customExercise.getNameFile(),newCustomExercise.getNameFile())
-	Global.customExercise = newCustomExercise
-	
-	find_node("stateAddLabel").text = "L'exercice a bien été créé"
-	var tmp = wordsAvailable.getAllWords()
+	find_node("stateAddLabel").text = "L'exercice a bien été créé "
+	var tmp = wordsAvailable.getAllWords().duplicate()
 	for word in tmp :
 		wordsAvailable.removeWord(word)
-	
-func creationFileExercice():
-	var exerciseTemplate = {}
-	var text = ManageJson.checkFileExistUserPath("exerciseTemplate.json")
-	if text == "": 
-		return 0
-	var tmp = JSON.parse(text)
-	var dict = tmp.result
-	var fileName = Global.customExercise.getNameFile()
-	var version = Global.customExercise.getVersion()
-	version += 0.1
-	fileName = fileName.split("_")[0]+"_"+String(version)+".json"
-	ManageJson.rewriteFile(fileName, JSON.print(dict))
-	return fileName
-	
-	
-	
-#######################################END_CREATION_OF_EXERCISE##################################
+	makeListWord()
+#######################################END_CREATION_OF_EXERCISE######################################
 
 #######################################SCROLLING#################################################
 #variable for scrolling 
@@ -321,3 +292,5 @@ func _on_FileDialog_file_selected(path):
 		dir.make_dir("art")
 	dir.copy(path, ImagePath)
 	find_node("OpenButton").set_text(path.get_file())
+
+

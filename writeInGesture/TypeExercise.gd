@@ -50,7 +50,7 @@ func setAttribut(field : String, input):
 	match field : 
 		"name" :
 			name = input
-		"category" : 
+		"categorie" : 
 			category = input
 		"syllableStruct" : 
 			syllableStruct = input

@@ -66,6 +66,7 @@ visible = false
 margin_top = 132.0
 margin_right = 784.0
 margin_bottom = 194.0
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -118,4 +119,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="item_selected" from="TextureRect/MarginContainer/ScrollContainer/VBoxContainer/exerciseChoice" to="." method="_on_exerciseChoice_item_selected"]
+[connection signal="item_selected" from="TextureRect/MarginContainer/ScrollContainer/VBoxContainer/difficultyChoice" to="." method="_on_difficultyChoice_item_selected"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]

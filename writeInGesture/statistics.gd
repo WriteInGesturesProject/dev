@@ -3,50 +3,76 @@ extends Control
 const Exercise = preload("res://Exercise.gd")
 
 var exerciseSelected : Exercise
+var difficultySelected : int
 var percentage : Array
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var optionButton = find_node("exerciseChoice")
-	optionButton.text = "Choisi un exercice"
-	optionButton.add_item("Choisi un exercice")
+	var exerciseChoice = find_node("exerciseChoice")
+	exerciseChoice.text = "Choisi un exercice"
+	exerciseChoice.add_item("Choisi un exercice")
 	for exercise in Global.exercises:
-		optionButton.add_item(exercise.name)
+		exerciseChoice.add_item(exercise.name)
+		
+	var difficultyChoice = find_node("difficultyChoice")
+	difficultyChoice.text = "Choisi une difficulté"
+	difficultyChoice.add_item("Choisi une difficulté")
+	for index in range(0, Global.nbDifficulty):
+		difficultyChoice.add_item(String(index+1))
 
 func _on_exerciseChoice_item_selected(id):
-	var selected = find_node("exerciseChoice").selected
-	var itemSelected = find_node("exerciseChoice").get_item_text(selected)
-	for exercise in Global.exercises:
-		if exercise.name == itemSelected : 
-			exerciseSelected = exercise
-			displayDifficultyChoice()
-#			displayProgressBar()
-#			displayStatisticsAllWords()
-#			displayStatisticsWordsEasy()
-			return;
-
-func displayDifficultyChoice():
-	find_node("difficultyChoice").visible = true
-	
-
-#func displayProgressBar():
-	
-
-func displayStatisticsWordsEasy():
+	removeAllChildren("statsExercises")
 	removeAllChildren("wordsEasy")
-	print(percentage)
+	var selectedIndex = find_node("exerciseChoice").selected
+	var itemSelected = find_node("exerciseChoice").get_item_text(selectedIndex)
+	if selectedIndex != 0 : 
+		for exercise in Global.exercises:
+			if exercise.name == itemSelected : 
+				exerciseSelected = exercise
+				if exerciseSelected.getType().getName() == "Entrainement":
+					find_node("difficultyChoice").visible = false
+					difficultySelected = 1
+					
+					displayStatisticsAllWords()
+					displayProgressBar()
+#					displayStatisticsWordsEasy()
+				else :
+					find_node("ProgressBar").visible = false
+					find_node("difficultyChoice").visible = true
+					find_node("difficultyChoice").select(0)
+				return;
+	find_node("ProgressBar").visible = false
+
+func _on_difficultyChoice_item_selected(id):
+	removeAllChildren("statsExercises")
+	removeAllChildren("wordsEasy")
+	var selectedIndex = find_node("difficultyChoice").selected
+	difficultySelected = int(find_node("difficultyChoice").get_item_text(selectedIndex))
+	if selectedIndex != 0 : 
+		displayStatisticsAllWords()
+		displayProgressBar()
+#		displayStatisticsWordsEasy()
+	else :
+		find_node("ProgressBar").visible = false
+
+func displayProgressBar():
+	find_node("ProgressBar").value = exerciseSelected.getSucessPercentage(difficultySelected-1)
+	find_node("ProgressBar").visible = true
+
+#func displayStatisticsWordsEasy():
+#	print(percentage)
 
 func displayStatisticsAllWords():
 #	percentage.clear()
-	removeAllChildren("statsExercises")
 	var words = exerciseSelected.getAllWords()
 	var index = 0
-	for word in words:
+	for word in words :
+		print(word.name)
 		var hBox = HBoxContainer.new()
 		var wordLabel = Label.new()
 		wordLabel.text = word.getWord()
 		hBox.add_child(wordLabel)
-		var nbOccurs = exerciseSelected.getNbWordOccurrence(index)
-		var nbSuccess = exerciseSelected.getWordSuccess(index)
+		var nbOccurs = exerciseSelected.getNbWordOccurrence(difficultySelected-1, index)
+		var nbSuccess = exerciseSelected.getWordSuccess(difficultySelected-1, index)
 		var stats = Label.new()
 		var currentPercentage = 0
 		if nbOccurs != 0:

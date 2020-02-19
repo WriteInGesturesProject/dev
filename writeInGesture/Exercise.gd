@@ -42,10 +42,10 @@ func setDifficulty(dif : int):
 	difficulty = dif
 	return ManageJson.putElement(nameFile, "Exercise/difficulty", difficulty)
 	
-func getSucessPercentage() : 
-	return successPercentage
+func getSucessPercentage(index : int) : 
+	return successPercentage[index]
 
-func setSucessPercentage(index : int, value : int):
+func setSucessPercentage(index : int, value : float):
 	successPercentage[index] = value
 	return ManageJson.putElement(nameFile, "Exercise/successPercentage", successPercentage)
 
@@ -53,11 +53,11 @@ func putSucessPercentage(sp : Array):
 	successPercentage = sp
 	return ManageJson.putElement(nameFile, "Exercise/successPercentage", successPercentage)
 
-func getNbWordOccurrence(index : int): 
-	return nbWordsOccurrences[index]
+func getNbWordOccurrence(difficulty : int, index : int): 
+	return nbWordsOccurrences[difficulty][index]
 
-func setNbWordOccurrence(index : int, value : int):
-	nbWordsOccurrences[index] = value
+func setNbWordOccurrence(difficulty : int, index : int, value : int):
+	nbWordsOccurrences[difficulty][index] = value
 	return ManageJson.putElement(nameFile, "Exercise/nbWordsOccurrences", nbWordsOccurrences)
 
 func putNbWordOccurrence(word : Array):
@@ -108,11 +108,12 @@ func setNameFile(nF : String):
 	nameFile = nF
 	return 1
 
-func getWordSuccess(index : int) -> Array: 
-	return wordsSuccess[index]
+func getWordSuccess(difficulty : int, index : int) -> Array: 
 
-func setWordSuccess(index : int, value : Array):
-	wordsSuccess[index] = value
+	return wordsSuccess[difficulty][index]
+
+func setWordSuccess(difficulty : int, index : int, value : Array):
+	wordsSuccess[difficulty][index] = value
 	return ManageJson.putElement(nameFile, "Exercise/wordsSuccess", wordsSuccess)
 
 func putWordSucess(word : Array):
@@ -151,7 +152,7 @@ func setAttribut(field : String, input):
 				nbWordsOccurrences.append((i))
 		"nbWords" :
 			nbWords = int(input)
-		"wordsSucess" :
+		"wordsSuccess" :
 			for i in (input):
 				wordsSuccess.append((i))
 		"words" : 

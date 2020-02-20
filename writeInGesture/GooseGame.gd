@@ -61,17 +61,33 @@ func _ready():
 				control_img.add_child(image)
 				find_node("gridImage").add_child(control_img)
 	if(Global.level == 0 || Global.level == 1):
-		for c in myWords[index].getPhonetic():
-				container = HBoxContainer.new()
-				container.alignment = HBoxContainer.ALIGN_CENTER
+		var c = 0
+		var p = myWords[index].getPhonetic()
+		container = HBoxContainer.new()
+		container.alignment = HBoxContainer.ALIGN_CENTER
+		while (c < len(p)):
+			if(c+1 < len(p) && p[c].to_ascii()[0] == 91 && p[c+1].to_ascii()[0] == 3):
+				img = "in.png"
+				c += 1
+			elif(c+1 < len(p) && p[c].to_ascii()[0] == 84 && p[c+1].to_ascii()[0] == 3):
+				img = "on.png"
+				c += 1
+			elif(p[c].to_ascii()[0] == 226):
+				img = "an.png"
+			else :
+				var find = false
 				for b in Global.phoneticDictionnary:
 					for w in Global.phoneticDictionnary[b]:
-						if(c == w["phonetic"][1]):
+						if(p[c] == w["phonetic"][1]):
 							img = w["ressource_path"]
+							find = true
 							break
-				var imgBorel = TextureRect.new()
-				imgBorel.texture = load("res://art/imgBorel/"+img)
-				container.add_child(imgBorel)
+					if(find):
+						break
+			var imgBorel = TextureRect.new()
+			imgBorel.texture = load("res://art/imgBorel/"+img)
+			container.add_child(imgBorel)
+			c+=1
 		find_node("ImgBorel").add_child(container)
 		find_node("Word").text = myWords[index].getWord()
 	board[0].modulate = "e86767"

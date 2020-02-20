@@ -115,7 +115,7 @@ func setWordSuccess(difficulty : int, index : int, value : int):
 	wordsSuccess[difficulty][index] = value
 	return ManageJson.putElement(nameFile, "Exercise/wordsSuccess", wordsSuccess)
 
-func putWordSucess(word : Array):
+func putWordSuccess(word : Array):
 	wordsSuccess = word
 	return ManageJson.putElement(nameFile, "Exercise/wordsSuccess", wordsSuccess)
 

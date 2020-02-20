@@ -186,8 +186,8 @@ func _on_Creation_pressed():
 	Global.customExercise = creation.creationExercise(Global.customExercise, wordsAvailable.getAllWords())
 	print("Creation of goose exercise")
 	Global.gooseExercise = creation.creationExercise(Global.gooseExercise, wordsAvailable.getAllWords())
-	print("Creation of memory exercise")
-	Global.memoryExercise = creation.creationExercise(Global.memoryExercise, wordsAvailable.getAllWords())
+	print("Creation of listen exercise")
+	Global.listenExercise = creation.creationExercise(Global.listenExercise, wordsAvailable.getAllWords())
 	print("Creation of third exercise")
 	Global.thirdExercise = creation.creationExercise(Global.thirdExercise, wordsAvailable.getAllWords())
 	

@@ -21,7 +21,7 @@ var dev = 1
 var config : Config = Config.new()
 var customExercise : Exercise = Exercise.new()
 var gooseExercise : Exercise = Exercise.new()
-var memoryExercise : Exercise = Exercise.new()
+var listenExercise : Exercise = Exercise.new()
 var thirdExercise : Exercise = Exercise.new()
 
 var countExercise : Exercise = Exercise.new()
@@ -49,8 +49,8 @@ func loadEntity():
 	ManageJson.getElement(config.getPathExercisesFiles()[1], "Exercise", gooseExercise)
 	gooseExercise.setAttribut("nameFile", config.getPathExercisesFiles()[1])
 	
-	ManageJson.getElement(config.getPathExercisesFiles()[2], "Exercise", memoryExercise)
-	memoryExercise.setAttribut("nameFile", config.getPathExercisesFiles()[2])
+	ManageJson.getElement(config.getPathExercisesFiles()[2], "Exercise", listenExercise)
+	listenExercise.setAttribut("nameFile", config.getPathExercisesFiles()[2])
 	
 	ManageJson.getElement(config.getPathExercisesFiles()[3], "Exercise", thirdExercise)
 	thirdExercise.setAttribut("nameFile", config.getPathExercisesFiles()[3])

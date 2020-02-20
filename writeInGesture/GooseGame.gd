@@ -1,12 +1,9 @@
 extends Control
 
 const Exercise = preload("res://Exercise.gd")
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
 var tts = null
 var stt = null
-var os = ""
 var words = ""
 var display = false
 var incremented = false
@@ -15,12 +12,11 @@ var index = 0
 var img = ""
 var container = HBoxContainer.new()
 var board = []
-
+var os = Global.os
 var count = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	os = OS.get_name()
 	match os:
 		"X11":
 			#tts = TTSDriver.new()
@@ -126,6 +122,8 @@ func _process(delta):
 					incremented = true
 					_change()
 
+
+
 func _on_Speak_pressed():
 	if(stt != null && stt.isListening()):
 		stt.stopListen()
@@ -137,6 +135,7 @@ func _on_Speak_pressed():
 				tts.speak(text, false)
 			"Android":
 				tts.speakText(text)
+
 
 func _on_Record_pressed():
 	if(count == 2):
@@ -150,6 +149,7 @@ func _on_Record_pressed():
 		else :
 			stt.stopListen()
 			find_node("Record").set_text("Enregistrer")
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

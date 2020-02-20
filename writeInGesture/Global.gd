@@ -19,7 +19,7 @@ var level = 0 # The difficulty (0 -> Easy, 1 -> Medium, 2 -> Hard)
 var nbDifficulty = 3
 var game = 1 # The type of training (1 -> MyGames, 2 -> Count, 3 -> Week, 4 -> Colors)
 var play = 1 # The type of game (1 -> Goose, 2 -> Listen & Choose)
-var dev = 1 # Developper mode (0 -> Disabled, 1 -> Enabled)
+var dev = 0 # Developper mode (0 -> Disabled, 1 -> Enabled)
 
 var config : Config = Config.new()
 var customExercise : Exercise = Exercise.new()

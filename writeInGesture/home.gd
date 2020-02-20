@@ -21,7 +21,7 @@ func _on_Change_pressed():
 
 
 func _on_Admin_pressed():
-	if(Global.dev) :
+	if(!Global.dev) :
 		get_tree().change_scene("res://speechTherapistMenu.tscn")
 	else : 
 		find_node("Popup").popup_centered_ratio(0.75)

@@ -55,6 +55,11 @@ func _ready():
 		if(c+1 < len(p) && p[c].to_ascii()[0] == 91 && p[c+1].to_ascii()[0] == 3):
 			img = "in.png"
 			c += 1
+		elif(c+1 < len(p) && p[c].to_ascii()[0] == 84 && p[c+1].to_ascii()[0] == 3):
+			img = "on.png"
+			c += 1
+		elif(p[c].to_ascii()[0] == 226):
+			img = "an.png"
 		else :
 			for b in Global.phoneticDictionnary:
 				for w in Global.phoneticDictionnary[b]:

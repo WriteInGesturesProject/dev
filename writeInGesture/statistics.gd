@@ -5,68 +5,89 @@ const Exercise = preload("res://Exercise.gd")
 var exerciseSelected : Exercise
 var difficultySelected : int
 var percentage : Array
+var wordsEasier : Array
+var wordsHarder : Array
+var allWords : Array
+
+var progressBarNode : Node
+var exerciseChoiceNode : Node
+var difficultyChoiceNode : Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var exerciseChoice = find_node("exerciseChoice")
-	exerciseChoice.text = "Choisi un exercice"
-	exerciseChoice.add_item("Choisi un exercice")
+	exerciseChoiceNode = find_node("exerciseChoice")
+	exerciseChoiceNode.text = "Choisi un exercice"
+	exerciseChoiceNode.add_item("Choisi un exercice")
 	for exercise in Global.exercises:
-		exerciseChoice.add_item(exercise.name)
+		exerciseChoiceNode.add_item(exercise.name)
 		
-	var difficultyChoice = find_node("difficultyChoice")
-	difficultyChoice.text = "Choisi une difficulté"
-	difficultyChoice.add_item("Choisi une difficulté")
+	difficultyChoiceNode = find_node("difficultyChoice")
+	difficultyChoiceNode.text = "Choisi une difficulté"
+	difficultyChoiceNode.add_item("Choisi une difficulté")
 	for index in range(0, Global.nbDifficulty):
-		difficultyChoice.add_item(String(index+1))
+		difficultyChoiceNode.add_item(String(index+1))
+	
+	progressBarNode = find_node("ProgressBar")
 
 func _on_exerciseChoice_item_selected(id):
-	removeAllChildren("statsExercises")
-	removeAllChildren("wordsEasy")
-	var selectedIndex = find_node("exerciseChoice").selected
-	var itemSelected = find_node("exerciseChoice").get_item_text(selectedIndex)
+	var selectedIndex = exerciseChoiceNode.selected
+	var itemSelected = exerciseChoiceNode.get_item_text(selectedIndex)
 	if selectedIndex != 0 : 
 		for exercise in Global.exercises:
 			if exercise.name == itemSelected : 
 				exerciseSelected = exercise
 				if exerciseSelected.getType().getName() == "Entrainement":
-					find_node("difficultyChoice").visible = false
+					clean()
+					difficultyChoiceNode.visible = false
 					difficultySelected = 1
-					
 					displayStatisticsAllWords()
-					displayProgressBar()
-#					displayStatisticsWordsEasy()
+					progressBarNode.value = exerciseSelected.getSucessPercentage(difficultySelected-1)
+					progressBarNode.visible = true
+					displayStatisticsWordsHarder(3)
 				else :
-					find_node("ProgressBar").visible = false
-					find_node("difficultyChoice").visible = true
-					find_node("difficultyChoice").select(0)
+					clean()
+					progressBarNode.visible = false
+					difficultyChoiceNode.visible = true
+					difficultyChoiceNode.select(0)
 				return;
-	find_node("ProgressBar").visible = false
+	progressBarNode.visible = false
 
 func _on_difficultyChoice_item_selected(id):
-	removeAllChildren("statsExercises")
-	removeAllChildren("wordsEasy")
-	var selectedIndex = find_node("difficultyChoice").selected
-	difficultySelected = int(find_node("difficultyChoice").get_item_text(selectedIndex))
+	clean()
+	var selectedIndex = difficultyChoiceNode.selected
+	difficultySelected = int(difficultyChoiceNode.get_item_text(selectedIndex))
 	if selectedIndex != 0 : 
 		displayStatisticsAllWords()
-		displayProgressBar()
-#		displayStatisticsWordsEasy()
+		progressBarNode.value = exerciseSelected.getSucessPercentage(difficultySelected-1)
+		progressBarNode.visible = true
+		displayStatisticsWordsHarder(3)
 	else :
-		find_node("ProgressBar").visible = false
+		progressBarNode.visible = false
 
-func displayProgressBar():
-	find_node("ProgressBar").value = exerciseSelected.getSucessPercentage(difficultySelected-1)
-	find_node("ProgressBar").visible = true
-
-#func displayStatisticsWordsEasy():
-#	print(percentage)
+func displayStatisticsWordsHarder(nbMin : int):
+	var nodeRoot = find_node("wordsHarder")
+	var title = Label.new()
+	title.text = "Les mots les plus durs :"
+	nodeRoot.add_child(title)
+	nodeRoot.visible = true
+	var harder : Array
+	var tmp = percentage.duplicate()
+	tmp.sort()
+	for i in range(0,nbMin):
+		harder.append(tmp[i])
+	for current in range(0, nbMin):
+		for index in range (0,percentage.size()) :
+			if percentage[index] == harder[current]:
+				wordsHarder.append(index)
+				var label = Label.new()
+				label.text = allWords[index].getWord()
+				nodeRoot.add_child(label)
+				break;
 
 func displayStatisticsAllWords():
-#	percentage.clear()
-	var words = exerciseSelected.getAllWords()
+	percentage.clear()
+	allWords = exerciseSelected.getAllWords()
 	var index = 0
-	for word in words :
-		print(word.name)
+	for word in allWords :
 		var hBox = HBoxContainer.new()
 		var wordLabel = Label.new()
 		wordLabel.text = word.getWord()
@@ -78,16 +99,22 @@ func displayStatisticsAllWords():
 		if nbOccurs != 0:
 			currentPercentage = (float(nbSuccess)/float(nbOccurs))*100
 			percentage.append(currentPercentage)
+		else:
+			percentage.append(0)
 		stats.text = " - Succès : "+String(nbSuccess)+"/"+String(nbOccurs)+" = "+String(int(currentPercentage))+"%"
 		hBox.add_child(stats)
 		index += 1
 		find_node("statsExercises").add_child(hBox)
 
-#func displayStatisticsWordsEasy():
 func removeAllChildren(nameNode):
 	# remove all children of node "statsExercises"
 	for i in range(0, find_node(nameNode).get_child_count()):
 		find_node(nameNode).get_child(i).queue_free()
+
+func clean():
+	removeAllChildren("statsExercises")
+	removeAllChildren("wordsEasy")
+	removeAllChildren("wordsHarder")
 
 func _on_back_pressed():
 	get_tree().change_scene("res://speechTherapistMenu.tscn")
@@ -103,10 +130,8 @@ var swipe_mouse_positions = []
 
 
 func _input(ev):
-	#print(ev)
 	if swiping and ev is InputEventMouseMotion:
 		var delta = ev.position - swipe_mouse_start
-		#print(delta.length())
 		if(delta.length()>10):
 			find_node("ScrollContainer").set_h_scroll(swipe_start.x - delta.x)
 			find_node("ScrollContainer").set_v_scroll(swipe_start.y - delta.y)
@@ -145,7 +170,6 @@ func _input(ev):
 				tween.interpolate_method(self, 'set_v_scroll', source.y, target.y, flick_dur, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 				tween.interpolate_callback(tween, flick_dur, 'queue_free')
 				tween.start()
-#			print("is swipping :",isswipping)
 			if isswipping:
 				release = true
 			else:

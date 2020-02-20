@@ -86,10 +86,15 @@ func _ready():
 						elif(p[c].to_ascii()[0] == 226):
 							img = "an.png"
 						else :
+							var find = false
 							for b in Global.phoneticDictionnary:
 								for w in Global.phoneticDictionnary[b]:
 									if(p[c] == w["phonetic"][1]):
 										img = w["ressource_path"]
+										find = true
+										break
+								if(find):
+									break
 						var imgBorel = TextureRect.new()
 						imgBorel.texture = load("res://art/imgBorel/"+img)
 						imgBorel.expand = true

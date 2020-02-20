@@ -43,8 +43,8 @@ func setDifficulty(dif : int):
 	difficulty = dif
 	return ManageJson.putElement(nameFile, "Exercise/difficulty", difficulty)
 	
-func getSuccessPercentage():
-	return successPercentage
+func getSuccessPercentage(index : int):
+	return successPercentage[index]
 
 func setSuccessPercentage(index : int, value : float):
 	successPercentage[index] = value

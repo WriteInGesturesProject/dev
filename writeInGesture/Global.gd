@@ -13,6 +13,8 @@ var progress2 = [85,85,85,0]
 var progress3 = [0,0,0,0]
 var progress = [progress1, progress2, progress3]
 
+var score #The score when in game
+var difficulty = 0 #TODO Change when game in medium or hard
 var nbDifficulty = 3
 var game = 1
 var play = 1

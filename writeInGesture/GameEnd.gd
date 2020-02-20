@@ -20,8 +20,12 @@ func _ready():
 		4:
 			myWords = Global.colorExercise.getAllWords()
 			Ex = Global.colorExercise
+	
 	find_node("Comment").set_text("Bravo !!")
-	find_node("Score").set_text("Votre score est de " + str(Ex.getNbSuccess()) + " sur " + str(Ex.getNbWords()))
+	var percent : float = float(Global.score) / Ex.getNbWords() * 100
+	find_node("Score").set_text("Votre score est de " + str(Global.score) + " sur " + str(Ex.getNbWords()) + " soit " + str(int(percent)) + "%")
+	if(Ex.getSuccessPercentage(Global.difficulty) < percent):
+		Ex.setSuccessPercentage(Global.difficulty, percent)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

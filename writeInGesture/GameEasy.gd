@@ -56,7 +56,7 @@ func _ready():
 	var c = 0
 	var p = myWords[index].getPhonetic()
 	while (c < len(p)):
-		print(p[c].to_ascii()[0])
+		#print(p[c].to_ascii()[0])
 		if(c + 1 < len(p) && p[c].to_ascii()[0] == 91 && p[c + 1].to_ascii()[0] == 3):
 			img = "in.png"
 			c += 1
@@ -71,6 +71,7 @@ func _ready():
 		c += 1
 	find_node("ImgBorel").add_child(container)
 	find_node("Word").set_text(myWords[index].getWord())
+	Global.score = 0
 
 func check_homonyms(said):
 	var word = Global.wordDictionnary.getWord(myWords[index].getPhonetic())
@@ -93,8 +94,8 @@ func _process(delta):
 			find_node("Non").visible = false
 			find_node("Record").disabled = true
 			if(incremented == false):
-				Ex.setWordSuccess(0, index, Ex.getWordSuccess(0, index) + 1)
-				Ex.setNbSuccess(Ex.getNbSuccess() + 1)
+				Ex.setWordSuccess(Global.difficulty, index, Ex.getWordSuccess(Global.difficulty, index) + 1)
+				Global.score += 1
 				incremented = true
 		else:
 			find_node("Oui").visible = false
@@ -174,7 +175,7 @@ func _on_Record_pressed():
 		if(stt.isListening() == false):
 			stt.doListen()
 			display = true
-			Ex.setNbWordOccurrence(0, index, Ex.getNbWordOccurrence(0, index) + 1)
+			Ex.setNbWordOccurrence(Global.difficulty, index, Ex.getNbWordOccurrence(Global.difficulty, index) + 1)
 		else :
 			stt.stopListen()
 			find_node("Record").set_text("Enregistrer")

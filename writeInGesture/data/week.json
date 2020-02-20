@@ -13,7 +13,7 @@
 		},
 		"difficulty" : 0,
 		"successPercentage" : [88.0,0.0,0.0],
-		"nbSuccess" : 0,
+		"nbSuccess" : 330,
 		"nbWordsOccurrences" : [
 			[12,455,31,1313,432,131,54],
 			[0,0,0,0,0,0,0],

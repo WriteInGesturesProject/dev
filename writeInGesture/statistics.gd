@@ -12,8 +12,11 @@ var allWords : Array
 var progressBarNode : Node
 var exerciseChoiceNode : Node
 var difficultyChoiceNode : Node
+var exerciseMostPlayed : Exercise
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	findExerciseMostPlayer(Global.exercises)
+	find_node("mostPlayed").text = "Le jeu le plus joué est le jeu : "+exerciseMostPlayed.getName()+", joué : "+String(exerciseMostPlayed.getNbSuccess())+" fois."
 	exerciseChoiceNode = find_node("exerciseChoice")
 	exerciseChoiceNode.text = "Choisi un exercice"
 	exerciseChoiceNode.add_item("Choisi un exercice")
@@ -27,6 +30,12 @@ func _ready():
 		difficultyChoiceNode.add_item(String(index+1))
 	
 	progressBarNode = find_node("ProgressBar")
+
+func findExerciseMostPlayer(exercises : Array):
+	exerciseMostPlayed = exercises[0]
+	for exercise in exercises:
+		if exerciseMostPlayed.getNbSuccess() < exercise.getNbSuccess():
+			exerciseMostPlayed = exercise
 
 func _on_exerciseChoice_item_selected(id):
 	var selectedIndex = exerciseChoiceNode.selected
@@ -50,6 +59,7 @@ func _on_exerciseChoice_item_selected(id):
 					difficultyChoiceNode.select(0)
 				return;
 	progressBarNode.visible = false
+	clean()
 
 func _on_difficultyChoice_item_selected(id):
 	clean()
@@ -66,7 +76,7 @@ func _on_difficultyChoice_item_selected(id):
 func displayStatisticsWordsHarder(nbMin : int):
 	var nodeRoot = find_node("wordsHarder")
 	var title = Label.new()
-	title.text = "Les mots les plus durs :"
+	title.text = "Les mots les plus difficiles :"
 	nodeRoot.add_child(title)
 	nodeRoot.visible = true
 	var harder : Array
@@ -79,11 +89,14 @@ func displayStatisticsWordsHarder(nbMin : int):
 			if percentage[index] == harder[current]:
 				wordsHarder.append(index)
 				var label = Label.new()
-				label.text = allWords[index].getWord()
+				label.text = allWords[index].getWord()+" avec "+String(int(percentage[index]))+"% de réussite"
 				nodeRoot.add_child(label)
 				break;
 
 func displayStatisticsAllWords():
+	var title = Label.new()
+	title.text = "Statistiques de tous les mots :"
+	find_node("statsExercises").add_child(title)
 	percentage.clear()
 	allWords = exerciseSelected.getAllWords()
 	var index = 0

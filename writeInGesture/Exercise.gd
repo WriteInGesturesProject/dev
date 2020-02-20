@@ -164,7 +164,7 @@ func setAttribut(field : String, input):
 					inputWord.setAttribut(field, w[field])
 				words.append(inputWord)
 		"nbSuccess":
-			nbSuccess = int(nbSuccess)
+			nbSuccess = int(input)
 		"nameFile" : 
 			nameFile = input
 	return

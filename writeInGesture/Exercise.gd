@@ -1,4 +1,5 @@
 extends Node
+
 const Word = preload("res://Word.gd")
 const TypeExercise = preload("res://TypeExercise.gd")
 
@@ -11,7 +12,7 @@ var nbWords : int = 0
 var words : Array = []
 var nbSuccess : int = 0
 var nameFile : String 
-var nbWordsOccurrences : Array =[]
+var nbWordsOccurrences : Array = []
 var wordsSuccess : Array
 
 func getVersion() : 
@@ -42,28 +43,27 @@ func setDifficulty(dif : int):
 	difficulty = dif
 	return ManageJson.putElement(nameFile, "Exercise/difficulty", difficulty)
 	
-func getSucessPercentage() : 
-	return successPercentage
+func getSuccessPercentage(index : int):
+	return successPercentage[index]
 
-func setSucessPercentage(index : int, value : int):
+func setSuccessPercentage(index : int, value : float):
 	successPercentage[index] = value
 	return ManageJson.putElement(nameFile, "Exercise/successPercentage", successPercentage)
 
-func putSucessPercentage(sp : Array):
+func putSuccessPercentage(sp : Array):
 	successPercentage = sp
 	return ManageJson.putElement(nameFile, "Exercise/successPercentage", successPercentage)
 
-func getNbWordOccurrence(index : int): 
-	return nbWordsOccurrences[index]
+func getNbWordOccurrence(difficulty : int, index : int): 
+	return nbWordsOccurrences[difficulty][index]
 
-func setNbWordOccurrence(index : int, value : int):
-	nbWordsOccurrences[index] = value
+func setNbWordOccurrence(difficulty : int, index : int, value : int):
+	nbWordsOccurrences[difficulty][index] = value
 	return ManageJson.putElement(nameFile, "Exercise/nbWordsOccurrences", nbWordsOccurrences)
 
 func putNbWordOccurrence(word : Array):
 	nbWordsOccurrences = word
 	return ManageJson.putElement(nameFile, "Exercise/nbWordsOccurrences", nbWordsOccurrences)
-
 
 func getAllWords() -> Array :
 	return words
@@ -108,16 +108,17 @@ func setNameFile(nF : String):
 	nameFile = nF
 	return 1
 
-func getWordSuccess(index : int) -> Array: 
-	return wordsSuccess[index]
+func getWordSuccess(difficulty : int, index : int): 
+	return wordsSuccess[difficulty][index]
 
-func setWordSuccess(index : int, value : Array):
-	wordsSuccess[index] = value
+func setWordSuccess(difficulty : int, index : int, value : int):
+	wordsSuccess[difficulty][index] = value
 	return ManageJson.putElement(nameFile, "Exercise/wordsSuccess", wordsSuccess)
 
-func putWordSucess(word : Array):
+func putWordSuccess(word : Array):
 	wordsSuccess = word
 	return ManageJson.putElement(nameFile, "Exercise/wordsSuccess", wordsSuccess)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -151,7 +152,7 @@ func setAttribut(field : String, input):
 				nbWordsOccurrences.append((i))
 		"nbWords" :
 			nbWords = int(input)
-		"wordsSucess" :
+		"wordsSuccess" :
 			for i in (input):
 				wordsSuccess.append((i))
 		"words" : 

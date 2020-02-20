@@ -7,25 +7,24 @@ const WordsAvailable = preload("res://WordsAvailable.gd")
 const Exercise = preload("res://Exercise.gd")
 const Config = preload("res://Config.gd")
 
-var level = 1
+var os # Variable used to know on which plateform we are
+
 var progress1 = [85,85,85,20]
 var progress2 = [85,85,85,0]
 var progress3 = [0,0,0,0]
 var progress = [progress1, progress2, progress3]
-var score1 = [0,0,0,0]
-var score2 = [0,0,0,0]
-var score3 = [0,0,0,0]
-var score = [score1, score2, score3]
 
+var score # The score when in game
+var level = 0 # The difficulty (0 -> Easy, 1 -> Medium, 2 -> Hard)
 var nbDifficulty = 3
-var game = 1
-var play = 1
-var dev = 1
+var game = 1 # The type of training (1 -> MyGames, 2 -> Count, 3 -> Week, 4 -> Colors)
+var play = 1 # The type of game (1 -> Goose, 2 -> Listen & Choose)
+var dev = 0 # Developper mode (0 -> Disabled, 1 -> Enabled)
 
 var config : Config = Config.new()
 var customExercise : Exercise = Exercise.new()
 var gooseExercise : Exercise = Exercise.new()
-var memoryExercise : Exercise = Exercise.new()
+var listenExercise : Exercise = Exercise.new()
 var thirdExercise : Exercise = Exercise.new()
 
 var countExercise : Exercise = Exercise.new()
@@ -33,13 +32,14 @@ var weekExercise : Exercise = Exercise.new()
 var colorExercise : Exercise = Exercise.new()
 var exercises = [customExercise, countExercise, weekExercise, colorExercise]
 
-var player = Player.new()
-var wordsAvailable  : WordsAvailable = WordsAvailable.new()
+var player : Player = Player.new()
+var wordsAvailable : WordsAvailable = WordsAvailable.new()
 var wordDictionnary = MyDictionnary.new()
 var phoneticDictionnary
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	os = OS.get_name()
 	loadEntity()
 
 func loadEntity():
@@ -52,10 +52,10 @@ func loadEntity():
 	
 	ManageJson.getElement(config.getPathExercisesFiles()[1], "Exercise", gooseExercise)
 	gooseExercise.setAttribut("nameFile", config.getPathExercisesFiles()[1])
-
-	ManageJson.getElement(config.getPathExercisesFiles()[2], "Exercise", memoryExercise)
-	memoryExercise.setAttribut("nameFile", config.getPathExercisesFiles()[2])
-
+	
+	ManageJson.getElement(config.getPathExercisesFiles()[2], "Exercise", listenExercise)
+	listenExercise.setAttribut("nameFile", config.getPathExercisesFiles()[2])
+	
 	ManageJson.getElement(config.getPathExercisesFiles()[3], "Exercise", thirdExercise)
 	thirdExercise.setAttribut("nameFile", config.getPathExercisesFiles()[3])
 	
@@ -79,7 +79,6 @@ func loadEntity():
 		return 0
 	var tmp = JSON.parse(text)
 	phoneticDictionnary = tmp.result
-	
 	
 	ManageJson.getElement("player.json", "User", player)
 	player.setAttribut("nameFile", "player.json")

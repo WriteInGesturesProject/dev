@@ -77,7 +77,7 @@ margin_top = 138.0
 margin_right = 1024.0
 margin_bottom = 240.0
 theme = ExtResource( 7 )
-text = "Parle"
+text = "Ecouter"
 __meta__ = {
 "_edit_use_anchors_": false
 }

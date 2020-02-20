@@ -64,10 +64,15 @@ func _ready():
 		elif(p[c].to_ascii()[0] == 226):
 			img = "an.png"
 		else :
+			var find = false
 			for b in Global.phoneticDictionnary:
 				for w in Global.phoneticDictionnary[b]:
 					if(p[c] == w["phonetic"][1]):
 						img = w["ressource_path"]
+						find = true
+						break
+				if(find):
+					break
 		var imgBorel = TextureRect.new()
 		imgBorel.texture = load("res://art/imgBorel/"+img)
 		container.add_child(imgBorel)
@@ -142,7 +147,6 @@ func _on_Next_pressed():
 		var p = myWords[index].getPhonetic()
 		print(myWords[index].getWord())
 		while (c < len(p)):
-			print(p[c].to_ascii()[0])
 			if(c+1 < len(p) && p[c].to_ascii()[0] == 91 && p[c+1].to_ascii()[0] == 3):
 				img = "in.png"
 				c += 1
@@ -152,10 +156,15 @@ func _on_Next_pressed():
 			elif(p[c].to_ascii()[0] == 226):
 				img = "an.png"
 			else :
+				var find = false
 				for b in Global.phoneticDictionnary:
 					for w in Global.phoneticDictionnary[b]:
 						if(p[c] == w["phonetic"][1]):
 							img = w["ressource_path"]
+							find = true
+							break
+					if(find):
+						break
 			var imgBorel = TextureRect.new()
 			imgBorel.texture = load("res://art/imgBorel/"+img)
 			container.add_child(imgBorel)

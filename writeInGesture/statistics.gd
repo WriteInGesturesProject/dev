@@ -45,8 +45,8 @@ func displayStatisticsAllWords():
 		var wordLabel = Label.new()
 		wordLabel.text = word.getWord()
 		hBox.add_child(wordLabel)
-		var nbOccurs = exerciseSelected.getNbWordOccurrence(index)
-		var nbSuccess = exerciseSelected.getWordSuccess(index)
+		var nbOccurs = exerciseSelected.getNbWordOccurrence(0, index)
+		var nbSuccess = exerciseSelected.getWordSuccess(0, index)
 		var stats = Label.new()
 		var currentPercentage = 0
 		if nbOccurs != 0:

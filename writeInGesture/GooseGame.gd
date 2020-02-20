@@ -1,6 +1,6 @@
 extends Control
 
-
+const Exercise = preload("res://Exercise.gd")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -33,6 +33,11 @@ func _ready():
 				tts.fireTTS()
 			if(Engine.has_singleton("GodotSpeech")):
 				stt = Engine.get_singleton("GodotSpeech")
+	if(Global.level == 1 || Global.level == 2):
+		find_node("Word").visible = false
+	if(Global.level == 2):
+		find_node("ButtonHard").visible = true
+		find_node("ImgBorel").visible = false
 	var numb = 0
 	for b in range(0,5):
 		for w in range(0,8):
@@ -42,7 +47,10 @@ func _ready():
 			else :
 				var control_img = Control.new()
 				var image = TextureRect.new()
-				image.texture = load("res://art/questionmark.png")
+				if(Global.level == 0 || Global.level == 2):
+					image.texture = load("res://art/users/assistant.png")
+				elif(Global.level == 1):
+					image.texture = load("res://art/questionmark.png")
 				image.expand = true
 				image.stretch_mode = TextureRect.STRETCH_SCALE_ON_EXPAND
 				image.rect_size.x = get_viewport().size.y / 8
@@ -52,18 +60,20 @@ func _ready():
 				find_node("gridImage").add_constant_override("hseparation",  (get_viewport().size.y / 8)+10)
 				control_img.add_child(image)
 				find_node("gridImage").add_child(control_img)
-	for c in myWords[index].getPhonetic():
-			container = HBoxContainer.new()
-			container.alignment = HBoxContainer.ALIGN_CENTER
-			for b in Global.phoneticDictionnary:
-				for w in Global.phoneticDictionnary[b]:
-					if(c == w["phonetic"][1]):
-						img = w["ressource_path"]
-						break
-			var imgBorel = TextureRect.new()
-			imgBorel.texture = load("res://art/imgBorel/"+img)
-			container.add_child(imgBorel)
-	find_node("ImgBorel").add_child(container)
+	if(Global.level == 0 || Global.level == 1):
+		for c in myWords[index].getPhonetic():
+				container = HBoxContainer.new()
+				container.alignment = HBoxContainer.ALIGN_CENTER
+				for b in Global.phoneticDictionnary:
+					for w in Global.phoneticDictionnary[b]:
+						if(c == w["phonetic"][1]):
+							img = w["ressource_path"]
+							break
+				var imgBorel = TextureRect.new()
+				imgBorel.texture = load("res://art/imgBorel/"+img)
+				container.add_child(imgBorel)
+		find_node("ImgBorel").add_child(container)
+		find_node("Word").text = myWords[index].getWord()
 	board[0].modulate = "e86767"
 
 func _change():
@@ -74,25 +84,28 @@ func _change():
 	index += 1
 	board[index-1].modulate = "ffffff"
 	board[index].modulate = "e86767"
-	board[index-1].texture = load("res://art/users/assistant.png")
+	if(Global.level == 1):
+		board[index-1].texture = load("res://art/users/assistant.png")
 	container.remove_and_skip()
 	var img = ""
 	if(index >= myWords.size()):
 		get_tree().change_scene("res://GameEnd.tscn")
 	else :
-		container = HBoxContainer.new()
-		container.alignment = HBoxContainer.ALIGN_CENTER
-		container.name = "HBoxContainer"
-		for c in myWords[index].getPhonetic():
-			for b in Global.phoneticDictionnary:
-				for w in Global.phoneticDictionnary[b]:
-					if(c == w["phonetic"][1]):
-						img = w["ressource_path"]
-						break
-			var imgBorel = TextureRect.new()
-			imgBorel.texture = load("res://art/imgBorel/"+img)
-			container.add_child(imgBorel)
-		find_node("ImgBorel").add_child(container)
+		if(Global.level == 0 || Global.level == 1):
+			container = HBoxContainer.new()
+			container.alignment = HBoxContainer.ALIGN_CENTER
+			container.name = "HBoxContainer"
+			for c in myWords[index].getPhonetic():
+				for b in Global.phoneticDictionnary:
+					for w in Global.phoneticDictionnary[b]:
+						if(c == w["phonetic"][1]):
+							img = w["ressource_path"]
+							break
+				var imgBorel = TextureRect.new()
+				imgBorel.texture = load("res://art/imgBorel/"+img)
+				container.add_child(imgBorel)
+			find_node("ImgBorel").add_child(container)
+			find_node("Word").set_text(myWords[index].getWord())
 	incremented = false
 
 func _process(delta):
@@ -106,7 +119,7 @@ func _process(delta):
 			find_node("Record").set_text("Suivant")
 		else :
 			find_node("Record").set_text("Vous avez dit : " + words)
-			if(words.to_lower() == myWords[index].to_lower()):
+			if(words.to_lower() == (myWords[index].getWord()).to_lower()):
 				find_node("Record").disabled = true
 				if(incremented == false):
 					Global.score[Global.level][Global.game - 1] += 1

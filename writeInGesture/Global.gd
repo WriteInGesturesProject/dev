@@ -7,18 +7,19 @@ const WordsAvailable = preload("res://WordsAvailable.gd")
 const Exercise = preload("res://Exercise.gd")
 const Config = preload("res://Config.gd")
 
-var level = 1
+var os # Variable used to know on which plateform we are
+
 var progress1 = [85,85,85,20]
 var progress2 = [85,85,85,0]
 var progress3 = [0,0,0,0]
 var progress = [progress1, progress2, progress3]
 
-var score #The score when in game
-var difficulty = 0 #TODO Change when game in medium or hard
+var score # The score when in game
+var level = 0 # The difficulty (0 -> Easy, 1 -> Medium, 2 -> Hard)
 var nbDifficulty = 3
-var game = 1
-var play = 1
-var dev = 1
+var game = 1 # The type of training (1 -> MyGames, 2 -> Count, 3 -> Week, 4 -> Colors)
+var play = 1 # The type of game (1 -> Goose, 2 -> Listen & Choose)
+var dev = 1 # Developper mode (0 -> Disabled, 1 -> Enabled)
 
 var config : Config = Config.new()
 var customExercise : Exercise = Exercise.new()
@@ -38,6 +39,7 @@ var phoneticDictionnary
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	os = OS.get_name()
 	loadEntity()
 
 func loadEntity():

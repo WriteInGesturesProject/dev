@@ -52,7 +52,7 @@ func _ready():
 					colorR.rect_size.y = get_viewport().size.y / 2.2
 					control_img.add_child(colorR)
 					var marg = MarginContainer.new()
-					marg.margin_top = 20
+					marg.margin_top = 10
 					marg.margin_left = 20
 					var vBox = VBoxContainer.new()
 					vBox.rect_size.x = get_viewport().size.y / 2.2
@@ -110,11 +110,11 @@ func _ready():
 								line2.add_child(boxImg)
 						else :
 							container.add_child(boxImg)
-					index += 1
 					if(mySize(myWords[index].getPhonetic()) > 3):
 						container.add_child(line1)
 						container.add_child(line2)
-					vBox.add_child(container)
+					if(Global.level == 0 || Global.level == 1):
+						vBox.add_child(container)
 					var box_image = Control.new()
 					var hBox = HBoxContainer.new()
 					hBox.alignment = HBoxContainer.ALIGN_CENTER
@@ -122,18 +122,26 @@ func _ready():
 					image.texture = load("res://art/users/assistant.png")
 					image.expand = true
 					image.stretch_mode = TextureRect.STRETCH_SCALE_ON_EXPAND
-					image.rect_size.x = (get_viewport().size.y / 2.2)/4
-					image.rect_size.y = (get_viewport().size.y / 2.2)/4
+					if(Global.level == 0 || Global.level == 1):
+						image.rect_size.x = (get_viewport().size.y / 2.2)/4
+						image.rect_size.y = (get_viewport().size.y / 2.2)/4
+					else :
+						image.rect_size.x = (get_viewport().size.y / 2.2) - 10
+						image.rect_size.y = (get_viewport().size.y / 2.2) -10
 					box_image.add_child(image)
-					hBox.add_child(box_image)
+					if(Global.level == 0 || Global.level ==2):
+						hBox.add_child(box_image)
 					var vBox2 = VBoxContainer.new()
-					vBox2.add_child(word)
-					vBox2.add_child(hBox)
-					vBox.add_child(vBox2)
+					if(Global.level == 0):
+						vBox2.add_child(word)
+					if(Global.level == 0 || Global.level ==2):
+						vBox2.add_child(hBox)
+						vBox.add_child(vBox2)
 					marg.add_child(vBox)
 					control_img.add_child(marg)
 					find_node("gridCard").add_constant_override("hseparation",  (get_viewport().size.y / 2)+10)
 					find_node("gridCard").add_child(control_img)
+					index += 1
 		find_node("Choice").add_constant_override("separation", (get_viewport().size.y / 2.2)/2)
 		find_node("game").add_constant_override("separation", get_viewport().size.y / 2.2 + 30)
 	else : 

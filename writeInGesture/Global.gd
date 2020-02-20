@@ -52,10 +52,10 @@ func loadEntity():
 	
 	ManageJson.getElement(config.getPathExercisesFiles()[1], "Exercise", gooseExercise)
 	gooseExercise.setAttribut("nameFile", config.getPathExercisesFiles()[1])
-	
+
 	ManageJson.getElement(config.getPathExercisesFiles()[2], "Exercise", memoryExercise)
 	memoryExercise.setAttribut("nameFile", config.getPathExercisesFiles()[2])
-	
+
 	ManageJson.getElement(config.getPathExercisesFiles()[3], "Exercise", thirdExercise)
 	thirdExercise.setAttribut("nameFile", config.getPathExercisesFiles()[3])
 	

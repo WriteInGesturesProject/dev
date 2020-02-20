@@ -26,21 +26,21 @@ func _on_Back_pressed():
 
 func _on_Easy_pressed():
 	if(Global.play == 1):
-		get_tree().change_scene("res://GooseGameEasy.tscn")
+		get_tree().change_scene("res://GooseGame.tscn")
 	elif (Global.play == 2):
-		get_tree().change_scene("res://ListenPlayEasy.tscn")
+		get_tree().change_scene("res://ListenChoose.tscn")
 	Global.level = 0
 	
 func _on_Normal_pressed():
 	if(Global.play == 1):
-		get_tree().change_scene("res://GooseGameNormal.tscn")
+		get_tree().change_scene("res://GooseGame.tscn")
 	elif (Global.play == 2):
-		get_tree().change_scene("res://ListenPlayNormal.tscn")
+		get_tree().change_scene("res://ListenChoose.tscn")
 	Global.level = 1
 
 func _on_Hard_pressed():
 	if(Global.play == 1):
-		get_tree().change_scene("res://GooseGameHard.tscn")
+		get_tree().change_scene("res://GooseGame.tscn")
 	elif (Global.play == 2):
-		get_tree().change_scene("res://ListenPlayHard.tscn")
+		get_tree().change_scene("res://ListenChoose.tscn")
 	Global.level = 2

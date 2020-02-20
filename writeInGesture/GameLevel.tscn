@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://GameLevel.gd" type="Script" id=1]
 [ext_resource path="res://art/lock.png" type="Texture" id=2]
 [ext_resource path="res://fonts/phonetic.tres" type="Theme" id=3]
 [ext_resource path="res://fonts/ButtonTheme.tres" type="Theme" id=4]
 [ext_resource path="res://fonts/background.png" type="Texture" id=5]
+[ext_resource path="res://art/back.png" type="Texture" id=6]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -92,10 +93,11 @@ theme = ExtResource( 4 )
 texture = ExtResource( 2 )
 
 [node name="Back" type="Button" parent="."]
-margin_right = 12.0
-margin_bottom = 20.0
-theme = ExtResource( 4 )
-text = "Retour"
+margin_right = 100.0
+margin_bottom = 102.0
+icon = ExtResource( 6 )
+flat = true
+expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

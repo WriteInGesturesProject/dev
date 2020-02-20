@@ -9,7 +9,7 @@ const Config = preload("res://Config.gd")
 
 var level = 1
 var progress1 = [85,85,85,20]
-var progress2 = [85,0,85,0]
+var progress2 = [85,85,85,0]
 var progress3 = [0,0,0,0]
 var progress = [progress1, progress2, progress3]
 
@@ -20,6 +20,10 @@ var dev = 1
 
 var config : Config = Config.new()
 var customExercise : Exercise = Exercise.new()
+var gooseExercise : Exercise = Exercise.new()
+var memoryExercise : Exercise = Exercise.new()
+var thirdExercise : Exercise = Exercise.new()
+
 var countExercise : Exercise = Exercise.new()
 var weekExercise : Exercise = Exercise.new()
 var colorExercise : Exercise = Exercise.new()
@@ -41,6 +45,15 @@ func loadEntity():
 	
 	ManageJson.getElement(config.getPathExercisesFiles()[0], "Exercise", customExercise)
 	customExercise.setAttribut("nameFile", config.getPathExercisesFiles()[0])
+	
+	ManageJson.getElement(config.getPathExercisesFiles()[1], "Exercise", gooseExercise)
+	gooseExercise.setAttribut("nameFile", config.getPathExercisesFiles()[1])
+	
+	ManageJson.getElement(config.getPathExercisesFiles()[2], "Exercise", memoryExercise)
+	memoryExercise.setAttribut("nameFile", config.getPathExercisesFiles()[2])
+	
+	ManageJson.getElement(config.getPathExercisesFiles()[3], "Exercise", thirdExercise)
+	thirdExercise.setAttribut("nameFile", config.getPathExercisesFiles()[3])
 	
 	ManageJson.getElement("wordsAvailable.json", "WordsAvailable", wordsAvailable)
 	wordsAvailable.setAttribut("nameFile", "wordsAvailable.json")

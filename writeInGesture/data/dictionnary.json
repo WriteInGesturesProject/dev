@@ -365,7 +365,7 @@
 				"consonantsType" : "O,N"
 			},
 			"blɑ" : {
-				"phonetic" : "blâ",
+				"phonetic" : "blɑ",
 				"word" : "blanc",
 				"path" : "blanc.png",
 				"homonym" : ["blanc"],
@@ -405,7 +405,7 @@
 				"consonantsType" : "O,N"
 			},
 			"orɑz" : {
-				"phonetic" : "orâz",
+				"phonetic" : "orɑz",
 				"word" : "orange",
 				"path" : "orange.png",
 				"homonym" : ["orange"],
@@ -455,7 +455,7 @@
 				"consonantsType" : "O,N"
 			},
 			"vɑdrədi" : {
-				"phonetic" : "vâdrədi",
+				"phonetic" : "vɑdrədi",
 				"word" : "vendredi",
 				"path" : "vendredi.png",
 				"homonym" : ["vendredi"],
@@ -475,7 +475,7 @@
 				"consonantsType" : "O,N"
 			},
 			"dimɑʃ" : {
-				"phonetic" : "dimâʃ",
+				"phonetic" : "dimɑʃ",
 				"word" : "dimanche",
 				"path" : "dimanche.png",
 				"homonym" : ["dimanche"],

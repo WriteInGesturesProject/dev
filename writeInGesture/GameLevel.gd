@@ -8,11 +8,12 @@ var Ex : Exercise
 func _ready():
 	match Global.play:
 		1:
-			Ex = Global.gooseExercise
+			Global.current_ex = Global.gooseExercise
 		2:
-			Ex = Global.listenExercise
+			Global.current_ex = Global.listenExercise
 		3:
-			Ex = Global.thirdExerciseq
+			Global.current_ex = Global.thirdExercise
+	var Ex = Global.current_ex
 	if(Ex.getSuccessPercentage(0) >= 50):
 		find_node("TextureRect").visible = false
 		find_node("Normal").disabled = false

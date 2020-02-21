@@ -13,18 +13,22 @@ func _ready():
 
 func _on_MyGame_pressed():
 	Global.game = 1
+	Global.current_ex = Global.customExercise
 	get_tree().change_scene("res://Train.tscn")
 
 func _on_Count_pressed():
 	Global.game = 2
+	Global.current_ex = Global.countExercise
 	get_tree().change_scene("res://Train.tscn")
 
 func _on_WeekDays_pressed():
 	Global.game = 3
+	Global.current_ex = Global.weekExercise
 	get_tree().change_scene("res://Train.tscn")
 
 func _on_Color_pressed():
 	Global.game = 4
+	Global.current_ex = Global.colorExercise
 	get_tree().change_scene("res://Train.tscn")
 
 func _on_Back_pressed():

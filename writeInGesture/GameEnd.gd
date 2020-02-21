@@ -5,25 +5,7 @@ var Ex : Exercise
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# Check if the game finished is a Training
-	match Global.game:
-		1:
-			Ex = Global.customExercise
-		2:
-			Ex = Global.countExercise
-		3:
-			Ex = Global.weekExercise
-		4:
-			Ex = Global.colorExercise
-
-	# Check if the game finished is a Game
-	match Global.play:
-		1:
-			Ex = Global.gooseExercise
-		2:
-			Ex = Global.listenExercise
-		3:
-			Ex = Global.thirdExercise
+	Ex = Global.current_ex
 	
 	if(Ex == null):
 		print("Ex in GameEnd is null")

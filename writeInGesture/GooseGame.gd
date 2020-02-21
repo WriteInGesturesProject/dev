@@ -2,8 +2,13 @@ extends Control
 
 const Exercise = preload("res://Exercise.gd")
 
-var tts = null
-var stt = null
+var Ex : Exercise
+
+var os = Global.os
+
+var tts = Global.tts
+var stt = Global.stt
+
 var words = ""
 var display = false
 var incremented = false
@@ -12,24 +17,12 @@ var index = 0
 var img = ""
 var container = HBoxContainer.new()
 var board = []
-var os = Global.os
 var count = 0
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	match os:
-		"X11":
-			#tts = TTSDriver.new()
-			set_process(true)
-			if(tts != null):
-				tts.set_voice("French (France)")
-		"Android":
-			if(Engine.has_singleton("GodotTextToSpeech")):
-				tts = Engine.get_singleton("GodotTextToSpeech")
-				tts.fireTTS()
-			if(Engine.has_singleton("GodotSpeech")):
-				stt = Engine.get_singleton("GodotSpeech")
+	Ex = Global.current_ex
 	if(Global.level == 1 || Global.level == 2):
 		find_node("Word").visible = false
 	if(Global.level == 2):
@@ -88,7 +81,10 @@ func _ready():
 		find_node("ImgBorel").add_child(container)
 		find_node("Word").text = myWords[index].getWord()
 	board[0].modulate = "e86767"
-
+	Global.score = 0
+	Global.try = []
+	for i in myWords:
+		Global.try.append(false)
 
 func _change():
 	count = 0
@@ -133,14 +129,13 @@ func _process(delta):
 		if(count == 2):
 			find_node("Record").set_text("Suivant")
 		else :
-			find_node("Record").set_text("Vous avez dit : " + words)
+			find_node("Record").set_text("Tu as dit : " + words)
 			if(words.to_lower() == (myWords[index].getWord()).to_lower()):
 				find_node("Record").disabled = true
 				if(incremented == false):
-					Global.score[Global.level][Global.game - 1] += 1
+					Global.score += 1
 					incremented = true
 					_change()
-
 
 
 func _on_Speak_pressed():
@@ -164,7 +159,9 @@ func _on_Record_pressed():
 	if(stt != null):
 		if(stt.isListening() == false):
 			stt.doListen()
+			Global.try[index] = true
 			display = true
+			Ex.setNbWordOccurrence(Global.level, index, Ex.getNbWordOccurrence(Global.level, index) + 1)
 		else :
 			stt.stopListen()
 			find_node("Record").set_text("Enregistrer")

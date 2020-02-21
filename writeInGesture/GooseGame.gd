@@ -14,6 +14,7 @@ var container = HBoxContainer.new()
 var board = []
 var os = Global.os
 var count = 0
+var index_play = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -94,8 +95,19 @@ func _change():
 	find_node("Record").set_text("Enregistrer")
 	display = false
 	index += 1
-	board[index-1].modulate = "ffffff"
-	board[index].modulate = "e86767"
+	if(index >= 8 && index <=13):
+		if(index==8):
+			board[index-1].modulate = "ffffff"
+		else : 
+			board[index-1 + index_play +2].modulate = "ffffff"
+		board[index + index_play].modulate = "e86767"
+		index_play -= 2
+	else :
+		if(index == 14):
+			board[index-1 + index_play +2].modulate = "ffffff"
+		else :
+			board[index-1].modulate = "ffffff"
+		board[index].modulate = "e86767"
 	if(Global.level == 1):
 		board[index-1].texture = load("res://art/users/assistant.png")
 	container.remove_and_skip()

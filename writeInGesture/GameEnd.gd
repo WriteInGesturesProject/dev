@@ -11,14 +11,17 @@ func _ready():
 		print("Ex in GameEnd is null")
 		return
 	
-	var percent : float = float(Global.score) / Ex.getNbWords() * 100
+	var total = Ex.getNbWords()
+	if(Global.play == 2):
+		total /= 3
+	var percent : float = float(Global.score) / total * 100
 	var comment = ""
 	if(percent < 50):
 		comment = "Dommage, essaye encore !"
 	else:
 		comment = "Bravo !!"
 	find_node("Comment").set_text(comment)
-	find_node("Score").set_text("Ton score est de " + str(Global.score) + " sur " + str(Ex.getNbWords()) + " soit " + str(int(percent)) + "%")
+	find_node("Score").set_text("Ton score est de " + str(Global.score) + " sur " + str(total) + " soit " + str(int(percent)) + "%")
 	if(Ex.getSuccessPercentage(Global.level) < percent):
 		Ex.setSuccessPercentage(Global.level, percent)
 	find_node("BestScore").set_text("Ton meilleur score est de " + str(int(Ex.getSuccessPercentage(Global.level))) + "%")

@@ -18,6 +18,7 @@ func _on_GooseGame_pressed():
 
 func _on_ListenChoose_pressed():
 	Global.play = 2
+	Global.score = 0 # _ready func is called every games
 	Global.current_ex = Global.listenExercise
 	get_tree().change_scene("res://GameLevel.tscn")
 

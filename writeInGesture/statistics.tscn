@@ -107,14 +107,17 @@ margin_top = 202.0
 margin_right = 784.0
 margin_bottom = 202.0
 
-[node name="wordsEasy" type="VBoxContainer" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+[node name="wordsEasier" type="VBoxContainer" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+margin_right = 390.0
+size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="wordsHarder" type="VBoxContainer" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
-margin_left = 4.0
-margin_right = 4.0
+margin_left = 394.0
+margin_right = 784.0
+size_flags_horizontal = 3
 
 [node name="statsExercises" type="VBoxContainer" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer"]
 margin_top = 206.0

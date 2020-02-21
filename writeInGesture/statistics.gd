@@ -51,7 +51,7 @@ func _on_exerciseChoice_item_selected(id):
 					displayStatisticsAllWords()
 					progressBarNode.value = exerciseSelected.getSucessPercentage(difficultySelected-1)
 					progressBarNode.visible = true
-					displayStatisticsWordsHarder(3)
+					displayStatisticsWordsEasierHarder(3)
 				else :
 					clean()
 					progressBarNode.visible = false
@@ -69,28 +69,37 @@ func _on_difficultyChoice_item_selected(id):
 		displayStatisticsAllWords()
 		progressBarNode.value = exerciseSelected.getSucessPercentage(difficultySelected-1)
 		progressBarNode.visible = true
-		displayStatisticsWordsHarder(3)
+		displayStatisticsWordsEasierHarder(3)
 	else :
 		progressBarNode.visible = false
 
-func displayStatisticsWordsHarder(nbMin : int):
-	var nodeRoot = find_node("wordsHarder")
-	var title = Label.new()
-	title.text = "Les mots les plus difficiles :"
-	nodeRoot.add_child(title)
-	nodeRoot.visible = true
+func displayStatisticsWordsEasierHarder(nbMin : int):
+	var nodeRootHarder = find_node("wordsHarder")
+	var nodeRootEasier = find_node("wordsEasier")
+	
+	var titleHarder = Label.new()
+	titleHarder.text = "Les mots les moins réussi :"
+	nodeRootHarder.add_child(titleHarder)
+	
+	var titleEasier = Label.new()
+	titleEasier.text = "Les mots les plus réussi :"
+	nodeRootEasier.add_child(titleEasier)
+	
+	nodeRootHarder.visible = true
 	var harder : Array
+	var easier : Array
 	var tmp = percentage.duplicate()
 	tmp.sort()
 	for i in range(0,nbMin):
 		harder.append(tmp[i])
+		easier.append(tmp[i])
 	for current in range(0, nbMin):
 		for index in range (0,percentage.size()) :
 			if percentage[index] == harder[current]:
 				wordsHarder.append(index)
 				var label = Label.new()
 				label.text = allWords[index].getWord()+" avec "+String(int(percentage[index]))+"% de réussite"
-				nodeRoot.add_child(label)
+				nodeRootHarder.add_child(label)
 				break;
 
 func displayStatisticsAllWords():
@@ -126,7 +135,7 @@ func removeAllChildren(nameNode):
 
 func clean():
 	removeAllChildren("statsExercises")
-	removeAllChildren("wordsEasy")
+	removeAllChildren("wordsEasier")
 	removeAllChildren("wordsHarder")
 
 func _on_back_pressed():

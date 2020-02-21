@@ -14,6 +14,7 @@ var container = HBoxContainer.new()
 var board = []
 var os = Global.os
 var count = 0
+var index_play = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,6 +38,8 @@ func _ready():
 	var numb = 0
 	for b in range(0,5):
 		for w in range(0,8):
+			if(board.size() >= myWords.size()):
+				return
 			if((b==0 && w==7) || (b==2 && (w==7 || w ==0)) || (b==4 && w==0) || (b==1 && w!=7) || (b==3 && w!=0)):
 				var control_img = Control.new()
 				find_node("gridImage").add_child(control_img)
@@ -44,7 +47,7 @@ func _ready():
 				var control_img = Control.new()
 				var image = TextureRect.new()
 				if(Global.level == 0 || Global.level == 2):
-					image.texture = load("res://art/users/assistant.png")
+					image.texture = load("res://art/chat.jpg")
 				elif(Global.level == 1):
 					image.texture = load("res://art/questionmark.png")
 				image.expand = true
@@ -89,15 +92,28 @@ func _ready():
 	board[0].modulate = "e86767"
 
 func _change():
+	if(index >= myWords.size()):
+		return 
 	count = 0
 	find_node("Record").disabled = false
 	find_node("Record").set_text("Enregistrer")
 	display = false
 	index += 1
-	board[index-1].modulate = "ffffff"
-	board[index].modulate = "e86767"
+	if(index >= 8 && index <=13):
+		if(index==8):
+			board[index-1].modulate = "ffffff"
+		else : 
+			board[index-1 + index_play +2].modulate = "ffffff"
+		board[index + index_play].modulate = "e86767"
+		index_play -= 2
+	else :
+		if(index == 14):
+			board[index-1 + index_play +2].modulate = "ffffff"
+		else :
+			board[index-1].modulate = "ffffff"
+		board[index].modulate = "e86767"
 	if(Global.level == 1):
-		board[index-1].texture = load("res://art/users/assistant.png")
+		board[index-1].texture = load("res://art/chat.jpg")
 	container.remove_and_skip()
 	var img = ""
 	if(index >= myWords.size()):

@@ -31,7 +31,6 @@ func mySize(word):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rand = randi() % 3 + 1
-	print("rand " + str(rand))
 	if(index + 3 < myWords.size()):
 		for b in range(0,3):
 					var control_img = Control.new()

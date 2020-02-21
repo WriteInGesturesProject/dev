@@ -21,6 +21,8 @@ var game = 1 # The type of training (1 -> MyGames, 2 -> Count, 3 -> Week, 4 -> C
 var play = 1 # The type of game (1 -> Goose, 2 -> Listen & Choose)
 var dev = 0 # Developper mode (0 -> Disabled, 1 -> Enabled)
 
+var try = [] # Check if the player tapped on record at least once on each word
+
 var config : Config = Config.new()
 var customExercise : Exercise = Exercise.new()
 var gooseExercise : Exercise = Exercise.new()

@@ -42,6 +42,11 @@ func _ready():
 		4:
 			myWords = Global.colorExercise.getAllWords()
 			Ex = Global.colorExercise
+	
+	Global.try = []
+	for i in myWords:
+		Global.try.append(false)
+	
 	if(Global.game == 2):
 		find_node("Number").set_text(myWords[index].getPath())
 		find_node("TextureRect2").visible = false
@@ -189,6 +194,7 @@ func _on_Record_pressed():
 	if(stt != null):
 		if(stt.isListening() == false):
 			stt.doListen()
+			Global.try[index] = true
 			display = true
 			Ex.setNbWordOccurrence(Global.level, index, Ex.getNbWordOccurrence(Global.level, index) + 1)
 		else :

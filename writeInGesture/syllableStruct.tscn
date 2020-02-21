@@ -90,5 +90,118 @@ expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Popup" type="WindowDialog" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopupLabel" type="Label" parent="Popup/VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 62.0
+size_flags_vertical = 1
+text = "Mots proposés :"
+align = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Popup/VBoxContainer"]
+margin_top = 66.0
+margin_right = 1024.0
+margin_bottom = 494.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxPopup" type="VBoxContainer" parent="Popup/VBoxContainer/ScrollContainer"]
+margin_right = 1024.0
+margin_bottom = 428.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Popup/VBoxContainer"]
+margin_top = 498.0
+margin_right = 1024.0
+margin_bottom = 600.0
+custom_constants/separation = 50
+alignment = 1
+
+[node name="Cancel" type="Button" parent="Popup/VBoxContainer/HBoxContainer"]
+margin_left = 297.0
+margin_right = 469.0
+margin_bottom = 102.0
+theme = ExtResource( 1 )
+text = "Annuler"
+
+[node name="Confirm" type="Button" parent="Popup/VBoxContainer/HBoxContainer"]
+margin_left = 519.0
+margin_right = 727.0
+margin_bottom = 102.0
+theme = ExtResource( 1 )
+text = "Confirmer"
+
+[node name="Background" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.878431 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ConfirmationPopup" type="Popup" parent="."]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConfirmationPopup"]
+margin_right = 40.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ConfirmationPopup/VBoxContainer"]
+margin_right = 178.0
+margin_bottom = 62.0
+size_flags_vertical = 1
+text = "L'exercice "
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
 [connection signal="pressed" from="TextureRect/MarginContainer/VBoxContainer/Creation" to="." method="_on_Creation_pressed"]
 [connection signal="pressed" from="retour" to="." method="_on_retour_pressed"]
+[connection signal="popup_hide" from="Popup" to="." method="_on_Popup_popup_hide"]
+[connection signal="gui_input" from="Popup/VBoxContainer/ScrollContainer" to="." method="_on_ScrollContainer_gui_input"]
+[connection signal="pressed" from="Popup/VBoxContainer/HBoxContainer/Cancel" to="." method="_on_Popup_popup_hide"]
+[connection signal="pressed" from="Popup/VBoxContainer/HBoxContainer/Confirm" to="." method="_on_Confirm_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -37,7 +37,7 @@
 				"nbSyllable": 1,
 				"syllableStruct": "cv",
 				"vowelsType": "N",
-				"consonantsType": "O,N"
+				"consonantsType": "O"
 			},
 			"ni": {
 				"phonetic": "ni",
@@ -49,8 +49,8 @@
 				],
 				"nbSyllable": 1,
 				"syllableStruct": "cv",
-				"vowelsType": "N",
-				"consonantsType": "O,N"
+				"vowelsType": "o",
+				"consonantsType": "N"
 			},
 			"pi": {
 				"phonetic": "pi",
@@ -73,8 +73,8 @@
 				],
 				"nbSyllable": 1,
 				"syllableStruct": "cv",
-				"vowelsType": "N",
-				"consonantsType": "O,N"
+				"vowelsType": "o",
+				"consonantsType": "O"
 			},
 			"vɛ̃": {
 				"phonetic": "vɛ̃",
@@ -99,8 +99,8 @@
 				],
 				"nbSyllable": 1,
 				"syllableStruct": "cv",
-				"vowelsType": "N",
-				"consonantsType": "O,N"
+				"vowelsType": "o",
+				"consonantsType": "N"
 			},
 			"dœ": {
 				"phonetic": "dœ",
@@ -123,9 +123,9 @@
 					"onze"
 				],
 				"nbSyllable": 1,
-				"syllableStruct": "cv",
+				"syllableStruct": "vc",
 				"vowelsType": "N",
-				"consonantsType": "O,N"
+				"consonantsType": "c"
 			},
 			"mu": {
 				"phonetic": "mu",
@@ -137,8 +137,8 @@
 				],
 				"nbSyllable": 1,
 				"syllableStruct": "cv",
-				"vowelsType": "N",
-				"consonantsType": "O,N"
+				"vowelsType": "o",
+				"consonantsType": "N"
 			},
 			"rɛ": {
 				"phonetic": "rɛ",
@@ -180,16 +180,17 @@
 			},
 			"mo": {
 				"phonetic": "mo",
-				"word": "mot",
-				"path": "mot.png",
+				"word": "mots",
+				"path": "mots.png",
 				"homonym": [
 					"mot",
+					"mots",
 					"maux"
 				],
 				"nbSyllable": 1,
 				"syllableStruct": "cv",
-				"vowelsType": "N",
-				"consonantsType": "O,N"
+				"vowelsType": "o",
+				"consonantsType": "N"
 			},
 			"bo": {
 				"phonetic": "bo",
@@ -295,9 +296,9 @@
 					"neuf"
 				],
 				"nbSyllable": 1,
-				"syllableStruct": "cv",
-				"vowelsType": "N",
-				"consonantsType": "O,N"
+				"syllableStruct": "cvc",
+				"vowelsType": "o",
+				"consonantsType": "nc"
 			},
 			"dis": {
 				"phonetic": "dis",
@@ -429,10 +430,10 @@
 				"homonym": [
 					"marron"
 				],
-				"nbSyllable": 1,
-				"syllableStruct": "cv",
-				"vowelsType": "N",
-				"consonantsType": "O,N"
+				"nbSyllable": 2,
+				"syllableStruct": "cvcv",
+				"vowelsType": "on",
+				"consonantsType": "nl"
 			},
 			"gri": {
 				"phonetic": "gri",
@@ -460,15 +461,16 @@
 			},
 			"nwar": {
 				"phonetic": "nwar",
-				"word": "noir",
-				"path": "noir.png",
+				"word": "noire",
+				"path": "noire.png",
 				"homonym": [
-					"noir"
+					"noir",
+					"noire"
 				],
 				"nbSyllable": 1,
-				"syllableStruct": "cv",
-				"vowelsType": "N",
-				"consonantsType": "O,N"
+				"syllableStruct": "cvc",
+				"vowelsType": "o",
+				"consonantsType": "nl"
 			},
 			"vjolɛ": {
 				"phonetic": "vjolɛ",
@@ -501,10 +503,10 @@
 				"homonym": [
 					"orange"
 				],
-				"nbSyllable": 1,
-				"syllableStruct": "cv",
-				"vowelsType": "N",
-				"consonantsType": "O,N"
+				"nbSyllable": 2,
+				"syllableStruct": "vcvc",
+				"vowelsType": "on",
+				"consonantsType": "lc"
 			},
 			"lɛ̃di": {
 				"phonetic": "lɛ̃di",
@@ -537,10 +539,10 @@
 				"homonym": [
 					"mercredi"
 				],
-				"nbSyllable": 1,
-				"syllableStruct": "cv",
-				"vowelsType": "N",
-				"consonantsType": "O,N"
+				"nbSyllable": 3,
+				"syllableStruct": "cvcccvcv",
+				"vowelsType": "o",
+				"consonantsType": "nlo"
 			},
 			"ʒœdi": {
 				"phonetic": "ʒœdi",
@@ -1033,7 +1035,81 @@
 				"syllableStruct": "cvc",
 				"vowelsType": "o",
 				"consonantsType": "nl"
-			}
+			},
+			"mɛr": {
+                "phonetic": "mɛr",
+                "word": "mer",
+                "path": "",
+                "homonym": [
+                    "maire",
+                    "mer",
+                    "mère"
+                ],
+                "nbSyllable": 1,
+                "syllableStruct": "cvc",
+                "vowelsType": "o",
+                "consonantsType": "nl"
+            },
+            "muʃ": {
+                "phonetic": "muʃ",
+                "word": "mouche",
+                "path": "",
+                "homonym": [
+                    "mouche"
+                ],
+                "nbSyllable": 1,
+                "syllableStruct": "cvc",
+                "vowelsType": "o",
+                "consonantsType": "nc"
+            },
+            "nɔ̃br": {
+                "phonetic": "nɔ̃br",
+                "word": "nombre",
+                "path": "",
+                "homonym": [
+                    "nombre"
+                ],
+                "nbSyllable": 2,
+                "syllableStruct": "cvcc",
+                "vowelsType": "n",
+                "consonantsType": "nol"
+            },
+            "nyaʒ": {
+                "phonetic": "nyaʒ",
+                "word": "nuage",
+                "path": "",
+                "homonym": [
+                    "nuage"
+                ],
+                "nbSyllable": 2,
+                "syllableStruct": "cvvc",
+                "vowelsType": "o",
+                "consonantsType": "nc"
+            },
+            "urs": {
+                "phonetic": "urs",
+                "word": "ours",
+                "path": "",
+                "homonym": [
+                    "ours"
+                ],
+                "nbSyllable": 1,
+                "syllableStruct": "vcc",
+                "vowelsType": "o",
+                "consonantsType": "lc"
+            },
+            "pɑ̃t": {
+                "phonetic": "pɑ̃t",
+                "word": "pente",
+                "path": "",
+                "homonym": [
+                    "pente"
+                ],
+                "nbSyllable": 1,
+                "syllableStruct": "cvc",
+                "vowelsType": "n",
+                "consonantsType": "o"
+            }
 		}
 	}
 }

@@ -15,6 +15,7 @@ var board = []
 var os = Global.os
 var count = 0
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	match os:
@@ -88,6 +89,7 @@ func _ready():
 		find_node("Word").text = myWords[index].getWord()
 	board[0].modulate = "e86767"
 
+
 func _change():
 	count = 0
 	find_node("Record").disabled = false
@@ -119,6 +121,7 @@ func _change():
 			find_node("ImgBorel").add_child(container)
 			find_node("Word").set_text(myWords[index].getWord())
 	incremented = false
+
 
 func _process(delta):
 	if(stt != null && stt.isListening()):

@@ -8,11 +8,7 @@ const Exercise = preload("res://Exercise.gd")
 const Config = preload("res://Config.gd")
 
 var os # Variable used to know on which plateform we are
-
-var progress1 = [85,85,85,20]
-var progress2 = [85,85,85,0]
-var progress3 = [0,0,0,0]
-var progress = [progress1, progress2, progress3]
+var current_ex : Exercise
 
 var score # The score when in game
 var level = 0 # The difficulty (0 -> Easy, 1 -> Medium, 2 -> Hard)

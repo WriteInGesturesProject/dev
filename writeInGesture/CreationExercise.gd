@@ -18,23 +18,23 @@ func creationExercise(exercise : Exercise, words : Array):
 	newCustomExercise.getType().setName(exercise.getType().getName())
 	newCustomExercise.getType().setCategory(exercise.getType().getCategory())
 	newCustomExercise.setNbWords(words.size())
-	var nbWordsOccurrences =[]
+	var nbWordsOccurrences = []
 	var wordsSuccess = []
-	var sucessPercentage =[]
+	var successPercentage = []
 	for i in range(0,Global.nbDifficulty):
 		var tmp = []
 		for word in words:
 			tmp.append(0)
 		nbWordsOccurrences.append(tmp)
 		wordsSuccess.append(tmp)
-		sucessPercentage.append(0.0)
+		successPercentage.append(0.0)
 
 	for word in words:
 		newCustomExercise.addWord(word)
 
 	newCustomExercise.putNbWordOccurrence(nbWordsOccurrences)
 	newCustomExercise.putWordSucess(wordsSuccess)
-	newCustomExercise.putSucessPercentage(sucessPercentage)
+	newCustomExercise.putSuccessPercentage(successPercentage)
 	
 	#Set new configuration
 	Global.config.setPathExercisesFiles(exercise.getNameFile(),newCustomExercise.getNameFile())

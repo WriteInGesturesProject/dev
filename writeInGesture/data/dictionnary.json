@@ -37,7 +37,7 @@
 				"nbSyllable": 1,
 				"syllableStruct": "cv",
 				"vowelsType": "N",
-				"consonantsType": "O,N"
+				"consonantsType": "O"
 			},
 			"ni": {
 				"phonetic": "ni",
@@ -49,8 +49,8 @@
 				],
 				"nbSyllable": 1,
 				"syllableStruct": "cv",
-				"vowelsType": "N",
-				"consonantsType": "O,N"
+				"vowelsType": "o",
+				"consonantsType": "N"
 			},
 			"pi": {
 				"phonetic": "pi",
@@ -73,8 +73,8 @@
 				],
 				"nbSyllable": 1,
 				"syllableStruct": "cv",
-				"vowelsType": "N",
-				"consonantsType": "O,N"
+				"vowelsType": "o",
+				"consonantsType": "O"
 			},
 			"vɛ̃": {
 				"phonetic": "vɛ̃",
@@ -94,12 +94,13 @@
 				"word": "noeud",
 				"path": "noeud.png",
 				"homonym": [
-					"noeud"
+					"noeud",
+					"vingt"
 				],
 				"nbSyllable": 1,
 				"syllableStruct": "cv",
-				"vowelsType": "N",
-				"consonantsType": "O,N"
+				"vowelsType": "o",
+				"consonantsType": "N"
 			},
 			"dœ": {
 				"phonetic": "dœ",
@@ -122,9 +123,9 @@
 					"onze"
 				],
 				"nbSyllable": 1,
-				"syllableStruct": "cv",
+				"syllableStruct": "vc",
 				"vowelsType": "N",
-				"consonantsType": "O,N"
+				"consonantsType": "c"
 			},
 			"mu": {
 				"phonetic": "mu",
@@ -136,8 +137,8 @@
 				],
 				"nbSyllable": 1,
 				"syllableStruct": "cv",
-				"vowelsType": "N",
-				"consonantsType": "O,N"
+				"vowelsType": "o",
+				"consonantsType": "N"
 			},
 			"rɛ": {
 				"phonetic": "rɛ",
@@ -179,16 +180,17 @@
 			},
 			"mo": {
 				"phonetic": "mo",
-				"word": "mot",
-				"path": "mot.png",
+				"word": "mots",
+				"path": "mots.png",
 				"homonym": [
 					"mot",
+					"mots",
 					"maux"
 				],
 				"nbSyllable": 1,
 				"syllableStruct": "cv",
-				"vowelsType": "N",
-				"consonantsType": "O,N"
+				"vowelsType": "o",
+				"consonantsType": "N"
 			},
 			"bo": {
 				"phonetic": "bo",
@@ -294,9 +296,9 @@
 					"neuf"
 				],
 				"nbSyllable": 1,
-				"syllableStruct": "cv",
-				"vowelsType": "N",
-				"consonantsType": "O,N"
+				"syllableStruct": "cvc",
+				"vowelsType": "o",
+				"consonantsType": "nc"
 			},
 			"dis": {
 				"phonetic": "dis",
@@ -428,10 +430,10 @@
 				"homonym": [
 					"marron"
 				],
-				"nbSyllable": 1,
-				"syllableStruct": "cv",
-				"vowelsType": "N",
-				"consonantsType": "O,N"
+				"nbSyllable": 2,
+				"syllableStruct": "cvcv",
+				"vowelsType": "on",
+				"consonantsType": "nl"
 			},
 			"gri": {
 				"phonetic": "gri",
@@ -446,28 +448,29 @@
 				"consonantsType": "ol"
 			},
 			"blɑ": {
-				"phonetic": "blâ",
+				"phonetic": "blɑ",
 				"word": "blanc",
 				"path": "blanc.png",
 				"homonym": [
 					"blanc"
 				],
 				"nbSyllable": 1,
-				"syllableStruct": "ccv",
-				"vowelsType": "N",
-				"consonantsType": "ol"
-			},
-			"nwar": {
-				"phonetic": "nwar",
-				"word": "noir",
-				"path": "noir.png",
-				"homonym": [
-					"noir"
-				],
-				"nbSyllable": 1,
 				"syllableStruct": "cv",
 				"vowelsType": "N",
 				"consonantsType": "O,N"
+			},
+			"nwar": {
+				"phonetic": "nwar",
+				"word": "noire",
+				"path": "noire.png",
+				"homonym": [
+					"noir",
+					"noire"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cvc",
+				"vowelsType": "o",
+				"consonantsType": "nl"
 			},
 			"vjolɛ": {
 				"phonetic": "vjolɛ",
@@ -494,16 +497,16 @@
 				"consonantsType": "O,N"
 			},
 			"orɑz": {
-				"phonetic": "orâz",
+				"phonetic": "orɑz",
 				"word": "orange",
 				"path": "orange.png",
 				"homonym": [
 					"orange"
 				],
-				"nbSyllable": 1,
-				"syllableStruct": "cv",
-				"vowelsType": "N",
-				"consonantsType": "O,N"
+				"nbSyllable": 2,
+				"syllableStruct": "vcvc",
+				"vowelsType": "on",
+				"consonantsType": "lc"
 			},
 			"lɛ̃di": {
 				"phonetic": "lɛ̃di",
@@ -536,10 +539,10 @@
 				"homonym": [
 					"mercredi"
 				],
-				"nbSyllable": 1,
-				"syllableStruct": "cv",
-				"vowelsType": "N",
-				"consonantsType": "O,N"
+				"nbSyllable": 3,
+				"syllableStruct": "cvcccvcv",
+				"vowelsType": "o",
+				"consonantsType": "nlo"
 			},
 			"ʒœdi": {
 				"phonetic": "ʒœdi",
@@ -554,7 +557,7 @@
 				"consonantsType": "co"
 			},
 			"vɑdrədi": {
-				"phonetic": "vâdrədi",
+				"phonetic": "vɑdrədi",
 				"word": "vendredi",
 				"path": "vendredi.png",
 				"homonym": [
@@ -584,10 +587,10 @@
 				"homonym": [
 					"dimanche"
 				],
-				"nbSyllable": 2,
-				"syllableStruct": "cvcvc",
-				"vowelsType": "on",
-				"consonantsType": "onc"
+				"nbSyllable": 1,
+				"syllableStruct": "cv",
+				"vowelsType": "N",
+				"consonantsType": "O,N"
 			},
 			"ɛd": {
 				"phonetic": "ɛd",
@@ -734,304 +737,378 @@
 				"consonantsType": "oc"
 			},
 			"sɛrkl": {
-                "phonetic": "sɛrkl",
-                "word": "cercle",
-                "path": "user://art/bonne.webp",
-                "homonym": [
-                    "cercle"
-                ],
-                "nbSyllable": 2,
-                "syllableStruct": "cvccc",
-                "vowelsType": "o",
-                "consonantsType": "ol"
-            },
-            "ʃɛvr": {
-                "phonetic": "ʃɛvr",
-                "word": "chèvre",
-                "path": "user://art/bonne.webp",
-                "homonym": [
-                    "chèvre"
-                ],
-                "nbSyllable": 2,
-                "syllableStruct": "cvcc",
-                "vowelsType": "o",
-                "consonantsType": "cl"
-            },
-            "sirk": {
-                "phonetic": "sirk",
-                "word": "cirque",
-                "path": "user://art/bonne.webp",
-                "homonym": [
-                    "cirque"
-                ],
-                "nbSyllable": 2,
-                "syllableStruct": "cvcc",
-                "vowelsType": "o",
-                "consonantsType": "clo"
-            },
-            "klun": {
-                "phonetic": "klun",
-                "word": "clown",
-                "path": "user://art/bonne.webp",
-                "homonym": [
-                    "clown"
-                ],
-                "nbSyllable": 1,
-                "syllableStruct": "ccvc",
-                "vowelsType": "o",
-                "consonantsType": "oln"
-            },
-            "kuʃ": {
-                "phonetic": "kuʃ",
-                "word": "couche",
-                "path": "user://art/bonne.webp",
-                "homonym": [
-                    "couche"
-                ],
-                "nbSyllable": 1,
-                "syllableStruct": "cvc",
-                "vowelsType": "o",
-                "consonantsType": "oc"
-            },
-            "dam": {
-                "phonetic": "dam",
-                "word": "dame",
-                "path": "user://art/bonne.webp",
-                "homonym": [
-                    "dame"
-                ],
-                "nbSyllable": 1,
-                "syllableStruct": "cvc",
-                "vowelsType": "o",
-                "consonantsType": "on"
-            },
-            "dir": {
-                "phonetic": "dir",
-                "word": "dire",
-                "path": "user://art/bonne.webp",
-                "homonym": [
-                    "dire"
-                ],
-                "nbSyllable": 1,
-                "syllableStruct": "cvc",
-                "vowelsType": "o",
-                "consonantsType": "ol"
-            },
-            "duʃ": {
-                "phonetic": "duʃ",
-                "word": "douche",
-                "path": "user://art/bonne.webp",
-                "homonym": [
-                    "douche"
-                ],
-                "nbSyllable": 1,
-                "syllableStruct": "cvc",
-                "vowelsType": "o",
-                "consonantsType": "oc"
-            },
-            "drol": {
-                "phonetic": "drol",
-                "word": "drôle",
-                "path": "user://art/bonne.webp",
-                "homonym": [
-                    "drôle"
-                ],
-                "nbSyllable": 1,
-                "syllableStruct": "ccvc",
-                "vowelsType": "o",
-                "consonantsType": "ol"
-            },
-            "dyr": {
-                "phonetic": "dyr",
-                "word": "dure",
-                "path": "user://art/bonne.webp",
-                "homonym": [
-                    "dure"
-                ],
-                "nbSyllable": 1,
-                "syllableStruct": "cvc",
-                "vowelsType": "o",
-                "consonantsType": "ol"
-            },
-            "fot": {
-                "phonetic": "fot",
-                "word": "faute",
-                "path": "user://art/bonne.webp",
-                "homonym": [
-                    "faute"
-                ],
-                "nbSyllable": 1,
-                "syllableStruct": "cvc",
-                "vowelsType": "o",
-                "consonantsType": "co"
-            },
-            "fil": {
-                "phonetic": "fil",
-                "word": "fil",
-                "path": "user://art/bonne.webp",
-                "homonym": [
-                    "fil"
-                ],
-                "nbSyllable": 1,
-                "syllableStruct": "cvc",
-                "vowelsType": "o",
-                "consonantsType": "cl"
-            },
-            "fɔrm": {
-                "phonetic": "fɔrm",
-                "word": "forme",
-                "path": "user://art/bonne.webp",
-                "homonym": [
-                    "forme"
-                ],
-                "nbSyllable": 1,
-                "syllableStruct": "cvcc",
-                "vowelsType": "o",
-                "consonantsType": "cln"
+				"phonetic": "sɛrkl",
+				"word": "cercle",
+				"path": "user://art/bonne.webp",
+				"homonym": [
+					"cercle"
+				],
+				"nbSyllable": 2,
+				"syllableStruct": "cvccc",
+				"vowelsType": "o",
+				"consonantsType": "ol"
+			},
+			"ʃɛvr": {
+				"phonetic": "ʃɛvr",
+				"word": "chèvre",
+				"path": "user://art/bonne.webp",
+				"homonym": [
+					"chèvre"
+				],
+				"nbSyllable": 2,
+				"syllableStruct": "cvcc",
+				"vowelsType": "o",
+				"consonantsType": "cl"
+			},
+			"sirk": {
+				"phonetic": "sirk",
+				"word": "cirque",
+				"path": "user://art/bonne.webp",
+				"homonym": [
+					"cirque"
+				],
+				"nbSyllable": 2,
+				"syllableStruct": "cvcc",
+				"vowelsType": "o",
+				"consonantsType": "clo"
+			},
+			"klun": {
+				"phonetic": "klun",
+				"word": "clown",
+				"path": "user://art/bonne.webp",
+				"homonym": [
+					"clown"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "ccvc",
+				"vowelsType": "o",
+				"consonantsType": "oln"
+			},
+			"kuʃ": {
+				"phonetic": "kuʃ",
+				"word": "couche",
+				"path": "user://art/bonne.webp",
+				"homonym": [
+					"couche"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cvc",
+				"vowelsType": "o",
+				"consonantsType": "oc"
+			},
+			"dam": {
+				"phonetic": "dam",
+				"word": "dame",
+				"path": "user://art/bonne.webp",
+				"homonym": [
+					"dame"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cvc",
+				"vowelsType": "o",
+				"consonantsType": "on"
+			},
+			"dir": {
+				"phonetic": "dir",
+				"word": "dire",
+				"path": "user://art/bonne.webp",
+				"homonym": [
+					"dire"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cvc",
+				"vowelsType": "o",
+				"consonantsType": "ol"
+			},
+			"duʃ": {
+				"phonetic": "duʃ",
+				"word": "douche",
+				"path": "user://art/bonne.webp",
+				"homonym": [
+					"douche"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cvc",
+				"vowelsType": "o",
+				"consonantsType": "oc"
+			},
+			"drol": {
+				"phonetic": "drol",
+				"word": "drôle",
+				"path": "user://art/bonne.webp",
+				"homonym": [
+					"drôle"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "ccvc",
+				"vowelsType": "o",
+				"consonantsType": "ol"
+			},
+			"dyr": {
+				"phonetic": "dyr",
+				"word": "dure",
+				"path": "user://art/bonne.webp",
+				"homonym": [
+					"dure"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cvc",
+				"vowelsType": "o",
+				"consonantsType": "ol"
+			},
+			"fot": {
+				"phonetic": "fot",
+				"word": "faute",
+				"path": "user://art/bonne.webp",
+				"homonym": [
+					"faute"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cvc",
+				"vowelsType": "o",
+				"consonantsType": "co"
+			},
+			"fil": {
+				"phonetic": "fil",
+				"word": "fil",
+				"path": "user://art/bonne.webp",
+				"homonym": [
+					"fil"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cvc",
+				"vowelsType": "o",
+				"consonantsType": "cl"
+			},
+			"fɔrm": {
+				"phonetic": "fɔrm",
+				"word": "forme",
+				"path": "user://art/bonne.webp",
+				"homonym": [
+					"forme"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cvcc",
+				"vowelsType": "o",
+				"consonantsType": "cln"
 			},
 			"fɔr": {
-                "phonetic": "fɔr",
-                "word": "fort",
+				"phonetic": "fɔr",
+				"word": "fort",
+				"path": "",
+				"homonym": [
+					"fort"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cvc",
+				"vowelsType": "o",
+				"consonantsType": "cl"
+			},
+			"fɔrt": {
+				"phonetic": "fɔrt",
+				"word": "forte",
+				"path": "",
+				"homonym": [
+					"forte"
+				],
+				"nbSyllable": 2,
+				"syllableStruct": "cvcc",
+				"vowelsType": "o",
+				"consonantsType": "clo"
+			},
+			"ful": {
+				"phonetic": "ful",
+				"word": "foule",
+				"path": "",
+				"homonym": [
+					"foule"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cvc",
+				"vowelsType": "o",
+				"consonantsType": "cl"
+			},
+			"frit": {
+				"phonetic": "frit",
+				"word": "frite",
+				"path": "",
+				"homonym": [
+					"frite"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "ccvc",
+				"vowelsType": "o",
+				"consonantsType": "clo"
+			},
+			"frwad": {
+				"phonetic": "frwad",
+				"word": "froide",
+				"path": "",
+				"homonym": [
+					"froide"
+				],
+				"nbSyllable": 2,
+				"syllableStruct": "ccvc",
+				"vowelsType": "so",
+				"consonantsType": "clo"
+			},
+			"frwi": {
+				"phonetic": "frwi",
+				"word": "fruit",
+				"path": "",
+				"homonym": [
+					"fruit"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "ccvv",
+				"vowelsType": "so",
+				"consonantsType": "cl"
+			},
+			"gro": {
+				"phonetic": "gro",
+				"word": "gros",
+				"path": "",
+				"homonym": [
+					"gros"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "ccv",
+				"vowelsType": "o",
+				"consonantsType": "ol"
+			},
+			"ʒur": {
+				"phonetic": "ʒur",
+				"word": "jour",
+				"path": "",
+				"homonym": [
+					"jour"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cvc",
+				"vowelsType": "o",
+				"consonantsType": "cl"
+			},
+			"lɛn": {
+				"phonetic": "lɛn",
+				"word": "laine",
+				"path": "",
+				"homonym": [
+					"laine"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cvc",
+				"vowelsType": "o",
+				"consonantsType": "ln"
+			},
+			"lav": {
+				"phonetic": "lav",
+				"word": "lave",
+				"path": "",
+				"homonym": [
+					"lave"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cvc",
+				"vowelsType": "o",
+				"consonantsType": "lc"
+			},
+			"lyʒ": {
+				"phonetic": "lyʒ",
+				"word": "luge",
+				"path": "",
+				"homonym": [
+					"luge"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cvc",
+				"vowelsType": "o",
+				"consonantsType": "lc"
+			},
+			"mar": {
+				"phonetic": "mar",
+				"word": "mare",
+				"path": "",
+				"homonym": [
+					"mare"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cvc",
+				"vowelsType": "o",
+				"consonantsType": "nl"
+			},
+			"mɛr": {
+                "phonetic": "mɛr",
+                "word": "mer",
                 "path": "",
                 "homonym": [
-                    "fort"
-                ],
-                "nbSyllable": 1,
-                "syllableStruct": "cvc",
-                "vowelsType": "o",
-                "consonantsType": "cl"
-            },
-            "fɔrt": {
-                "phonetic": "fɔrt",
-                "word": "forte",
-                "path": "",
-                "homonym": [
-                    "forte"
-                ],
-                "nbSyllable": 2,
-                "syllableStruct": "cvcc",
-                "vowelsType": "o",
-                "consonantsType": "clo"
-            },
-            "ful": {
-                "phonetic": "ful",
-                "word": "foule",
-                "path": "",
-                "homonym": [
-                    "foule"
-                ],
-                "nbSyllable": 1,
-                "syllableStruct": "cvc",
-                "vowelsType": "o",
-                "consonantsType": "cl"
-            },
-            "frit": {
-                "phonetic": "frit",
-                "word": "frite",
-                "path": "",
-                "homonym": [
-                    "frite"
-                ],
-                "nbSyllable": 1,
-                "syllableStruct": "ccvc",
-                "vowelsType": "o",
-                "consonantsType": "clo"
-            },
-            "frwad": {
-                "phonetic": "frwad",
-                "word": "froide",
-                "path": "",
-                "homonym": [
-                    "froide"
-                ],
-                "nbSyllable": 2,
-                "syllableStruct": "ccvc",
-                "vowelsType": "so",
-                "consonantsType": "clo"
-            },
-            "frwi": {
-                "phonetic": "frwi",
-                "word": "fruit",
-                "path": "",
-                "homonym": [
-                    "fruit"
-                ],
-                "nbSyllable": 1,
-                "syllableStruct": "ccvv",
-                "vowelsType": "so",
-                "consonantsType": "cl"
-            },
-            "gro": {
-                "phonetic": "gro",
-                "word": "gros",
-                "path": "",
-                "homonym": [
-                    "gros"
-                ],
-                "nbSyllable": 1,
-                "syllableStruct": "ccv",
-                "vowelsType": "o",
-                "consonantsType": "ol"
-            },
-            "ʒur": {
-                "phonetic": "ʒur",
-                "word": "jour",
-                "path": "",
-                "homonym": [
-                    "jour"
-                ],
-                "nbSyllable": 1,
-                "syllableStruct": "cvc",
-                "vowelsType": "o",
-                "consonantsType": "cl"
-            },
-            "lɛn": {
-                "phonetic": "lɛn",
-                "word": "laine",
-                "path": "",
-                "homonym": [
-                    "laine"
-                ],
-                "nbSyllable": 1,
-                "syllableStruct": "cvc",
-                "vowelsType": "o",
-                "consonantsType": "ln"
-            },
-            "lav": {
-                "phonetic": "lav",
-                "word": "lave",
-                "path": "",
-                "homonym": [
-                    "lave"
-                ],
-                "nbSyllable": 1,
-                "syllableStruct": "cvc",
-                "vowelsType": "o",
-                "consonantsType": "lc"
-            },
-            "lyʒ": {
-                "phonetic": "lyʒ",
-                "word": "luge",
-                "path": "",
-                "homonym": [
-                    "luge"
-                ],
-                "nbSyllable": 1,
-                "syllableStruct": "cvc",
-                "vowelsType": "o",
-                "consonantsType": "lc"
-            },
-            "mar": {
-                "phonetic": "mar",
-                "word": "mare",
-                "path": "",
-                "homonym": [
-                    "mare"
+                    "maire",
+                    "mer",
+                    "mère"
                 ],
                 "nbSyllable": 1,
                 "syllableStruct": "cvc",
                 "vowelsType": "o",
                 "consonantsType": "nl"
+            },
+            "muʃ": {
+                "phonetic": "muʃ",
+                "word": "mouche",
+                "path": "",
+                "homonym": [
+                    "mouche"
+                ],
+                "nbSyllable": 1,
+                "syllableStruct": "cvc",
+                "vowelsType": "o",
+                "consonantsType": "nc"
+            },
+            "nɔ̃br": {
+                "phonetic": "nɔ̃br",
+                "word": "nombre",
+                "path": "",
+                "homonym": [
+                    "nombre"
+                ],
+                "nbSyllable": 2,
+                "syllableStruct": "cvcc",
+                "vowelsType": "n",
+                "consonantsType": "nol"
+            },
+            "nyaʒ": {
+                "phonetic": "nyaʒ",
+                "word": "nuage",
+                "path": "",
+                "homonym": [
+                    "nuage"
+                ],
+                "nbSyllable": 2,
+                "syllableStruct": "cvvc",
+                "vowelsType": "o",
+                "consonantsType": "nc"
+            },
+            "urs": {
+                "phonetic": "urs",
+                "word": "ours",
+                "path": "",
+                "homonym": [
+                    "ours"
+                ],
+                "nbSyllable": 1,
+                "syllableStruct": "vcc",
+                "vowelsType": "o",
+                "consonantsType": "lc"
+            },
+            "pɑ̃t": {
+                "phonetic": "pɑ̃t",
+                "word": "pente",
+                "path": "",
+                "homonym": [
+                    "pente"
+                ],
+                "nbSyllable": 1,
+                "syllableStruct": "cvc",
+                "vowelsType": "n",
+                "consonantsType": "o"
             }
 		}
 	}

@@ -10,7 +10,7 @@ var difficulty : int
 var successPercentage : Array = []
 var nbWords : int = 0
 var words : Array = []
-var nbSuccess : int = 0
+var nbSuccess : int
 var nameFile : String 
 var nbWordsOccurrences : Array = []
 var wordsSuccess : Array

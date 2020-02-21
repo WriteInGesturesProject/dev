@@ -1,22 +1,21 @@
 extends Control
 
+var os = Global.os
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-var tts = null
-var stt = null
-var os = ""
+var tts = Global.tts
+var stt = Global.stt
+
 var words = ""
 var display = false
 var incremented = false
-var myWords = Global.customExercise.getAllWords()
+var myWords = Global.listenExercise.getAllWords()
 var index = 0
 var img = ""
 var container = HBoxContainer.new()
 var line1
 var line2
 var choice 
+var rand = 0
 
 func mySize(word):
 	var size = 0
@@ -28,21 +27,10 @@ func mySize(word):
 		return 1.7
 	return size
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	os = OS.get_name()
-	match os:
-		"X11":
-			#tts = TTSDriver.new()
-			set_process(true)
-			if(tts != null):
-				tts.set_voice("French (France)")
-		"Android":
-			if(Engine.has_singleton("GodotTextToSpeech")):
-				tts = Engine.get_singleton("GodotTextToSpeech")
-				tts.fireTTS()
-			if(Engine.has_singleton("GodotSpeech")):
-				stt = Engine.get_singleton("GodotSpeech")
+	rand = randi() % 3 + 1
 	if(index + 3 < myWords.size()):
 		for b in range(0,3):
 					var control_img = Control.new()
@@ -152,6 +140,7 @@ func _ready():
 	else : 
 		get_tree().change_scene("res://GameEnd.tscn")
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
@@ -166,9 +155,7 @@ func _on_Speak_pressed():
 		stt.stopListen()
 		find_node("Record").set_text("Enregistrer")
 	if(tts != null):
-		var text = myWords[index-1].getWord()
-		print(text)
-		print(index)
+		var text = myWords[index - rand].getWord()
 		match os:
 			"X11":
 				tts.speak(text, false)
@@ -180,7 +167,8 @@ func _on_Choice1_pressed():
 	find_node("Choice2").pressed = false
 	find_node("Choice3").pressed = false
 	find_node("Validate").disabled = false
-	choice = 1
+	choice = 3
+
 
 func _on_Choice2_pressed():
 	find_node("Choice1").pressed = false
@@ -188,17 +176,19 @@ func _on_Choice2_pressed():
 	find_node("Validate").disabled = false
 	choice = 2
 
+
 func _on_Choice3_pressed():
 	find_node("Choice2").pressed = false
 	find_node("Choice1").pressed = false
 	find_node("Validate").disabled = false
-	choice = 3
+	choice = 1
 
 
 func _on_Validate_pressed():
-	#faire score
-	find_node("Choice2").pressed = false
+	if(rand == choice):
+		Global.score += 1
 	find_node("Choice1").pressed = false
+	find_node("Choice2").pressed = false
 	find_node("Choice3").pressed = false
 	find_node("Validate").disabled = true
 	for i in range(0, find_node("gridCard").get_child_count()):

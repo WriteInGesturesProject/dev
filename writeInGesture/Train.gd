@@ -6,8 +6,8 @@ const Exercise = preload("res://Exercise.gd")
 const MyDictionnary = preload("res://Dictionnary.gd")
 
 var Ex : Exercise
-var tts = null
-var stt = null
+var tts = Global.tts
+var stt = Global.stt
 var words = ""
 var display = false
 var incremented = false
@@ -17,31 +17,12 @@ var container = HBoxContainer.new()
 var os = Global.os
 
 func _ready():
-	match os:
-		"X11":
-			#tts = TTSDriver.new()
-			set_process(true)
-			if(tts != null):
-				tts.set_voice("French (France)")
-		"Android":
-			if(Engine.has_singleton("GodotTextToSpeech")):
-				tts = Engine.get_singleton("GodotTextToSpeech")
-				tts.fireTTS()
-			if(Engine.has_singleton("GodotSpeech")):
-				stt = Engine.get_singleton("GodotSpeech")
-	match Global.game:
-		1:
-			myWords = Global.customExercise.getAllWords()
-			Ex = Global.customExercise
-		2:
-			myWords = Global.countExercise.getAllWords()
-			Ex = Global.countExercise
-		3:
-			myWords = Global.weekExercise.getAllWords()
-			Ex = Global.weekExercise
-		4:
-			myWords = Global.colorExercise.getAllWords()
-			Ex = Global.colorExercise
+	Ex = Global.current_ex
+	myWords = Ex.getAllWords()
+	Global.try = []
+	for i in myWords:
+		Global.try.append(false)
+	
 	if(Global.game == 2):
 		find_node("Number").set_text(myWords[index].getPath())
 		find_node("TextureRect2").visible = false
@@ -189,6 +170,7 @@ func _on_Record_pressed():
 	if(stt != null):
 		if(stt.isListening() == false):
 			stt.doListen()
+			Global.try[index] = true
 			display = true
 			Ex.setNbWordOccurrence(Global.level, index, Ex.getNbWordOccurrence(Global.level, index) + 1)
 		else :

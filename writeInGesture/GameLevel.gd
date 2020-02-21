@@ -1,11 +1,23 @@
 extends Control
 
+const Exercise = preload("res://Exercise.gd")
+var Ex : Exercise
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if(Global.progress1[Global.play-1] >= 50):
+	match Global.play:
+		1:
+			Global.current_ex = Global.gooseExercise
+		2:
+			Global.current_ex = Global.listenExercise
+		3:
+			Global.current_ex = Global.thirdExercise
+	var Ex = Global.current_ex
+	if(Ex.getSuccessPercentage(0) >= 50):
 		find_node("TextureRect").visible = false
 		find_node("Normal").disabled = false
-	if(Global.progress2[Global.play-1] >= 50):
+	if(Ex.getSuccessPercentage(1) >= 50):
 		find_node("TextureRect2").visible = false
 		find_node("Hard").disabled = false
 

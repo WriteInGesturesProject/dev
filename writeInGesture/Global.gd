@@ -9,10 +9,10 @@ const Config = preload("res://Config.gd")
 
 var os # Variable used to know on which plateform we are
 
-var progress1 = [85,85,85,20]
-var progress2 = [85,85,85,0]
-var progress3 = [0,0,0,0]
-var progress = [progress1, progress2, progress3]
+var tts = null # The Text To Speech Object
+var stt = null # The Speech To Text Object
+
+var current_ex : Exercise # The exercise we are playing
 
 var score # The score when in game
 var level = 0 # The difficulty (0 -> Easy, 1 -> Medium, 2 -> Hard)
@@ -21,7 +21,10 @@ var game = 1 # The type of training (1 -> MyGames, 2 -> Count, 3 -> Week, 4 -> C
 var play = 1 # The type of game (1 -> Goose, 2 -> Listen & Choose)
 var dev = 0 # Developper mode (0 -> Disabled, 1 -> Enabled)
 
+var try = [] # Check if the player tapped on record at least once on each word
+
 var config : Config = Config.new()
+
 var customExercise : Exercise = Exercise.new()
 var gooseExercise : Exercise = Exercise.new()
 var listenExercise : Exercise = Exercise.new()
@@ -40,6 +43,20 @@ var phoneticDictionnary
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	os = OS.get_name()
+	
+	match os:
+		"X11":
+			#tts = TTSDriver.new()
+			set_process(true)
+			if(tts != null):
+				tts.set_voice("French (France)")
+		"Android":
+			if(Engine.has_singleton("GodotTextToSpeech")):
+				tts = Engine.get_singleton("GodotTextToSpeech")
+				tts.fireTTS()
+			if(Engine.has_singleton("GodotSpeech")):
+				stt = Engine.get_singleton("GodotSpeech")
+	
 	loadEntity()
 
 func loadEntity():

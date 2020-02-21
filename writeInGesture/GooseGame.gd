@@ -2,8 +2,13 @@ extends Control
 
 const Exercise = preload("res://Exercise.gd")
 
-var tts = null
-var stt = null
+var Ex : Exercise
+
+var os = Global.os
+
+var tts = Global.tts
+var stt = Global.stt
+
 var words = ""
 var display = false
 var incremented = false
@@ -12,24 +17,13 @@ var index = 0
 var img = ""
 var container = HBoxContainer.new()
 var board = []
-var os = Global.os
 var count = 0
 var index_play = 5
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	match os:
-		"X11":
-			#tts = TTSDriver.new()
-			set_process(true)
-			if(tts != null):
-				tts.set_voice("French (France)")
-		"Android":
-			if(Engine.has_singleton("GodotTextToSpeech")):
-				tts = Engine.get_singleton("GodotTextToSpeech")
-				tts.fireTTS()
-			if(Engine.has_singleton("GodotSpeech")):
-				stt = Engine.get_singleton("GodotSpeech")
+	Ex = Global.current_ex
 	if(Global.level == 1 || Global.level == 2):
 		find_node("Word").visible = false
 	if(Global.level == 2):
@@ -39,7 +33,7 @@ func _ready():
 	for b in range(0,5):
 		for w in range(0,8):
 			if(board.size() >= myWords.size()):
-				return
+				break
 			if((b==0 && w==7) || (b==2 && (w==7 || w ==0)) || (b==4 && w==0) || (b==1 && w!=7) || (b==3 && w!=0)):
 				var control_img = Control.new()
 				find_node("gridImage").add_child(control_img)
@@ -59,6 +53,8 @@ func _ready():
 				find_node("gridImage").add_constant_override("hseparation",  (get_viewport().size.y / 8)+10)
 				control_img.add_child(image)
 				find_node("gridImage").add_child(control_img)
+		if(board.size() >= myWords.size()):
+			break
 	if(Global.level == 0 || Global.level == 1):
 		var c = 0
 		var p = myWords[index].getPhonetic()
@@ -90,6 +86,10 @@ func _ready():
 		find_node("ImgBorel").add_child(container)
 		find_node("Word").text = myWords[index].getWord()
 	board[0].modulate = "e86767"
+	Global.score = 0
+	Global.try = []
+	for i in myWords:
+		Global.try.append(false)
 
 func _change():
 	if(index >= myWords.size()):
@@ -111,7 +111,8 @@ func _change():
 			board[index-1 + index_play +2].modulate = "ffffff"
 		else :
 			board[index-1].modulate = "ffffff"
-		board[index].modulate = "e86767"
+		if(index < myWords.size()):
+			board[index].modulate = "e86767"
 	if(Global.level == 1):
 		board[index-1].texture = load("res://art/chat.jpg")
 	container.remove_and_skip()
@@ -136,6 +137,7 @@ func _change():
 			find_node("Word").set_text(myWords[index].getWord())
 	incremented = false
 
+
 func _process(delta):
 	if(stt != null && stt.isListening()):
 		find_node("Record").set_text("En écoute")
@@ -146,14 +148,13 @@ func _process(delta):
 		if(count == 2):
 			find_node("Record").set_text("Suivant")
 		else :
-			find_node("Record").set_text("Vous avez dit : " + words)
+			find_node("Record").set_text("Tu as dit : " + words)
 			if(words.to_lower() == (myWords[index].getWord()).to_lower()):
 				find_node("Record").disabled = true
 				if(incremented == false):
-					Global.score[Global.level][Global.game - 1] += 1
+					Global.score += 1
 					incremented = true
 					_change()
-
 
 
 func _on_Speak_pressed():
@@ -177,7 +178,9 @@ func _on_Record_pressed():
 	if(stt != null):
 		if(stt.isListening() == false):
 			stt.doListen()
+			Global.try[index] = true
 			display = true
+			Ex.setNbWordOccurrence(Global.level, index, Ex.getNbWordOccurrence(Global.level, index) + 1)
 		else :
 			stt.stopListen()
 			find_node("Record").set_text("Enregistrer")

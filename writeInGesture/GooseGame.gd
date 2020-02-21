@@ -33,7 +33,7 @@ func _ready():
 	for b in range(0,5):
 		for w in range(0,8):
 			if(board.size() >= myWords.size()):
-				return
+				break
 			if((b==0 && w==7) || (b==2 && (w==7 || w ==0)) || (b==4 && w==0) || (b==1 && w!=7) || (b==3 && w!=0)):
 				var control_img = Control.new()
 				find_node("gridImage").add_child(control_img)
@@ -53,6 +53,8 @@ func _ready():
 				find_node("gridImage").add_constant_override("hseparation",  (get_viewport().size.y / 8)+10)
 				control_img.add_child(image)
 				find_node("gridImage").add_child(control_img)
+		if(board.size() >= myWords.size()):
+			break
 	if(Global.level == 0 || Global.level == 1):
 		var c = 0
 		var p = myWords[index].getPhonetic()
@@ -109,7 +111,8 @@ func _change():
 			board[index-1 + index_play +2].modulate = "ffffff"
 		else :
 			board[index-1].modulate = "ffffff"
-		board[index].modulate = "e86767"
+		if(index < myWords.size()):
+			board[index].modulate = "e86767"
 	if(Global.level == 1):
 		board[index-1].texture = load("res://art/chat.jpg")
 	container.remove_and_skip()

@@ -206,6 +206,7 @@ margin_bottom = 846.0
 margin_top = 850.0
 margin_right = 1556.0
 margin_bottom = 922.0
+max_length = 20
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 926.0
@@ -220,22 +221,22 @@ text = "GO BACK"
 __meta__ = {
 "_editor_description_": ""
 }
-[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer1/TextureRect1" to="." method="_on_TextureRect1_gui_input"]
-[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer1/TextureRect2" to="." method="_on_TextureRect2_gui_input"]
-[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer1/TextureRect3" to="." method="_on_TextureRect3_gui_input"]
-[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer1/TextureRect4" to="." method="_on_TextureRect4_gui_input"]
-[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer1/TextureRect5" to="." method="_on_TextureRect5_gui_input"]
-[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer1/TextureRect6" to="." method="_on_TextureRect6_gui_input"]
-[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer2/TextureRect7" to="." method="_on_TextureRect7_gui_input"]
-[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer2/TextureRect8" to="." method="_on_TextureRect8_gui_input"]
-[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer2/TextureRect9" to="." method="_on_TextureRect9_gui_input"]
-[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer2/TextureRect10" to="." method="_on_TextureRect10_gui_input"]
-[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer2/TextureRect11" to="." method="_on_TextureRect11_gui_input"]
-[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer2/TextureRect12" to="." method="_on_TextureRect12_gui_input"]
-[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer3/TextureRect13" to="." method="_on_TextureRect13_gui_input"]
-[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer3/TextureRect14" to="." method="_on_TextureRect14_gui_input"]
-[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer3/TextureRect15" to="." method="_on_TextureRect15_gui_input"]
-[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer3/TextureRect16" to="." method="_on_TextureRect16_gui_input"]
-[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer3/TextureRect17" to="." method="_on_TextureRect17_gui_input"]
-[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer3/TextureRect18" to="." method="_on_TextureRect18_gui_input"]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer1/TextureRect1" to="." method="_on_TextureRect_gui_input" binds= [ 1 ]]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer1/TextureRect2" to="." method="_on_TextureRect_gui_input" binds= [ 2 ]]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer1/TextureRect3" to="." method="_on_TextureRect_gui_input" binds= [ 3 ]]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer1/TextureRect4" to="." method="_on_TextureRect_gui_input" binds= [ 4 ]]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer1/TextureRect5" to="." method="_on_TextureRect_gui_input" binds= [ 5 ]]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer1/TextureRect6" to="." method="_on_TextureRect_gui_input" binds= [ 6 ]]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer2/TextureRect7" to="." method="_on_TextureRect_gui_input" binds= [ 7 ]]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer2/TextureRect8" to="." method="_on_TextureRect_gui_input" binds= [ 8 ]]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer2/TextureRect9" to="." method="_on_TextureRect_gui_input" binds= [ 9 ]]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer2/TextureRect10" to="." method="_on_TextureRect_gui_input" binds= [ 10 ]]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer2/TextureRect11" to="." method="_on_TextureRect_gui_input" binds= [ 11 ]]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer2/TextureRect12" to="." method="_on_TextureRect_gui_input" binds= [ 12 ]]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer3/TextureRect13" to="." method="_on_TextureRect_gui_input" binds= [ 13 ]]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer3/TextureRect14" to="." method="_on_TextureRect_gui_input" binds= [ 14 ]]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer3/TextureRect15" to="." method="_on_TextureRect_gui_input" binds= [ 15 ]]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer3/TextureRect16" to="." method="_on_TextureRect_gui_input" binds= [ 16 ]]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer3/TextureRect17" to="." method="_on_TextureRect_gui_input" binds= [ 17 ]]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer3/TextureRect18" to="." method="_on_TextureRect_gui_input" binds= [ 18 ]]
 [connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer4/Button" to="." method="_on_Button_gui_input"]

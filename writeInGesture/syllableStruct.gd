@@ -166,6 +166,7 @@ func _on_Popup_popup_hide():
 	removeAllChildren("VBoxPopup")
 	if(find_node("Popup") != null) :
 		find_node("Popup").visible = false
+		find_node("ConfirmationPopup").visible = false
 		find_node("Background").visible = false 
 
 func _on_Confirm_pressed():
@@ -176,19 +177,21 @@ func _on_Confirm_pressed():
 		print("Creation of goose exercise")
 		Global.gooseExercise = creation.creationExercise(Global.gooseExercise, wordFinal)
 		print("Creation of memory exercise")
-		Global.memoryExercise = creation.creationExercise(Global.memoryExercise, wordFinal)
+		Global.listenExercise = creation.creationExercise(Global.listenExercise, wordFinal)
 		print("Creation of third exercise")
 		Global.thirdExercise = creation.creationExercise(Global.thirdExercise, wordFinal)
 		_on_Popup_popup_hide()
 		find_node("Background").visible = true
 		find_node("ConfirmationPopup").popup_centered_ratio(0.75)
 		find_node("ConfirmationPopup").visible = true
+		find_node("Timer").start(1.5)
 	else :
 		removeAllChildren("VBoxPopup")
 		var label = Label.new()
 		label.align = Label.ALIGN_CENTER
 		label.text = "Il n'y a pas de mots"
 		find_node("VBoxPopup").add_child(label)
+
 
 
 func _on_Timer_timeout():

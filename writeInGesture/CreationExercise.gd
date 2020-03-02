@@ -33,7 +33,7 @@ func creationExercise(exercise : Exercise, words : Array):
 		newCustomExercise.addWord(word)
 
 	newCustomExercise.putNbWordOccurrence(nbWordsOccurrences)
-	newCustomExercise.putWordSucess(wordsSuccess)
+	newCustomExercise.putWordSuccess(wordsSuccess)
 	newCustomExercise.putSuccessPercentage(successPercentage)
 	
 	#Set new configuration

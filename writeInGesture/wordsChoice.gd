@@ -1,30 +1,54 @@
 extends Control
 
+const Word = preload("res://Word.gd")
+const WordsAvailable = preload("res://WordsAvailable.gd")
+const MyDictionnary = preload("res://Dictionnary.gd")
+const Exercise = preload("res://Exercise.gd")
+const TypeExercise = preload("res://TypeExercise.gd")
+const CreationExercise = preload("res://CreationExercise.gd")
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var nameFile = "wordsAvailable"
-var contentFile = Global.loadFileInArray(nameFile)
+var ImagePath = ""
 
-# Called when the node enters the scene tree for the first time.
+var wordsAvailable : WordsAvailable = Global.wordsAvailable
+var dictionnary : MyDictionnary = Global.wordDictionnary
+
+var bg = ColorRect.new()
+
+#######################################FUNCTION_FOR_SCENE###############################
 func _ready():
-	print(contentFile)
-	for i in range(0, contentFile.size()):
-		var currentHbox = _createAvailableWordsList(str(i), contentFile[i], str(i), "X")
-		find_node("wordsAvailableContainer").add_child(currentHbox)
+	var words : Array = wordsAvailable.getAllWords()
+	makeListWord()
 	_createKeyboard()
+	self.add_child(bg)
+	
+func removeAllChildren(nameNode):
+	# remove all children of nameNode
+	for i in range(0, find_node(nameNode).get_child_count()):
+		find_node(nameNode).get_child(i).queue_free()
+
+func makeListWord() :
+	removeAllChildren("wordsAvailableContainer")
+	if(wordsAvailable.getAllWords().size() == 0):
+		find_node("Creation").visible = false
+	else :
+		find_node("Creation").visible = true
+	for word in wordsAvailable.getAllWords() :
+		find_node("wordsAvailableContainer").add_child(createAvailableWordsList(word))
+	pass
 
 func _createKeyboard():
-	for b in Global.dictionaryPhonetic:
-		for w in Global.dictionaryPhonetic[b]:
+	for b in Global.phoneticDictionnary:
+		for w in Global.phoneticDictionnary[b]:
 			var keyButton = Button.new()
+			keyButton.theme = load("res://fonts/phonetic.tres")
 			keyButton.text = w["phonetic"]
 			keyButton.connect("pressed",self,"_on_keyButton_pressed", [keyButton])
 			keyButton.rect_min_size = Vector2(100,0)
 			find_node("gridKeyboard").add_child(keyButton)
 	var keyDeleteButton = Button.new()
 	keyDeleteButton.text = "delete"
+	keyDeleteButton.theme = load("res://fonts/phonetic.tres")
 	keyDeleteButton.connect("pressed",self,"_on_keyButton_pressed", [keyDeleteButton])
 	find_node("gridKeyboard").add_child(keyDeleteButton)
 	
@@ -34,66 +58,148 @@ func _on_keyButton_pressed(keyButton):
 	if (keyButton.text == "delete") and (newWordLabel.text.length()>0) :
 		newWordLabel.text[-1] = ""
 	elif (keyButton.text != "delete") :
-		newWordLabel.text += keyButton.text[1]
+		newWordLabel.text += keyButton.text.split("[")[1].split("]")[0]
 	
 func _on_addWord_pressed():
 	var stateAddLabel = find_node("stateAddLabel")
 	stateAddLabel.add_color_override("font_color", Color(0,0,0))
+	
 	var text = find_node("newWord").get_text()
-	if !(contentFile.has(text)) && contentFile.size() :# < 20:
-		contentFile.append(text)
-		var currentHbox = _createAvailableWordsList(text, text, text, "X")
-		find_node("wordsAvailableContainer").add_child(currentHbox)
-		Global.saveStringInFile(nameFile,text)
-		stateAddLabel.set_text("Le mot a été ajouté.")
-		find_node("newWord").text = ""
+	if !(wordsAvailable.getWord(text)) :# < 20:
+		var word = dictionnary.getWord(text)
+		if(word != null) :
+			wordsAvailable.addWord(word)
+			stateAddLabel.set_text("Le mot a été ajouté.")
+			find_node("newWord").text = ""
+			makeListWord()
+		else :
+			find_node("addWordLabel").text = "Le mot n'existe pas voulez vous l'ajouter ? \nLe mot est : \n"+ find_node("newWord").text 
+			find_node("Popup").popup_centered_ratio(0.75)
+			bg.color = (Color(0,0,0,224))
+			bg.visible = true
+			bg.anchor_bottom = 1 
+			bg.anchor_right = 1
+		
 	else:
-		#if contentFile.size() >= 20:
-		#	stateAddLabel.set_text("Trop de mots ont été ajouté.")
-		#else :
 		stateAddLabel.set_text("Le mot existe déjà.")
 
-func _createAvailableWordsList(nameLabel, textLabel, nameButton, textButton):
+func createAvailableWordsList(word : Word):
 	var hBoxContainer = HBoxContainer.new()
 	hBoxContainer.mouse_filter =Control.MOUSE_FILTER_PASS
 	var currentLabel = Label.new()
-	currentLabel.name = nameLabel
+	var wordLabel = Label.new()
+	currentLabel.name = word.getWord()
+	wordLabel.name = word.getWord()
+	wordLabel.size_flags_horizontal = SIZE_EXPAND_FILL
+	
 	var buttonDelete = Button.new()
-	currentLabel.size_flags_horizontal = SIZE_EXPAND_FILL
-	hBoxContainer.add_child(currentLabel)
-	hBoxContainer.add_child(buttonDelete)
-	buttonDelete.name = nameButton
-	buttonDelete.text = textButton
-	buttonDelete.connect("gui_input",self,"input_event",[])
+	buttonDelete.name = word.getWord()
+	buttonDelete.icon = load("res://art/delete.png")
+	buttonDelete.expand_icon = true
+	buttonDelete.rect_size = Vector2(60,60)
 	buttonDelete.connect("pressed",self,"_on_deleteButton_pressed", [buttonDelete, currentLabel])
-	currentLabel.set_text(textLabel)
-	currentLabel.add_color_override("font_color", Color(0,0,0))
+	
+	var control = Control.new()
+	control.rect_min_size = buttonDelete.rect_size
+	control.size_flags_horizontal
+	control.add_child(buttonDelete)
+	
+	hBoxContainer.add_child(currentLabel)
+	hBoxContainer.add_child(wordLabel)
+	hBoxContainer.add_child(control)
+	
+	currentLabel.set_text(word.getPhonetic())
+	wordLabel.set_text(" : " + word.getWord())
 	return hBoxContainer
 
 func _on_deleteButton_pressed(button, label):
 	print("release : ", release)
 	if(!release) :
-		button.get_parent().remove_and_skip()
+		button.get_parent().get_parent().remove_and_skip()
 		print("label text : ",label.get_text())
-		var index = contentFile.find(label.get_text())
-		contentFile.remove(index)
-		print(contentFile)
-		var newContent = _convertArrayToString(contentFile)
-		Global.rewriteFile(nameFile, newContent)
 		swiping = false 
-
-func _convertArrayToString(content):
-	var newContent = ""
-	for i in range(0,content.size()):
-		newContent += content[i]
-		if(i != content.size()-1):
-			newContent += "\n"
-	return newContent
+		if(!wordsAvailable.removeWord(wordsAvailable.getWord(label.get_text()))) :
+			print ("le mot n'est pas supprimé dans le fichier'")
+		makeListWord()
+		return 
 
 func _on_Retour_pressed():
 	get_tree().change_scene("res://speechTherapistMenu.tscn")
 
+#######################################END_FUNCTION_FOR_SCENE###############################
 
+#######################################ADD_WORD_IN_DICTIONNARY###############################
+func _on_Popup_hide():
+		bg.visible = false
+
+func _on_no_pressed():
+	find_node("Popup").visible = false
+	find_node("Popup2").visible = false
+
+func _on_yes_pressed():
+	find_node("Popup2").popup_centered_ratio(0.75)
+	find_node("LinePhonetic").text = find_node("newWord").text
+	pass
+
+func _on_Confirm_pressed():
+	var newWord : Word = Word.new()
+	newWord.setAttribut("phonetic", find_node("LinePhonetic").text)
+	newWord.setAttribut("word", find_node("LineWord").text)
+	newWord.setAttribut("nbSyllable", find_node("LineNbSyllable").text.to_int())
+	newWord.setAttribut("syllableStruct", find_node("LineStruct").text)
+	newWord.setAttribut("vowelsType", find_node("LineVoyelsType").text)
+	newWord.setAttribut("consonantsType", find_node("LineConsType").text)
+	newWord.setPath(ImagePath)
+	newWord.setHomonym(findHomonym(newWord.getWord()))
+	if(newWord.getHomonym().size() == 0) :
+		newWord.addHomonym(newWord.getWord())
+	var err = dictionnary.addWord(newWord)
+	if(err) :
+		print("le mot a bien été ajouté")
+		find_node("Popup").visible = false
+		find_node("Popup2").visible = false
+		find_node("Creation").visible = true
+		_on_addWord_pressed()
+	else :
+		print("le mot n'a pas été ajouté")
+	
+func findHomonym(word : String) :
+	var res = []
+	var text = ManageJson.checkFileExistUserPath("homonym.json")
+	if text == "": 
+		return 0
+	var tmp = JSON.parse(text)
+	var dict = tmp.result
+	var array = dict["Homonyms"]
+	for homo in array:
+		for el in homo :
+			if(el == word) :
+				res= homo
+	print(res)
+	return res
+#######################################END_ADD_WORD_IN_DICTIONNARY###############################
+
+#######################################CREATION_OF_EXERCISE######################################
+func _on_Creation_pressed():
+	var creation = CreationExercise.new()
+	print("Creation of custom exercise")
+	Global.customExercise = creation.creationExercise(Global.customExercise, wordsAvailable.getAllWords())
+	print("Creation of goose exercise")
+	Global.gooseExercise = creation.creationExercise(Global.gooseExercise, wordsAvailable.getAllWords())
+	print("Creation of listen exercise")
+	Global.listenExercise = creation.creationExercise(Global.listenExercise, wordsAvailable.getAllWords())
+	print("Creation of third exercise")
+	Global.thirdExercise = creation.creationExercise(Global.thirdExercise, wordsAvailable.getAllWords())
+	
+	
+	find_node("stateAddLabel").text = "L'exercice a bien été créé "
+	var tmp = wordsAvailable.getAllWords().duplicate()
+	for word in tmp :
+		wordsAvailable.removeWord(word)
+	makeListWord()
+#######################################END_CREATION_OF_EXERCISE######################################
+
+#######################################SCROLLING#################################################
 #variable for scrolling 
 var swiping = false
 var release = false
@@ -147,11 +253,44 @@ func _input(ev):
 				tween.interpolate_method(self, 'set_v_scroll', source.y, target.y, flick_dur, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 				tween.interpolate_callback(tween, flick_dur, 'queue_free')
 				tween.start()
-			print("is swipping :",isswipping)
+#			print("is swipping :",isswipping)
 			if isswipping:
 				release = true
 			else:
 				release = false
 			swiping = false
 			isswipping =false
-				
+#######################################END_SCROLLING#################################################
+
+
+func _on_OpenButton_pressed():
+	var word = find_node("LineWord").text
+	if(word == null || word == ""):
+		return
+	find_node("FileDialog").rect_size.x = get_viewport().size.x - 10
+	find_node("FileDialog").rect_size.y = get_viewport().size.y - 10
+	find_node("FileDialog").set_current_dir(OS.get_system_dir(OS.SYSTEM_DIR_DOWNLOADS))
+	find_node("FileDialog").popup()
+
+func _on_SearchButton_pressed():
+	var word = find_node("LineWord").text
+	if(word == null || word == ""):
+		return
+	var url = "https://www.google.fr/search?q="
+	url += word
+	url += "&tbm=isch&tbs=sur%3Af"
+	OS.shell_open(url)
+
+func _on_FileDialog_file_selected(path):
+	var word = find_node("LineWord").text
+	if(word == null || word == ""):
+		return
+	ImagePath = "user://art/" + word + "." + path.get_extension()
+	var dir = Directory.new()
+	dir.open("user://")
+	if(!dir.dir_exists("art")):
+		dir.make_dir("art")
+	dir.copy(path, ImagePath)
+	find_node("OpenButton").set_text(path.get_file())
+
+

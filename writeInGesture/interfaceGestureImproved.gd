@@ -11,19 +11,20 @@ var swipe_mouse_positions = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var dict = Global.dictionaryPhonetic
+	var dict = Global.phoneticDictionnary
 	for i in range(0, dict.size()):
 		var currentVbox = VBoxContainer.new()
 		var paragraph = dict.keys()[i]
 		var array = dict[paragraph]
 		var label = Label.new()
 		label.text = paragraph
-		label.add_color_override("font_color", Color(0,0,0))
+		label.add_color_override("font_color", Color(255,255,255))
 		label.size_flags_horizontal = SIZE_EXPAND_FILL
 		label.align = Label.ALIGN_CENTER
 		currentVbox.add_child(label)
 		for j in range(0, array.size()):
 			var currentButton = Button.new()
+			currentButton.theme = load("res://fonts/ButtonTheme.tres")
 			var text = ""
 			var dict2 = array[j]
 			#print(dict2)

@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://speechTherapistMenu.gd" type="Script" id=1]
 [ext_resource path="res://fonts/phonetic.tres" type="Theme" id=2]
+[ext_resource path="res://fonts/ButtonTheme.tres" type="Theme" id=3]
+[ext_resource path="res://fonts/background.png" type="Texture" id=4]
+[ext_resource path="res://art/back.png" type="Texture" id=5]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -12,10 +15,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 2 )
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -41,35 +48,37 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_top = 108.0
+[node name="statsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_top = 57.0
 margin_right = 784.0
-margin_bottom = 176.0
-theme = ExtResource( 2 )
-text = "Stastistiques"
+margin_bottom = 159.0
+theme = ExtResource( 3 )
+text = "Statistiques"
 
 [node name="wordsChoice" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_top = 186.0
+margin_top = 169.0
 margin_right = 784.0
-margin_bottom = 254.0
-theme = ExtResource( 2 )
+margin_bottom = 271.0
+theme = ExtResource( 3 )
 text = "Choix des mots"
 
-[node name="Connection" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_top = 264.0
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_top = 281.0
 margin_right = 784.0
-margin_bottom = 332.0
-theme = ExtResource( 2 )
-text = "Connexion"
+margin_bottom = 383.0
+theme = ExtResource( 3 )
+text = "Choix de la structure Syllabique "
 
 [node name="retour" type="Button" parent="."]
-margin_right = 12.0
-margin_bottom = 20.0
-theme = ExtResource( 2 )
-text = "Retour"
+margin_right = 100.0
+margin_bottom = 102.0
+icon = ExtResource( 5 )
+flat = true
+expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="pressed" from="MarginContainer/VBoxContainer/statsButton" to="." method="_on_statsButton_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/wordsChoice" to="." method="_on_wordsChoice_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Connection" to="." method="_on_Connection_pressed"]
-[connection signal="pressed" from="retour" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="retour" to="." method="_on_back_pressed"]

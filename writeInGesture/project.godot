@@ -18,6 +18,10 @@ _global_script_class_icons={
 "global": ""
 }
 
+[android]
+
+modules="org/godotengine/godot/GodotTextToSpeech,org/godotengine/godot/GodotSpeech"
+
 [application]
 
 config/name="ArtiGest"
@@ -27,7 +31,10 @@ config/icon="res://art/icon.png"
 [autoload]
 
 Global="*res://Global.gd"
+ManageJson="*res://ManageJson.gd"
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
 environment/default_environment="res://default_env.tres"

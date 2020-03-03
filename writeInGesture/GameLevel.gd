@@ -1,19 +1,25 @@
 extends Control
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+const Exercise = preload("res://Exercise.gd")
+var Ex : Exercise
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if((Global.progress1[Global.game-1] >= 80)):
-		get_node("ColorRect/MarginContainer/VBoxContainer/MarginContainer2/TextureRect").visible = false
-		get_node("ColorRect/MarginContainer/VBoxContainer/MarginContainer2/Normal").disabled = false
-	if( Global.progress2[Global.game-1] >= 80):
-		get_node("ColorRect/MarginContainer/VBoxContainer/MarginContainer3/TextureRect").visible = false
-		get_node("ColorRect/MarginContainer/VBoxContainer/MarginContainer3/Hard").disabled = false
+	match Global.play:
+		1:
+			Global.current_ex = Global.gooseExercise
+		2:
+			Global.current_ex = Global.listenExercise
+		3:
+			Global.current_ex = Global.thirdExercise
+	var Ex = Global.current_ex
+	if(Ex.getSuccessPercentage(0) >= 50):
+		find_node("TextureRect").visible = false
+		find_node("Normal").disabled = false
+	if(Ex.getSuccessPercentage(1) >= 50):
+		find_node("TextureRect2").visible = false
+		find_node("Hard").disabled = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,16 +28,28 @@ func _ready():
 
 
 func _on_Back_pressed():
-	get_tree().change_scene("res://ExerciceMenu.tscn")
+	get_tree().change_scene("res://GameChoose.tscn")
+
 
 func _on_Easy_pressed():
-	get_tree().change_scene("res://GameEasy.tscn")
+	if(Global.play == 1):
+		get_tree().change_scene("res://GooseGame.tscn")
+	elif (Global.play == 2):
+		get_tree().change_scene("res://ListenChoose.tscn")
 	Global.level = 0
-	
+
+
 func _on_Normal_pressed():
-	get_tree().change_scene("res://GameNormal.tscn")
+	if(Global.play == 1):
+		get_tree().change_scene("res://GooseGame.tscn")
+	elif (Global.play == 2):
+		get_tree().change_scene("res://ListenChoose.tscn")
 	Global.level = 1
 
+
 func _on_Hard_pressed():
-	get_tree().change_scene("res://GameHard.tscn")
+	if(Global.play == 1):
+		get_tree().change_scene("res://GooseGame.tscn")
+	elif (Global.play == 2):
+		get_tree().change_scene("res://ListenChoose.tscn")
 	Global.level = 2

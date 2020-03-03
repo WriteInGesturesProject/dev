@@ -1,76 +1,105 @@
 extends Node
 class_name global
 
-var level = 1
-var progress1 = [85,85,85,20]
-var progress2 = [0,0,85,0]
-var progress3 = [0,0,0,0]
-var progress = [progress1, progress2, progress3]
-var score1 = [0,0,0,0]
-var score2 = [0,0,0,0]
-var score3 = [0,0,0,0]
-var score = [score1, score2, score3]
+const MyDictionnary = preload("res://Dictionnary.gd")
+const Player = preload("res://Player.gd")
+const WordsAvailable = preload("res://WordsAvailable.gd")
+const Exercise = preload("res://Exercise.gd")
+const Config = preload("res://Config.gd")
 
-var game = 1
+var os # Variable used to know on which plateform we are
 
-var Number = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
-var words_count = ["un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf", "dix"]
-var img_count = ["res://art/imgBorel/a.png", "res://art/imgBorel/eu.png", "res://art/imgBorel/a.png", "res://art/imgBorel/i.png", "res://art/imgBorel/o.png", "res://art/imgBorel/u.png", "res://art/imgBorel/et.png", "res://art/imgBorel/ai.png", "res://art/imgBorel/e.png", "res://art/imgBorel/ou.png"]
-var index = 0
+var tts = null # The Text To Speech Object
+var stt = null # The Speech To Text Object
 
-var dictionaryPhonetic = loadJSonInDic("phonetic.json")
-var current_scene = null
+
+var current_ex : Exercise # The exercise we are playing
+
+var score # The score when in game
+var level = 0 # The difficulty (0 -> Easy, 1 -> Medium, 2 -> Hard)
+var nbDifficulty = 3
+var game = 1 # The type of training (1 -> MyGames, 2 -> Count, 3 -> Week, 4 -> Colors)
+var play = 1 # The type of game (1 -> Goose, 2 -> Listen & Choose)
+var dev = 0 # Developper mode (0 -> Disabled, 1 -> Enabled)
+
+var try = [] # Check if the player tapped on record at least once on each word
+
+var config : Config = Config.new()
+
+var customExercise : Exercise = Exercise.new()
+var gooseExercise : Exercise = Exercise.new()
+var listenExercise : Exercise = Exercise.new()
+var thirdExercise : Exercise = Exercise.new()
+
+
+var countExercise : Exercise = Exercise.new()
+var weekExercise : Exercise = Exercise.new()
+var colorExercise : Exercise = Exercise.new()
+var exercises = [customExercise, countExercise, weekExercise, colorExercise, gooseExercise, listenExercise, thirdExercise]
+
+var player : Player = Player.new()
+var wordsAvailable : WordsAvailable = WordsAvailable.new()
+var wordDictionnary = MyDictionnary.new()
+var phoneticDictionnary
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	os = OS.get_name()
 
-func saveStringInFile(path, content):
-	var file = File.new()
-	file.open("res://data/"+path, file.READ_WRITE)
-	file.seek_end()
-	if file.get_len() != 0 :
-		file.store_string("\n")
-	file.store_string(content)
-	file.close()
-
-func searchInDictionnary(carac):
-	var dico = loadJSonInDic("phonetic.json")
-	for b in dico:
-		for w in dico[b]:
-			if(w["phonetic"] == "["+carac+"]"):
-				return w["ressource_path"]
-	return ""
-
-func rewriteFile(path, content):
-	var file = File.new()
-	file.open("res://data/"+path, file.WRITE)
-	file.store_string(content)
-	file.close()
-
-func loadFileInArray(path):
-	var file = File.new()
-	if (!file.file_exists("res://data/"+path)):
-		return null
-	file.open("res://data/"+path, file.READ)
-	var content = []
-	var currentLine = file.get_line()
-	while  currentLine != "":
-		content.append(currentLine)
-		currentLine = file.get_line()
-	file.close()
-	return content
 	
-func loadJSonInDic(path):
-	var file = File.new()
-	file.open("res://data/"+path, file.READ)
-	var text = file.get_as_text()
-	var tmp  =JSON.parse(text)
-	var dict = tmp.result
-	file.close()
-	return dict
+	match os:
+		"X11":
+			#tts = TTSDriver.new()
+			set_process(true)
+			if(tts != null):
+				tts.set_voice("French (France)")
+		"Android":
+			if(Engine.has_singleton("GodotTextToSpeech")):
+				tts = Engine.get_singleton("GodotTextToSpeech")
+				tts.fireTTS()
+			if(Engine.has_singleton("GodotSpeech")):
+				stt = Engine.get_singleton("GodotSpeech")
 	
+	loadEntity()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func loadEntity():
+	#We need to remplace file by lastest version
+	ManageJson.getElement("config.json", "Config", config)
+	config.setAttribut("nameFile", "config.json")
+	
+	ManageJson.getElement(config.getPathExercisesFiles()[0], "Exercise", customExercise)
+	customExercise.setAttribut("nameFile", config.getPathExercisesFiles()[0])
+	
+	ManageJson.getElement(config.getPathExercisesFiles()[1], "Exercise", gooseExercise)
+	gooseExercise.setAttribut("nameFile", config.getPathExercisesFiles()[1])
+	
+	ManageJson.getElement(config.getPathExercisesFiles()[2], "Exercise", listenExercise)
+	listenExercise.setAttribut("nameFile", config.getPathExercisesFiles()[2])
+	
+	ManageJson.getElement(config.getPathExercisesFiles()[3], "Exercise", thirdExercise)
+	thirdExercise.setAttribut("nameFile", config.getPathExercisesFiles()[3])
+	
+	ManageJson.getElement("wordsAvailable.json", "WordsAvailable", wordsAvailable)
+	wordsAvailable.setAttribut("nameFile", "wordsAvailable.json")
+	
+	ManageJson.getElement("dictionnary.json", "Dictionnary", wordDictionnary)
+	wordDictionnary.setAttribut("nameFile", "dictionnary.json")
+	
+	ManageJson.getElement("colors.json", "Exercise", colorExercise)
+	colorExercise.setAttribut("nameFile", "colors.json")
+	
+	ManageJson.getElement("week.json", "Exercise", weekExercise)
+	weekExercise.setAttribut("nameFile", "week.json")
+	
+	ManageJson.getElement("number.json", "Exercise", countExercise)
+	countExercise.setAttribut("nameFile", "number.json")
+	
+	var text = ManageJson.checkFileExistUserPath("phonetic.json")
+	if text == "": 
+		return 0
+	var tmp = JSON.parse(text)
+	phoneticDictionnary = tmp.result
+	
+	ManageJson.getElement("player.json", "User", player)
+	player.setAttribut("nameFile", "player.json")

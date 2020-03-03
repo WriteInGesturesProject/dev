@@ -1,0 +1,203 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fonts/ButtonTheme.tres" type="Theme" id=1]
+[ext_resource path="res://fonts/phonetic.tres" type="Theme" id=2]
+[ext_resource path="res://fonts/background.png" type="Texture" id=3]
+[ext_resource path="res://syllableStruct.gd" type="Script" id=4]
+[ext_resource path="res://art/back.png" type="Texture" id=5]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_right = -20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer"]
+margin_right = 984.0
+margin_bottom = 600.0
+custom_constants/separation = 33
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer"]
+margin_right = 984.0
+margin_bottom = 62.0
+text = "Choix d'exercice prédefinis"
+align = 1
+
+[node name="HBoxMain" type="HBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer"]
+margin_top = 95.0
+margin_right = 984.0
+margin_bottom = 157.0
+alignment = 1
+
+[node name="NbSyllableContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer/HBoxMain"]
+margin_left = 173.0
+margin_right = 481.0
+margin_bottom = 62.0
+
+[node name="NbSyllableLabel" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/HBoxMain/NbSyllableContainer"]
+margin_right = 308.0
+margin_bottom = 62.0
+text = "Nombre de syllabe"
+align = 1
+
+[node name="StructSyllableContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer/HBoxMain"]
+margin_left = 485.0
+margin_right = 810.0
+margin_bottom = 62.0
+
+[node name="StructSyllableLabel" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/HBoxMain/StructSyllableContainer"]
+margin_right = 325.0
+margin_bottom = 62.0
+text = "Structure syllabique"
+align = 1
+
+[node name="Creation" type="Button" parent="TextureRect/MarginContainer/VBoxContainer"]
+margin_left = 344.0
+margin_top = 190.0
+margin_right = 640.0
+margin_bottom = 292.0
+size_flags_horizontal = 4
+theme = ExtResource( 1 )
+text = "Créer l'exercice"
+
+[node name="retour" type="Button" parent="."]
+margin_right = 100.0
+margin_bottom = 102.0
+icon = ExtResource( 5 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Popup" type="WindowDialog" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopupLabel" type="Label" parent="Popup/VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 62.0
+size_flags_vertical = 1
+text = "Mots proposés :"
+align = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Popup/VBoxContainer"]
+margin_top = 82.0
+margin_right = 1024.0
+margin_bottom = 478.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxPopup" type="VBoxContainer" parent="Popup/VBoxContainer/ScrollContainer"]
+margin_right = 1024.0
+margin_bottom = 396.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Popup/VBoxContainer"]
+margin_top = 498.0
+margin_right = 1024.0
+margin_bottom = 600.0
+custom_constants/separation = 50
+alignment = 1
+
+[node name="Cancel" type="Button" parent="Popup/VBoxContainer/HBoxContainer"]
+margin_left = 297.0
+margin_right = 469.0
+margin_bottom = 102.0
+theme = ExtResource( 1 )
+text = "Annuler"
+
+[node name="Confirm" type="Button" parent="Popup/VBoxContainer/HBoxContainer"]
+margin_left = 519.0
+margin_right = 727.0
+margin_bottom = 102.0
+theme = ExtResource( 1 )
+text = "Confirmer"
+
+[node name="Background" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.878431 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ConfirmationPopup" type="Popup" parent="."]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConfirmationPopup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ConfirmationPopup/VBoxContainer"]
+margin_top = 269.0
+margin_right = 1024.0
+margin_bottom = 331.0
+size_flags_vertical = 1
+text = "L'exercice a bien été crée"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+[connection signal="pressed" from="TextureRect/MarginContainer/VBoxContainer/Creation" to="." method="_on_Creation_pressed"]
+[connection signal="pressed" from="retour" to="." method="_on_retour_pressed"]
+[connection signal="popup_hide" from="Popup" to="." method="_on_Popup_popup_hide"]
+[connection signal="gui_input" from="Popup/VBoxContainer/ScrollContainer" to="." method="_on_ScrollContainer_gui_input"]
+[connection signal="pressed" from="Popup/VBoxContainer/HBoxContainer/Cancel" to="." method="_on_Popup_popup_hide"]
+[connection signal="pressed" from="Popup/VBoxContainer/HBoxContainer/Confirm" to="." method="_on_Confirm_pressed"]
+[connection signal="popup_hide" from="ConfirmationPopup" to="." method="_on_Popup_popup_hide"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

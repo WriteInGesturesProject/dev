@@ -1,39 +1,39 @@
 extends Control
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-var tts = null
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var content = Global.loadFileInArray("userinfo")
-	var textu = load(content[1])	
-	get_node("MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer/Picture").texture=textu
-	get_node("MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer/NamePlayer").text=content[0]
-	if(Engine.has_singleton("GodotTextToSpeech")):
-		tts = Engine.get_singleton("GodotTextToSpeech")
-		tts.fireTTS() # fires up the TextToSpeech engine
+	pass
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
+
 func _on_Change_pressed():
 	get_tree().change_scene("res://avatarspace.tscn")
-	pass # Replace with function body.
+
 
 func _on_Admin_pressed():
-	get_tree().change_scene("res://speechTherapistMenu.tscn")
+	if(!Global.dev) :
+		get_tree().change_scene("res://speechTherapistMenu.tscn")
+	else : 
+		find_node("Popup").popup_centered_ratio(0.75)
+		find_node("backgroundDark").visible = true
+
 
 func _on_Play_pressed():
-	get_tree().change_scene("res://ExerciceMenu.tscn")
+	get_tree().change_scene("res://GameChoose.tscn")
 
 
 func _on_Help_pressed():
 	get_tree().change_scene("res://interfaceGestureImproved.tscn")
 
-func _on_SpeakTest_pressed():
-	if(tts != null):
-		tts.speakText("Ceci est un test pour la synthèse vocale !")
+
+func _on_Popup_popup_hide():
+	if(find_node("backgroundDark") != null):
+		find_node("backgroundDark").visible = false
+
+func _on_Training_pressed():
+	get_tree().change_scene("res://ExerciceMenu.tscn")

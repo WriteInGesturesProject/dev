@@ -19,11 +19,10 @@ func _ready():
 #	pass
 
 
-func _on_Button_pressed():
-	var content = Global.loadFileInArray("userLog")
-	if content[1] == find_node("oldPsswdField").text && find_node("newPsswdField").text == find_node("newPsswdField2").text :
-		Global.rewriteFile("userLog",content[0]+"\n"+find_node("newPsswdField").text)
-		get_tree().change_scene("res://login.tscn")
+func _on_submit_pressed():
+	var psswd = Global.config.getPassWordAdmin()
+	if psswd == find_node("oldPsswd").text && find_node("psswd").text == find_node("psswd2").text :
+		Global.config.setPassWordAdmin(find_node("psswd").text)
+		self.visible = false
 	else :
 		errorMsg.visible = true
-	print("ok")

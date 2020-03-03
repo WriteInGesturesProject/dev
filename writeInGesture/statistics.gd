@@ -49,7 +49,7 @@ func _on_exerciseChoice_item_selected(id):
 					difficultyChoiceNode.visible = false
 					difficultySelected = 1
 					displayStatisticsAllWords()
-					progressBarNode.value = exerciseSelected.getSucessPercentage(difficultySelected-1)
+					progressBarNode.value = exerciseSelected.getSuccessPercentage(difficultySelected-1)
 					progressBarNode.visible = true
 					displayStatisticsWordsEasierHarder(3)
 				else :
@@ -67,7 +67,7 @@ func _on_difficultyChoice_item_selected(id):
 	difficultySelected = int(difficultyChoiceNode.get_item_text(selectedIndex))
 	if selectedIndex != 0 : 
 		displayStatisticsAllWords()
-		progressBarNode.value = exerciseSelected.getSucessPercentage(difficultySelected-1)
+		progressBarNode.value = exerciseSelected.getSuccessPercentage(difficultySelected-1)
 		progressBarNode.visible = true
 		displayStatisticsWordsEasierHarder(3)
 	else :

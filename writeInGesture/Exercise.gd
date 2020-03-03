@@ -1,4 +1,5 @@
 extends Node
+
 const Word = preload("res://Word.gd")
 const TypeExercise = preload("res://TypeExercise.gd")
 
@@ -9,9 +10,9 @@ var difficulty : int
 var successPercentage : Array = []
 var nbWords : int = 0
 var words : Array = []
-var nbSuccess : int = 0
+var nbSuccess : int
 var nameFile : String 
-var nbWordsOccurrences : Array =[]
+var nbWordsOccurrences : Array = []
 var wordsSuccess : Array
 
 func getVersion() : 
@@ -42,14 +43,14 @@ func setDifficulty(dif : int):
 	difficulty = dif
 	return ManageJson.putElement(nameFile, "Exercise/difficulty", difficulty)
 	
-func getSucessPercentage(index : int) : 
+func getSuccessPercentage(index : int):
 	return successPercentage[index]
 
-func setSucessPercentage(index : int, value : float):
+func setSuccessPercentage(index : int, value : float):
 	successPercentage[index] = value
 	return ManageJson.putElement(nameFile, "Exercise/successPercentage", successPercentage)
 
-func putSucessPercentage(sp : Array):
+func putSuccessPercentage(sp : Array):
 	successPercentage = sp
 	return ManageJson.putElement(nameFile, "Exercise/successPercentage", successPercentage)
 
@@ -63,7 +64,6 @@ func setNbWordOccurrence(difficulty : int, index : int, value : int):
 func putNbWordOccurrence(word : Array):
 	nbWordsOccurrences = word
 	return ManageJson.putElement(nameFile, "Exercise/nbWordsOccurrences", nbWordsOccurrences)
-
 
 func getAllWords() -> Array :
 	return words
@@ -108,17 +108,17 @@ func setNameFile(nF : String):
 	nameFile = nF
 	return 1
 
-func getWordSuccess(difficulty : int, index : int) -> Array: 
-
+func getWordSuccess(difficulty : int, index : int): 
 	return wordsSuccess[difficulty][index]
 
-func setWordSuccess(difficulty : int, index : int, value : Array):
+func setWordSuccess(difficulty : int, index : int, value : int):
 	wordsSuccess[difficulty][index] = value
 	return ManageJson.putElement(nameFile, "Exercise/wordsSuccess", wordsSuccess)
 
-func putWordSucess(word : Array):
+func putWordSuccess(word : Array):
 	wordsSuccess = word
 	return ManageJson.putElement(nameFile, "Exercise/wordsSuccess", wordsSuccess)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -164,7 +164,7 @@ func setAttribut(field : String, input):
 					inputWord.setAttribut(field, w[field])
 				words.append(inputWord)
 		"nbSuccess":
-			nbSuccess = int(input)
+			nbSuccess = int(nbSuccess)
 		"nameFile" : 
 			nameFile = input
 	return

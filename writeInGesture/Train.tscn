@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://GameEasy.gd" type="Script" id=1]
+[ext_resource path="res://Train.gd" type="Script" id=1]
+[ext_resource path="res://art/back.png" type="Texture" id=2]
 [ext_resource path="res://art/icon.png" type="Texture" id=3]
 [ext_resource path="res://fonts/phonetic.tres" type="Theme" id=4]
 [ext_resource path="res://art/bravo.jpg" type="Texture" id=5]
 [ext_resource path="res://art/nul2.png" type="Texture" id=6]
 [ext_resource path="res://fonts/ButtonTheme.tres" type="Theme" id=7]
 [ext_resource path="res://fonts/background.png" type="Texture" id=8]
+[ext_resource path="res://art/next.png" type="Texture" id=9]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -75,7 +77,7 @@ margin_top = 138.0
 margin_right = 1024.0
 margin_bottom = 240.0
 theme = ExtResource( 7 )
-text = "Parle"
+text = "Ecouter"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -98,10 +100,12 @@ scale = Vector2( 0.257961, 0.205355 )
 texture = ExtResource( 6 )
 
 [node name="Back" type="Button" parent="."]
-margin_right = 12.0
-margin_bottom = 20.0
-theme = ExtResource( 7 )
-text = "Retour"
+margin_right = 100.0
+margin_bottom = 102.0
+theme = ExtResource( 4 )
+icon = ExtResource( 2 )
+flat = true
+expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -111,10 +115,11 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -162.0
+margin_left = -100.0
 margin_top = -102.0
-theme = ExtResource( 7 )
-text = "Suivant"
+icon = ExtResource( 9 )
+flat = true
+expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

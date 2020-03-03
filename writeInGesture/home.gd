@@ -16,18 +16,17 @@ func _ready():
 #	pass
 
 
-
 func _on_Change_pressed():
 	get_tree().change_scene("res://avatarspace.tscn")
-	pass # Replace with function body.
+
 
 func _on_Admin_pressed():
-	if(Global.dev) :
+	if(!Global.dev) :
 		get_tree().change_scene("res://speechTherapistMenu.tscn")
 	else : 
 		find_node("Popup").popup_centered_ratio(0.75)
 		find_node("backgroundDark").visible = true
-	
+
 
 func _on_Play_pressed():
 	get_tree().change_scene("res://GameChoose.tscn")

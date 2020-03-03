@@ -19,10 +19,21 @@ var container
 var board = []
 var count = 0
 var index_play = 5
-
+var temp = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if(myWords.size() > 22):
+		temp = []
+		var rand = 0
+		var check = []
+		for i in range(0, 22):
+			rand = randi() % (myWords.size())
+			while(check.find(rand) != -1):
+				rand = randi() % (myWords.size())
+			check.append(rand)
+			temp.append(myWords[rand])
+		myWords = temp
 	Ex = Global.current_ex
 	if(Global.level == 1 || Global.level == 2):
 		find_node("Word").visible = false
@@ -30,6 +41,7 @@ func _ready():
 		find_node("ButtonHard").visible = true
 		find_node("ImgBorel").visible = false
 	var numb = 0
+	var i = 0
 	for b in range(0,5):
 		for w in range(0,8):
 			if(board.size() >= myWords.size()):
@@ -41,7 +53,9 @@ func _ready():
 				var control_img = Control.new()
 				var image = TextureRect.new()
 				if(Global.level == 0 || Global.level == 2):
-					image.texture = load("res://art/chat.jpg")
+					print(myWords[i].getWord() + ": " + myWords[i].getPath())
+					image.texture = load("res://art/images/"+ myWords[i].getPath())
+					i += 1
 				elif(Global.level == 1):
 					image.texture = load("res://art/questionmark.png")
 				image.expand = true
@@ -106,6 +120,25 @@ func _change():
 			find_node("Word").set_text(myWords[index].getWord())
 	incremented = false
 
+func check_words(sentence):
+	var words = sentence.split(" ")
+	if(words == null || len(words) == 0):
+		return false
+	for w in words:
+		if(check_homonyms(w.to_lower())):
+			return true
+	return false
+
+func check_homonyms(w):
+	var word = Global.wordDictionnary.getWord(myWords[index].getPhonetic())
+	if(word == null):
+		print("Word in check_homonyms is null")
+		return false
+	var h = word.getHomonym()
+	for i in range(0, len(h)):
+		if(w == h[i].to_lower()):
+			return true
+	return false
 
 func _process(delta):
 	if(stt != null && stt.isListening()):
@@ -118,7 +151,7 @@ func _process(delta):
 			find_node("Record").set_text("Suivant")
 		else :
 			find_node("Record").set_text("Tu as dit : " + words)
-			if(words.to_lower() == (myWords[index].getWord()).to_lower()):
+			if(check_words(words)):
 				find_node("Record").disabled = true
 				if(incremented == false):
 					Global.score += 1

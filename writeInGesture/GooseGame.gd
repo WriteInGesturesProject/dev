@@ -53,7 +53,6 @@ func _ready():
 				var control_img = Control.new()
 				var image = TextureRect.new()
 				if(Global.level == 0 || Global.level == 2):
-					print(myWords[i].getWord() + ": " + myWords[i].getPath())
 					image.texture = load("res://art/images/"+ myWords[i].getPath())
 					i += 1
 				elif(Global.level == 1):
@@ -113,12 +112,14 @@ func _change():
 	find_node("Record").set_text("Enregistrer")
 	display = false
 	index += 1
+	var ind = index
 	if(index >= 8 && index <=13):
 		if(index==8):
 			board[index-1].modulate = "ffffff"
 		else : 
 			board[index-1 + index_play +2].modulate = "ffffff"
 		board[index + index_play].modulate = "e86767"
+		ind = index + index_play
 		index_play -= 2
 	else :
 		if(index == 14):
@@ -127,8 +128,9 @@ func _change():
 			board[index-1].modulate = "ffffff"
 		if(index < myWords.size()):
 			board[index].modulate = "e86767"
-	if(Global.level == 1):
-		board[index-1].texture = load("res://art/chat.jpg")
+	
+#	if(Global.level == 1):
+#		board[index-1].texture = load("res://art/chat.jpg")
 	container.remove_and_skip()
 	var img = ""
 	if(index >= myWords.size()):
@@ -138,7 +140,7 @@ func _change():
 			container = HBoxContainer.new()
 			container.alignment = HBoxContainer.ALIGN_CENTER
 			container.name = "HBoxContainer"
-			for c in myWords[index].getPhonetic():
+			for c in myWords[ind].getPhonetic():
 				for b in Global.phoneticDictionnary:
 					for w in Global.phoneticDictionnary[b]:
 						if(c == w["phonetic"][1]):
@@ -148,7 +150,7 @@ func _change():
 				imgBorel.texture = load("res://art/imgBorel/"+img)
 				container.add_child(imgBorel)
 			find_node("ImgBorel").add_child(container)
-			find_node("Word").set_text(myWords[index].getWord())
+			find_node("Word").set_text(myWords[ind].getWord())
 	incremented = false
 
 func check_words(sentence):

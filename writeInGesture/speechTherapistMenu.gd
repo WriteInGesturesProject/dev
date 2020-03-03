@@ -24,3 +24,7 @@ func _on_statsButton_pressed():
 
 func _on_back_pressed():
 	get_tree().change_scene("res://home.tscn")
+
+
+func _on_Button_pressed():
+	get_tree().change_scene("res://syllableStruct.tscn")

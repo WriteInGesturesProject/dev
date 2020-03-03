@@ -33,7 +33,7 @@ var thirdExercise : Exercise = Exercise.new()
 var countExercise : Exercise = Exercise.new()
 var weekExercise : Exercise = Exercise.new()
 var colorExercise : Exercise = Exercise.new()
-var exercises = [customExercise, countExercise, weekExercise, colorExercise]
+var exercises = [customExercise, countExercise, weekExercise, colorExercise, gooseExercise, listenExercise, thirdExercise]
 
 var player : Player = Player.new()
 var wordsAvailable : WordsAvailable = WordsAvailable.new()

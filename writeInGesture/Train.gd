@@ -62,14 +62,23 @@ func _ready():
 	find_node("Word").set_text(myWords[index].getWord())
 	Global.score = 0
 
-func check_homonyms(said):
+func check_words(sentence):
+	var words = sentence.split(" ")
+	if(words == null || len(words) == 0):
+		return false
+	for w in words:
+		if(check_homonyms(w.to_lower())):
+			return true
+	return false
+
+func check_homonyms(w):
 	var word = Global.wordDictionnary.getWord(myWords[index].getPhonetic())
 	if(word == null):
 		print("Word in check_homonyms is null")
 		return false
 	var h = word.getHomonym()
-	for i in range(0,len(h)):
-		if(said == h[i].to_lower()):
+	for i in range(0, len(h)):
+		if(w == h[i].to_lower()):
 			return true
 	return false
 
@@ -81,7 +90,7 @@ func _process(delta):
 	if(stt != null && display && stt.isDetectDone()):
 		words = stt.getWords()
 		find_node("Record").set_text("Vous avez dit : " + words)
-		if(words == find_node("Number").text || check_homonyms(words.to_lower())):
+		if(words == find_node("Number").text || check_words(words)):
 			find_node("Oui").visible = true
 			find_node("Non").visible = false
 			find_node("Record").disabled = true

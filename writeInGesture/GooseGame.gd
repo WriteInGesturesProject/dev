@@ -20,6 +20,7 @@ var board = []
 var count = 0
 var index_play = 5
 var temp = []
+var ind = index
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -112,7 +113,7 @@ func _change():
 	find_node("Record").set_text("Enregistrer")
 	display = false
 	index += 1
-	var ind = index
+	ind = index
 	if(index >= 8 && index <=13):
 		if(index==8):
 			board[index-1].modulate = "ffffff"
@@ -163,7 +164,7 @@ func check_words(sentence):
 	return false
 
 func check_homonyms(w):
-	var word = Global.wordDictionnary.getWord(myWords[index].getPhonetic())
+	var word = Global.wordDictionnary.getWord(myWords[ind].getPhonetic())
 	if(word == null):
 		print("Word in check_homonyms is null")
 		return false
@@ -180,6 +181,7 @@ func _process(delta):
 		find_node("Record").set_text("Enregistrer")
 	if(stt != null && display && stt.isDetectDone()):
 		words = stt.getWords()
+		print(count)
 		if(count == 2):
 			find_node("Record").set_text("Suivant")
 		else :
@@ -207,6 +209,7 @@ func _on_Speak_pressed():
 
 func _on_Record_pressed():
 	if(count == 2):
+		find_node("Record").set_text("Suivant")
 		_change()
 		return
 	count += 1

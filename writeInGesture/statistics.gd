@@ -4,7 +4,7 @@ const Exercise = preload("res://Exercise.gd")
 
 var exerciseSelected : Exercise
 var difficultySelected : int
-var percentage : Array
+var percentages : Array
 var wordsEasier : Array
 var wordsHarder : Array
 var allWords : Array
@@ -88,25 +88,38 @@ func displayStatisticsWordsEasierHarder(nbMin : int):
 	nodeRootHarder.visible = true
 	var harder : Array
 	var easier : Array
-	var tmp = percentage.duplicate()
-	tmp.sort()
+	var tmpIncrease = percentages.duplicate()
+	tmpIncrease.sort()
+	var tmpDecrease = tmpIncrease.duplicate()
+	tmpDecrease.invert()
 	for i in range(0,nbMin):
-		harder.append(tmp[i])
-		easier.append(tmp[i])
+		harder.append(tmpIncrease[i])
+		easier.append(tmpDecrease[i])
+	
 	for current in range(0, nbMin):
-		for index in range (0,percentage.size()) :
-			if percentage[index] == harder[current]:
+		var index = 0
+		for percentage in percentages :
+			if percentage == harder[current]:
 				wordsHarder.append(index)
 				var label = Label.new()
-				label.text = allWords[index].getWord()+" avec "+String(int(percentage[index]))+"% de réussite"
+				label.text = allWords[index].getWord()+" avec "+String(int(percentage))+"% de réussite"
 				nodeRootHarder.add_child(label)
 				break;
-
+			index += 1
+		index = 0
+		for percentage in percentages :
+			if percentage == easier[current]:
+				wordsEasier.append(index)
+				var label = Label.new()
+				label.text = allWords[index].getWord()+" avec "+String(int(percentage))+"% de réussite"
+				nodeRootEasier.add_child(label)
+				break;
+			index += 1
 func displayStatisticsAllWords():
 	var title = Label.new()
 	title.text = "Statistiques de tous les mots :"
 	find_node("statsExercises").add_child(title)
-	percentage.clear()
+	percentages.clear()
 	allWords = exerciseSelected.getAllWords()
 	var index = 0
 	for word in allWords :
@@ -117,13 +130,13 @@ func displayStatisticsAllWords():
 		var nbOccurs = exerciseSelected.getNbWordOccurrence(difficultySelected-1, index)
 		var nbSuccess = exerciseSelected.getWordSuccess(difficultySelected-1, index)
 		var stats = Label.new()
-		var currentPercentage = 0
+		var currentpercentages = 0
 		if nbOccurs != 0:
-			currentPercentage = (float(nbSuccess)/float(nbOccurs))*100
-			percentage.append(currentPercentage)
+			currentpercentages = (float(nbSuccess)/float(nbOccurs))*100
+			percentages.append(currentpercentages)
 		else:
-			percentage.append(0)
-		stats.text = " - Succès : "+String(nbSuccess)+"/"+String(nbOccurs)+" = "+String(int(currentPercentage))+"%"
+			percentages.append(0)
+		stats.text = " - Succès : "+String(nbSuccess)+"/"+String(nbOccurs)+" = "+String(int(currentpercentages))+"%"
 		hBox.add_child(stats)
 		index += 1
 		find_node("statsExercises").add_child(hBox)

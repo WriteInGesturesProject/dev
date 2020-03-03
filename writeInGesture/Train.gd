@@ -16,6 +16,7 @@ var index = 0
 var container = HBoxContainer.new()
 var os = Global.os
 
+
 func _ready():
 	Ex = Global.current_ex
 	myWords = Ex.getAllWords()
@@ -30,34 +31,11 @@ func _ready():
 		find_node("Word").set_text(myWords[index].getWord())
 	else :
 		find_node("TextureRect2").texture = load("res://art/" + myWords[index].getPath())
-	var img = ""
-	container = HBoxContainer.new()
-	container.alignment = HBoxContainer.ALIGN_CENTER
-	var c = 0
-	var p = myWords[index].getPhonetic()
-	while (c < len(p)):
-		if(c + 1 < len(p) && p[c].to_ascii()[0] == 91 && p[c + 1].to_ascii()[0] == 3):
-			img = "in.png"
-			c += 1
-		elif(c+1 < len(p) && p[c].to_ascii()[0] == 84 && p[c+1].to_ascii()[0] == 3):
-			img = "on.png"
-			c += 1
-		elif(p[c].to_ascii()[0] == 226):
-			img = "an.png"
-		else :
-			var find = false
-			for b in Global.phoneticDictionnary:
-				for w in Global.phoneticDictionnary[b]:
-					if(p[c] == w["phonetic"][1]):
-						img = w["ressource_path"]
-						find = true
-						break
-				if(find):
-					break
-		var imgBorel = TextureRect.new()
-		imgBorel.texture = load("res://art/imgBorel/"+img)
-		container.add_child(imgBorel)
-		c += 1
+
+	var phonetic = myWords[index].getPhonetic()
+	var arrayPicture = Global.phoneticToArrayPicturePath(phonetic)
+	container =  Global.putBorelInHboxContainer(arrayPicture, get_viewport().size.x, min(get_viewport().size.y/2,get_viewport().size.x/arrayPicture.size()))
+	
 	find_node("ImgBorel").add_child(container)
 	find_node("Word").set_text(myWords[index].getWord())
 	Global.score = 0
@@ -106,6 +84,7 @@ func _on_Next_pressed():
 	find_node("Non").visible = false
 	display = false
 	index += 1
+	
 	if(index >= myWords.size()):
 		get_tree().change_scene("res://GameEnd.tscn")
 	else :
@@ -120,36 +99,10 @@ func _on_Next_pressed():
 		else :
 			find_node("TextureRect2").texture = load("res://art/"+myWords[index].getPath())
 		container.remove_and_skip()
-		var img = ""
-		container = HBoxContainer.new()
-		container.alignment = HBoxContainer.ALIGN_CENTER
 		container.name = "HBoxContainer"
-		var c = 0
-		var p = myWords[index].getPhonetic()
-		print(myWords[index].getWord())
-		while (c < len(p)):
-			if(c+1 < len(p) && p[c].to_ascii()[0] == 91 && p[c+1].to_ascii()[0] == 3):
-				img = "in.png"
-				c += 1
-			elif(c + 1 < len(p) && p[c].to_ascii()[0] == 84 && p[c + 1].to_ascii()[0] == 3):
-				img = "on.png"
-				c += 1
-			elif(p[c].to_ascii()[0] == 226):
-				img = "an.png"
-			else :
-				var find = false
-				for b in Global.phoneticDictionnary:
-					for w in Global.phoneticDictionnary[b]:
-						if(p[c] == w["phonetic"][1]):
-							img = w["ressource_path"]
-							find = true
-							break
-					if(find):
-						break
-			var imgBorel = TextureRect.new()
-			imgBorel.texture = load("res://art/imgBorel/"+img)
-			container.add_child(imgBorel)
-			c += 1
+		var phonetic = myWords[index].getPhonetic()
+		var arrayPicture = Global.phoneticToArrayPicturePath(phonetic)
+		container =  Global.putBorelInHboxContainer(arrayPicture, get_viewport().size.x, min(get_viewport().size.y/2,get_viewport().size.x/arrayPicture.size()))
 		find_node("ImgBorel").add_child(container)
 		find_node("Word").set_text(myWords[index].getWord())
 	incremented = false

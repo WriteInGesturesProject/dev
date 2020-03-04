@@ -9,9 +9,10 @@ const CreationExercise = preload("res://CreationExercise.gd")
 # var a = 2
 # var b = "text"
 var buttonPress = []
-var syllable =["Monosyllabe", "Bisyllabe", "Trisyllabe"]
-var struct =["CV","CVV","CVC","CVCC","VCVC"]
+var syllable =["Monosyllabe", "Bisyllabe", "Trisyllabe", "Quadrisyllable", "Pentasyllable",]
+var struct =["CV","CVV","CVC"]
 var wordFinal =[]
+var lineStruct
 
 
 # Called when the node enters the scene tree for the first time.
@@ -34,6 +35,13 @@ func _ready():
 		button.align = Button.ALIGN_CENTER
 		find_node("StructSyllableContainer").add_child(button)
 		buttonPress.append(button)
+	
+	var labelStruct = Label.new()
+	labelStruct.text = "Autre"
+	find_node("StructSyllableContainer").add_child(labelStruct)
+	lineStruct = LineEdit.new()
+	lineStruct.max_length = 20
+	find_node("StructSyllableContainer").add_child(lineStruct)
 
 func _on_retour_pressed():
 	get_tree().change_scene("res://speechTherapistMenu.tscn")
@@ -44,6 +52,8 @@ func _on_Creation_pressed():
 	for button  in buttonPress:
 		if(button.pressed) :
 			wordtoFind.append(button.name)
+	if(lineStruct.text.length()>0):
+			wordtoFind.append(lineStruct.text)
 	var words = searchWord(wordtoFind)
 	var popup = find_node("Popup")
 	
@@ -69,7 +79,7 @@ func searchWord(wordtoFind : Array):
 	var struct = []
 	var resultat =[]
 	for el in wordtoFind :
-		if(int(el)>0 and int(el)<4) :
+		if(int(el)>0 and int(el)<syllable.size()+1) :
 			nbsyl.append(int(el))
 		else :
 			struct.append(el.to_upper())
@@ -77,19 +87,19 @@ func searchWord(wordtoFind : Array):
 	print(struct)
 	for word in Global.wordDictionnary.getAllWord():
 		if(nbsyl.size() > 0  and nbsyl.find(word.getNbSyllable())!= -1) :
-			#print("add : ",  word.getWord(),", ",word.getNbSyllable(),", ",word.getSyllableStruct())
+			print("add : ",  word.getWord(),", ",word.getNbSyllable(),", ",word.getSyllableStruct())
 			resultat.append(word)
 		if(struct.size() > 0  and (struct.find(word.getSyllableStruct().to_upper()) != -1)) :
-			#print("add :",  word.getWord(),", ",word.getNbSyllable(),", ",word.getSyllableStruct())
+			print("add :",  word.getWord(),", ",word.getNbSyllable(),", ",word.getSyllableStruct())
 			if(resultat.find(word) == -1):
 				resultat.append(word)
 	var tmp = resultat.duplicate()
 	for word in tmp :
 		if(struct.size() > 0  and !(struct.find(word.getSyllableStruct().to_upper()) != -1)):
-			#print("remove struct :",  word.getWord(),", ",word.getNbSyllable(),", ",word.getSyllableStruct())
+			print("remove struct :",  word.getWord(),", ",word.getNbSyllable(),", ",word.getSyllableStruct())
 			resultat.remove(resultat.find(word))
 		if(nbsyl.size() > 0  and !(nbsyl.find(word.getNbSyllable())!= -1)) :
-			#print("remove syll : ", word.getWord(),", ",word.getNbSyllable(),", ",word.getSyllableStruct())
+			print("remove syll : ", word.getWord(),", ",word.getNbSyllable(),", ",word.getSyllableStruct())
 			resultat.remove(resultat.find(word))
 	return resultat
 

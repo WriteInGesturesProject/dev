@@ -4,19 +4,19 @@
 		{
 			"phonetic" :"[i]",
 			"example":"pire",
-			"example_phonetic":"[piʁ]",
+			"example_phonetic":"[pir]",
 			"ressource_path" : "i.png"
 		},
 		{
 			"phonetic" :"[e]",
 			"example":"pré",
-			"example_phonetic":"[pʁe]",
+			"example_phonetic":"[pre]",
 			"ressource_path" : "et.png"
 		},
 		{
 			"phonetic" :"[ɛ]",
 			"example":"père",
-			"example_phonetic":"[pɛʁ]",
+			"example_phonetic":"[pɛr]",
 			"ressource_path" : "ai.png"
 		},
 		{
@@ -40,7 +40,7 @@
 		{
 			"phonetic" :"[œ]",
 			"example":"peur",
-			"example_phonetic":"[pœʁ]",
+			"example_phonetic":"[pœr]",
 			"ressource_path" : "eu.png"
 		},
 		{
@@ -52,7 +52,13 @@
 		{
 			"phonetic" :"[o]",
 			"example":"zéro",
-			"example_phonetic":"[zeʁo]",
+			"example_phonetic":"[zero]",
+			"ressource_path" : "o.png"
+		},
+		{
+			"phonetic" :"[ɔ]",
+			"example":"sort",
+			"example_phonetic":"[sɔr]",
 			"ressource_path" : "o.png"
 		},
 	],
@@ -163,7 +169,7 @@
 		{
 			"phonetic" :"[ʒ]",
 			"example":"journal",
-			"example_phonetic":"[ʒuʁnal]",
+			"example_phonetic":"[ʒurnal]",
 			"ressource_path" : "j.png"
 		},
 		{

@@ -1,6 +1,5 @@
 extends Node
 
-
 var phonetic : String = ""
 var word : String = ""
 var path : String = ""
@@ -10,6 +9,7 @@ var syllableStruct : String = ""
 var vowelsType : String = ""
 var consonantsType : String = ""
 var parent : Node = null # We need to know the parent's node for update word in file
+
 
 func updateParent() : 
 	if(parent != null) :

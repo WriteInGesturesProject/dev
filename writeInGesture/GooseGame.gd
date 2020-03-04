@@ -146,6 +146,7 @@ func _process(delta):
 				RecordButton.disabled = true
 				if(incremented == false):
 					Global.score += 1
+					Global.player.setSilver(Global.player.getSilver()+1)
 					incremented = true
 					_change()
 

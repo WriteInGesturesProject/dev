@@ -8,7 +8,8 @@ func _ready():
 #		find_node("Picture").texture=Global.get_avatar()
 #		find_node("Picture").rect_size.x = find_node("Change").rect_size.x
 #		find_node("Picture").rect_size.y = find_node("Change").rect_size.x
-	pass
+	find_node("Gold").text = str(Global.player.getGold())
+	find_node("Silver").text = str(Global.player.getSilver())
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

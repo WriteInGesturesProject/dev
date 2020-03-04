@@ -96,7 +96,6 @@ margin_right = 166.0
 margin_bottom = 128.0
 theme = ExtResource( 4 )
 text = "Enregistre"
-icon = ExtResource( 6 )
 expand_icon = true
 
 [node name="Word" type="Label" parent="MarginContainer/VBoxContainer"]

@@ -20,6 +20,7 @@ var board = []
 var count = 0
 var index_play = 5
 var temp = []
+var ind = index
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -53,7 +54,6 @@ func _ready():
 				var control_img = Control.new()
 				var image = TextureRect.new()
 				if(Global.level == 0 || Global.level == 2):
-					print(myWords[i].getWord() + ": " + myWords[i].getPath())
 					image.texture = load("res://art/images/"+ myWords[i].getPath())
 					i += 1
 				elif(Global.level == 1):
@@ -90,12 +90,14 @@ func _change():
 	find_node("Record").set_text("Enregistrer")
 	display = false
 	index += 1
+	ind = index
 	if(index >= 8 && index <=13):
 		if(index==8):
 			board[index-1].modulate = "ffffff"
 		else : 
 			board[index-1 + index_play +2].modulate = "ffffff"
 		board[index + index_play].modulate = "e86767"
+		ind = index + index_play
 		index_play -= 2
 	else :
 		if(index == 14):
@@ -104,9 +106,9 @@ func _change():
 			board[index-1].modulate = "ffffff"
 		if(index < myWords.size()):
 			board[index].modulate = "e86767"
-	if(Global.level == 1):
-		board[index-1].texture = load("res://art/chat.jpg")
-		
+
+#	if(Global.level == 1):
+#		board[index-1].texture = load("res://art/chat.jpg")
 	container.remove_and_skip()
 	var img = ""
 	if(index >= myWords.size()):
@@ -117,7 +119,7 @@ func _change():
 			var arrayPicture = Global.phoneticToArrayPicturePath(phonetic)
 			container = Global.putBorelInHboxContainer(arrayPicture, find_node("ImgBorel").rect_size.x- find_node("VboxButton").rect_size.x, find_node("ImgBorel").rect_size.y)
 			find_node("ImgBorel").add_child(container)
-			find_node("Word").set_text(myWords[index].getWord())
+			find_node("Word").set_text(myWords[ind].getWord())
 	incremented = false
 
 func check_words(sentence):
@@ -130,7 +132,7 @@ func check_words(sentence):
 	return false
 
 func check_homonyms(w):
-	var word = Global.wordDictionnary.getWord(myWords[index].getPhonetic())
+	var word = Global.wordDictionnary.getWord(myWords[ind].getPhonetic())
 	if(word == null):
 		print("Word in check_homonyms is null")
 		return false
@@ -147,6 +149,7 @@ func _process(delta):
 		find_node("Record").set_text("Enregistrer")
 	if(stt != null && display && stt.isDetectDone()):
 		words = stt.getWords()
+		print(count)
 		if(count == 2):
 			find_node("Record").set_text("Suivant")
 		else :
@@ -174,6 +177,7 @@ func _on_Speak_pressed():
 
 func _on_Record_pressed():
 	if(count == 2):
+		find_node("Record").set_text("Suivant")
 		_change()
 		return
 	count += 1

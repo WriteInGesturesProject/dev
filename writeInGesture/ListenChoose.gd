@@ -112,7 +112,7 @@ func _ready():
 					var hBox = HBoxContainer.new()
 					hBox.alignment = HBoxContainer.ALIGN_CENTER
 					var image = TextureRect.new()
-					image.texture = load("res://art/users/assistant.png")
+					image.texture = load("res://art/images/"+ myWords[index].getPath())
 					image.expand = true
 					image.stretch_mode = TextureRect.STRETCH_SCALE_ON_EXPAND
 					if(Global.level == 0 || Global.level == 1):

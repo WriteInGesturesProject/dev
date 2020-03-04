@@ -60,6 +60,26 @@ func _ready():
 	
 	loadEntity()
 
+func check_words(sentence, myword):
+	var words = sentence.split(" ")
+	if(words == null || len(words) == 0):
+		return false
+	for w in words:
+		if(check_homonyms(w.to_lower(), myword)):
+			return true
+	return false
+
+func check_homonyms(w, myword):
+	var word = wordDictionnary.getWord(myword.getPhonetic())
+	if(word == null):
+		print("Word in check_homonyms is null")
+		return false
+	var h = word.getHomonym()
+	for i in range(0, len(h)):
+		if(w == h[i].to_lower()):
+			return true
+	return false
+
 func loadEntity():
 	#We need to remplace file by lastest version
 	ManageJson.getElement("config.json", "Config", config)

@@ -11,7 +11,7 @@ var successPercentage : Array = []
 var nbWords : int = 0
 var words : Array = []
 var nbSuccess : int
-var nameFile : String 
+var nameFile : String
 var nbWordsOccurrences : Array = []
 var wordsSuccess : Array
 
@@ -87,7 +87,7 @@ func addWord(word) -> int :
 	setNbWords(words.size())
 	return ManageJson.addElement(nameFile ,"Exercise/words", word.toDictionnary())
 
-func getNbSuccess(): 
+func getNbSuccess():
 	return nbSuccess
 
 func setNbSuccess(nb : int):
@@ -135,7 +135,7 @@ func setAttribut(field : String, input):
 		"name" :
 			name = input
 		"version" :
-			version = float(input)
+			version = input
 		"userId" :
 			userId = input
 		"type" :
@@ -164,9 +164,10 @@ func setAttribut(field : String, input):
 					inputWord.setAttribut(field, w[field])
 				words.append(inputWord)
 		"nbSuccess":
-			nbSuccess = int(nbSuccess)
+			nbSuccess = input
 		"nameFile" : 
 			nameFile = input
+			
 	return
 
 func toString() -> String : 

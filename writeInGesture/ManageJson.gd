@@ -38,8 +38,7 @@ func removeFile(path):
 	print("[REMOVEFILE]")
 	var dir = Directory.new()
 	dir.remove("user://data/"+path)
-	print("[END_REMOVEFILE] : user://data/",path )
-	
+	print("[END_REMOVEFILE] : user://data/", path)
 
 
 func checkFileExistUserPath(nameFile:String)->String:

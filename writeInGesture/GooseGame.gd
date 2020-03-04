@@ -22,8 +22,16 @@ var index_play = 5
 var temp = []
 var ind = index
 
+var RecordButton
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	match Global.level:
+		3:
+			RecordButton = find_node("RecordHard")
+		_:
+			RecordButton = find_node("Record")
+	
 	if(myWords.size() > 22):
 		temp = []
 		var rand = 0
@@ -86,8 +94,8 @@ func _change():
 	if(index >= myWords.size()):
 		return 
 	count = 0
-	find_node("Record").disabled = false
-	find_node("Record").set_text("Enregistrer")
+	RecordButton.disabled = false
+	RecordButton.set_text("Enregistrer")
 	display = false
 	index += 1
 	ind = index
@@ -122,40 +130,20 @@ func _change():
 			find_node("Word").set_text(myWords[ind].getWord())
 	incremented = false
 
-func check_words(sentence):
-	var words = sentence.split(" ")
-	if(words == null || len(words) == 0):
-		return false
-	for w in words:
-		if(check_homonyms(w.to_lower())):
-			return true
-	return false
-
-func check_homonyms(w):
-	var word = Global.wordDictionnary.getWord(myWords[ind].getPhonetic())
-	if(word == null):
-		print("Word in check_homonyms is null")
-		return false
-	var h = word.getHomonym()
-	for i in range(0, len(h)):
-		if(w == h[i].to_lower()):
-			return true
-	return false
 
 func _process(delta):
 	if(stt != null && stt.isListening()):
-		find_node("Record").set_text("En écoute")
+		RecordButton.set_text("En écoute")
 	if(stt != null && !stt.isListening()):
-		find_node("Record").set_text("Enregistrer")
+		RecordButton.set_text("Enregistrer")
 	if(stt != null && display && stt.isDetectDone()):
 		words = stt.getWords()
-		print(count)
 		if(count == 2):
-			find_node("Record").set_text("Suivant")
+			RecordButton.set_text("Suivant")
 		else :
-			find_node("Record").set_text("Tu as dit : " + words)
-			if(check_words(words)):
-				find_node("Record").disabled = true
+			RecordButton.set_text("Tu as dit : " + words)
+			if(Global.check_words(words, myWords[index])):
+				RecordButton.disabled = true
 				if(incremented == false):
 					Global.score += 1
 					incremented = true
@@ -165,7 +153,7 @@ func _process(delta):
 func _on_Speak_pressed():
 	if(stt != null && stt.isListening()):
 		stt.stopListen()
-		find_node("Record").set_text("Enregistrer")
+		RecordButton.set_text("Enregistrer")
 	if(tts != null):
 		var text = myWords[index].getWord()
 		match os:
@@ -177,7 +165,7 @@ func _on_Speak_pressed():
 
 func _on_Record_pressed():
 	if(count == 2):
-		find_node("Record").set_text("Suivant")
+		RecordButton.set_text("Suivant")
 		_change()
 		return
 	count += 1
@@ -189,12 +177,7 @@ func _on_Record_pressed():
 			Ex.setNbWordOccurrence(Global.level, index, Ex.getNbWordOccurrence(Global.level, index) + 1)
 		else :
 			stt.stopListen()
-			find_node("Record").set_text("Enregistrer")
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+			RecordButton.set_text("Enregistrer")
 
 
 func _on_Back_pressed():

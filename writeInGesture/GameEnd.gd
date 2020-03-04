@@ -25,7 +25,6 @@ func _ready():
 	if(Ex.getSuccessPercentage(Global.level) < percent):
 		Ex.setSuccessPercentage(Global.level, percent)
 	find_node("BestScore").set_text("Ton meilleur score est de " + str(int(Ex.getSuccessPercentage(Global.level))) + "%")
-	
 	var success = true
 	for i in Global.try:
 		if(!i):
@@ -33,7 +32,7 @@ func _ready():
 			break
 	if(success):
 		Ex.setNbSuccess(Ex.getNbSuccess() + 1)
-	find_node("Success").set_text("Tu a fini cet exercice " + str(Ex.getNbSuccess()) + " fois")
+	find_node("Success").set_text("Tu as fini cet exercice " + str(Ex.getNbSuccess()) + " fois")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

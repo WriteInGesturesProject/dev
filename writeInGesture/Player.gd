@@ -6,6 +6,8 @@ var integibility : float
 var spokenLanguage : String
 var pathPicture : String
 var nameFile : String
+var gold : int
+var silver : int
 #name is already in Node class
 
 func getName():
@@ -55,7 +57,20 @@ func getPathFile() :
 func setPathFile(pathF : String) :
 	nameFile = pathF
 	return 1
-	
+
+func getGold():
+	return gold
+
+func setGold(a : int):
+	gold = a
+	return ManageJson.putElement(nameFile, "User/gold", gold)
+
+func getSilver():
+	return silver
+
+func setSilver(a : int):
+	silver = a
+	return ManageJson.putElement(nameFile, "User/silver", silver)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -187,6 +187,7 @@ func _on_Choice3_pressed():
 func _on_Validate_pressed():
 	if(rand == choice):
 		Global.score += 1
+		Global.player.setSilver(Global.player.getSilver()+1)
 	find_node("Choice1").pressed = false
 	find_node("Choice2").pressed = false
 	find_node("Choice3").pressed = false

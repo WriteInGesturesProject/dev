@@ -68,7 +68,20 @@ func _on_allbutton_pressed(arg):
 		current_scene = root.get_child(root.get_child_count() - 1)
 		current_scene.find_node("Sound").set_text(parsed_name[0])
 		current_scene.find_node("Name").set_text(parsed_name[1])
-		current_scene.find_node("Borel").texture = load("res://art/imgBorel/"+arg.editor_description)
+		var texture = current_scene.find_node("Borel")
+		
+		var image = load("res://art/imgBorel/"+arg.editor_description)
+		texture.rect_position.x = texture.get_parent().rect_position.x
+		texture.rect_position.y = texture.get_parent().rect_position.y+texture.get_parent().rect_size.y/4
+		
+		
+		texture.texture = image
+		texture.expand = true
+		texture.stretch_mode = 6 #TextureRect.STRETCH_SCALE_ON_EXPAND
+		texture.rect_size = Vector2(get_viewport().size.y/2, get_viewport().size.y/2) 
+		texture.get_parent().rect_size = Vector2(get_viewport().size.y/2, get_viewport().size.y/2) 
+		
+		current_scene.find_node("MainBox").add_constant_override("separation", int(get_viewport().size.y/1.7))
 		
 
 

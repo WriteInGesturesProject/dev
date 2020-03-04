@@ -29,7 +29,7 @@
 			"phonetic" :"[y]",
 			"example":"vu",
 			"example_phonetic":"[vy]",
-			"ressource_path" : "u.png"
+			"ressource_path" : "y.png"
 		},
 		{
 			"phonetic" :"[ə]",
@@ -41,7 +41,7 @@
 			"phonetic" :"[œ]",
 			"example":"peur",
 			"example_phonetic":"[pœʁ]",
-			"ressource_path" : "e.png"
+			"ressource_path" : "eu.png"
 		},
 		{
 			"phonetic" :"[u]",
@@ -55,14 +55,8 @@
 			"example_phonetic":"[zeʁo]",
 			"ressource_path" : "o.png"
 		},
-		{
-			"phonetic" :"[ɔ]",
-			"example":"sort",
-			"example_phonetic":"[sɔʁ]",
-			"ressource_path" : "a.png"
-		},
 	],
-	"VOYELLES_NASALES":
+	"VOYELLES NASALES":
 	[
 		{
 			"phonetic" :"[ɛ̃]",
@@ -95,14 +89,8 @@
 			"phonetic" :"[w]",
 			"example":"ouate",
 			"example_phonetic":"[wat]",
-			"ressource_path" : "ou.png"
+			"ressource_path" : "oi.png"
 		},
-		{
-			"phonetic" :"[ɥ]",
-			"example":"huile",
-			"example_phonetic":"[ɥil]",
-			"ressource_path" : "a.png"
-		}
 	],
 	"CONSONNES_ORALES":
 	[
@@ -176,7 +164,7 @@
 			"phonetic" :"[ʒ]",
 			"example":"journal",
 			"example_phonetic":"[ʒuʁnal]",
-			"ressource_path" : "a.png"
+			"ressource_path" : "j.png"
 		},
 		{
 			"phonetic" :"[r]",
@@ -211,12 +199,6 @@
 			"example":"agneau",
 			"example_phonetic":"[aɲo]",
 			"ressource_path" : "gn.png"
-		},
-		{
-			"phonetic" :"[ŋ]",
-			"example":"parking",
-			"example_phonetic":"[paʁkŋ]",
-			"ressource_path" : "a.png"
 		},
 	]
 }

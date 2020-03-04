@@ -30,7 +30,6 @@ func _ready():
 	if(Ex.getSuccessPercentage(Global.level) < percent):
 		Ex.setSuccessPercentage(Global.level, percent)
 	find_node("BestScore").set_text("Ton meilleur score est de " + str(int(Ex.getSuccessPercentage(Global.level))) + "%")
-	
 	var success = true
 	for i in Global.try:
 		if(!i):

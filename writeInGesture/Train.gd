@@ -31,7 +31,6 @@ func _ready():
 		find_node("Word").set_text(myWords[index].getWord())
 	else :
 		find_node("TextureRect2").texture = load("res://art/" + myWords[index].getPath())
-
 	var phonetic = myWords[index].getPhonetic()
 	var arrayPicture = Global.phoneticToArrayPicturePath(phonetic)
 	container =  Global.putBorelInHboxContainer(arrayPicture, get_viewport().size.x, min(get_viewport().size.y/2,get_viewport().size.x/arrayPicture.size()))
@@ -40,25 +39,6 @@ func _ready():
 	find_node("Word").set_text(myWords[index].getWord())
 	Global.score = 0
 
-func check_words(sentence):
-	var words = sentence.split(" ")
-	if(words == null || len(words) == 0):
-		return false
-	for w in words:
-		if(check_homonyms(w.to_lower())):
-			return true
-	return false
-
-func check_homonyms(w):
-	var word = Global.wordDictionnary.getWord(myWords[index].getPhonetic())
-	if(word == null):
-		print("Word in check_homonyms is null")
-		return false
-	var h = word.getHomonym()
-	for i in range(0, len(h)):
-		if(w == h[i].to_lower()):
-			return true
-	return false
 
 func _process(delta):
 	if(stt != null && stt.isListening()):
@@ -68,7 +48,7 @@ func _process(delta):
 	if(stt != null && display && stt.isDetectDone()):
 		words = stt.getWords()
 		find_node("Record").set_text("Vous avez dit : " + words)
-		if(words == find_node("Number").text || check_words(words)):
+		if(words == find_node("Number").text || Global.check_words(words, myWords[index])):
 			find_node("Oui").visible = true
 			find_node("Non").visible = false
 			find_node("Record").disabled = true
@@ -83,8 +63,10 @@ func _process(delta):
 		find_node("Oui").visible = false
 		find_node("Non").visible = false
 
+
 func _on_Back_pressed():
 	get_tree().change_scene("res://ExerciceMenu.tscn")
+
 
 func _on_Next_pressed():
 	find_node("Record").disabled = false
@@ -93,7 +75,6 @@ func _on_Next_pressed():
 	find_node("Non").visible = false
 	display = false
 	index += 1
-	
 	if(index >= myWords.size()):
 		get_tree().change_scene("res://GameEnd.tscn")
 	else :
@@ -116,6 +97,7 @@ func _on_Next_pressed():
 		find_node("Word").set_text(myWords[index].getWord())
 	incremented = false
 
+
 func _on_Speak_pressed(extra_arg_0):
 	if(stt != null && stt.isListening()):
 		stt.stopListen()
@@ -127,6 +109,7 @@ func _on_Speak_pressed(extra_arg_0):
 				tts.speak(text, false)
 			"Android":
 				tts.speakText(text)
+
 
 func _on_Record_pressed():
 	if(stt != null):

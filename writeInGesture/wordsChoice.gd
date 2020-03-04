@@ -56,6 +56,8 @@ func _createKeyboard():
 func _on_keyButton_pressed(keyButton):
 	var newWordLabel = find_node("newWord")
 	if (keyButton.text == "delete") and (newWordLabel.text.length()>0) :
+		if(newWordLabel.text[-1].to_ascii()[0] == 3) :
+			newWordLabel.text[-1] = ""
 		newWordLabel.text[-1] = ""
 	elif (keyButton.text != "delete") :
 		newWordLabel.text += keyButton.text.split("[")[1].split("]")[0]
@@ -156,6 +158,12 @@ func _on_Confirm_pressed():
 	var err = dictionnary.addWord(newWord)
 	if(err) :
 		print("le mot a bien été ajouté")
+		find_node("LinePhonetic").text = ""
+		find_node("LineWord").text = ""
+		find_node("LineStruct").text = ""
+		find_node("LineNbSyllable").text = ""
+		find_node("LineVoyelsType").text = ""
+		find_node("LineConsType").text = ""
 		find_node("Popup").visible = false
 		find_node("Popup2").visible = false
 		find_node("Creation").visible = true

@@ -98,7 +98,7 @@ func _on_Next_pressed():
 	incremented = false
 
 
-func _on_Speak_pressed(extra_arg_0):
+func _on_Speak_pressed():
 	if(stt != null && stt.isListening()):
 		stt.stopListen()
 		find_node("Record").set_text("Enregistrer")

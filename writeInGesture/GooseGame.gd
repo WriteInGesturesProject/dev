@@ -21,6 +21,7 @@ var count = 0
 var index_play = 5
 var temp = []
 var ind = index
+var ind_prec = ind
 
 var RecordButton
 
@@ -72,11 +73,11 @@ func _ready():
 			break
 	if(Global.level == 0 || Global.level == 1):
 		var c = 0
-		var phonetic = myWords[index].getPhonetic()
+		var phonetic = myWords[ind].getPhonetic()
 		var arrayPicture = Global.phoneticToArrayPicturePath(phonetic)
 		container = Global.putBorelInHboxContainer(arrayPicture, get_viewport().size.x - 100, get_viewport().size.y / 5)
 		find_node("ImgBorel").add_child(container)
-		find_node("Word").text = myWords[index].getWord()
+		find_node("Word").text = myWords[ind].getWord()
 	board[0].modulate = "e86767"
 	Global.score = 0
 	Global.try = []
@@ -92,6 +93,7 @@ func _change():
 	display = false
 	index += 1
 	ind = index
+	ind_prec = ind
 	if(index >= 8 && index <=13):
 		if(index==8):
 			board[index-1].modulate = "A9A9A9"
@@ -114,7 +116,7 @@ func _change():
 		get_tree().change_scene("res://GameEnd.tscn")
 	else :
 		if(Global.level == 0 || Global.level == 1):
-			var phonetic = myWords[index].getPhonetic()
+			var phonetic = myWords[ind].getPhonetic()
 			var arrayPicture = Global.phoneticToArrayPicturePath(phonetic)
 			container = Global.putBorelInHboxContainer(arrayPicture, get_viewport().size.x - 120, get_viewport().size.y / 5)
 			find_node("ImgBorel").add_child(container)
@@ -134,6 +136,8 @@ func _process(delta):
 				find_node("Great").playing = true
 				Global.score += 1
 				Global.player.setSilver(Global.player.getSilver()+1)
+				if(Global.level == 2):
+					board[ind_prec].texture = load("res://art/images/"+board[ind_prec].getPath())
 				incremented = true
 				_change()
 		elif(incremented == false):

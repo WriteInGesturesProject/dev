@@ -99,3 +99,64 @@ func loadEntity():
 	
 	ManageJson.getElement("player.json", "User", player)
 	player.setAttribut("nameFile", "player.json")
+
+#This function create an HboxContainer with the image path in array. the size of the hbox is legthX et lenghtY
+func putBorelInHboxContainer(array : Array, lenghtX, lenghtY) :
+	var size = array.size()
+	var hbox = HBoxContainer.new()
+	hbox.rect_min_size = Vector2(lenghtX, lenghtY)
+	hbox.alignment = HBoxContainer.ALIGN_CENTER
+	for picturePath in array :
+		var imgBorel = TextureRect.new()
+		var control = Control.new()
+		control.add_child(imgBorel)
+		hbox.add_child(control)
+		
+		var image = load("res://art/imgBorel/"+picturePath)
+		imgBorel.texture = image
+		imgBorel.expand = true
+		imgBorel.stretch_mode = TextureRect.STRETCH_SCALE_ON_EXPAND
+		
+		if(size == 1) :
+			imgBorel.rect_size = Vector2(min(lenghtY, lenghtX/size), min(lenghtY, lenghtX/size)) 
+		else :
+			imgBorel.rect_size = Vector2(min(lenghtY, lenghtX/size), min(lenghtY, lenghtX/size)) 
+		if(image.get_size().x == 3000):
+			imgBorel.rect_size.y = imgBorel.rect_size.y/1.5
+			imgBorel.rect_position.y = control.rect_size.y/2+imgBorel.rect_size.y/4
+		imgBorel.get_parent().size_flags_horizontal = Control.SIZE_EXPAND
+		#Put the size of the controller parent
+		imgBorel.get_parent().rect_size = Vector2(lenghtX/size, lenghtX/size)
+		#put in center of the controller parent 
+		imgBorel.rect_position.x = control.rect_size.x/2-imgBorel.rect_size.x/2
+		
+		
+	return hbox
+	
+#Create an array of picturePath from a phonetic 
+func phoneticToArrayPicturePath(phonetic : String) :
+	var arrayPicture = []
+	var compt = 0
+	var img = ""
+	while (compt < len(phonetic)):
+			if(compt+1 < len(phonetic) && phonetic[compt].to_ascii()[0] == 91 && phonetic[compt+1].to_ascii()[0] == 3):
+				img = "in.png"
+				compt += 1
+			elif(compt + 1 < len(phonetic) && phonetic[compt].to_ascii()[0] == 84 && phonetic[compt + 1].to_ascii()[0] == 3):
+				img = "on.png"
+				compt += 1
+			elif(phonetic[compt].to_ascii()[0] == 226):
+				img = "an.png"
+			else :
+				var find = false
+				for b in Global.phoneticDictionnary:
+					for w in Global.phoneticDictionnary[b]:
+						if(phonetic[compt] == w["phonetic"][1]):
+							img = w["ressource_path"]
+							find = true
+							break
+					if(find):
+						break
+			arrayPicture.append(img)
+			compt += 1
+	return arrayPicture

@@ -33,6 +33,10 @@ config/icon="res://art/icon.png"
 Global="*res://Global.gd"
 ManageJson="*res://ManageJson.gd"
 
+[display]
+
+window/size/fullscreen=true
+
 [rendering]
 
 quality/driver/driver_name="GLES2"

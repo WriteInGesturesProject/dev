@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://fonts/background.png" type="Texture" id=1]
 [ext_resource path="res://GooseGame.gd" type="Script" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://art/speaker.png" type="Texture" id=5]
 [ext_resource path="res://art/record.png" type="Texture" id=6]
 [ext_resource path="res://fonts/ButtonTheme.tres" type="Theme" id=7]
+[ext_resource path="res://art/next.png" type="Texture" id=8]
+[ext_resource path="res://art/boo2.wav" type="AudioStream" id=9]
+[ext_resource path="res://art/applause4.wav" type="AudioStream" id=10]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -16,6 +19,12 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Boo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="Great" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -58,7 +67,7 @@ text = "Ecoute"
 icon = ExtResource( 5 )
 expand_icon = true
 
-[node name="Record" type="Button" parent="MarginContainer/VBoxContainer/ButtonHard"]
+[node name="RecordHard" type="Button" parent="MarginContainer/VBoxContainer/ButtonHard"]
 margin_left = 499.0
 margin_right = 705.0
 margin_bottom = 102.0
@@ -69,53 +78,74 @@ expand_icon = true
 
 [node name="ImgBorel" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_right = 1024.0
-margin_bottom = 128.0
 custom_constants/separation = 10
 alignment = 1
 
-[node name="VboxButton" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ImgBorel"]
-margin_left = 429.0
-margin_right = 595.0
-margin_bottom = 128.0
+[node name="Word" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_top = 20.0
+margin_right = 1024.0
+margin_bottom = 82.0
+align = 1
+
+[node name="Plate" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 102.0
+margin_right = 1024.0
+margin_bottom = 202.0
+custom_constants/separation = 200
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Speak" type="Button" parent="MarginContainer/VBoxContainer/ImgBorel/VboxButton"]
-margin_right = 166.0
-margin_bottom = 62.0
-theme = ExtResource( 4 )
-text = "Ecoute"
-icon = ExtResource( 5 )
-expand_icon = true
-
-[node name="Record" type="Button" parent="MarginContainer/VBoxContainer/ImgBorel/VboxButton"]
-margin_top = 66.0
-margin_right = 166.0
-margin_bottom = 128.0
-theme = ExtResource( 4 )
-text = "Enregistre"
-expand_icon = true
-
-[node name="Word" type="Label" parent="MarginContainer/VBoxContainer"]
-margin_top = 148.0
-margin_right = 1024.0
-margin_bottom = 210.0
-align = 1
-
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 230.0
-margin_right = 1024.0
-margin_bottom = 230.0
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/Plate"]
+margin_left = 412.0
+margin_right = 412.0
+margin_bottom = 100.0
 size_flags_stretch_ratio = 0.0
 
-[node name="gridImage" type="GridContainer" parent="MarginContainer/VBoxContainer/CenterContainer"]
-margin_left = 512.0
-margin_right = 512.0
+[node name="gridImage" type="GridContainer" parent="MarginContainer/VBoxContainer/Plate/CenterContainer"]
+margin_top = 50.0
+margin_bottom = 50.0
 custom_constants/vseparation = 90
 custom_constants/hseparation = 90
 columns = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Plate"]
+margin_left = 612.0
+margin_right = 612.0
+margin_bottom = 100.0
+custom_constants/separation = 100
+alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Plate/VBoxContainer"]
+
+[node name="Speak" type="TextureButton" parent="MarginContainer/VBoxContainer/Plate/VBoxContainer/Control"]
+margin_left = -0.950012
+margin_top = -3.04999
+margin_right = 79.05
+margin_bottom = 76.95
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/Plate/VBoxContainer"]
+margin_top = 100.0
+margin_bottom = 100.0
+
+[node name="Record" type="TextureButton" parent="MarginContainer/VBoxContainer/Plate/VBoxContainer/Control2"]
+margin_right = 80.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 6 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -129,8 +159,24 @@ expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Next" type="Button" parent="."]
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -100.0
+margin_top = -102.0
+icon = ExtResource( 8 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonHard/Speak" to="." method="_on_Speak_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonHard/Record" to="." method="_on_Record_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ImgBorel/VboxButton/Speak" to="." method="_on_Speak_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ImgBorel/VboxButton/Record" to="." method="_on_Record_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonHard/RecordHard" to="." method="_on_Record_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Plate/VBoxContainer/Control/Speak" to="." method="_on_Speak_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Plate/VBoxContainer/Control2/Record" to="." method="_on_Record_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="Next" to="." method="_on_Next_pressed"]

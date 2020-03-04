@@ -25,13 +25,7 @@ var ind = index
 var RecordButton
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	match Global.level:
-		3:
-			RecordButton = find_node("RecordHard")
-		_:
-			RecordButton = find_node("Record")
-	
+func _ready():	
 	if(myWords.size() > 22):
 		temp = []
 		var rand = 0
@@ -47,7 +41,6 @@ func _ready():
 	if(Global.level == 1 || Global.level == 2):
 		find_node("Word").visible = false
 	if(Global.level == 2):
-		find_node("ButtonHard").visible = true
 		find_node("ImgBorel").visible = false
 	var numb = 0
 	var i = 0
@@ -81,7 +74,7 @@ func _ready():
 		var c = 0
 		var phonetic = myWords[index].getPhonetic()
 		var arrayPicture = Global.phoneticToArrayPicturePath(phonetic)
-		container = Global.putBorelInHboxContainer(arrayPicture, find_node("ImgBorel").rect_size.x- find_node("VboxButton").rect_size.x, find_node("ImgBorel").rect_size.y)
+		container = Global.putBorelInHboxContainer(arrayPicture, get_viewport().size.x - 100, get_viewport().size.y / 5)
 		find_node("ImgBorel").add_child(container)
 		find_node("Word").text = myWords[index].getWord()
 	board[0].modulate = "e86767"
@@ -94,29 +87,27 @@ func _change():
 	if(index >= myWords.size()):
 		return 
 	count = 0
-	RecordButton.disabled = false
-	RecordButton.set_text("Enregistrer")
+	find_node("Record").disabled = false
+	find_node("Next").visible = false
 	display = false
 	index += 1
 	ind = index
 	if(index >= 8 && index <=13):
 		if(index==8):
-			board[index-1].modulate = "ffffff"
+			board[index-1].modulate = "A9A9A9"
 		else : 
-			board[index-1 + index_play +2].modulate = "ffffff"
+			board[index-1 + index_play +2].modulate = "A9A9A9"
 		board[index + index_play].modulate = "e86767"
 		ind = index + index_play
 		index_play -= 2
 	else :
 		if(index == 14):
-			board[index-1 + index_play +2].modulate = "ffffff"
+			board[index-1 + index_play +2].modulate = "A9A9A9"
 		else :
-			board[index-1].modulate = "ffffff"
+			board[index-1].modulate = "A9A9A9"
 		if(index < myWords.size()):
 			board[index].modulate = "e86767"
 
-#	if(Global.level == 1):
-#		board[index-1].texture = load("res://art/chat.jpg")
 	container.remove_and_skip()
 	var img = ""
 	if(index >= myWords.size()):
@@ -125,38 +116,36 @@ func _change():
 		if(Global.level == 0 || Global.level == 1):
 			var phonetic = myWords[index].getPhonetic()
 			var arrayPicture = Global.phoneticToArrayPicturePath(phonetic)
-			container = Global.putBorelInHboxContainer(arrayPicture, find_node("ImgBorel").rect_size.x- find_node("VboxButton").rect_size.x, find_node("ImgBorel").rect_size.y)
+			container = Global.putBorelInHboxContainer(arrayPicture, get_viewport().size.x - 120, get_viewport().size.y / 5)
 			find_node("ImgBorel").add_child(container)
 			find_node("Word").set_text(myWords[ind].getWord())
 	incremented = false
 
 
 func _process(delta):
-	if(stt != null && stt.isListening()):
-		RecordButton.set_text("En écoute")
-	if(stt != null && !stt.isListening()):
-		RecordButton.set_text("Enregistrer")
 	if(stt != null && display && stt.isDetectDone()):
 		words = stt.getWords()
 		if(count == 2):
-			RecordButton.set_text("Suivant")
-		else :
-			RecordButton.set_text("Tu as dit : " + words)
-			if(Global.check_words(words, myWords[index])):
-				RecordButton.disabled = true
-				if(incremented == false):
-					Global.score += 1
-					Global.player.setSilver(Global.player.getSilver()+1)
-					incremented = true
-					_change()
+			find_node("Record").disabled = true
+			find_node("Next").visible = true
+		if(Global.check_words(words, myWords[ind])):
+			find_node("Record").disabled = true
+			if(incremented == false):
+				find_node("Great").playing = true
+				Global.score += 1
+				Global.player.setSilver(Global.player.getSilver()+1)
+				incremented = true
+				_change()
+		elif(incremented == false):
+			find_node("Boo").playing = true
+			incremented = true
 
 
 func _on_Speak_pressed():
 	if(stt != null && stt.isListening()):
 		stt.stopListen()
-		RecordButton.set_text("Enregistrer")
 	if(tts != null):
-		var text = myWords[index].getWord()
+		var text = myWords[ind].getWord()
 		match os:
 			"X11":
 				tts.speak(text, false)
@@ -165,10 +154,12 @@ func _on_Speak_pressed():
 
 
 func _on_Record_pressed():
+	find_node("Great").playing = false
+	find_node("Boo").playing = false
+	incremented = false
 	if(count == 2):
-		RecordButton.set_text("Suivant")
-		_change()
-		return
+		find_node("Record").disabled = true
+		find_node("Next").visible = true
 	count += 1
 	if(stt != null):
 		if(stt.isListening() == false):
@@ -178,8 +169,11 @@ func _on_Record_pressed():
 			Ex.setNbWordOccurrence(Global.level, index, Ex.getNbWordOccurrence(Global.level, index) + 1)
 		else :
 			stt.stopListen()
-			RecordButton.set_text("Enregistrer")
 
 
 func _on_Back_pressed():
 	get_tree().change_scene("res://GameLevel.tscn")
+
+
+func _on_Next_pressed():
+	_change()

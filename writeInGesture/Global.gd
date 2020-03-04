@@ -43,6 +43,7 @@ var phoneticDictionnary
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	os = OS.get_name()
+	var osRequest = OS.request_permissions()
 	
 	match os:
 		"X11":

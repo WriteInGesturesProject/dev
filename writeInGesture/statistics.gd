@@ -3,65 +3,153 @@ extends Control
 const Exercise = preload("res://Exercise.gd")
 
 var exerciseSelected : Exercise
-var percentage : Array
+var difficultySelected : int
+var percentages : Array
+var wordsEasier : Array
+var wordsHarder : Array
+var allWords : Array
+
+var progressBarNode : Node
+var exerciseChoiceNode : Node
+var difficultyChoiceNode : Node
+var exerciseMostPlayed : Exercise
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var optionButton = find_node("exerciseChoice")
-	optionButton.text = "Choisi un exercice"
-	optionButton.add_item("Choisi un exercice")
+	findExerciseMostPlayer(Global.exercises)
+	find_node("mostPlayed").text = "Le jeu le plus joué est le jeu : "+exerciseMostPlayed.getName()+", joué : "+String(exerciseMostPlayed.getNbSuccess())+" fois."
+	exerciseChoiceNode = find_node("exerciseChoice")
+	exerciseChoiceNode.text = "Choisi un exercice"
+	exerciseChoiceNode.add_item("Choisi un exercice")
 	for exercise in Global.exercises:
-		optionButton.add_item(exercise.name)
+		exerciseChoiceNode.add_item(exercise.name)
+		
+	difficultyChoiceNode = find_node("difficultyChoice")
+	difficultyChoiceNode.text = "Choisi une difficulté"
+	difficultyChoiceNode.add_item("Choisi une difficulté")
+	for index in range(0, Global.nbDifficulty):
+		difficultyChoiceNode.add_item(String(index+1))
+	
+	progressBarNode = find_node("ProgressBar")
+
+func findExerciseMostPlayer(exercises : Array):
+	exerciseMostPlayed = exercises[0]
+	for exercise in exercises:
+		if exerciseMostPlayed.getNbSuccess() < exercise.getNbSuccess():
+			exerciseMostPlayed = exercise
 
 func _on_exerciseChoice_item_selected(id):
-	var selected = find_node("exerciseChoice").selected
-	var itemSelected = find_node("exerciseChoice").get_item_text(selected)
-	for exercise in Global.exercises:
-		if exercise.name == itemSelected : 
-			exerciseSelected = exercise
-			displayDifficultyChoice()
-#			displayProgressBar()
-#			displayStatisticsAllWords()
-#			displayStatisticsWordsEasy()
-			return;
+	var selectedIndex = exerciseChoiceNode.selected
+	var itemSelected = exerciseChoiceNode.get_item_text(selectedIndex)
+	if selectedIndex != 0 : 
+		for exercise in Global.exercises:
+			if exercise.name == itemSelected : 
+				exerciseSelected = exercise
+				if exerciseSelected.getType().getName() == "Entrainement":
+					clean()
+					difficultyChoiceNode.visible = false
+					difficultySelected = 1
+					displayStatisticsAllWords()
+					progressBarNode.value = exerciseSelected.getSuccessPercentage(difficultySelected-1)
+					progressBarNode.visible = true
+					displayStatisticsWordsEasierHarder(3)
+				else :
+					clean()
+					progressBarNode.visible = false
+					difficultyChoiceNode.visible = true
+					difficultyChoiceNode.select(0)
+				return;
+	progressBarNode.visible = false
+	clean()
 
-func displayDifficultyChoice():
-	find_node("difficultyChoice").visible = true
+func _on_difficultyChoice_item_selected(id):
+	clean()
+	var selectedIndex = difficultyChoiceNode.selected
+	difficultySelected = int(difficultyChoiceNode.get_item_text(selectedIndex))
+	if selectedIndex != 0 : 
+		displayStatisticsAllWords()
+		progressBarNode.value = exerciseSelected.getSuccessPercentage(difficultySelected-1)
+		progressBarNode.visible = true
+		displayStatisticsWordsEasierHarder(3)
+	else :
+		progressBarNode.visible = false
+
+func displayStatisticsWordsEasierHarder(nbMin : int):
+	var nodeRootHarder = find_node("wordsHarder")
+	var nodeRootEasier = find_node("wordsEasier")
 	
-
-#func displayProgressBar():
+	var titleHarder = Label.new()
+	titleHarder.text = "Les mots les moins réussi :"
+	nodeRootHarder.add_child(titleHarder)
 	
-
-func displayStatisticsWordsEasy():
-	removeAllChildren("wordsEasy")
-	print(percentage)
-
+	var titleEasier = Label.new()
+	titleEasier.text = "Les mots les plus réussi :"
+	nodeRootEasier.add_child(titleEasier)
+	
+	nodeRootHarder.visible = true
+	var harder : Array
+	var easier : Array
+	var tmpIncrease = percentages.duplicate()
+	tmpIncrease.sort()
+	var tmpDecrease = tmpIncrease.duplicate()
+	tmpDecrease.invert()
+	for i in range(0,nbMin):
+		harder.append(tmpIncrease[i])
+		easier.append(tmpDecrease[i])
+	
+	for current in range(0, nbMin):
+		var index = 0
+		for percentage in percentages :
+			if percentage == harder[current]:
+				wordsHarder.append(index)
+				var label = Label.new()
+				label.text = allWords[index].getWord()+" avec "+String(int(percentage))+"% de réussite"
+				nodeRootHarder.add_child(label)
+				break;
+			index += 1
+		index = 0
+		for percentage in percentages :
+			if percentage == easier[current]:
+				wordsEasier.append(index)
+				var label = Label.new()
+				label.text = allWords[index].getWord()+" avec "+String(int(percentage))+"% de réussite"
+				nodeRootEasier.add_child(label)
+				break;
+			index += 1
 func displayStatisticsAllWords():
-#	percentage.clear()
-	removeAllChildren("statsExercises")
-	var words = exerciseSelected.getAllWords()
+	var title = Label.new()
+	title.text = "Statistiques de tous les mots :"
+	find_node("statsExercises").add_child(title)
+	percentages.clear()
+	allWords = exerciseSelected.getAllWords()
 	var index = 0
-	for word in words:
+	for word in allWords :
 		var hBox = HBoxContainer.new()
 		var wordLabel = Label.new()
 		wordLabel.text = word.getWord()
 		hBox.add_child(wordLabel)
-		var nbOccurs = exerciseSelected.getNbWordOccurrence(0, index)
-		var nbSuccess = exerciseSelected.getWordSuccess(0, index)
+		var nbOccurs = exerciseSelected.getNbWordOccurrence(difficultySelected-1, index)
+		var nbSuccess = exerciseSelected.getWordSuccess(difficultySelected-1, index)
 		var stats = Label.new()
-		var currentPercentage = 0
+		var currentpercentages = 0
 		if nbOccurs != 0:
-			currentPercentage = (float(nbSuccess)/float(nbOccurs))*100
-			percentage.append(currentPercentage)
-		stats.text = " - Succès : "+String(nbSuccess)+"/"+String(nbOccurs)+" = "+String(int(currentPercentage))+"%"
+			currentpercentages = (float(nbSuccess)/float(nbOccurs))*100
+			percentages.append(currentpercentages)
+		else:
+			percentages.append(0)
+		stats.text = " - Succès : "+String(nbSuccess)+"/"+String(nbOccurs)+" = "+String(int(currentpercentages))+"%"
 		hBox.add_child(stats)
 		index += 1
 		find_node("statsExercises").add_child(hBox)
 
-#func displayStatisticsWordsEasy():
 func removeAllChildren(nameNode):
 	# remove all children of node "statsExercises"
 	for i in range(0, find_node(nameNode).get_child_count()):
 		find_node(nameNode).get_child(i).queue_free()
+
+func clean():
+	removeAllChildren("statsExercises")
+	removeAllChildren("wordsEasier")
+	removeAllChildren("wordsHarder")
 
 func _on_back_pressed():
 	get_tree().change_scene("res://speechTherapistMenu.tscn")
@@ -77,10 +165,8 @@ var swipe_mouse_positions = []
 
 
 func _input(ev):
-	#print(ev)
 	if swiping and ev is InputEventMouseMotion:
 		var delta = ev.position - swipe_mouse_start
-		#print(delta.length())
 		if(delta.length()>10):
 			find_node("ScrollContainer").set_h_scroll(swipe_start.x - delta.x)
 			find_node("ScrollContainer").set_v_scroll(swipe_start.y - delta.y)
@@ -119,7 +205,6 @@ func _input(ev):
 				tween.interpolate_method(self, 'set_v_scroll', source.y, target.y, flick_dur, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 				tween.interpolate_callback(tween, flick_dur, 'queue_free')
 				tween.start()
-#			print("is swipping :",isswipping)
 			if isswipping:
 				release = true
 			else:

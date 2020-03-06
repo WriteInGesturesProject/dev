@@ -20,7 +20,7 @@ func _ready():
 	if(Global.play == 2):
 		success = true
 		total /= 3
-	elif(Global.play == 1 && len(total) > 22):
+	elif(Global.play == 1 && total > 22):
 		total = 22
 	var percent : float = float(Global.score) / total * 100
 	var comment = ""

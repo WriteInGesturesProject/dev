@@ -14,8 +14,8 @@ dest_files=[ "res://.import/validate.png-72c956d0fdb296eb805fcd3d2dcd9a76.stex" 
 
 [params]
 
-compress/mode=0
-compress/lossy_quality=0.7
+compress/mode=1
+compress/lossy_quality=0.1
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0

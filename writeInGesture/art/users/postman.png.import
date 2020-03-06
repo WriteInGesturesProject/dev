@@ -14,8 +14,8 @@ dest_files=[ "res://.import/postman.png-e3eff38e33b4d4219a63bbbb6e5c4402.stex" ]
 
 [params]
 
-compress/mode=0
-compress/lossy_quality=0.7
+compress/mode=1
+compress/lossy_quality=0.1
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0

@@ -14,8 +14,8 @@ dest_files=[ "res://.import/diver.png-2aa66aec2ee4e67dec06c174a1b3322a.stex" ]
 
 [params]
 
-compress/mode=0
-compress/lossy_quality=0.7
+compress/mode=1
+compress/lossy_quality=0.1
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0

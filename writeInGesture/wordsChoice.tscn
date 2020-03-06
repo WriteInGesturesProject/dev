@@ -188,6 +188,7 @@ theme = ExtResource( 3 )
 text = "Non"
 
 [node name="Popup2" type="WindowDialog" parent="."]
+visible = true
 margin_left = 115.568
 margin_top = 72.2438
 margin_right = 982.568
@@ -368,8 +369,8 @@ window_title = "Ouvrir un fichier"
 mode = 0
 access = 2
 filters = PoolStringArray( "*.png ; PNG Images", "*.jpg ; JPG Images", "*.jpeg ; JPEG Images" )
-current_dir = "/home/guillaume/Documents/RICM5/Projet/dev/writeInGesture"
-current_path = "/home/guillaume/Documents/RICM5/Projet/dev/writeInGesture/"
+current_dir = "/home/chabrema/5A/S10/dev/writeInGesture"
+current_path = "/home/chabrema/5A/S10/dev/writeInGesture/"
 [connection signal="pressed" from="MarginContainer/HBoxContainer/editContainer/HBoxContainer/addWord" to="." method="_on_addWord_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/editContainer/Creation" to="." method="_on_Creation_pressed"]
 [connection signal="pressed" from="retour" to="." method="_on_Retour_pressed"]

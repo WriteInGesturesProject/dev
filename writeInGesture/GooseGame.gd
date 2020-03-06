@@ -27,6 +27,9 @@ var RecordButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
+	find_node("Popup").margin_top = get_viewport().size.y *0.03
+	find_node("MarginContainer").margin_top = get_viewport().size.y / 12
+	_scaleImg()
 	if(myWords.size() > 22):
 		temp = []
 		var rand = 0
@@ -62,11 +65,11 @@ func _ready():
 					image.texture = load("res://art/questionmark.png")
 				image.expand = true
 				image.stretch_mode = TextureRect.STRETCH_SCALE_ON_EXPAND
-				image.rect_size.x = get_viewport().size.y / 8
-				image.rect_size.y = get_viewport().size.y / 8
+				image.rect_size.x = get_viewport().size.y / 6
+				image.rect_size.y = get_viewport().size.y / 6
 				board.append(image)
-				find_node("gridImage").add_constant_override("vseparation",  get_viewport().size.y / 8)
-				find_node("gridImage").add_constant_override("hseparation",  (get_viewport().size.y / 8)+10)
+				find_node("gridImage").add_constant_override("vseparation",  get_viewport().size.y / 6)
+				find_node("gridImage").add_constant_override("hseparation",  (get_viewport().size.y / 6)+10)
 				control_img.add_child(image)
 				find_node("gridImage").add_child(control_img)
 		if(board.size() >= myWords.size()):
@@ -75,22 +78,21 @@ func _ready():
 		var c = 0
 		var phonetic = myWords[ind].getPhonetic()
 		var arrayPicture = Global.phoneticToArrayPicturePath(phonetic)
-		container = Global.putBorelInHboxContainer(arrayPicture, get_viewport().size.x - 100, get_viewport().size.y / 5)
+		container = Global.putBorelInHboxContainer(arrayPicture, get_viewport().size.x, get_viewport().size.y / 2.5)
 		find_node("ImgBorel").add_child(container)
 		find_node("Word").text = myWords[ind].getWord()
 	board[0].modulate = "e86767"
+	find_node("Image").texture = load("res://art/images/"+ myWords[0].getPath())
+	find_node("WordDetails").popup_centered_ratio(1)
+	find_node("backgroundDark").visible = true
 	Global.score = 0
 	Global.try = []
 	for i in myWords:
 		Global.try.append(false)
+	find_node("Speak").rect_position.y += (find_node("Image").rect_size.y - 2*find_node("Speak").rect_size.y)/2
+	find_node("Record").rect_position.y += (find_node("Image").rect_size.y - 2*find_node("Speak").rect_size.y)/2
 
-func _change():
-	if(index >= myWords.size()):
-		return 
-	count = 0
-	find_node("Record").disabled = false
-	find_node("Next").visible = false
-	display = false
+func _changeColor():
 	index += 1
 	ind = index
 	ind_prec = ind
@@ -110,18 +112,34 @@ func _change():
 		if(index < myWords.size()):
 			board[index].modulate = "e86767"
 
+func _scaleImg():
+	var img = load("res://art/images/"+ myWords[ind].getPath())
+	find_node("Image").texture = img
+	find_node("Image").rect_size.y = get_viewport().size.y / 2.5
+	find_node("Image").rect_size.x = get_viewport().size.y / 2.5 * (img.get_size().x / img.get_size().y)
+	find_node("MainBox").add_constant_override("separation", int(find_node("Image").rect_size.x) + 20)
+
+func _change():
+	if(index >= myWords.size()):
+		return 
+	_scaleImg()
+	count = 0
+	find_node("Record").disabled = false
+	find_node("Next").visible = false
+	display = false
 	container.remove_and_skip()
-	var img = ""
 	if(index >= myWords.size()):
 		get_tree().change_scene("res://GameEnd.tscn")
 	else :
 		if(Global.level == 0 || Global.level == 1):
 			var phonetic = myWords[ind].getPhonetic()
 			var arrayPicture = Global.phoneticToArrayPicturePath(phonetic)
-			container = Global.putBorelInHboxContainer(arrayPicture, get_viewport().size.x - 120, get_viewport().size.y / 5)
+			container = Global.putBorelInHboxContainer(arrayPicture, get_viewport().size.x, get_viewport().size.y / 2.5)
 			find_node("ImgBorel").add_child(container)
 			find_node("Word").set_text(myWords[ind].getWord())
 	incremented = false
+	find_node("WordDetails").popup_centered_ratio(1)
+	find_node("backgroundDark").visible = true
 
 
 func _process(delta):
@@ -139,7 +157,8 @@ func _process(delta):
 				if(Global.level == 2):
 					board[ind_prec].texture = load("res://art/images/"+board[ind_prec].getPath())
 				incremented = true
-				_change()
+				_changeColor()
+				_on_WordDetails_popup_hide()
 		elif(incremented == false):
 			find_node("Boo").playing = true
 			incremented = true
@@ -180,4 +199,19 @@ func _on_Back_pressed():
 
 
 func _on_Next_pressed():
-	_change()
+	_changeColor()
+	_on_WordDetails_popup_hide()
+
+
+func _on_WordDetails_popup_hide():
+	if(find_node("backgroundDark") != null):
+		find_node("backgroundDark").visible = false
+	find_node("WordDetails").visible = false
+	find_node("Timer").start()
+
+
+func _on_Timer_timeout():
+	if(index >= myWords.size()):
+		get_tree().change_scene("res://GameEnd.tscn")
+	else :
+		_change()

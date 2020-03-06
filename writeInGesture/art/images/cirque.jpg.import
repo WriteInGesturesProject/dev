@@ -14,8 +14,8 @@ dest_files=[ "res://.import/cirque.jpg-788fc718eff2a6e2bfcf1e104953a48f.stex" ]
 
 [params]
 
-compress/mode=0
-compress/lossy_quality=0.7
+compress/mode=1
+compress/lossy_quality=0.1
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0

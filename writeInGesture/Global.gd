@@ -151,7 +151,6 @@ func putBorelInHboxContainer(array : Array, lenghtX, lenghtY) :
 		#put in center of the controller parent 
 		imgBorel.rect_position.x = control.rect_size.x/2-imgBorel.rect_size.x/2
 		
-		
 	return hbox
 	
 #Create an array of picturePath from a phonetic 

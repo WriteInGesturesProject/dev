@@ -83,14 +83,13 @@ func _ready():
 		find_node("Word").text = myWords[ind].getWord()
 	board[0].modulate = "e86767"
 	find_node("Image").texture = load("res://art/images/"+ myWords[0].getPath())
-	find_node("WordDetails").popup_centered_ratio(1)
-	find_node("backgroundDark").visible = true
 	Global.score = 0
 	Global.try = []
 	for i in myWords:
 		Global.try.append(false)
 	find_node("Speak").rect_position.y += (find_node("Image").rect_size.y - 2*find_node("Speak").rect_size.y)/2
 	find_node("Record").rect_position.y += (find_node("Image").rect_size.y - 2*find_node("Speak").rect_size.y)/2
+	find_node("Timer").start()
 
 func _changeColor():
 	index += 1
@@ -195,6 +194,9 @@ func _on_Record_pressed():
 
 
 func _on_Back_pressed():
+	if(find_node("backgroundDark") != null):
+		find_node("backgroundDark").visible = false
+	find_node("WordDetails").visible = false
 	get_tree().change_scene("res://GameLevel.tscn")
 
 
@@ -213,5 +215,8 @@ func _on_WordDetails_popup_hide():
 func _on_Timer_timeout():
 	if(index >= myWords.size()):
 		get_tree().change_scene("res://GameEnd.tscn")
+	elif(index == 0) :
+		find_node("WordDetails").popup_centered_ratio(1)
+		find_node("backgroundDark").visible = true
 	else :
 		_change()

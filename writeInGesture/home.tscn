@@ -8,11 +8,11 @@
 [ext_resource path="res://fonts/background.png" type="Texture" id=6]
 [ext_resource path="res://resetPassword.gd" type="Script" id=7]
 [ext_resource path="res://login.gd" type="Script" id=8]
-[ext_resource path="res://art/gold.jpg" type="Texture" id=9]
-[ext_resource path="res://art/silver.jpg" type="Texture" id=10]
+[ext_resource path="res://art/goldCoin.png" type="Texture" id=9]
+[ext_resource path="res://art/silverCoin.png" type="Texture" id=10]
 [ext_resource path="res://icon.png" type="Texture" id=11]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 40
 font_data = ExtResource( 1 )
 
@@ -22,8 +22,7 @@ anchor_bottom = 1.0
 theme = ExtResource( 4 )
 script = ExtResource( 3 )
 __meta__ = {
-"_edit_use_anchors_": false,
-"_edit_vertical_guides_": [ -25.9097 ]
+"_edit_use_anchors_": false
 }
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -67,22 +66,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Coin" type="HBoxContainer" parent="Main/MainVbox"]
+[node name="marginCoinBox" type="MarginContainer" parent="Main/MainVbox"]
 margin_top = 4.0
 margin_right = 1024.0
 margin_bottom = 66.0
+
+[node name="CoinBox" type="HBoxContainer" parent="Main/MainVbox/marginCoinBox"]
+margin_right = 1024.0
+margin_bottom = 62.0
 custom_constants/separation = 60
 alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control" type="Control" parent="Main/MainVbox/Coin"]
+[node name="Control" type="Control" parent="Main/MainVbox/marginCoinBox/CoinBox"]
 margin_left = 784.0
 margin_right = 784.0
 margin_bottom = 62.0
 
-[node name="TextureRect" type="TextureRect" parent="Main/MainVbox/Coin/Control"]
+[node name="goldCoinPicture" type="TextureRect" parent="Main/MainVbox/marginCoinBox/CoinBox/Control"]
 margin_right = 50.0
 margin_bottom = 50.0
 texture = ExtResource( 9 )
@@ -91,7 +94,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Gold" type="Label" parent="Main/MainVbox/Coin"]
+[node name="Gold" type="Label" parent="Main/MainVbox/marginCoinBox/CoinBox"]
 margin_left = 844.0
 margin_right = 884.0
 margin_bottom = 62.0
@@ -100,12 +103,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control2" type="Control" parent="Main/MainVbox/Coin"]
+[node name="Control2" type="Control" parent="Main/MainVbox/marginCoinBox/CoinBox"]
 margin_left = 944.0
 margin_right = 944.0
 margin_bottom = 62.0
 
-[node name="TextureRect" type="TextureRect" parent="Main/MainVbox/Coin/Control2"]
+[node name="silverCoinPicture" type="TextureRect" parent="Main/MainVbox/marginCoinBox/CoinBox/Control2"]
 margin_right = 50.0
 margin_bottom = 50.0
 texture = ExtResource( 10 )
@@ -114,7 +117,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Silver" type="Label" parent="Main/MainVbox/Coin"]
+[node name="Silver" type="Label" parent="Main/MainVbox/marginCoinBox/CoinBox"]
 margin_left = 1004.0
 margin_right = 1024.0
 margin_bottom = 62.0
@@ -185,7 +188,7 @@ margin_top = 66.0
 margin_right = 227.0
 margin_bottom = 106.0
 theme = ExtResource( 4 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Xavier L'autiste"
 align = 1
 

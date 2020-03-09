@@ -14,34 +14,65 @@ var struct =["CV","CVV","CVC"]
 var wordFinal =[]
 var lineStruct
 
-
+var margin = 0.05
+var marginVector 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	find_node("HBoxMain").add_constant_override("separation", get_viewport().size.x/6)
+	Global.make_margin(find_node("Margin"), margin)
+	marginVector = (get_viewport().size)*(1- margin)
+	
+	#Put responsive Vbox
+	find_node("HBoxMain").add_constant_override("separation", marginVector.x/6)
+	var ybox = marginVector.y*0.75
+	var yrest = marginVector.y*0.25
+	find_node("NbSyllableContainer").rect_min_size = Vector2(marginVector.x/3,ybox)
+	find_node("StructSyllableContainer").rect_min_size = Vector2(marginVector.x/3,ybox)
+	
+	yrest = yrest - find_node("Label").rect_size.y
+	find_node("Creation").rect_min_size.y = yrest/2
+	yrest = yrest/2
+	find_node("Main").add_constant_override("separation", yrest/3)
+	
+	
 	for el in range (0,syllable.size()) :
 		var button = CheckBox.new()
 		button.name = String(el+1)
 		button.text = syllable[el]
-		button.flat = true
+		button.flat = false
+		button.rect_min_size = Vector2(0,marginVector.y*0.75/(syllable.size()/0.75))
 		button.align = Button.ALIGN_CENTER
+		button.theme = load("res://fonts/ButtonTheme.tres")
 		find_node("NbSyllableContainer").add_child(button)
 		buttonPress.append(button)
-		
+		ybox = ybox - button.rect_size.y
+	
+	find_node("NbSyllableContainer").add_constant_override("separation", ybox/(syllable.size()+2))
+	ybox = marginVector.y*0.75
+	
 	for el in struct :
 		var button = CheckBox.new()
 		button.name = el
 		button.text = el
-		button.flat = true
+		button.flat = false
+		button.theme = load("res://fonts/ButtonTheme.tres")
+		button.rect_min_size = Vector2(0,marginVector.y*0.75/(syllable.size()/0.75))
 		button.align = Button.ALIGN_CENTER
 		find_node("StructSyllableContainer").add_child(button)
 		buttonPress.append(button)
+		ybox = ybox - button.rect_size.y
 	
+	var vbox = VBoxContainer.new()
 	var labelStruct = Label.new()
 	labelStruct.text = "Autre"
-	find_node("StructSyllableContainer").add_child(labelStruct)
+	find_node("StructSyllableContainer").add_child(vbox)
 	lineStruct = LineEdit.new()
 	lineStruct.max_length = 20
-	find_node("StructSyllableContainer").add_child(lineStruct)
+	ybox = ybox - labelStruct.rect_size.y
+	ybox = ybox - lineStruct.rect_size.y
+	vbox.add_child(labelStruct)
+	vbox.add_child(lineStruct)
+	
+	find_node("StructSyllableContainer").add_constant_override("separation", ybox/(struct.size()+4))
 
 func _on_retour_pressed():
 	get_tree().change_scene("res://speechTherapistMenu.tscn")

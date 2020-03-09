@@ -23,5 +23,15 @@ func _on_ListenChoose_pressed():
 	get_tree().change_scene("res://GameLevel.tscn")
 
 
+func _on_MemoryGame_pressed():
+	Global.play = 3
+	Global.score = 0
+	Global.current_ex = Global.memoryExercise
+	get_tree().change_scene("res://MemoryGame.tscn")
+
+
 func _on_Back_pressed():
 	get_tree().change_scene("res://home.tscn")
+
+
+

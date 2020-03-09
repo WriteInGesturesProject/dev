@@ -42,20 +42,20 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 margin_left = 120.0
 margin_top = 80.0
-margin_right = 999.0
+margin_right = 987.0
 margin_bottom = 520.0
 theme = ExtResource( 2 )
 custom_constants/separation = 100
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-margin_left = 6.0
-margin_right = 406.0
+margin_left = 18.0
+margin_right = 418.0
 margin_bottom = 440.0
 
 [node name="availableWords" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 margin_right = 400.0
-margin_bottom = 62.0
+margin_bottom = 29.0
 size_flags_vertical = 0
 custom_colors/font_color = Color( 0.901961, 0.905882, 0.858824, 1 )
 text = "Mots ajoutés :"
@@ -64,7 +64,7 @@ __meta__ = {
 }
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 66.0
+margin_top = 33.0
 margin_right = 400.0
 margin_bottom = 440.0
 size_flags_horizontal = 3
@@ -78,14 +78,14 @@ theme = ExtResource( 2 )
 custom_constants/separation = 10
 
 [node name="editContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-margin_left = 506.0
-margin_right = 873.0
+margin_left = 518.0
+margin_right = 849.0
 margin_bottom = 440.0
 custom_constants/separation = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/editContainer"]
-margin_right = 367.0
-margin_bottom = 102.0
+margin_right = 331.0
+margin_bottom = 69.0
 rect_clip_content = true
 
 [node name="addWordField" type="TextEdit" parent="MarginContainer/HBoxContainer/editContainer/HBoxContainer"]
@@ -97,25 +97,25 @@ rect_min_size = Vector2( 150, 0 )
 [node name="newWord" type="Label" parent="MarginContainer/HBoxContainer/editContainer/HBoxContainer"]
 margin_top = 20.0
 margin_right = 200.0
-margin_bottom = 82.0
+margin_bottom = 49.0
 rect_min_size = Vector2( 200, 0 )
 custom_colors/font_color = Color( 0.901961, 0.905882, 0.858824, 1 )
 
 [node name="addWord" type="Button" parent="MarginContainer/HBoxContainer/editContainer/HBoxContainer"]
 margin_left = 204.0
-margin_right = 367.0
-margin_bottom = 102.0
+margin_right = 331.0
+margin_bottom = 69.0
 theme = ExtResource( 3 )
 text = "Ajouter"
 
 [node name="keyBoardContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer/editContainer"]
-margin_top = 112.0
-margin_right = 367.0
-margin_bottom = 112.0
+margin_top = 79.0
+margin_right = 331.0
+margin_bottom = 79.0
 
 [node name="gridKeyboard" type="GridContainer" parent="MarginContainer/HBoxContainer/editContainer/keyBoardContainer"]
-margin_left = 183.0
-margin_right = 183.0
+margin_left = 165.0
+margin_right = 165.0
 theme = ExtResource( 2 )
 columns = 6
 __meta__ = {
@@ -123,14 +123,14 @@ __meta__ = {
 }
 
 [node name="stateAddLabel" type="Label" parent="MarginContainer/HBoxContainer/editContainer"]
-margin_top = 122.0
-margin_right = 367.0
-margin_bottom = 184.0
+margin_top = 89.0
+margin_right = 331.0
+margin_bottom = 118.0
 
 [node name="Creation" type="Button" parent="MarginContainer/HBoxContainer/editContainer"]
-margin_top = 194.0
-margin_right = 367.0
-margin_bottom = 296.0
+margin_top = 128.0
+margin_right = 331.0
+margin_bottom = 197.0
 theme = ExtResource( 3 )
 text = "Creer l'exercice"
 
@@ -203,162 +203,162 @@ __meta__ = {
 
 [node name="addWordLabel2" type="Label" parent="Popup2/VBoxPopup2"]
 margin_right = 867.0
-margin_bottom = 62.0
+margin_bottom = 29.0
 text = "Ajout du mot "
 align = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 66.0
+margin_top = 33.0
 margin_right = 867.0
-margin_bottom = 138.0
+margin_bottom = 72.0
 alignment = 1
 
 [node name="Phonetic" type="Label" parent="Popup2/VBoxPopup2/HBoxContainer2"]
-margin_left = 247.0
+margin_left = 299.0
 margin_top = 5.0
-margin_right = 462.0
-margin_bottom = 67.0
+margin_right = 458.0
+margin_bottom = 34.0
 text = "Phonetique : "
 
 [node name="LinePhonetic" type="LineEdit" parent="Popup2/VBoxPopup2/HBoxContainer2"]
-margin_left = 466.0
-margin_right = 620.0
-margin_bottom = 72.0
+margin_left = 462.0
+margin_right = 568.0
+margin_bottom = 39.0
 max_length = 20
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 142.0
+margin_top = 76.0
 margin_right = 867.0
-margin_bottom = 214.0
+margin_bottom = 115.0
 alignment = 1
 
 [node name="Word" type="Label" parent="Popup2/VBoxPopup2/HBoxContainer3"]
-margin_left = 309.0
+margin_left = 348.0
 margin_top = 5.0
-margin_right = 399.0
-margin_bottom = 67.0
+margin_right = 409.0
+margin_bottom = 34.0
 text = "Mot :"
 
 [node name="LineWord" type="LineEdit" parent="Popup2/VBoxPopup2/HBoxContainer3"]
-margin_left = 403.0
-margin_right = 557.0
-margin_bottom = 72.0
+margin_left = 413.0
+margin_right = 519.0
+margin_bottom = 39.0
 max_length = 20
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 218.0
+margin_top = 119.0
 margin_right = 867.0
-margin_bottom = 290.0
+margin_bottom = 158.0
 alignment = 1
 
 [node name="NbSyllable" type="Label" parent="Popup2/VBoxPopup2/HBoxContainer4"]
-margin_left = 197.0
+margin_left = 263.0
 margin_top = 5.0
-margin_right = 511.0
-margin_bottom = 67.0
+margin_right = 493.0
+margin_bottom = 34.0
 text = "Nombre de Syllabe"
 
 [node name="LineNbSyllable" type="LineEdit" parent="Popup2/VBoxPopup2/HBoxContainer4"]
-margin_left = 515.0
-margin_right = 669.0
-margin_bottom = 72.0
+margin_left = 497.0
+margin_right = 603.0
+margin_bottom = 39.0
 max_length = 20
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 294.0
+margin_top = 162.0
 margin_right = 867.0
-margin_bottom = 366.0
+margin_bottom = 201.0
 alignment = 1
 
 [node name="Struct" type="Label" parent="Popup2/VBoxPopup2/HBoxContainer5"]
-margin_left = 189.0
+margin_left = 256.0
 margin_top = 5.0
-margin_right = 520.0
-margin_bottom = 67.0
+margin_right = 500.0
+margin_bottom = 34.0
 text = "Structure Syllabique"
 
 [node name="LineStruct" type="LineEdit" parent="Popup2/VBoxPopup2/HBoxContainer5"]
-margin_left = 524.0
-margin_right = 678.0
-margin_bottom = 72.0
+margin_left = 504.0
+margin_right = 610.0
+margin_bottom = 39.0
 max_length = 20
 
 [node name="HBoxContainer6" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 370.0
+margin_top = 205.0
 margin_right = 867.0
-margin_bottom = 442.0
+margin_bottom = 244.0
 alignment = 1
 
 [node name="VoyelsType" type="Label" parent="Popup2/VBoxPopup2/HBoxContainer6"]
-margin_left = 223.0
+margin_left = 282.0
 margin_top = 5.0
-margin_right = 485.0
-margin_bottom = 67.0
+margin_right = 474.0
+margin_bottom = 34.0
 text = "Type de voyelle"
 
 [node name="LineVoyelsType" type="LineEdit" parent="Popup2/VBoxPopup2/HBoxContainer6"]
-margin_left = 489.0
-margin_right = 643.0
-margin_bottom = 72.0
+margin_left = 478.0
+margin_right = 584.0
+margin_bottom = 39.0
 max_length = 20
 
 [node name="HBoxContainer7" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 446.0
+margin_top = 248.0
 margin_right = 867.0
-margin_bottom = 518.0
+margin_bottom = 287.0
 alignment = 1
 
 [node name="ConsType" type="Label" parent="Popup2/VBoxPopup2/HBoxContainer7"]
-margin_left = 206.0
+margin_left = 268.0
 margin_top = 5.0
-margin_right = 502.0
-margin_bottom = 67.0
+margin_right = 489.0
+margin_bottom = 34.0
 text = "Type de consonne"
 
 [node name="LineConsType" type="LineEdit" parent="Popup2/VBoxPopup2/HBoxContainer7"]
-margin_left = 506.0
-margin_right = 660.0
-margin_bottom = 72.0
+margin_left = 493.0
+margin_right = 599.0
+margin_bottom = 39.0
 max_length = 20
 
 [node name="HBoxContainer8" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 522.0
+margin_top = 291.0
 margin_right = 867.0
-margin_bottom = 624.0
+margin_bottom = 360.0
 alignment = 1
 
 [node name="SearchButton" type="Button" parent="Popup2/VBoxPopup2/HBoxContainer8"]
-margin_left = 65.0
-margin_right = 470.0
-margin_bottom = 102.0
+margin_left = 149.0
+margin_right = 463.0
+margin_bottom = 69.0
 theme = ExtResource( 3 )
 text = "Rechercher une image"
 
 [node name="OpenButton" type="Button" parent="Popup2/VBoxPopup2/HBoxContainer8"]
-margin_left = 474.0
-margin_right = 802.0
-margin_bottom = 102.0
+margin_left = 467.0
+margin_right = 718.0
+margin_bottom = 69.0
 theme = ExtResource( 3 )
 text = "Ouvrir une image"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 628.0
+margin_top = 364.0
 margin_right = 867.0
-margin_bottom = 730.0
+margin_bottom = 433.0
 custom_constants/separation = 20
 alignment = 1
 
 [node name="Confirm" type="Button" parent="Popup2/VBoxPopup2/HBoxContainer"]
-margin_left = 233.0
-margin_right = 441.0
-margin_bottom = 102.0
+margin_left = 277.0
+margin_right = 437.0
+margin_bottom = 69.0
 theme = ExtResource( 3 )
 text = "Confirmer"
 
 [node name="Cancel" type="Button" parent="Popup2/VBoxPopup2/HBoxContainer"]
-margin_left = 461.0
-margin_right = 633.0
-margin_bottom = 102.0
+margin_left = 457.0
+margin_right = 590.0
+margin_bottom = 69.0
 theme = ExtResource( 3 )
 text = "Annuler"
 
@@ -369,8 +369,8 @@ window_title = "Ouvrir un fichier"
 mode = 0
 access = 2
 filters = PoolStringArray( "*.png ; PNG Images", "*.jpg ; JPG Images", "*.jpeg ; JPEG Images" )
-current_dir = "/home/chabrema/5A/S10/dev/writeInGesture"
-current_path = "/home/chabrema/5A/S10/dev/writeInGesture/"
+current_dir = "/mnt/DATA/Polytech/S10/Projet/dev/writeInGesture"
+current_path = "/mnt/DATA/Polytech/S10/Projet/dev/writeInGesture/"
 [connection signal="pressed" from="MarginContainer/HBoxContainer/editContainer/HBoxContainer/addWord" to="." method="_on_addWord_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/editContainer/Creation" to="." method="_on_Creation_pressed"]
 [connection signal="pressed" from="retour" to="." method="_on_Retour_pressed"]

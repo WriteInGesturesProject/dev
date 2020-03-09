@@ -37,6 +37,7 @@ func makeListWord() :
 		find_node("wordsAvailableContainer").add_child(createAvailableWordsList(word))
 	pass
 
+
 func _createKeyboard():
 	for b in Global.phoneticDictionnary:
 		for w in Global.phoneticDictionnary[b]:
@@ -61,7 +62,8 @@ func _on_keyButton_pressed(keyButton):
 		newWordLabel.text[-1] = ""
 	elif (keyButton.text != "delete") :
 		newWordLabel.text += keyButton.text.split("[")[1].split("]")[0]
-	
+
+
 func _on_addWord_pressed():
 	var stateAddLabel = find_node("stateAddLabel")
 	stateAddLabel.add_color_override("font_color", Color(0,0,0))
@@ -196,8 +198,8 @@ func _on_Creation_pressed():
 	Global.gooseExercise = creation.creationExercise(Global.gooseExercise, wordsAvailable.getAllWords())
 	print("Creation of listen exercise")
 	Global.listenExercise = creation.creationExercise(Global.listenExercise, wordsAvailable.getAllWords())
-	print("Creation of third exercise")
-	Global.thirdExercise = creation.creationExercise(Global.thirdExercise, wordsAvailable.getAllWords())
+	print("Creation of memory exercise")
+	Global.memoryExercise = creation.creationExercise(Global.memoryExercise, wordsAvailable.getAllWords())
 	
 	
 	find_node("stateAddLabel").text = "L'exercice a bien été créé "

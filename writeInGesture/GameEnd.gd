@@ -22,6 +22,8 @@ func _ready():
 		total /= 3
 	elif(Global.play == 1 && total > 22):
 		total = 22
+	elif(Global.play == 3):
+		total = Global.max_cards
 	var percent : float = float(Global.score) / total * 100
 	var comment = ""
 	if(percent < 50):

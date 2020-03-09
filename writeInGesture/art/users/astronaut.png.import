@@ -14,8 +14,8 @@ dest_files=[ "res://.import/astronaut.png-72c3a79b370044d4fff3e7887a7aa7a4.stex"
 
 [params]
 
-compress/mode=0
-compress/lossy_quality=0.7
+compress/mode=1
+compress/lossy_quality=0.1
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0

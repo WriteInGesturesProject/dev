@@ -14,8 +14,8 @@ dest_files=[ "res://.import/onze.png-57fb7d25d63c130b2ea150bddc88b7c0.stex" ]
 
 [params]
 
-compress/mode=0
-compress/lossy_quality=0.7
+compress/mode=1
+compress/lossy_quality=0.1
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0

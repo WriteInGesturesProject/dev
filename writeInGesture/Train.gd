@@ -26,28 +26,25 @@ func _ready():
 	
 	if(Global.game == 2):
 		find_node("Number").set_text(myWords[index].getPath())
-		find_node("TextureRect2").visible = false
+		find_node("Image").visible = false
 		find_node("Number").visible = true
 		find_node("Word").set_text(myWords[index].getWord())
 	else :
-		find_node("TextureRect2").texture = load("res://art/" + myWords[index].getPath())
+		find_node("Image").texture = load("res://art/images/"+myWords[index].getPath())
 	var phonetic = myWords[index].getPhonetic()
 	var arrayPicture = Global.phoneticToArrayPicturePath(phonetic)
-	container =  Global.putBorelInHboxContainer(arrayPicture, get_viewport().size.x, min(get_viewport().size.y/2,get_viewport().size.x/arrayPicture.size()))
-	
+	container =  Global.putBorelInHboxContainer(arrayPicture, get_viewport().size.x, min(get_viewport().size.y/2.3,get_viewport().size.x/arrayPicture.size()))
 	find_node("ImgBorel").add_child(container)
 	find_node("Word").set_text(myWords[index].getWord())
+	find_node("Image").rect_size.x = get_viewport().size.y / 2.3
+	find_node("Image").rect_size.y = get_viewport().size.y / 2.3
+	find_node("Box").add_constant_override("separation", get_viewport().size.y / 2.3 + 50)
 	Global.score = 0
 
 
 func _process(delta):
-	if(stt != null && stt.isListening()):
-		find_node("Record").set_text("En écoute")
-	if(stt != null && !stt.isListening()):
-		find_node("Record").set_text("Enregistrer")
 	if(stt != null && display && stt.isDetectDone()):
 		words = stt.getWords()
-		find_node("Record").set_text("Vous avez dit : " + words)
 		if(words == find_node("Number").text || Global.check_words(words, myWords[index])):
 			find_node("Oui").visible = true
 			find_node("Non").visible = false
@@ -70,7 +67,6 @@ func _on_Back_pressed():
 
 func _on_Next_pressed():
 	find_node("Record").disabled = false
-	find_node("Record").set_text("Enregistrer")
 	find_node("Oui").visible = false
 	find_node("Non").visible = false
 	display = false
@@ -83,16 +79,19 @@ func _on_Next_pressed():
 				get_tree().change_scene("res://GameEnd.tscn")
 			else:
 				find_node("Number").set_text(myWords[index].getPath())
-				find_node("TextureRect2").visible = false
+				find_node("Image").visible = false
 				find_node("Word").visible = true
 				find_node("Word").set_text(myWords[index].getWord())
 		else :
-			find_node("TextureRect2").texture = load("res://art/"+myWords[index].getPath())
+			find_node("Image").rect_size.x = get_viewport().size.y / 2.3
+			find_node("Image").rect_size.y = get_viewport().size.y / 2.3
+			find_node("Box").add_constant_override("separation", get_viewport().size.y / 2.3 + 50)
+			find_node("Image").texture = load("res://art/images/"+myWords[index].getPath())
 		container.remove_and_skip()
 		container.name = "HBoxContainer"
 		var phonetic = myWords[index].getPhonetic()
 		var arrayPicture = Global.phoneticToArrayPicturePath(phonetic)
-		container =  Global.putBorelInHboxContainer(arrayPicture, get_viewport().size.x, min(get_viewport().size.y/2,get_viewport().size.x/arrayPicture.size()))
+		container =  Global.putBorelInHboxContainer(arrayPicture, get_viewport().size.x, min(get_viewport().size.y/2.3,get_viewport().size.x/arrayPicture.size()))
 		find_node("ImgBorel").add_child(container)
 		find_node("Word").set_text(myWords[index].getWord())
 	incremented = false
@@ -101,7 +100,6 @@ func _on_Next_pressed():
 func _on_Speak_pressed():
 	if(stt != null && stt.isListening()):
 		stt.stopListen()
-		find_node("Record").set_text("Enregistrer")
 	if(tts != null):
 		var text = find_node("Word").text
 		match os:

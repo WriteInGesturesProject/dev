@@ -24,59 +24,57 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+[node name="Margin" type="MarginContainer" parent="TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_right = -20.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer"]
-margin_right = 984.0
+[node name="Main" type="VBoxContainer" parent="TextureRect/Margin"]
+margin_right = 1024.0
 margin_bottom = 600.0
-custom_constants/separation = 33
 
-[node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer"]
-margin_right = 984.0
-margin_bottom = 62.0
+[node name="Label" type="Label" parent="TextureRect/Margin/Main"]
+margin_right = 1024.0
+margin_bottom = 29.0
 text = "Choix d'exercice prédefinis"
 align = 1
+percent_visible = -0.04
 
-[node name="HBoxMain" type="HBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer"]
-margin_top = 95.0
-margin_right = 984.0
-margin_bottom = 157.0
+[node name="HBoxMain" type="HBoxContainer" parent="TextureRect/Margin/Main"]
+margin_top = 33.0
+margin_right = 1024.0
+margin_bottom = 62.0
 alignment = 1
 
-[node name="NbSyllableContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer/HBoxMain"]
-margin_left = 173.0
-margin_right = 481.0
-margin_bottom = 62.0
+[node name="NbSyllableContainer" type="VBoxContainer" parent="TextureRect/Margin/Main/HBoxMain"]
+margin_left = 275.0
+margin_right = 503.0
+margin_bottom = 29.0
 
-[node name="NbSyllableLabel" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/HBoxMain/NbSyllableContainer"]
-margin_right = 308.0
-margin_bottom = 62.0
+[node name="NbSyllableLabel" type="Label" parent="TextureRect/Margin/Main/HBoxMain/NbSyllableContainer"]
+margin_right = 228.0
+margin_bottom = 29.0
 text = "Nombre de syllabe"
 align = 1
 
-[node name="StructSyllableContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer/HBoxMain"]
-margin_left = 485.0
-margin_right = 810.0
-margin_bottom = 62.0
+[node name="StructSyllableContainer" type="VBoxContainer" parent="TextureRect/Margin/Main/HBoxMain"]
+margin_left = 507.0
+margin_right = 749.0
+margin_bottom = 29.0
 
-[node name="StructSyllableLabel" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/HBoxMain/StructSyllableContainer"]
-margin_right = 325.0
-margin_bottom = 62.0
+[node name="StructSyllableLabel" type="Label" parent="TextureRect/Margin/Main/HBoxMain/StructSyllableContainer"]
+margin_right = 242.0
+margin_bottom = 29.0
 text = "Structure syllabique"
 align = 1
 
-[node name="Creation" type="Button" parent="TextureRect/MarginContainer/VBoxContainer"]
-margin_left = 344.0
-margin_top = 190.0
-margin_right = 640.0
-margin_bottom = 292.0
+[node name="Creation" type="Button" parent="TextureRect/Margin/Main"]
+margin_left = 396.0
+margin_top = 66.0
+margin_right = 627.0
+margin_bottom = 135.0
 size_flags_horizontal = 4
 theme = ExtResource( 1 )
 text = "Créer l'exercice"
@@ -163,7 +161,6 @@ __meta__ = {
 }
 
 [node name="ConfirmationPopup" type="Popup" parent="."]
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -181,9 +178,9 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="ConfirmationPopup/VBoxContainer"]
-margin_top = 269.0
+margin_top = 285.0
 margin_right = 1024.0
-margin_bottom = 331.0
+margin_bottom = 314.0
 size_flags_vertical = 1
 text = "L'exercice a bien été crée"
 align = 1
@@ -193,7 +190,7 @@ __meta__ = {
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
-[connection signal="pressed" from="TextureRect/MarginContainer/VBoxContainer/Creation" to="." method="_on_Creation_pressed"]
+[connection signal="pressed" from="TextureRect/Margin/Main/Creation" to="." method="_on_Creation_pressed"]
 [connection signal="pressed" from="retour" to="." method="_on_retour_pressed"]
 [connection signal="popup_hide" from="Popup" to="." method="_on_Popup_popup_hide"]
 [connection signal="gui_input" from="Popup/VBoxContainer/ScrollContainer" to="." method="_on_ScrollContainer_gui_input"]

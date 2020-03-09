@@ -69,11 +69,11 @@ __meta__ = {
 [node name="marginCoinBox" type="MarginContainer" parent="Main/MainVbox"]
 margin_top = 4.0
 margin_right = 1024.0
-margin_bottom = 66.0
+margin_bottom = 40.0
 
 [node name="CoinBox" type="HBoxContainer" parent="Main/MainVbox/marginCoinBox"]
 margin_right = 1024.0
-margin_bottom = 62.0
+margin_bottom = 36.0
 custom_constants/separation = 60
 alignment = 2
 __meta__ = {
@@ -81,9 +81,9 @@ __meta__ = {
 }
 
 [node name="Control" type="Control" parent="Main/MainVbox/marginCoinBox/CoinBox"]
-margin_left = 784.0
-margin_right = 784.0
-margin_bottom = 62.0
+margin_left = 787.0
+margin_right = 787.0
+margin_bottom = 36.0
 
 [node name="goldCoinPicture" type="TextureRect" parent="Main/MainVbox/marginCoinBox/CoinBox/Control"]
 margin_right = 50.0
@@ -95,18 +95,18 @@ __meta__ = {
 }
 
 [node name="Gold" type="Label" parent="Main/MainVbox/marginCoinBox/CoinBox"]
-margin_left = 844.0
-margin_right = 884.0
-margin_bottom = 62.0
+margin_left = 847.0
+margin_right = 885.0
+margin_bottom = 36.0
 text = "10"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Control2" type="Control" parent="Main/MainVbox/marginCoinBox/CoinBox"]
-margin_left = 944.0
-margin_right = 944.0
-margin_bottom = 62.0
+margin_left = 945.0
+margin_right = 945.0
+margin_bottom = 36.0
 
 [node name="silverCoinPicture" type="TextureRect" parent="Main/MainVbox/marginCoinBox/CoinBox/Control2"]
 margin_right = 50.0
@@ -118,13 +118,13 @@ __meta__ = {
 }
 
 [node name="Silver" type="Label" parent="Main/MainVbox/marginCoinBox/CoinBox"]
-margin_left = 1004.0
+margin_left = 1005.0
 margin_right = 1024.0
-margin_bottom = 62.0
+margin_bottom = 36.0
 text = "2"
 
 [node name="MainHbox" type="HBoxContainer" parent="Main/MainVbox"]
-margin_top = 70.0
+margin_top = 44.0
 margin_right = 1024.0
 margin_bottom = 600.0
 size_flags_horizontal = 3
@@ -132,15 +132,15 @@ size_flags_vertical = 3
 alignment = 1
 
 [node name="AvatarBox" type="VBoxContainer" parent="Main/MainVbox/MainHbox"]
-margin_left = 168.0
-margin_right = 351.0
-margin_bottom = 530.0
+margin_left = 196.0
+margin_right = 356.0
+margin_bottom = 556.0
 alignment = 1
 
 [node name="Control" type="Control" parent="Main/MainVbox/MainHbox/AvatarBox"]
-margin_top = 212.0
-margin_right = 183.0
-margin_bottom = 212.0
+margin_top = 228.0
+margin_right = 160.0
+margin_bottom = 228.0
 
 [node name="Picture" type="TextureRect" parent="Main/MainVbox/MainHbox/AvatarBox/Control"]
 margin_top = 20.0
@@ -155,9 +155,9 @@ __meta__ = {
 }
 
 [node name="Change" type="Button" parent="Main/MainVbox/MainHbox/AvatarBox"]
-margin_top = 216.0
-margin_right = 183.0
-margin_bottom = 318.0
+margin_top = 232.0
+margin_right = 160.0
+margin_bottom = 328.0
 size_flags_horizontal = 3
 theme = ExtResource( 5 )
 text = "Modifier"
@@ -166,35 +166,35 @@ __meta__ = {
 }
 
 [node name="MainBox" type="VBoxContainer" parent="Main/MainVbox/MainHbox"]
-margin_left = 355.0
-margin_right = 582.0
-margin_bottom = 530.0
+margin_left = 360.0
+margin_right = 570.0
+margin_bottom = 556.0
 custom_constants/separation = 40
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Main/MainVbox/MainHbox/MainBox"]
-margin_top = 70.0
-margin_right = 227.0
-margin_bottom = 176.0
+margin_top = 102.0
+margin_right = 210.0
+margin_bottom = 182.0
 
 [node name="Label" type="Label" parent="Main/MainVbox/MainHbox/MainBox/VBoxContainer"]
-margin_right = 227.0
-margin_bottom = 62.0
+margin_right = 210.0
+margin_bottom = 36.0
 text = "Bienvenue "
 align = 1
 
 [node name="NamePlayer" type="Label" parent="Main/MainVbox/MainHbox/MainBox/VBoxContainer"]
-margin_top = 66.0
-margin_right = 227.0
-margin_bottom = 106.0
+margin_top = 40.0
+margin_right = 210.0
+margin_bottom = 80.0
 theme = ExtResource( 4 )
 custom_fonts/font = SubResource( 1 )
 text = "Xavier L'autiste"
 align = 1
 
 [node name="Play" type="Button" parent="Main/MainVbox/MainHbox/MainBox"]
-margin_top = 216.0
-margin_right = 227.0
+margin_top = 222.0
+margin_right = 210.0
 margin_bottom = 318.0
 size_flags_horizontal = 3
 theme = ExtResource( 5 )
@@ -202,41 +202,41 @@ text = "Jouer"
 
 [node name="Training" type="Button" parent="Main/MainVbox/MainHbox/MainBox"]
 margin_top = 358.0
-margin_right = 227.0
-margin_bottom = 460.0
+margin_right = 210.0
+margin_bottom = 454.0
 size_flags_horizontal = 3
 theme = ExtResource( 5 )
 text = "M'entrainer"
 
 [node name="OrthoBox" type="VBoxContainer" parent="Main/MainVbox/MainHbox"]
-margin_left = 586.0
-margin_right = 856.0
-margin_bottom = 530.0
+margin_left = 574.0
+margin_right = 828.0
+margin_bottom = 556.0
 custom_constants/separation = 200
 alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Main/MainVbox/MainHbox/OrthoBox"]
-margin_top = 43.0
-margin_right = 270.0
-margin_bottom = 43.0
+margin_top = 62.0
+margin_right = 254.0
+margin_bottom = 62.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Main/MainVbox/MainHbox/OrthoBox"]
-margin_top = 243.0
-margin_right = 270.0
-margin_bottom = 487.0
+margin_top = 262.0
+margin_right = 254.0
+margin_bottom = 494.0
 custom_constants/separation = 40
 
 [node name="Help" type="Button" parent="Main/MainVbox/MainHbox/OrthoBox/VBoxContainer"]
-margin_right = 270.0
-margin_bottom = 102.0
+margin_right = 254.0
+margin_bottom = 96.0
 size_flags_horizontal = 3
 theme = ExtResource( 5 )
 text = "Aide"
 
 [node name="Admin" type="Button" parent="Main/MainVbox/MainHbox/OrthoBox/VBoxContainer"]
-margin_top = 142.0
-margin_right = 270.0
-margin_bottom = 244.0
+margin_top = 136.0
+margin_right = 254.0
+margin_bottom = 232.0
 size_flags_horizontal = 3
 theme = ExtResource( 5 )
 text = "Orthophoniste"

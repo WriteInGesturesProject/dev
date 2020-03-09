@@ -21,7 +21,6 @@ var group = [] #array for the three button object
 func mySize(word):
 	var size = 0
 	for i in word:
-		print()
 		if(i.to_ascii()[0] != 3):
 			size += 1
 	if(size == 1):
@@ -42,7 +41,7 @@ func _ready():
 					colorR.color = "5472ae"
 					colorR.rect_size.x = get_viewport().size.y / 2.2
 					colorR.rect_size.y = get_viewport().size.y / 2.2
-					colorR.name = str(b)
+					colorR.name = str(b+1)
 					group.append(colorR)
 					control_img.add_child(colorR)
 					var marg = MarginContainer.new()
@@ -60,7 +59,6 @@ func _ready():
 					var c = 0
 					var phonetic = myWords[index].getPhonetic()
 					var arrayPicture = Global.phoneticToArrayPicturePath(phonetic)
-					print(arrayPicture.size())
 					if(arrayPicture.size() > 3):
 						line1 = Global.putBorelInHboxContainer([arrayPicture[0],arrayPicture[1],arrayPicture[2]], (get_viewport().size.y / 2.3) , (get_viewport().size.y / 2.2)/  4.5)
 						var tab = []
@@ -126,6 +124,7 @@ func _on_control_img_mouse_entered(control):
 			choice = 2
 		"3":
 			choice = 1
+	print(choice)
 	find_node("Validate").disabled = false
 
 func _on_Back_pressed():

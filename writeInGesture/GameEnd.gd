@@ -3,8 +3,29 @@ extends Control
 const Exercise = preload("res://Exercise.gd")
 var Ex : Exercise
 
+var mainBox : VBoxContainer
+var main : MarginContainer
+var coinBox : HBoxContainer
+var size : Vector2
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	mainBox = find_node("MainBox")
+	main = find_node("Main")
+	coinBox = find_node("CoinBox")
+	size = get_viewport().size
+	
+	main.set("custom_constants/margin_right", size.x/20)
+	main.set("custom_constants/margin_left", size.x/20)
+	main.set("custom_constants/margin_top", size.y*0.03)
+	main.set("custom_constants/margin_bottom", size.y*0.03)
+	find_node("MarginCoinBox").set("custom_constants/margin_right", int(size.x*7/120))
+	find_node("MarginCoinBox").set("custom_constants/margin_left", int(size.x*7/120))
+	find_node("Gold").text = str(Global.player.getGold())
+	find_node("Silver").text = str(Global.player.getSilver())
+	
+#	find_node("Logo").rect_size = Vector2(size.y/4,size.y/4)
+#	find_node("Logo").rect_position.x = size.x/2 - size.x/20 - size.y/8
 	Ex = Global.current_ex
 	if(Ex == null):
 		print("Ex in GameEnd is null")

@@ -33,9 +33,8 @@ __meta__ = {
 [node name="GridCards" type="GridContainer" parent="MarginContainer"]
 margin_right = 1024.0
 margin_bottom = 600.0
-custom_constants/vseparation = 20
-custom_constants/hseparation = 20
-columns = 6
+custom_constants/vseparation = 10
+custom_constants/hseparation = 10
 __meta__ = {
 "_edit_use_anchors_": false
 }

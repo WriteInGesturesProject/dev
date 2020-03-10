@@ -1,19 +1,19 @@
 extends TextureButton
 
-var tts
+
+var tts = Global.tts
 var imageWord : String
 var imagePath : String
 var cardPath = "res://art/card2.jpg"
 var selected_cards : Array
 
 
-func init(word, viewport, column : int, selected_cards, tts):
+func init(word, size, column : int, selected_cards : Array):
 	self.selected_cards = selected_cards
-	self.tts = tts
 	set_normal_texture(load(cardPath))
 	set_expand(true)
 	set_stretch_mode(TextureButton.STRETCH_SCALE)
-	rect_size = viewport / (column + 1)
+	rect_min_size = size
 	imagePath = "res://art/images/" + word.getPath()
 	imageWord = word.getWord()
 	connect("pressed", self, "_on_Card_pressed")

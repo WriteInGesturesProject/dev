@@ -51,14 +51,14 @@ __meta__ = {
 [node name="MainContainer" type="MarginContainer" parent="MarginContainer/VBox"]
 margin_top = 4.0
 margin_right = 1024.0
-margin_bottom = 180.0
+margin_bottom = 154.0
 custom_constants/margin_right = 50
 custom_constants/margin_left = 50
 
 [node name="MainBox" type="VBoxContainer" parent="MarginContainer/VBox/MainContainer"]
 margin_left = 50.0
 margin_right = 974.0
-margin_bottom = 176.0
+margin_bottom = 150.0
 theme = ExtResource( 4 )
 
 [node name="Number" type="Label" parent="MarginContainer/VBox/MainContainer/MainBox"]
@@ -72,15 +72,15 @@ align = 1
 
 [node name="Word" type="Label" parent="MarginContainer/VBox/MainContainer/MainBox"]
 margin_right = 924.0
-margin_bottom = 62.0
+margin_bottom = 36.0
 theme = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 
 [node name="Box" type="HBoxContainer" parent="MarginContainer/VBox/MainContainer/MainBox"]
-margin_top = 66.0
+margin_top = 40.0
 margin_right = 924.0
-margin_bottom = 176.0
+margin_bottom = 150.0
 custom_constants/separation = 250
 alignment = 1
 

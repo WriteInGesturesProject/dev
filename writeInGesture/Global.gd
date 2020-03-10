@@ -18,8 +18,9 @@ var score # The score when in game
 var level = 0 # The difficulty (0 -> Easy, 1 -> Medium, 2 -> Hard)
 var nbDifficulty = 3
 var game = 0 # The type of training (1 -> MyGames, 2 -> Count, 3 -> Week, 4 -> Colors)
-var play = 0 # The type of game (1 -> Goose, 2 -> Listen & Choose)
+var play = 0 # The type of game (1 -> Goose, 2 -> Listen & Choose, 3 -> Memory)
 var dev = 0 # Developper mode (0 -> Disabled, 1 -> Enabled)
+var max_cards = 12
 
 var try = [] # Check if the player tapped on record at least once on each word
 
@@ -28,12 +29,12 @@ var config : Config = Config.new()
 var customExercise : Exercise = Exercise.new()
 var gooseExercise : Exercise = Exercise.new()
 var listenExercise : Exercise = Exercise.new()
-var thirdExercise : Exercise = Exercise.new()
+var memoryExercise : Exercise = Exercise.new()
 
 var countExercise : Exercise = Exercise.new()
 var weekExercise : Exercise = Exercise.new()
 var colorExercise : Exercise = Exercise.new()
-var exercises = [customExercise, countExercise, weekExercise, colorExercise, gooseExercise, listenExercise, thirdExercise]
+var exercises = [customExercise, countExercise, weekExercise, colorExercise, gooseExercise, listenExercise, memoryExercise]
 
 var player : Player = Player.new()
 var wordsAvailable : WordsAvailable = WordsAvailable.new()
@@ -94,8 +95,8 @@ func loadEntity():
 	ManageJson.getElement(config.getPathExercisesFiles()[2], "Exercise", listenExercise)
 	listenExercise.setAttribut("nameFile", config.getPathExercisesFiles()[2])
 	
-	ManageJson.getElement(config.getPathExercisesFiles()[3], "Exercise", thirdExercise)
-	thirdExercise.setAttribut("nameFile", config.getPathExercisesFiles()[3])
+	ManageJson.getElement(config.getPathExercisesFiles()[3], "Exercise", memoryExercise)
+	memoryExercise.setAttribut("nameFile", config.getPathExercisesFiles()[3])
 	
 	ManageJson.getElement("wordsAvailable.json", "WordsAvailable", wordsAvailable)
 	wordsAvailable.setAttribut("nameFile", "wordsAvailable.json")

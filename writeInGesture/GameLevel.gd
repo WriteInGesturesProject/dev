@@ -12,7 +12,7 @@ func _ready():
 		2:
 			Global.current_ex = Global.listenExercise
 		3:
-			Global.current_ex = Global.thirdExercise
+			Global.current_ex = Global.memoryExercise
 	var Ex = Global.current_ex
 	if(Ex.getSuccessPercentage(0) >= 50):
 		find_node("TextureRect").visible = false

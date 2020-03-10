@@ -1,10 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Train.gd" type="Script" id=1]
 [ext_resource path="res://art/back.png" type="Texture" id=2]
 [ext_resource path="res://fonts/phonetic.tres" type="Theme" id=4]
-[ext_resource path="res://art/bravo.jpg" type="Texture" id=5]
-[ext_resource path="res://art/nul2.png" type="Texture" id=6]
 [ext_resource path="res://fonts/ButtonTheme.tres" type="Theme" id=7]
 [ext_resource path="res://fonts/background.png" type="Texture" id=8]
 [ext_resource path="res://art/next.png" type="Texture" id=9]
@@ -51,14 +49,14 @@ __meta__ = {
 [node name="MainContainer" type="MarginContainer" parent="MarginContainer/VBox"]
 margin_top = 4.0
 margin_right = 1024.0
-margin_bottom = 180.0
+margin_bottom = 154.0
 custom_constants/margin_right = 50
 custom_constants/margin_left = 50
 
 [node name="MainBox" type="VBoxContainer" parent="MarginContainer/VBox/MainContainer"]
 margin_left = 50.0
 margin_right = 974.0
-margin_bottom = 176.0
+margin_bottom = 150.0
 theme = ExtResource( 4 )
 
 [node name="Number" type="Label" parent="MarginContainer/VBox/MainContainer/MainBox"]
@@ -72,15 +70,15 @@ align = 1
 
 [node name="Word" type="Label" parent="MarginContainer/VBox/MainContainer/MainBox"]
 margin_right = 924.0
-margin_bottom = 62.0
+margin_bottom = 36.0
 theme = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 
 [node name="Box" type="HBoxContainer" parent="MarginContainer/VBox/MainContainer/MainBox"]
-margin_top = 66.0
+margin_top = 40.0
 margin_right = 924.0
-margin_bottom = 176.0
+margin_bottom = 150.0
 custom_constants/separation = 250
 alignment = 1
 
@@ -156,12 +154,10 @@ text = "Enregistrer"
 [node name="Oui" type="Sprite" parent="MarginContainer/VBox/MainContainer/MainBox"]
 position = Vector2( 572.675, 441.745 )
 scale = Vector2( 0.23676, 0.193754 )
-texture = ExtResource( 5 )
 
 [node name="Non" type="Sprite" parent="MarginContainer/VBox/MainContainer/MainBox"]
 position = Vector2( 349.68, 439.193 )
 scale = Vector2( 0.257961, 0.205355 )
-texture = ExtResource( 6 )
 
 [node name="Back" type="Button" parent="."]
 margin_right = 100.0

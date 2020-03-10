@@ -4,8 +4,6 @@
 [ext_resource path="res://art/back.png" type="Texture" id=2]
 [ext_resource path="res://art/icon.png" type="Texture" id=3]
 [ext_resource path="res://fonts/phonetic.tres" type="Theme" id=4]
-[ext_resource path="res://art/bravo.jpg" type="Texture" id=5]
-[ext_resource path="res://art/nul2.png" type="Texture" id=6]
 [ext_resource path="res://fonts/ButtonTheme.tres" type="Theme" id=7]
 [ext_resource path="res://fonts/background.png" type="Texture" id=8]
 [ext_resource path="res://art/next.png" type="Texture" id=9]
@@ -49,14 +47,14 @@ __meta__ = {
 [node name="MainContainer" type="MarginContainer" parent="MarginContainer/VBox"]
 margin_top = 4.0
 margin_right = 1024.0
-margin_bottom = 247.0
+margin_bottom = 154.0
 custom_constants/margin_right = 50
 custom_constants/margin_left = 50
 
 [node name="MainBox" type="VBoxContainer" parent="MarginContainer/VBox/MainContainer"]
 margin_left = 50.0
 margin_right = 974.0
-margin_bottom = 243.0
+margin_bottom = 150.0
 theme = ExtResource( 4 )
 
 [node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBox/MainContainer/MainBox"]
@@ -78,10 +76,67 @@ align = 1
 [node name="Word" type="Label" parent="MarginContainer/VBox/MainContainer/MainBox"]
 margin_top = 68.0
 margin_right = 924.0
-margin_bottom = 97.0
+margin_bottom = 36.0
 theme = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
+
+[node name="Box" type="HBoxContainer" parent="MarginContainer/VBox/MainContainer/MainBox"]
+margin_top = 40.0
+margin_right = 924.0
+margin_bottom = 150.0
+custom_constants/separation = 250
+alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/VBox/MainContainer/MainBox/Box"]
+margin_left = 337.0
+margin_right = 337.0
+margin_bottom = 110.0
+
+[node name="Image" type="TextureRect" parent="MarginContainer/VBox/MainContainer/MainBox/Box/Control"]
+margin_right = 200.0
+margin_bottom = 200.0
+texture = ExtResource( 12 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBox/MainContainer/MainBox/Box"]
+margin_left = 587.0
+margin_right = 587.0
+margin_bottom = 110.0
+custom_constants/separation = 110
+alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/VBox/MainContainer/MainBox/Box/VBoxContainer"]
+
+[node name="Speak" type="TextureButton" parent="MarginContainer/VBox/MainContainer/MainBox/Box/VBoxContainer/Control"]
+margin_right = 100.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 11 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control2" type="Control" parent="MarginContainer/VBox/MainContainer/MainBox/Box/VBoxContainer"]
+margin_top = 110.0
+margin_bottom = 110.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Record" type="TextureButton" parent="MarginContainer/VBox/MainContainer/MainBox/Box/VBoxContainer/Control2"]
+margin_right = 100.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 10 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Speak" type="Button" parent="MarginContainer/VBox/MainContainer/MainBox"]
 margin_top = 101.0
@@ -103,12 +158,10 @@ text = "Enregistrer"
 [node name="Oui" type="Sprite" parent="MarginContainer/VBox/MainContainer/MainBox"]
 position = Vector2( 572.675, 441.745 )
 scale = Vector2( 0.23676, 0.193754 )
-texture = ExtResource( 5 )
 
 [node name="Non" type="Sprite" parent="MarginContainer/VBox/MainContainer/MainBox"]
 position = Vector2( 349.68, 439.193 )
 scale = Vector2( 0.257961, 0.205355 )
-texture = ExtResource( 6 )
 
 [node name="Back" type="Button" parent="."]
 margin_right = 100.0

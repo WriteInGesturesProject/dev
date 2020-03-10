@@ -71,17 +71,20 @@ func _on_allbutton_pressed(arg):
 		var texture = current_scene.find_node("Borel")
 		
 		var image = load("res://art/imgBorel/"+arg.editor_description)
-		texture.rect_position.x = texture.get_parent().rect_position.x
-		texture.rect_position.y = texture.get_parent().rect_position.y+texture.get_parent().rect_size.y/4
 		
+		var video = current_scene.find_node("VideoPlayer")
+		var stream = load("res://art/videoBorel/"+String(arg.editor_description).split(".")[0]+".ogv")
+		
+		if(stream == null):
+			print("res://art/videoBorel/"+String(arg.editor_description).split(".")[0]+".ogv non trouvé")
+		video.set_stream(stream)
 		
 		texture.texture = image
 		texture.expand = true
 		texture.stretch_mode = 6 #TextureRect.STRETCH_SCALE_ON_EXPAND
-		texture.rect_size = Vector2(get_viewport().size.y/2, get_viewport().size.y/2) 
-		texture.get_parent().rect_size = Vector2(get_viewport().size.y/2, get_viewport().size.y/2) 
 		
-		current_scene.find_node("MainBox").add_constant_override("separation", int(get_viewport().size.y/1.7))
+		
+
 		
 
 

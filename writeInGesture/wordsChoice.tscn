@@ -24,113 +24,111 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Margin" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -4.43213
-margin_top = -7.75623
-margin_right = 78.5679
-margin_bottom = -7.75623
-custom_constants/margin_right = 120
-custom_constants/margin_top = 80
-custom_constants/margin_left = 120
-custom_constants/margin_bottom = 80
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-margin_left = 120.0
-margin_top = 80.0
-margin_right = 987.0
-margin_bottom = 520.0
+[node name="MainContainer" type="HBoxContainer" parent="Margin"]
+margin_right = 506.0
+margin_bottom = 146.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme = ExtResource( 2 )
-custom_constants/separation = 100
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-margin_left = 18.0
-margin_right = 418.0
-margin_bottom = 440.0
+[node name="MarginWord" type="MarginContainer" parent="Margin/MainContainer"]
+margin_right = 171.0
+margin_bottom = 146.0
 
-[node name="availableWords" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_right = 400.0
-margin_bottom = 29.0
+[node name="WordsContainer" type="VBoxContainer" parent="Margin/MainContainer/MarginWord"]
+margin_right = 171.0
+margin_bottom = 33.0
+size_flags_horizontal = 0
 size_flags_vertical = 0
+
+[node name="availableWords" type="Label" parent="Margin/MainContainer/MarginWord/WordsContainer"]
+margin_right = 171.0
+margin_bottom = 29.0
+size_flags_vertical = 1
 custom_colors/font_color = Color( 0.901961, 0.905882, 0.858824, 1 )
 text = "Mots ajoutés :"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Margin/MainContainer/MarginWord/WordsContainer"]
 margin_top = 33.0
-margin_right = 400.0
-margin_bottom = 440.0
+margin_right = 171.0
+margin_bottom = 33.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 scroll_horizontal_enabled = false
 
-[node name="wordsAvailableContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer"]
-margin_right = 400.0
-rect_min_size = Vector2( 400, 0 )
+[node name="wordsAvailableContainer" type="VBoxContainer" parent="Margin/MainContainer/MarginWord/WordsContainer/ScrollContainer"]
+margin_right = 171.0
+size_flags_horizontal = 3
 theme = ExtResource( 2 )
 custom_constants/separation = 10
 
-[node name="editContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-margin_left = 518.0
-margin_right = 849.0
-margin_bottom = 440.0
-custom_constants/separation = 10
+[node name="editContainer" type="VBoxContainer" parent="Margin/MainContainer"]
+margin_left = 175.0
+margin_right = 506.0
+margin_bottom = 146.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/editContainer"]
+[node name="HBoxContainerAdd" type="HBoxContainer" parent="Margin/MainContainer/editContainer"]
 margin_right = 331.0
 margin_bottom = 69.0
 rect_clip_content = true
 
-[node name="addWordField" type="TextEdit" parent="MarginContainer/HBoxContainer/editContainer/HBoxContainer"]
-visible = false
-margin_right = 150.0
-margin_bottom = 102.0
-rect_min_size = Vector2( 150, 0 )
-
-[node name="newWord" type="Label" parent="MarginContainer/HBoxContainer/editContainer/HBoxContainer"]
+[node name="newWord" type="Label" parent="Margin/MainContainer/editContainer/HBoxContainerAdd"]
 margin_top = 20.0
 margin_right = 200.0
 margin_bottom = 49.0
 rect_min_size = Vector2( 200, 0 )
 custom_colors/font_color = Color( 0.901961, 0.905882, 0.858824, 1 )
 
-[node name="addWord" type="Button" parent="MarginContainer/HBoxContainer/editContainer/HBoxContainer"]
+[node name="addWord" type="Button" parent="Margin/MainContainer/editContainer/HBoxContainerAdd"]
 margin_left = 204.0
 margin_right = 331.0
 margin_bottom = 69.0
 theme = ExtResource( 3 )
 text = "Ajouter"
 
-[node name="keyBoardContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer/editContainer"]
-margin_top = 79.0
+[node name="keyBoardContainer" type="CenterContainer" parent="Margin/MainContainer/editContainer"]
+margin_top = 73.0
 margin_right = 331.0
-margin_bottom = 79.0
+margin_bottom = 73.0
+size_flags_horizontal = 3
 
-[node name="gridKeyboard" type="GridContainer" parent="MarginContainer/HBoxContainer/editContainer/keyBoardContainer"]
+[node name="gridKeyboard" type="GridContainer" parent="Margin/MainContainer/editContainer/keyBoardContainer"]
 margin_left = 165.0
 margin_right = 165.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource( 2 )
 columns = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="stateAddLabel" type="Label" parent="MarginContainer/HBoxContainer/editContainer"]
-margin_top = 89.0
+[node name="HBoxContainerCreation" type="HBoxContainer" parent="Margin/MainContainer/editContainer"]
+margin_top = 77.0
 margin_right = 331.0
-margin_bottom = 118.0
+margin_bottom = 146.0
+rect_clip_content = true
 
-[node name="Creation" type="Button" parent="MarginContainer/HBoxContainer/editContainer"]
-margin_top = 128.0
+[node name="stateAddLabel" type="Label" parent="Margin/MainContainer/editContainer/HBoxContainerCreation"]
+margin_top = 20.0
+margin_bottom = 49.0
+
+[node name="Creation" type="Button" parent="Margin/MainContainer/editContainer/HBoxContainerCreation"]
+margin_left = 4.0
 margin_right = 331.0
-margin_bottom = 197.0
+margin_bottom = 69.0
+size_flags_horizontal = 3
 theme = ExtResource( 3 )
 text = "Creer l'exercice"
 
@@ -162,33 +160,32 @@ __meta__ = {
 
 [node name="addWordLabel" type="Label" parent="Popup/VBoxPopup"]
 margin_right = 867.0
-margin_bottom = 62.0
+margin_bottom = 29.0
 text = "Test"
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Popup/VBoxPopup"]
-margin_top = 92.0
+margin_top = 59.0
 margin_right = 867.0
-margin_bottom = 194.0
+margin_bottom = 128.0
 custom_constants/separation = 20
 alignment = 1
 
 [node name="yes" type="Button" parent="Popup/VBoxPopup/HBoxContainer"]
-margin_left = 319.0
-margin_right = 419.0
-margin_bottom = 102.0
+margin_left = 339.0
+margin_right = 420.0
+margin_bottom = 69.0
 theme = ExtResource( 3 )
 text = "Oui"
 
 [node name="no" type="Button" parent="Popup/VBoxPopup/HBoxContainer"]
-margin_left = 439.0
-margin_right = 548.0
-margin_bottom = 102.0
+margin_left = 440.0
+margin_right = 528.0
+margin_bottom = 69.0
 theme = ExtResource( 3 )
 text = "Non"
 
 [node name="Popup2" type="WindowDialog" parent="."]
-visible = true
 margin_left = 115.568
 margin_top = 72.2438
 margin_right = 982.568
@@ -369,10 +366,10 @@ window_title = "Ouvrir un fichier"
 mode = 0
 access = 2
 filters = PoolStringArray( "*.png ; PNG Images", "*.jpg ; JPG Images", "*.jpeg ; JPEG Images" )
-current_dir = "/mnt/DATA/Polytech/S10/Projet/dev/writeInGesture"
-current_path = "/mnt/DATA/Polytech/S10/Projet/dev/writeInGesture/"
-[connection signal="pressed" from="MarginContainer/HBoxContainer/editContainer/HBoxContainer/addWord" to="." method="_on_addWord_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/editContainer/Creation" to="." method="_on_Creation_pressed"]
+current_dir = "/home/guillaume/Documents/RICM5/Projet/dev/writeInGesture"
+current_path = "/home/guillaume/Documents/RICM5/Projet/dev/writeInGesture/"
+[connection signal="pressed" from="Margin/MainContainer/editContainer/HBoxContainerAdd/addWord" to="." method="_on_addWord_pressed"]
+[connection signal="pressed" from="Margin/MainContainer/editContainer/HBoxContainerCreation/Creation" to="." method="_on_Creation_pressed"]
 [connection signal="pressed" from="retour" to="." method="_on_Retour_pressed"]
 [connection signal="hide" from="Popup" to="." method="_on_Popup_hide"]
 [connection signal="pressed" from="Popup/VBoxPopup/HBoxContainer/yes" to="." method="_on_yes_pressed"]

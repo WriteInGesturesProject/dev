@@ -10,6 +10,10 @@ const CreationExercise = preload("res://CreationExercise.gd")
 var nameFile = "wordsAvailable"
 var ImagePath = ""
 
+var margin = 0.05
+var marginVector
+
+
 var wordsAvailable : WordsAvailable = Global.wordsAvailable
 var dictionnary : MyDictionnary = Global.wordDictionnary
 
@@ -17,10 +21,33 @@ var bg = ColorRect.new()
 
 #######################################FUNCTION_FOR_SCENE###############################
 func _ready():
+	#####Put margin
+	Global.make_margin(find_node("Margin"), margin)
+	marginVector = (get_viewport().size)*(1- margin)
+	###Put responsive VboxWords
+	var wordsContainer = find_node("WordsContainer")
+	wordsContainer.rect_min_size.x = marginVector.x/4
+	wordsContainer.rect_min_size.y = marginVector.y - find_node("retour").rect_size.y 
+	find_node("MarginWord").set("custom_constants/margin_top", find_node("retour").rect_size.y - get_viewport().size.y * margin)
+	find_node("MainContainer").add_constant_override("separation", marginVector.x/16)
+	
+	#Put responsive VboxEdit
+	find_node("editContainer").rect_min_size.x = marginVector.x*10/16
+	find_node("editContainer").rect_min_size.y = marginVector.y
+	find_node("keyBoardContainer").rect_min_size.y =  marginVector.y*0.6
+	find_node("HBoxContainerAdd").rect_min_size.y = marginVector.y*0.15
+	find_node("HBoxContainerCreation").rect_min_size.y = marginVector.y*0.15
+	find_node("editContainer").add_constant_override("separation", marginVector.y*0.025)
+	find_node("gridKeyboard").rect_min_size.x = marginVector.x*10/16
+	
 	var words : Array = wordsAvailable.getAllWords()
+	
 	makeListWord()
-	_createKeyboard()
+	_createKeyboard(find_node("editContainer").rect_min_size.x,find_node("keyBoardContainer").rect_min_size.y )
 	self.add_child(bg)
+	find_node("MainContainer").rect_position.y = 100+ find_node("retour").rect_size.y
+	
+
 	
 func removeAllChildren(nameNode):
 	# remove all children of nameNode
@@ -37,30 +64,40 @@ func makeListWord() :
 		find_node("wordsAvailableContainer").add_child(createAvailableWordsList(word))
 	pass
 
-
-func _createKeyboard():
+func _createKeyboard(lenghtX : float, lenghtY : float):
+	var sizeWord = 0
+	for b in Global.phoneticDictionnary:
+		for w in Global.phoneticDictionnary[b]:
+			sizeWord += 1
+	
+	
+	find_node("gridKeyboard").columns = sizeWord/4
+	var columsNbWords =  sizeWord/4
+	var rawNbWords = sizeWord/columsNbWords
+	
 	for b in Global.phoneticDictionnary:
 		for w in Global.phoneticDictionnary[b]:
 			var keyButton = Button.new()
 			keyButton.theme = load("res://fonts/phonetic.tres")
 			keyButton.text = w["phonetic"]
 			keyButton.connect("pressed",self,"_on_keyButton_pressed", [keyButton])
-			keyButton.rect_min_size = Vector2(100,0)
+			keyButton.rect_min_size = Vector2(lenghtX*0.95/columsNbWords,lenghtY*0.95/rawNbWords)
+			print(lenghtX/rawNbWords)
 			find_node("gridKeyboard").add_child(keyButton)
 	var keyDeleteButton = Button.new()
-	keyDeleteButton.text = "delete"
-	keyDeleteButton.theme = load("res://fonts/phonetic.tres")
+	keyDeleteButton.text = "Effacer"
+	keyDeleteButton.theme = load("res://fonts/ButtonTheme.tres")
 	keyDeleteButton.connect("pressed",self,"_on_keyButton_pressed", [keyDeleteButton])
-	find_node("gridKeyboard").add_child(keyDeleteButton)
+	find_node("HBoxContainerAdd").add_child(keyDeleteButton)
 	
 
 func _on_keyButton_pressed(keyButton):
 	var newWordLabel = find_node("newWord")
-	if (keyButton.text == "delete") and (newWordLabel.text.length()>0) :
+	if (keyButton.text == "Effacer") and (newWordLabel.text.length()>0) :
 		if(newWordLabel.text[-1].to_ascii()[0] == 3) :
 			newWordLabel.text[-1] = ""
 		newWordLabel.text[-1] = ""
-	elif (keyButton.text != "delete") :
+	elif (keyButton.text != "Effacer") :
 		newWordLabel.text += keyButton.text.split("[")[1].split("]")[0]
 
 

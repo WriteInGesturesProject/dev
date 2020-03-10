@@ -152,7 +152,6 @@ func putBorelInHboxContainer(array : Array, lenghtX, lenghtY) :
 		#put in center of the controller parent 
 		imgBorel.rect_position.x = control.rect_size.x/2-imgBorel.rect_size.x/2
 		
-		
 	return hbox
 	
 #Create an array of picturePath from a phonetic 
@@ -182,3 +181,10 @@ func phoneticToArrayPicturePath(phonetic : String) :
 			arrayPicture.append(img)
 			compt += 1
 	return arrayPicture
+
+func make_margin(margeContainer : MarginContainer, marge):
+	margeContainer.set("custom_constants/margin_top", get_viewport().size.y * marge)
+	margeContainer.set("custom_constants/margin_bottom", get_viewport().size.y * marge)
+	margeContainer.set("custom_constants/margin_left", get_viewport().size.x * marge)
+	margeContainer.set("custom_constants/margin_right", get_viewport().size.x * marge)
+	return 

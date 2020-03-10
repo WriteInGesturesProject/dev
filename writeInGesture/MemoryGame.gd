@@ -11,16 +11,18 @@ var cards : Array
 var selected_cards : Array = []
 var max_cards = Global.max_cards
 var columns = 6
+var separation = Vector2(10, 10)
 
 
 func _ready():
 	var viewport = get_viewport().size
-	var separation = Vector2($MarginContainer/GridCards.get_constant("hseparation"), $MarginContainer/GridCards.get_constant("vseparation"))
-	var card_size = Vector2(viewport.x / columns, (viewport.y - $Back.rect_size.y) / (2 * max_cards / columns)) - separation
-#	var separation_size = card_size + separation
+	var row = 2 * max_cards / columns # The number of row
+	var card_size = Vector2((viewport.x - (columns + 1) * separation.x) / columns, (viewport.y - $Back.rect_size.y - row * separation.y) / (row))
 	$MarginContainer/GridCards.columns = columns
+	$MarginContainer/GridCards.set("custom_constants/vseparation", separation.x)
+	$MarginContainer/GridCards.set("custom_constants/hseparation", separation.y)
 	$MarginContainer.set("custom_constants/margin_top", $Back.rect_size.y)
-	$MarginContainer.set("custom_constants/margin_left", separation.x / 2)
+	$MarginContainer.set("custom_constants/margin_left", separation.x)
 	randomize()
 	words.shuffle()
 	words.resize(max_cards)
@@ -28,7 +30,7 @@ func _ready():
 		for w in words:
 			var card : Card = Card.new()
 			var ctrl : Control = Control.new()
-			card.init(w, card_size, $MarginContainer/GridCards.columns, selected_cards)
+			card.init(w, card_size, selected_cards)
 			ctrl.rect_min_size = card_size
 			ctrl.add_child(card)
 			cards.append(ctrl)

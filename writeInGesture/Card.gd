@@ -8,7 +8,7 @@ var cardPath = "res://art/card2.jpg"
 var selected_cards : Array
 
 
-func init(word, size, column : int, selected_cards : Array):
+func init(word, size, selected_cards : Array):
 	self.selected_cards = selected_cards
 	set_normal_texture(load(cardPath))
 	set_expand(true)

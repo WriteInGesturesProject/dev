@@ -32,7 +32,7 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 margin_right = 1024.0
 margin_bottom = 600.0
-custom_constants/separation = 100
+custom_constants/separation = 110
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -49,9 +49,10 @@ margin_left = 512.0
 margin_right = 512.0
 
 [node name="Speak" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/Control"]
-margin_left = -4.0
-margin_right = 96.0
-margin_bottom = 102.0
+margin_left = -49.7102
+margin_top = 21.0971
+margin_right = 50.2898
+margin_bottom = 123.097
 texture_normal = ExtResource( 7 )
 texture_pressed = ExtResource( 7 )
 texture_hover = ExtResource( 7 )
@@ -60,29 +61,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="game" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 100.0
+[node name="marginPlate" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 110.0
 margin_right = 1024.0
-margin_bottom = 100.0
+margin_bottom = 110.0
 
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/game"]
+[node name="plate" type="HBoxContainer" parent="MarginContainer/VBoxContainer/marginPlate"]
 margin_right = 1024.0
-
-[node name="Plate" type="MarginContainer" parent="MarginContainer/VBoxContainer/game/Control"]
-anchor_left = 0.05
-anchor_right = 0.075
-margin_top = 20.0
-margin_right = 1024.0
-margin_bottom = 20.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="gridCard" type="GridContainer" parent="MarginContainer/VBoxContainer/game/Control/Plate"]
-margin_right = 1049.0
-custom_constants/vseparation = 90
-custom_constants/hseparation = 90
-columns = 3
+size_flags_horizontal = 3
 
 [node name="Back" type="Button" parent="."]
 margin_left = 1.0
@@ -100,9 +86,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -30.0
-margin_top = -102.0
-margin_right = 70.0
+margin_left = -51.097
+margin_top = -107.274
+margin_right = 48.903
+margin_bottom = -5.27429
 disabled = true
 icon = ExtResource( 5 )
 flat = true

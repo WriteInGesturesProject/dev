@@ -37,44 +37,43 @@ margin_bottom = 600.0
 
 [node name="Label" type="Label" parent="TextureRect/Margin/Main"]
 margin_right = 1024.0
-margin_bottom = 29.0
+margin_bottom = 36.0
 text = "Choix d'exercice prédefinis"
 align = 1
-percent_visible = -0.04
 
 [node name="HBoxMain" type="HBoxContainer" parent="TextureRect/Margin/Main"]
-margin_top = 33.0
+margin_top = 40.0
 margin_right = 1024.0
-margin_bottom = 62.0
+margin_bottom = 76.0
 alignment = 1
 
 [node name="NbSyllableContainer" type="VBoxContainer" parent="TextureRect/Margin/Main/HBoxMain"]
-margin_left = 275.0
-margin_right = 503.0
-margin_bottom = 29.0
+margin_left = 219.0
+margin_right = 499.0
+margin_bottom = 36.0
 
 [node name="NbSyllableLabel" type="Label" parent="TextureRect/Margin/Main/HBoxMain/NbSyllableContainer"]
-margin_right = 228.0
-margin_bottom = 29.0
+margin_right = 280.0
+margin_bottom = 36.0
 text = "Nombre de syllabe"
 align = 1
 
 [node name="StructSyllableContainer" type="VBoxContainer" parent="TextureRect/Margin/Main/HBoxMain"]
-margin_left = 507.0
-margin_right = 749.0
-margin_bottom = 29.0
+margin_left = 503.0
+margin_right = 804.0
+margin_bottom = 36.0
 
 [node name="StructSyllableLabel" type="Label" parent="TextureRect/Margin/Main/HBoxMain/StructSyllableContainer"]
-margin_right = 242.0
-margin_bottom = 29.0
+margin_right = 301.0
+margin_bottom = 36.0
 text = "Structure syllabique"
 align = 1
 
 [node name="Creation" type="Button" parent="TextureRect/Margin/Main"]
-margin_left = 396.0
-margin_top = 66.0
-margin_right = 627.0
-margin_bottom = 135.0
+margin_left = 375.0
+margin_top = 80.0
+margin_right = 648.0
+margin_bottom = 176.0
 size_flags_horizontal = 4
 theme = ExtResource( 1 )
 text = "Créer l'exercice"

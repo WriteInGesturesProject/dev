@@ -88,7 +88,7 @@ func loadEntity():
 	
 	ManageJson.getElement("colors.json", "Exercise", colorExercise)
 	colorExercise.setAttribut("nameFile", "colors.json")
-	
+	 
 	ManageJson.getElement("week.json", "Exercise", weekExercise)
 	weekExercise.setAttribut("nameFile", "week.json")
 	

@@ -2,8 +2,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
-
+	get_node("MarginContainer2/HBoxContainer/VBoxContainer2/VBoxContainer/NamePlayer").text=Global.player.getName()
+	get_node("MarginContainer2/HBoxContainer/VBoxContainer/Control/Picture").texture=load(Global.player.getPathPicture())
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

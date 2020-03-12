@@ -16,6 +16,12 @@ var index = 0
 var container = HBoxContainer.new()
 var os = Global.os
 
+func _scaleImg():
+	var img = load("res://art/images/"+ myWords[index].getPath())
+	find_node("Image").texture = img
+	find_node("Image").rect_size.y = get_viewport().size.y / 2.5
+	find_node("Image").rect_size.x = get_viewport().size.y / 2.5 * (img.get_size().x / img.get_size().y)
+	find_node("Box").add_constant_override("separation", int(find_node("Image").rect_size.x) + 20)
 
 func _ready():
 	Ex = Global.current_ex
@@ -30,16 +36,17 @@ func _ready():
 		find_node("Number").visible = true
 		find_node("Word").set_text(myWords[index].getWord())
 	else :
-		find_node("Image").texture = load("res://art/images/"+myWords[index].getPath())
+		_scaleImg()
 	var phonetic = myWords[index].getPhonetic()
 	var arrayPicture = Global.phoneticToArrayPicturePath(phonetic)
 	container =  Global.putBorelInHboxContainer(arrayPicture, get_viewport().size.x, min(get_viewport().size.y/2.3,get_viewport().size.x/arrayPicture.size()))
 	find_node("ImgBorel").add_child(container)
 	find_node("Word").set_text(myWords[index].getWord())
-	find_node("Image").rect_size.x = get_viewport().size.y / 2.3
-	find_node("Image").rect_size.y = get_viewport().size.y / 2.3
-	find_node("Box").add_constant_override("separation", get_viewport().size.y / 2.3 + 50)
 	Global.score = 0
+	var margSize = get_viewport().size.y - get_viewport().size.y / 2.5 - container.rect_size.y - find_node("Word").rect_size.y - find_node("MainBox").get_constant("separation")
+	find_node("MarginContainer").add_constant_override("margin_top", margSize / 2)
+	find_node("Speak").rect_position.y += (find_node("Image").rect_size.y - 2*find_node("Speak").rect_size.y)/2
+	find_node("Record").rect_position.y += (find_node("Image").rect_size.y - 2*find_node("Speak").rect_size.y)/2
 
 
 func _process(delta):
@@ -83,10 +90,7 @@ func _on_Next_pressed():
 				find_node("Word").visible = true
 				find_node("Word").set_text(myWords[index].getWord())
 		else :
-			find_node("Image").rect_size.x = get_viewport().size.y / 2.3
-			find_node("Image").rect_size.y = get_viewport().size.y / 2.3
-			find_node("Box").add_constant_override("separation", get_viewport().size.y / 2.3 + 50)
-			find_node("Image").texture = load("res://art/images/"+myWords[index].getPath())
+			_scaleImg()
 		container.remove_and_skip()
 		container.name = "HBoxContainer"
 		var phonetic = myWords[index].getPhonetic()

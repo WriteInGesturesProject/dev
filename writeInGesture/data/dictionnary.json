@@ -70,7 +70,7 @@
          "pɛ": {
             "phonetic": "pɛ",
             "word": "pet",
-            "path": "pet.jpg",
+            "path": "pet.png",
             "homonym": [
                "pet"
             ],
@@ -173,7 +173,7 @@
          "to": {
             "phonetic": "to",
             "word": "tôt",
-            "path": "tot.png",
+            "path": "",
             "homonym": [
                "tôt"
             ],
@@ -185,7 +185,7 @@
          "mo": {
             "phonetic": "mo",
             "word": "mots",
-            "path": "mots.png",
+            "path": "",
             "homonym": [
                "mots"
             ],
@@ -197,7 +197,7 @@
          "bo": {
             "phonetic": "bo",
             "word": "beau",
-            "path": "beau.png",
+            "path": "beau.gif",
             "homonym": [
                "beau"
             ],
@@ -377,7 +377,7 @@
          "blœ": {
             "phonetic": "blœ",
             "word": "bleu",
-            "path": "bleu.png",
+            "path": "bleu.jpg",
             "homonym": [
                "bleu"
             ],
@@ -389,7 +389,7 @@
          "ruʒ": {
             "phonetic": "ruʒ",
             "word": "rouge",
-            "path": "rouge.png",
+            "path": "rouge.jpg",
             "homonym": [
                "rouge"
             ],
@@ -401,7 +401,7 @@
          "ʒon": {
             "phonetic": "ʒon",
             "word": "jaune",
-            "path": "jaune.png",
+            "path": "jaune.jpg",
             "homonym": [
                "jaune"
             ],
@@ -413,7 +413,7 @@
          "vɛt": {
             "phonetic": "vɛt",
             "word": "vert",
-            "path": "vert.png",
+            "path": "vert.jpg",
             "homonym": [
                "ver",
                "verre",
@@ -428,7 +428,7 @@
          "marɔ̃": {
             "phonetic": "marɔ̃",
             "word": "marron",
-            "path": "marron.png",
+            "path": "marron.jpg",
             "homonym": [
                "marron"
             ],
@@ -440,7 +440,7 @@
          "gri": {
             "phonetic": "gri",
             "word": "gris",
-            "path": "gris.png",
+            "path": "gris.jpg",
             "homonym": [
                "gris"
             ],
@@ -452,7 +452,7 @@
          "blɑ": {
             "phonetic": "blɑ",
             "word": "blanc",
-            "path": "blanc.png",
+            "path": "blanc.jpg",
             "homonym": [
                "blanc"
             ],
@@ -464,7 +464,7 @@
          "nwar": {
             "phonetic": "nwar",
             "word": "noire",
-            "path": "noire.png",
+            "path": "noir.jpg",
             "homonym": [
                "noire"
             ],
@@ -476,7 +476,7 @@
          "vjolɛ": {
             "phonetic": "vjolɛ",
             "word": "violet",
-            "path": "violet.png",
+            "path": "violet.jpg",
             "homonym": [
                "violet"
             ],
@@ -488,7 +488,7 @@
          "roz": {
             "phonetic": "roz",
             "word": "rose",
-            "path": "rose.png",
+            "path": "rose.jpg",
             "homonym": [
                "rose"
             ],
@@ -500,7 +500,7 @@
          "orɑz": {
             "phonetic": "orɑz",
             "word": "orange",
-            "path": "orange.png",
+            "path": "orange.jpg",
             "homonym": [
                "orange"
             ],

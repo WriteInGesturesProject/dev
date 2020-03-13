@@ -323,7 +323,7 @@ func _on_SearchButton_pressed():
 	var word = find_node("LineWord").text
 	if(word == null || word == ""):
 		return
-	var url = "https://www.google.fr/search?q="
+	var url = "https://www.google.com/search?q="
 	url += word
 	url += "&tbm=isch&tbs=sur%3Af"
 	OS.shell_open(url)

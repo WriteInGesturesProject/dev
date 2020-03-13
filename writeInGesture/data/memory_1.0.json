@@ -3,7 +3,7 @@
 	{
 		"version" : 1.0,
 		"userId" : "0",
-		"name" : "Jeu de memory",
+		"name" : "Jeu du Memory",
 		"type" : {
 			"name" : "Jouer",
 			"categorie" : "Custom",

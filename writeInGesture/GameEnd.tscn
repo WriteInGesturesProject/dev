@@ -40,16 +40,16 @@ custom_constants/separation = 100
 
 [node name="HeaderHBox" type="HBoxContainer" parent="Main/MainVBox"]
 margin_right = 1024.0
-margin_bottom = 62.0
+margin_bottom = 36.0
 
 [node name="MarginCoinBox" type="MarginContainer" parent="Main/MainVBox/HeaderHBox"]
 margin_right = 1024.0
-margin_bottom = 62.0
+margin_bottom = 36.0
 size_flags_horizontal = 3
 
 [node name="Control" type="Control" parent="Main/MainVBox/HeaderHBox/MarginCoinBox"]
 margin_right = 1024.0
-margin_bottom = 62.0
+margin_bottom = 36.0
 
 [node name="Home" type="Button" parent="Main/MainVBox/HeaderHBox/MarginCoinBox/Control"]
 margin_left = 4.0
@@ -66,7 +66,7 @@ __meta__ = {
 
 [node name="CoinBox" type="HBoxContainer" parent="Main/MainVBox/HeaderHBox/MarginCoinBox"]
 margin_right = 1024.0
-margin_bottom = 62.0
+margin_bottom = 36.0
 custom_constants/separation = 60
 alignment = 2
 __meta__ = {
@@ -74,9 +74,9 @@ __meta__ = {
 }
 
 [node name="Control" type="Control" parent="Main/MainVBox/HeaderHBox/MarginCoinBox/CoinBox"]
-margin_left = 804.0
-margin_right = 804.0
-margin_bottom = 62.0
+margin_left = 806.0
+margin_right = 806.0
+margin_bottom = 36.0
 
 [node name="TextureRect" type="TextureRect" parent="Main/MainVBox/HeaderHBox/MarginCoinBox/CoinBox/Control"]
 margin_right = 50.0
@@ -88,15 +88,15 @@ __meta__ = {
 }
 
 [node name="Gold" type="Label" parent="Main/MainVBox/HeaderHBox/MarginCoinBox/CoinBox"]
-margin_left = 864.0
-margin_right = 884.0
-margin_bottom = 62.0
+margin_left = 866.0
+margin_right = 885.0
+margin_bottom = 36.0
 text = "0"
 
 [node name="Control2" type="Control" parent="Main/MainVBox/HeaderHBox/MarginCoinBox/CoinBox"]
-margin_left = 944.0
-margin_right = 944.0
-margin_bottom = 62.0
+margin_left = 945.0
+margin_right = 945.0
+margin_bottom = 36.0
 
 [node name="TextureRect" type="TextureRect" parent="Main/MainVBox/HeaderHBox/MarginCoinBox/CoinBox/Control2"]
 margin_right = 50.0
@@ -108,34 +108,34 @@ __meta__ = {
 }
 
 [node name="Silver" type="Label" parent="Main/MainVBox/HeaderHBox/MarginCoinBox/CoinBox"]
-margin_left = 1004.0
+margin_left = 1005.0
 margin_right = 1024.0
-margin_bottom = 62.0
+margin_bottom = 36.0
 text = "0"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Main/MainVBox"]
-margin_top = 162.0
+margin_top = 136.0
 margin_right = 1024.0
 margin_bottom = 600.0
 size_flags_vertical = 3
 alignment = 1
 
 [node name="Comment" type="Label" parent="Main/MainVBox/VBoxContainer"]
-margin_top = 56.0
+margin_top = 134.0
 margin_right = 1024.0
-margin_bottom = 118.0
+margin_bottom = 170.0
 align = 1
 valign = 1
 
 [node name="Money" type="Label" parent="Main/MainVBox/VBoxContainer"]
-margin_top = 122.0
+margin_top = 174.0
 margin_right = 1024.0
-margin_bottom = 184.0
+margin_bottom = 210.0
 align = 1
 valign = 1
 
 [node name="Score" type="Label" parent="Main/MainVBox/VBoxContainer"]
-margin_top = 188.0
+margin_top = 214.0
 margin_right = 1024.0
 margin_bottom = 250.0
 align = 1
@@ -144,14 +144,14 @@ valign = 1
 [node name="BestScore" type="Label" parent="Main/MainVBox/VBoxContainer"]
 margin_top = 254.0
 margin_right = 1024.0
-margin_bottom = 316.0
+margin_bottom = 290.0
 align = 1
 valign = 1
 
 [node name="Success" type="Label" parent="Main/MainVBox/VBoxContainer"]
-margin_top = 320.0
+margin_top = 294.0
 margin_right = 1024.0
-margin_bottom = 382.0
+margin_bottom = 330.0
 align = 1
 valign = 1
 [connection signal="pressed" from="Main/MainVBox/HeaderHBox/MarginCoinBox/Control/Home" to="." method="_on_Home_pressed"]

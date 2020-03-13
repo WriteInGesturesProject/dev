@@ -9,6 +9,8 @@ var selected_cards : Array
 
 
 func init(word, size, selected_cards : Array):
+	if(word == null):
+		return
 	self.selected_cards = selected_cards
 	set_normal_texture(load(cardPath))
 	set_expand(true)
@@ -37,6 +39,7 @@ func _on_Card_pressed():
 		yield(t, "timeout")
 		if(correct):
 			Global.score += 1
+			Global.player.setSilver(Global.player.getSilver() + 1)
 			selected_cards[0].visible = false
 			selected_cards[1].visible = false
 			if(Global.score == Global.max_cards):

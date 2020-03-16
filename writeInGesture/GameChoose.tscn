@@ -20,6 +20,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 1 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -68,6 +71,9 @@ theme = ExtResource( 3 )
 icon = ExtResource( 5 )
 flat = true
 expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="MarginContainer/VBoxContainer/GooseGame" to="." method="_on_GooseGame_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Listen&Choose" to="." method="_on_ListenChoose_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MemoryGame" to="." method="_on_MemoryGame_pressed"]

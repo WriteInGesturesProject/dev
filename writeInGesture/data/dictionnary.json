@@ -110,7 +110,7 @@
          "dœ": {
             "phonetic": "dœ",
             "word": "deux",
-            "path": "deux.png",
+            "path": "deux.jpg",
             "homonym": [
                "deux",
                "2",
@@ -209,7 +209,7 @@
          "ɛ̃": {
             "phonetic": "ɛ̃",
             "word": "un",
-            "path": "un.png",
+            "path": "un.jpg",
             "homonym": [
                "un"
             ],
@@ -221,7 +221,7 @@
          "trwa": {
             "phonetic": "trwa",
             "word": "trois",
-            "path": "trois.png",
+            "path": "trois.jpg",
             "homonym": [
                "trois"
             ],
@@ -233,7 +233,7 @@
          "katr": {
             "phonetic": "katr",
             "word": "quatre",
-            "path": "quatre.png",
+            "path": "quatre.jpg",
             "homonym": [
                "quatre"
             ],
@@ -245,7 +245,7 @@
          "sɛ̃k": {
             "phonetic": "sɛ̃k",
             "word": "cinq",
-            "path": "cinq.png",
+            "path": "cinq.jpg",
             "homonym": [
                "cinq"
             ],
@@ -257,7 +257,7 @@
          "sis": {
             "phonetic": "sis",
             "word": "six",
-            "path": "six.png",
+            "path": "six.jpg",
             "homonym": [
                "six"
             ],
@@ -269,7 +269,7 @@
          "sɛt": {
             "phonetic": "sɛt",
             "word": "sept",
-            "path": "sept.png",
+            "path": "sept.jpg",
             "homonym": [
                "sept"
             ],
@@ -281,7 +281,7 @@
          "wit": {
             "phonetic": "wit",
             "word": "huit",
-            "path": "huit.png",
+            "path": "huit.jpg",
             "homonym": [
                "huit"
             ],
@@ -293,7 +293,7 @@
          "nœf": {
             "phonetic": "nœf",
             "word": "neuf",
-            "path": "neuf.png",
+            "path": "neuf.jpg",
             "homonym": [
                "neuf"
             ],
@@ -512,7 +512,7 @@
          "lɛ̃di": {
             "phonetic": "lɛ̃di",
             "word": "lundi",
-            "path": "lundi.png",
+            "path": "",
             "homonym": [
                "lundi"
             ],
@@ -524,7 +524,7 @@
          "mardi": {
             "phonetic": "mardi",
             "word": "mardi",
-            "path": "mardi.png",
+            "path": "",
             "homonym": [
                "mardi"
             ],
@@ -536,7 +536,7 @@
          "mɛrkrədi": {
             "phonetic": "mɛrkrədi",
             "word": "mercredi",
-            "path": "mercredi.png",
+            "path": "",
             "homonym": [
                "mercredi"
             ],
@@ -548,7 +548,7 @@
          "ʒœdi": {
             "phonetic": "ʒœdi",
             "word": "jeudi",
-            "path": "jeudi.png",
+            "path": "",
             "homonym": [
                "jeudi"
             ],
@@ -560,7 +560,7 @@
          "vɑdrədi": {
             "phonetic": "vɑdrədi",
             "word": "vendredi",
-            "path": "vendredi.png",
+            "path": "",
             "homonym": [
                "vendredi"
             ],
@@ -572,7 +572,7 @@
          "samədi": {
             "phonetic": "samədi",
             "word": "samedi",
-            "path": "samedi.png",
+            "path": "",
             "homonym": [
                "samedi"
             ],
@@ -584,7 +584,7 @@
          "dimɑʃ": {
             "phonetic": "dimɑʃ",
             "word": "dimanche",
-            "path": "dimanche.png",
+            "path": "",
             "homonym": [
                "dimanche"
             ],
@@ -596,7 +596,7 @@
          "ɛd": {
             "phonetic": "ɛd",
             "word": "aide",
-            "path": "user://art/aide.png",
+            "path": "aide.png",
             "homonym": [
                "aide"
             ],
@@ -608,7 +608,7 @@
          "bɛl": {
             "phonetic": "bɛl",
             "word": "belle",
-            "path": "user://art/belle.webp",
+            "path": "",
             "homonym": [
                "belle"
             ],
@@ -620,7 +620,7 @@
          "bɔn": {
             "phonetic": "bɔn",
             "word": "bonne",
-            "path": "user://art/bonne.webp",
+            "path": " ",
             "homonym": [
                "bonne"
             ],
@@ -632,7 +632,7 @@
          "bɔs": {
             "phonetic": "bɔs",
             "word": "bosse",
-            "path": "user://art/bonne.webp",
+            "path": " ",
             "homonym": [
                "bosse"
             ],
@@ -644,7 +644,7 @@
          "bɔt": {
             "phonetic": "bɔt",
             "word": "botte",
-            "path": "user://art/bonne.webp",
+            "path": "botte.png",
             "homonym": [
                "botte"
             ],
@@ -656,7 +656,7 @@
          "buʃ": {
             "phonetic": "buʃ",
             "word": "bouche",
-            "path": "user://art/bonne.webp",
+            "path": "bouche.png",
             "homonym": [
                "bouche"
             ],
@@ -668,7 +668,7 @@
          "bul": {
             "phonetic": "bul",
             "word": "boule",
-            "path": "user://art/bonne.webp",
+            "path": " ",
             "homonym": [
                "boule"
             ],
@@ -680,7 +680,7 @@
          "bryi": {
             "phonetic": "bryi",
             "word": "bruit",
-            "path": "user://art/bonne.webp",
+            "path": " ",
             "homonym": [
                "bruit"
             ],
@@ -692,7 +692,7 @@
          "byl": {
             "phonetic": "byl",
             "word": "bulle",
-            "path": "user://art/bonne.webp",
+            "path": " ",
             "homonym": [
                "bulle"
             ],
@@ -716,7 +716,7 @@
          "kaz": {
             "phonetic": "kaz",
             "word": "case",
-            "path": "user://art/bonne.webp",
+            "path": " ",
             "homonym": [
                "case"
             ],
@@ -728,7 +728,7 @@
          "kav": {
             "phonetic": "kav",
             "word": "cave",
-            "path": "user://art/bonne.webp",
+            "path": " ",
             "homonym": [
                "cave"
             ],
@@ -740,7 +740,7 @@
          "sɛrkl": {
             "phonetic": "sɛrkl",
             "word": "cercle",
-            "path": "user://art/bonne.webp",
+            "path": " ",
             "homonym": [
                "cercle"
             ],
@@ -788,7 +788,7 @@
          "kuʃ": {
             "phonetic": "kuʃ",
             "word": "couche",
-            "path": "user://art/bonne.webp",
+            "path": " ",
             "homonym": [
                "couche"
             ],
@@ -800,7 +800,7 @@
          "dam": {
             "phonetic": "dam",
             "word": "dame",
-            "path": "user://art/bonne.webp",
+            "path": " ",
             "homonym": [
                "dame"
             ],
@@ -812,7 +812,7 @@
          "dir": {
             "phonetic": "dir",
             "word": "dire",
-            "path": "user://art/bonne.webp",
+            "path": " ",
             "homonym": [
                "dire"
             ],
@@ -836,7 +836,7 @@
          "drol": {
             "phonetic": "drol",
             "word": "drôle",
-            "path": "user://art/bonne.webp",
+            "path": " ",
             "homonym": [
                "drôle"
             ],
@@ -848,7 +848,7 @@
          "dyr": {
             "phonetic": "dyr",
             "word": "dure",
-            "path": "user://art/bonne.webp",
+            "path": " ",
             "homonym": [
                "dure"
             ],
@@ -860,7 +860,7 @@
          "fot": {
             "phonetic": "fot",
             "word": "faute",
-            "path": "user://art/bonne.webp",
+            "path": " ",
             "homonym": [
                "faute"
             ],
@@ -872,7 +872,7 @@
          "fil": {
             "phonetic": "fil",
             "word": "fil",
-            "path": "user://art/bonne.webp",
+            "path": " ",
             "homonym": [
                "fil"
             ],
@@ -884,7 +884,7 @@
          "fɔrm": {
             "phonetic": "fɔrm",
             "word": "forme",
-            "path": "user://art/bonne.webp",
+            "path": " ",
             "homonym": [
                "forme"
             ],

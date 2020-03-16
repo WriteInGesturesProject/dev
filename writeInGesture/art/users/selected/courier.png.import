@@ -14,8 +14,8 @@ dest_files=[ "res://.import/courier.png-4c265fd8de6c6fb1079b7686d36e2e9b.stex" ]
 
 [params]
 
-compress/mode=0
-compress/lossy_quality=0.7
+compress/mode=1
+compress/lossy_quality=0.1
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0

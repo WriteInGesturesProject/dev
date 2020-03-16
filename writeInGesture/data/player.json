@@ -6,6 +6,8 @@
 		"age" : 0,
 		"integibility" : 0,
 		"spokenLanguage" : "Français",
-		"picturePath" : "assistant.png"
+		"picturePath" : "assistant.png",
+		"gold" : 0,
+		"silver" : 0
 	}
 }

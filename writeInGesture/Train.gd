@@ -16,6 +16,13 @@ var index = 0
 var container = HBoxContainer.new()
 var os = Global.os
 
+func _scaleImg():
+	var img = load("res://art/images/"+ myWords[index].getPath())
+	find_node("Image").texture = img
+	find_node("Image").rect_size.y = get_viewport().size.y / 2.5
+	find_node("Image").rect_size.x = get_viewport().size.y / 2.5 * (img.get_size().x / img.get_size().y)
+	find_node("Box").add_constant_override("separation", int(find_node("Image").rect_size.x) + 20)
+
 func _ready():
 	Ex = Global.current_ex
 	myWords = Ex.getAllWords()
@@ -25,63 +32,27 @@ func _ready():
 	
 	if(Global.game == 2):
 		find_node("Number").set_text(myWords[index].getPath())
-		find_node("TextureRect2").visible = false
+		find_node("Image").visible = false
 		find_node("Number").visible = true
 		find_node("Word").set_text(myWords[index].getWord())
 	else :
-		find_node("TextureRect2").texture = load("res://art/" + myWords[index].getPath())
-	var img = ""
-	container = HBoxContainer.new()
-	container.alignment = HBoxContainer.ALIGN_CENTER
-	var c = 0
-	var p = myWords[index].getPhonetic()
-	while (c < len(p)):
-		if(c + 1 < len(p) && p[c].to_ascii()[0] == 91 && p[c + 1].to_ascii()[0] == 3):
-			img = "in.png"
-			c += 1
-		elif(c+1 < len(p) && p[c].to_ascii()[0] == 84 && p[c+1].to_ascii()[0] == 3):
-			img = "on.png"
-			c += 1
-		elif(p[c].to_ascii()[0] == 226):
-			img = "an.png"
-		else :
-			var find = false
-			for b in Global.phoneticDictionnary:
-				for w in Global.phoneticDictionnary[b]:
-					if(p[c] == w["phonetic"][1]):
-						img = w["ressource_path"]
-						find = true
-						break
-				if(find):
-					break
-		var imgBorel = TextureRect.new()
-		imgBorel.texture = load("res://art/imgBorel/"+img)
-		container.add_child(imgBorel)
-		c += 1
+		_scaleImg()
+	var phonetic = myWords[index].getPhonetic()
+	var arrayPicture = Global.phoneticToArrayPicturePath(phonetic)
+	container =  Global.putBorelInHboxContainer(arrayPicture, get_viewport().size.x, min(get_viewport().size.y/2.3,get_viewport().size.x/arrayPicture.size()))
 	find_node("ImgBorel").add_child(container)
 	find_node("Word").set_text(myWords[index].getWord())
 	Global.score = 0
+	var margSize = get_viewport().size.y - get_viewport().size.y / 2.5 - container.rect_size.y - find_node("Word").rect_size.y - find_node("MainBox").get_constant("separation")
+	find_node("MarginContainer").add_constant_override("margin_top", margSize / 2)
+	find_node("Speak").rect_position.y += (find_node("Image").rect_size.y - 2*find_node("Speak").rect_size.y)/2
+	find_node("Record").rect_position.y += (find_node("Image").rect_size.y - 2*find_node("Speak").rect_size.y)/2
 
-func check_homonyms(said):
-	var word = Global.wordDictionnary.getWord(myWords[index].getPhonetic())
-	if(word == null):
-		print("Word in check_homonyms is null")
-		return false
-	var h = word.getHomonym()
-	for i in range(0,len(h)):
-		if(said == h[i].to_lower()):
-			return true
-	return false
 
 func _process(delta):
-	if(stt != null && stt.isListening()):
-		find_node("Record").set_text("En écoute")
-	if(stt != null && !stt.isListening()):
-		find_node("Record").set_text("Enregistrer")
 	if(stt != null && display && stt.isDetectDone()):
 		words = stt.getWords()
-		find_node("Record").set_text("Vous avez dit : " + words)
-		if(words == find_node("Number").text || check_homonyms(words.to_lower())):
+		if(words == find_node("Number").text || Global.check_words(words, myWords[index])):
 			find_node("Oui").visible = true
 			find_node("Non").visible = false
 			find_node("Record").disabled = true
@@ -96,12 +67,13 @@ func _process(delta):
 		find_node("Oui").visible = false
 		find_node("Non").visible = false
 
+
 func _on_Back_pressed():
 	get_tree().change_scene("res://ExerciceMenu.tscn")
 
+
 func _on_Next_pressed():
 	find_node("Record").disabled = false
-	find_node("Record").set_text("Enregistrer")
 	find_node("Oui").visible = false
 	find_node("Non").visible = false
 	display = false
@@ -114,50 +86,24 @@ func _on_Next_pressed():
 				get_tree().change_scene("res://GameEnd.tscn")
 			else:
 				find_node("Number").set_text(myWords[index].getPath())
-				find_node("TextureRect2").visible = false
+				find_node("Image").visible = false
 				find_node("Word").visible = true
 				find_node("Word").set_text(myWords[index].getWord())
 		else :
-			find_node("TextureRect2").texture = load("res://art/"+myWords[index].getPath())
+			_scaleImg()
 		container.remove_and_skip()
-		var img = ""
-		container = HBoxContainer.new()
-		container.alignment = HBoxContainer.ALIGN_CENTER
 		container.name = "HBoxContainer"
-		var c = 0
-		var p = myWords[index].getPhonetic()
-		print(myWords[index].getWord())
-		while (c < len(p)):
-			if(c+1 < len(p) && p[c].to_ascii()[0] == 91 && p[c+1].to_ascii()[0] == 3):
-				img = "in.png"
-				c += 1
-			elif(c + 1 < len(p) && p[c].to_ascii()[0] == 84 && p[c + 1].to_ascii()[0] == 3):
-				img = "on.png"
-				c += 1
-			elif(p[c].to_ascii()[0] == 226):
-				img = "an.png"
-			else :
-				var find = false
-				for b in Global.phoneticDictionnary:
-					for w in Global.phoneticDictionnary[b]:
-						if(p[c] == w["phonetic"][1]):
-							img = w["ressource_path"]
-							find = true
-							break
-					if(find):
-						break
-			var imgBorel = TextureRect.new()
-			imgBorel.texture = load("res://art/imgBorel/"+img)
-			container.add_child(imgBorel)
-			c += 1
+		var phonetic = myWords[index].getPhonetic()
+		var arrayPicture = Global.phoneticToArrayPicturePath(phonetic)
+		container =  Global.putBorelInHboxContainer(arrayPicture, get_viewport().size.x, min(get_viewport().size.y/2.3,get_viewport().size.x/arrayPicture.size()))
 		find_node("ImgBorel").add_child(container)
 		find_node("Word").set_text(myWords[index].getWord())
 	incremented = false
 
-func _on_Speak_pressed(extra_arg_0):
+
+func _on_Speak_pressed():
 	if(stt != null && stt.isListening()):
 		stt.stopListen()
-		find_node("Record").set_text("Enregistrer")
 	if(tts != null):
 		var text = find_node("Word").text
 		match os:
@@ -165,6 +111,7 @@ func _on_Speak_pressed(extra_arg_0):
 				tts.speak(text, false)
 			"Android":
 				tts.speakText(text)
+
 
 func _on_Record_pressed():
 	if(stt != null):

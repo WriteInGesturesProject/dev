@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://fonts/background.png" type="Texture" id=1]
 [ext_resource path="res://statistics.gd" type="Script" id=2]
 [ext_resource path="res://fonts/ButtonTheme.tres" type="Theme" id=3]
 [ext_resource path="res://fonts/phonetic.tres" type="Theme" id=4]
+[ext_resource path="res://art/back.png" type="Texture" id=5]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -45,6 +46,7 @@ margin_right = 784.0
 margin_bottom = 440.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/separation = 20
 
 [node name="title" type="Label" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer"]
 margin_right = 784.0
@@ -52,10 +54,19 @@ margin_bottom = 62.0
 text = "Statistiques"
 align = 1
 
-[node name="exerciseChoice" type="OptionButton" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer"]
-margin_top = 66.0
+[node name="mostPlayed" type="Label" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 82.0
 margin_right = 784.0
-margin_bottom = 128.0
+margin_bottom = 144.0
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="exerciseChoice" type="OptionButton" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 164.0
+margin_right = 784.0
+margin_bottom = 226.0
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -66,6 +77,7 @@ visible = false
 margin_top = 132.0
 margin_right = 784.0
 margin_bottom = 194.0
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -88,34 +100,50 @@ margin_right = 784.0
 margin_bottom = 194.0
 value = 50.0
 
-[node name="wordsEasy" type="VBoxContainer" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer"]
-margin_top = 132.0
+[node name="phoneticsHard" type="VBoxContainer" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 246.0
 margin_right = 784.0
-margin_bottom = 132.0
+margin_bottom = 246.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 266.0
+margin_right = 784.0
+margin_bottom = 316.0
+custom_constants/separation = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
+margin_right = 784.0
+
+[node name="wordsEasier" type="VBoxContainer" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+margin_right = 390.0
+size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="wordsHard" type="VBoxContainer" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer"]
-margin_top = 136.0
+[node name="wordsHarder" type="VBoxContainer" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 394.0
 margin_right = 784.0
-margin_bottom = 136.0
+size_flags_horizontal = 3
 
-[node name="statsExercises" type="VBoxContainer" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer"]
-margin_top = 140.0
+[node name="statsExercises" type="VBoxContainer" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
+margin_top = 50.0
 margin_right = 784.0
-margin_bottom = 140.0
+margin_bottom = 50.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="back" type="Button" parent="."]
-margin_right = 12.0
-margin_bottom = 20.0
+margin_right = 100.0
+margin_bottom = 102.0
 theme = ExtResource( 3 )
-text = "Retour"
+icon = ExtResource( 5 )
+flat = true
+expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="item_selected" from="TextureRect/MarginContainer/ScrollContainer/VBoxContainer/exerciseChoice" to="." method="_on_exerciseChoice_item_selected"]
+[connection signal="item_selected" from="TextureRect/MarginContainer/ScrollContainer/VBoxContainer/difficultyChoice" to="." method="_on_difficultyChoice_item_selected"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]

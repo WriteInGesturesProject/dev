@@ -9,31 +9,70 @@ const CreationExercise = preload("res://CreationExercise.gd")
 # var a = 2
 # var b = "text"
 var buttonPress = []
-var syllable =["Monosyllabe", "Bisyllabe", "Trisyllabe"]
-var struct =["CV","CVV","CVC","CVCC","VCVC"]
+var syllable =["Monosyllabe", "Bisyllabe", "Trisyllabe", "Quadrisyllable", "Pentasyllable",]
+var struct =["CV","CVV","CVC"]
 var wordFinal =[]
+var lineStruct
 
-
+var margin = 0.05
+var marginVector 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	find_node("HBoxMain").add_constant_override("separation", get_viewport().size.x/6)
+	Global.make_margin(find_node("Margin"), margin)
+	marginVector = (get_viewport().size)*(1- margin)
+	
+	#Put responsive Vbox
+	find_node("HBoxMain").add_constant_override("separation", marginVector.x/6)
+	var ybox = marginVector.y*0.75
+	var yrest = marginVector.y*0.25
+	find_node("NbSyllableContainer").rect_min_size = Vector2(marginVector.x/3,ybox)
+	find_node("StructSyllableContainer").rect_min_size = Vector2(marginVector.x/3,ybox)
+	
+	yrest = yrest - find_node("Label").rect_size.y
+	find_node("Creation").rect_min_size.y = yrest/2
+	yrest = yrest/2
+	find_node("Main").add_constant_override("separation", yrest/3)
+	
+	
 	for el in range (0,syllable.size()) :
 		var button = CheckBox.new()
 		button.name = String(el+1)
 		button.text = syllable[el]
-		button.flat = true
+		button.flat = false
+		button.rect_min_size = Vector2(0,marginVector.y*0.75/(syllable.size()/0.75))
 		button.align = Button.ALIGN_CENTER
+		button.theme = load("res://fonts/ButtonTheme.tres")
 		find_node("NbSyllableContainer").add_child(button)
 		buttonPress.append(button)
-		
+		ybox = ybox - button.rect_size.y
+	
+	find_node("NbSyllableContainer").add_constant_override("separation", ybox/(syllable.size()+2))
+	ybox = marginVector.y*0.75
+	
 	for el in struct :
 		var button = CheckBox.new()
 		button.name = el
 		button.text = el
-		button.flat = true
+		button.flat = false
+		button.theme = load("res://fonts/ButtonTheme.tres")
+		button.rect_min_size = Vector2(0,marginVector.y*0.75/(syllable.size()/0.75))
 		button.align = Button.ALIGN_CENTER
 		find_node("StructSyllableContainer").add_child(button)
 		buttonPress.append(button)
+		ybox = ybox - button.rect_size.y
+	
+	var vbox = VBoxContainer.new()
+	var labelStruct = Label.new()
+	labelStruct.text = "Autre"
+	find_node("StructSyllableContainer").add_child(vbox)
+	lineStruct = LineEdit.new()
+	lineStruct.max_length = 20
+	ybox = ybox - labelStruct.rect_size.y
+	ybox = ybox - lineStruct.rect_size.y
+	vbox.add_child(labelStruct)
+	vbox.add_child(lineStruct)
+	
+	find_node("StructSyllableContainer").add_constant_override("separation", ybox/(struct.size()+4))
 
 func _on_retour_pressed():
 	get_tree().change_scene("res://speechTherapistMenu.tscn")
@@ -44,6 +83,8 @@ func _on_Creation_pressed():
 	for button  in buttonPress:
 		if(button.pressed) :
 			wordtoFind.append(button.name)
+	if(lineStruct.text.length()>0):
+			wordtoFind.append(lineStruct.text)
 	var words = searchWord(wordtoFind)
 	var popup = find_node("Popup")
 	
@@ -69,7 +110,7 @@ func searchWord(wordtoFind : Array):
 	var struct = []
 	var resultat =[]
 	for el in wordtoFind :
-		if(int(el)>0 and int(el)<4) :
+		if(int(el)>0 and int(el)<syllable.size()+1) :
 			nbsyl.append(int(el))
 		else :
 			struct.append(el.to_upper())
@@ -77,19 +118,19 @@ func searchWord(wordtoFind : Array):
 	print(struct)
 	for word in Global.wordDictionnary.getAllWord():
 		if(nbsyl.size() > 0  and nbsyl.find(word.getNbSyllable())!= -1) :
-			#print("add : ",  word.getWord(),", ",word.getNbSyllable(),", ",word.getSyllableStruct())
+			print("add : ",  word.getWord(),", ",word.getNbSyllable(),", ",word.getSyllableStruct())
 			resultat.append(word)
 		if(struct.size() > 0  and (struct.find(word.getSyllableStruct().to_upper()) != -1)) :
-			#print("add :",  word.getWord(),", ",word.getNbSyllable(),", ",word.getSyllableStruct())
+			print("add :",  word.getWord(),", ",word.getNbSyllable(),", ",word.getSyllableStruct())
 			if(resultat.find(word) == -1):
 				resultat.append(word)
 	var tmp = resultat.duplicate()
 	for word in tmp :
 		if(struct.size() > 0  and !(struct.find(word.getSyllableStruct().to_upper()) != -1)):
-			#print("remove struct :",  word.getWord(),", ",word.getNbSyllable(),", ",word.getSyllableStruct())
+			print("remove struct :",  word.getWord(),", ",word.getNbSyllable(),", ",word.getSyllableStruct())
 			resultat.remove(resultat.find(word))
 		if(nbsyl.size() > 0  and !(nbsyl.find(word.getNbSyllable())!= -1)) :
-			#print("remove syll : ", word.getWord(),", ",word.getNbSyllable(),", ",word.getSyllableStruct())
+			print("remove syll : ", word.getWord(),", ",word.getNbSyllable(),", ",word.getSyllableStruct())
 			resultat.remove(resultat.find(word))
 	return resultat
 
@@ -176,10 +217,10 @@ func _on_Confirm_pressed():
 		Global.customExercise = creation.creationExercise(Global.customExercise, wordFinal)
 		print("Creation of goose exercise")
 		Global.gooseExercise = creation.creationExercise(Global.gooseExercise, wordFinal)
-		print("Creation of memory exercise")
+		print("Creation of listen and choose exercise")
 		Global.listenExercise = creation.creationExercise(Global.listenExercise, wordFinal)
-		print("Creation of third exercise")
-		Global.thirdExercise = creation.creationExercise(Global.thirdExercise, wordFinal)
+		print("Creation of memory exercise")
+		Global.memoryExercise = creation.creationExercise(Global.memoryExercise, wordFinal)
 		_on_Popup_popup_hide()
 		find_node("Background").visible = true
 		find_node("ConfirmationPopup").popup_centered_ratio(0.75)

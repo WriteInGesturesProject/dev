@@ -14,8 +14,8 @@ dest_files=[ "res://.import/worker.png-024ebf61b8198a2ed5a001884b3b66bc.stex" ]
 
 [params]
 
-compress/mode=0
-compress/lossy_quality=0.7
+compress/mode=1
+compress/lossy_quality=0.1
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0

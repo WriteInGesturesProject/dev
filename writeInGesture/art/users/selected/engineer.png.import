@@ -14,8 +14,8 @@ dest_files=[ "res://.import/engineer.png-3f1bc2c9d60fb87a04f9e2a21074f8b0.stex" 
 
 [params]
 
-compress/mode=0
-compress/lossy_quality=0.7
+compress/mode=1
+compress/lossy_quality=0.1
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0

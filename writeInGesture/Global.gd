@@ -12,6 +12,7 @@ var os # Variable used to know on which plateform we are
 var tts = null # The Text To Speech Object
 var stt = null # The Speech To Text Object
 
+
 var current_ex : Exercise # The exercise we are playing
 
 var score # The score when in game
@@ -31,6 +32,7 @@ var gooseExercise : Exercise = Exercise.new()
 var listenExercise : Exercise = Exercise.new()
 var memoryExercise : Exercise = Exercise.new()
 
+
 var countExercise : Exercise = Exercise.new()
 var weekExercise : Exercise = Exercise.new()
 var colorExercise : Exercise = Exercise.new()
@@ -41,9 +43,11 @@ var wordsAvailable : WordsAvailable = WordsAvailable.new()
 var wordDictionnary = MyDictionnary.new()
 var phoneticDictionnary
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	os = OS.get_name()
+	
 	var osRequest = OS.request_permissions()
 	
 	match os:
@@ -106,7 +110,7 @@ func loadEntity():
 	
 	ManageJson.getElement("colors.json", "Exercise", colorExercise)
 	colorExercise.setAttribut("nameFile", "colors.json")
-	
+	 
 	ManageJson.getElement("week.json", "Exercise", weekExercise)
 	weekExercise.setAttribut("nameFile", "week.json")
 	

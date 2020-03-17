@@ -4,7 +4,7 @@ extends TextureButton
 var tts = Global.tts
 var imageWord : String
 var imagePath : String
-var cardPath = "res://art/card2.jpg"
+var cardPath = "res://assets/icons/card2.jpg"
 var selected_cards : Array
 
 
@@ -16,7 +16,7 @@ func init(word, size, selected_cards : Array):
 	set_expand(true)
 	set_stretch_mode(TextureButton.STRETCH_SCALE)
 	rect_min_size = size
-	imagePath = "res://art/images/" + word.getPath()
+	imagePath = word.getPath()
 	imageWord = word.getWord()
 	connect("pressed", self, "_on_Card_pressed")
 
@@ -26,7 +26,7 @@ func _on_Card_pressed():
 		selected_cards.append(self)
 		if(tts != null):
 			tts.speakText(imageWord)
-		set_normal_texture(load(imagePath))
+		set_normal_texture(Global.find_texture(imagePath))
 	else:
 		return
 	if(selected_cards.size() == 2):

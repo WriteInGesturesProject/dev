@@ -112,7 +112,7 @@ func _changeColor():
 			board[index].modulate = "e86767"
 
 func _scaleImg():
-	var img = load("res://art/images/"+ myWords[ind].getPath())
+	var img = Global.find_texture(myWords[ind].getPath())
 	find_node("Image").texture = img
 	find_node("Image").rect_size.y = get_viewport().size.y / 2.5
 	find_node("Image").rect_size.x = get_viewport().size.y / 2.5 * (img.get_size().x / img.get_size().y)

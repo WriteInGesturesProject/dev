@@ -1,14 +1,20 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://fonts/background.png" type="Texture" id=1]
+[ext_resource path="res://assets/background.png" type="Texture" id=1]
 [ext_resource path="res://GooseGame.gd" type="Script" id=2]
-[ext_resource path="res://art/back.png" type="Texture" id=3]
-[ext_resource path="res://fonts/phonetic.tres" type="Theme" id=4]
-[ext_resource path="res://art/speaker.png" type="Texture" id=5]
-[ext_resource path="res://art/record.png" type="Texture" id=6]
-[ext_resource path="res://art/next.png" type="Texture" id=8]
+[ext_resource path="res://assets/icons/back.png" type="Texture" id=3]
+[ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=4]
+[ext_resource path="res://assets/icons/speaker.png" type="Texture" id=5]
+[ext_resource path="res://assets/icons/record.png" type="Texture" id=6]
+[ext_resource path="res://assets/icons/next.png" type="Texture" id=8]
 [ext_resource path="res://art/boo2.wav" type="AudioStream" id=9]
 [ext_resource path="res://art/applause4.wav" type="AudioStream" id=10]
+
+
+
+
+
+
 
 [node name="Control" type="Control"]
 anchor_right = 1.0

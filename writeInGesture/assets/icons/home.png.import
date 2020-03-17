@@ -2,20 +2,20 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/background.png-c35bb4880397e3163de6e90c6ebb3a11.stex"
+path="res://.import/home.png-362c5c0c9823229e42cebdba267f63dd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fonts/background.png"
-dest_files=[ "res://.import/background.png-c35bb4880397e3163de6e90c6ebb3a11.stex" ]
+source_file="res://assets/icons/home.png"
+dest_files=[ "res://.import/home.png-362c5c0c9823229e42cebdba267f63dd.stex" ]
 
 [params]
 
-compress/mode=0
-compress/lossy_quality=0.7
+compress/mode=1
+compress/lossy_quality=0.1
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0

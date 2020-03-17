@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/card2.jpg-ab21383b088bee6816025ebe2b77786c.stex"
+path="res://.import/speaker.png-26e70c1e81b97f38635a9e49593800f8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/card2.jpg"
-dest_files=[ "res://.import/card2.jpg-ab21383b088bee6816025ebe2b77786c.stex" ]
+source_file="res://assets/icons/speaker.png"
+dest_files=[ "res://.import/speaker.png-26e70c1e81b97f38635a9e49593800f8.stex" ]
 
 [params]
 

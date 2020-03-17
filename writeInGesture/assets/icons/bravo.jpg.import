@@ -2,26 +2,26 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/next.png-e389991789fea33e1e01ede207f4833b.stex"
+path="res://.import/bravo.jpg-c2ec6155fbf6134e3dbc327f6e6e1e72.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/next.png"
-dest_files=[ "res://.import/next.png-e389991789fea33e1e01ede207f4833b.stex" ]
+source_file="res://assets/icons/bravo.jpg"
+dest_files=[ "res://.import/bravo.jpg-c2ec6155fbf6134e3dbc327f6e6e1e72.stex" ]
 
 [params]
 
 compress/mode=1
-compress/lossy_quality=0.1
+compress/lossy_quality=0.5
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
-flags/mipmaps=false
+flags/mipmaps=true
 flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true

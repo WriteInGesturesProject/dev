@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/validate.png-72c956d0fdb296eb805fcd3d2dcd9a76.stex"
+path="res://.import/goldCoin.png-0969837e553fa99c23921510365888f1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/validate.png"
-dest_files=[ "res://.import/validate.png-72c956d0fdb296eb805fcd3d2dcd9a76.stex" ]
+source_file="res://assets/icons/goldCoin.png"
+dest_files=[ "res://.import/goldCoin.png-0969837e553fa99c23921510365888f1.stex" ]
 
 [params]
 

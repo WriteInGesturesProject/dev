@@ -512,7 +512,7 @@
          "lɛ̃di": {
             "phonetic": "lɛ̃di",
             "word": "lundi",
-            "path": "",
+            "path": "lundi.png",
             "homonym": [
                "lundi"
             ],
@@ -524,7 +524,7 @@
          "mardi": {
             "phonetic": "mardi",
             "word": "mardi",
-            "path": "",
+            "path": "mardi.png",
             "homonym": [
                "mardi"
             ],
@@ -536,7 +536,7 @@
          "mɛrkrədi": {
             "phonetic": "mɛrkrədi",
             "word": "mercredi",
-            "path": "",
+            "path": "mercredi.png",
             "homonym": [
                "mercredi"
             ],
@@ -548,7 +548,7 @@
          "ʒœdi": {
             "phonetic": "ʒœdi",
             "word": "jeudi",
-            "path": "",
+            "path": "jeudi.png",
             "homonym": [
                "jeudi"
             ],
@@ -560,7 +560,7 @@
          "vɑdrədi": {
             "phonetic": "vɑdrədi",
             "word": "vendredi",
-            "path": "",
+            "path": "vendredi.png",
             "homonym": [
                "vendredi"
             ],
@@ -572,7 +572,7 @@
          "samədi": {
             "phonetic": "samədi",
             "word": "samedi",
-            "path": "",
+            "path": "samedi.png",
             "homonym": [
                "samedi"
             ],
@@ -584,7 +584,7 @@
          "dimɑʃ": {
             "phonetic": "dimɑʃ",
             "word": "dimanche",
-            "path": "",
+            "path": "dimanche.png",
             "homonym": [
                "dimanche"
             ],

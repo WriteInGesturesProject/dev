@@ -6,15 +6,9 @@
 [ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=4]
 [ext_resource path="res://assets/icons/speaker.png" type="Texture" id=5]
 [ext_resource path="res://assets/icons/record.png" type="Texture" id=6]
+[ext_resource path="res://assets/sound/fail.ogg" type="AudioStream" id=7]
 [ext_resource path="res://assets/icons/next.png" type="Texture" id=8]
-[ext_resource path="res://art/boo2.wav" type="AudioStream" id=9]
-[ext_resource path="res://art/applause4.wav" type="AudioStream" id=10]
-
-
-
-
-
-
+[ext_resource path="res://assets/sound/success.ogg" type="AudioStream" id=9]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -26,10 +20,10 @@ __meta__ = {
 }
 
 [node name="Boo" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
+stream = ExtResource( 7 )
 
 [node name="Great" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 10 )
+stream = ExtResource( 9 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0

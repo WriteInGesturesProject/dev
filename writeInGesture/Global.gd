@@ -191,4 +191,13 @@ func make_margin(margeContainer : MarginContainer, marge):
 	margeContainer.set("custom_constants/margin_bottom", get_viewport().size.y * marge)
 	margeContainer.set("custom_constants/margin_left", get_viewport().size.x * marge)
 	margeContainer.set("custom_constants/margin_right", get_viewport().size.x * marge)
-	return 
+	return
+	
+func find_texture(path : String):
+	var tex = load("res://art/images/" + path)
+	if(tex == null):
+		var image = Image.new()
+		image.load("user://art/" + path)
+		tex = ImageTexture.new()
+		tex.create_from_image(image)
+	return tex

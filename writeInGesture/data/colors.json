@@ -1,142 +1,241 @@
 {
-	"Exercise":
-	{
-		"version" : 1.0,
-		"userId" : "0",
-		"name" : "Couleurs",
-		"type" : {
-			"name" : "Entrainement",
-			"categorie" : "Custom, MonoSyllabe, BiSyllable, TriSyllable",
-			"syllableStruct" : "cv, cvv, cvc, n",
-			"vowelsType" : "O, N, SV",
-			"consonantsType" : "O, C, N"
+	"Exercise": {
+		"version": 1.0,
+		"userId": "0",
+		"name": "Couleurs",
+		"type": {
+			"name": "Entrainement",
+			"categorie": "Custom, MonoSyllabe, BiSyllable, TriSyllable",
+			"syllableStruct": "cv, cvv, cvc, n",
+			"vowelsType": "O, N, SV",
+			"consonantsType": "O, C, N"
 		},
-		"difficulty" : 0,
-		"successPercentage" : [0.0,0.0,0.0],
-		"nbSuccess" : 200,
-		"nbWordsOccurrences" : [
-			[0,0,0,0,0,0,0,0,0,0,0],
-			[0,0,0,0,0,0,0,0,0,0,0],
-			[0,0,0,0,0,0,0,0,0,0,0]
+		"difficulty": 0,
+		"successPercentage": [
+			0.0,
+			0.0,
+			0.0
 		],
-		"nbWords" : 11,
-		"wordsSuccess" : [
-			[0,0,0,0,0,0,0,0,0,0,0],
-			[0,0,0,0,0,0,0,0,0,0,0],
-			[0,0,0,0,0,0,0,0,0,0,0]
+		"nbSuccess": 200,
+		"nbWordsOccurrences": [
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			]
 		],
-		"words" : {
-			"blœ" : {
-				"phonetic" : "blœ",
-				"word" : "bleu",
-				"path" : "bleu.png",
-				"homonym" : ["bleu"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+		"nbWords": 11,
+		"wordsSuccess": [
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			]
+		],
+		"words": {
+			"blœ": {
+				"phonetic": "blœ",
+				"word": "bleu",
+				"path": "bleu.jpg",
+				"homonym": [
+					"bleu"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "ccv",
+				"vowelsType": "o",
+				"consonantsType": "ol"
 			},
-			"ruʒ" : {
-				"phonetic" : "ruʒ",
-				"word" : "rouge",
-				"path" : "rouge.png",
-				"homonym" : ["rouge"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"ruʒ": {
+				"phonetic": "ruʒ",
+				"word": "rouge",
+				"path": "rouge.jpg",
+				"homonym": [
+					"rouge"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cv",
+				"vowelsType": "N",
+				"consonantsType": "O,N"
 			},
-			"ʒon" : {
-				"phonetic" : "ʒon",
-				"word" : "jaune",
-				"path" : "jaune.png",
-				"homonym" : ["jaune"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"ʒon": {
+				"phonetic": "ʒon",
+				"word": "jaune",
+				"path": "jaune.jpg",
+				"homonym": [
+					"jaune"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cv",
+				"vowelsType": "N",
+				"consonantsType": "O,N"
 			},
-			"vɛt" : {
-				"phonetic" : "vɛt",
-				"word" : "vert",
-				"path" : "vert.png",
-				"homonym" : ["vert", "verre", "vers", "ver"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"vɛt": {
+				"phonetic": "vɛt",
+				"word": "vert",
+				"path": "vert.jpg",
+				"homonym": [
+					"ver",
+					"verre",
+					"vers",
+					"vert"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cv",
+				"vowelsType": "N",
+				"consonantsType": "O,N"
 			},
-			"marɔ̃" : {
-				"phonetic" : "marɔ̃",
-				"word" : "marron",
-				"path" : "marron.png",
-				"homonym" : ["marron"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"marɔ̃": {
+				"phonetic": "marɔ̃",
+				"word": "marron",
+				"path": "marron.jpg",
+				"homonym": [
+					"marron"
+				],
+				"nbSyllable": 2,
+				"syllableStruct": "cvcv",
+				"vowelsType": "on",
+				"consonantsType": "nl"
 			},
-			"gri" : {
-				"phonetic" : "gri",
-				"word" : "gris",
-				"path" : "gris.png",
-				"homonym" : ["gris"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"gri": {
+				"phonetic": "gri",
+				"word": "gris",
+				"path": "gris.jpg",
+				"homonym": [
+					"gris"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "ccv",
+				"vowelsType": "o",
+				"consonantsType": "ol"
 			},
-			"blɑ" : {
-				"phonetic" : "blɑ",
-				"word" : "blanc",
-				"path" : "blanc.png",
-				"homonym" : ["blanc"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"blɑ": {
+				"phonetic": "blɑ",
+				"word": "blanc",
+				"path": "blanc.jpg",
+				"homonym": [
+					"blanc"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cv",
+				"vowelsType": "N",
+				"consonantsType": "O,N"
 			},
-			"nwar" : {
-				"phonetic" : "nwar",
-				"word" : "noir",
-				"path" : "noir.png",
-				"homonym" : ["noir"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"nwar": {
+				"phonetic": "nwar",
+				"word": "noire",
+				"path": "noir.jpg",
+				"homonym": [
+					"noire"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cvc",
+				"vowelsType": "o",
+				"consonantsType": "nl"
 			},
-			"vjolɛ" : {
-				"phonetic" : "vjolɛ",
-				"word" : "violet",
-				"path" : "violet.png",
-				"homonym" : ["violet"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"vjolɛ": {
+				"phonetic": "vjolɛ",
+				"word": "violet",
+				"path": "violet.jpg",
+				"homonym": [
+					"violet"
+				],
+				"nbSyllable": 2,
+				"syllableStruct": "cvvcv",
+				"vowelsType": "sv",
+				"consonantsType": "cl"
 			},
-			"roz" : {
-				"phonetic" : "roz",
-				"word" : "rose",
-				"path" : "rose.png",
-				"homonym" : ["rose"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"roz": {
+				"phonetic": "roz",
+				"word": "rose",
+				"path": "rose.jpg",
+				"homonym": [
+					"rose"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cvc",
+				"vowelsType": "o",
+				"consonantsType": "lc"
 			},
-			"orɑz" : {
-				"phonetic" : "orɑz",
-				"word" : "orange",
-				"path" : "orange.png",
-				"homonym" : ["orange"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"orɑz": {
+				"phonetic": "orɑz",
+				"word": "orange",
+				"path": "orange.jpg",
+				"homonym": [
+					"orange"
+				],
+				"nbSyllable": 2,
+				"syllableStruct": "vcvc",
+				"vowelsType": "on",
+				"consonantsType": "lc"
 			}
-			
-		},
+		}
 	}
 }

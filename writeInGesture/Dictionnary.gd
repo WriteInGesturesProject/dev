@@ -33,7 +33,7 @@ func getWord(phonetic) -> Word :
 	for currentWord in words :
 		if(currentWord.getPhonetic() == phonetic):
 			return currentWord
-	print("Mot avec la phonetic :"+phonetic+" non trouvé")
+	#print("Mot avec la phonetic :"+phonetic+" non trouvé")
 	return null
 
 func addWord(word) -> int :
@@ -60,7 +60,7 @@ func setAttribut(field : String, input):
 				var inputWord = Word.new()
 				var w = input[word]
 				for field in w :
-					#print ("field :", field, " champ :", w[field])
+					##print ("field :", field, " champ :", w[field])
 					inputWord.setAttribut(field, w[field])
 				words.append(inputWord)
 		"nameFile" : 

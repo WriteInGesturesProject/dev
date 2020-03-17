@@ -8,6 +8,7 @@ const TypeExercise = preload("res://TypeExercise.gd")
 const CreationExercise = preload("res://CreationExercise.gd")
 
 var nameFile = "wordsAvailable"
+var ImageFile = ""
 var ImagePath = ""
 
 var margin = 0.05
@@ -46,9 +47,8 @@ func _ready():
 	_createKeyboard(find_node("editContainer").rect_min_size.x,find_node("keyBoardContainer").rect_min_size.y )
 	self.add_child(bg)
 	find_node("MainContainer").rect_position.y = 100+ find_node("retour").rect_size.y
-	
 
-	
+
 func removeAllChildren(nameNode):
 	# remove all children of nameNode
 	for i in range(0, find_node(nameNode).get_child_count()):
@@ -78,15 +78,15 @@ func _createKeyboard(lenghtX : float, lenghtY : float):
 	for b in Global.phoneticDictionnary:
 		for w in Global.phoneticDictionnary[b]:
 			var keyButton = Button.new()
-			keyButton.theme = load("res://fonts/phonetic.tres")
+			keyButton.theme = load("res://assets/theme/PhoneticTheme.tres")
 			keyButton.text = w["phonetic"]
 			keyButton.connect("pressed",self,"_on_keyButton_pressed", [keyButton])
 			keyButton.rect_min_size = Vector2(lenghtX*0.95/columsNbWords,lenghtY*0.95/rawNbWords)
-			print(lenghtX/rawNbWords)
+			#print(lenghtX/rawNbWords)
 			find_node("gridKeyboard").add_child(keyButton)
 	var keyDeleteButton = Button.new()
 	keyDeleteButton.text = "Effacer"
-	keyDeleteButton.theme = load("res://fonts/ButtonTheme.tres")
+	keyDeleteButton.theme = load("res://assets/theme/ButtonTheme.tres")
 	keyDeleteButton.connect("pressed",self,"_on_keyButton_pressed", [keyDeleteButton])
 	find_node("HBoxContainerAdd").add_child(keyDeleteButton)
 	
@@ -135,7 +135,7 @@ func createAvailableWordsList(word : Word):
 	
 	var buttonDelete = Button.new()
 	buttonDelete.name = word.getWord()
-	buttonDelete.icon = load("res://art/delete.png")
+	buttonDelete.icon = load("res://assets/icons/delete.png")
 	buttonDelete.expand_icon = true
 	buttonDelete.rect_size = Vector2(60,60)
 	buttonDelete.connect("pressed",self,"_on_deleteButton_pressed", [buttonDelete, currentLabel])
@@ -154,10 +154,10 @@ func createAvailableWordsList(word : Word):
 	return hBoxContainer
 
 func _on_deleteButton_pressed(button, label):
-	print("release : ", release)
+	#print("release : ", release)
 	if(!release) :
 		button.get_parent().get_parent().remove_and_skip()
-		print("label text : ",label.get_text())
+		#print("label text : ",label.get_text())
 		swiping = false 
 		if(!wordsAvailable.removeWord(wordsAvailable.getWord(label.get_text()))) :
 			print ("le mot n'est pas supprimé dans le fichier'")
@@ -190,13 +190,13 @@ func _on_Confirm_pressed():
 	newWord.setAttribut("syllableStruct", find_node("LineStruct").text)
 	newWord.setAttribut("vowelsType", find_node("LineVoyelsType").text)
 	newWord.setAttribut("consonantsType", find_node("LineConsType").text)
-	newWord.setPath(ImagePath)
+	newWord.setPath(ImageFile)
 	newWord.setHomonym(findHomonym(newWord.getWord()))
 	if(newWord.getHomonym().size() == 0) :
 		newWord.addHomonym(newWord.getWord())
 	var err = dictionnary.addWord(newWord)
 	if(err) :
-		print("le mot a bien été ajouté")
+		#print("le mot a bien été ajouté")
 		find_node("LinePhonetic").text = ""
 		find_node("LineWord").text = ""
 		find_node("LineStruct").text = ""
@@ -222,20 +222,20 @@ func findHomonym(word : String) :
 		for el in homo :
 			if(el == word) :
 				res= homo
-	print(res)
+	#print(res)
 	return res
 #######################################END_ADD_WORD_IN_DICTIONNARY###############################
 
 #######################################CREATION_OF_EXERCISE######################################
 func _on_Creation_pressed():
 	var creation = CreationExercise.new()
-	print("Creation of custom exercise")
+	#print("Creation of custom exercise")
 	Global.customExercise = creation.creationExercise(Global.customExercise, wordsAvailable.getAllWords())
-	print("Creation of goose exercise")
+	#print("Creation of goose exercise")
 	Global.gooseExercise = creation.creationExercise(Global.gooseExercise, wordsAvailable.getAllWords())
-	print("Creation of listen exercise")
+	#print("Creation of listen exercise")
 	Global.listenExercise = creation.creationExercise(Global.listenExercise, wordsAvailable.getAllWords())
-	print("Creation of memory exercise")
+	#print("Creation of memory exercise")
 	Global.memoryExercise = creation.creationExercise(Global.memoryExercise, wordsAvailable.getAllWords())
 	
 	
@@ -258,10 +258,10 @@ var swipe_mouse_positions = []
 
 
 func _input(ev):
-	#print(ev)
+	##print(ev)
 	if swiping and ev is InputEventMouseMotion:
 		var delta = ev.position - swipe_mouse_start
-		#print(delta.length())
+		##print(delta.length())
 		if(delta.length()>10):
 			find_node("ScrollContainer").set_h_scroll(swipe_start.x - delta.x)
 			find_node("ScrollContainer").set_v_scroll(swipe_start.y - delta.y)
@@ -300,7 +300,7 @@ func _input(ev):
 				tween.interpolate_method(self, 'set_v_scroll', source.y, target.y, flick_dur, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 				tween.interpolate_callback(tween, flick_dur, 'queue_free')
 				tween.start()
-#			print("is swipping :",isswipping)
+#			#print("is swipping :",isswipping)
 			if isswipping:
 				release = true
 			else:
@@ -332,7 +332,8 @@ func _on_FileDialog_file_selected(path):
 	var word = find_node("LineWord").text
 	if(word == null || word == ""):
 		return
-	ImagePath = "user://art/" + word + "." + path.get_extension()
+	ImageFile = word + "." + path.get_extension()
+	ImagePath = "user://art/" + ImageFile
 	var dir = Directory.new()
 	dir.open("user://")
 	if(!dir.dir_exists("art")):

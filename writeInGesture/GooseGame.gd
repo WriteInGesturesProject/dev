@@ -59,10 +59,10 @@ func _ready():
 				var control_img = Control.new()
 				var image = TextureRect.new()
 				if(Global.level == 0 || Global.level == 2):
-					image.texture = load("res://art/images/"+ myWords[i].getPath())
+					image.texture = Global.find_texture(myWords[i].getPath())
 					i += 1
 				elif(Global.level == 1):
-					image.texture = load("res://art/questionmark.png")
+					image.texture = load("res://assets/icons/questionmark.png")
 				image.expand = true
 				image.stretch_mode = TextureRect.STRETCH_SCALE_ON_EXPAND
 				image.rect_size.x = get_viewport().size.y / 6
@@ -82,7 +82,7 @@ func _ready():
 		find_node("ImgBorel").add_child(container)
 		find_node("Word").text = myWords[ind].getWord()
 	board[0].modulate = "e86767"
-	find_node("Image").texture = load("res://art/images/"+ myWords[0].getPath())
+	find_node("Image").texture = Global.find_texture(myWords[0].getPath())
 	Global.score = 0
 	Global.try = []
 	for i in myWords:

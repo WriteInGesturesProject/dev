@@ -1429,7 +1429,7 @@ index 0000000..5db4cfe
 +
 +# Called when the node enters the scene tree for the first time.
 +func _ready():
-+	print(contentFile)
++	#print(contentFile)
 +	for i in range(0, contentFile.size()):
 +		var currentLabel = Label.new()
 +		currentLabel.set_text(contentFile[i])

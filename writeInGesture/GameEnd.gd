@@ -28,7 +28,7 @@ func _ready():
 #	find_node("Logo").rect_position.x = size.x/2 - size.x/20 - size.y/8
 	Ex = Global.current_ex
 	if(Ex == null):
-		print("Ex in GameEnd is null")
+		#print("Ex in GameEnd is null")
 		return
 	
 	var success = true

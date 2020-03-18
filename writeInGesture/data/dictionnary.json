@@ -197,7 +197,7 @@
          "bo": {
             "phonetic": "bo",
             "word": "beau",
-            "path": "beau.gif",
+            "path": "beau.png",
             "homonym": [
                "beau"
             ],
@@ -884,7 +884,7 @@
          "fɔrm": {
             "phonetic": "fɔrm",
             "word": "forme",
-            "path": "forme.gif",
+            "path": "forme.png",
             "homonym": [
                "forme"
             ],
@@ -944,7 +944,7 @@
          "frwad": {
             "phonetic": "frwad",
             "word": "froide",
-            "path": "froide.gif",
+            "path": "froide.png",
             "homonym": [
                "froide"
             ],
@@ -968,7 +968,7 @@
          "gro": {
             "phonetic": "gro",
             "word": "gros",
-            "path": "gros.gif",
+            "path": "gros.png",
             "homonym": [
                "gros"
             ],
@@ -1126,7 +1126,7 @@
          "pɔrt": {
             "phonetic": "pɔrt",
             "word": "porte",
-            "path": "porte.gif",
+            "path": "porte.png",
             "homonym": [
                "porte"
             ],
@@ -1138,7 +1138,7 @@
          "pul": {
             "phonetic": "pul",
             "word": "poule",
-            "path": "poule.gif",
+            "path": "poule.png",
             "homonym": [
                "poule"
             ],
@@ -1150,7 +1150,7 @@
          "pur": {
             "phonetic": "pur",
             "word": "pour",
-            "path": "pour.gif",
+            "path": "pour.png",
             "homonym": [
                "pour"
             ],

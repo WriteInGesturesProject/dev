@@ -1,6 +1,7 @@
 extends Control
 
 const Word = preload("res://Word.gd")
+
 var backgroundColor : ColorRect
 var cardContainer : MarginContainer
 var mainVBox : VBoxContainer
@@ -10,9 +11,12 @@ var word : Word
 var vectorSize : Vector2
 var test : ColorRect
 var controlImageWord : Control
+var selected : bool
+var buttonSelection : Button
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	buttonSelection = Button.new()
 	backgroundColor = ColorRect.new()
 	test = ColorRect.new()
 	test.size_flags_horizontal = SIZE_EXPAND
@@ -33,9 +37,11 @@ func _ready():
 	cardContainer.add_child(mainVBox)
 	self.add_child(cardContainer)
 #	self.add_child(imgBorelContainer)
-
+	self.add_child(buttonSelection)
 
 func setUpCard(word : Word, level : int, size : Vector2) -> void:
+	buttonSelection.rect_min_size = size
+	buttonSelection.flat = true
 	self.word = word
 	self.rect_size = size
 	var margin = 0.05
@@ -84,6 +90,12 @@ func setUpCard(word : Word, level : int, size : Vector2) -> void:
 	else :
 		_scaleImg(imageWord, vectorSize.y * 0.90)
 		yRest -= 0.90
+	
+	if level == 1 || level == 2:
+		wordLabel.visible = false
+	if level == 2 :
+		imgBorelContainer.visible = false
+	
 	controlImageWord.rect_size = imageWord.rect_size
 	controlImageWord.add_child(imageWord)
 	imageWord.rect_position.x = (vectorSize.x - imageWord.rect_size.x)/2

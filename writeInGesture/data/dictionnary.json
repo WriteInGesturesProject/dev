@@ -1174,7 +1174,7 @@
          "propr": {
             "phonetic": "propr",
             "word": "propre",
-            "path": "",
+            "path": "propre.png",
             "homonym": [
                "propre"
             ],
@@ -1186,7 +1186,7 @@
          "rɛgl": {
             "phonetic": "rɛgl",
             "word": "règle",
-            "path": "",
+            "path": "regle.png",
             "homonym": [
                "règle"
             ],
@@ -1210,7 +1210,7 @@
          "rir": {
             "phonetic": "rir",
             "word": "rire",
-            "path": "",
+            "path": "rire.png",
             "homonym": [
                "rire"
             ],
@@ -1222,7 +1222,7 @@
          "rut": {
             "phonetic": "rut",
             "word": "route",
-            "path": "",
+            "path": "route.png",
             "homonym": [
                "route"
             ],
@@ -1258,7 +1258,7 @@
          "swar": {
             "phonetic": "swar",
             "word": "soir",
-            "path": "",
+            "path": "soir.png",
             "homonym": [
                "soir"
             ],
@@ -1282,7 +1282,7 @@
          "tas": {
             "phonetic": "tas",
             "word": "tasse",
-            "path": "",
+            "path": "tasse.png",
             "homonym": [
                "tasse"
             ],
@@ -1294,7 +1294,7 @@
          "tɛr": {
             "phonetic": "tɛr",
             "word": "terre",
-            "path": "",
+            "path": "terre.png",
             "homonym": [
                "terre"
             ],
@@ -1318,7 +1318,7 @@
          "tro": {
             "phonetic": "tro",
             "word": "trop",
-            "path": "",
+            "path": "trop.png",
             "homonym": [
                "trop",
                "trot"
@@ -1331,7 +1331,7 @@
          "tru": {
             "phonetic": "tru",
             "word": "trou",
-            "path": "",
+            "path": "trou.png",
             "homonym": [
                "trou"
             ],
@@ -1343,7 +1343,7 @@
          "vid": {
             "phonetic": "vid",
             "word": "vide",
-            "path": "",
+            "path": "vide.png",
             "homonym": [
                "vide"
             ],
@@ -1367,7 +1367,7 @@
          "vwar": {
             "phonetic": "vwar",
             "word": "voir",
-            "path": "",
+            "path": "voir.png",
             "homonym": [
                "voir"
             ],
@@ -1379,7 +1379,7 @@
          "pɔ̃": {
             "phonetic": "pɔ̃",
             "word": "pont",
-            "path": "",
+            "path": "pont.png",
             "homonym": [
                "pont"
             ],
@@ -1391,7 +1391,7 @@
          "byt": {
             "phonetic": "byt",
             "word": "but",
-            "path": "",
+            "path": "but.png",
             "homonym": [
                "but",
                "butte"
@@ -1404,7 +1404,7 @@
          "ba": {
             "phonetic": "ba",
             "word": "bas",
-            "path": "",
+            "path": "bas.png",
             "homonym": [
                "bas"
             ],
@@ -1416,7 +1416,7 @@
          "dɑ̃": {
             "phonetic": "dɑ̃",
             "word": "dent",
-            "path": "",
+            "path": "dent.png",
             "homonym": [
                "dans",
                "dent"
@@ -1429,7 +1429,7 @@
          "de": {
             "phonetic": "de",
             "word": "dé",
-            "path": "",
+            "path": "de.png",
             "homonym": [
                "dé"
             ],
@@ -1441,7 +1441,7 @@
          "do": {
             "phonetic": "do",
             "word": "dos",
-            "path": "",
+            "path": "dos.png",
             "homonym": [
                "dos"
             ],
@@ -1453,7 +1453,7 @@
          "ne": {
             "phonetic": "ne",
             "word": "nez",
-            "path": "",
+            "path": "nez.png",
             "homonym": [
                "nez"
             ],
@@ -1465,7 +1465,7 @@
          "nɔ̃": {
             "phonetic": "nɔ̃",
             "word": "non",
-            "path": "",
+            "path": "non.png",
             "homonym": [
                "non"
             ],
@@ -1477,7 +1477,7 @@
          "ku": {
             "phonetic": "ku",
             "word": "cou",
-            "path": "",
+            "path": "cou.png",
             "homonym": [
                "cou",
                "coup",
@@ -1491,7 +1491,7 @@
          "gɑ̃": {
             "phonetic": "gɑ̃",
             "word": "gant",
-            "path": "",
+            "path": "gant.png",
             "homonym": [
                "gant"
             ],

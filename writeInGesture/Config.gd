@@ -19,7 +19,7 @@ func getPathExercisesFiles() -> Array :
 func setPathExercisesFiles(oldPathExercisesFiles : String, newPathExercisesFiles : String) :
 	var index = pathExercisesFiles.find(oldPathExercisesFiles)
 	if index == -1 :
-		print("Le nom de fichier à remplacer n'existe pas'")
+		#print("Le nom de fichier à remplacer n'existe pas'")
 		return -1
 	else:
 		pathExercisesFiles[index] = newPathExercisesFiles

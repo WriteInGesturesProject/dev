@@ -17,7 +17,7 @@ var container = HBoxContainer.new()
 var os = Global.os
 
 func _scaleImg():
-	var img = load("res://art/images/"+ myWords[index].getPath())
+	var img = Global.find_texture(myWords[index].getPath())
 	find_node("Image").texture = img
 	find_node("Image").rect_size.y = get_viewport().size.y / 2.5
 	find_node("Box").add_constant_override("separation", int(find_node("Image").rect_size.x) + 20)

@@ -27,7 +27,7 @@ func _ready():
 			currentButton.theme = load("res://fonts/ButtonTheme.tres")
 			var text = ""
 			var dict2 = array[j]
-			#print(dict2)
+			##print(dict2)
 			for k in range (0,dict2.size()):
 				if(k<3):
 					var phonetic = dict2[dict2.keys()[k]]
@@ -94,7 +94,7 @@ func _on_allbutton_pressed(arg):
 func _input(ev):
 	if swiping and ev is InputEventMouseMotion:
 		var delta = ev.position - swipe_mouse_start
-		#print(delta.length())
+		##print(delta.length())
 		if(delta.length()>10):
 			$"MarginContainer/VBoxContainer/ScrollContainer".set_h_scroll(swipe_start.x - delta.x)
 			$"MarginContainer/VBoxContainer/ScrollContainer".set_v_scroll(swipe_start.y - delta.y)
@@ -132,7 +132,7 @@ func _input(ev):
 				tween.interpolate_method(self, 'set_v_scroll', source.y, target.y, flick_dur, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 				tween.interpolate_callback(tween, flick_dur, 'queue_free')
 				tween.start()
-			#print(isswipping)
+			##print(isswipping)
 			if isswipping:
 				release = true
 			else:

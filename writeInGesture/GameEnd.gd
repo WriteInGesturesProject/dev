@@ -28,7 +28,7 @@ func _ready():
 #	find_node("Logo").rect_position.x = size.x/2 - size.x/20 - size.y/8
 	Ex = Global.current_ex
 	if(Ex == null):
-		print("Ex in GameEnd is null")
+		#print("Ex in GameEnd is null")
 		return
 	
 	var success = true
@@ -52,7 +52,7 @@ func _ready():
 	else:
 		comment = "Bravo !!"
 	if(Global.play != 0):
-		find_node("Money").set_text("Tu as gagné : "+ str(Global.score) + " pièces or")
+		find_node("Money").set_text("Tu as gagné "+ str(Global.score) + " pièces argent")
 	else:
 		find_node("Money").visible = false
 	find_node("Comment").set_text(comment)
@@ -62,7 +62,7 @@ func _ready():
 	find_node("BestScore").set_text("Ton meilleur score est de " + str(int(Ex.getSuccessPercentage(Global.level))) + "%")
 	if(success):
 		Ex.setNbSuccess(Ex.getNbSuccess() + 1)
-		Global.player.setGold(Global.player.getGold()+1)
+		Global.player.setGold(Global.player.getGold() + 1)
 	find_node("Success").set_text("Tu as fini cet exercice " + str(Ex.getNbSuccess()) + " fois")
 	find_node("Gold").text = str(Global.player.getGold())
 	find_node("Silver").text = str(Global.player.getSilver())

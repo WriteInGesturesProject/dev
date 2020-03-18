@@ -29,18 +29,15 @@ func _ready():
 	
 	#Creation of the memory 
 	var row = 2 * max_cards / columns
-	print(sizeMargin.y)
 	var separationX = sizeMargin.x * columns * separationPercentage
 	var separationY = sizeMargin.y * row * separationPercentage
 	var card_size = Vector2((sizeMargin.x-separationX)/columns, (sizeMargin.y- separationY)/row)
 	$MarginContainer/GridCards.columns = columns
 	$MarginContainer/GridCards.set("custom_constants/vseparation", separationY/row)
 	$MarginContainer/GridCards.set("custom_constants/hseparation", separationX/columns)
-	
 	$MarginContainer/GridCards.set("rect_position.x",100)
 	$MarginContainer/GridCards.set("rect_position.y",separationY/2)
-
-#	$MarginContainer.set("custom_constants/margin_left", separation.x)
+	
 	randomize()
 	words.shuffle()
 	words.resize(max_cards)

@@ -15,7 +15,7 @@ func updateParent() :
 	if(parent != null) :
 		return parent.updateWord(self)
 	else :
-		print("this word has no parent node")
+		#print("this word has no parent node")
 		return 0
 
 func getPhonetic():
@@ -135,6 +135,6 @@ func toDictionnary() :
 	dic["consonantsType"]  = getConsonantsType()
 	res[getPhonetic()] = dic
 
-	#print("Dictionnary",res)
+	##print("Dictionnary",res)
 	return res
 

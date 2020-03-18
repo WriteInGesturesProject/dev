@@ -1503,7 +1503,7 @@
          "fe": {
             "phonetic": "fe",
             "word": "fée",
-            "path": "",
+            "path": "fee.png",
             "homonym": [
                "fée"
             ],
@@ -1515,7 +1515,7 @@
          "fœ": {
             "phonetic": "fœ",
             "word": "feu",
-            "path": "",
+            "path": "feu.png",
             "homonym": [
                "feu"
             ],
@@ -1527,7 +1527,7 @@
          "vɑ̃": {
             "phonetic": "vɑ̃",
             "word": "vent",
-            "path": "",
+            "path": "vent.png",
             "homonym": [
                "vent"
             ],
@@ -1539,7 +1539,7 @@
          "vœ": {
             "phonetic": "vœ",
             "word": "veut",
-            "path": "",
+            "path": "veut.png",
             "homonym": [
                "veut"
             ],
@@ -1551,7 +1551,7 @@
          "si": {
             "phonetic": "si",
             "word": "scie",
-            "path": "",
+            "path": "scie.png",
             "homonym": [
                "scie"
             ],
@@ -1563,7 +1563,7 @@
          "zo": {
             "phonetic": "zo",
             "word": "zoo",
-            "path": "",
+            "path": "zoo.png",
             "homonym": [
                "zoo"
             ],
@@ -1587,7 +1587,7 @@
          "ʃiɛ̃": {
             "phonetic": "ʃiɛ̃",
             "word": "chien",
-            "path": "",
+            "path": "chien.jpg",
             "homonym": [
                "chien"
             ],
@@ -1599,7 +1599,7 @@
          "ʃo": {
             "phonetic": "ʃo",
             "word": "chaud",
-            "path": "",
+            "path": "chaud.png",
             "homonym": [
                "chaud"
             ],
@@ -1611,7 +1611,7 @@
          "ʒy": {
             "phonetic": "ʒy",
             "word": "jus",
-            "path": "",
+            "path": "jus.png",
             "homonym": [
                "jus"
             ],
@@ -1623,7 +1623,7 @@
          "ʒœ": {
             "phonetic": "ʒœ",
             "word": "jeu",
-            "path": "",
+            "path": "jeu.png",
             "homonym": [
                "jeu"
             ],
@@ -1635,7 +1635,7 @@
          "lɛ": {
             "phonetic": "lɛ",
             "word": "lait",
-            "path": "",
+            "path": "lait.png",
             "homonym": [
                "lait",
                "laid"
@@ -1648,7 +1648,7 @@
          "lu": {
             "phonetic": "lu",
             "word": "loup",
-            "path": "",
+            "path": "loup.png",
             "homonym": [
                "loup"
             ],
@@ -1660,7 +1660,7 @@
          "rɔ̃": {
             "phonetic": "rɔ̃",
             "word": "rond",
-            "path": "",
+            "path": "rond.png",
             "homonym": [
                "rond"
             ],
@@ -1672,7 +1672,7 @@
          "kare": {
             "phonetic": "kare",
             "word": "carré",
-            "path": "",
+            "path": "carre.png",
             "homonym": [
                "carré"
             ],
@@ -1684,7 +1684,7 @@
          "ry": {
             "phonetic": "ry",
             "word": "rue",
-            "path": "",
+            "path": "rue.png",
             "homonym": [
                "rue"
             ],
@@ -1696,7 +1696,7 @@
          "wi": {
             "phonetic": "wi",
             "word": "oui",
-            "path": "",
+            "path": "oui.png",
             "homonym": [
                "oui"
             ],
@@ -1720,7 +1720,7 @@
          "papa": {
             "phonetic": "papa",
             "word": "papa",
-            "path": "",
+            "path": "papa.png",
             "homonym": [
                "papa"
             ],

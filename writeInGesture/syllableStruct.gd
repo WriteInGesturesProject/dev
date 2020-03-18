@@ -103,7 +103,7 @@ func _on_Creation_pressed():
 	wordFinal = words
 	
 	#for word in words:
-	#	print("mot : ", word.getWord(),", ",word.getNbSyllable(),", ",word.getSyllableStruct())
+	#	#print("mot : ", word.getWord(),", ",word.getNbSyllable(),", ",word.getSyllableStruct())
 	
 func searchWord(wordtoFind : Array):
 	var nbsyl = []
@@ -114,23 +114,23 @@ func searchWord(wordtoFind : Array):
 			nbsyl.append(int(el))
 		else :
 			struct.append(el.to_upper())
-	print(nbsyl)
-	print(struct)
+	#print(nbsyl)
+	#print(struct)
 	for word in Global.wordDictionnary.getAllWord():
 		if(nbsyl.size() > 0  and nbsyl.find(word.getNbSyllable())!= -1) :
-			print("add : ",  word.getWord(),", ",word.getNbSyllable(),", ",word.getSyllableStruct())
+			#print("add : ",  word.getWord(),", ",word.getNbSyllable(),", ",word.getSyllableStruct())
 			resultat.append(word)
 		if(struct.size() > 0  and (struct.find(word.getSyllableStruct().to_upper()) != -1)) :
-			print("add :",  word.getWord(),", ",word.getNbSyllable(),", ",word.getSyllableStruct())
+			#print("add :",  word.getWord(),", ",word.getNbSyllable(),", ",word.getSyllableStruct())
 			if(resultat.find(word) == -1):
 				resultat.append(word)
 	var tmp = resultat.duplicate()
 	for word in tmp :
 		if(struct.size() > 0  and !(struct.find(word.getSyllableStruct().to_upper()) != -1)):
-			print("remove struct :",  word.getWord(),", ",word.getNbSyllable(),", ",word.getSyllableStruct())
+			#print("remove struct :",  word.getWord(),", ",word.getNbSyllable(),", ",word.getSyllableStruct())
 			resultat.remove(resultat.find(word))
 		if(nbsyl.size() > 0  and !(nbsyl.find(word.getNbSyllable())!= -1)) :
-			print("remove syll : ", word.getWord(),", ",word.getNbSyllable(),", ",word.getSyllableStruct())
+			#print("remove syll : ", word.getWord(),", ",word.getNbSyllable(),", ",word.getSyllableStruct())
 			resultat.remove(resultat.find(word))
 	return resultat
 
@@ -148,10 +148,10 @@ var swipe_mouse_positions = []
 	
 	
 func _on_ScrollContainer_gui_input(ev):
-	#print(ev)
+	##print(ev)
 	if swiping and ev is InputEventMouseMotion:
 		var delta = ev.position - swipe_mouse_start
-		#print(delta.length())
+		##print(delta.length())
 		if(delta.length()>10):
 			find_node("ScrollContainer").set_h_scroll(swipe_start.x - delta.x)
 			find_node("ScrollContainer").set_v_scroll(swipe_start.y - delta.y)
@@ -190,7 +190,7 @@ func _on_ScrollContainer_gui_input(ev):
 				tween.interpolate_method(self, 'set_v_scroll', source.y, target.y, flick_dur, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 				tween.interpolate_callback(tween, flick_dur, 'queue_free')
 				tween.start()
-#			print("is swipping :",isswipping)
+#			#print("is swipping :",isswipping)
 			if isswipping:
 				release = true
 			else:
@@ -213,13 +213,13 @@ func _on_Popup_popup_hide():
 func _on_Confirm_pressed():
 	if(wordFinal.size() > 0) :
 		var creation = CreationExercise.new()
-		print("Creation of custom exercise")
+		#print("Creation of custom exercise")
 		Global.customExercise = creation.creationExercise(Global.customExercise, wordFinal)
-		print("Creation of goose exercise")
+		#print("Creation of goose exercise")
 		Global.gooseExercise = creation.creationExercise(Global.gooseExercise, wordFinal)
-		print("Creation of listen and choose exercise")
+		#print("Creation of listen and choose exercise")
 		Global.listenExercise = creation.creationExercise(Global.listenExercise, wordFinal)
-		print("Creation of memory exercise")
+		#print("Creation of memory exercise")
 		Global.memoryExercise = creation.creationExercise(Global.memoryExercise, wordFinal)
 		_on_Popup_popup_hide()
 		find_node("Background").visible = true

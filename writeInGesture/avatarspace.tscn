@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://avatarspace.gd" type="Script" id=1]
-[ext_resource path="res://fonts/phonetic.tres" type="Theme" id=21]
+[ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=21]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -61,6 +61,7 @@ margin_left = 19.6645
 margin_top = 515.848
 margin_right = 519.664
 margin_bottom = 587.848
+max_length = 20
 __meta__ = {
 "_edit_use_anchors_": false
 }

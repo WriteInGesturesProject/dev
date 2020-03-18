@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/speaker.png-9bafff95320df8fafb1b4b34e7928d48.stex"
+path="res://.import/silverCoin.png-f74f55bd77905e6d67059c1daf8445cb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/speaker.png"
-dest_files=[ "res://.import/speaker.png-9bafff95320df8fafb1b4b34e7928d48.stex" ]
+source_file="res://assets/icons/silverCoin.png"
+dest_files=[ "res://.import/silverCoin.png-f74f55bd77905e6d67059c1daf8445cb.stex" ]
 
 [params]
 

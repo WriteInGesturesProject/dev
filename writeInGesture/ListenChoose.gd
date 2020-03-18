@@ -124,7 +124,7 @@ func _on_control_img_mouse_entered(control):
 			choice = 2
 		"3":
 			choice = 1
-	print(choice)
+	#print(choice)
 	find_node("Validate").disabled = false
 
 func _on_Back_pressed():

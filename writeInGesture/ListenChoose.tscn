@@ -1,11 +1,13 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://fonts/phonetic.tres" type="Theme" id=2]
-[ext_resource path="res://fonts/background.png" type="Texture" id=3]
+[ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=2]
+[ext_resource path="res://assets/background.png" type="Texture" id=3]
 [ext_resource path="res://ListenChoose.gd" type="Script" id=4]
-[ext_resource path="res://art/validate.png" type="Texture" id=5]
-[ext_resource path="res://art/back.png" type="Texture" id=6]
-[ext_resource path="res://art/speaker.png" type="Texture" id=7]
+[ext_resource path="res://assets/icons/validate.png" type="Texture" id=5]
+[ext_resource path="res://assets/icons/back.png" type="Texture" id=6]
+[ext_resource path="res://assets/icons/speaker.png" type="Texture" id=7]
+
+
 
 [node name="Control" type="Control"]
 anchor_right = 1.0

@@ -860,7 +860,7 @@
          "fot": {
             "phonetic": "fot",
             "word": "faute",
-            "path": " ",
+            "path": "faute.png",
             "homonym": [
                "faute"
             ],
@@ -872,7 +872,7 @@
          "fil": {
             "phonetic": "fil",
             "word": "fil",
-            "path": " ",
+            "path": "fil.png",
             "homonym": [
                "fil"
             ],
@@ -884,7 +884,7 @@
          "fɔrm": {
             "phonetic": "fɔrm",
             "word": "forme",
-            "path": " ",
+            "path": "forme.gif",
             "homonym": [
                "forme"
             ],
@@ -896,7 +896,7 @@
          "fɔr": {
             "phonetic": "fɔr",
             "word": "fort",
-            "path": "",
+            "path": "fort.jpg",
             "homonym": [
                "fort"
             ],
@@ -920,7 +920,7 @@
          "ful": {
             "phonetic": "ful",
             "word": "foule",
-            "path": "",
+            "path": "foule.jpg",
             "homonym": [
                "foule"
             ],
@@ -944,7 +944,7 @@
          "frwad": {
             "phonetic": "frwad",
             "word": "froide",
-            "path": "",
+            "path": "froide.gif",
             "homonym": [
                "froide"
             ],
@@ -956,7 +956,7 @@
          "frwi": {
             "phonetic": "frwi",
             "word": "fruit",
-            "path": "",
+            "path": "fruit.png",
             "homonym": [
                "fruit"
             ],
@@ -968,7 +968,7 @@
          "gro": {
             "phonetic": "gro",
             "word": "gros",
-            "path": "",
+            "path": "gros.gif",
             "homonym": [
                "gros"
             ],
@@ -980,7 +980,7 @@
          "ʒur": {
             "phonetic": "ʒur",
             "word": "jour",
-            "path": "",
+            "path": "jour.png",
             "homonym": [
                "jour"
             ],
@@ -992,7 +992,7 @@
          "lɛn": {
             "phonetic": "lɛn",
             "word": "laine",
-            "path": "",
+            "path": "laine.png",
             "homonym": [
                "laine"
             ],
@@ -1004,7 +1004,7 @@
          "lav": {
             "phonetic": "lav",
             "word": "lave",
-            "path": "",
+            "path": "lave.jpg",
             "homonym": [
                "lave"
             ],
@@ -1102,7 +1102,7 @@
          "pɑ̃t": {
             "phonetic": "pɑ̃t",
             "word": "pente",
-            "path": "",
+            "path": "pente.png",
             "homonym": [
                "pente"
             ],
@@ -1126,7 +1126,7 @@
          "pɔrt": {
             "phonetic": "pɔrt",
             "word": "porte",
-            "path": "",
+            "path": "porte.gif",
             "homonym": [
                "porte"
             ],
@@ -1138,7 +1138,7 @@
          "pul": {
             "phonetic": "pul",
             "word": "poule",
-            "path": "",
+            "path": "poule.gif",
             "homonym": [
                "poule"
             ],
@@ -1150,7 +1150,7 @@
          "pur": {
             "phonetic": "pur",
             "word": "pour",
-            "path": "",
+            "path": "pour.gif",
             "homonym": [
                "pour"
             ],

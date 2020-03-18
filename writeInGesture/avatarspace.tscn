@@ -1,286 +1,68 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://avatarspace.gd" type="Script" id=1]
-[ext_resource path="res://art/users/assistant.png" type="Texture" id=2]
-[ext_resource path="res://art/users/firefighter-1.png" type="Texture" id=3]
-[ext_resource path="res://art/users/astronaut.png" type="Texture" id=4]
-[ext_resource path="res://art/users/businessman.png" type="Texture" id=5]
-[ext_resource path="res://art/users/croupier-1.png" type="Texture" id=6]
-[ext_resource path="res://art/users/farmer.png" type="Texture" id=7]
-[ext_resource path="res://art/users/judge.png" type="Texture" id=8]
-[ext_resource path="res://art/users/journalist.png" type="Texture" id=9]
-[ext_resource path="res://art/users/doctor-1.png" type="Texture" id=10]
-[ext_resource path="res://art/users/postman.png" type="Texture" id=11]
-[ext_resource path="res://art/users/policeman.png" type="Texture" id=12]
-[ext_resource path="res://art/users/surgeon.png" type="Texture" id=13]
-[ext_resource path="res://art/users/motorcyclist.png" type="Texture" id=14]
-[ext_resource path="res://art/users/chef.png" type="Texture" id=15]
-[ext_resource path="res://art/users/firefighter.png" type="Texture" id=16]
-[ext_resource path="res://art/users/welder.png" type="Texture" id=17]
-[ext_resource path="res://art/users/showman.png" type="Texture" id=18]
-[ext_resource path="res://art/users/thief.png" type="Texture" id=19]
-[ext_resource path="res://art/users/checkk.png" type="Texture" id=20]
+[ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=21]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 21 )
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true,
+"_editor_description_": ""
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 1054.0
-margin_bottom = 607.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 color = Color( 0.882353, 0.882353, 0.882353, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect8" type="TextureRect" parent="."]
-margin_left = 30.0
-margin_top = 39.0
-margin_right = 120.0
-margin_bottom = 129.0
-texture = ExtResource( 3 )
-expand = true
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 21 )
+custom_constants/margin_right = 0
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 29.0
+margin_top = 450.0
+margin_right = 181.0
+margin_bottom = 512.0
+text = "tyjgnuygj"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="TextureRect14" type="TextureRect" parent="."]
-margin_left = 30.0
-margin_top = 191.254
-margin_right = 120.0
-margin_bottom = 281.254
-texture = ExtResource( 18 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect20" type="TextureRect" parent="."]
-margin_left = 30.0
-margin_top = 340.0
-margin_right = 120.0
-margin_bottom = 430.0
-texture = ExtResource( 11 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect9" type="TextureRect" parent="."]
-margin_left = 780.0
-margin_top = 40.0
-margin_right = 870.0
-margin_bottom = 130.0
-texture = ExtResource( 5 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect19" type="TextureRect" parent="."]
-margin_left = 780.0
-margin_top = 188.373
-margin_right = 870.0
-margin_bottom = 278.373
-texture = ExtResource( 2 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect25" type="TextureRect" parent="."]
-margin_left = 780.0
-margin_top = 340.0
-margin_right = 870.0
-margin_bottom = 430.0
-texture = ExtResource( 13 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect10" type="TextureRect" parent="."]
-margin_left = 630.0
-margin_top = 40.0
-margin_right = 720.0
-margin_bottom = 130.0
-texture = ExtResource( 15 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect18" type="TextureRect" parent="."]
-margin_left = 630.0
-margin_top = 186.746
-margin_right = 720.0
-margin_bottom = 276.746
-texture = ExtResource( 8 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect24" type="TextureRect" parent="."]
-margin_left = 630.0
-margin_top = 340.0
-margin_right = 720.0
-margin_bottom = 430.0
-texture = ExtResource( 14 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect11" type="TextureRect" parent="."]
-margin_left = 477.671
-margin_top = 40.0
-margin_right = 567.671
-margin_bottom = 130.0
-texture = ExtResource( 6 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect17" type="TextureRect" parent="."]
-margin_left = 484.205
-margin_top = 188.0
-margin_right = 574.205
-margin_bottom = 278.0
-texture = ExtResource( 10 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect23" type="TextureRect" parent="."]
-margin_left = 484.205
-margin_top = 340.0
-margin_right = 574.205
-margin_bottom = 430.0
-texture = ExtResource( 17 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect12" type="TextureRect" parent="."]
-margin_left = 330.0
-margin_top = 40.0
-margin_right = 420.0
-margin_bottom = 130.0
-texture = ExtResource( 7 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect16" type="TextureRect" parent="."]
-margin_left = 330.0
-margin_top = 193.254
-margin_right = 420.0
-margin_bottom = 283.254
-texture = ExtResource( 9 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect22" type="TextureRect" parent="."]
-margin_left = 330.0
-margin_top = 340.0
-margin_right = 420.0
-margin_bottom = 430.0
-texture = ExtResource( 16 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect13" type="TextureRect" parent="."]
-modulate = Color( 1, 0.992157, 0.980392, 1 )
-margin_left = 182.329
-margin_top = 42.3295
-margin_right = 272.329
-margin_bottom = 132.329
-texture = ExtResource( 4 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect15" type="TextureRect" parent="."]
-margin_left = 180.0
-margin_top = 190.0
-margin_right = 270.0
-margin_bottom = 280.0
-texture = ExtResource( 12 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect21" type="TextureRect" parent="."]
-margin_left = 180.0
-margin_top = 340.0
-margin_right = 270.0
-margin_bottom = 430.0
-texture = ExtResource( 19 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextEdit" type="TextEdit" parent="."]
-anchor_right = 0.242
-anchor_bottom = 0.641
-margin_left = 58.96
-margin_top = 512.512
-margin_right = 267.152
-margin_bottom = 167.911
 
 [node name="Button" type="Button" parent="."]
-margin_left = 515.0
-margin_top = 515.0
-margin_right = 616.0
-margin_bottom = 552.0
-text = "GO"
+margin_left = 517.108
+margin_top = 515.848
+margin_right = 770.108
+margin_bottom = 587.848
+text = "Go Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="."]
-visible = false
-margin_left = 80.0
-margin_top = 78.0
-margin_right = 146.0
-margin_bottom = 143.0
-texture = ExtResource( 20 )
-expand = true
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 19.6645
+margin_top = 515.848
+margin_right = 519.664
+margin_bottom = 587.848
+max_length = 20
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="gui_input" from="TextureRect8" to="." method="_on_TextureRect8_gui_input"]
-[connection signal="gui_input" from="TextureRect14" to="." method="_on_TextureRect14_gui_input"]
-[connection signal="gui_input" from="TextureRect20" to="." method="_on_TextureRect20_gui_input"]
-[connection signal="gui_input" from="TextureRect9" to="." method="_on_TextureRect9_gui_input"]
-[connection signal="gui_input" from="TextureRect19" to="." method="_on_TextureRect19_gui_input"]
-[connection signal="gui_input" from="TextureRect25" to="." method="_on_TextureRect25_gui_input"]
-[connection signal="gui_input" from="TextureRect10" to="." method="_on_TextureRect10_gui_input"]
-[connection signal="gui_input" from="TextureRect18" to="." method="_on_TextureRect18_gui_input"]
-[connection signal="gui_input" from="TextureRect24" to="." method="_on_TextureRect24_gui_input"]
-[connection signal="gui_input" from="TextureRect11" to="." method="_on_TextureRect11_gui_input"]
-[connection signal="gui_input" from="TextureRect17" to="." method="_on_TextureRect17_gui_input"]
-[connection signal="gui_input" from="TextureRect23" to="." method="_on_TextureRect23_gui_input"]
-[connection signal="gui_input" from="TextureRect12" to="." method="_on_TextureRect12_gui_input"]
-[connection signal="gui_input" from="TextureRect16" to="." method="_on_TextureRect16_gui_input"]
-[connection signal="gui_input" from="TextureRect22" to="." method="_on_TextureRect22_gui_input"]
-[connection signal="gui_input" from="TextureRect13" to="." method="_on_TextureRect13_gui_input"]
-[connection signal="gui_input" from="TextureRect15" to="." method="_on_TextureRect15_gui_input"]
-[connection signal="gui_input" from="TextureRect21" to="." method="_on_TextureRect21_gui_input"]
 [connection signal="gui_input" from="Button" to="." method="_on_Button_gui_input"]

@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://wordsChoice.gd" type="Script" id=1]
-[ext_resource path="res://fonts/phonetic.tres" type="Theme" id=2]
-[ext_resource path="res://fonts/ButtonTheme.tres" type="Theme" id=3]
-[ext_resource path="res://fonts/background.png" type="Texture" id=4]
-[ext_resource path="res://art/back.png" type="Texture" id=5]
+[ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=2]
+[ext_resource path="res://assets/theme/ButtonTheme.tres" type="Theme" id=3]
+[ext_resource path="res://assets/background.png" type="Texture" id=4]
+[ext_resource path="res://assets/icons/back.png" type="Texture" id=5]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -32,26 +32,26 @@ __meta__ = {
 }
 
 [node name="MainContainer" type="HBoxContainer" parent="Margin"]
-margin_right = 506.0
-margin_bottom = 146.0
+margin_right = 567.0
+margin_bottom = 200.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource( 2 )
 alignment = 1
 
 [node name="MarginWord" type="MarginContainer" parent="Margin/MainContainer"]
-margin_right = 171.0
-margin_bottom = 146.0
+margin_right = 211.0
+margin_bottom = 200.0
 
 [node name="WordsContainer" type="VBoxContainer" parent="Margin/MainContainer/MarginWord"]
-margin_right = 171.0
-margin_bottom = 33.0
+margin_right = 211.0
+margin_bottom = 40.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="availableWords" type="Label" parent="Margin/MainContainer/MarginWord/WordsContainer"]
-margin_right = 171.0
-margin_bottom = 29.0
+margin_right = 211.0
+margin_bottom = 36.0
 size_flags_vertical = 1
 custom_colors/font_color = Color( 0.901961, 0.905882, 0.858824, 1 )
 text = "Mots ajoutés :"
@@ -60,52 +60,52 @@ __meta__ = {
 }
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Margin/MainContainer/MarginWord/WordsContainer"]
-margin_top = 33.0
-margin_right = 171.0
-margin_bottom = 33.0
+margin_top = 40.0
+margin_right = 211.0
+margin_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 scroll_horizontal_enabled = false
 
 [node name="wordsAvailableContainer" type="VBoxContainer" parent="Margin/MainContainer/MarginWord/WordsContainer/ScrollContainer"]
-margin_right = 171.0
+margin_right = 211.0
 size_flags_horizontal = 3
 theme = ExtResource( 2 )
 custom_constants/separation = 10
 
 [node name="editContainer" type="VBoxContainer" parent="Margin/MainContainer"]
-margin_left = 175.0
-margin_right = 506.0
-margin_bottom = 146.0
+margin_left = 215.0
+margin_right = 567.0
+margin_bottom = 200.0
 
 [node name="HBoxContainerAdd" type="HBoxContainer" parent="Margin/MainContainer/editContainer"]
-margin_right = 331.0
-margin_bottom = 69.0
+margin_right = 352.0
+margin_bottom = 96.0
 rect_clip_content = true
 
 [node name="newWord" type="Label" parent="Margin/MainContainer/editContainer/HBoxContainerAdd"]
-margin_top = 20.0
+margin_top = 30.0
 margin_right = 200.0
-margin_bottom = 49.0
+margin_bottom = 66.0
 rect_min_size = Vector2( 200, 0 )
 custom_colors/font_color = Color( 0.901961, 0.905882, 0.858824, 1 )
 
 [node name="addWord" type="Button" parent="Margin/MainContainer/editContainer/HBoxContainerAdd"]
 margin_left = 204.0
-margin_right = 331.0
-margin_bottom = 69.0
+margin_right = 352.0
+margin_bottom = 96.0
 theme = ExtResource( 3 )
 text = "Ajouter"
 
 [node name="keyBoardContainer" type="CenterContainer" parent="Margin/MainContainer/editContainer"]
-margin_top = 73.0
-margin_right = 331.0
-margin_bottom = 73.0
+margin_top = 100.0
+margin_right = 352.0
+margin_bottom = 100.0
 size_flags_horizontal = 3
 
 [node name="gridKeyboard" type="GridContainer" parent="Margin/MainContainer/editContainer/keyBoardContainer"]
-margin_left = 165.0
-margin_right = 165.0
+margin_left = 176.0
+margin_right = 176.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 2 )
@@ -115,19 +115,19 @@ __meta__ = {
 }
 
 [node name="HBoxContainerCreation" type="HBoxContainer" parent="Margin/MainContainer/editContainer"]
-margin_top = 77.0
-margin_right = 331.0
-margin_bottom = 146.0
+margin_top = 104.0
+margin_right = 352.0
+margin_bottom = 200.0
 rect_clip_content = true
 
 [node name="stateAddLabel" type="Label" parent="Margin/MainContainer/editContainer/HBoxContainerCreation"]
-margin_top = 20.0
-margin_bottom = 49.0
+margin_top = 30.0
+margin_bottom = 66.0
 
 [node name="Creation" type="Button" parent="Margin/MainContainer/editContainer/HBoxContainerCreation"]
 margin_left = 4.0
-margin_right = 331.0
-margin_bottom = 69.0
+margin_right = 352.0
+margin_bottom = 96.0
 size_flags_horizontal = 3
 theme = ExtResource( 3 )
 text = "Creer l'exercice"
@@ -366,8 +366,8 @@ window_title = "Ouvrir un fichier"
 mode = 0
 access = 2
 filters = PoolStringArray( "*.png ; PNG Images", "*.jpg ; JPG Images", "*.jpeg ; JPEG Images" )
-current_dir = "/home/guillaume/Documents/RICM5/Projet/dev/writeInGesture"
-current_path = "/home/guillaume/Documents/RICM5/Projet/dev/writeInGesture/"
+current_dir = "/mnt/DATA/Polytech/S10/Projet/dev/writeInGesture"
+current_path = "/mnt/DATA/Polytech/S10/Projet/dev/writeInGesture/"
 [connection signal="pressed" from="Margin/MainContainer/editContainer/HBoxContainerAdd/addWord" to="." method="_on_addWord_pressed"]
 [connection signal="pressed" from="Margin/MainContainer/editContainer/HBoxContainerCreation/Creation" to="." method="_on_Creation_pressed"]
 [connection signal="pressed" from="retour" to="." method="_on_Retour_pressed"]

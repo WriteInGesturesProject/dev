@@ -63,11 +63,12 @@ func _ready():
 	else :
 		get_tree().change_scene("res://GameEnd.tscn")
 
+
 func _cardSelected(event : InputEvent, card : Card) -> void:
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
 		if cardSelected != null :
 			cardSelected.backgroundColor.modulate = "ffffff"
-		card.backgroundColor.modulate = "5472ae"
+		card.backgroundColor.modulate = "e86767"
 		cardSelected = card
 		find_node("Validate").disabled = false
 

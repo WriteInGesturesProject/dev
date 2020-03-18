@@ -1,16 +1,16 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://fonts/HelloGrizellesans.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/fonts/HelloGrizellesans.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://art/users/cashier.png" type="Texture" id=2]
 [ext_resource path="res://home.gd" type="Script" id=3]
-[ext_resource path="res://fonts/phonetic.tres" type="Theme" id=4]
-[ext_resource path="res://fonts/ButtonTheme.tres" type="Theme" id=5]
-[ext_resource path="res://fonts/background.png" type="Texture" id=6]
+[ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=4]
+[ext_resource path="res://assets/theme/ButtonTheme.tres" type="Theme" id=5]
+[ext_resource path="res://assets/background.png" type="Texture" id=6]
 [ext_resource path="res://resetPassword.gd" type="Script" id=7]
 [ext_resource path="res://login.gd" type="Script" id=8]
-[ext_resource path="res://art/goldCoin.png" type="Texture" id=9]
-[ext_resource path="res://art/silverCoin.png" type="Texture" id=10]
-[ext_resource path="res://icon.png" type="Texture" id=11]
+[ext_resource path="res://assets/icons/goldCoin.png" type="Texture" id=9]
+[ext_resource path="res://assets/icons/silverCoin.png" type="Texture" id=10]
+[ext_resource path="res://assets/icons/icon.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40

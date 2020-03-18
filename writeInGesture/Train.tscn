@@ -1,16 +1,16 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Train.gd" type="Script" id=1]
-[ext_resource path="res://art/back.png" type="Texture" id=2]
-[ext_resource path="res://fonts/phonetic.tres" type="Theme" id=4]
-[ext_resource path="res://art/bravo.jpg" type="Texture" id=5]
-[ext_resource path="res://art/nul2.png" type="Texture" id=6]
-[ext_resource path="res://fonts/ButtonTheme.tres" type="Theme" id=7]
-[ext_resource path="res://fonts/background.png" type="Texture" id=8]
-[ext_resource path="res://art/next.png" type="Texture" id=9]
-[ext_resource path="res://art/record.png" type="Texture" id=10]
-[ext_resource path="res://art/speaker.png" type="Texture" id=11]
+[ext_resource path="res://assets/icons/back.png" type="Texture" id=2]
+[ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=4]
+[ext_resource path="res://assets/icons/bravo.jpg" type="Texture" id=6]
+[ext_resource path="res://assets/background.png" type="Texture" id=8]
+[ext_resource path="res://assets/icons/next.png" type="Texture" id=9]
+[ext_resource path="res://assets/icons/record.png" type="Texture" id=10]
+[ext_resource path="res://assets/icons/speaker.png" type="Texture" id=11]
 [ext_resource path="res://art/images/chat.jpg" type="Texture" id=12]
+
+
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -31,8 +31,8 @@ __meta__ = {
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+margin_right = 1024.0
+margin_bottom = 600.0
 theme = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -134,29 +134,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Speak" type="Button" parent="MarginContainer/VBox/MainContainer/MainBox"]
-visible = false
-margin_top = 142.0
-margin_right = 924.0
-margin_bottom = 244.0
-theme = ExtResource( 7 )
-text = "Ecouter"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Record" type="Button" parent="MarginContainer/VBox/MainContainer/MainBox"]
-visible = false
-margin_top = 142.0
-margin_right = 924.0
-margin_bottom = 244.0
-theme = ExtResource( 7 )
-text = "Enregistrer"
-
 [node name="Oui" type="Sprite" parent="MarginContainer/VBox/MainContainer/MainBox"]
 position = Vector2( 572.675, 441.745 )
 scale = Vector2( 0.23676, 0.193754 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="Non" type="Sprite" parent="MarginContainer/VBox/MainContainer/MainBox"]
 position = Vector2( 349.68, 439.193 )
@@ -189,7 +170,5 @@ __meta__ = {
 }
 [connection signal="pressed" from="MarginContainer/VBox/MainContainer/MainBox/Box/VBoxContainer/Control/Speak" to="." method="_on_Speak_pressed"]
 [connection signal="pressed" from="MarginContainer/VBox/MainContainer/MainBox/Box/VBoxContainer/Control2/Record" to="." method="_on_Record_pressed"]
-[connection signal="pressed" from="MarginContainer/VBox/MainContainer/MainBox/Speak" to="." method="_on_Speak_pressed"]
-[connection signal="pressed" from="MarginContainer/VBox/MainContainer/MainBox/Record" to="." method="_on_Record_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
 [connection signal="pressed" from="Next" to="." method="_on_Next_pressed"]

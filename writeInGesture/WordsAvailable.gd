@@ -13,7 +13,7 @@ func getWord(phonetic : String) -> Word :
 	for currentWord in words :
 		if(currentWord.getPhonetic() == phonetic):
 			return currentWord
-	print("Mot avec la phonetic :"+phonetic+" non trouvé")
+	#print("Mot avec la phonetic :"+phonetic+" non trouvé")
 	return null
 
 func addWord(word) -> int :

@@ -12,14 +12,16 @@ var os # Variable used to know on which plateform we are
 var tts = null # The Text To Speech Object
 var stt = null # The Speech To Text Object
 
+
 var current_ex : Exercise # The exercise we are playing
 
 var score # The score when in game
 var level = 0 # The difficulty (0 -> Easy, 1 -> Medium, 2 -> Hard)
 var nbDifficulty = 3
 var game = 0 # The type of training (1 -> MyGames, 2 -> Count, 3 -> Week, 4 -> Colors)
-var play = 0 # The type of game (1 -> Goose, 2 -> Listen & Choose)
+var play = 0 # The type of game (1 -> Goose, 2 -> Listen & Choose, 3 -> Memory)
 var dev = 0 # Developper mode (0 -> Disabled, 1 -> Enabled)
+var max_cards = 12
 
 var try = [] # Check if the player tapped on record at least once on each word
 
@@ -28,21 +30,24 @@ var config : Config = Config.new()
 var customExercise : Exercise = Exercise.new()
 var gooseExercise : Exercise = Exercise.new()
 var listenExercise : Exercise = Exercise.new()
-var thirdExercise : Exercise = Exercise.new()
+var memoryExercise : Exercise = Exercise.new()
+
 
 var countExercise : Exercise = Exercise.new()
 var weekExercise : Exercise = Exercise.new()
 var colorExercise : Exercise = Exercise.new()
-var exercises = [customExercise, countExercise, weekExercise, colorExercise, gooseExercise, listenExercise, thirdExercise]
+var exercises = [customExercise, countExercise, weekExercise, colorExercise, gooseExercise, listenExercise, memoryExercise]
 
 var player : Player = Player.new()
 var wordsAvailable : WordsAvailable = WordsAvailable.new()
 var wordDictionnary = MyDictionnary.new()
 var phoneticDictionnary
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	os = OS.get_name()
+	
 	var osRequest = OS.request_permissions()
 	
 	match os:
@@ -72,7 +77,7 @@ func check_words(sentence, myword):
 func check_homonyms(w, myword):
 	var word = wordDictionnary.getWord(myword.getPhonetic())
 	if(word == null):
-		print("Word in check_homonyms is null")
+		#print("Word in check_homonyms is null")
 		return false
 	var h = word.getHomonym()
 	for i in range(0, len(h)):
@@ -94,8 +99,8 @@ func loadEntity():
 	ManageJson.getElement(config.getPathExercisesFiles()[2], "Exercise", listenExercise)
 	listenExercise.setAttribut("nameFile", config.getPathExercisesFiles()[2])
 	
-	ManageJson.getElement(config.getPathExercisesFiles()[3], "Exercise", thirdExercise)
-	thirdExercise.setAttribut("nameFile", config.getPathExercisesFiles()[3])
+	ManageJson.getElement(config.getPathExercisesFiles()[3], "Exercise", memoryExercise)
+	memoryExercise.setAttribut("nameFile", config.getPathExercisesFiles()[3])
 	
 	ManageJson.getElement("wordsAvailable.json", "WordsAvailable", wordsAvailable)
 	wordsAvailable.setAttribut("nameFile", "wordsAvailable.json")
@@ -105,7 +110,7 @@ func loadEntity():
 	
 	ManageJson.getElement("colors.json", "Exercise", colorExercise)
 	colorExercise.setAttribut("nameFile", "colors.json")
-	
+	 
 	ManageJson.getElement("week.json", "Exercise", weekExercise)
 	weekExercise.setAttribut("nameFile", "week.json")
 	
@@ -187,4 +192,15 @@ func make_margin(margeContainer : MarginContainer, marge):
 	margeContainer.set("custom_constants/margin_bottom", get_viewport().size.y * marge)
 	margeContainer.set("custom_constants/margin_left", get_viewport().size.x * marge)
 	margeContainer.set("custom_constants/margin_right", get_viewport().size.x * marge)
-	return 
+	return
+	
+func find_texture(path : String):
+	var tex = load("res://art/images/" + path)
+	print(path)
+	if(tex == null):
+		var image = Image.new()
+		image.load("user://art/" + path)
+		tex = ImageTexture.new()
+		tex.create_from_image(image)
+	print(tex)
+	return tex

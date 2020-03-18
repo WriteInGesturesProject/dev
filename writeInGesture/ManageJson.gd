@@ -19,7 +19,7 @@ func _ready():
 #		return 0
 #	var tmp = JSON.parse(text)
 #	var test = tmp.result
-#	print(test)
+#	#print(test)
 #	var dictionnary = Dictionnary.new()
 #	var player = Player.new()
 #	var wordsAvailable = WordsAvailable.new()
@@ -35,10 +35,10 @@ func _ready():
 
 
 func removeFile(path):
-	print("[REMOVEFILE]")
+	#print("[REMOVEFILE]")
 	var dir = Directory.new()
 	dir.remove("user://data/"+path)
-	print("[END_REMOVEFILE] : user://data/", path)
+	#print("[END_REMOVEFILE] : user://data/", path)
 
 
 func checkFileExistUserPath(nameFile:String)->String:
@@ -47,7 +47,7 @@ func checkFileExistUserPath(nameFile:String)->String:
 	if(err):
 		err = file.open(resPath+nameFile, file.READ)
 		if(err):
-			print("File not found : ", nameFile)
+			#print("File not found : ", nameFile)
 			return "";
 		else :
 			var writing = file.get_as_text()
@@ -70,7 +70,7 @@ func putElement(nameFile, pathAttribute, content):
 	for el in range(0, attributs.size()-1) :
 		Dicttmp = Dicttmp[attributs[el]]
 		if(Dicttmp == null) :
-			print("Wrong pathAttribute")
+			#print("Wrong pathAttribute")
 			return 0
 	Dicttmp[attributs[-1]] = content 
 	var jtstr = JSON.print(dict)
@@ -91,7 +91,7 @@ func addElement(nameFile, pathAttribute, dictionnary):
 	for el in range(0, attributs.size()) :
 		Dicttmp = Dicttmp[attributs[el]]
 		if(Dicttmp == null) :
-			print("Wrong pathAttribute")
+			#print("Wrong pathAttribute")
 			return 0
 	Dicttmp[dictionnary.keys()[0]] = dictionnary.get(dictionnary.keys()[0])
 	var jtstr = JSON.print(dict)
@@ -113,11 +113,11 @@ func getElement(nameFile : String, pathAttribute : String, node : Node):
 	for el in attributs :
 		dict  = dict[el] 
 		if(dict == null) :
-			print("Wrong pathAttribute")
+			#print("Wrong pathAttribute")
 			return 0
 	for field in dict :
 		node.setAttribut(field, dict[field])
-		#print (field," : ", dict[field])
+		##print (field," : ", dict[field])
 	return 1
 
 #nameFile : String 
@@ -134,7 +134,7 @@ func removeElement(nameFile, pathAttribute, content):
 	for el in range(0, attributs.size()) :
 		Dicttmp = Dicttmp[attributs[el]]
 		if(Dicttmp == null) :
-			print("Wrong pathAttribute")
+			#print("Wrong pathAttribute")
 			return 0
 
 	Dicttmp.erase(content)
@@ -144,16 +144,16 @@ func removeElement(nameFile, pathAttribute, content):
 
 
 func rewriteFile(nameFile, content):
-	#print("[WRITINGFILE]")
+	##print("[WRITINGFILE]")
 	var dir = Directory.new()
 	var fp_user = File.new()
 	if(!dir.dir_exists(userPath)):
 		dir.make_dir(userPath)
 	var f_name = userPath + nameFile;
 	var err = fp_user.open( f_name, File.WRITE )
-	#print( f_name + " opened." )
-	#print( "fp_user error code: " + str(err) )
+	##print( f_name + " opened." )
+	##print( "fp_user error code: " + str(err) )
 	fp_user.store_string(content)
-	print( f_name + " written." )
+	#print( f_name + " written." )
 	fp_user.close()
-	#print("[END_WRITINGFILE]")
+	##print("[END_WRITINGFILE]")

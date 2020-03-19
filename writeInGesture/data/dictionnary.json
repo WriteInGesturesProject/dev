@@ -620,7 +620,7 @@
          "bɔn": {
             "phonetic": "bɔn",
             "word": "bonne",
-            "path": " ",
+            "path": "bonne.png",
             "homonym": [
                "bonne"
             ],
@@ -632,7 +632,7 @@
          "bɔs": {
             "phonetic": "bɔs",
             "word": "bosse",
-            "path": " ",
+            "path": "bosse.png",
             "homonym": [
                "bosse"
             ],
@@ -716,7 +716,7 @@
          "kaz": {
             "phonetic": "kaz",
             "word": "case",
-            "path": " ",
+            "path": "case.png",
             "homonym": [
                "case"
             ],
@@ -800,7 +800,7 @@
          "dam": {
             "phonetic": "dam",
             "word": "dame",
-            "path": " ",
+            "path": "dame.png",
             "homonym": [
                "dame"
             ],
@@ -812,7 +812,7 @@
          "dir": {
             "phonetic": "dir",
             "word": "dire",
-            "path": " ",
+            "path": "dire.png",
             "homonym": [
                "dire"
             ],
@@ -836,7 +836,7 @@
          "drol": {
             "phonetic": "drol",
             "word": "drôle",
-            "path": " ",
+            "path": "drole.png",
             "homonym": [
                "drôle"
             ],
@@ -1054,7 +1054,7 @@
          "muʃ": {
             "phonetic": "muʃ",
             "word": "mouche",
-            "path": "mouche.jpg",
+            "path": "mouche.png",
             "homonym": [
                "mouche"
             ],

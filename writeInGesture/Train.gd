@@ -20,8 +20,8 @@ func _scaleImg():
 	var img = Global.find_texture(myWords[index].getPath())
 	find_node("Image").texture = img
 	find_node("Image").rect_size.y = get_viewport().size.y / 2.5
-	find_node("Image").rect_size.x = get_viewport().size.y / 2.5 * (img.get_size().x / img.get_size().y)
 	find_node("Box").add_constant_override("separation", int(find_node("Image").rect_size.x) + 20)
+	find_node("Image").rect_size.x = get_viewport().size.y / 2.5 * (img.get_size().x / img.get_size().y)
 
 func _ready():
 	Ex = Global.current_ex
@@ -29,14 +29,8 @@ func _ready():
 	Global.try = []
 	for i in myWords:
 		Global.try.append(false)
-	
-	if(Global.game == 2):
-		find_node("Number").set_text(myWords[index].getPath())
-		find_node("Image").visible = false
-		find_node("Number").visible = true
-		find_node("Word").set_text(myWords[index].getWord())
-	else :
-		_scaleImg()
+
+	_scaleImg()
 	var phonetic = myWords[index].getPhonetic()
 	var arrayPicture = Global.phoneticToArrayPicturePath(phonetic)
 	container =  Global.putBorelInHboxContainer(arrayPicture, get_viewport().size.x, min(get_viewport().size.y/2.3,get_viewport().size.x/arrayPicture.size()))
@@ -81,16 +75,7 @@ func _on_Next_pressed():
 	if(index >= myWords.size()):
 		get_tree().change_scene("res://GameEnd.tscn")
 	else :
-		if(Global.game == 2):
-			if(index == myWords.size()):
-				get_tree().change_scene("res://GameEnd.tscn")
-			else:
-				find_node("Number").set_text(myWords[index].getPath())
-				find_node("Image").visible = false
-				find_node("Word").visible = true
-				find_node("Word").set_text(myWords[index].getWord())
-		else :
-			_scaleImg()
+		_scaleImg()
 		container.remove_and_skip()
 		container.name = "HBoxContainer"
 		var phonetic = myWords[index].getPhonetic()

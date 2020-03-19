@@ -1,191 +1,330 @@
 {
-	"Exercise":
-	{
-		"version" : 1.0,
-		"userId" : "0",
-		"name" : "Nombres",
-		"type" : {
-			"name" : "Entrainement",
-			"categorie" : "Custom, MonoSyllabe, BiSyllable, TriSyllable",
-			"syllableStruct" : "cv, cvv, cvc, n",
-			"vowelsType" : "O, N, SV",
-			"consonantsType" : "O, C, N"
+	"Exercise": {
+		"version": 1.0,
+		"userId": "0",
+		"name": "Nombres",
+		"type": {
+			"name": "Entrainement",
+			"categorie": "Custom, MonoSyllabe, BiSyllable, TriSyllable",
+			"syllableStruct": "cv, cvv, cvc, n",
+			"vowelsType": "O, N, SV",
+			"consonantsType": "O, C, N"
 		},
-		"difficulty" : 0,
-		"successPercentage" : [0.0,0.0,0.0],
-		"nbSuccess" : 50,
-		"nbWordsOccurrences" : [
-			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+		"difficulty": 0,
+		"successPercentage": [
+			0.0,
+			0.0,
+			0.0
 		],
-		"nbWords" : 16,
-		"wordsSuccess" : [
-			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+		"nbSuccess": 50,
+		"nbWordsOccurrences": [
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			]
 		],
-		"words" : {
-			"ɛ̃" : {
-				"phonetic" : "ɛ̃",
-				"word" : "un",
-				"path" : "1",
-				"homonym" : ["un"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+		"nbWords": 16,
+		"wordsSuccess": [
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			]
+		],
+		"words": {
+			"ɛ̃": {
+				"phonetic": "ɛ̃",
+				"word": "un",
+				"path": "un.jpg",
+				"homonym": [
+					"un"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cv",
+				"vowelsType": "N",
+				"consonantsType": "O,N"
 			},
-			"dœ" : {
-				"phonetic" : "dœ",
-				"word" : "deux",
-				"path" : "2",
-				"homonym" : ["deux", "de"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"dœ": {
+				"phonetic": "dœ",
+				"word": "deux",
+				"path": "deux.jpg",
+				"homonym": [
+					"deux",
+					"2",
+					"de"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cv",
+				"vowelsType": "o",
+				"consonantsType": "O"
 			},
-			"trwa" : {
-				"phonetic" : "trwa",
-				"word" : "trois",
-				"path" : "3",
-				"homonym" : ["trois"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"trwa": {
+				"phonetic": "trwa",
+				"word": "trois",
+				"path": "trois.jpg",
+				"homonym": [
+					"trois"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "ccv",
+				"vowelsType": "o",
+				"consonantsType": "ol"
 			},
-			"katr" : {
-				"phonetic" : "katr",
-				"word" : "quatre",
-				"path" : "4",
-				"homonym" : ["quatre"],
-				"nbSyllable" : 2,
-				"syllableStruct" : "cvccv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"katr": {
+				"phonetic": "katr",
+				"word": "quatre",
+				"path": "quatre.jpg",
+				"homonym": [
+					"quatre"
+				],
+				"nbSyllable": 2,
+				"syllableStruct": "cvcc",
+				"vowelsType": "o",
+				"consonantsType": "ol"
 			},
-			"sɛ̃k" : {
-				"phonetic" : "sɛ̃k",
-				"word" : "cinq",
-				"path" : "5",
-				"homonym" : ["cinq"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"sɛ̃k": {
+				"phonetic": "sɛ̃k",
+				"word": "cinq",
+				"path": "cinq.jpg",
+				"homonym": [
+					"cinq"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cvc",
+				"vowelsType": "N",
+				"consonantsType": "co"
 			},
-			"sis" : {
-				"phonetic" : "sis",
-				"word" : "six",
-				"path" : "6",
-				"homonym" : ["six"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"sis": {
+				"phonetic": "sis",
+				"word": "six",
+				"path": "six.jpg",
+				"homonym": [
+					"six"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cv",
+				"vowelsType": "o",
+				"consonantsType": "c"
 			},
-			"sɛt" : {
-				"phonetic" : "sɛt",
-				"word" : "sept",
-				"path" : "7",
-				"homonym" : ["sept"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"sɛt": {
+				"phonetic": "sɛt",
+				"word": "sept",
+				"path": "sept.jpg",
+				"homonym": [
+					"sept"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cv",
+				"vowelsType": "o",
+				"consonantsType": "c"
 			},
-			"wit" : {
-				"phonetic" : "wit",
-				"word" : "huit",
-				"path" : "8",
-				"homonym" : ["huit"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"wit": {
+				"phonetic": "wit",
+				"word": "huit",
+				"path": "huit.jpg",
+				"homonym": [
+					"huit"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "vvc",
+				"vowelsType": "so",
+				"consonantsType": "o"
 			},
-			"nœf" : {
-				"phonetic" : "nœf",
-				"word" : "neuf",
-				"path" : "9",
-				"homonym" : ["neuf"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"nœf": {
+				"phonetic": "nœf",
+				"word": "neuf",
+				"path": "neuf.jpg",
+				"homonym": [
+					"neuf"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cvc",
+				"vowelsType": "o",
+				"consonantsType": "nc"
 			},
-			"dis" : {
-				"phonetic" : "dis",
-				"word" : "dix",
-				"path" : "10",
-				"homonym" : ["dix"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"dis": {
+				"phonetic": "dis",
+				"word": "dix",
+				"path": "dix.png",
+				"homonym": [
+					"dix"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cv",
+				"vowelsType": "o",
+				"consonantsType": "oc"
 			},
-			"ɔ̃z" : {
-				"phonetic" : "ɔ̃z",
-				"word" : "onze",
-				"path" : "11",
-				"homonym" : ["onze"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"ɔ̃z": {
+				"phonetic": "ɔ̃z",
+				"word": "onze",
+				"path": "onze.png",
+				"homonym": [
+					"onze"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "vc",
+				"vowelsType": "N",
+				"consonantsType": "c"
 			},
-			"duz" : {
-				"phonetic" : "duz",
-				"word" : "douze",
-				"path" : "12",
-				"homonym" : ["douze"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"duz": {
+				"phonetic": "duz",
+				"word": "douze",
+				"path": "douze.png",
+				"homonym": [
+					"douze"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cvc",
+				"vowelsType": "o",
+				"consonantsType": "oc"
 			},
-			"trɛz" : {
-				"phonetic" : "trɛz",
-				"word" : "treize",
-				"path" : "13",
-				"homonym" : ["treize"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"trɛz": {
+				"phonetic": "trɛz",
+				"word": "treize",
+				"path": "treize.png",
+				"homonym": [
+					"treize"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cv",
+				"vowelsType": "N",
+				"consonantsType": "O,N"
 			},
-			"katɔrz" : {
-				"phonetic" : "katɔrz",
-				"word" : "quatorze",
-				"path" : "14",
-				"homonym" : ["quatorze"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"katɔrz": {
+				"phonetic": "katɔrz",
+				"word": "quatorze",
+				"path": "quatorze.png",
+				"homonym": [
+					"quatorze"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cv",
+				"vowelsType": "N",
+				"consonantsType": "O,N"
 			},
-			"kɛ̃z" : {
-				"phonetic" : "kɛ̃z",
-				"word" : "quinze",
-				"path" : "15",
-				"homonym" : ["quinze"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"kɛ̃z": {
+				"phonetic": "kɛ̃z",
+				"word": "quinze",
+				"path": "quinze.png",
+				"homonym": [
+					"quinze"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cv",
+				"vowelsType": "N",
+				"consonantsType": "O,N"
 			},
-			"sɛz" : {
-				"phonetic" : "sɛz",
-				"word" : "seize",
-				"path" : "16",
-				"homonym" : ["seize"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
-			},
-		},
+			"sɛz": {
+				"phonetic": "sɛz",
+				"word": "seize",
+				"path": "seize.png",
+				"homonym": [
+					"seize"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cv",
+				"vowelsType": "N",
+				"consonantsType": "O,N"
+			}
+		}
 	}
 }

@@ -1720,7 +1720,7 @@
          "papa": {
             "phonetic": "papa",
             "word": "papa",
-            "path": "papa.png",
+            "path": "papa.jpg",
             "homonym": [
                "papa"
             ],
@@ -1744,7 +1744,7 @@
          "papi": {
             "phonetic": "papi",
             "word": "papy",
-            "path": "",
+            "path": "papy.jpg",
             "homonym": [
                "papy"
             ],
@@ -1756,7 +1756,7 @@
          "mami": {
             "phonetic": "mami",
             "word": "mamy",
-            "path": "",
+            "path": "mamy.jpg",
             "homonym": [
                "mamy"
             ],
@@ -1780,7 +1780,7 @@
          "bobo": {
             "phonetic": "bobo",
             "word": "bobo",
-            "path": "",
+            "path": "bobo.png",
             "homonym": [
                "bobo"
             ],
@@ -1792,7 +1792,7 @@
          "kaka": {
             "phonetic": "kaka",
             "word": "caca",
-            "path": "",
+            "path": "caca.jpg",
             "homonym": [
                "caca"
             ],
@@ -1804,7 +1804,7 @@
          "kuku": {
             "phonetic": "kuku",
             "word": "coucou",
-            "path": "",
+            "path": "coucou.png",
             "homonym": [
                "coucou"
             ],
@@ -1816,7 +1816,7 @@
          "pupe": {
             "phonetic": "pupe",
             "word": "poupée",
-            "path": "",
+            "path": "poupee.png",
             "homonym": [
                "poupée"
             ],
@@ -1828,7 +1828,7 @@
          "mamɑ̃": {
             "phonetic": "mamɑ̃",
             "word": "maman",
-            "path": "",
+            "path": "maman.jpg",
             "homonym": [
                "maman"
             ],
@@ -1840,7 +1840,7 @@
          "bɔ̃bɔ̃": {
             "phonetic": "bɔ̃bɔ̃",
             "word": "bonbon",
-            "path": "",
+            "path": "bonbon.png",
             "homonym": [
                "bonbon"
             ],
@@ -1852,7 +1852,7 @@
          "mɑ̃to": {
             "phonetic": "mɑ̃to",
             "word": "manteau",
-            "path": "",
+            "path": "manteau.png",
             "homonym": [
                "manteau"
             ],
@@ -1864,7 +1864,7 @@
          "mutɔ̃": {
             "phonetic": "mutɔ̃",
             "word": "mouton",
-            "path": "",
+            "path": "mouton.png",
             "homonym": [
                "mouton"
             ],
@@ -1876,7 +1876,7 @@
          "boku": {
             "phonetic": "boku",
             "word": "beaucoup",
-            "path": "",
+            "path": "beaucoup.png",
             "homonym": [
                "beaucoup"
             ],
@@ -1888,7 +1888,7 @@
          "ɑ̃kor": {
             "phonetic": "ɑ̃kor",
             "word": "encore",
-            "path": "",
+            "path": "encore.png",
             "homonym": [
                "encore"
             ],
@@ -1900,7 +1900,7 @@
          "tapi": {
             "phonetic": "tapi",
             "word": "tapis",
-            "path": "",
+            "path": "tapis.png",
             "homonym": [
                "tapis"
             ],
@@ -1912,7 +1912,7 @@
          "tɔ̃be": {
             "phonetic": "tɔ̃be",
             "word": "tomber",
-            "path": "",
+            "path": "tomber.png",
             "homonym": [
                "tomber"
             ],
@@ -1924,7 +1924,7 @@
          "kupe": {
             "phonetic": "kupe",
             "word": "couper",
-            "path": "",
+            "path": "couper.png",
             "homonym": [
                "couper"
             ],
@@ -1936,7 +1936,7 @@
          "kuto": {
             "phonetic": "kuto",
             "word": "couteau",
-            "path": "",
+            "path": "couteau.png",
             "homonym": [
                "couteau"
             ],
@@ -1948,7 +1948,7 @@
          "gato": {
             "phonetic": "gato",
             "word": "gâteau",
-            "path": "",
+            "path": "gateau.png",
             "homonym": [
                "gâteau"
             ],
@@ -1960,7 +1960,7 @@
          "savɔ̃": {
             "phonetic": "savɔ̃",
             "word": "savon",
-            "path": "",
+            "path": "savon.png",
             "homonym": [
                "savon"
             ],
@@ -1972,7 +1972,7 @@
          "sizo": {
             "phonetic": "sizo",
             "word": "ciseaux",
-            "path": "",
+            "path": "ciseaux.png",
             "homonym": [
                "ciseaux"
             ],
@@ -1984,7 +1984,7 @@
          "krɛjɔ̃": {
             "phonetic": "krɛjɔ̃",
             "word": "crayon",
-            "path": "",
+            "path": "crayon.png",
             "homonym": [
                "crayon"
             ],
@@ -1996,7 +1996,7 @@
          "ʃəvœ": {
             "phonetic": "ʃəvœ",
             "word": "cheveux",
-            "path": "",
+            "path": "cheveux.png",
             "homonym": [
                "cheveux"
             ],
@@ -2008,7 +2008,7 @@
          "muʃe": {
             "phonetic": "muʃe",
             "word": "moucher",
-            "path": "",
+            "path": "moucher.png",
             "homonym": [
                "moucher"
             ],
@@ -2020,7 +2020,7 @@
          "tuse": {
             "phonetic": "tuse",
             "word": "tousser",
-            "path": "",
+            "path": "tousser.png",
             "homonym": [
                "tousser"
             ],
@@ -2032,7 +2032,7 @@
          "mɛzɔ̃": {
             "phonetic": "mɛzɔ̃",
             "word": "maison",
-            "path": "",
+            "path": "maison.png",
             "homonym": [
                "maison"
             ],
@@ -2044,7 +2044,7 @@
          "desine": {
             "phonetic": "desine",
             "word": "dessiner",
-            "path": "",
+            "path": "dessiner.png",
             "homonym": [
                "dessiner"
             ],
@@ -2056,7 +2056,7 @@
          "naʒe": {
             "phonetic": "naʒe",
             "word": "nager",
-            "path": "",
+            "path": "nager.png",
             "homonym": [
                "nager"
             ],
@@ -2068,7 +2068,7 @@
          "koʃɔ̃": {
             "phonetic": "koʃɔ̃",
             "word": "cochon",
-            "path": "",
+            "path": "cochon.png",
             "homonym": [
                "cochon"
             ],
@@ -2080,7 +2080,7 @@
          "fyme": {
             "phonetic": "fyme",
             "word": "fumée",
-            "path": "",
+            "path": "fumee.jpg",
             "homonym": [
                "fumée",
                "fumer"
@@ -2093,7 +2093,7 @@
          "foto": {
             "phonetic": "foto",
             "word": "photo",
-            "path": "",
+            "path": "photo.png",
             "homonym": [
                "photo"
             ],
@@ -2105,7 +2105,7 @@
          "fini": {
             "phonetic": "fini",
             "word": "fini",
-            "path": "",
+            "path": "fini.png",
             "homonym": [
                "fini"
             ],
@@ -2117,7 +2117,7 @@
          "sapɛ̃": {
             "phonetic": "sapɛ̃",
             "word": "sapin",
-            "path": "",
+            "path": "sapin.png",
             "homonym": [
                "sapin"
             ],
@@ -2129,7 +2129,7 @@
          "sote": {
             "phonetic": "sote",
             "word": "sauter",
-            "path": "",
+            "path": "sauter.png",
             "homonym": [
                "sauter"
             ],
@@ -2141,7 +2141,7 @@
          "ʃapo": {
             "phonetic": "ʃapo",
             "word": "chapeau",
-            "path": "",
+            "path": "chapeau.png",
             "homonym": [
                "chapeau"
             ],
@@ -2153,7 +2153,7 @@
          "telefɔn": {
             "phonetic": "telefɔn",
             "word": "téléphone",
-            "path": "",
+            "path": "telephone.png",
             "homonym": [
                "téléphone"
             ],
@@ -2165,7 +2165,7 @@
          "ʒənu": {
             "phonetic": "ʒənu",
             "word": "genou",
-            "path": "",
+            "path": "genou.png",
             "homonym": [
                "genou"
             ],

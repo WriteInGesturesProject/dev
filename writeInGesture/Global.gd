@@ -132,6 +132,7 @@ func putBorelInHboxContainer(array : Array, lenghtX, lenghtY) :
 	var hbox = HBoxContainer.new()
 	hbox.rect_min_size = Vector2(lenghtX, lenghtY)
 	hbox.alignment = HBoxContainer.ALIGN_CENTER
+	hbox.add_constant_override("separation", -1)
 	for picturePath in array :
 		var imgBorel = TextureRect.new()
 		var control = Control.new()
@@ -155,7 +156,7 @@ func putBorelInHboxContainer(array : Array, lenghtX, lenghtY) :
 		imgBorel.get_parent().rect_size = Vector2(lenghtX/size, lenghtX/size)
 		#put in center of the controller parent 
 		imgBorel.rect_position.x = control.rect_size.x/2-imgBorel.rect_size.x/2
-		
+
 	return hbox
 	
 #Create an array of picturePath from a phonetic 

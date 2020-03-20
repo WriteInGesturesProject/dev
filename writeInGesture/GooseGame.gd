@@ -62,7 +62,7 @@ func _ready():
 					image.texture = Global.find_texture(myWords[i].getPath())
 					i += 1
 				elif(Global.level == 1):
-					image.texture = load("res://assets/icons/questionmark.png")
+					image.texture = load("res://assets/icons/help.png")
 				image.expand = true
 				image.stretch_mode = TextureRect.STRETCH_SCALE_ON_EXPAND
 				image.rect_size.x = get_viewport().size.y / 6

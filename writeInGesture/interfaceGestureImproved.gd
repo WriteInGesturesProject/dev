@@ -24,7 +24,7 @@ func _ready():
 		currentVbox.add_child(label)
 		for j in range(0, array.size()):
 			var currentButton = Button.new()
-			currentButton.theme = load("res://fonts/ButtonTheme.tres")
+			currentButton.theme = load("res://assets/theme/ButtonTheme.tres")
 			var text = ""
 			var dict2 = array[j]
 			##print(dict2)

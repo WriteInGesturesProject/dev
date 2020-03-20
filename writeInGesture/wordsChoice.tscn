@@ -155,28 +155,28 @@ __meta__ = {
 
 [node name="addWordLabel" type="Label" parent="Popup/VBoxPopup"]
 margin_right = 867.0
-margin_bottom = 29.0
+margin_bottom = 36.0
 text = "Test"
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Popup/VBoxPopup"]
-margin_top = 59.0
+margin_top = 66.0
 margin_right = 867.0
-margin_bottom = 128.0
+margin_bottom = 162.0
 custom_constants/separation = 20
 alignment = 1
 
 [node name="yes" type="Button" parent="Popup/VBoxPopup/HBoxContainer"]
-margin_left = 339.0
-margin_right = 420.0
-margin_bottom = 69.0
+margin_left = 328.0
+margin_right = 419.0
+margin_bottom = 96.0
 theme = ExtResource( 3 )
 text = "Oui"
 
 [node name="no" type="Button" parent="Popup/VBoxPopup/HBoxContainer"]
-margin_left = 440.0
-margin_right = 528.0
-margin_bottom = 69.0
+margin_left = 439.0
+margin_right = 538.0
+margin_bottom = 96.0
 theme = ExtResource( 3 )
 text = "Non"
 
@@ -195,162 +195,161 @@ __meta__ = {
 
 [node name="addWordLabel2" type="Label" parent="Popup2/VBoxPopup2"]
 margin_right = 867.0
-margin_bottom = 29.0
+margin_bottom = 36.0
 text = "Ajout du mot "
 align = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 33.0
+margin_top = 40.0
 margin_right = 867.0
-margin_bottom = 72.0
+margin_bottom = 86.0
 alignment = 1
 
 [node name="Phonetic" type="Label" parent="Popup2/VBoxPopup2/HBoxContainer2"]
-margin_left = 299.0
+margin_left = 267.0
 margin_top = 5.0
-margin_right = 458.0
-margin_bottom = 34.0
+margin_right = 465.0
+margin_bottom = 41.0
 text = "Phonetique : "
 
 [node name="LinePhonetic" type="LineEdit" parent="Popup2/VBoxPopup2/HBoxContainer2"]
-margin_left = 462.0
-margin_right = 568.0
-margin_bottom = 39.0
+margin_left = 469.0
+margin_right = 599.0
+margin_bottom = 46.0
 max_length = 20
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 76.0
+margin_top = 90.0
 margin_right = 867.0
-margin_bottom = 115.0
+margin_bottom = 136.0
 alignment = 1
 
 [node name="Word" type="Label" parent="Popup2/VBoxPopup2/HBoxContainer3"]
-margin_left = 348.0
+margin_left = 328.0
 margin_top = 5.0
-margin_right = 409.0
-margin_bottom = 34.0
+margin_right = 404.0
+margin_bottom = 41.0
 text = "Mot :"
 
 [node name="LineWord" type="LineEdit" parent="Popup2/VBoxPopup2/HBoxContainer3"]
-margin_left = 413.0
-margin_right = 519.0
-margin_bottom = 39.0
+margin_left = 408.0
+margin_right = 538.0
+margin_bottom = 46.0
 max_length = 20
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 119.0
+margin_top = 140.0
 margin_right = 867.0
-margin_bottom = 158.0
+margin_bottom = 186.0
 alignment = 1
 
 [node name="NbSyllable" type="Label" parent="Popup2/VBoxPopup2/HBoxContainer4"]
-margin_left = 263.0
+margin_left = 225.0
 margin_top = 5.0
-margin_right = 493.0
-margin_bottom = 34.0
+margin_right = 508.0
+margin_bottom = 41.0
 text = "Nombre de Syllabe"
 
 [node name="LineNbSyllable" type="LineEdit" parent="Popup2/VBoxPopup2/HBoxContainer4"]
-margin_left = 497.0
-margin_right = 603.0
-margin_bottom = 39.0
+margin_left = 512.0
+margin_right = 642.0
+margin_bottom = 46.0
 max_length = 20
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 162.0
+margin_top = 190.0
 margin_right = 867.0
-margin_bottom = 201.0
+margin_bottom = 236.0
 alignment = 1
 
 [node name="Struct" type="Label" parent="Popup2/VBoxPopup2/HBoxContainer5"]
-margin_left = 256.0
+margin_left = 214.0
 margin_top = 5.0
-margin_right = 500.0
-margin_bottom = 34.0
+margin_right = 518.0
+margin_bottom = 41.0
 text = "Structure Syllabique"
 
 [node name="LineStruct" type="LineEdit" parent="Popup2/VBoxPopup2/HBoxContainer5"]
-margin_left = 504.0
-margin_right = 610.0
-margin_bottom = 39.0
+margin_left = 522.0
+margin_right = 652.0
+margin_bottom = 46.0
 max_length = 20
 
 [node name="HBoxContainer6" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 205.0
+margin_top = 240.0
 margin_right = 867.0
-margin_bottom = 244.0
+margin_bottom = 286.0
 alignment = 1
 
 [node name="VoyelsType" type="Label" parent="Popup2/VBoxPopup2/HBoxContainer6"]
-margin_left = 282.0
+margin_left = 248.0
 margin_top = 5.0
-margin_right = 474.0
-margin_bottom = 34.0
+margin_right = 484.0
+margin_bottom = 41.0
 text = "Type de voyelle"
 
 [node name="LineVoyelsType" type="LineEdit" parent="Popup2/VBoxPopup2/HBoxContainer6"]
-margin_left = 478.0
-margin_right = 584.0
-margin_bottom = 39.0
+margin_left = 488.0
+margin_right = 618.0
+margin_bottom = 46.0
 max_length = 20
 
 [node name="HBoxContainer7" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 248.0
+margin_top = 290.0
 margin_right = 867.0
-margin_bottom = 287.0
+margin_bottom = 336.0
 alignment = 1
 
 [node name="ConsType" type="Label" parent="Popup2/VBoxPopup2/HBoxContainer7"]
-margin_left = 268.0
+margin_left = 229.0
 margin_top = 5.0
-margin_right = 489.0
-margin_bottom = 34.0
+margin_right = 503.0
+margin_bottom = 41.0
 text = "Type de consonne"
 
 [node name="LineConsType" type="LineEdit" parent="Popup2/VBoxPopup2/HBoxContainer7"]
-margin_left = 493.0
-margin_right = 599.0
-margin_bottom = 39.0
+margin_left = 507.0
+margin_right = 637.0
+margin_bottom = 46.0
 max_length = 20
 
 [node name="HBoxContainer8" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 291.0
+margin_top = 340.0
 margin_right = 867.0
-margin_bottom = 360.0
+margin_bottom = 436.0
 alignment = 1
 
 [node name="SearchButton" type="Button" parent="Popup2/VBoxPopup2/HBoxContainer8"]
-margin_left = 149.0
-margin_right = 463.0
-margin_bottom = 69.0
+margin_left = 222.0
+margin_right = 601.0
+margin_bottom = 96.0
 theme = ExtResource( 3 )
 text = "Rechercher une image"
 
 [node name="OpenButton" type="Button" parent="Popup2/VBoxPopup2/HBoxContainer8"]
-margin_left = 467.0
-margin_right = 718.0
-margin_bottom = 69.0
+margin_left = 605.0
+margin_right = 645.0
+margin_bottom = 96.0
 theme = ExtResource( 3 )
-text = "Ouvrir une image"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 364.0
+margin_top = 440.0
 margin_right = 867.0
-margin_bottom = 433.0
+margin_bottom = 536.0
 custom_constants/separation = 20
 alignment = 1
 
 [node name="Confirm" type="Button" parent="Popup2/VBoxPopup2/HBoxContainer"]
-margin_left = 277.0
-margin_right = 437.0
-margin_bottom = 69.0
+margin_left = 251.0
+margin_right = 439.0
+margin_bottom = 96.0
 theme = ExtResource( 3 )
 text = "Confirmer"
 
 [node name="Cancel" type="Button" parent="Popup2/VBoxPopup2/HBoxContainer"]
-margin_left = 457.0
-margin_right = 590.0
-margin_bottom = 69.0
+margin_left = 459.0
+margin_right = 615.0
+margin_bottom = 96.0
 theme = ExtResource( 3 )
 text = "Annuler"
 
@@ -365,7 +364,6 @@ current_dir = "/home/guillaume/Documents/RICM5/Projet/dev/writeInGesture"
 current_path = "/home/guillaume/Documents/RICM5/Projet/dev/writeInGesture/"
 
 [node name="StatePopup" type="Popup" parent="."]
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -398,6 +396,7 @@ wait_time = 1.5
 [connection signal="hide" from="Popup" to="." method="_on_Popup_hide"]
 [connection signal="pressed" from="Popup/VBoxPopup/HBoxContainer/yes" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="Popup/VBoxPopup/HBoxContainer/no" to="." method="_on_no_pressed"]
+[connection signal="hide" from="Popup2" to="." method="_on_Popup_hide"]
 [connection signal="pressed" from="Popup2/VBoxPopup2/HBoxContainer8/SearchButton" to="." method="_on_SearchButton_pressed"]
 [connection signal="pressed" from="Popup2/VBoxPopup2/HBoxContainer8/OpenButton" to="." method="_on_OpenButton_pressed"]
 [connection signal="pressed" from="Popup2/VBoxPopup2/HBoxContainer/Confirm" to="." method="_on_Confirm_pressed"]

@@ -19,6 +19,7 @@ var wordsAvailable : WordsAvailable = Global.wordsAvailable
 var dictionnary : MyDictionnary = Global.wordDictionnary
 
 var bg = ColorRect.new()
+var lastPopup
 
 #######################################FUNCTION_FOR_SCENE###############################
 func _ready():
@@ -172,7 +173,7 @@ func _on_Retour_pressed():
 
 #######################################ADD_WORD_IN_DICTIONNARY###############################
 func _on_Popup_hide():
-		bg.visible = false
+	bg.visible = false
 
 func _on_no_pressed():
 	find_node("Popup").visible = false
@@ -180,36 +181,47 @@ func _on_no_pressed():
 
 func _on_yes_pressed():
 	find_node("Popup2").popup_centered_ratio(0.75)
+	find_node("Popup").visible = false
+	bg.visible = true
 	find_node("LinePhonetic").text = find_node("newWord").text
 	pass
 
 func _on_Confirm_pressed():
-	var newWord : Word = Word.new()
-	newWord.setAttribut("phonetic", find_node("LinePhonetic").text)
-	newWord.setAttribut("word", find_node("LineWord").text)
-	newWord.setAttribut("nbSyllable", find_node("LineNbSyllable").text.to_int())
-	newWord.setAttribut("syllableStruct", find_node("LineStruct").text)
-	newWord.setAttribut("vowelsType", find_node("LineVoyelsType").text)
-	newWord.setAttribut("consonantsType", find_node("LineConsType").text)
-	newWord.setPath(ImageFile)
-	newWord.setHomonym(findHomonym(newWord.getWord()))
-	if(newWord.getHomonym().size() == 0) :
-		newWord.addHomonym(newWord.getWord())
-	var err = dictionnary.addWord(newWord)
-	if(err) :
-		#print("le mot a bien été ajouté")
-		find_node("LinePhonetic").text = ""
-		find_node("LineWord").text = ""
-		find_node("LineStruct").text = ""
-		find_node("LineNbSyllable").text = ""
-		find_node("LineVoyelsType").text = ""
-		find_node("LineConsType").text = ""
-		find_node("Popup").visible = false
-		find_node("Popup2").visible = false
-		find_node("Creation").visible = true
-		_on_addWord_pressed()
+	print(find_node("OpenButton").text)
+	if(find_node("OpenButton").text != "") :
+		var newWord : Word = Word.new()
+		newWord.setAttribut("phonetic", find_node("LinePhonetic").text)
+		newWord.setAttribut("word", find_node("LineWord").text)
+		newWord.setAttribut("nbSyllable", find_node("LineNbSyllable").text.to_int())
+		newWord.setAttribut("syllableStruct", find_node("LineStruct").text)
+		newWord.setAttribut("vowelsType", find_node("LineVoyelsType").text)
+		newWord.setAttribut("consonantsType", find_node("LineConsType").text)
+		newWord.setPath(ImageFile)
+		newWord.setHomonym(findHomonym(newWord.getWord()))
+		if(newWord.getHomonym().size() == 0) :
+			newWord.addHomonym(newWord.getWord())
+		var err = dictionnary.addWord(newWord)
+		if(err) :
+			#print("le mot a bien été ajouté")
+			find_node("LinePhonetic").text = ""
+			find_node("LineWord").text = ""
+			find_node("LineStruct").text = ""
+			find_node("LineNbSyllable").text = ""
+			find_node("LineVoyelsType").text = ""
+			find_node("LineConsType").text = ""
+			find_node("Popup").visible = false
+			find_node("Popup2").visible = false
+			find_node("Creation").visible = true
+			_on_addWord_pressed()
+		else :
+			print("le mot n'a pas été ajouté")
 	else :
-		print("le mot n'a pas été ajouté")
+		find_node("StatePopup").popup_centered_ratio(1)
+		find_node("labelState").text = "Veuillez ajouté une image pour ce mot"
+		find_node("Popup2").visible = false
+		bg.visible = true
+		find_node("Timer").start()
+		lastPopup = find_node("Popup2")
 	
 func findHomonym(word : String) :
 	var res = []
@@ -225,6 +237,38 @@ func findHomonym(word : String) :
 				res= homo
 	#print(res)
 	return res
+	
+func _on_OpenButton_pressed():
+	var word = find_node("LineWord").text
+	if(word == null || word == ""):
+		return
+	find_node("FileDialog").rect_size.x = get_viewport().size.x - 10
+	find_node("FileDialog").rect_size.y = get_viewport().size.y - 10
+	find_node("FileDialog").set_current_dir(OS.get_system_dir(OS.SYSTEM_DIR_DOWNLOADS))
+	find_node("FileDialog").popup()
+
+func _on_SearchButton_pressed():
+	var word = find_node("LineWord").text
+	if(word == null || word == ""):
+		return
+	var url = "https://www.google.com/search?q="
+	url += word
+	url += "&tbm=isch&tbs=sur%3Af"
+	OS.shell_open(url)
+
+func _on_FileDialog_file_selected(path):
+	var word = find_node("LineWord").text
+	if(word == null || word == ""):
+		return
+	ImageFile = word + "." + path.get_extension()
+	ImagePath = "user://art/" + ImageFile
+	var dir = Directory.new()
+	dir.open("user://")
+	if(!dir.dir_exists("art")):
+		dir.make_dir("art")
+	dir.copy(path, ImagePath)
+	find_node("OpenButton").set_text(path.get_file())
+
 #######################################END_ADD_WORD_IN_DICTIONNARY###############################
 
 #######################################CREATION_OF_EXERCISE######################################
@@ -323,41 +367,12 @@ func _input(ev):
 #######################################END_SCROLLING#################################################
 
 
-func _on_OpenButton_pressed():
-	var word = find_node("LineWord").text
-	if(word == null || word == ""):
-		return
-	find_node("FileDialog").rect_size.x = get_viewport().size.x - 10
-	find_node("FileDialog").rect_size.y = get_viewport().size.y - 10
-	find_node("FileDialog").set_current_dir(OS.get_system_dir(OS.SYSTEM_DIR_DOWNLOADS))
-	find_node("FileDialog").popup()
-
-func _on_SearchButton_pressed():
-	var word = find_node("LineWord").text
-	if(word == null || word == ""):
-		return
-	var url = "https://www.google.com/search?q="
-	url += word
-	url += "&tbm=isch&tbs=sur%3Af"
-	OS.shell_open(url)
-
-func _on_FileDialog_file_selected(path):
-	var word = find_node("LineWord").text
-	if(word == null || word == ""):
-		return
-	ImageFile = word + "." + path.get_extension()
-	ImagePath = "user://art/" + ImageFile
-	var dir = Directory.new()
-	dir.open("user://")
-	if(!dir.dir_exists("art")):
-		dir.make_dir("art")
-	dir.copy(path, ImagePath)
-	find_node("OpenButton").set_text(path.get_file())
-
-
 func _on_Timer_timeout():
 	if(find_node("StatePopup") != null) :
 		find_node("StatePopup").visible = false
 		bg.visible = false
+	if(lastPopup != null):
+		lastPopup.visible = true
+		bg.visible = true
 	find_node("Timer").stop()
 	

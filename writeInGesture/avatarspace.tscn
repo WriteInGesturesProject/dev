@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://avatarspace.gd" type="Script" id=1]
+[ext_resource path="res://assets/icons/validate.png" type="Texture" id=2]
+[ext_resource path="res://assets/icons/goldCoin.png" type="Texture" id=3]
+[ext_resource path="res://assets/icons/silverCoin.png" type="Texture" id=4]
 [ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=21]
 
 [node name="Control" type="Control"]
@@ -35,13 +38,68 @@ __meta__ = {
 margin_right = 1024.0
 margin_bottom = 600.0
 
-[node name="Label" type="Label" parent="."]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = 29.0
-margin_top = 450.0
-margin_right = 181.0
+[node name="marginCoinBox" type="MarginContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CoinBox" type="HBoxContainer" parent="marginCoinBox"]
+margin_right = 1024.0
+margin_bottom = 600.0
+custom_constants/separation = 70
+
+[node name="Control" type="Control" parent="marginCoinBox/CoinBox"]
+margin_bottom = 600.0
+
+[node name="goldImage" type="TextureRect" parent="marginCoinBox/CoinBox/Control"]
+margin_left = 27.0
+margin_top = 462.0
+margin_right = 77.0
 margin_bottom = 512.0
-text = "tyjgnuygj"
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gold" type="Label" parent="marginCoinBox/CoinBox/Control"]
+margin_left = 40.0
+margin_top = 262.0
+margin_right = 59.0
+margin_bottom = 337.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control2" type="Control" parent="marginCoinBox/CoinBox"]
+margin_left = 70.0
+margin_right = 70.0
+margin_bottom = 600.0
+
+[node name="silverImage" type="TextureRect" parent="marginCoinBox/CoinBox/Control2"]
+margin_left = 81.0
+margin_top = 467.0
+margin_right = 131.0
+margin_bottom = 517.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Silver" type="Label" parent="marginCoinBox/CoinBox/Control2"]
+margin_left = 40.0
+margin_top = 262.0
+margin_right = 59.0
+margin_bottom = 337.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0
+"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -49,9 +107,11 @@ __meta__ = {
 [node name="Button" type="Button" parent="."]
 margin_left = 517.108
 margin_top = 515.848
-margin_right = 770.108
-margin_bottom = 587.848
-text = "Go Back"
+margin_right = 607.108
+margin_bottom = 585.848
+icon = ExtResource( 2 )
+flat = true
+expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

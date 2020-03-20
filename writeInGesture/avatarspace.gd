@@ -1,6 +1,6 @@
 extends Control
 
-var level = 7 #between 1 and 9
+var level = 1 #between 1 and 9
 onready var buton = get_node("MarginContainer/VBoxContainer/HBoxContainer4/Button")
 onready var text = get_node("MarginContainer/VBoxContainer/HBoxContainer/Label")
 var current_texture
@@ -9,7 +9,7 @@ var selected = false
 var avatars = ["assistant.png","astronaut.png","businessman.png","captain.png","cashier.png","chef.png","concierge.png","cooker.png","courier.png","croupier.png","croupier-1.png","detective.png","disc-jockey.png","engineer.png","gentleman.png","nurse.png","stewardess.png","worker.png"]
 
 func _ready():
-	var margintop=(get_viewport().size.y -3*get_viewport().size.y/4.5 - 30 - get_node("LineEdit").rect_size.y - get_node("Label").rect_size.y)/2
+	var margintop=(get_viewport().size.y -3*get_viewport().size.y/4.5 - 30 - get_node("LineEdit").rect_size.y - find_node("goldImage").rect_size.y)/2
 	get_node("MarginContainer").margin_left = (get_viewport().size.x -6*get_viewport().size.y/4.5 - 50)/2
 	get_node("MarginContainer").margin_top = margintop
 	#making responsive UI elements
@@ -19,9 +19,13 @@ func _ready():
 	get_node("LineEdit").rect_position.y = 3*get_viewport().size.y/ 4.5 +30 +62 +10 +margintop
 	get_node("LineEdit").rect_position.x = get_node("MarginContainer").margin_left
 	get_node("LineEdit").rect_size.x = get_viewport().size.x/2
-	get_node("Label").rect_position.y = 3*get_viewport().size.y/ 4.5 +30 + margintop
-	get_node("Label").text = "Niveau: "+str(level)
-	get_node("Label").rect_position.x = get_node("MarginContainer").margin_left
+	find_node("marginCoinBox").add_constant_override("margin_left", (get_viewport().size.x -6*get_viewport().size.y/4.5 - 50)/2)
+	find_node("Gold").rect_position.y =  get_node("LineEdit").rect_position.y - 50 - get_viewport().size.y * 0.01
+	find_node("Gold").text = str(Global.player.getGold())
+	find_node("Gold").rect_position.x = find_node("MarginContainer").margin_left
+	find_node("Silver").rect_position.y = get_node("LineEdit").rect_position.y - 50 - get_viewport().size.y * 0.01
+	find_node("Silver").rect_position.x = find_node("MarginContainer").margin_left + 60
+	find_node("Silver").text = str(Global.player.getSilver())
 	#addind avatars one by one
 	var avatar_number = 0
 	var column = get_node("MarginContainer/VBoxContainer")

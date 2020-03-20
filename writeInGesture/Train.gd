@@ -20,8 +20,8 @@ func _scaleImg():
 	var img = Global.find_texture(myWords[index].getPath())
 	find_node("Image").texture = img
 	find_node("Image").rect_size.y = get_viewport().size.y / 2.5
-	find_node("Box").add_constant_override("separation", int(find_node("Image").rect_size.x) + 20)
 	find_node("Image").rect_size.x = get_viewport().size.y / 2.5 * (img.get_size().x / img.get_size().y)
+	find_node("Box").add_constant_override("separation", int(find_node("Image").rect_size.x) + 20)
 
 func _ready():
 	Ex = Global.current_ex

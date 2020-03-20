@@ -21,14 +21,14 @@ var count = 0
 var index_play = 5
 var temp = []
 var ind = index
+var margin = 0.05
 var ind_prec = ind
 
 var RecordButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
-	find_node("Popup").margin_top = get_viewport().size.y *0.03
-	find_node("MarginContainer").margin_top = get_viewport().size.y / 12
+	find_node("MarginContainer").set("custom_constants/margin_top",get_viewport().size.y / 12)
 	_scaleImg()
 	if(myWords.size() > 22):
 		temp = []
@@ -75,11 +75,21 @@ func _ready():
 		if(board.size() >= myWords.size()):
 			break
 	if(Global.level == 0 || Global.level == 1):
+		Global.make_margin(find_node("Margin"), margin)
+		var VectorMarge = get_viewport().size * (1- 2 * margin)
 		var c = 0
 		var phonetic = myWords[ind].getPhonetic()
 		var arrayPicture = Global.phoneticToArrayPicturePath(phonetic)
-		container = Global.putBorelInHboxContainer(arrayPicture, get_viewport().size.x, get_viewport().size.y / 2.5)
+		var lengthY = VectorMarge.y / 2.5
+		var lengthX = lengthY * arrayPicture.size()
+		if(lengthX > VectorMarge.x) :
+			lengthX = VectorMarge.x
+		container = Global.putBorelInHboxContainer(arrayPicture, lengthX, lengthY)
 		find_node("ImgBorel").add_child(container)
+		find_node("MarginWord").rect_min_size = find_node("Image").rect_size  + find_node("Word").get_rect().size
+		find_node("MarginBorel").rect_min_size = Vector2(VectorMarge.x , lengthY)
+		var rest = VectorMarge.y - find_node("MarginWord").rect_min_size.y -find_node("MarginBorel").rect_min_size.y
+		find_node("MainBoxPopup").add_constant_override("separation", rest/2)
 		find_node("Word").text = myWords[ind].getWord()
 	board[0].modulate = "e86767"
 	find_node("Image").texture = Global.find_texture(myWords[0].getPath())
@@ -117,6 +127,7 @@ func _scaleImg():
 	find_node("Image").rect_size.y = get_viewport().size.y / 2.5
 	find_node("Image").rect_size.x = get_viewport().size.y / 2.5 * (img.get_size().x / img.get_size().y)
 	find_node("MainBox").add_constant_override("separation", int(find_node("Image").rect_size.x) + 20)
+	find_node("Image").get_parent().rect_size.y = find_node("Image").rect_size.y
 
 func _change():
 	if(index >= myWords.size()):
@@ -131,11 +142,21 @@ func _change():
 		get_tree().change_scene("res://GameEnd.tscn")
 	else :
 		if(Global.level == 0 || Global.level == 1):
+			var VectorMarge = get_viewport().size * (1- 2 * margin)
 			var phonetic = myWords[ind].getPhonetic()
 			var arrayPicture = Global.phoneticToArrayPicturePath(phonetic)
-			container = Global.putBorelInHboxContainer(arrayPicture, get_viewport().size.x, get_viewport().size.y / 2.5)
+			var lengthY = VectorMarge.y / 2.5
+			var lengthX = lengthY * arrayPicture.size()
+			if(lengthX > VectorMarge.x) :
+				lengthX = VectorMarge.x
+			container = Global.putBorelInHboxContainer(arrayPicture, lengthX, lengthY)
 			find_node("ImgBorel").add_child(container)
+			find_node("MarginWord").rect_min_size.y = find_node("Image").rect_size.y  + find_node("Word").get_rect().size.y
+			find_node("MarginBorel").rect_min_size = Vector2(VectorMarge.x  , lengthY)
+			var rest = VectorMarge.y - find_node("MarginWord").rect_min_size.y -find_node("MarginBorel").rect_min_size.y
+			find_node("MainBoxPopup").add_constant_override("separation", rest/2)
 			find_node("Word").set_text(myWords[ind].getWord())
+			
 	incremented = false
 	find_node("WordDetails").popup_centered_ratio(1)
 	find_node("backgroundDark").visible = true

@@ -48,6 +48,12 @@ func _ready():
 	self.add_child(bg)
 	find_node("MainContainer").rect_position.y = 100+ find_node("retour").rect_size.y
 
+	###Pre load background color Rect
+	bg.color = (Color(0,0,0,224))
+	bg.anchor_bottom = 1 
+	bg.anchor_right = 1
+	bg.visible = false
+
 
 func removeAllChildren(nameNode):
 	# remove all children of nameNode
@@ -102,27 +108,22 @@ func _on_keyButton_pressed(keyButton):
 
 
 func _on_addWord_pressed():
-	var stateAddLabel = find_node("stateAddLabel")
-	stateAddLabel.add_color_override("font_color", Color(0,0,0))
-	
 	var text = find_node("newWord").get_text()
 	if !(wordsAvailable.getWord(text)) :# < 20:
 		var word = dictionnary.getWord(text)
 		if(word != null) :
 			wordsAvailable.addWord(word)
-			stateAddLabel.set_text("Le mot a été ajouté.")
 			find_node("newWord").text = ""
 			makeListWord()
 		else :
 			find_node("addWordLabel").text = "Le mot n'existe pas voulez vous l'ajouter ? \nLe mot est : \n"+ find_node("newWord").text 
 			find_node("Popup").popup_centered_ratio(0.75)
-			bg.color = (Color(0,0,0,224))
 			bg.visible = true
-			bg.anchor_bottom = 1 
-			bg.anchor_right = 1
-		
 	else:
-		stateAddLabel.set_text("Le mot existe déjà.")
+		find_node("StatePopup").popup_centered_ratio(1)
+		find_node("labelState").text = "Le mot est déjà dans cet exercice"
+		bg.visible = true
+		find_node("Timer").start()
 
 func createAvailableWordsList(word : Word):
 	var hBoxContainer = HBoxContainer.new()
@@ -229,21 +230,33 @@ func findHomonym(word : String) :
 #######################################CREATION_OF_EXERCISE######################################
 func _on_Creation_pressed():
 	var creation = CreationExercise.new()
-	#print("Creation of custom exercise")
-	Global.customExercise = creation.creationExercise(Global.customExercise, wordsAvailable.getAllWords())
-	#print("Creation of goose exercise")
-	Global.gooseExercise = creation.creationExercise(Global.gooseExercise, wordsAvailable.getAllWords())
-	#print("Creation of listen exercise")
-	Global.listenExercise = creation.creationExercise(Global.listenExercise, wordsAvailable.getAllWords())
-	#print("Creation of memory exercise")
-	Global.memoryExercise = creation.creationExercise(Global.memoryExercise, wordsAvailable.getAllWords())
+	if(wordsAvailable.getAllWords().size() >= 3) :
+		#print("Creation of custom exercise")
+		Global.customExercise = creation.creationExercise(Global.customExercise, wordsAvailable.getAllWords())
+		#print("Creation of goose exercise")
+		Global.gooseExercise = creation.creationExercise(Global.gooseExercise, wordsAvailable.getAllWords())
+		#print("Creation of listen exercise")
+		Global.listenExercise = creation.creationExercise(Global.listenExercise, wordsAvailable.getAllWords())
+		#print("Creation of memory exercise")
+		Global.memoryExercise = creation.creationExercise(Global.memoryExercise, wordsAvailable.getAllWords())
+	
+		find_node("StatePopup").popup_centered_ratio(1)
+		find_node("labelState").text = "L'exercice a bien été créé "
+		bg.visible = true
+		find_node("Timer").start()
+
+		var tmp = wordsAvailable.getAllWords().duplicate()
+		for word in tmp :
+			wordsAvailable.removeWord(word)
+		makeListWord()	
+		
+	else : 
+		find_node("StatePopup").popup_centered_ratio(1)
+		find_node("labelState").text = "Veuillez au minimum faire un exercice avec au moins trois mots "
+		bg.visible = true
+		find_node("Timer").start()
 	
 	
-	find_node("stateAddLabel").text = "L'exercice a bien été créé "
-	var tmp = wordsAvailable.getAllWords().duplicate()
-	for word in tmp :
-		wordsAvailable.removeWord(word)
-	makeListWord()
 #######################################END_CREATION_OF_EXERCISE######################################
 
 #######################################SCROLLING#################################################
@@ -342,3 +355,9 @@ func _on_FileDialog_file_selected(path):
 	find_node("OpenButton").set_text(path.get_file())
 
 
+func _on_Timer_timeout():
+	if(find_node("StatePopup") != null) :
+		find_node("StatePopup").visible = false
+		bg.visible = false
+	find_node("Timer").stop()
+	

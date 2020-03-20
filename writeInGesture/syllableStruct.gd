@@ -41,7 +41,7 @@ func _ready():
 		button.flat = false
 		button.rect_min_size = Vector2(0,marginVector.y*0.75/(syllable.size()/0.75))
 		button.align = Button.ALIGN_CENTER
-		button.theme = load("res://fonts/ButtonTheme.tres")
+		button.theme = load("res://assets/theme/ButtonTheme.tres")
 		find_node("NbSyllableContainer").add_child(button)
 		buttonPress.append(button)
 		ybox = ybox - button.rect_size.y
@@ -54,7 +54,7 @@ func _ready():
 		button.name = el
 		button.text = el
 		button.flat = false
-		button.theme = load("res://fonts/ButtonTheme.tres")
+		button.theme = load("res://assets/theme/ButtonTheme.tres")
 		button.rect_min_size = Vector2(0,marginVector.y*0.75/(syllable.size()/0.75))
 		button.align = Button.ALIGN_CENTER
 		find_node("StructSyllableContainer").add_child(button)
@@ -211,7 +211,7 @@ func _on_Popup_popup_hide():
 		find_node("Background").visible = false 
 
 func _on_Confirm_pressed():
-	if(wordFinal.size() > 0) :
+	if(wordFinal.size() >= 3) :
 		var creation = CreationExercise.new()
 		#print("Creation of custom exercise")
 		Global.customExercise = creation.creationExercise(Global.customExercise, wordFinal)
@@ -230,7 +230,7 @@ func _on_Confirm_pressed():
 		removeAllChildren("VBoxPopup")
 		var label = Label.new()
 		label.align = Label.ALIGN_CENTER
-		label.text = "Il n'y a pas de mots"
+		label.text = "Veuillez au minimum faire un exercice avec au moins trois mots "
 		find_node("VBoxPopup").add_child(label)
 
 

@@ -120,12 +120,7 @@ margin_right = 352.0
 margin_bottom = 200.0
 rect_clip_content = true
 
-[node name="stateAddLabel" type="Label" parent="Margin/MainContainer/editContainer/HBoxContainerCreation"]
-margin_top = 30.0
-margin_bottom = 66.0
-
 [node name="Creation" type="Button" parent="Margin/MainContainer/editContainer/HBoxContainerCreation"]
-margin_left = 4.0
 margin_right = 352.0
 margin_bottom = 96.0
 size_flags_horizontal = 3
@@ -366,8 +361,37 @@ window_title = "Ouvrir un fichier"
 mode = 0
 access = 2
 filters = PoolStringArray( "*.png ; PNG Images", "*.jpg ; JPG Images", "*.jpeg ; JPEG Images" )
-current_dir = "/mnt/DATA/Polytech/S10/Projet/dev/writeInGesture"
-current_path = "/mnt/DATA/Polytech/S10/Projet/dev/writeInGesture/"
+current_dir = "/home/guillaume/Documents/RICM5/Projet/dev/writeInGesture"
+current_path = "/home/guillaume/Documents/RICM5/Projet/dev/writeInGesture/"
+
+[node name="StatePopup" type="Popup" parent="."]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StatePopup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="labelState" type="Label" parent="StatePopup/VBoxContainer"]
+margin_top = 282.0
+margin_right = 1024.0
+margin_bottom = 318.0
+size_flags_vertical = 1
+text = "Exempel"
+align = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
 [connection signal="pressed" from="Margin/MainContainer/editContainer/HBoxContainerAdd/addWord" to="." method="_on_addWord_pressed"]
 [connection signal="pressed" from="Margin/MainContainer/editContainer/HBoxContainerCreation/Creation" to="." method="_on_Creation_pressed"]
 [connection signal="pressed" from="retour" to="." method="_on_Retour_pressed"]
@@ -379,3 +403,4 @@ current_path = "/mnt/DATA/Polytech/S10/Projet/dev/writeInGesture/"
 [connection signal="pressed" from="Popup2/VBoxPopup2/HBoxContainer/Confirm" to="." method="_on_Confirm_pressed"]
 [connection signal="pressed" from="Popup2/VBoxPopup2/HBoxContainer/Cancel" to="." method="_on_no_pressed"]
 [connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

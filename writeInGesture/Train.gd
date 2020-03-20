@@ -107,4 +107,3 @@ func _on_Record_pressed():
 			Ex.setNbWordOccurrence(Global.level, index, Ex.getNbWordOccurrence(Global.level, index) + 1)
 		else :
 			stt.stopListen()
-			find_node("Record").set_text("Enregistrer")

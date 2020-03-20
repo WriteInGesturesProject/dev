@@ -9,10 +9,6 @@
 [ext_resource path="res://assets/icons/back.png" type="Texture" id=7]
 [ext_resource path="res://art/videoBorel/a.ogv" type="VideoStream" id=8]
 
-
-
-
-
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -50,18 +46,18 @@ custom_constants/separation = 0
 alignment = 1
 
 [node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
-margin_top = 178.0
+margin_top = 226.0
 margin_right = 624.0
-margin_bottom = 214.0
+margin_bottom = 262.0
 theme = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Description du son"
 align = 1
 
 [node name="MainBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 214.0
+margin_top = 262.0
 margin_right = 624.0
-margin_bottom = 214.0
+margin_bottom = 262.0
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer/MainBox"]
 
@@ -80,6 +76,16 @@ __meta__ = {
 margin_left = 4.0
 margin_right = 4.0
 
+[node name="Panel" type="ColorRect" parent="MarginContainer/VBoxContainer/MainBox/Control2"]
+margin_right = 40.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.329412, 0.447059, 0.682353, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="VideoPlayer" type="VideoPlayer" parent="MarginContainer/VBoxContainer/MainBox/Control2"]
 stream = ExtResource( 8 )
 autoplay = true
@@ -89,9 +95,9 @@ __meta__ = {
 }
 
 [node name="EndBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 214.0
+margin_top = 262.0
 margin_right = 624.0
-margin_bottom = 422.0
+margin_bottom = 374.0
 theme = ExtResource( 4 )
 custom_constants/separation = 20
 alignment = 1
@@ -116,14 +122,16 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Uluberlu"
 align = 1
 
-[node name="Speak" type="Button" parent="MarginContainer/VBoxContainer/EndBox"]
+[node name="Listen" type="TextureButton" parent="MarginContainer/VBoxContainer/EndBox"]
+margin_left = 312.0
 margin_top = 112.0
-margin_right = 624.0
-margin_bottom = 208.0
+margin_right = 312.0
+margin_bottom = 112.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
 theme = ExtResource( 6 )
-text = "Écouter"
-icon = ExtResource( 2 )
-expand_icon = true
+texture_normal = ExtResource( 2 )
+expand = true
 
 [node name="Back" type="Button" parent="."]
 margin_right = 100.0
@@ -135,6 +143,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="gui_input" from="MarginContainer/VBoxContainer/MainBox/Control2/VideoPlayer" to="." method="_on_VideoPlayer_gui_input"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/EndBox/Speak" to="." method="_on_Speak_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/EndBox/Listen" to="." method="_on_Speak_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_Button_pressed"]

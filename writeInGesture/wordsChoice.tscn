@@ -331,6 +331,7 @@ margin_left = 605.0
 margin_right = 645.0
 margin_bottom = 96.0
 theme = ExtResource( 3 )
+text = "Ouvrir une image"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
 margin_top = 440.0

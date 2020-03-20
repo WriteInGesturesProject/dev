@@ -16,7 +16,7 @@ var stt = null # The Speech To Text Object
 var current_ex : Exercise # The exercise we are playing
 
 var score # The score when in game
-var level = 0 # The difficulty (0 -> Easy, 1 -> Medium, 2 -> Hard)
+var level = 1 # The difficulty (0 -> Easy, 1 -> Medium, 2 -> Hard)
 var nbDifficulty = 3
 var game = 0 # The type of training (1 -> MyGames, 2 -> Count, 3 -> Week, 4 -> Colors)
 var play = 0 # The type of game (1 -> Goose, 2 -> Listen & Choose, 3 -> Memory)

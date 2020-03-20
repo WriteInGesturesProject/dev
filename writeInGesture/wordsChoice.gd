@@ -188,7 +188,7 @@ func _on_yes_pressed():
 
 func _on_Confirm_pressed():
 	print(find_node("OpenButton").text)
-	if(find_node("OpenButton").text != "") :
+	if(find_node("OpenButton").text != "Ouvrir une image") :
 		var newWord : Word = Word.new()
 		newWord.setAttribut("phonetic", find_node("LinePhonetic").text)
 		newWord.setAttribut("word", find_node("LineWord").text)

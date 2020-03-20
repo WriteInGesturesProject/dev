@@ -10,7 +10,7 @@ var size : Vector2
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	find_node("NamePlayer").text=Global.player.getName()
-	find_node("Picture").texture=load(Global.player.getPathPicture())
+	find_node("Picture").texture=load("res://art/users/"+Global.player.getPathPicture())
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

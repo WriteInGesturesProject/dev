@@ -1,12 +1,12 @@
 extends Control
 
-var level = 1 #between 1 and 9
-onready var buton = get_node("MarginContainer/VBoxContainer/HBoxContainer4/Button")
-onready var text = get_node("MarginContainer/VBoxContainer/HBoxContainer/Label")
+onready var buton = find_node("Button")
 var current_texture
 var current_avatar
 var selected = false
 var avatars = ["assistant.png","astronaut.png","businessman.png","captain.png","cashier.png","chef.png","concierge.png","cooker.png","courier.png","croupier.png","croupier-1.png","detective.png","disc-jockey.png","engineer.png","gentleman.png","nurse.png","stewardess.png","worker.png"]
+
+var avatarCoin = Global.player.getCoinAvatar()
 
 func _ready():
 	var margintop=(get_viewport().size.y -3*get_viewport().size.y/4.5 - 30 - get_node("LineEdit").rect_size.y - find_node("goldImage").rect_size.y)/2
@@ -28,51 +28,66 @@ func _ready():
 	find_node("Silver").text = str(Global.player.getSilver())
 	#addind avatars one by one
 	var avatar_number = 0
-	var column = get_node("MarginContainer/VBoxContainer")
+	find_node("plate").add_constant_override("vseparation", get_viewport().size.y/4.5 + 10)
+	find_node("plate").add_constant_override("hseparation", get_viewport().size.y/4.5 + 10)
 	for i in range(3):
-		var line = HBoxContainer.new()
 		for k in range(6):
-			var image = TextureRect.new()
+			var image = TextureButton.new()
 			var control_img = Control.new()
-			image.texture = load("res://art/users/"+avatars[i*6+k])
-			if (i*6+k > level):    #dark texture according to level
-				image.modulate = Color(0.2,0.2,0.2)
+			image.set_normal_texture(load("res://art/users/"+avatars[i*6+k]))
 			image.expand = true
 			image.stretch_mode = TextureRect.STRETCH_SCALE_ON_EXPAND
 			image.rect_size.x = get_viewport().size.y / 4.5
 			image.rect_size.y = get_viewport().size.y / 4.5
-			image.connect("gui_input",self,"pressed",[image])   #calling function on click
-			line.add_constant_override("separation", get_viewport().size.y/4.5 +10)
+			image.name = str(i*6 + k)
+			control_img.rect_size = image.rect_size
+			image.connect("gui_input",self,"_choice_pressed",[image])   #calling function on click
 			control_img.add_child(image)
-			line.add_child(control_img)
 			avatar_number = avatar_number + 1
-		column.add_child(line)
-		column.add_constant_override("separation", get_viewport().size.y/4.5 + 10)
-	
+			find_node("plate").add_child(control_img)
+	_colorAvatars()
 
+func _colorAvatars():
+	for c in find_node("plate").get_children():
+		var image = c.get_child(0)
+		var n = int(image.name)
+		image.modulate = "ffffff"
+		if(avatarCoin[n] == 0):
+			#est dispo
+			image.modulate = "ffffff"
+		elif((n < 12 && avatarCoin[n] <= Global.player.getSilver()) || (n >= 12 && avatarCoin[n] <= Global.player.getGold())):
+			#peut acheter
+			image.modulate = Color(0.2,0.8,0.2)
+		else : 
+			#pas dispo
+			image.modulate = Color(0.2,0.2,0.2)
 
-
-func pressed(event,avatar):
+func _choice_pressed(event, avatar):
 	if (event is InputEventMouseButton):
-		if (avatar.modulate != Color(0.2,0.2,0.2)):  #test if avatar is opened according to player level
+		if(avatar.modulate == Color(0.2,0.8,0.2)):
+			if(int(avatar.name) < 12):
+				Global.player.setSilver(Global.player.getSilver() - avatarCoin[int(avatar.name)])
+			else : 
+				Global.player.setGold(Global.player.getGold() - avatarCoin[int(avatar.name)])
+			Global.player.setCoinAvatar(int(avatar.name), 0)
+			avatar.modulate = "ffffff"
+			_colorAvatars()
+			find_node("Gold").text = str(Global.player.getGold())
+			find_node("Silver").text = str(Global.player.getSilver())
+		elif (avatar.modulate != Color(0.2,0.2,0.2)):  #test if avatar is opened according to player level
 			selected = true
 			if(current_texture !=null):
-				current_avatar.texture = current_texture
-			current_texture = avatar.texture
+				current_avatar.set_normal_texture(current_texture)
+			current_texture = avatar.get_normal_texture()
 			current_avatar = avatar
-			var array = avatar.texture.resource_path.split('/')
-			avatar.texture = load("res://art/users/selected/"+array[4])
-		
+			var array = current_texture.resource_path.split('/')
+			avatar.set_normal_texture(load("res://art/users/selected/"+array[4]))
 
-
-func _on_Button_gui_input(event):
-	if (event is InputEventMouseButton):
+func _on_Button_pressed():
 		if (selected):  #if avatar selected save selected avatar and name
 			var name=get_node("LineEdit").text
 			Global.player.setName(name)
-			Global.player.setPathPicture(str(current_texture.resource_path))
+			var array = current_texture.resource_path.split('/')
+			Global.player.setPathPicture(array[4])
 		get_tree().change_scene("res://home.tscn")
-
-
-
 

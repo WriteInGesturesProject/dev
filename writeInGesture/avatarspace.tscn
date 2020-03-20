@@ -24,23 +24,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="marginCoinBox" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 21 )
-custom_constants/margin_right = 0
-__meta__ = {
-"_edit_use_anchors_": false,
-"_editor_description_": ""
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-margin_right = 1024.0
-margin_bottom = 600.0
-
-[node name="marginCoinBox" type="MarginContainer" parent="."]
-margin_right = 1024.0
-margin_bottom = 600.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -104,6 +90,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -170.0
+theme = ExtResource( 21 )
+custom_constants/margin_right = 0
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="plate" type="GridContainer" parent="MarginContainer"]
+margin_right = 1024.0
+margin_bottom = 430.0
+columns = 6
+
 [node name="Button" type="Button" parent="."]
 margin_left = 517.108
 margin_top = 515.848
@@ -126,3 +128,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="gui_input" from="Button" to="." method="_on_Button_gui_input"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

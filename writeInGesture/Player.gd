@@ -4,10 +4,11 @@ var id : String
 var age : int
 var integibility : float
 var spokenLanguage : String
-var pathPicture : String
+var picturePath : String
 var nameFile : String
 var gold : int
 var silver : int
+var coinAvatar : Array
 #name is already in Node class
 
 func getName():
@@ -39,11 +40,11 @@ func setIntegibility(inte : float) :
 	return ManageJson.putElement(nameFile, "User/integibility", integibility)
 	
 func getPathPicture() :
-	return pathPicture
+	return picturePath
 
 func setPathPicture(pathp : String) :
-	pathPicture = pathp
-	return ManageJson.putElement(nameFile, "User/pathPicture", pathPicture)
+	picturePath = pathp
+	return ManageJson.putElement(nameFile, "User/picturePath",picturePath)
 
 func getspokenLanguage() :
 	return spokenLanguage
@@ -72,6 +73,13 @@ func setSilver(a : int):
 	silver = a
 	return ManageJson.putElement(nameFile, "User/silver", silver)
 
+func getCoinAvatar():
+	return coinAvatar
+
+func setCoinAvatar(ind, n):
+	coinAvatar[ind] = n
+	return ManageJson.putElement(nameFile, "User/coinAvatar", coinAvatar)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -89,14 +97,16 @@ func setAttribut(field : String, input):
 			integibility = input
 		"spokenLanguage" : 
 			spokenLanguage = input
-		"pathPicture" : 
-			pathPicture = input
+		"picturePath" : 
+			picturePath = input
 		"nameFile" : 
 			nameFile = input
 		"gold" : 
 			gold = input
 		"silver" : 
 			silver = input
+		"coinAvatar":
+			coinAvatar = input
 	return
 
 func toString() -> String : 
@@ -105,6 +115,6 @@ func toString() -> String :
 	res += "age : "+String(age)+"\n"	
 	res += "integibility : "+String(integibility)+"\n"	
 	res += "spokenLanguage : "+spokenLanguage +"\n"	
-	res += "pathPicture : "+ pathPicture +"\n"	
+	res += "picturePath : "+ picturePath +"\n"	
 	res += "nameFile : "+nameFile+"\n"	
 	return res

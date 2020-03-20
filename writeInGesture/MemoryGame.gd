@@ -2,11 +2,11 @@ extends Node
 
 
 const Exercise = preload("res://Exercise.gd")
-const Card = preload("res://Card.gd")
+const Card = preload("res://MemoryCard.gd")
 
 var os = Global.os
 var Ex : Exercise = Global.memoryExercise
-var words = Ex.getAllWords()
+var words = Ex.getAllWords().duplicate(true)
 var cards : Array
 var selected_cards : Array = []
 var max_cards = Global.max_cards
@@ -16,6 +16,7 @@ var margin = 0.05
 
 
 func _ready():
+	Global.current_ex = Global.memoryExercise
 	#Center the title
 	find_node("Label").rect_position.y = $Back.rect_size.y/2
 	#Make margin on the scene

@@ -42,7 +42,7 @@ func _on_Card_pressed():
 			Global.player.setSilver(Global.player.getSilver() + 1)
 			selected_cards[0].visible = false
 			selected_cards[1].visible = false
-			if(Global.score == Global.max_cards):
+			if(Global.score == Global.current_ex.getNbWords()):
 				get_tree().change_scene("res://GameEnd.tscn")
 		else:
 			for c in selected_cards:

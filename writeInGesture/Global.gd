@@ -196,11 +196,9 @@ func make_margin(margeContainer : MarginContainer, marge):
 	
 func find_texture(path : String):
 	var tex = load("res://art/images/" + path)
-	print(path)
 	if(tex == null):
 		var image = Image.new()
 		image.load("user://art/" + path)
 		tex = ImageTexture.new()
 		tex.create_from_image(image)
-	print(tex)
 	return tex

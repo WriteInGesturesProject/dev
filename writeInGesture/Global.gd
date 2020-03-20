@@ -64,7 +64,6 @@ func _ready():
 				stt = Engine.get_singleton("GodotSpeech")
 	
 	loadEntity()
-	print(wordDictionnary.getAllWord().size())
 
 func check_words(sentence, myword):
 	var words = sentence.split(" ")

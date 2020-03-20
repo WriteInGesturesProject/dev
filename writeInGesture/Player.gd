@@ -93,6 +93,10 @@ func setAttribut(field : String, input):
 			pathPicture = input
 		"nameFile" : 
 			nameFile = input
+		"gold" : 
+			gold = input
+		"silver" : 
+			silver = input
 	return
 
 func toString() -> String : 

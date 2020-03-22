@@ -74,9 +74,9 @@ func _ready():
 				find_node("gridImage").add_child(control_img)
 		if(board.size() >= myWords.size()):
 			break
+	var VectorMarge = get_viewport().size * (1- 2 * margin)
 	if(Global.level == 0 || Global.level == 1):
 		Global.make_margin(find_node("Margin"), margin)
-		var VectorMarge = get_viewport().size * (1- 2 * margin)
 		var c = 0
 		var phonetic = myWords[ind].getPhonetic()
 		var arrayPicture = Global.phoneticToArrayPicturePath(phonetic)
@@ -97,8 +97,19 @@ func _ready():
 	Global.try = []
 	for i in myWords:
 		Global.try.append(false)
-	find_node("Speak").rect_position.y += (find_node("Image").rect_size.y - 2*find_node("Speak").rect_size.y)/2
-	find_node("Record").rect_position.y += (find_node("Image").rect_size.y - 2*find_node("Speak").rect_size.y)/2
+		
+	var separationButton =0
+	find_node("Speak").rect_size.y = find_node("Image").rect_size.y * 0.45
+	find_node("Speak").rect_size.x = find_node("Image").rect_size.y * 0.45
+	find_node("Speak").rect_position.x = find_node("Image").rect_size.x/2 + separationButton
+	find_node("Speak").get_parent().rect_min_size = find_node("Speak").rect_size
+	
+	find_node("Record").rect_size.y = find_node("Image").rect_size.y * 0.45
+	find_node("Record").rect_size.x = find_node("Image").rect_size.y * 0.45
+	find_node("Record").rect_position.x = find_node("Image").rect_size.x/2 + separationButton
+	find_node("VBoxContainerButton").add_constant_override("separation",find_node("Image").rect_size.y * 0.1)
+		
+	
 	find_node("Timer").start()
 
 func _changeColor():
@@ -126,7 +137,7 @@ func _scaleImg():
 	find_node("Image").texture = img
 	find_node("Image").rect_size.y = get_viewport().size.y / 2.5
 	find_node("Image").rect_size.x = get_viewport().size.y / 2.5 * (img.get_size().x / img.get_size().y)
-	find_node("MainBox").add_constant_override("separation", int(find_node("Image").rect_size.x) + 20)
+	find_node("Image").rect_position.x = - find_node("Image").rect_size.x * 0.5
 	find_node("Image").get_parent().rect_size.y = find_node("Image").rect_size.y
 
 func _change():

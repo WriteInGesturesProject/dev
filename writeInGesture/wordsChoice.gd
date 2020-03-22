@@ -25,21 +25,22 @@ var lastPopup
 func _ready():
 	#####Put margin
 	Global.make_margin(find_node("Margin"), margin)
-	marginVector = (get_viewport().size)*(1- margin)
+	marginVector = (get_viewport().size)*(1- 2*margin)
+	
 	###Put responsive VboxWords
 	var wordsContainer = find_node("WordsContainer")
 	wordsContainer.rect_min_size.x = marginVector.x/4
-	wordsContainer.rect_min_size.y = marginVector.y - find_node("retour").rect_size.y 
+	wordsContainer.rect_min_size.y = marginVector.y - find_node("retour").rect_size.y + marginVector.y*margin
 	find_node("MarginWord").set("custom_constants/margin_top", find_node("retour").rect_size.y - get_viewport().size.y * margin)
 	find_node("MainContainer").add_constant_override("separation", marginVector.x/16)
 	
 	#Put responsive VboxEdit
-	find_node("editContainer").rect_min_size.x = marginVector.x*10/16
+	find_node("editContainer").rect_min_size.x = marginVector.x*11/16
 	find_node("editContainer").rect_min_size.y = marginVector.y
 	find_node("keyBoardContainer").rect_min_size.y =  marginVector.y*0.6
 	find_node("HBoxContainerAdd").rect_min_size.y = marginVector.y*0.15
 	find_node("HBoxContainerCreation").rect_min_size.y = marginVector.y*0.15
-	find_node("editContainer").add_constant_override("separation", marginVector.y*0.025)
+	find_node("editContainer").add_constant_override("separation", marginVector.y*0.024)
 	find_node("gridKeyboard").rect_min_size.x = marginVector.x*10/16
 	
 	var words : Array = wordsAvailable.getAllWords()
@@ -54,6 +55,9 @@ func _ready():
 	bg.anchor_bottom = 1 
 	bg.anchor_right = 1
 	bg.visible = false
+	
+	print()
+	find_node("newWord").get_font("font","").size = find_node("Panel3").rect_size.y - 3
 
 
 func removeAllChildren(nameNode):
@@ -153,7 +157,21 @@ func createAvailableWordsList(word : Word):
 	
 	currentLabel.set_text(word.getPhonetic())
 	wordLabel.set_text(" : " + word.getWord())
-	return hBoxContainer
+	
+	var panel = Panel.new()
+	var stylebox = load("res://assets/theme/ItemList.tres")
+	panel.set("custom_styles/panel", stylebox)
+	
+	var marginContainer = MarginContainer.new()
+	marginContainer.set("custom_constants/margin_top", stylebox.expand_margin_bottom)
+	marginContainer.set("custom_constants/margin_bottom", stylebox.expand_margin_bottom)
+	marginContainer.set("custom_constants/margin_left", stylebox.expand_margin_bottom)
+	marginContainer.set("custom_constants/margin_right", stylebox.expand_margin_bottom)
+	marginContainer.add_child(panel)
+	marginContainer.add_child(hBoxContainer)
+	
+	
+	return marginContainer
 
 func _on_deleteButton_pressed(button, label):
 	#print("release : ", release)

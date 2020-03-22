@@ -16,7 +16,6 @@ var margin = 0.05
 
 
 func _ready():
-	Global.current_ex = Global.memoryExercise
 	#Center the title
 	find_node("Label").rect_position.y = $Back.rect_size.y/2
 	#Make margin on the scene

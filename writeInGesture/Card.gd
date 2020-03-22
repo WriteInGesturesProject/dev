@@ -4,7 +4,7 @@ extends TextureButton
 var tts = Global.tts
 var imageWord : String
 var imagePath : String
-var cardPath = "res://assets/icons/card2.jpg"
+var cardPath = "res://assets/icons/card.png"
 var selected_cards : Array
 
 

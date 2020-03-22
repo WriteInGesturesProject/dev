@@ -67,8 +67,8 @@ func _ready():
 func _cardSelected(event : InputEvent, card : Card) -> void:
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
 		if cardSelected != null :
-			cardSelected.backgroundColor.modulate = "ffffff"
-		card.backgroundColor.modulate = "e86767"
+			cardSelected.backgroundColor.color = "4b89bf"
+		card.backgroundColor.color = "30698c"
 		cardSelected = card
 		find_node("Validate").disabled = false
 

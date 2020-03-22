@@ -366,8 +366,8 @@ window_title = "Ouvrir un fichier"
 mode = 0
 access = 2
 filters = PoolStringArray( "*.png ; PNG Images", "*.jpg ; JPG Images", "*.jpeg ; JPEG Images" )
-current_dir = "/mnt/DATA/Polytech/S10/Projet/dev/writeInGesture"
-current_path = "/mnt/DATA/Polytech/S10/Projet/dev/writeInGesture/"
+current_dir = "/media/bastien/DATA/polytech/ricm5/projet/dev/writeInGesture"
+current_path = "/media/bastien/DATA/polytech/ricm5/projet/dev/writeInGesture/"
 [connection signal="pressed" from="Margin/MainContainer/editContainer/HBoxContainerAdd/addWord" to="." method="_on_addWord_pressed"]
 [connection signal="pressed" from="Margin/MainContainer/editContainer/HBoxContainerCreation/Creation" to="." method="_on_Creation_pressed"]
 [connection signal="pressed" from="retour" to="." method="_on_Retour_pressed"]

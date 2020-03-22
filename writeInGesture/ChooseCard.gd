@@ -55,7 +55,7 @@ func setUpCard(word : Word, level : int, size : Vector2) -> void:
 	test.rect_min_size = vectorSize
 	var yRest = 1.0
 #	Color rect background
-	backgroundColor.color = "5472ae"
+	backgroundColor.color = "4b89bf"
 	backgroundColor.rect_size.x = size.x
 	backgroundColor.rect_size.y = size.y
 	

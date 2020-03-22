@@ -26,6 +26,10 @@ modules="org/godotengine/godot/GodotTextToSpeech,org/godotengine/godot/GodotSpee
 
 config/name="ArtiGest"
 run/main_scene="res://home.tscn"
+boot_splash/image="res://art/logo.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
 config/icon="res://assets/icons/icon.png"
 
 [autoload]

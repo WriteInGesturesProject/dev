@@ -7,10 +7,6 @@
 [ext_resource path="res://assets/background.png" type="Texture" id=5]
 [ext_resource path="res://assets/icons/back.png" type="Texture" id=6]
 
-
-
-
-
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -48,16 +44,16 @@ custom_constants/separation = 40
 alignment = 1
 
 [node name="Easy" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_top = 107.0
+margin_top = 116.0
 margin_right = 624.0
-margin_bottom = 209.0
+margin_bottom = 212.0
 theme = ExtResource( 4 )
 text = "Facile"
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 249.0
+margin_top = 252.0
 margin_right = 624.0
-margin_bottom = 351.0
+margin_bottom = 348.0
 theme = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -65,36 +61,62 @@ __meta__ = {
 
 [node name="Normal" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer2"]
 margin_right = 624.0
-margin_bottom = 102.0
+margin_bottom = 96.0
 theme = ExtResource( 4 )
 disabled = true
 text = "Moyen"
 expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer2"]
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/MarginContainer2"]
 margin_right = 624.0
-margin_bottom = 102.0
+margin_bottom = 96.0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer2/Control"]
+anchor_left = 0.016488
+anchor_top = 0.0714477
+anchor_right = 0.016488
+anchor_bottom = 0.0714477
+margin_right = 95.0
+margin_bottom = 84.0
 theme = ExtResource( 4 )
 texture = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 391.0
+margin_top = 388.0
 margin_right = 624.0
-margin_bottom = 493.0
+margin_bottom = 484.0
 theme = ExtResource( 4 )
 
 [node name="Hard" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer3"]
 margin_right = 624.0
-margin_bottom = 102.0
+margin_bottom = 96.0
 theme = ExtResource( 4 )
 disabled = true
 text = "Difficile"
 
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer3"]
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/MarginContainer3"]
 margin_right = 624.0
-margin_bottom = 102.0
+margin_bottom = 96.0
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer3/Control2"]
+anchor_left = 0.015114
+anchor_top = 0.0714477
+anchor_right = 0.015114
+anchor_bottom = 0.0714477
+margin_right = 95.0
+margin_bottom = 84.0
 theme = ExtResource( 4 )
 texture = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Back" type="Button" parent="."]
 margin_right = 100.0

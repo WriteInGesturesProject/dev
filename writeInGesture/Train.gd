@@ -15,13 +15,58 @@ var myWords : Array = []
 var index = 0
 var container = HBoxContainer.new()
 var os = Global.os
+var margin = 0.05
+var VectorMarge
 
-func _scaleImg():
+func _scaleImg(lengthY : float):
 	var img = Global.find_texture(myWords[index].getPath())
 	find_node("Image").texture = img
-	find_node("Image").rect_size.y = get_viewport().size.y / 2.5
-	find_node("Image").rect_size.x = get_viewport().size.y / 2.5 * (img.get_size().x / img.get_size().y)
-	find_node("Box").add_constant_override("separation", int(find_node("Image").rect_size.x) + 20)
+	find_node("Image").rect_size.y = lengthY
+	find_node("Image").rect_size.x = lengthY * (img.get_size().x / img.get_size().y)
+	
+#	##Center picture 
+	find_node("Image").rect_position.x = - find_node("Image").rect_size.x * 0.3
+	
+	#Ajust Speak and Record button
+	var separationButton = VectorMarge.x / 10
+	find_node("Speak").rect_size.y = find_node("Image").rect_size.y * 0.45
+	find_node("Speak").rect_size.x = find_node("Image").rect_size.y * 0.45
+	find_node("Speak").rect_position.x = find_node("Image").rect_size.x/2 + separationButton
+	find_node("Speak").get_parent().rect_min_size = find_node("Speak").rect_size
+	
+	find_node("Record").rect_size.y = find_node("Image").rect_size.y * 0.45
+	find_node("Record").rect_size.x = find_node("Image").rect_size.y * 0.45
+	find_node("Record").rect_position.x = find_node("Image").rect_size.x/2 + separationButton
+	
+	find_node("VBoxContainerButton").add_constant_override("separation",find_node("Image").rect_size.y * 0.1)
+	
+	##Put the size of the Image+Speak+Record Box
+	find_node("Box").rect_min_size.y = find_node("Image").rect_size.y
+	
+func displayWord(word) :
+	var phonetic = word.getPhonetic()
+	#display Image
+	var lengthY = VectorMarge.y * 0.3
+	var lengthX = 0
+	_scaleImg(lengthY)
+	
+	#Display Image Borel
+	var arrayPicture = Global.phoneticToArrayPicturePath(phonetic)
+	lengthY = VectorMarge.y * 0.4
+	lengthX = lengthY * arrayPicture.size()
+	if(lengthX > VectorMarge.x) :
+		lengthX = VectorMarge.x
+	print(lengthX,"  ",lengthY)
+	container = Global.putBorelInHboxContainer(arrayPicture, lengthX, lengthY)
+	print(container.rect_min_size)
+	find_node("HBoxBorel").add_child(container)
+	
+	#Display Word
+	find_node("Word").set_text(myWords[index].getWord())
+	find_node("Word").get_font("font").size = VectorMarge.y * 0.1
+	
+	find_node("VBox").add_constant_override("separation",VectorMarge.y * 0.2 /4)
+	
 
 func _ready():
 	Ex = Global.current_ex
@@ -29,18 +74,18 @@ func _ready():
 	Global.try = []
 	for i in myWords:
 		Global.try.append(false)
-
-	_scaleImg()
-	var phonetic = myWords[index].getPhonetic()
-	var arrayPicture = Global.phoneticToArrayPicturePath(phonetic)
-	container =  Global.putBorelInHboxContainer(arrayPicture, get_viewport().size.x, min(get_viewport().size.y/2.3,get_viewport().size.x/arrayPicture.size()))
-	find_node("ImgBorel").add_child(container)
-	find_node("Word").set_text(myWords[index].getWord())
+	
 	Global.score = 0
-	var margSize = get_viewport().size.y - get_viewport().size.y / 2.5 - container.rect_size.y - find_node("Word").rect_size.y - find_node("MainBox").get_constant("separation")
-	find_node("MarginContainer").add_constant_override("margin_top", margSize / 2)
-	find_node("Speak").rect_position.y += (find_node("Image").rect_size.y - 2*find_node("Speak").rect_size.y)/2
-	find_node("Record").rect_position.y += (find_node("Image").rect_size.y - 2*find_node("Speak").rect_size.y)/2
+	
+	#Display the scene
+	Global.make_margin(find_node("MarginContainer"), margin)
+	VectorMarge = get_viewport().size * (1-2*margin)
+	find_node("HBoxBorel").rect_min_size.x = VectorMarge.x
+
+	displayWord(myWords[index])
+	
+#	find_node("Speak").rect_position.y += (find_node("Image").rect_size.y - 2*find_node("Speak").rect_size.y)/2
+#	find_node("Record").rect_position.y += (find_node("Image").rect_size.y - 2*find_node("Speak").rect_size.y)/2
 
 
 func _process(delta):
@@ -75,14 +120,10 @@ func _on_Next_pressed():
 	if(index >= myWords.size()):
 		get_tree().change_scene("res://GameEnd.tscn")
 	else :
-		_scaleImg()
 		container.remove_and_skip()
 		container.name = "HBoxContainer"
-		var phonetic = myWords[index].getPhonetic()
-		var arrayPicture = Global.phoneticToArrayPicturePath(phonetic)
-		container =  Global.putBorelInHboxContainer(arrayPicture, get_viewport().size.x, min(get_viewport().size.y/2.3,get_viewport().size.x/arrayPicture.size()))
-		find_node("ImgBorel").add_child(container)
-		find_node("Word").set_text(myWords[index].getWord())
+		
+		displayWord(myWords[index])
 	incremented = false
 
 

@@ -454,6 +454,7 @@ align = 1
 wait_time = 1.5
 [connection signal="pressed" from="Margin/MainContainer/MarginContainer/editContainer/HBoxContainerAdd/addWord" to="." method="_on_addWord_pressed"]
 [connection signal="pressed" from="Margin/MainContainer/MarginContainer/editContainer/HBoxContainerCreation/Creation" to="." method="_on_Creation_pressed"]
+
 [connection signal="pressed" from="retour" to="." method="_on_Retour_pressed"]
 [connection signal="hide" from="Popup" to="." method="_on_Popup_hide"]
 [connection signal="pressed" from="Popup/VBoxPopup/HBoxContainer/yes" to="." method="_on_yes_pressed"]

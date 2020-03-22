@@ -44,8 +44,9 @@ func _ready():
 	find_node("Gold").text = str(Global.player.getGold())
 	find_node("Silver").text = str(Global.player.getSilver())
 	
-	find_node("Logo").rect_size = Vector2(size.y/4,size.y/4)
-	find_node("Logo").rect_position.x = size.x/2 - size.x/20 - size.y/8
+	find_node("Logo").rect_size = Vector2(size.y/2,size.y/2)
+	find_node("Logo").rect_position.y = size.y*(-0.1)
+	find_node("Logo").rect_position.x = size.x/2 - size.x/20 - size.y/4
 
 func _on_Change_pressed():
 	get_tree().change_scene("res://avatarspace.tscn")

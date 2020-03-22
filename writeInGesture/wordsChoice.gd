@@ -141,7 +141,8 @@ func createAvailableWordsList(word : Word):
 	
 	var buttonDelete = Button.new()
 	buttonDelete.name = word.getWord()
-	buttonDelete.icon = load("res://assets/icons/delete.png")
+	buttonDelete.icon = load("res://assets/icons/trash.png")
+	buttonDelete.flat = true
 	buttonDelete.expand_icon = true
 	buttonDelete.rect_size = Vector2(60,60)
 	buttonDelete.connect("pressed",self,"_on_deleteButton_pressed", [buttonDelete, currentLabel])

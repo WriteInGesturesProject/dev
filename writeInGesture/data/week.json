@@ -1,101 +1,166 @@
 {
-	"Exercise":
-	{
-		"version" : 1.0,
-		"userId" : "0",
-		"name" : "Jours de la semaine",
-		"type" : {
-			"name" : "Entrainement",
-			"categorie" : "Custom, MonoSyllabe, BiSyllable, TriSyllable",
-			"syllableStruct" : "cv, cvv, cvc, n",
-			"vowelsType" : "O, N, SV",
-			"consonantsType" : "O, C, N"
+	"Exercise": {
+		"version": 1.0,
+		"userId": "0",
+		"name": "Jours de la semaine",
+		"type": {
+			"name": "Entrainement",
+			"categorie": "Custom, MonoSyllabe, BiSyllable, TriSyllable",
+			"syllableStruct": "cv, cvv, cvc, n",
+			"vowelsType": "O, N, SV",
+			"consonantsType": "O, C, N"
 		},
-		"difficulty" : 0,
-		"successPercentage" : [88.0,0.0,0.0],
-		"nbSuccess" : 330,
-		"nbWordsOccurrences" : [
-			[12,455,31,1313,432,131,54],
-			[0,0,0,0,0,0,0],
-			[0,0,0,0,0,0,0]
+		"difficulty": 0,
+		"successPercentage": [
+			88.0,
+			0.0,
+			0.0
 		],
-		"nbWords" : 7,
-		"wordsSuccess" : [
-			[12,112,1,1313,12,34,12],
-			[0,0,0,0,0,0,0],
-			[0,0,0,0,0,0,0]
+		"nbSuccess": 330,
+		"nbWordsOccurrences": [
+			[
+				12,
+				455,
+				31,
+				1313,
+				432,
+				131,
+				54
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			]
 		],
-		"words" : {
-			"lɛ̃di" : {
-				"phonetic" : "lɛ̃di",
-				"word" : "lundi",
-				"path" : "lundi.png",
-				"homonym" : ["lundi"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+		"nbWords": 7,
+		"wordsSuccess": [
+			[
+				12,
+				112,
+				1,
+				1313,
+				12,
+				34,
+				12
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			]
+		],
+		"words": {
+			"lɛ̃di": {
+				"phonetic": "lɛ̃di",
+				"word": "lundi",
+				"path": "lundi.png",
+				"homonym": [
+					"lundi"
+				],
+				"nbSyllable": 2,
+				"syllableStruct": "cvcv",
+				"vowelsType": "NO",
+				"consonantsType": "lo"
 			},
-			"mardi" : {
-				"phonetic" : "mardi",
-				"word" : "mardi",
-				"path" : "mardi.png",
-				"homonym" : ["mardi"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"mardi": {
+				"phonetic": "mardi",
+				"word": "mardi",
+				"path": "mardi.png",
+				"homonym": [
+					"mardi"
+				],
+				"nbSyllable": 2,
+				"syllableStruct": "cvccv",
+				"vowelsType": "o",
+				"consonantsType": "nlo"
 			},
-			"mɛrkrədi" : {
-				"phonetic" : "mɛrkrədi",
-				"word" : "mercredi",
-				"path" : "mercredi.png",
-				"homonym" : ["mercredi"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"mɛrkrədi": {
+				"phonetic": "mɛrkrədi",
+				"word": "mercredi",
+				"path": "mercredi.png",
+				"homonym": [
+					"mercredi"
+				],
+				"nbSyllable": 3,
+				"syllableStruct": "cvcccvcv",
+				"vowelsType": "o",
+				"consonantsType": "nlo"
 			},
-			"ʒœdi" : {
-				"phonetic" : "ʒœdi",
-				"word" : "jeudi",
-				"path" : "jeudi.png",
-				"homonym" : ["jeudi"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"ʒœdi": {
+				"phonetic": "ʒœdi",
+				"word": "jeudi",
+				"path": "jeudi.png",
+				"homonym": [
+					"jeudi"
+				],
+				"nbSyllable": 2,
+				"syllableStruct": "cvcv",
+				"vowelsType": "o",
+				"consonantsType": "co"
 			},
-			"vɑdrədi" : {
-				"phonetic" : "vɑdrədi",
-				"word" : "vendredi",
-				"path" : "vendredi.png",
-				"homonym" : ["vendredi"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"vɑdrədi": {
+				"phonetic": "vɑdrədi",
+				"word": "vendredi",
+				"path": "vendredi.png",
+				"homonym": [
+					"vendredi"
+				],
+				"nbSyllable": 3,
+				"syllableStruct": "cvccvcv",
+				"vowelsType": "no",
+				"consonantsType": "col"
 			},
-			"samədi" : {
-				"phonetic" : "samədi",
-				"word" : "samedi",
-				"path" : "samedi.png",
-				"homonym" : ["samedi"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"samədi": {
+				"phonetic": "samədi",
+				"word": "samedi",
+				"path": "samedi.png",
+				"homonym": [
+					"samedi"
+				],
+				"nbSyllable": 3,
+				"syllableStruct": "cvcvcv",
+				"vowelsType": "o",
+				"consonantsType": "cno"
 			},
-			"dimɑʃ" : {
-				"phonetic" : "dimɑʃ",
-				"word" : "dimanche",
-				"path" : "dimanche.png",
-				"homonym" : ["dimanche"],
-				"nbSyllable" : 1,
-				"syllableStruct" : "cv",
-				"vowelsType" : "N",
-				"consonantsType" : "O,N"
+			"dimɑʃ": {
+				"phonetic": "dimɑʃ",
+				"word": "dimanche",
+				"path": "dimanche.png",
+				"homonym": [
+					"dimanche"
+				],
+				"nbSyllable": 1,
+				"syllableStruct": "cv",
+				"vowelsType": "N",
+				"consonantsType": "O,N"
 			}
-		},
+		}
 	}
 }

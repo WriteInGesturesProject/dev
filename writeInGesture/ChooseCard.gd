@@ -78,7 +78,7 @@ func setUpCard(word : Word, level : int, size : Vector2) -> void:
 	
 #	Create Image Word
 	var imageWord = TextureRect.new()
-	imageWord.texture = load("res://art/images/"+ word.getPath())
+	imageWord.texture = Global.find_texture(word.getPath())
 	imageWord.expand = true
 	if(Global.level < 2):
 		if(mySize(word.getPhonetic()) > 3):

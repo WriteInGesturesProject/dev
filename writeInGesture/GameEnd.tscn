@@ -7,11 +7,6 @@
 [ext_resource path="res://assets/background.png" type="Texture" id=5]
 [ext_resource path="res://assets/icons/silverCoin.png" type="Texture" id=6]
 
-
-
-
-
-
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0

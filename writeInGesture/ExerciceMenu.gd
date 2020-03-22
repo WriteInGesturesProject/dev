@@ -4,11 +4,15 @@ extends Control
 func _ready():
 	Global.level = 0
 	Global.play = 0
+	find_node("MarginContainer").add_constant_override("margin_left",get_viewport().size.x/8)
+	find_node("MarginContainer").add_constant_override("margin_right",get_viewport().size.x/8)
+	find_node("MyGame").rect_min_size.y = get_viewport().size.y/5
+	find_node("Count").rect_min_size.y = get_viewport().size.y/5
+	find_node("WeekDays").rect_min_size.y = get_viewport().size.y/5
+	find_node("Color").rect_min_size.y = get_viewport().size.y/5
+	find_node("VBoxContainer").add_constant_override("separation",get_viewport().size.y/24)
+	find_node("WeekDays").get_font("font").size = get_viewport().size.y/16
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 
 func _on_MyGame_pressed():

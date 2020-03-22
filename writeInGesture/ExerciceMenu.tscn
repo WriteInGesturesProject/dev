@@ -1,12 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://ExerciceMenu.gd" type="Script" id=1]
 [ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=2]
 [ext_resource path="res://assets/theme/ButtonTheme.tres" type="Theme" id=3]
 [ext_resource path="res://assets/background.png" type="Texture" id=4]
 [ext_resource path="res://assets/icons/back.png" type="Texture" id=5]
-
-
+[ext_resource path="res://assets/theme/DejaVuFont.tres" type="DynamicFont" id=6]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -47,34 +46,38 @@ custom_constants/separation = 50
 alignment = 1
 
 [node name="MyGame" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_top = 33.0
+margin_top = 57.0
 margin_right = 624.0
-margin_bottom = 129.0
+margin_bottom = 141.0
 theme = ExtResource( 3 )
+custom_fonts/font = ExtResource( 6 )
 text = "Mes Jeux"
 expand_icon = true
 
 [node name="Count" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_top = 179.0
+margin_top = 191.0
 margin_right = 624.0
 margin_bottom = 275.0
 theme = ExtResource( 3 )
+custom_fonts/font = ExtResource( 6 )
 text = "Compter"
 expand_icon = true
 
 [node name="WeekDays" type="Button" parent="MarginContainer/VBoxContainer"]
 margin_top = 325.0
 margin_right = 624.0
-margin_bottom = 421.0
+margin_bottom = 409.0
 theme = ExtResource( 3 )
+custom_fonts/font = ExtResource( 6 )
 text = "Jours Semaine"
 expand_icon = true
 
 [node name="Color" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_top = 471.0
+margin_top = 459.0
 margin_right = 624.0
-margin_bottom = 567.0
+margin_bottom = 543.0
 theme = ExtResource( 3 )
+custom_fonts/font = ExtResource( 6 )
 text = "Couleurs"
 expand_icon = true
 

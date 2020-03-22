@@ -19,26 +19,28 @@ var wordsAvailable : WordsAvailable = Global.wordsAvailable
 var dictionnary : MyDictionnary = Global.wordDictionnary
 
 var bg = ColorRect.new()
+var lastPopup
 
 #######################################FUNCTION_FOR_SCENE###############################
 func _ready():
 	#####Put margin
 	Global.make_margin(find_node("Margin"), margin)
-	marginVector = (get_viewport().size)*(1- margin)
+	marginVector = (get_viewport().size)*(1- 2*margin)
+	
 	###Put responsive VboxWords
 	var wordsContainer = find_node("WordsContainer")
 	wordsContainer.rect_min_size.x = marginVector.x/4
-	wordsContainer.rect_min_size.y = marginVector.y - find_node("retour").rect_size.y 
+	wordsContainer.rect_min_size.y = marginVector.y - find_node("retour").rect_size.y + marginVector.y*margin
 	find_node("MarginWord").set("custom_constants/margin_top", find_node("retour").rect_size.y - get_viewport().size.y * margin)
 	find_node("MainContainer").add_constant_override("separation", marginVector.x/16)
 	
 	#Put responsive VboxEdit
-	find_node("editContainer").rect_min_size.x = marginVector.x*10/16
+	find_node("editContainer").rect_min_size.x = marginVector.x*11/16
 	find_node("editContainer").rect_min_size.y = marginVector.y
 	find_node("keyBoardContainer").rect_min_size.y =  marginVector.y*0.6
 	find_node("HBoxContainerAdd").rect_min_size.y = marginVector.y*0.15
 	find_node("HBoxContainerCreation").rect_min_size.y = marginVector.y*0.15
-	find_node("editContainer").add_constant_override("separation", marginVector.y*0.025)
+	find_node("editContainer").add_constant_override("separation", marginVector.y*0.024)
 	find_node("gridKeyboard").rect_min_size.x = marginVector.x*10/16
 	
 	var words : Array = wordsAvailable.getAllWords()
@@ -47,6 +49,15 @@ func _ready():
 	_createKeyboard(find_node("editContainer").rect_min_size.x,find_node("keyBoardContainer").rect_min_size.y )
 	self.add_child(bg)
 	find_node("MainContainer").rect_position.y = 100+ find_node("retour").rect_size.y
+
+	###Pre load background color Rect
+	bg.color = (Color(0,0,0,224))
+	bg.anchor_bottom = 1 
+	bg.anchor_right = 1
+	bg.visible = false
+	
+	print()
+	find_node("newWord").get_font("font","").size = find_node("Panel3").rect_size.y - 3
 
 
 func removeAllChildren(nameNode):
@@ -102,27 +113,22 @@ func _on_keyButton_pressed(keyButton):
 
 
 func _on_addWord_pressed():
-	var stateAddLabel = find_node("stateAddLabel")
-	stateAddLabel.add_color_override("font_color", Color(0,0,0))
-	
 	var text = find_node("newWord").get_text()
 	if !(wordsAvailable.getWord(text)) :# < 20:
 		var word = dictionnary.getWord(text)
 		if(word != null) :
 			wordsAvailable.addWord(word)
-			stateAddLabel.set_text("Le mot a été ajouté.")
 			find_node("newWord").text = ""
 			makeListWord()
 		else :
 			find_node("addWordLabel").text = "Le mot n'existe pas voulez vous l'ajouter ? \nLe mot est : \n"+ find_node("newWord").text 
 			find_node("Popup").popup_centered_ratio(0.75)
-			bg.color = (Color(0,0,0,224))
 			bg.visible = true
-			bg.anchor_bottom = 1 
-			bg.anchor_right = 1
-		
 	else:
-		stateAddLabel.set_text("Le mot existe déjà.")
+		find_node("StatePopup").popup_centered_ratio(1)
+		find_node("labelState").text = "Le mot est déjà dans cet exercice"
+		bg.visible = true
+		find_node("Timer").start()
 
 func createAvailableWordsList(word : Word):
 	var hBoxContainer = HBoxContainer.new()
@@ -152,7 +158,21 @@ func createAvailableWordsList(word : Word):
 	
 	currentLabel.set_text(word.getPhonetic())
 	wordLabel.set_text(" : " + word.getWord())
-	return hBoxContainer
+	
+	var panel = Panel.new()
+	var stylebox = load("res://assets/theme/ItemList.tres")
+	panel.set("custom_styles/panel", stylebox)
+	
+	var marginContainer = MarginContainer.new()
+	marginContainer.set("custom_constants/margin_top", stylebox.expand_margin_bottom)
+	marginContainer.set("custom_constants/margin_bottom", stylebox.expand_margin_bottom)
+	marginContainer.set("custom_constants/margin_left", stylebox.expand_margin_bottom)
+	marginContainer.set("custom_constants/margin_right", stylebox.expand_margin_bottom)
+	marginContainer.add_child(panel)
+	marginContainer.add_child(hBoxContainer)
+	
+	
+	return marginContainer
 
 func _on_deleteButton_pressed(button, label):
 	#print("release : ", release)
@@ -172,7 +192,7 @@ func _on_Retour_pressed():
 
 #######################################ADD_WORD_IN_DICTIONNARY###############################
 func _on_Popup_hide():
-		bg.visible = false
+	bg.visible = false
 
 func _on_no_pressed():
 	find_node("Popup").visible = false
@@ -180,36 +200,47 @@ func _on_no_pressed():
 
 func _on_yes_pressed():
 	find_node("Popup2").popup_centered_ratio(0.75)
+	find_node("Popup").visible = false
+	bg.visible = true
 	find_node("LinePhonetic").text = find_node("newWord").text
 	pass
 
 func _on_Confirm_pressed():
-	var newWord : Word = Word.new()
-	newWord.setAttribut("phonetic", find_node("LinePhonetic").text)
-	newWord.setAttribut("word", find_node("LineWord").text)
-	newWord.setAttribut("nbSyllable", find_node("LineNbSyllable").text.to_int())
-	newWord.setAttribut("syllableStruct", find_node("LineStruct").text)
-	newWord.setAttribut("vowelsType", find_node("LineVoyelsType").text)
-	newWord.setAttribut("consonantsType", find_node("LineConsType").text)
-	newWord.setPath(ImageFile)
-	newWord.setHomonym(findHomonym(newWord.getWord()))
-	if(newWord.getHomonym().size() == 0) :
-		newWord.addHomonym(newWord.getWord())
-	var err = dictionnary.addWord(newWord)
-	if(err) :
-		#print("le mot a bien été ajouté")
-		find_node("LinePhonetic").text = ""
-		find_node("LineWord").text = ""
-		find_node("LineStruct").text = ""
-		find_node("LineNbSyllable").text = ""
-		find_node("LineVoyelsType").text = ""
-		find_node("LineConsType").text = ""
-		find_node("Popup").visible = false
-		find_node("Popup2").visible = false
-		find_node("Creation").visible = true
-		_on_addWord_pressed()
+	print(find_node("OpenButton").text)
+	if(find_node("OpenButton").text != "Ouvrir une image") :
+		var newWord : Word = Word.new()
+		newWord.setAttribut("phonetic", find_node("LinePhonetic").text)
+		newWord.setAttribut("word", find_node("LineWord").text)
+		newWord.setAttribut("nbSyllable", find_node("LineNbSyllable").text.to_int())
+		newWord.setAttribut("syllableStruct", find_node("LineStruct").text)
+		newWord.setAttribut("vowelsType", find_node("LineVoyelsType").text)
+		newWord.setAttribut("consonantsType", find_node("LineConsType").text)
+		newWord.setPath(ImageFile)
+		newWord.setHomonym(findHomonym(newWord.getWord()))
+		if(newWord.getHomonym().size() == 0) :
+			newWord.addHomonym(newWord.getWord())
+		var err = dictionnary.addWord(newWord)
+		if(err) :
+			#print("le mot a bien été ajouté")
+			find_node("LinePhonetic").text = ""
+			find_node("LineWord").text = ""
+			find_node("LineStruct").text = ""
+			find_node("LineNbSyllable").text = ""
+			find_node("LineVoyelsType").text = ""
+			find_node("LineConsType").text = ""
+			find_node("Popup").visible = false
+			find_node("Popup2").visible = false
+			find_node("Creation").visible = true
+			_on_addWord_pressed()
+		else :
+			print("le mot n'a pas été ajouté")
 	else :
-		print("le mot n'a pas été ajouté")
+		find_node("StatePopup").popup_centered_ratio(1)
+		find_node("labelState").text = "Veuillez ajouté une image pour ce mot"
+		find_node("Popup2").visible = false
+		bg.visible = true
+		find_node("Timer").start()
+		lastPopup = find_node("Popup2")
 	
 func findHomonym(word : String) :
 	var res = []
@@ -225,26 +256,70 @@ func findHomonym(word : String) :
 				res= homo
 	#print(res)
 	return res
+	
+func _on_OpenButton_pressed():
+	var word = find_node("LineWord").text
+	if(word == null || word == ""):
+		return
+	find_node("FileDialog").rect_size.x = get_viewport().size.x - 10
+	find_node("FileDialog").rect_size.y = get_viewport().size.y - 10
+	find_node("FileDialog").set_current_dir(OS.get_system_dir(OS.SYSTEM_DIR_DOWNLOADS))
+	find_node("FileDialog").popup()
+
+func _on_SearchButton_pressed():
+	var word = find_node("LineWord").text
+	if(word == null || word == ""):
+		return
+	var url = "https://www.google.com/search?q="
+	url += word
+	url += "&tbm=isch&tbs=sur%3Af"
+	OS.shell_open(url)
+
+func _on_FileDialog_file_selected(path):
+	var word = find_node("LineWord").text
+	if(word == null || word == ""):
+		return
+	ImageFile = word + "." + path.get_extension()
+	ImagePath = "user://art/" + ImageFile
+	var dir = Directory.new()
+	dir.open("user://")
+	if(!dir.dir_exists("art")):
+		dir.make_dir("art")
+	dir.copy(path, ImagePath)
+	find_node("OpenButton").set_text(path.get_file())
+
 #######################################END_ADD_WORD_IN_DICTIONNARY###############################
 
 #######################################CREATION_OF_EXERCISE######################################
 func _on_Creation_pressed():
 	var creation = CreationExercise.new()
-	#print("Creation of custom exercise")
-	Global.customExercise = creation.creationExercise(Global.customExercise, wordsAvailable.getAllWords())
-	#print("Creation of goose exercise")
-	Global.gooseExercise = creation.creationExercise(Global.gooseExercise, wordsAvailable.getAllWords())
-	#print("Creation of listen exercise")
-	Global.listenExercise = creation.creationExercise(Global.listenExercise, wordsAvailable.getAllWords())
-	#print("Creation of memory exercise")
-	Global.memoryExercise = creation.creationExercise(Global.memoryExercise, wordsAvailable.getAllWords())
+	if(wordsAvailable.getAllWords().size() >= 3) :
+		#print("Creation of custom exercise")
+		Global.customExercise = creation.creationExercise(Global.customExercise, wordsAvailable.getAllWords())
+		#print("Creation of goose exercise")
+		Global.gooseExercise = creation.creationExercise(Global.gooseExercise, wordsAvailable.getAllWords())
+		#print("Creation of listen exercise")
+		Global.listenExercise = creation.creationExercise(Global.listenExercise, wordsAvailable.getAllWords())
+		#print("Creation of memory exercise")
+		Global.memoryExercise = creation.creationExercise(Global.memoryExercise, wordsAvailable.getAllWords())
+	
+		find_node("StatePopup").popup_centered_ratio(1)
+		find_node("labelState").text = "L'exercice a bien été créé "
+		bg.visible = true
+		find_node("Timer").start()
+
+		var tmp = wordsAvailable.getAllWords().duplicate()
+		for word in tmp :
+			wordsAvailable.removeWord(word)
+		makeListWord()	
+		
+	else : 
+		find_node("StatePopup").popup_centered_ratio(1)
+		find_node("labelState").text = "Veuillez au minimum faire un exercice avec au moins trois mots "
+		bg.visible = true
+		find_node("Timer").start()
 	
 	
-	find_node("stateAddLabel").text = "L'exercice a bien été créé "
-	var tmp = wordsAvailable.getAllWords().duplicate()
-	for word in tmp :
-		wordsAvailable.removeWord(word)
-	makeListWord()
 #######################################END_CREATION_OF_EXERCISE######################################
 
 #######################################SCROLLING#################################################
@@ -311,35 +386,12 @@ func _input(ev):
 #######################################END_SCROLLING#################################################
 
 
-func _on_OpenButton_pressed():
-	var word = find_node("LineWord").text
-	if(word == null || word == ""):
-		return
-	find_node("FileDialog").rect_size.x = get_viewport().size.x - 10
-	find_node("FileDialog").rect_size.y = get_viewport().size.y - 10
-	find_node("FileDialog").set_current_dir(OS.get_system_dir(OS.SYSTEM_DIR_DOWNLOADS))
-	find_node("FileDialog").popup()
-
-func _on_SearchButton_pressed():
-	var word = find_node("LineWord").text
-	if(word == null || word == ""):
-		return
-	var url = "https://www.google.com/search?q="
-	url += word
-	url += "&tbm=isch&tbs=sur%3Af"
-	OS.shell_open(url)
-
-func _on_FileDialog_file_selected(path):
-	var word = find_node("LineWord").text
-	if(word == null || word == ""):
-		return
-	ImageFile = word + "." + path.get_extension()
-	ImagePath = "user://art/" + ImageFile
-	var dir = Directory.new()
-	dir.open("user://")
-	if(!dir.dir_exists("art")):
-		dir.make_dir("art")
-	dir.copy(path, ImagePath)
-	find_node("OpenButton").set_text(path.get_file())
-
-
+func _on_Timer_timeout():
+	if(find_node("StatePopup") != null) :
+		find_node("StatePopup").visible = false
+		bg.visible = false
+	if(lastPopup != null):
+		lastPopup.visible = true
+		bg.visible = true
+	find_node("Timer").stop()
+	

@@ -1,12 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/background.png" type="Texture" id=1]
 [ext_resource path="res://statistics.gd" type="Script" id=2]
 [ext_resource path="res://assets/theme/ButtonTheme.tres" type="Theme" id=3]
 [ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=4]
 [ext_resource path="res://assets/icons/back.png" type="Texture" id=5]
-
-
+[ext_resource path="res://assets/theme/backgroundPanel.tres" type="StyleBox" id=6]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -37,6 +36,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Panel" type="Panel" parent="TextureRect/MarginContainer"]
+modulate = Color( 1, 1, 1, 0.32549 )
+margin_left = 120.0
+margin_top = 80.0
+margin_right = 904.0
+margin_bottom = 520.0
+custom_styles/panel = ExtResource( 6 )
+
 [node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/MarginContainer"]
 margin_left = 120.0
 margin_top = 80.0
@@ -52,23 +59,23 @@ custom_constants/separation = 20
 
 [node name="title" type="Label" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer"]
 margin_right = 784.0
-margin_bottom = 62.0
+margin_bottom = 36.0
 text = "Statistiques"
 align = 1
 
 [node name="mostPlayed" type="Label" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer"]
-margin_top = 82.0
+margin_top = 56.0
 margin_right = 784.0
-margin_bottom = 144.0
+margin_bottom = 92.0
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="exerciseChoice" type="OptionButton" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer"]
-margin_top = 164.0
+margin_top = 112.0
 margin_right = 784.0
-margin_bottom = 226.0
+margin_bottom = 148.0
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -103,14 +110,14 @@ margin_bottom = 194.0
 value = 50.0
 
 [node name="phoneticsHard" type="VBoxContainer" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer"]
-margin_top = 246.0
+margin_top = 168.0
 margin_right = 784.0
-margin_bottom = 246.0
+margin_bottom = 168.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer"]
-margin_top = 266.0
+margin_top = 188.0
 margin_right = 784.0
-margin_bottom = 316.0
+margin_bottom = 238.0
 custom_constants/separation = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer"]

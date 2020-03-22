@@ -1,10 +1,24 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://wordsChoice.gd" type="Script" id=1]
 [ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=2]
 [ext_resource path="res://assets/theme/ButtonTheme.tres" type="Theme" id=3]
 [ext_resource path="res://assets/background.png" type="Texture" id=4]
 [ext_resource path="res://assets/icons/back.png" type="Texture" id=5]
+[ext_resource path="res://art/images/aide.png" type="Texture" id=6]
+[ext_resource path="res://assets/theme/backgroundPanel.tres" type="StyleBox" id=7]
+[ext_resource path="res://assets/fonts/DejaVuSans.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="Theme" id=1]
+MarginContainer/constants/margin_bottom = 0
+MarginContainer/constants/margin_left = 0
+MarginContainer/constants/margin_right = 0
+MarginContainer/constants/margin_top = 0
+MarginContainer/icons/ = ExtResource( 6 )
+VBoxContainer/constants/separation = 4
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 8 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -27,12 +41,13 @@ __meta__ = {
 [node name="Margin" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="MainContainer" type="HBoxContainer" parent="Margin"]
-margin_right = 567.0
+margin_right = 603.0
 margin_bottom = 200.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -41,13 +56,23 @@ alignment = 1
 
 [node name="MarginWord" type="MarginContainer" parent="Margin/MainContainer"]
 margin_right = 211.0
-margin_bottom = 200.0
+margin_bottom = 40.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = SubResource( 1 )
+
+[node name="Panel" type="Panel" parent="Margin/MainContainer/MarginWord"]
+modulate = Color( 1, 1, 1, 0.32549 )
+margin_right = 211.0
+margin_bottom = 40.0
+custom_styles/panel = ExtResource( 7 )
 
 [node name="WordsContainer" type="VBoxContainer" parent="Margin/MainContainer/MarginWord"]
 margin_right = 211.0
 margin_bottom = 40.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme = SubResource( 1 )
 
 [node name="availableWords" type="Label" parent="Margin/MainContainer/MarginWord/WordsContainer"]
 margin_right = 211.0
@@ -55,6 +80,7 @@ margin_bottom = 36.0
 size_flags_vertical = 1
 custom_colors/font_color = Color( 0.901961, 0.905882, 0.858824, 1 )
 text = "Mots ajoutés :"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -73,39 +99,74 @@ size_flags_horizontal = 3
 theme = ExtResource( 2 )
 custom_constants/separation = 10
 
-[node name="editContainer" type="VBoxContainer" parent="Margin/MainContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Margin/MainContainer"]
 margin_left = 215.0
-margin_right = 567.0
+margin_right = 603.0
 margin_bottom = 200.0
 
-[node name="HBoxContainerAdd" type="HBoxContainer" parent="Margin/MainContainer/editContainer"]
-margin_right = 352.0
+[node name="Panel2" type="Panel" parent="Margin/MainContainer/MarginContainer"]
+modulate = Color( 1, 1, 1, 0.32549 )
+margin_right = 388.0
+margin_bottom = 200.0
+custom_styles/panel = ExtResource( 7 )
+
+[node name="editContainer" type="VBoxContainer" parent="Margin/MainContainer/MarginContainer"]
+margin_right = 388.0
+margin_bottom = 200.0
+
+[node name="HBoxContainerAdd" type="HBoxContainer" parent="Margin/MainContainer/MarginContainer/editContainer"]
+margin_right = 388.0
 margin_bottom = 96.0
 rect_clip_content = true
+size_flags_horizontal = 3
+custom_constants/separation = 20
 
-[node name="newWord" type="Label" parent="Margin/MainContainer/editContainer/HBoxContainerAdd"]
-margin_top = 30.0
-margin_right = 200.0
-margin_bottom = 66.0
+[node name="MarginContainer" type="MarginContainer" parent="Margin/MainContainer/MarginContainer/editContainer/HBoxContainerAdd"]
+margin_right = 220.0
+margin_bottom = 96.0
+size_flags_horizontal = 3
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="Panel3" type="Panel" parent="Margin/MainContainer/MarginContainer/editContainer/HBoxContainerAdd/MarginContainer"]
+modulate = Color( 1, 1, 1, 0.32549 )
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 210.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 7 )
+
+[node name="newWord" type="Label" parent="Margin/MainContainer/MarginContainer/editContainer/HBoxContainerAdd/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 210.0
+margin_bottom = 29.0
 rect_min_size = Vector2( 200, 0 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.901961, 0.905882, 0.858824, 1 )
 
-[node name="addWord" type="Button" parent="Margin/MainContainer/editContainer/HBoxContainerAdd"]
-margin_left = 204.0
-margin_right = 352.0
+[node name="addWord" type="Button" parent="Margin/MainContainer/MarginContainer/editContainer/HBoxContainerAdd"]
+margin_left = 240.0
+margin_right = 388.0
 margin_bottom = 96.0
 theme = ExtResource( 3 )
 text = "Ajouter"
 
-[node name="keyBoardContainer" type="CenterContainer" parent="Margin/MainContainer/editContainer"]
+[node name="keyBoardContainer" type="CenterContainer" parent="Margin/MainContainer/MarginContainer/editContainer"]
 margin_top = 100.0
-margin_right = 352.0
+margin_right = 388.0
 margin_bottom = 100.0
 size_flags_horizontal = 3
 
-[node name="gridKeyboard" type="GridContainer" parent="Margin/MainContainer/editContainer/keyBoardContainer"]
-margin_left = 176.0
-margin_right = 176.0
+[node name="gridKeyboard" type="GridContainer" parent="Margin/MainContainer/MarginContainer/editContainer/keyBoardContainer"]
+margin_left = 194.0
+margin_right = 194.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 2 )
@@ -114,19 +175,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainerCreation" type="HBoxContainer" parent="Margin/MainContainer/editContainer"]
+[node name="HBoxContainerCreation" type="HBoxContainer" parent="Margin/MainContainer/MarginContainer/editContainer"]
 margin_top = 104.0
-margin_right = 352.0
+margin_right = 388.0
 margin_bottom = 200.0
 rect_clip_content = true
 
-[node name="stateAddLabel" type="Label" parent="Margin/MainContainer/editContainer/HBoxContainerCreation"]
-margin_top = 30.0
-margin_bottom = 66.0
-
-[node name="Creation" type="Button" parent="Margin/MainContainer/editContainer/HBoxContainerCreation"]
-margin_left = 4.0
-margin_right = 352.0
+[node name="Creation" type="Button" parent="Margin/MainContainer/MarginContainer/editContainer/HBoxContainerCreation"]
+margin_right = 388.0
 margin_bottom = 96.0
 size_flags_horizontal = 3
 theme = ExtResource( 3 )
@@ -160,28 +216,28 @@ __meta__ = {
 
 [node name="addWordLabel" type="Label" parent="Popup/VBoxPopup"]
 margin_right = 867.0
-margin_bottom = 29.0
+margin_bottom = 36.0
 text = "Test"
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Popup/VBoxPopup"]
-margin_top = 59.0
+margin_top = 66.0
 margin_right = 867.0
-margin_bottom = 128.0
+margin_bottom = 162.0
 custom_constants/separation = 20
 alignment = 1
 
 [node name="yes" type="Button" parent="Popup/VBoxPopup/HBoxContainer"]
-margin_left = 339.0
-margin_right = 420.0
-margin_bottom = 69.0
+margin_left = 328.0
+margin_right = 419.0
+margin_bottom = 96.0
 theme = ExtResource( 3 )
 text = "Oui"
 
 [node name="no" type="Button" parent="Popup/VBoxPopup/HBoxContainer"]
-margin_left = 440.0
-margin_right = 528.0
-margin_bottom = 69.0
+margin_left = 439.0
+margin_right = 538.0
+margin_bottom = 96.0
 theme = ExtResource( 3 )
 text = "Non"
 
@@ -200,162 +256,162 @@ __meta__ = {
 
 [node name="addWordLabel2" type="Label" parent="Popup2/VBoxPopup2"]
 margin_right = 867.0
-margin_bottom = 29.0
+margin_bottom = 36.0
 text = "Ajout du mot "
 align = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 33.0
+margin_top = 40.0
 margin_right = 867.0
-margin_bottom = 72.0
+margin_bottom = 86.0
 alignment = 1
 
 [node name="Phonetic" type="Label" parent="Popup2/VBoxPopup2/HBoxContainer2"]
-margin_left = 299.0
+margin_left = 267.0
 margin_top = 5.0
-margin_right = 458.0
-margin_bottom = 34.0
+margin_right = 465.0
+margin_bottom = 41.0
 text = "Phonetique : "
 
 [node name="LinePhonetic" type="LineEdit" parent="Popup2/VBoxPopup2/HBoxContainer2"]
-margin_left = 462.0
-margin_right = 568.0
-margin_bottom = 39.0
+margin_left = 469.0
+margin_right = 599.0
+margin_bottom = 46.0
 max_length = 20
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 76.0
+margin_top = 90.0
 margin_right = 867.0
-margin_bottom = 115.0
+margin_bottom = 136.0
 alignment = 1
 
 [node name="Word" type="Label" parent="Popup2/VBoxPopup2/HBoxContainer3"]
-margin_left = 348.0
+margin_left = 328.0
 margin_top = 5.0
-margin_right = 409.0
-margin_bottom = 34.0
+margin_right = 404.0
+margin_bottom = 41.0
 text = "Mot :"
 
 [node name="LineWord" type="LineEdit" parent="Popup2/VBoxPopup2/HBoxContainer3"]
-margin_left = 413.0
-margin_right = 519.0
-margin_bottom = 39.0
+margin_left = 408.0
+margin_right = 538.0
+margin_bottom = 46.0
 max_length = 20
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 119.0
+margin_top = 140.0
 margin_right = 867.0
-margin_bottom = 158.0
+margin_bottom = 186.0
 alignment = 1
 
 [node name="NbSyllable" type="Label" parent="Popup2/VBoxPopup2/HBoxContainer4"]
-margin_left = 263.0
+margin_left = 225.0
 margin_top = 5.0
-margin_right = 493.0
-margin_bottom = 34.0
+margin_right = 508.0
+margin_bottom = 41.0
 text = "Nombre de Syllabe"
 
 [node name="LineNbSyllable" type="LineEdit" parent="Popup2/VBoxPopup2/HBoxContainer4"]
-margin_left = 497.0
-margin_right = 603.0
-margin_bottom = 39.0
+margin_left = 512.0
+margin_right = 642.0
+margin_bottom = 46.0
 max_length = 20
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 162.0
+margin_top = 190.0
 margin_right = 867.0
-margin_bottom = 201.0
+margin_bottom = 236.0
 alignment = 1
 
 [node name="Struct" type="Label" parent="Popup2/VBoxPopup2/HBoxContainer5"]
-margin_left = 256.0
+margin_left = 214.0
 margin_top = 5.0
-margin_right = 500.0
-margin_bottom = 34.0
+margin_right = 518.0
+margin_bottom = 41.0
 text = "Structure Syllabique"
 
 [node name="LineStruct" type="LineEdit" parent="Popup2/VBoxPopup2/HBoxContainer5"]
-margin_left = 504.0
-margin_right = 610.0
-margin_bottom = 39.0
+margin_left = 522.0
+margin_right = 652.0
+margin_bottom = 46.0
 max_length = 20
 
 [node name="HBoxContainer6" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 205.0
+margin_top = 240.0
 margin_right = 867.0
-margin_bottom = 244.0
+margin_bottom = 286.0
 alignment = 1
 
 [node name="VoyelsType" type="Label" parent="Popup2/VBoxPopup2/HBoxContainer6"]
-margin_left = 282.0
+margin_left = 248.0
 margin_top = 5.0
-margin_right = 474.0
-margin_bottom = 34.0
+margin_right = 484.0
+margin_bottom = 41.0
 text = "Type de voyelle"
 
 [node name="LineVoyelsType" type="LineEdit" parent="Popup2/VBoxPopup2/HBoxContainer6"]
-margin_left = 478.0
-margin_right = 584.0
-margin_bottom = 39.0
+margin_left = 488.0
+margin_right = 618.0
+margin_bottom = 46.0
 max_length = 20
 
 [node name="HBoxContainer7" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 248.0
+margin_top = 290.0
 margin_right = 867.0
-margin_bottom = 287.0
+margin_bottom = 336.0
 alignment = 1
 
 [node name="ConsType" type="Label" parent="Popup2/VBoxPopup2/HBoxContainer7"]
-margin_left = 268.0
+margin_left = 229.0
 margin_top = 5.0
-margin_right = 489.0
-margin_bottom = 34.0
+margin_right = 503.0
+margin_bottom = 41.0
 text = "Type de consonne"
 
 [node name="LineConsType" type="LineEdit" parent="Popup2/VBoxPopup2/HBoxContainer7"]
-margin_left = 493.0
-margin_right = 599.0
-margin_bottom = 39.0
+margin_left = 507.0
+margin_right = 637.0
+margin_bottom = 46.0
 max_length = 20
 
 [node name="HBoxContainer8" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 291.0
+margin_top = 340.0
 margin_right = 867.0
-margin_bottom = 360.0
+margin_bottom = 436.0
 alignment = 1
 
 [node name="SearchButton" type="Button" parent="Popup2/VBoxPopup2/HBoxContainer8"]
-margin_left = 149.0
-margin_right = 463.0
-margin_bottom = 69.0
+margin_left = 222.0
+margin_right = 601.0
+margin_bottom = 96.0
 theme = ExtResource( 3 )
 text = "Rechercher une image"
 
 [node name="OpenButton" type="Button" parent="Popup2/VBoxPopup2/HBoxContainer8"]
-margin_left = 467.0
-margin_right = 718.0
-margin_bottom = 69.0
+margin_left = 605.0
+margin_right = 645.0
+margin_bottom = 96.0
 theme = ExtResource( 3 )
 text = "Ouvrir une image"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Popup2/VBoxPopup2"]
-margin_top = 364.0
+margin_top = 440.0
 margin_right = 867.0
-margin_bottom = 433.0
+margin_bottom = 536.0
 custom_constants/separation = 20
 alignment = 1
 
 [node name="Confirm" type="Button" parent="Popup2/VBoxPopup2/HBoxContainer"]
-margin_left = 277.0
-margin_right = 437.0
-margin_bottom = 69.0
+margin_left = 251.0
+margin_right = 439.0
+margin_bottom = 96.0
 theme = ExtResource( 3 )
 text = "Confirmer"
 
 [node name="Cancel" type="Button" parent="Popup2/VBoxPopup2/HBoxContainer"]
-margin_left = 457.0
-margin_right = 590.0
-margin_bottom = 69.0
+margin_left = 459.0
+margin_right = 615.0
+margin_bottom = 96.0
 theme = ExtResource( 3 )
 text = "Annuler"
 
@@ -366,16 +422,47 @@ window_title = "Ouvrir un fichier"
 mode = 0
 access = 2
 filters = PoolStringArray( "*.png ; PNG Images", "*.jpg ; JPG Images", "*.jpeg ; JPEG Images" )
-current_dir = "/media/bastien/DATA/polytech/ricm5/projet/dev/writeInGesture"
-current_path = "/media/bastien/DATA/polytech/ricm5/projet/dev/writeInGesture/"
-[connection signal="pressed" from="Margin/MainContainer/editContainer/HBoxContainerAdd/addWord" to="." method="_on_addWord_pressed"]
-[connection signal="pressed" from="Margin/MainContainer/editContainer/HBoxContainerCreation/Creation" to="." method="_on_Creation_pressed"]
+current_dir = "/home/guillaume/Documents/RICM5/Projet/dev/writeInGesture"
+current_path = "/home/guillaume/Documents/RICM5/Projet/dev/writeInGesture/"
+
+[node name="StatePopup" type="Popup" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StatePopup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="labelState" type="Label" parent="StatePopup/VBoxContainer"]
+margin_top = 282.0
+margin_right = 1024.0
+margin_bottom = 318.0
+size_flags_vertical = 1
+text = "Exempel"
+align = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+[connection signal="pressed" from="Margin/MainContainer/MarginContainer/editContainer/HBoxContainerAdd/addWord" to="." method="_on_addWord_pressed"]
+[connection signal="pressed" from="Margin/MainContainer/MarginContainer/editContainer/HBoxContainerCreation/Creation" to="." method="_on_Creation_pressed"]
+
 [connection signal="pressed" from="retour" to="." method="_on_Retour_pressed"]
 [connection signal="hide" from="Popup" to="." method="_on_Popup_hide"]
 [connection signal="pressed" from="Popup/VBoxPopup/HBoxContainer/yes" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="Popup/VBoxPopup/HBoxContainer/no" to="." method="_on_no_pressed"]
+[connection signal="hide" from="Popup2" to="." method="_on_Popup_hide"]
 [connection signal="pressed" from="Popup2/VBoxPopup2/HBoxContainer8/SearchButton" to="." method="_on_SearchButton_pressed"]
 [connection signal="pressed" from="Popup2/VBoxPopup2/HBoxContainer8/OpenButton" to="." method="_on_OpenButton_pressed"]
 [connection signal="pressed" from="Popup2/VBoxPopup2/HBoxContainer/Confirm" to="." method="_on_Confirm_pressed"]
 [connection signal="pressed" from="Popup2/VBoxPopup2/HBoxContainer/Cancel" to="." method="_on_no_pressed"]
 [connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

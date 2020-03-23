@@ -114,6 +114,8 @@ func _on_keyButton_pressed(keyButton):
 
 func _on_addWord_pressed():
 	var text = find_node("newWord").get_text()
+	if(text == null || text == ""):
+		return
 	if !(wordsAvailable.getWord(text)) :# < 20:
 		var word = dictionnary.getWord(text)
 		if(word != null) :
@@ -253,22 +255,22 @@ func findHomonym(word : String) :
 	for homo in array:
 		for el in homo :
 			if(el == word) :
-				res= homo
-	#print(res)
+				res = homo
 	return res
 	
 func _on_OpenButton_pressed():
 	var word = find_node("LineWord").text
 	if(word == null || word == ""):
+		find_node("Word").modulate = "ff0000"
 		return
-	find_node("FileDialog").rect_size.x = get_viewport().size.x - 10
-	find_node("FileDialog").rect_size.y = get_viewport().size.y - 10
+	find_node("FileDialog").rect_size = get_viewport().size - Vector2(50, 50)
 	find_node("FileDialog").set_current_dir(OS.get_system_dir(OS.SYSTEM_DIR_DOWNLOADS))
 	find_node("FileDialog").popup()
 
 func _on_SearchButton_pressed():
 	var word = find_node("LineWord").text
 	if(word == null || word == ""):
+		find_node("Word").modulate = "ff0000"
 		return
 	var url = "https://www.google.com/search?q="
 	url += word

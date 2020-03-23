@@ -2,15 +2,16 @@ extends Node
 
 
 const Exercise = preload("res://Exercise.gd")
-const Card = preload("res://Card.gd")
+const Card = preload("res://MemoryCard.gd")
 
 var os = Global.os
 var Ex : Exercise = Global.memoryExercise
-var words = Ex.getAllWords()
+var words = Ex.getAllWords().duplicate(true)
 var cards : Array
 var selected_cards : Array = []
 var max_cards = Global.max_cards
-var columns = 6
+var nbCard = 0
+var columns = 0
 var separationPercentage = 0.02
 var margin = 0.05
 
@@ -24,23 +25,30 @@ func _ready():
 	var sizeMargin = viewport * (1-2*margin)
 	
 	#Put margin top for the top button
-	$MarginContainer.set("custom_constants/margin_top", $Back.rect_size.y+find_node("MarginContainer").get_constant("margin_top"))
+	find_node("MarginContainer").set("custom_constants/margin_top", $Back.rect_size.y+find_node("MarginContainer").get_constant("margin_top"))
 	sizeMargin.y -= $Back.rect_size.y
 	
-	#Creation of the memory 
-	var row = 2 * max_cards / columns
+		
+	#setUp the memory
+	nbCard = min(words.size()*2,2*max_cards)
+	var vectorSizeColumsRows = findColumnsRows(nbCard)
+	var row = vectorSizeColumsRows.y
+	columns =  vectorSizeColumsRows.x
 	var separationX = sizeMargin.x * columns * separationPercentage
 	var separationY = sizeMargin.y * row * separationPercentage
 	var card_size = Vector2((sizeMargin.x-separationX)/columns, (sizeMargin.y- separationY)/row)
-	$MarginContainer/GridCards.columns = columns
-	$MarginContainer/GridCards.set("custom_constants/vseparation", separationY/row)
-	$MarginContainer/GridCards.set("custom_constants/hseparation", separationX/columns)
-	$MarginContainer/GridCards.set("rect_position.x",100)
-	$MarginContainer/GridCards.set("rect_position.y",separationY/2)
+	var gridCard = find_node("GridCards")
+	gridCard.columns = columns
+	gridCard.set("custom_constants/vseparation", separationY/row)
+	gridCard.set("custom_constants/hseparation", separationX/columns)
+	gridCard.set("rect_position.x",100)
+	gridCard.set("rect_position.y",separationY/2)
 	
+	
+	#Craation of the memory 
 	randomize()
 	words.shuffle()
-	words.resize(max_cards)
+	words.resize(nbCard/2)
 	for i in range(0, 2):
 		for w in words:
 			var card : Card = Card.new()
@@ -53,8 +61,27 @@ func _ready():
 			cards.append(ctrl)
 	cards.shuffle()
 	for c in cards:
-		$MarginContainer/GridCards.add_child(c)
-
+		
+		gridCard.add_child(c)
+	
+	
+	
+	
+func findColumnsRows(size : int) :
+	print("Size : ", size)
+	var boolean = true
+	var restmp
+	for i in range (2,7):
+		for j in range (2,5):
+			if(size % i == 0 && size/i == j) :
+				print("Answer :(colonne :", i," ligne :",j,")")
+				return Vector2(i,j)
+			if(i*j>size && boolean):
+				boolean = false
+				restmp = Vector2(i,j)
+	print(restmp)
+	return restmp
+				 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

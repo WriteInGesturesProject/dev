@@ -11,6 +11,18 @@ var swipe_mouse_positions = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	##Set up the scene 
+	find_node("MarginContainer").add_constant_override("margin_left", get_viewport().size.x/8)
+	find_node("MarginContainer").add_constant_override("margin_right", get_viewport().size.x/8)
+	find_node("MarginContainer").add_constant_override("margin_bottom", get_viewport().size.y/8)
+	find_node("MainContainer").add_constant_override("separation",get_viewport().size.y/6)
+	
+	find_node("ScrollContainer").get_v_scrollbar().visible = false
+	find_node("Description").rect_min_size.y = find_node("Back").rect_size.y
+	find_node("Description").get_font("font").size = find_node("Back").rect_size.y/2
+	
+	##Put all the button "sound"
 	var dict = Global.phoneticDictionnary
 	for i in range(0, dict.size()):
 		var currentVbox = VBoxContainer.new()
@@ -35,10 +47,11 @@ func _ready():
 						text += " "
 					text += phonetic
 			currentButton.text = text
-			currentVbox.add_child(currentButton)
 			currentButton.name = text
 			currentButton.connect("pressed",self,"_on_allbutton_pressed",[currentButton])
 			currentButton.editor_description = dict2["ressource_path"]
+			currentVbox.add_child(currentButton)
+			currentVbox.add_constant_override("separation",get_viewport().size.y/25)
 		find_node("MainContainer").add_child(currentVbox)
 		
 	
@@ -96,16 +109,16 @@ func _input(ev):
 		var delta = ev.position - swipe_mouse_start
 		##print(delta.length())
 		if(delta.length()>10):
-			$"MarginContainer/VBoxContainer/ScrollContainer".set_h_scroll(swipe_start.x - delta.x)
-			$"MarginContainer/VBoxContainer/ScrollContainer".set_v_scroll(swipe_start.y - delta.y)
+			find_node("ScrollContainer").set_h_scroll(swipe_start.x - delta.x)
+			find_node("ScrollContainer").set_v_scroll(swipe_start.y - delta.y)
 			swipe_mouse_times.append(OS.get_ticks_msec())
 			swipe_mouse_positions.append(ev.position)
 			isswipping = true
 	elif ev is InputEventMouseButton:
 		if ev.pressed:
 			swiping = true
-			swipe_start = Vector2($"MarginContainer/VBoxContainer/ScrollContainer".get_h_scroll(),
-			 $"MarginContainer/VBoxContainer/ScrollContainer".get_v_scroll())
+			swipe_start = Vector2(find_node("ScrollContainer").get_h_scroll(),
+			find_node("ScrollContainer").get_v_scroll())
 			swipe_mouse_start = ev.position
 			swipe_mouse_times = [OS.get_ticks_msec()]
 			swipe_mouse_positions = [swipe_mouse_start]
@@ -113,8 +126,8 @@ func _input(ev):
 			#When we release the button
 			swipe_mouse_times.append(OS.get_ticks_msec())
 			swipe_mouse_positions.append(ev.position)
-			var source = Vector2($"MarginContainer/VBoxContainer/ScrollContainer".get_h_scroll(), 
-			$"MarginContainer/VBoxContainer/ScrollContainer".get_v_scroll())
+			var source = Vector2(find_node("ScrollContainer").get_h_scroll(), 
+			find_node("ScrollContainer").get_v_scroll())
 			var idx = swipe_mouse_times.size() - 1
 			var now = OS.get_ticks_msec()
 			var cutoff = now - 100

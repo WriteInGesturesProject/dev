@@ -1,5 +1,5 @@
 {
-	"VOYELLES_ORALES" :
+	"VOYELLES ORALES" :
 	[
 		{
 			"phonetic" :"[i]",
@@ -98,7 +98,7 @@
 			"ressource_path" : "oi.png"
 		},
 	],
-	"CONSONNES_ORALES":
+	"CONSONNES ORALES":
 	[
 		{
 			"phonetic" :"[p]",

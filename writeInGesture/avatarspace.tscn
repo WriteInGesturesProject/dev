@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://avatarspace.gd" type="Script" id=1]
-[ext_resource path="res://assets/icons/validate.png" type="Texture" id=2]
 [ext_resource path="res://assets/icons/goldCoin.png" type="Texture" id=3]
 [ext_resource path="res://assets/icons/silverCoin.png" type="Texture" id=4]
 [ext_resource path="res://assets/background.png" type="Texture" id=5]
 [ext_resource path="res://assets/theme/ButtonTheme.tres" type="Theme" id=6]
+[ext_resource path="res://assets/icons/check.png" type="Texture" id=7]
 [ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=21]
 
 [node name="Control" type="Control"]
@@ -121,7 +121,7 @@ margin_left = 517.108
 margin_top = 516.956
 margin_right = 587.108
 margin_bottom = 586.956
-icon = ExtResource( 2 )
+icon = ExtResource( 7 )
 flat = true
 expand_icon = true
 __meta__ = {
@@ -145,7 +145,6 @@ anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.803922 )
 
 [node name="ConfirmPopup" type="WindowDialog" parent="."]
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -189,7 +188,7 @@ margin_top = -40.0
 margin_right = 100.0
 margin_bottom = 60.0
 theme = ExtResource( 6 )
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 7 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -197,3 +196,4 @@ __meta__ = {
 [connection signal="gui_input" from="Button" to="." method="_on_Button_gui_input"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="popup_hide" from="ConfirmPopup" to="." method="_on_ConfirmPopup_popup_hide"]
+[connection signal="pressed" from="ConfirmPopup/VBoxContainer2/Control/ValidateBuy" to="." method="_on_ValidateBuy_pressed"]

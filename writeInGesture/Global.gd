@@ -131,6 +131,7 @@ func putBorelInHboxContainer(array : Array, lenghtX, lenghtY) :
 	var size = array.size()
 	var hbox = HBoxContainer.new()
 	hbox.rect_min_size = Vector2(lenghtX, lenghtY)
+	hbox.rect_size = Vector2(lenghtX, lenghtY)
 	hbox.alignment = HBoxContainer.ALIGN_CENTER
 	hbox.add_constant_override("separation", -1)
 	for picturePath in array :
@@ -196,11 +197,9 @@ func make_margin(margeContainer : MarginContainer, marge):
 	
 func find_texture(path : String):
 	var tex = load("res://art/images/" + path)
-	print(path)
 	if(tex == null):
 		var image = Image.new()
 		image.load("user://art/" + path)
 		tex = ImageTexture.new()
 		tex.create_from_image(image)
-	print(tex)
 	return tex

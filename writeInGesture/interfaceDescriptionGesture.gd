@@ -19,7 +19,11 @@ func _ready():
 	Global.make_margin(find_node("MarginContainer"), margin)
 	var ymainbox = get_viewport().size.y * (1-margin*2) 
 	var xmainbox = get_viewport().size.x * (1-margin*2) 
-	ymainbox -= find_node("Title").rect_size.y 
+	find_node("Title").rect_min_size.y = find_node("Back").rect_size.y - get_viewport().size.y * margin
+	
+	find_node("Title").get_font("font").size = find_node("Title").rect_min_size.y/2
+	print(find_node("Title").rect_min_size.y/2)
+	ymainbox -= find_node("Title").rect_min_size.y
 	ymainbox -= find_node("EndBox").rect_size.y 
 	
 	#Put the Listen button on the right place
@@ -46,8 +50,10 @@ func _ready():
 	video.rect_position = Vector2(xmainbox/2 + centermarge + centervideo,0)
 	find_node("Panel").rect_position = Vector2(video.rect_position.x - centervideo, video.rect_position.y)
 	texture.rect_position = Vector2(xmainbox/2 - ymainbox - centermarge ,0)
+
 	
 	find_node("MainBox").rect_min_size = Vector2(xmainbox, ymainbox) 
+
 
 func _process(delta) : 
 	if(!played):

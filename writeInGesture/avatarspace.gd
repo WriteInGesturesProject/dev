@@ -5,7 +5,7 @@ var current_texture
 var current_avatar
 var selected = false
 var avatars = ["assistant.png","astronaut.png","businessman.png","captain.png","cashier.png","chef.png","concierge.png","cooker.png","courier.png","croupier.png","croupier-1.png","detective.png","disc-jockey.png","engineer.png","gentleman.png","nurse.png","stewardess.png","worker.png"]
-
+var avatarToBuy
 var avatarCoin = Global.player.getCoinAvatar()
 
 func _ready():
@@ -57,7 +57,9 @@ func _ready():
 	_colorAvatars()
 
 func _colorAvatars():
-	for c in find_node("plate").get_children():
+	var list = find_node("plate").get_children()
+	for i in range(0, len(list)):
+		var c = list[i]
 		var image = c.get_child(0)
 		var n = int(image.name)
 		image.modulate = "ffffff"
@@ -71,7 +73,7 @@ func _colorAvatars():
 			#not available
 			image.modulate = "484343"
 			
-		if(avatarCoin[n] != 0):
+		if(avatarCoin[n] != 0 && c.get_child(1)==null):
 			var contMoney = Control.new()
 			var iconMoney = TextureRect.new()
 			var nbMoney = Label.new()
@@ -91,10 +93,11 @@ func _colorAvatars():
 			nbMoney.rect_position.y = iconMoney.rect_position.y
 			nbMoney.rect_position.x = iconMoney.rect_position.x + 40 + image.rect_size.x*0.03
 			c.add_child(contMoney)
+		print("ok ", c.get_children())
 
 func _choice_pressed(avatar):
 	if(avatar.modulate == Color("A9A9A9")):
-		find_node("ValidateBuy").connect("pressed", self, "_on_ValidateBuy_pressed", [avatar])
+		avatarToBuy = avatar
 		find_node("ConfirmPopup").popup_centered_ratio(0.80)
 		find_node("backgroundDark").visible = true
 		find_node("confirmAsk").text = "Voulez-vous acheter cette icone pour : "
@@ -128,17 +131,17 @@ func _on_Button_pressed():
 
 
 
-func _on_ValidateBuy_pressed(avatar):
-	if(int(avatar.name) < 12):
-		Global.player.setSilver(Global.player.getSilver() - avatarCoin[int(avatar.name)])
+func _on_ValidateBuy_pressed():
+	if(int(avatarToBuy.name) < 12):
+		Global.player.setSilver(Global.player.getSilver() - avatarCoin[int(avatarToBuy.name)])
 	else : 
-		Global.player.setGold(Global.player.getGold() - avatarCoin[int(avatar.name)])
-	Global.player.setCoinAvatar(int(avatar.name), 0)
-	avatar.modulate = "ffffff"
-	_colorAvatars()
+		Global.player.setGold(Global.player.getGold() - avatarCoin[int(avatarToBuy.name)])
+	Global.player.setCoinAvatar(int(avatarToBuy.name), 0)
+	avatarToBuy.modulate = "ffffff"
 	find_node("Gold").text = str(Global.player.getGold())
 	find_node("Silver").text = str(Global.player.getSilver())
-	avatar.get_parent().remove_child(avatar.get_parent().get_child(1))
+	avatarToBuy.get_parent().remove_child(avatarToBuy.get_parent().get_child(1))
+	_colorAvatars()
 	find_node("ConfirmPopup").visible = false
 	_on_ConfirmPopup_popup_hide()
 

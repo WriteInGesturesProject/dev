@@ -71,8 +71,8 @@ text = "Moyen"
 expand_icon = true
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer/MarginContainer2"]
-margin_right = 624.0
-margin_bottom = 96.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer2/Control"]
 anchor_left = 0.016488
@@ -104,8 +104,8 @@ disabled = true
 text = "Difficile"
 
 [node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/MarginContainer3"]
-margin_right = 624.0
-margin_bottom = 96.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer3/Control2"]
 anchor_left = 0.015114

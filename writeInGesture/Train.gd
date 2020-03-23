@@ -91,20 +91,16 @@ func _ready():
 func _process(delta):
 	if(stt != null && display && stt.isDetectDone()):
 		words = stt.getWords()
-		if(words == find_node("Number").text || Global.check_words(words, myWords[index])):
-			find_node("Oui").visible = true
-			find_node("Non").visible = false
+		if(words == str(index+1) || Global.check_words(words, myWords[index])):
 			find_node("Record").disabled = true
 			if(incremented == false):
 				Ex.setWordSuccess(Global.level, index, Ex.getWordSuccess(Global.level, index) + 1)
 				Global.score += 1
+				find_node("Good").playing = true
 				incremented = true
-		else:
-			find_node("Oui").visible = false
-			find_node("Non").visible = true
-	else:
-		find_node("Oui").visible = false
-		find_node("Non").visible = false
+		elif(incremented == false):
+			find_node("Wrong").playing = true
+			incremented = true
 
 
 func _on_Back_pressed():
@@ -113,8 +109,6 @@ func _on_Back_pressed():
 
 func _on_Next_pressed():
 	find_node("Record").disabled = false
-	find_node("Oui").visible = false
-	find_node("Non").visible = false
 	display = false
 	index += 1
 	if(index >= myWords.size()):

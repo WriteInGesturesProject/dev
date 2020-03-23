@@ -91,16 +91,17 @@ func setUpCard(word : Word, level : int, size : Vector2) -> void:
 		_scaleImg(imageWord, vectorSize.y * 0.90)
 		yRest -= 0.90
 	
+	mainVBox.add_constant_override("separation", yRest/3*vectorSize.y)
 	if level == 1 || level == 2:
 		wordLabel.visible = false
 	if level == 2 :
+		imageWord.rect_position.y = (size.y/2)-(imageWord.rect_size.y/1.5)
 		imgBorelContainer.visible = false
 	
 	controlImageWord.rect_size = imageWord.rect_size
 	controlImageWord.add_child(imageWord)
 	imageWord.rect_position.x = (vectorSize.x - imageWord.rect_size.x)/2
 	
-	mainVBox.add_constant_override("separation", yRest/3*vectorSize.y)
 	print(yRest)
 
 func setImgBorel() -> void :

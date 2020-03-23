@@ -12,11 +12,6 @@ func _ready():
 	find_node("NamePlayer").text=Global.player.getName()
 	find_node("Picture").texture=load("res://art/users/"+Global.player.getPathPicture())
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 	mainBox = find_node("MainBox")
 	avatarBox = find_node("AvatarBox")
 	orthoBox = find_node("OrthoBox")

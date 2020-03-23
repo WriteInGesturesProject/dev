@@ -2,26 +2,26 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/astronaut.png-9d3a8b3bf81c96653ceed9913b407b30.stex"
+path="res://.import/cancel.png-def8cd0f9e332a3e8ebb51177e459b3e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/users/selected/astronaut.png"
-dest_files=[ "res://.import/astronaut.png-9d3a8b3bf81c96653ceed9913b407b30.stex" ]
+source_file="res://assets/icons/cancel.png"
+dest_files=[ "res://.import/cancel.png-def8cd0f9e332a3e8ebb51177e459b3e.stex" ]
 
 [params]
 
-compress/mode=0
-compress/lossy_quality=0.7
+compress/mode=1
+compress/lossy_quality=0.5
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
-flags/mipmaps=false
+flags/mipmaps=true
 flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true

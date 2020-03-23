@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://avatarspace.gd" type="Script" id=1]
+[ext_resource path="res://assets/icons/cancel.png" type="Texture" id=2]
 [ext_resource path="res://assets/icons/goldCoin.png" type="Texture" id=3]
 [ext_resource path="res://assets/icons/silverCoin.png" type="Texture" id=4]
 [ext_resource path="res://assets/background.png" type="Texture" id=5]
@@ -142,7 +143,7 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.803922 )
+color = Color( 0, 0, 0, 0.901961 )
 
 [node name="ConfirmPopup" type="WindowDialog" parent="."]
 anchor_right = 1.0
@@ -178,12 +179,18 @@ margin_right = 1024.0
 margin_bottom = 112.0
 align = 1
 
-[node name="Control" type="Control" parent="ConfirmPopup/VBoxContainer2"]
+[node name="buttons" type="HBoxContainer" parent="ConfirmPopup/VBoxContainer2"]
 margin_top = 406.0
 margin_right = 1024.0
 margin_bottom = 406.0
+custom_constants/separation = 120
+alignment = 1
 
-[node name="ValidateBuy" type="TextureButton" parent="ConfirmPopup/VBoxContainer2/Control"]
+[node name="Control" type="Control" parent="ConfirmPopup/VBoxContainer2/buttons"]
+margin_left = 452.0
+margin_right = 452.0
+
+[node name="ValidateBuy" type="TextureButton" parent="ConfirmPopup/VBoxContainer2/buttons/Control"]
 margin_top = -40.0
 margin_right = 100.0
 margin_bottom = 60.0
@@ -193,7 +200,51 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Control2" type="Control" parent="ConfirmPopup/VBoxContainer2/buttons"]
+margin_left = 572.0
+margin_right = 572.0
+
+[node name="CancelBuy" type="TextureButton" parent="ConfirmPopup/VBoxContainer2/buttons/Control2"]
+margin_right = 100.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NotEnough" type="Popup" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NotEnough"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="NotEnough/VBoxContainer"]
+margin_top = 254.0
+margin_right = 1024.0
+margin_bottom = 290.0
+text = "Pas assez de pièces !"
+align = 1
+
+[node name="Label2" type="Label" parent="NotEnough/VBoxContainer"]
+margin_top = 310.0
+margin_right = 1024.0
+margin_bottom = 346.0
+text = "Encore un effort !!"
+align = 1
+
+[node name="Timer" type="Timer" parent="."]
 [connection signal="gui_input" from="Button" to="." method="_on_Button_gui_input"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="popup_hide" from="ConfirmPopup" to="." method="_on_ConfirmPopup_popup_hide"]
-[connection signal="pressed" from="ConfirmPopup/VBoxContainer2/Control/ValidateBuy" to="." method="_on_ValidateBuy_pressed"]
+[connection signal="pressed" from="ConfirmPopup/VBoxContainer2/buttons/Control/ValidateBuy" to="." method="_on_ValidateBuy_pressed"]
+[connection signal="pressed" from="ConfirmPopup/VBoxContainer2/buttons/Control2/CancelBuy" to="." method="_on_CancelBuy_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

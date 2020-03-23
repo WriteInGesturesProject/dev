@@ -9,7 +9,7 @@ var avatarToBuy
 var avatarCoin = Global.player.getCoinAvatar()
 
 func _ready():
-	find_node("ValidateBuy").rect_position.x = get_viewport().size.x/3 + 25
+	find_node("CancelBuy").rect_position.y = find_node("ValidateBuy").rect_position.y
 	var margintop=(get_viewport().size.y -3*get_viewport().size.y/4.5 - get_viewport().size.y*0.05 - get_node("LineEdit").rect_size.y - find_node("goldImage").rect_size.y)/2
 	get_node("MarginContainer").margin_left = (get_viewport().size.x -6*get_viewport().size.y/4.5 - get_viewport().size.y*0.05)/2
 	get_node("MarginContainer").margin_top = margintop
@@ -105,7 +105,11 @@ func _choice_pressed(avatar):
 			find_node("nbCoin").text = str(Global.player.getCoinAvatar()[int(avatar.name)])+" pièces d'argent ?"
 		else :
 			find_node("nbCoin").text = str(Global.player.getCoinAvatar()[int(avatar.name)])+" pièces d'or ?"
-	elif (avatar.modulate != Color("484343")):  #test if avatar is opened according to player level
+	elif (avatar.modulate == Color("484343")):  #test if avatar is opened according to player level
+		find_node("NotEnough").visible = true
+		find_node("backgroundDark").visible = true
+		find_node("Timer").start()
+	else :
 		selected = true
 		if(current_texture !=null):
 			current_avatar.remove_child(current_avatar.get_child(0))
@@ -149,3 +153,13 @@ func _on_ValidateBuy_pressed():
 func _on_ConfirmPopup_popup_hide():
 	if(find_node("backgroundDark") != null):
 		find_node("backgroundDark").visible = false
+
+
+func _on_CancelBuy_pressed():
+	find_node("ConfirmPopup").visible = false
+	_on_ConfirmPopup_popup_hide()
+
+
+func _on_Timer_timeout():
+	find_node("NotEnough").visible = false
+	_on_ConfirmPopup_popup_hide()

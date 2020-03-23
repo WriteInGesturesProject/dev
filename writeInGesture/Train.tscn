@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Train.gd" type="Script" id=1]
 [ext_resource path="res://assets/icons/back.png" type="Texture" id=2]
 [ext_resource path="res://assets/theme/DejaVuFont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=4]
-[ext_resource path="res://assets/icons/bravo.jpg" type="Texture" id=6]
+[ext_resource path="res://assets/sound/fail.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/sound/success.ogg" type="AudioStream" id=7]
 [ext_resource path="res://assets/background.png" type="Texture" id=8]
 [ext_resource path="res://assets/icons/next.png" type="Texture" id=9]
 [ext_resource path="res://assets/icons/record.png" type="Texture" id=10]
@@ -19,6 +20,12 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Wrong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="Good" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
 
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -126,16 +133,6 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Oui" type="Sprite" parent="MarginContainer/VBox/MainContainer/MainBox"]
-position = Vector2( 572.675, 441.745 )
-scale = Vector2( 0.23676, 0.193754 )
-texture = ExtResource( 6 )
-
-[node name="Non" type="Sprite" parent="MarginContainer/VBox/MainContainer/MainBox"]
-position = Vector2( 349.68, 439.193 )
-scale = Vector2( 0.257961, 0.205355 )
-texture = ExtResource( 6 )
 
 [node name="ImgBorel" type="MarginContainer" parent="MarginContainer/VBox"]
 margin_top = 328.0

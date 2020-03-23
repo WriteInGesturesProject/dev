@@ -199,10 +199,14 @@ __meta__ = {
 }
 
 [node name="Popup" type="WindowDialog" parent="."]
-margin_left = 115.568
-margin_top = 72.2438
-margin_right = 982.568
-margin_bottom = 512.244
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -433.5
+margin_top = -220.0
+margin_right = 433.5
+margin_bottom = 220.0
 
 [node name="VBoxPopup" type="VBoxContainer" parent="Popup"]
 anchor_right = 1.0
@@ -242,10 +246,14 @@ theme = ExtResource( 3 )
 text = "Non"
 
 [node name="Popup2" type="WindowDialog" parent="."]
-margin_left = 115.568
-margin_top = 72.2438
-margin_right = 982.568
-margin_bottom = 512.244
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -433.5
+margin_top = -220.0
+margin_right = 433.5
+margin_bottom = 220.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -419,7 +427,6 @@ theme = ExtResource( 3 )
 text = "Annuler"
 
 [node name="FileDialog" type="FileDialog" parent="."]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

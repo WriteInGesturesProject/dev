@@ -15,12 +15,38 @@ func init(word, size, selected_cards : Array):
 	set_normal_texture(load(cardPath))
 	set_expand(true)
 	set_stretch_mode(TextureButton.STRETCH_SCALE)
-	rect_min_size = size
+	scale_img(texture_normal.get_size(), size)
 	imagePath = word.getPath()
 	imageWord = word.getWord()
 	connect("pressed", self, "_on_Card_pressed")
 
 
+func scale_img(realSize, size) :
+	##Scale the image
+	if(size.y > size.x) :
+		rect_min_size.y = size.y
+		rect_min_size.x = size.y * (realSize.x/realSize.y)
+		if(rect_min_size.x > size.x) :
+			rect_min_size.y = (size.x/rect_min_size.x) * rect_min_size.y
+			rect_min_size.x = size.x
+			##Center the image
+			rect_position.y += (size.y - rect_min_size.y)/2
+		else :
+		##Center the image
+			rect_position.x += (size.x - rect_min_size.x)/2
+			
+	else :
+		rect_min_size.x = size.x
+		rect_min_size.y = size.x * (realSize.y/realSize.x)
+		if(rect_min_size.y > size.y) :
+			rect_min_size.x = (size.y/rect_min_size.y) * rect_min_size.x
+			rect_min_size.y = size.y
+			##Center the image
+			rect_position.x += (size.x - rect_min_size.x)/2
+		else :
+			##Center the image
+			rect_position.y += (size.y - rect_min_size.y)/2
+	
 func _on_Card_pressed():
 	if(selected_cards.size() < 2 && !selected_cards.has(self)):
 		selected_cards.append(self)

@@ -163,7 +163,8 @@
             "word": "queue",
             "path": "queue.jpg",
             "homonym": [
-               "queue"
+               "queue",
+               "que"
             ],
             "nbSyllable": 1,
             "syllableStruct": "cv",
@@ -211,7 +212,8 @@
             "word": "un",
             "path": "un.jpg",
             "homonym": [
-               "un"
+               "un",
+               "1"
             ],
             "nbSyllable": 1,
             "syllableStruct": "cv",
@@ -223,7 +225,8 @@
             "word": "trois",
             "path": "trois.jpg",
             "homonym": [
-               "trois"
+               "trois",
+               "3"
             ],
             "nbSyllable": 1,
             "syllableStruct": "ccv",
@@ -235,7 +238,8 @@
             "word": "quatre",
             "path": "quatre.jpg",
             "homonym": [
-               "quatre"
+               "quatre",
+               "4"
             ],
             "nbSyllable": 2,
             "syllableStruct": "cvcc",
@@ -247,7 +251,8 @@
             "word": "cinq",
             "path": "cinq.jpg",
             "homonym": [
-               "cinq"
+               "cinq",
+               "5"
             ],
             "nbSyllable": 1,
             "syllableStruct": "cvc",
@@ -259,7 +264,8 @@
             "word": "six",
             "path": "six.jpg",
             "homonym": [
-               "six"
+               "six",
+               "6"
             ],
             "nbSyllable": 1,
             "syllableStruct": "cv",
@@ -271,7 +277,8 @@
             "word": "sept",
             "path": "sept.jpg",
             "homonym": [
-               "sept"
+               "sept",
+               "7"
             ],
             "nbSyllable": 1,
             "syllableStruct": "cv",
@@ -283,7 +290,8 @@
             "word": "huit",
             "path": "huit.jpg",
             "homonym": [
-               "huit"
+               "huit",
+               "8"
             ],
             "nbSyllable": 1,
             "syllableStruct": "vvc",
@@ -295,7 +303,8 @@
             "word": "neuf",
             "path": "neuf.jpg",
             "homonym": [
-               "neuf"
+               "neuf",
+               "9"
             ],
             "nbSyllable": 1,
             "syllableStruct": "cvc",
@@ -307,7 +316,8 @@
             "word": "dix",
             "path": "dix.png",
             "homonym": [
-               "dix"
+               "dix",
+               "10"
             ],
             "nbSyllable": 1,
             "syllableStruct": "cv",
@@ -319,7 +329,8 @@
             "word": "douze",
             "path": "douze.png",
             "homonym": [
-               "douze"
+               "douze",
+               "12"
             ],
             "nbSyllable": 1,
             "syllableStruct": "cvc",
@@ -331,7 +342,8 @@
             "word": "treize",
             "path": "treize.png",
             "homonym": [
-               "treize"
+               "treize",
+               "13"
             ],
             "nbSyllable": 1,
             "syllableStruct": "cv",
@@ -343,7 +355,8 @@
             "word": "quatorze",
             "path": "quatorze.png",
             "homonym": [
-               "quatorze"
+               "quatorze",
+               "14"
             ],
             "nbSyllable": 1,
             "syllableStruct": "cv",
@@ -355,7 +368,8 @@
             "word": "quinze",
             "path": "quinze.png",
             "homonym": [
-               "quinze"
+               "quinze",
+               "15"
             ],
             "nbSyllable": 1,
             "syllableStruct": "cv",
@@ -367,7 +381,8 @@
             "word": "seize",
             "path": "seize.png",
             "homonym": [
-               "seize"
+               "seize",
+               "16"
             ],
             "nbSyllable": 1,
             "syllableStruct": "cv",
@@ -934,7 +949,8 @@
             "word": "frite",
             "path": "frite.png",
             "homonym": [
-               "frite"
+               "frite",
+               "frites"
             ],
             "nbSyllable": 1,
             "syllableStruct": "ccvc",

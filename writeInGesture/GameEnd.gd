@@ -66,9 +66,8 @@ func _ready():
 	find_node("BestScore").set_text("Ton meilleur score est de " + str(int(Ex.getSuccessPercentage(Global.level))) + "%")
 	if(success):
 		Ex.setNbSuccess(Ex.getNbSuccess() + 1)
-		leftCoinGold = Global.score
-		
-		
+		leftCoinGold = 1
+	
 	find_node("Success").set_text("Tu as fini cet exercice " + str(Ex.getNbSuccess()) + " fois")
 	find_node("Silver").text = str(Global.player.getSilver()-Global.score)
 	find_node("Success").get_font("font").size = get_viewport().size.y/12

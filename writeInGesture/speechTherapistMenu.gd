@@ -9,10 +9,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	find_node("retour").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
-	find_node("Main").add_constant_override("margin_left", get_viewport().size.y * 0.015)
-	find_node("Main").add_constant_override("margin_top", get_viewport().size.y * 0.015)
-	find_node("Main").add_constant_override("margin_right", get_viewport().size.y * 0.015)
-	find_node("Main").add_constant_override("margin_bottom", get_viewport().size.y * 0.015)
+	Global.make_margin(find_node("Main"), 0.015)
 	find_node("MarginContainer").add_constant_override("margin_left",get_viewport().size.x/8)
 	find_node("MarginContainer").add_constant_override("margin_right",get_viewport().size.x/8)
 	find_node("statsButton").rect_min_size.y = get_viewport().size.y/4

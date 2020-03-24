@@ -37,6 +37,7 @@ func display(level : int, word : Word, exercice : Exercise, ind : int) :
 	find_node("Record").disabled = false
 	find_node("Next").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
 	find_node("Back").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
+	Global.make_margin(find_node("MainPage"), 0.015)
 	Global.make_margin(find_node("MarginContainer"), margin)
 	VectorMarge = get_viewport().size * (1-2*margin)
 	if(level == 0) :

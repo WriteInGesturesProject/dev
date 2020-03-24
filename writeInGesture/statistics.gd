@@ -16,10 +16,7 @@ var exerciseMostPlayed : Exercise
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	find_node("back").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
-	find_node("Main").add_constant_override("margin_left", get_viewport().size.y * 0.015)
-	find_node("Main").add_constant_override("margin_top", get_viewport().size.y * 0.015)
-	find_node("Main").add_constant_override("margin_right", get_viewport().size.y * 0.015)
-	find_node("Main").add_constant_override("margin_bottom", get_viewport().size.y * 0.015)
+	Global.make_margin(find_node("Main"), 0.015)
 	findExerciseMostPlayer(Global.exercises)
 	find_node("mostPlayed").text = "Le jeu le plus joué est le jeu : "+exerciseMostPlayed.getName()+", joué : "+String(exerciseMostPlayed.getNbSuccess())+" fois."
 	exerciseChoiceNode = find_node("exerciseChoice")

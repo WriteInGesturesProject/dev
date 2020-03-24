@@ -73,7 +73,7 @@ func _colorAvatars():
 			#not available
 			image.modulate = "484343"
 			
-		if(avatarCoin[n] != 0 && c.get_child(1)==null):
+		if(avatarCoin[n] != 0 && len(c.get_children())==1):
 			var contMoney = Control.new()
 			var iconMoney = TextureRect.new()
 			var nbMoney = Label.new()

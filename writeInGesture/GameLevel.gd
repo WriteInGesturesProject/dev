@@ -14,12 +14,12 @@ func _ready():
 		3:
 			Global.current_ex = Global.memoryExercise
 	var Ex = Global.current_ex
-	if(Ex.getSuccessPercentage(0) >= 50):
-		find_node("TextureRect").visible = false
-		find_node("Normal").disabled = false
-	if(Ex.getSuccessPercentage(1) >= 50):
-		find_node("TextureRect2").visible = false
-		find_node("Hard").disabled = false
+#	if(Ex.getSuccessPercentage(0) >= 50):
+	find_node("TextureRect").visible = false
+	find_node("Normal").disabled = false
+#	if(Ex.getSuccessPercentage(1) >= 50):
+	find_node("TextureRect2").visible = false
+	find_node("Hard").disabled = false
 		
 	find_node("MarginContainer").add_constant_override("margin_left",get_viewport().size.x/8)
 	find_node("MarginContainer").add_constant_override("margin_right",get_viewport().size.x/8)

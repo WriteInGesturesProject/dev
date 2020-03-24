@@ -44,13 +44,10 @@ func _ready():
 	sizeViewPort = get_viewport().size
 	var sizeCard = Vector2(sizeViewPort.x/4, sizeViewPort.y*0.75)
 	
-	var speakControl = find_node("speakControl")
 	var speakButton = find_node("speak")
 	speakButton.rect_size = Vector2(sizeViewPort.y*0.1, sizeViewPort.y*0.1)
-	speakControl.rect_size = speakButton.rect_size
 	speakButton.rect_position.y = sizeViewPort.y*0.01
 	speakButton.rect_position.x = (sizeViewPort.x/2) - speakButton.rect_size.x/2
-	
 	var yRest = - find_node("speak").rect_size.y - find_node("Validate").rect_size.y - sizeCard.y + sizeViewPort.y
 	plate.add_constant_override("separation", sizeCard.x + (sizeViewPort.x*0.25)/3)
 	find_node("marginPlate").add_constant_override("margin_left", (sizeViewPort.x*0.25)/6)
@@ -69,6 +66,8 @@ func _ready():
 	else :
 		get_tree().change_scene("res://GameEnd.tscn")
 	find_node("Back").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
+	find_node("speak").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
+	Global.make_margin(find_node("MainPage"), 0.015)
 
 
 func _cardSelected(event : InputEvent, card : Card) -> void:
@@ -82,13 +81,11 @@ func _cardSelected(event : InputEvent, card : Card) -> void:
 func _on_Back_pressed():
 	get_tree().change_scene("res://GameLevel.tscn")
 
-func _on_Speak_pressed():
+func _on_speak_pressed():
 	if(stt != null && stt.isListening()):
 		stt.stopListen()
-		find_node("Record").set_text("Enregistrer")
 	if(tts != null):
 		var text = findCard.wordLabel.text
-		print(text)
 		match os:
 			"X11":
 				tts.speak(text, false)

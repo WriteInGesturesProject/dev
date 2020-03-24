@@ -32,7 +32,11 @@ func _ready():
 	find_node("Creation").rect_min_size.y = yrest/2
 	yrest = yrest/2
 	find_node("Main").add_constant_override("separation", yrest/3)
-	
+	find_node("retour").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
+	find_node("MainPage").add_constant_override("margin_left", get_viewport().size.y * 0.015)
+	find_node("MainPage").add_constant_override("margin_top", get_viewport().size.y * 0.015)
+	find_node("MainPage").add_constant_override("margin_right", get_viewport().size.y * 0.015)
+	find_node("MainPage").add_constant_override("margin_bottom", get_viewport().size.y * 0.015)
 	
 	for el in range (0,syllable.size()) :
 		var button = CheckBox.new()

@@ -170,20 +170,20 @@ func _on_Record_pressed():
 			stt.stopListen()
 
 func _on_Back_pressed():
-	if(self.get_parent().get_parent() is Popup) :
+	if(self.get_parent() is Popup) :
 		#if it is the goose game popup
-		self.get_parent().get_parent().get_parent().back()
+		self.get_parent().get_parent().back()
 	else :
 		#if it is the train scene
-		self.get_parent().get_parent().back()
+		self.get_parent().back()
 	self.remove_and_skip()
 
 
 func _on_Next_pressed():
-	if(self.get_parent().get_parent() is Popup) :
-		self.get_parent().get_parent().get_parent().next()
-	else :
+	if(self.get_parent() is Popup) :
 		self.get_parent().get_parent().next()
+	else :
+		self.get_parent().next()
 	find_node("Record").disabled = false
 	display = false
 

@@ -25,72 +25,83 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Margin" type="MarginContainer" parent="TextureRect"]
+[node name="MainPage" type="MarginContainer" parent="TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Main" type="VBoxContainer" parent="TextureRect/Margin"]
+[node name="Control" type="Control" parent="TextureRect/MainPage"]
 margin_right = 1024.0
 margin_bottom = 600.0
 
-[node name="Label" type="Label" parent="TextureRect/Margin/Main"]
+[node name="Margin" type="MarginContainer" parent="TextureRect/MainPage/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Main" type="VBoxContainer" parent="TextureRect/MainPage/Control/Margin"]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="Label" type="Label" parent="TextureRect/MainPage/Control/Margin/Main"]
 margin_right = 1024.0
 margin_bottom = 36.0
 text = "Choix d'exercice prédefinis"
 align = 1
 
-[node name="HBoxMain" type="HBoxContainer" parent="TextureRect/Margin/Main"]
+[node name="HBoxMain" type="HBoxContainer" parent="TextureRect/MainPage/Control/Margin/Main"]
 margin_top = 40.0
 margin_right = 1024.0
 margin_bottom = 76.0
 alignment = 1
 
-[node name="MarginContainerSyllable" type="MarginContainer" parent="TextureRect/Margin/Main/HBoxMain"]
+[node name="MarginContainerSyllable" type="MarginContainer" parent="TextureRect/MainPage/Control/Margin/Main/HBoxMain"]
 margin_left = 219.0
 margin_right = 499.0
 margin_bottom = 36.0
 
-[node name="Panel" type="Panel" parent="TextureRect/Margin/Main/HBoxMain/MarginContainerSyllable"]
+[node name="Panel" type="Panel" parent="TextureRect/MainPage/Control/Margin/Main/HBoxMain/MarginContainerSyllable"]
 modulate = Color( 1, 1, 1, 0.32549 )
 margin_right = 280.0
 margin_bottom = 36.0
 custom_styles/panel = ExtResource( 6 )
 
-[node name="NbSyllableContainer" type="VBoxContainer" parent="TextureRect/Margin/Main/HBoxMain/MarginContainerSyllable"]
+[node name="NbSyllableContainer" type="VBoxContainer" parent="TextureRect/MainPage/Control/Margin/Main/HBoxMain/MarginContainerSyllable"]
 margin_right = 280.0
 margin_bottom = 36.0
 
-[node name="NbSyllableLabel" type="Label" parent="TextureRect/Margin/Main/HBoxMain/MarginContainerSyllable/NbSyllableContainer"]
+[node name="NbSyllableLabel" type="Label" parent="TextureRect/MainPage/Control/Margin/Main/HBoxMain/MarginContainerSyllable/NbSyllableContainer"]
 margin_right = 280.0
 margin_bottom = 36.0
 text = "Nombre de syllabe"
 align = 1
 
-[node name="MarginContainerStruct" type="MarginContainer" parent="TextureRect/Margin/Main/HBoxMain"]
+[node name="MarginContainerStruct" type="MarginContainer" parent="TextureRect/MainPage/Control/Margin/Main/HBoxMain"]
 margin_left = 503.0
 margin_right = 804.0
 margin_bottom = 36.0
 
-[node name="Panel2" type="Panel" parent="TextureRect/Margin/Main/HBoxMain/MarginContainerStruct"]
+[node name="Panel2" type="Panel" parent="TextureRect/MainPage/Control/Margin/Main/HBoxMain/MarginContainerStruct"]
 modulate = Color( 1, 1, 1, 0.32549 )
 margin_right = 301.0
 margin_bottom = 36.0
 custom_styles/panel = ExtResource( 6 )
 
-[node name="StructSyllableContainer" type="VBoxContainer" parent="TextureRect/Margin/Main/HBoxMain/MarginContainerStruct"]
+[node name="StructSyllableContainer" type="VBoxContainer" parent="TextureRect/MainPage/Control/Margin/Main/HBoxMain/MarginContainerStruct"]
 margin_right = 301.0
 margin_bottom = 36.0
 
-[node name="StructSyllableLabel" type="Label" parent="TextureRect/Margin/Main/HBoxMain/MarginContainerStruct/StructSyllableContainer"]
+[node name="StructSyllableLabel" type="Label" parent="TextureRect/MainPage/Control/Margin/Main/HBoxMain/MarginContainerStruct/StructSyllableContainer"]
 margin_right = 301.0
 margin_bottom = 36.0
 text = "Structure syllabique"
 align = 1
 
-[node name="Creation" type="Button" parent="TextureRect/Margin/Main"]
+[node name="Creation" type="Button" parent="TextureRect/MainPage/Control/Margin/Main"]
 margin_top = 80.0
 margin_right = 1024.0
 margin_bottom = 176.0
@@ -98,7 +109,7 @@ size_flags_horizontal = 5
 theme = ExtResource( 1 )
 text = "Créer l'exercice"
 
-[node name="retour" type="Button" parent="."]
+[node name="retour" type="Button" parent="TextureRect/MainPage/Control"]
 margin_right = 100.0
 margin_bottom = 102.0
 icon = ExtResource( 5 )
@@ -108,13 +119,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Popup" type="WindowDialog" parent="."]
+[node name="Popup" type="WindowDialog" parent="TextureRect/MainPage/Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = 8.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Popup"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MainPage/Control/Popup"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
@@ -125,21 +137,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PopupLabel" type="Label" parent="Popup/VBoxContainer"]
+[node name="PopupLabel" type="Label" parent="TextureRect/MainPage/Control/Popup/VBoxContainer"]
 margin_right = 1024.0
 margin_bottom = 62.0
 size_flags_vertical = 1
 text = "Mots proposés :"
 align = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Popup/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/MainPage/Control/Popup/VBoxContainer"]
 margin_top = 82.0
 margin_right = 1024.0
 margin_bottom = 478.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxPopup" type="VBoxContainer" parent="Popup/VBoxContainer/ScrollContainer"]
+[node name="VBoxPopup" type="VBoxContainer" parent="TextureRect/MainPage/Control/Popup/VBoxContainer/ScrollContainer"]
 margin_right = 1024.0
 margin_bottom = 396.0
 size_flags_horizontal = 3
@@ -149,28 +161,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Popup/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MainPage/Control/Popup/VBoxContainer"]
 margin_top = 498.0
 margin_right = 1024.0
 margin_bottom = 600.0
 custom_constants/separation = 50
 alignment = 1
 
-[node name="Cancel" type="Button" parent="Popup/VBoxContainer/HBoxContainer"]
+[node name="Cancel" type="Button" parent="TextureRect/MainPage/Control/Popup/VBoxContainer/HBoxContainer"]
 margin_left = 297.0
 margin_right = 469.0
 margin_bottom = 102.0
 theme = ExtResource( 1 )
 text = "Annuler"
 
-[node name="Confirm" type="Button" parent="Popup/VBoxContainer/HBoxContainer"]
+[node name="Confirm" type="Button" parent="TextureRect/MainPage/Control/Popup/VBoxContainer/HBoxContainer"]
 margin_left = 519.0
 margin_right = 727.0
 margin_bottom = 102.0
 theme = ExtResource( 1 )
 text = "Confirmer"
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="TextureRect/MainPage/Control"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -179,14 +191,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ConfirmationPopup" type="Popup" parent="."]
+[node name="ConfirmationPopup" type="Popup" parent="TextureRect/MainPage/Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ConfirmationPopup"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MainPage/Control/ConfirmationPopup"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
@@ -196,7 +208,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="ConfirmationPopup/VBoxContainer"]
+[node name="Label" type="Label" parent="TextureRect/MainPage/Control/ConfirmationPopup/VBoxContainer"]
 margin_top = 282.0
 margin_right = 1024.0
 margin_bottom = 318.0
@@ -207,13 +219,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="TextureRect/MainPage/Control"]
 one_shot = true
-[connection signal="pressed" from="TextureRect/Margin/Main/Creation" to="." method="_on_Creation_pressed"]
-[connection signal="pressed" from="retour" to="." method="_on_retour_pressed"]
-[connection signal="popup_hide" from="Popup" to="." method="_on_Popup_popup_hide"]
-[connection signal="gui_input" from="Popup/VBoxContainer/ScrollContainer" to="." method="_on_ScrollContainer_gui_input"]
-[connection signal="pressed" from="Popup/VBoxContainer/HBoxContainer/Cancel" to="." method="_on_Popup_popup_hide"]
-[connection signal="pressed" from="Popup/VBoxContainer/HBoxContainer/Confirm" to="." method="_on_Confirm_pressed"]
-[connection signal="popup_hide" from="ConfirmationPopup" to="." method="_on_Popup_popup_hide"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="TextureRect/MainPage/Control/Margin/Main/Creation" to="." method="_on_Creation_pressed"]
+[connection signal="pressed" from="TextureRect/MainPage/Control/retour" to="." method="_on_retour_pressed"]
+[connection signal="popup_hide" from="TextureRect/MainPage/Control/Popup" to="." method="_on_Popup_popup_hide"]
+[connection signal="gui_input" from="TextureRect/MainPage/Control/Popup/VBoxContainer/ScrollContainer" to="." method="_on_ScrollContainer_gui_input"]
+[connection signal="pressed" from="TextureRect/MainPage/Control/Popup/VBoxContainer/HBoxContainer/Cancel" to="." method="_on_Popup_popup_hide"]
+[connection signal="pressed" from="TextureRect/MainPage/Control/Popup/VBoxContainer/HBoxContainer/Confirm" to="." method="_on_Confirm_pressed"]
+[connection signal="popup_hide" from="TextureRect/MainPage/Control/ConfirmationPopup" to="." method="_on_Popup_popup_hide"]
+[connection signal="timeout" from="TextureRect/MainPage/Control/Timer" to="." method="_on_Timer_timeout"]

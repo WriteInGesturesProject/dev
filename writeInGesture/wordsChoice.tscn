@@ -435,13 +435,13 @@ margin_left = -329.0
 margin_top = -155.0
 margin_right = 329.0
 margin_bottom = 155.0
-window_title = ""
+window_title = "Ouvrir un fichier"
 resizable = true
 mode = 0
 access = 2
 filters = PoolStringArray( "*.png ; PNG Images", "*.jpg ; JPG Images", "*.jpeg ; JPEG Images" )
-current_dir = "/mnt/DATA/Polytech/S10/Projet/dev/writeInGesture"
-current_path = "/mnt/DATA/Polytech/S10/Projet/dev/writeInGesture/"
+current_dir = "/home/chabrema/5A/S10/dev/writeInGesture"
+current_path = "/home/chabrema/5A/S10/dev/writeInGesture/"
 __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""

@@ -51,7 +51,11 @@ func _ready():
 	find_node("Panel").rect_position = Vector2(video.rect_position.x - centervideo, video.rect_position.y)
 	texture.rect_position = Vector2(xmainbox/2 - ymainbox - centermarge ,0)
 
-	
+	find_node("Back").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
+	find_node("Main").add_constant_override("margin_left", get_viewport().size.y * 0.015)
+	find_node("Main").add_constant_override("margin_top", get_viewport().size.y * 0.015)
+	find_node("Main").add_constant_override("margin_right", get_viewport().size.y * 0.015)
+	find_node("Main").add_constant_override("margin_bottom", get_viewport().size.y * 0.015)
 	find_node("MainBox").rect_min_size = Vector2(xmainbox, ymainbox) 
 
 

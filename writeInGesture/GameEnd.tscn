@@ -53,8 +53,7 @@ margin_right = 1024.0
 margin_bottom = 36.0
 
 [node name="Home" type="Button" parent="Main/MainVBox/HeaderHBox/MarginCoinBox/Control"]
-margin_left = 4.0
-margin_right = 104.0
+margin_right = 100.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 100, 100 )
 icon = ExtResource( 4 )

@@ -29,7 +29,13 @@ func _ready():
 	Global.score = 0
 	var scene = preload("res://DrawWord.tscn")
 	drawWord = scene.instance()
-	add_child(drawWord)
+	var marginMain = MarginContainer.new()
+	marginMain.add_constant_override("margin_left", get_viewport().size.y * 0.015)
+	marginMain.add_constant_override("margin_top", get_viewport().size.y * 0.015)
+	marginMain.add_constant_override("margin_right", get_viewport().size.y * 0.015)
+	marginMain.add_constant_override("margin_bottom", get_viewport().size.y * 0.015)
+	marginMain.add_child(drawWord)
+	add_child(marginMain)
 	drawWord.display(0,myWords[0],Ex,index)
 
 func back():

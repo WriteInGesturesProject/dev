@@ -17,14 +17,15 @@ func _ready():
 	coinBox = find_node("CoinBox")
 	size = get_viewport().size
 	
-	main.set("custom_constants/margin_right", size.x/20)
-	main.set("custom_constants/margin_left", size.x/20)
-	main.set("custom_constants/margin_top", size.y*0.03)
-	main.set("custom_constants/margin_bottom", size.y*0.03)
+	find_node("Main").add_constant_override("margin_left", get_viewport().size.y * 0.015)
+	find_node("Main").add_constant_override("margin_top", get_viewport().size.y * 0.015)
+	find_node("Main").add_constant_override("margin_right", get_viewport().size.y * 0.015)
+	find_node("Main").add_constant_override("margin_bottom", get_viewport().size.y * 0.015)
 	find_node("MarginCoinBox").set("custom_constants/margin_right", int(size.x*7/120))
 	find_node("MarginCoinBox").set("custom_constants/margin_left", int(size.x*7/120))
 	find_node("Gold").text = str(Global.player.getGold())
 	find_node("Silver").text = str(Global.player.getSilver())
+	find_node("Home").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
 	
 #	find_node("Logo").rect_size = Vector2(size.y/4,size.y/4)
 #	find_node("Logo").rect_position.x = size.x/2 - size.x/20 - size.y/8

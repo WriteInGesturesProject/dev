@@ -68,6 +68,7 @@ func _ready():
 		index += 3
 	else :
 		get_tree().change_scene("res://GameEnd.tscn")
+	find_node("Back").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
 
 
 func _cardSelected(event : InputEvent, card : Card) -> void:

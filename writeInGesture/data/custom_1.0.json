@@ -5,7 +5,7 @@
 		"userId" : "0",
 		"name" : "Custom",
 		"type" : {
-			"name" : "Jouer",
+			"name" : "Entrainement",
 			"categorie" : "Custom, MonoSyllabe, BiSyllable, TriSyllable",
 			"syllableStruct" : "cv, cvv, cvc, n",
 			"vowelsType" : "O, N, SV",

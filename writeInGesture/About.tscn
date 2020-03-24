@@ -1,5 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
+[ext_resource path="res://assets/icons/back.png" type="Texture" id=1]
+[ext_resource path="res://About.gd" type="Script" id=2]
 [ext_resource path="res://assets/background.png" type="Texture" id=5]
 [ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=21]
 
@@ -7,6 +9,7 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 21 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""
@@ -20,3 +23,143 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+margin_right = 1024.0
+margin_bottom = 600.0
+custom_constants/separation = 30
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Contributors" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+margin_left = 18.0
+margin_right = 331.0
+margin_bottom = 600.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Label5" type="Label" parent="MarginContainer/HBoxContainer/Contributors"]
+margin_top = 142.0
+margin_right = 313.0
+margin_bottom = 178.0
+text = "Contributors : "
+
+[node name="label" type="Label" parent="MarginContainer/HBoxContainer/Contributors"]
+margin_top = 198.0
+margin_right = 313.0
+margin_bottom = 234.0
+text = " - COSCIA Daniel"
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Contributors"]
+margin_top = 254.0
+margin_right = 313.0
+margin_bottom = 290.0
+text = "- DENIS Guillaume"
+
+[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/Contributors"]
+margin_top = 310.0
+margin_right = 313.0
+margin_bottom = 346.0
+text = "- DE ARAUJO Bastien"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/Contributors"]
+margin_top = 366.0
+margin_right = 313.0
+margin_bottom = 402.0
+text = "- CHABRE Manon"
+
+[node name="Label4" type="Label" parent="MarginContainer/HBoxContainer/Contributors"]
+margin_top = 422.0
+margin_right = 313.0
+margin_bottom = 458.0
+text = "- et ALACALI Kadir"
+
+[node name="Rights" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+margin_left = 361.0
+margin_right = 674.0
+margin_bottom = 600.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Rights"]
+margin_top = 178.0
+margin_right = 313.0
+margin_bottom = 214.0
+text = "Image et vidéos : "
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/Rights"]
+margin_top = 234.0
+margin_right = 313.0
+margin_bottom = 309.0
+text = "- GILLET PERRET 
+Estelle"
+
+[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/Rights"]
+margin_top = 329.0
+margin_right = 313.0
+margin_bottom = 365.0
+text = "- DE ARAUJO Bastien"
+
+[node name="Label4" type="Label" parent="MarginContainer/HBoxContainer/Rights"]
+margin_top = 385.0
+margin_right = 313.0
+margin_bottom = 421.0
+text = "- DENIS Guillaume"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+margin_left = 704.0
+margin_right = 1005.0
+margin_bottom = 600.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 120.0
+margin_right = 301.0
+margin_bottom = 156.0
+text = "Source : "
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 176.0
+margin_right = 301.0
+margin_bottom = 251.0
+text = "- Projet open source
+et collaboratif"
+
+[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 271.0
+margin_right = 301.0
+margin_bottom = 346.0
+text = "- Disponible sur 
+GitHub:"
+
+[node name="Label4" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 366.0
+margin_right = 301.0
+margin_bottom = 480.0
+text = "https://github.com/
+WriteInGestures
+Project/dev"
+
+[node name="Back" type="Button" parent="."]
+margin_right = 100.0
+margin_bottom = 102.0
+icon = ExtResource( 1 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]

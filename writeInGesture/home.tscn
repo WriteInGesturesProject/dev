@@ -10,7 +10,7 @@
 [ext_resource path="res://login.gd" type="Script" id=8]
 [ext_resource path="res://assets/icons/goldCoin.png" type="Texture" id=9]
 [ext_resource path="res://assets/icons/silverCoin.png" type="Texture" id=10]
-[ext_resource path="res://art/logo.png" type="Texture" id=11]
+[ext_resource path="res://assets/icons/icon.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -173,9 +173,9 @@ custom_constants/separation = 40
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Main/MainVbox/MainHbox/MainBox"]
-margin_top = 34.0
+margin_top = 102.0
 margin_right = 210.0
-margin_bottom = 114.0
+margin_bottom = 182.0
 
 [node name="Label" type="Label" parent="Main/MainVbox/MainHbox/MainBox/VBoxContainer"]
 margin_right = 210.0
@@ -193,27 +193,20 @@ text = "Xavier L'autiste"
 align = 1
 
 [node name="Play" type="Button" parent="Main/MainVbox/MainHbox/MainBox"]
-margin_top = 154.0
+margin_top = 222.0
 margin_right = 210.0
-margin_bottom = 250.0
+margin_bottom = 318.0
 size_flags_horizontal = 3
 theme = ExtResource( 5 )
 text = "Jouer"
 
 [node name="Training" type="Button" parent="Main/MainVbox/MainHbox/MainBox"]
-margin_top = 290.0
+margin_top = 358.0
 margin_right = 210.0
-margin_bottom = 386.0
+margin_bottom = 454.0
 size_flags_horizontal = 3
 theme = ExtResource( 5 )
 text = "M'entrainer"
-
-[node name="Button" type="Button" parent="Main/MainVbox/MainHbox/MainBox"]
-margin_top = 426.0
-margin_right = 210.0
-margin_bottom = 522.0
-theme = ExtResource( 5 )
-text = "A Propos"
 
 [node name="OrthoBox" type="VBoxContainer" parent="Main/MainVbox/MainHbox"]
 margin_left = 574.0
@@ -278,9 +271,9 @@ __meta__ = {
 }
 
 [node name="title" type="Label" parent="Popup/VBoxContainer"]
-margin_top = 150.0
+margin_top = 79.0
 margin_right = 724.0
-margin_bottom = 186.0
+margin_bottom = 141.0
 text = "Connexion"
 align = 1
 __meta__ = {
@@ -288,30 +281,30 @@ __meta__ = {
 }
 
 [node name="id" type="LineEdit" parent="Popup/VBoxContainer"]
-margin_top = 211.0
+margin_top = 166.0
 margin_right = 724.0
-margin_bottom = 257.0
+margin_bottom = 238.0
 max_length = 20
 placeholder_text = "Identifiant"
 
 [node name="psswd" type="LineEdit" parent="Popup/VBoxContainer"]
-margin_top = 282.0
+margin_top = 263.0
 margin_right = 724.0
-margin_bottom = 328.0
+margin_bottom = 335.0
 max_length = 20
 secret = true
 placeholder_text = "Mot de passe"
 
 [node name="submit" type="Button" parent="Popup/VBoxContainer"]
-margin_top = 353.0
+margin_top = 360.0
 margin_right = 724.0
-margin_bottom = 389.0
+margin_bottom = 428.0
 text = "Envoyer"
 
 [node name="resetPsswd" type="Button" parent="Popup/VBoxContainer"]
-margin_top = 414.0
+margin_top = 453.0
 margin_right = 724.0
-margin_bottom = 450.0
+margin_bottom = 521.0
 text = "Reinitialiser le mot de passe"
 
 [node name="PopupReset" type="WindowDialog" parent="Popup"]
@@ -371,13 +364,24 @@ margin_top = 455.0
 margin_right = 724.0
 margin_bottom = 523.0
 text = "Envoyer"
+
+[node name="Details" type="Button" parent="."]
+margin_left = 15.3159
+margin_top = 14.0396
+margin_right = 188.316
+margin_bottom = 110.04
+theme = ExtResource( 5 )
+text = "A propos"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Main/MainVbox/MainHbox/AvatarBox/Change" to="." method="_on_Change_pressed"]
 [connection signal="pressed" from="Main/MainVbox/MainHbox/MainBox/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Main/MainVbox/MainHbox/MainBox/Training" to="." method="_on_Training_pressed"]
-[connection signal="pressed" from="Main/MainVbox/MainHbox/MainBox/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Main/MainVbox/MainHbox/OrthoBox/VBoxContainer/Help" to="." method="_on_Help_pressed"]
 [connection signal="pressed" from="Main/MainVbox/MainHbox/OrthoBox/VBoxContainer/Admin" to="." method="_on_Admin_pressed"]
 [connection signal="popup_hide" from="Popup" to="." method="_on_Popup_popup_hide"]
 [connection signal="pressed" from="Popup/VBoxContainer/submit" to="Popup" method="_on_submit_pressed"]
 [connection signal="pressed" from="Popup/VBoxContainer/resetPsswd" to="Popup" method="_on_resetPsswd_pressed"]
 [connection signal="pressed" from="Popup/PopupReset/VBoxContainer/submit" to="Popup/PopupReset" method="_on_submit_pressed"]
+[connection signal="pressed" from="Details" to="." method="_on_Details_pressed"]

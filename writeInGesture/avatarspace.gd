@@ -9,6 +9,7 @@ var avatarToBuy
 var avatarCoin = Global.player.getCoinAvatar()
 
 func _ready():
+	find_node("marginButtons").add_constant_override("margin_left", get_viewport().size.x/2 - 220)
 	find_node("CancelBuy").rect_position.y = find_node("ValidateBuy").rect_position.y
 	var margintop=(get_viewport().size.y -3*get_viewport().size.y/4.5 - get_viewport().size.y*0.05 - get_node("LineEdit").rect_size.y - find_node("goldImage").rect_size.y)/2
 	get_node("MarginContainer").margin_left = (get_viewport().size.x -6*get_viewport().size.y/4.5 - get_viewport().size.y*0.05)/2
@@ -93,7 +94,6 @@ func _colorAvatars():
 			nbMoney.rect_position.y = iconMoney.rect_position.y
 			nbMoney.rect_position.x = iconMoney.rect_position.x + 40 + image.rect_size.x*0.03
 			c.add_child(contMoney)
-		print("ok ", c.get_children())
 
 func _choice_pressed(avatar):
 	if(avatar.modulate == Color("A9A9A9")):

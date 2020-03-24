@@ -127,10 +127,11 @@ func displayStatisticsAllWords():
 	allWords = exerciseSelected.getAllWords()
 	var index = 0
 	for word in allWords :
-		var hBox = HBoxContainer.new()
+		var currentVbox = VBoxContainer.new()
 		var wordLabel = Label.new()
 		wordLabel.text = word.getWord()
-		hBox.add_child(wordLabel)
+		wordLabel.align = HALIGN_CENTER
+		currentVbox.add_child(wordLabel)
 		var nbOccurs = exerciseSelected.getNbWordOccurrence(difficultySelected-1, index)
 		var nbSuccess = exerciseSelected.getWordSuccess(difficultySelected-1, index)
 		var stats = Label.new()
@@ -140,10 +141,19 @@ func displayStatisticsAllWords():
 			percentages.append(currentpercentages)
 		else:
 			percentages.append(0)
+		var currentPercentage = ProgressBar.new()
+		currentPercentage.value = int(currentpercentages)
+		currentPercentage.size_flags_horizontal = SIZE_EXPAND_FILL
+		var separator = ColorRect.new()
+		separator.color = "bcdaf4"
+		separator.size_flags_horizontal = SIZE_EXPAND_FILL
+		separator.rect_min_size.y = 1
 		stats.text = " - Succès : "+String(nbSuccess)+"/"+String(nbOccurs)+" = "+String(int(currentpercentages))+"%"
-		hBox.add_child(stats)
+		currentVbox.add_child(currentPercentage)
+		currentVbox.add_child(separator)
+		currentVbox.add_constant_override("separation", 20)
 		index += 1
-		find_node("statsExercises").add_child(hBox)
+		find_node("statsExercises").add_child(currentVbox)
 
 func removeAllChildren(nameNode):
 	# remove all children of node "statsExercises"

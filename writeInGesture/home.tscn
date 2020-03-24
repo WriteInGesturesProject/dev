@@ -10,7 +10,7 @@
 [ext_resource path="res://login.gd" type="Script" id=8]
 [ext_resource path="res://assets/icons/goldCoin.png" type="Texture" id=9]
 [ext_resource path="res://assets/icons/silverCoin.png" type="Texture" id=10]
-[ext_resource path="res://assets/icons/icon.png" type="Texture" id=11]
+[ext_resource path="res://art/logo.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40

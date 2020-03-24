@@ -4,6 +4,7 @@ extends Control
 func _ready():
 	Global.game = 0
 	Global.score = 0
+	Global.try = []
 	
 	find_node("MarginContainer").add_constant_override("margin_left",get_viewport().size.x/8)
 	find_node("MarginContainer").add_constant_override("margin_right",get_viewport().size.x/8)

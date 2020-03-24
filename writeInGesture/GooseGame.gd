@@ -72,7 +72,6 @@ func _ready():
 			break
 	board[0].modulate = "e86767"
 	Global.score = 0
-	Global.try = []
 	for i in myWords:
 		Global.try.append(false)
 	find_node("Timer").start()

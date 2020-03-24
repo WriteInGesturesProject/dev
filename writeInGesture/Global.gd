@@ -70,6 +70,7 @@ func check_words(sentence, myword):
 	if(words == null || len(words) == 0):
 		return false
 	for w in words:
+		print(w)
 		if(check_homonyms(w.to_lower(), myword)):
 			return true
 	return false

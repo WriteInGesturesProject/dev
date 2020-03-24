@@ -13,19 +13,23 @@ var progressBarNode : Node
 var exerciseChoiceNode : Node
 var difficultyChoiceNode : Node
 var exerciseMostPlayed : Exercise
+var sizeViewPort : Vector2
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	sizeViewPort = get_viewport().size
 	findExerciseMostPlayer(Global.exercises)
 	find_node("mostPlayed").text = "Le jeu le plus joué est le jeu : "+exerciseMostPlayed.getName()+", joué : "+String(exerciseMostPlayed.getNbSuccess())+" fois."
 	exerciseChoiceNode = find_node("exerciseChoice")
-	exerciseChoiceNode.text = "Choisi un exercice"
-	exerciseChoiceNode.add_item("Choisi un exercice")
+	exerciseChoiceNode.text = "Choisis un exercice"
+	exerciseChoiceNode.add_item("Choisis un exercice")
+	exerciseChoiceNode.rect_min_size.y = sizeViewPort.y*0.1
 	for exercise in Global.exercises:
 		exerciseChoiceNode.add_item(exercise.name)
 		
 	difficultyChoiceNode = find_node("difficultyChoice")
-	difficultyChoiceNode.text = "Choisi une difficulté"
-	difficultyChoiceNode.add_item("Choisi une difficulté")
+	difficultyChoiceNode.text = "Choisis une difficulté"
+	difficultyChoiceNode.add_item("Choisis une difficulté")
+	difficultyChoiceNode.rect_min_size.y = sizeViewPort.y*0.1
 	for index in range(0, Global.nbDifficulty):
 		difficultyChoiceNode.add_item(String(index+1))
 	

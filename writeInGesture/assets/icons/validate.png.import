@@ -2,26 +2,26 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/assistant.png-cc9e0a00c59df2263a4be538f537eaad.stex"
+path="res://.import/validate.png-938647e64e53c31e5b3ea387f7a2ef48.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/users/selected/assistant.png"
-dest_files=[ "res://.import/assistant.png-cc9e0a00c59df2263a4be538f537eaad.stex" ]
+source_file="res://assets/icons/validate.png"
+dest_files=[ "res://.import/validate.png-938647e64e53c31e5b3ea387f7a2ef48.stex" ]
 
 [params]
 
 compress/mode=1
-compress/lossy_quality=0.1
+compress/lossy_quality=0.5
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
-flags/mipmaps=false
+flags/mipmaps=true
 flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true

@@ -43,14 +43,20 @@ func _ready():
 	prevChoice = null
 	sizeViewPort = get_viewport().size
 	var sizeCard = Vector2(sizeViewPort.x/4, sizeViewPort.y*0.75)
-	var yRest = - find_node("Speak").rect_size.y - find_node("Validate").rect_size.y - sizeCard.y + sizeViewPort.y
 	
+	var speakControl = find_node("speakControl")
+	var speakButton = find_node("speak")
+	speakButton.rect_size = Vector2(sizeViewPort.y*0.1, sizeViewPort.y*0.1)
+	speakControl.rect_size = speakButton.rect_size
+	speakButton.rect_position.y = sizeViewPort.y*0.01
+	speakButton.rect_position.x = (sizeViewPort.x/2) - speakButton.rect_size.x/2
+	
+	var yRest = - find_node("speak").rect_size.y - find_node("Validate").rect_size.y - sizeCard.y + sizeViewPort.y
 	plate.add_constant_override("separation", sizeCard.x + (sizeViewPort.x*0.25)/3)
 	find_node("marginPlate").add_constant_override("margin_left", (sizeViewPort.x*0.25)/6)
-	find_node("marginPlate").add_constant_override("margin_top", yRest/2)
+	find_node("marginPlate").add_constant_override("margin_top", yRest/2 + speakButton.rect_size.y)
 	if(index+3 <= myWords.size()):
-		rand = randi() % 2
-		print(rand)
+		rand = randi() % 3
 		for b in range(0,3):
 			currentCard = Card.new()
 			currentCard.name = String(b)
@@ -91,7 +97,10 @@ func _on_Speak_pressed():
 func _on_Validate_pressed():
 	if(findCard.wordLabel.text == cardSelected.wordLabel.text):
 		Global.score += 1
+		find_node("Good").playing = true
 		Global.player.setSilver(Global.player.getSilver()+1)
+	else : 
+		find_node("Wrong").playing = true
 	find_node("Validate").disabled = true
 	cardSelected = null
 	for i in range(0, plate.get_child_count()):

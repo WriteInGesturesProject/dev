@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://GameEnd.gd" type="Script" id=1]
 [ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/icons/home.png" type="Texture" id=4]
 [ext_resource path="res://assets/background.png" type="Texture" id=5]
 [ext_resource path="res://assets/icons/silverCoin.png" type="Texture" id=6]
+[ext_resource path="res://assets/theme/DejaVuFont.tres" type="DynamicFont" id=7]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -73,12 +74,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control" type="Control" parent="Main/MainVBox/HeaderHBox/MarginCoinBox/CoinBox"]
+[node name="ControlGold" type="Control" parent="Main/MainVBox/HeaderHBox/MarginCoinBox/CoinBox"]
 margin_left = 806.0
 margin_right = 806.0
 margin_bottom = 36.0
 
-[node name="TextureRect" type="TextureRect" parent="Main/MainVBox/HeaderHBox/MarginCoinBox/CoinBox/Control"]
+[node name="TextureRectGold" type="TextureRect" parent="Main/MainVBox/HeaderHBox/MarginCoinBox/CoinBox/ControlGold"]
 margin_right = 50.0
 margin_bottom = 50.0
 texture = ExtResource( 3 )
@@ -93,12 +94,12 @@ margin_right = 885.0
 margin_bottom = 36.0
 text = "0"
 
-[node name="Control2" type="Control" parent="Main/MainVBox/HeaderHBox/MarginCoinBox/CoinBox"]
+[node name="ControlSilver" type="Control" parent="Main/MainVBox/HeaderHBox/MarginCoinBox/CoinBox"]
 margin_left = 945.0
 margin_right = 945.0
 margin_bottom = 36.0
 
-[node name="TextureRect" type="TextureRect" parent="Main/MainVBox/HeaderHBox/MarginCoinBox/CoinBox/Control2"]
+[node name="TextureRectSilver" type="TextureRect" parent="Main/MainVBox/HeaderHBox/MarginCoinBox/CoinBox/ControlSilver"]
 margin_right = 50.0
 margin_bottom = 50.0
 texture = ExtResource( 6 )
@@ -121,37 +122,79 @@ size_flags_vertical = 3
 alignment = 1
 
 [node name="Comment" type="Label" parent="Main/MainVBox/VBoxContainer"]
-margin_top = 134.0
+margin_top = 114.0
 margin_right = 1024.0
-margin_bottom = 170.0
+margin_bottom = 158.0
+custom_fonts/font = ExtResource( 7 )
+text = "Comment"
 align = 1
 valign = 1
 
 [node name="Money" type="Label" parent="Main/MainVBox/VBoxContainer"]
-margin_top = 174.0
+margin_top = 162.0
 margin_right = 1024.0
-margin_bottom = 210.0
+margin_bottom = 206.0
+custom_fonts/font = ExtResource( 7 )
+text = "Money"
 align = 1
 valign = 1
 
 [node name="Score" type="Label" parent="Main/MainVBox/VBoxContainer"]
-margin_top = 214.0
+margin_top = 210.0
 margin_right = 1024.0
-margin_bottom = 250.0
+margin_bottom = 254.0
+custom_fonts/font = ExtResource( 7 )
+text = "Score"
 align = 1
 valign = 1
 
 [node name="BestScore" type="Label" parent="Main/MainVBox/VBoxContainer"]
-margin_top = 254.0
+margin_top = 258.0
 margin_right = 1024.0
-margin_bottom = 290.0
+margin_bottom = 302.0
+custom_fonts/font = ExtResource( 7 )
+text = "BestScore"
 align = 1
 valign = 1
 
 [node name="Success" type="Label" parent="Main/MainVBox/VBoxContainer"]
-margin_top = 294.0
+margin_top = 306.0
 margin_right = 1024.0
-margin_bottom = 330.0
+margin_bottom = 350.0
+custom_fonts/font = ExtResource( 7 )
+text = "Sucess"
 align = 1
 valign = 1
+
+[node name="TimerSilver" type="Timer" parent="."]
+wait_time = 0.666
+__meta__ = {
+"_editor_description_": "Silver"
+}
+
+[node name="TimerGold" type="Timer" parent="."]
+wait_time = 0.666
+__meta__ = {
+"_editor_description_": "Gold"
+}
+
+[node name="Button" type="Button" parent="."]
+visible = false
+margin_left = 208.0
+margin_top = 441.0
+margin_right = 248.0
+margin_bottom = 477.0
+text = "Silver"
+
+[node name="Button2" type="Button" parent="."]
+visible = false
+margin_left = 815.0
+margin_top = 444.0
+margin_right = 898.0
+margin_bottom = 480.0
+text = "Gold"
 [connection signal="pressed" from="Main/MainVBox/HeaderHBox/MarginCoinBox/Control/Home" to="." method="_on_Home_pressed"]
+[connection signal="timeout" from="TimerSilver" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="TimerGold" to="." method="_on_TimerGold_timeout"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]

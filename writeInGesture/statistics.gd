@@ -10,6 +10,7 @@ var wordsHarder : Array
 var allWords : Array
 
 var progressBarNode : Node
+var occursDone : Label
 var exerciseChoiceNode : Node
 var difficultyChoiceNode : Node
 var exerciseMostPlayed : Exercise
@@ -38,6 +39,8 @@ func _ready():
 		difficultyChoiceNode.add_item(String(index+1))
 	
 	progressBarNode = find_node("ProgressBar")
+	occursDone = find_node("nbOccurs")
+#	exerciseChoiceNode.theme.set_constant("vseparation","PopupMenu", sizeViewPort.y*0.05)
 
 func findExerciseMostPlayer(exercises : Array):
 	exerciseMostPlayed = exercises[0]
@@ -59,13 +62,17 @@ func _on_exerciseChoice_item_selected(id):
 					displayStatisticsAllWords()
 					progressBarNode.value = exerciseSelected.getSuccessPercentage(difficultySelected-1)
 					progressBarNode.visible = true
+					occursDone.text = "Vous avez terminé ce jeu " + String(exerciseSelected.getNbSuccess()) + " fois"
+					occursDone.visible = true
 					displayStatisticsWordsEasierHarder(3)
 				else :
 					clean()
 					progressBarNode.visible = false
+					occursDone.visible = false
 					difficultyChoiceNode.visible = true
 					difficultyChoiceNode.select(0)
 				return;
+	occursDone.visible = false
 	progressBarNode.visible = false
 	clean()
 
@@ -77,9 +84,12 @@ func _on_difficultyChoice_item_selected(id):
 		displayStatisticsAllWords()
 		progressBarNode.value = exerciseSelected.getSuccessPercentage(difficultySelected-1)
 		progressBarNode.visible = true
+		occursDone.text = "Vous avez terminé ce jeu " + String(exerciseSelected.getNbSuccess()) + " fois"
+		occursDone.visible = true
 		displayStatisticsWordsEasierHarder(3)
 	else :
 		progressBarNode.visible = false
+		occursDone.visible = false
 
 func displayStatisticsWordsEasierHarder(nbMin : int):
 	var nodeRootHarder = find_node("wordsHarder")
@@ -148,6 +158,7 @@ func displayStatisticsAllWords():
 		var currentPercentage = ProgressBar.new()
 		currentPercentage.value = int(currentpercentages)
 		currentPercentage.size_flags_horizontal = SIZE_EXPAND_FILL
+		currentPercentage.theme = load("res://assets/theme/progressBar.tres")
 		var separator = ColorRect.new()
 		separator.color = "bcdaf4"
 		separator.size_flags_horizontal = SIZE_EXPAND_FILL

@@ -69,7 +69,6 @@ size_flags_horizontal = 3
 margin_top = 8.0
 margin_right = 100.0
 margin_bottom = 108.0
-rect_min_size = Vector2( 100, 100 )
 size_flags_vertical = 3
 texture_normal = ExtResource( 7 )
 texture_pressed = ExtResource( 7 )
@@ -90,15 +89,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Validate" type="Button" parent="MainPage/Control"]
+[node name="Validate" type="TextureButton" parent="MainPage/Control"]
 margin_left = 0.769531
 margin_top = 0.41626
 margin_right = 100.77
 margin_bottom = 102.416
 disabled = true
-icon = ExtResource( 1 )
-flat = true
-expand_icon = true
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 1 )
+texture_hover = ExtResource( 1 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -24,16 +24,17 @@ var lastPopup
 #######################################FUNCTION_FOR_SCENE###############################
 func _ready():
 	#####Put margin
-	Global.make_margin(find_node("Main"), 0.015)
+
 	find_node("retour").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
+	find_node("retour").rect_position = Vector2(get_viewport().size.y*0.015, get_viewport().size.y*0.015)
 	Global.make_margin(find_node("Margin"), margin)
-	marginVector = (get_viewport().size)*(1- 2*margin)
+	marginVector = (get_viewport().size)*(1- 2*(margin))
 	
 	###Put responsive VboxWords
 	var wordsContainer = find_node("WordsContainer")
 	wordsContainer.rect_min_size.x = marginVector.x/4
-	wordsContainer.rect_min_size.y = marginVector.y - find_node("retour").rect_size.y + marginVector.y*margin
-	find_node("MarginWord").set("custom_constants/margin_top", find_node("retour").rect_size.y - get_viewport().size.y * margin)
+	wordsContainer.rect_min_size.y = marginVector.y - find_node("retour").rect_size.y + marginVector.y*margin - get_viewport().size.y * margin
+	find_node("MarginWord").set("custom_constants/margin_top", find_node("retour").rect_size.y )
 	find_node("MainContainer").add_constant_override("separation", marginVector.x/16)
 	
 	#Put responsive VboxEdit

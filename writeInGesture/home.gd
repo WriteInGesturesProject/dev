@@ -17,8 +17,10 @@ func _ready():
 	find_node("Help").rect_min_size.y = get_viewport().size.y/5
 	find_node("Admin").rect_min_size.y = get_viewport().size.y/5
 	find_node("Admin").get_font("font").size = get_viewport().size.y/22
+	
 	find_node("Details").rect_min_size.y = get_viewport().size.y/5
 	find_node("Details").rect_position.x = get_viewport().size.x * 0.015
+	
 	mainBox = find_node("MainBox")
 	avatarBox = find_node("AvatarBox")
 	orthoBox = find_node("OrthoBox")

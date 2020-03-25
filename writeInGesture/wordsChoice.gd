@@ -297,15 +297,7 @@ func _on_FileDialog_file_selected(path):
 func _on_Creation_pressed():
 	var creation = CreationExercise.new()
 	if(wordsAvailable.getAllWords().size() >= 3) :
-		#print("Creation of custom exercise")
-		Global.customExercise = creation.creationExercise(Global.customExercise, wordsAvailable.getAllWords())
-		#print("Creation of goose exercise")
-		Global.gooseExercise = creation.creationExercise(Global.gooseExercise, wordsAvailable.getAllWords())
-		#print("Creation of listen exercise")
-		Global.listenExercise = creation.creationExercise(Global.listenExercise, wordsAvailable.getAllWords())
-		#print("Creation of memory exercise")
-		Global.memoryExercise = creation.creationExercise(Global.memoryExercise, wordsAvailable.getAllWords())
-	
+		creation.updateExercises(wordsAvailable.getAllWords())
 		find_node("StatePopup").popup_centered_ratio(1)
 		find_node("labelState").text = "L'exercice a bien été créé "
 		bg.visible = true

@@ -56,7 +56,15 @@ func creationFileExercice(exercise : Exercise):
 	ManageJson.rewriteFile(fileName, JSON.print(dict))
 	return fileName
 	
-	
-	
+func updateExercises(wordsAvailable):
+	#print("Creation of custom exercise")
+	Global.customExercise = self.creationExercise(Global.customExercise, wordsAvailable)
+	#print("Creation of goose exercise")
+	Global.gooseExercise = self.creationExercise(Global.gooseExercise, wordsAvailable)
+	#print("Creation of listen exercise")
+	Global.listenExercise = self.creationExercise(Global.listenExercise, wordsAvailable)
+	#print("Creation of memory exercise")
+	Global.memoryExercise = self.creationExercise(Global.memoryExercise, wordsAvailable)
+	Global.exercises = [Global.customExercise, Global.countExercise, Global.weekExercise, Global.colorExercise, Global.gooseExercise, Global.listenExercise]
 #######################################END_CREATION_OF_EXERCISE##################################
 

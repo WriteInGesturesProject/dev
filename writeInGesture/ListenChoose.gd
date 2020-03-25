@@ -23,6 +23,7 @@ var plate : HBoxContainer
 var sizeViewPort : Vector2
 var cardSelected : Card
 var findCard : Card
+var indexWord : int
 
 #func mySize(word):
 #	var size = 0
@@ -48,6 +49,12 @@ func _ready():
 	speakButton.rect_size = Vector2(sizeViewPort.y*0.1, sizeViewPort.y*0.1)
 	speakButton.rect_position.y = sizeViewPort.y*0.01
 	speakButton.rect_position.x = (sizeViewPort.x/2) - speakButton.rect_size.x/2
+	
+	var validateButton = find_node("Validate")
+	validateButton.rect_size = Vector2(sizeViewPort.y*0.1, sizeViewPort.y*0.1)
+	validateButton.rect_position.y = sizeViewPort.y - validateButton.rect_size.y - sizeViewPort.y*0.01
+	validateButton.rect_position.x = (sizeViewPort.x/2) - validateButton.rect_size.x/2
+	
 	var yRest = - find_node("speak").rect_size.y - find_node("Validate").rect_size.y - sizeCard.y + sizeViewPort.y
 	plate.add_constant_override("separation", sizeCard.x + (sizeViewPort.x*0.25)/3)
 	find_node("marginPlate").add_constant_override("margin_left", (sizeViewPort.x*0.25)/6)
@@ -61,14 +68,13 @@ func _ready():
 			currentCard.setUpCard(myWords[index+b], Global.level, sizeCard)
 			currentCard.buttonSelection.connect("gui_input", self, "_cardSelected", [currentCard])
 			if b == rand : 
+				indexWord = index+b
 				findCard = currentCard
 		index += 3
 	else :
 		get_tree().change_scene("res://GameEnd.tscn")
 	find_node("Back").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
-	find_node("speak").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
-	Global.make_margin(find_node("MainPage"), 0.015)
-
+	find_node("Back").rect_position = Vector2(sizeViewPort.y*0.015, sizeViewPort.y*0.015)
 
 func _cardSelected(event : InputEvent, card : Card) -> void:
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
@@ -93,9 +99,11 @@ func _on_speak_pressed():
 				tts.speakText(text)
 
 func _on_Validate_pressed():
+	Global.listenExercise.setNbWordOccurrence(Global.level, indexWord, Global.listenExercise.getNbWordOccurrence(Global.level, indexWord) + 1)
 	if(findCard.wordLabel.text == cardSelected.wordLabel.text):
 		Global.score += 1
 		find_node("Good").playing = true
+		Global.listenExercise.setWordSuccess(Global.level, indexWord, Global.listenExercise.getWordSuccess(Global.level, indexWord) + 1)
 		Global.player.setSilver(Global.player.getSilver()+1)
 	else : 
 		find_node("Wrong").playing = true
@@ -104,3 +112,15 @@ func _on_Validate_pressed():
 	for i in range(0, plate.get_child_count()):
 		plate.get_child(i).queue_free()
 	_ready()
+
+
+func _on_speakControl_gui_input(event):
+	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
+		if(tts != null):
+			var text = findCard.wordLabel.text
+			print(text)
+			match os:
+				"X11":
+					tts.speak(text, false)
+				"Android":
+					tts.speakText(text)

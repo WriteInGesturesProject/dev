@@ -16,6 +16,8 @@ var exerciseMostPlayed : Exercise
 var sizeViewPort : Vector2
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print(Global.exercises[5])
+	print(Global.listenExercise)
 	find_node("back").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
 	Global.make_margin(find_node("Main"), 0.015)
 	sizeViewPort = get_viewport().size

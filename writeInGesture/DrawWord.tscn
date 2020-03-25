@@ -154,12 +154,8 @@ margin_right = 1024.0
 alignment = 1
 
 [node name="Next" type="TextureButton" parent="MainPage/Control"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -100.0
-margin_top = -100.0
+margin_right = 100.0
+margin_bottom = 100.0
 texture_normal = ExtResource( 9 )
 expand = true
 __meta__ = {

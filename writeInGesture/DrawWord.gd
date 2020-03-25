@@ -24,8 +24,8 @@ var wordTest
 # Called when the node enters the scene tree for the first time.
 func _ready():
 #	display(2,Global.wordDictionnary.getAllWord()[195],null,0)
-	find_node("Next").rect_position = Vector2(get_viewport().size.x - get_viewport().size.y*0.15, get_viewport().size.y*0.85)
-	
+
+	pass
 ##########################################DISPLAY_VIEW########################################################
 func display(level : int, word : Word, exercice : Exercise, ind : int) :
 	wordTest = word
@@ -39,7 +39,7 @@ func display(level : int, word : Word, exercice : Exercise, ind : int) :
 	
 	Global.make_margin(find_node("MainPage"), 0.015)
 	find_node("Next").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
-
+	find_node("Next").rect_position = Vector2(get_viewport().size.x*0.97 - get_viewport().size.y*0.15, get_viewport().size.y*0.82)
 	find_node("Back").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
 	VectorMarge = get_viewport().size * (1-2*margin)
 	if(level == 0) :
@@ -135,7 +135,6 @@ func _process(delta):
 						Ex.setWordSuccess(Global.level, index, Ex.getWordSuccess(Global.level, index) + 1)
 						Global.score += 1
 						if(Ex.getName() == "Jeu de l'oie") :
-							print("coin +1")
 							Global.player.setSilver(Global.player.getSilver()+1)
 							self.get_parent().get_parent().next()
 		elif(incremented == false):
@@ -145,7 +144,6 @@ func _process(delta):
 
 
 func _on_Speak_pressed():
-	print("speak")
 	if(stt != null && stt.isListening()):
 		stt.stopListen()
 	if(tts != null):
@@ -158,7 +156,6 @@ func _on_Speak_pressed():
 
 
 func _on_Record_pressed():
-	print("record")
 	find_node("Wrong").playing = false
 	find_node("Good").playing = false
 	incremented = false
@@ -171,7 +168,6 @@ func _on_Record_pressed():
 			stt.doListen()
 			display = true
 			Global.try[index] = true
-			print("Trying,",index)
 			Ex.setNbWordOccurrence(Global.level, index, Ex.getNbWordOccurrence(Global.level, index) + 1)
 		else :
 			stt.stopListen()

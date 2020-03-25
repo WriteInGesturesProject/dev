@@ -239,6 +239,15 @@ size_flags_horizontal = 3
 theme = ExtResource( 5 )
 text = "Orthophoniste"
 
+[node name="Details" type="TextureButton" parent="."]
+margin_right = 100.0
+margin_bottom = 102.0
+texture_normal = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="backgroundDark" type="ColorRect" parent="."]
 visible = false
 anchor_right = 1.0
@@ -365,22 +374,13 @@ margin_top = 419.0
 margin_right = 724.0
 margin_bottom = 455.0
 text = "Envoyer"
-
-[node name="Details" type="TextureButton" parent="."]
-margin_right = 100.0
-margin_bottom = 102.0
-texture_normal = ExtResource( 1 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 [connection signal="pressed" from="Main/MainVbox/MainHbox/AvatarBox/Change" to="." method="_on_Change_pressed"]
 [connection signal="pressed" from="Main/MainVbox/MainHbox/MainBox/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Main/MainVbox/MainHbox/MainBox/Training" to="." method="_on_Training_pressed"]
 [connection signal="pressed" from="Main/MainVbox/MainHbox/OrthoBox/VBoxContainer/Help" to="." method="_on_Help_pressed"]
 [connection signal="pressed" from="Main/MainVbox/MainHbox/OrthoBox/VBoxContainer/Admin" to="." method="_on_Admin_pressed"]
+[connection signal="pressed" from="Details" to="." method="_on_Details_pressed"]
 [connection signal="popup_hide" from="Popup" to="." method="_on_Popup_popup_hide"]
 [connection signal="pressed" from="Popup/VBoxContainer/submit" to="Popup" method="_on_submit_pressed"]
 [connection signal="pressed" from="Popup/VBoxContainer/resetPsswd" to="Popup" method="_on_resetPsswd_pressed"]
 [connection signal="pressed" from="Popup/PopupReset/VBoxContainer/submit" to="Popup/PopupReset" method="_on_submit_pressed"]
-[connection signal="pressed" from="Details" to="." method="_on_Details_pressed"]

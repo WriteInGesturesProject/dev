@@ -215,15 +215,10 @@ margin_bottom = 556.0
 custom_constants/separation = 200
 alignment = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Main/MainVbox/MainHbox/OrthoBox"]
-margin_top = 62.0
-margin_right = 254.0
-margin_bottom = 62.0
-
 [node name="VBoxContainer" type="VBoxContainer" parent="Main/MainVbox/MainHbox/OrthoBox"]
-margin_top = 262.0
+margin_top = 162.0
 margin_right = 254.0
-margin_bottom = 494.0
+margin_bottom = 394.0
 custom_constants/separation = 40
 
 [node name="Help" type="Button" parent="Main/MainVbox/MainHbox/OrthoBox/VBoxContainer"]
@@ -364,6 +359,17 @@ margin_top = 455.0
 margin_right = 724.0
 margin_bottom = 523.0
 text = "Envoyer"
+
+[node name="Details" type="Button" parent="."]
+margin_left = 15.3159
+margin_top = 14.0396
+margin_right = 188.316
+margin_bottom = 110.04
+theme = ExtResource( 5 )
+text = "A propos"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Main/MainVbox/MainHbox/AvatarBox/Change" to="." method="_on_Change_pressed"]
 [connection signal="pressed" from="Main/MainVbox/MainHbox/MainBox/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Main/MainVbox/MainHbox/MainBox/Training" to="." method="_on_Training_pressed"]
@@ -373,3 +379,4 @@ text = "Envoyer"
 [connection signal="pressed" from="Popup/VBoxContainer/submit" to="Popup" method="_on_submit_pressed"]
 [connection signal="pressed" from="Popup/VBoxContainer/resetPsswd" to="Popup" method="_on_resetPsswd_pressed"]
 [connection signal="pressed" from="Popup/PopupReset/VBoxContainer/submit" to="Popup/PopupReset" method="_on_submit_pressed"]
+[connection signal="pressed" from="Details" to="." method="_on_Details_pressed"]

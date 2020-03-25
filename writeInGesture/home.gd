@@ -11,7 +11,11 @@ var size : Vector2
 func _ready():
 	find_node("NamePlayer").text=Global.player.getName()
 	find_node("Picture").texture=load("res://art/users/"+Global.player.getPathPicture())
-
+	find_node("Play").rect_min_size.y = get_viewport().size.y/5
+	find_node("Training").rect_min_size.y = get_viewport().size.y/5
+	find_node("Change").rect_min_size.y = get_viewport().size.y/5
+	find_node("Help").rect_min_size.y = get_viewport().size.y/5
+	find_node("Admin").rect_min_size.y = get_viewport().size.y/5
 	mainBox = find_node("MainBox")
 	avatarBox = find_node("AvatarBox")
 	orthoBox = find_node("OrthoBox")
@@ -69,3 +73,7 @@ func _on_Popup_popup_hide():
 
 func _on_Training_pressed():
 	get_tree().change_scene("res://ExerciceMenu.tscn")
+
+
+func _on_Details_pressed():
+	get_tree().change_scene("res://About.tscn")

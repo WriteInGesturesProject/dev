@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bravo.jpg-c2ec6155fbf6134e3dbc327f6e6e1e72.stex"
+path="res://.import/bootSplash.png-e90d161d0945a2981030d2aa28eec604.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/bravo.jpg"
-dest_files=[ "res://.import/bravo.jpg-c2ec6155fbf6134e3dbc327f6e6e1e72.stex" ]
+source_file="res://assets/bootSplash.png"
+dest_files=[ "res://.import/bootSplash.png-e90d161d0945a2981030d2aa28eec604.stex" ]
 
 [params]
 

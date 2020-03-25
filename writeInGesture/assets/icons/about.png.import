@@ -2,26 +2,26 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/card2.jpg-bcef9f99881951092fef5a0864326174.stex"
+path="res://.import/about.png-ff73e6e0ef6a99f842314d61419113b9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/card2.jpg"
-dest_files=[ "res://.import/card2.jpg-bcef9f99881951092fef5a0864326174.stex" ]
+source_file="res://assets/icons/about.png"
+dest_files=[ "res://.import/about.png-ff73e6e0ef6a99f842314d61419113b9.stex" ]
 
 [params]
 
 compress/mode=1
-compress/lossy_quality=0.1
+compress/lossy_quality=0.5
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
-flags/mipmaps=false
+flags/mipmaps=true
 flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true

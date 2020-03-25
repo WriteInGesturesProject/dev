@@ -16,6 +16,8 @@ func _ready():
 	find_node("Change").rect_min_size.y = get_viewport().size.y/5
 	find_node("Help").rect_min_size.y = get_viewport().size.y/5
 	find_node("Admin").rect_min_size.y = get_viewport().size.y/5
+	find_node("Admin").get_font("font").size = get_viewport().size.y/22
+	
 	mainBox = find_node("MainBox")
 	avatarBox = find_node("AvatarBox")
 	orthoBox = find_node("OrthoBox")
@@ -33,6 +35,7 @@ func _ready():
 #	coinBox.rect_size.x = coinBox.rect_size.x - int(size.x*7/120)
 	
 	mainBox.rect_min_size = Vector2(size.x/3,size.y*3/4)
+	mainBox.rect_position.y = size.y*2/4
 	avatarBox.rect_min_size = Vector2(size.x/6,size.y*3/4)
 	orthoBox.rect_min_size = Vector2(size.x/6,size.y*3/4)
 	

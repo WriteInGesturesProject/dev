@@ -49,6 +49,12 @@ func _ready():
 	speakButton.rect_size = Vector2(sizeViewPort.y*0.1, sizeViewPort.y*0.1)
 	speakButton.rect_position.y = sizeViewPort.y*0.01
 	speakButton.rect_position.x = (sizeViewPort.x/2) - speakButton.rect_size.x/2
+	
+	var validateButton = find_node("Validate")
+	validateButton.rect_size = Vector2(sizeViewPort.y*0.1, sizeViewPort.y*0.1)
+	validateButton.rect_position.y = sizeViewPort.y - validateButton.rect_size.y - sizeViewPort.y*0.01
+	validateButton.rect_position.x = (sizeViewPort.x/2) - validateButton.rect_size.x/2
+	
 	var yRest = - find_node("speak").rect_size.y - find_node("Validate").rect_size.y - sizeCard.y + sizeViewPort.y
 	plate.add_constant_override("separation", sizeCard.x + (sizeViewPort.x*0.25)/3)
 	find_node("marginPlate").add_constant_override("margin_left", (sizeViewPort.x*0.25)/6)
@@ -68,9 +74,7 @@ func _ready():
 	else :
 		get_tree().change_scene("res://GameEnd.tscn")
 	find_node("Back").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
-	find_node("speak").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
-	Global.make_margin(find_node("MainPage"), 0.015)
-
+	find_node("Back").rect_position = Vector2(sizeViewPort.y*0.015, sizeViewPort.y*0.015)
 
 func _cardSelected(event : InputEvent, card : Card) -> void:
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
@@ -98,7 +102,9 @@ func _on_Validate_pressed():
 	if(findCard.wordLabel.text == cardSelected.wordLabel.text):
 		Global.score += 1
 		find_node("Good").playing = true
+		print(Global.listenExercise.getWordSuccess(Global.level, indexWord))
 		Global.listenExercise.setWordSuccess(Global.level, indexWord, Global.listenExercise.getWordSuccess(Global.level, indexWord) + 1)
+		print(Global.listenExercise.getWordSuccess(Global.level, indexWord))
 		Global.player.setSilver(Global.player.getSilver()+1)
 	else : 
 		find_node("Wrong").playing = true
@@ -110,11 +116,7 @@ func _on_Validate_pressed():
 
 
 func _on_speakControl_gui_input(event):
-	print("coucou")
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
-		if(stt != null && stt.isListening()):
-			stt.stopListen()
-			find_node("Record").set_text("Enregistrer")
 		if(tts != null):
 			var text = findCard.wordLabel.text
 			print(text)

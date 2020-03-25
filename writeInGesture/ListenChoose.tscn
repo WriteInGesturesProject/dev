@@ -68,7 +68,7 @@ size_flags_horizontal = 3
 [node name="speak" type="TextureButton" parent="MainPage/Control"]
 margin_top = 8.0
 margin_right = 100.0
-margin_bottom = 110.0
+margin_bottom = 108.0
 rect_min_size = Vector2( 100, 100 )
 size_flags_vertical = 3
 texture_normal = ExtResource( 7 )
@@ -91,13 +91,10 @@ __meta__ = {
 }
 
 [node name="Validate" type="Button" parent="MainPage/Control"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -50.0
-margin_top = -102.0
-margin_right = 50.0
+margin_left = 0.769531
+margin_top = 0.41626
+margin_right = 100.77
+margin_bottom = 102.416
 disabled = true
 icon = ExtResource( 1 )
 flat = true

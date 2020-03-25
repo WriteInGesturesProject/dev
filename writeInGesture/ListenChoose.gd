@@ -99,12 +99,11 @@ func _on_speak_pressed():
 				tts.speakText(text)
 
 func _on_Validate_pressed():
+	Global.listenExercise.setNbWordOccurrence(Global.level, indexWord, Global.listenExercise.getNbWordOccurrence(Global.level, indexWord) + 1)
 	if(findCard.wordLabel.text == cardSelected.wordLabel.text):
 		Global.score += 1
 		find_node("Good").playing = true
-		print(Global.listenExercise.getWordSuccess(Global.level, indexWord))
 		Global.listenExercise.setWordSuccess(Global.level, indexWord, Global.listenExercise.getWordSuccess(Global.level, indexWord) + 1)
-		print(Global.listenExercise.getWordSuccess(Global.level, indexWord))
 		Global.player.setSilver(Global.player.getSilver()+1)
 	else : 
 		find_node("Wrong").playing = true

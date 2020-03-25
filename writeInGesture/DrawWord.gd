@@ -5,7 +5,7 @@ const Exercise = preload("res://Exercise.gd")
 
 var margin = 0.05
 var easy = [0.15,0.35,0.4]
-var normal = [0,0.4,0.4]
+var normal = [0.15,0.3,0.45]
 var hard = [0,0.7,0]
 
 var currentDisplay
@@ -24,7 +24,7 @@ var wordTest
 # Called when the node enters the scene tree for the first time.
 func _ready():
 #	display(2,Global.wordDictionnary.getAllWord()[195],null,0)
-	pass
+	find_node("Next").rect_position = Vector2(get_viewport().size.x - get_viewport().size.y*0.15, get_viewport().size.y*0.85)
 	
 ##########################################DISPLAY_VIEW########################################################
 func display(level : int, word : Word, exercice : Exercise, ind : int) :
@@ -35,17 +35,19 @@ func display(level : int, word : Word, exercice : Exercise, ind : int) :
 	display = false
 	incremented = false
 	find_node("Record").disabled = false
-	find_node("Next").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
-	find_node("Back").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
+	
+	
 	Global.make_margin(find_node("MainPage"), 0.015)
+	find_node("Next").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
+
+	find_node("Back").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
 	VectorMarge = get_viewport().size * (1-2*margin)
 	if(level == 0) :
 		currentDisplay = easy
 		separation =VectorMarge.y *( (1 - (easy[0]+easy[1]+easy[2]))/2)
 	elif (level == 1) :
 		currentDisplay = normal
-		separation =VectorMarge.y *( 1 - (normal[0]+normal[1]+normal[2]))
-		find_node("WordContainer").visible = false
+		separation =VectorMarge.y *( (1 - (normal[0]+normal[1]+normal[2]))/2)
 	else :
 		separation =VectorMarge.y *( 1 - (hard[0]+hard[1]+hard[2]))
 		find_node("ImageContainer").add_constant_override("margin_top", separation/2)
@@ -83,16 +85,21 @@ func displayImage(word : Word) :
 #	##Center picture 
 	find_node("Image").rect_position.x =+ -find_node("Image").rect_size.x /2 + find_node("Speak").rect_size.x/2
 	
+	if(currentDisplay == normal) :
+		find_node("Image").visible = false
+	
 	##Ajust button speak and record
 	var separationButton = VectorMarge.x / 10
 	find_node("Speak").rect_size.y = lenghtY * 0.45
 	find_node("Speak").rect_size.x = lenghtY * 0.45
-	find_node("Speak").rect_position.x = find_node("Image").rect_size.x/2 + separationButton
+
 	find_node("Speak").get_parent().rect_min_size = find_node("Speak").rect_size
 
 	find_node("Record").rect_size.y = lenghtY * 0.45
 	find_node("Record").rect_size.x = lenghtY* 0.45
-	find_node("Record").rect_position.x = find_node("Image").rect_size.x/2 + separationButton
+	if(currentDisplay != normal) :
+		find_node("Speak").rect_position.x = find_node("Image").rect_size.x/2 + separationButton
+		find_node("Record").rect_position.x = find_node("Image").rect_size.x/2 + separationButton
 
 	find_node("VBoxContainerButton").add_constant_override("separation",lenghtY* 0.1)
 	find_node("Record").disabled = false

@@ -13,6 +13,8 @@ func _ready():
 	find_node("MemoryGame").rect_min_size.y = get_viewport().size.y/4
 	find_node("VBoxContainer").add_constant_override("separation",get_viewport().size.y/20)
 	find_node("MemoryGame").get_font("font").size = get_viewport().size.y/16
+	find_node("Back").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
+	Global.make_margin(find_node("Main"), 0.015)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

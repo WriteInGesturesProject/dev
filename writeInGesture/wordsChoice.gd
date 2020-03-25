@@ -24,6 +24,8 @@ var lastPopup
 #######################################FUNCTION_FOR_SCENE###############################
 func _ready():
 	#####Put margin
+	Global.make_margin(find_node("Main"), 0.015)
+	find_node("retour").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
 	Global.make_margin(find_node("Margin"), margin)
 	marginVector = (get_viewport().size)*(1- 2*margin)
 	

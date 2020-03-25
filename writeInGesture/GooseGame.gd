@@ -139,6 +139,9 @@ func _on_Timer_timeout():
 		find_node("WordDetails").popup_centered_ratio(1)
 		var classe = preload("res://DrawWord.tscn")
 		scene = classe.instance()
+#		var marginMain = MarginContainer.new()
+#		Global.make_margin(marginMain, 0.015)
+#		marginMain.add_child(scene)
 		find_node("WordDetails").add_child(scene)
 		scene.display(Global.level, myWords[index], Ex, index)
 		scene.find_node("Next").visible = false

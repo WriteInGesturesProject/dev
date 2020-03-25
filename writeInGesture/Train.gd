@@ -29,6 +29,9 @@ func _ready():
 	Global.score = 0
 	var scene = preload("res://DrawWord.tscn")
 	drawWord = scene.instance()
+#	var marginMain = MarginContainer.new()
+#	Global.make_margin(marginmain, 0.015)
+#	marginMain.add_child(drawWord)
 	add_child(drawWord)
 	drawWord.display(0,myWords[0],Ex,index)
 

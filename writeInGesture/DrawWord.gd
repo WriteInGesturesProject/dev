@@ -35,8 +35,9 @@ func display(level : int, word : Word, exercice : Exercise, ind : int) :
 	display = false
 	incremented = false
 	find_node("Record").disabled = false
-	
-	Global.make_margin(find_node("MarginContainer"), margin)
+	find_node("Next").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
+	find_node("Back").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
+	Global.make_margin(find_node("MainPage"), 0.015)
 	VectorMarge = get_viewport().size * (1-2*margin)
 	if(level == 0) :
 		currentDisplay = easy
@@ -170,8 +171,10 @@ func _on_Record_pressed():
 
 func _on_Back_pressed():
 	if(self.get_parent() is Popup) :
+		#if it is the goose game popup
 		self.get_parent().get_parent().back()
 	else :
+		#if it is the train scene
 		self.get_parent().back()
 	self.remove_and_skip()
 

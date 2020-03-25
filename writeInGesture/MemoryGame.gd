@@ -18,15 +18,16 @@ var margin = 0.05
 
 func _ready():
 	#Center the title
-	find_node("Label").rect_position.y = $Back.rect_size.y/2
+	find_node("Label").rect_position.y = find_node("Back").rect_size.y/2
 	#Make margin on the scene
 	var viewport = get_viewport().size
 	Global.make_margin(find_node("MarginContainer"),margin)
 	var sizeMargin = viewport * (1-2*margin)
-	
+	find_node("Back").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
+	Global.make_margin(find_node("Main"), 0.015)
 	#Put margin top for the top button
-	find_node("MarginContainer").set("custom_constants/margin_top", $Back.rect_size.y+find_node("MarginContainer").get_constant("margin_top"))
-	sizeMargin.y -= $Back.rect_size.y
+	find_node("MarginContainer").set("custom_constants/margin_top", find_node("Back").rect_size.y+find_node("MarginContainer").get_constant("margin_top"))
+	sizeMargin.y -= find_node("Back").rect_size.y
 	
 		
 	#setUp the memory

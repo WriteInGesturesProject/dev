@@ -18,7 +18,7 @@ var margin = 0.05
 var marginVector 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Global.make_margin(find_node("Margin"), margin)
+	Global.make_margin(find_node("MainPage"), 0.015)
 	marginVector = (get_viewport().size)*(1- margin)
 	
 	#Put responsive Vbox
@@ -32,7 +32,7 @@ func _ready():
 	find_node("Creation").rect_min_size.y = yrest/2
 	yrest = yrest/2
 	find_node("Main").add_constant_override("separation", yrest/3)
-	
+	find_node("retour").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
 	
 	for el in range (0,syllable.size()) :
 		var button = CheckBox.new()

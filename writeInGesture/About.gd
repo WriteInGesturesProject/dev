@@ -25,10 +25,16 @@ func _ready():
 	find_node("MainHBox").add_constant_override("separation",vectorMarge.x / 12)
 	
 	find_node("Test").get_font("font").size = vectorMarge.x/40
+	Global.make_margin(find_node("MainPage"),0.015)
+	find_node("Back").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
+	find_node("Link").get_font("font").size = find_node("Label3").get_font("font").size
+	find_node("Link").rect_position.y = find_node("Link").rect_position.y + get_viewport().size.y * 0.01
+	find_node("Link").connect("meta_clicked", self, "_goLinkPressed")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
+func _goLinkPressed(url):
+	print("ok")
+	OS.shell_open(url)
 
 
 func _on_Back_pressed():

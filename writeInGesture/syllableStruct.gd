@@ -9,7 +9,7 @@ const CreationExercise = preload("res://CreationExercise.gd")
 # var a = 2
 # var b = "text"
 var buttonPress = []
-var syllable =["Monosyllabe", "Bisyllabe", "Trisyllabe", "Quadrisyllable", "Pentasyllable",]
+var syllable =["Monosyllabe", "Bisyllabe", "Trisyllabe", "Quadrisyllabe", "Pentasyllabe",]
 var struct =["CV","CVV","CVC"]
 var wordFinal =[]
 var lineStruct

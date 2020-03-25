@@ -19,7 +19,7 @@ func _ready():
 	Global.make_margin(find_node("MarginContainer"), margin)
 	var ymainbox = get_viewport().size.y * (1-margin*2) 
 	var xmainbox = get_viewport().size.x * (1-margin*2) 
-	find_node("Title").rect_min_size.y = find_node("Back").rect_size.y - get_viewport().size.y * margin
+	find_node("Title").rect_min_size.y = find_node("Back").rect_size.y 
 	
 	find_node("Title").get_font("font").size = find_node("Title").rect_min_size.y/2
 	print(find_node("Title").rect_min_size.y/2)

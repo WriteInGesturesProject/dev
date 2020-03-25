@@ -11,7 +11,13 @@ var size : Vector2
 func _ready():
 	find_node("NamePlayer").text=Global.player.getName()
 	find_node("Picture").texture=load("res://art/users/"+Global.player.getPathPicture())
-
+	find_node("Play").rect_min_size.y = get_viewport().size.y/5
+	find_node("Training").rect_min_size.y = get_viewport().size.y/5
+	find_node("Change").rect_min_size.y = get_viewport().size.y/5
+	find_node("Help").rect_min_size.y = get_viewport().size.y/5
+	find_node("Admin").rect_min_size.y = get_viewport().size.y/5
+	find_node("Admin").get_font("font").size = get_viewport().size.y/22
+	find_node("Details").rect_min_size.y = get_viewport().size.y/5
 	mainBox = find_node("MainBox")
 	avatarBox = find_node("AvatarBox")
 	orthoBox = find_node("OrthoBox")
@@ -29,6 +35,7 @@ func _ready():
 #	coinBox.rect_size.x = coinBox.rect_size.x - int(size.x*7/120)
 	
 	mainBox.rect_min_size = Vector2(size.x/3,size.y*3/4)
+	mainBox.rect_position.y = size.y*2/4
 	avatarBox.rect_min_size = Vector2(size.x/6,size.y*3/4)
 	orthoBox.rect_min_size = Vector2(size.x/6,size.y*3/4)
 	
@@ -69,3 +76,7 @@ func _on_Popup_popup_hide():
 
 func _on_Training_pressed():
 	get_tree().change_scene("res://ExerciceMenu.tscn")
+
+
+func _on_Details_pressed():
+	get_tree().change_scene("res://About.tscn")

@@ -26,9 +26,25 @@ stream = ExtResource( 5 )
 [node name="Good" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MainPage" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="MainPage"]
 margin_right = 1024.0
 margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="MainPage/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 4 )
@@ -36,51 +52,49 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBox" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBox" type="VBoxContainer" parent="MainPage/Control/MarginContainer"]
 margin_right = 1024.0
 margin_bottom = 600.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
 alignment = 1
 
-[node name="WordContainer" type="MarginContainer" parent="MarginContainer/VBox"]
+[node name="WordContainer" type="MarginContainer" parent="MainPage/Control/MarginContainer/VBox"]
 margin_top = 272.0
-margin_right = 70.0
+margin_right = 1024.0
 margin_bottom = 316.0
-size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="Word" type="Label" parent="MarginContainer/VBox/WordContainer"]
-margin_right = 70.0
+[node name="Word" type="Label" parent="MainPage/Control/MarginContainer/VBox/WordContainer"]
+margin_right = 1024.0
 margin_bottom = 44.0
 theme = ExtResource( 4 )
 custom_fonts/font = ExtResource( 3 )
 text = "Mot"
 align = 1
 
-[node name="ImageContainer" type="MarginContainer" parent="MarginContainer/VBox"]
+[node name="ImageContainer" type="MarginContainer" parent="MainPage/Control/MarginContainer/VBox"]
 margin_top = 320.0
-margin_right = 104.0
+margin_right = 1024.0
 margin_bottom = 324.0
-size_flags_horizontal = 0
 size_flags_vertical = 0
 custom_constants/margin_right = 50
 custom_constants/margin_left = 50
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBox/ImageContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainPage/Control/MarginContainer/VBox/ImageContainer"]
 margin_left = 50.0
-margin_right = 54.0
+margin_right = 974.0
 margin_bottom = 4.0
 alignment = 1
 
-[node name="Box" type="HBoxContainer" parent="MarginContainer/VBox/ImageContainer/HBoxContainer"]
+[node name="Box" type="HBoxContainer" parent="MainPage/Control/MarginContainer/VBox/ImageContainer/HBoxContainer"]
+margin_left = 460.0
+margin_right = 460.0
 margin_bottom = 4.0
 alignment = 1
 
-[node name="Control" type="Control" parent="MarginContainer/VBox/ImageContainer/HBoxContainer/Box"]
+[node name="Control" type="Control" parent="MainPage/Control/MarginContainer/VBox/ImageContainer/HBoxContainer/Box"]
 margin_bottom = 4.0
 
-[node name="Image" type="TextureRect" parent="MarginContainer/VBox/ImageContainer/HBoxContainer/Box/Control"]
+[node name="Image" type="TextureRect" parent="MainPage/Control/MarginContainer/VBox/ImageContainer/HBoxContainer/Box/Control"]
 margin_right = 200.0
 margin_bottom = 200.0
 texture = ExtResource( 12 )
@@ -89,17 +103,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainerButton" type="VBoxContainer" parent="MarginContainer/VBox/ImageContainer/HBoxContainer"]
-margin_left = 4.0
-margin_right = 4.0
+[node name="VBoxContainerButton" type="VBoxContainer" parent="MainPage/Control/MarginContainer/VBox/ImageContainer/HBoxContainer"]
+margin_left = 464.0
+margin_right = 464.0
 margin_bottom = 4.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 alignment = 1
 
-[node name="Control" type="Control" parent="MarginContainer/VBox/ImageContainer/HBoxContainer/VBoxContainerButton"]
+[node name="Control" type="Control" parent="MainPage/Control/MarginContainer/VBox/ImageContainer/HBoxContainer/VBoxContainerButton"]
 
-[node name="Speak" type="TextureButton" parent="MarginContainer/VBox/ImageContainer/HBoxContainer/VBoxContainerButton/Control"]
+[node name="Speak" type="TextureButton" parent="MainPage/Control/MarginContainer/VBox/ImageContainer/HBoxContainer/VBoxContainerButton/Control"]
 margin_right = 100.0
 margin_bottom = 100.0
 texture_normal = ExtResource( 11 )
@@ -109,14 +123,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control2" type="Control" parent="MarginContainer/VBox/ImageContainer/HBoxContainer/VBoxContainerButton"]
+[node name="Control2" type="Control" parent="MainPage/Control/MarginContainer/VBox/ImageContainer/HBoxContainer/VBoxContainerButton"]
 margin_top = 4.0
 margin_bottom = 4.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Record" type="TextureButton" parent="MarginContainer/VBox/ImageContainer/HBoxContainer/VBoxContainerButton/Control2"]
+[node name="Record" type="TextureButton" parent="MainPage/Control/MarginContainer/VBox/ImageContainer/HBoxContainer/VBoxContainerButton/Control2"]
 margin_right = 100.0
 margin_bottom = 100.0
 texture_normal = ExtResource( 10 )
@@ -126,40 +140,37 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ImgBorel" type="MarginContainer" parent="MarginContainer/VBox"]
+[node name="ImgBorel" type="MarginContainer" parent="MainPage/Control/MarginContainer/VBox"]
 margin_top = 328.0
+margin_right = 1024.0
 margin_bottom = 328.0
-size_flags_horizontal = 0
 size_flags_vertical = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxBorel" type="HBoxContainer" parent="MarginContainer/VBox/ImgBorel"]
+[node name="HBoxBorel" type="HBoxContainer" parent="MainPage/Control/MarginContainer/VBox/ImgBorel"]
+margin_right = 1024.0
 alignment = 1
 
-[node name="Back" type="TextureButton" parent="."]
+[node name="Next" type="TextureButton" parent="MainPage/Control"]
 margin_right = 100.0
-margin_bottom = 102.0
-texture_normal = ExtResource( 2 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Next" type="TextureButton" parent="."]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -100.0
-margin_top = -100.0
+margin_bottom = 100.0
 texture_normal = ExtResource( 9 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="MarginContainer/VBox/ImageContainer/HBoxContainer/VBoxContainerButton/Control/Speak" to="." method="_on_Speak_pressed"]
-[connection signal="pressed" from="MarginContainer/VBox/ImageContainer/HBoxContainer/VBoxContainerButton/Control2/Record" to="." method="_on_Record_pressed"]
-[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
-[connection signal="pressed" from="Next" to="." method="_on_Next_pressed"]
+
+[node name="Back" type="TextureButton" parent="MainPage/Control"]
+margin_right = 177.0
+margin_bottom = 160.0
+texture_normal = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="MainPage/Control/MarginContainer/VBox/ImageContainer/HBoxContainer/VBoxContainerButton/Control/Speak" to="." method="_on_Speak_pressed"]
+[connection signal="pressed" from="MainPage/Control/MarginContainer/VBox/ImageContainer/HBoxContainer/VBoxContainerButton/Control2/Record" to="." method="_on_Record_pressed"]
+[connection signal="pressed" from="MainPage/Control/Next" to="." method="_on_Next_pressed"]
+[connection signal="pressed" from="MainPage/Control/Back" to="." method="_on_Back_pressed"]

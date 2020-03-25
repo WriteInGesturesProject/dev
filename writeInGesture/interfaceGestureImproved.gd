@@ -53,9 +53,8 @@ func _ready():
 			currentVbox.add_child(currentButton)
 			currentVbox.add_constant_override("separation",get_viewport().size.y/25)
 		find_node("MainContainer").add_child(currentVbox)
-		
-	
-
+	find_node("Back").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
+	Global.make_margin(find_node("Main"), 0.015)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

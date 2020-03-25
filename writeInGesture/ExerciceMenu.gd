@@ -12,7 +12,8 @@ func _ready():
 	find_node("Color").rect_min_size.y = get_viewport().size.y/5
 	find_node("VBoxContainer").add_constant_override("separation",get_viewport().size.y/24)
 	find_node("WeekDays").get_font("font").size = get_viewport().size.y/16
-
+	find_node("Back").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
+	Global.make_margin(find_node("Main"), 0.015)
 
 
 func _on_MyGame_pressed():

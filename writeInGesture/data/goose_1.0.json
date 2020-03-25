@@ -12,7 +12,7 @@
 			"consonantsType" : "O, C, N"
 		},
 		"difficulty" : 0,
-		"successPercentage" : [0.0,0.0,0.0],
+		"successPercentage" : [90.0,90.0,0.0],
 		"nbSuccess" : 0,
 		"nbWordsOccurrences" : [
 			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],

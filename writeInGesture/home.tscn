@@ -1,6 +1,5 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://assets/fonts/HelloGrizellesans.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://art/users/cashier.png" type="Texture" id=2]
 [ext_resource path="res://home.gd" type="Script" id=3]
 [ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=4]
@@ -12,10 +11,7 @@
 [ext_resource path="res://assets/icons/silverCoin.png" type="Texture" id=10]
 [ext_resource path="res://art/logo.png" type="Texture" id=11]
 [ext_resource path="res://assets/icons/help.png" type="Texture" id=12]
-
-[sub_resource type="DynamicFont" id=1]
-size = 40
-font_data = ExtResource( 1 )
+[ext_resource path="res://assets/theme/DejaVuFont.tres" type="DynamicFont" id=13]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -48,11 +44,11 @@ __meta__ = {
 }
 
 [node name="MainVbox" type="VBoxContainer" parent="Main"]
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_right = 1051.0
+margin_bottom = 713.0
 
 [node name="Control" type="Control" parent="Main/MainVbox"]
-margin_right = 1024.0
+margin_right = 1051.0
 
 [node name="Logo" type="TextureRect" parent="Main/MainVbox/Control"]
 margin_left = 4.0
@@ -69,24 +65,26 @@ __meta__ = {
 
 [node name="marginCoinBox" type="MarginContainer" parent="Main/MainVbox"]
 margin_top = 4.0
-margin_right = 1024.0
+margin_right = 1051.0
 margin_bottom = 40.0
 
 [node name="CoinBox" type="HBoxContainer" parent="Main/MainVbox/marginCoinBox"]
-margin_right = 1024.0
+margin_right = 1051.0
 margin_bottom = 36.0
-custom_constants/separation = 60
 alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control" type="Control" parent="Main/MainVbox/marginCoinBox/CoinBox"]
-margin_left = 787.0
-margin_right = 787.0
+[node name="CoinGold" type="HBoxContainer" parent="Main/MainVbox/marginCoinBox/CoinBox"]
+margin_left = 982.0
+margin_right = 1024.0
 margin_bottom = 36.0
 
-[node name="goldCoinPicture" type="TextureRect" parent="Main/MainVbox/marginCoinBox/CoinBox/Control"]
+[node name="Control" type="Control" parent="Main/MainVbox/marginCoinBox/CoinBox/CoinGold"]
+margin_bottom = 36.0
+
+[node name="goldCoinPicture" type="TextureRect" parent="Main/MainVbox/marginCoinBox/CoinBox/CoinGold/Control"]
 margin_right = 50.0
 margin_bottom = 50.0
 texture = ExtResource( 9 )
@@ -95,21 +93,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Gold" type="Label" parent="Main/MainVbox/marginCoinBox/CoinBox"]
-margin_left = 847.0
-margin_right = 885.0
+[node name="Gold" type="Label" parent="Main/MainVbox/marginCoinBox/CoinBox/CoinGold"]
+margin_left = 4.0
+margin_right = 42.0
 margin_bottom = 36.0
 text = "10"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control2" type="Control" parent="Main/MainVbox/marginCoinBox/CoinBox"]
-margin_left = 945.0
-margin_right = 945.0
+[node name="CoinSilver" type="HBoxContainer" parent="Main/MainVbox/marginCoinBox/CoinBox"]
+margin_left = 1028.0
+margin_right = 1051.0
 margin_bottom = 36.0
 
-[node name="silverCoinPicture" type="TextureRect" parent="Main/MainVbox/marginCoinBox/CoinBox/Control2"]
+[node name="Control2" type="Control" parent="Main/MainVbox/marginCoinBox/CoinBox/CoinSilver"]
+margin_bottom = 36.0
+
+[node name="silverCoinPicture" type="TextureRect" parent="Main/MainVbox/marginCoinBox/CoinBox/CoinSilver/Control2"]
 margin_right = 50.0
 margin_bottom = 50.0
 texture = ExtResource( 10 )
@@ -118,30 +119,30 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Silver" type="Label" parent="Main/MainVbox/marginCoinBox/CoinBox"]
-margin_left = 1005.0
-margin_right = 1024.0
+[node name="Silver" type="Label" parent="Main/MainVbox/marginCoinBox/CoinBox/CoinSilver"]
+margin_left = 4.0
+margin_right = 23.0
 margin_bottom = 36.0
 text = "2"
 
 [node name="MainHbox" type="HBoxContainer" parent="Main/MainVbox"]
 margin_top = 44.0
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_right = 1051.0
+margin_bottom = 713.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
 [node name="AvatarBox" type="VBoxContainer" parent="Main/MainVbox/MainHbox"]
-margin_left = 196.0
-margin_right = 356.0
-margin_bottom = 556.0
-alignment = 1
+margin_left = 170.0
+margin_right = 330.0
+margin_bottom = 669.0
+alignment = 2
 
 [node name="Control" type="Control" parent="Main/MainVbox/MainHbox/AvatarBox"]
-margin_top = 228.0
+margin_top = 569.0
 margin_right = 160.0
-margin_bottom = 228.0
+margin_bottom = 569.0
 
 [node name="Picture" type="TextureRect" parent="Main/MainVbox/MainHbox/AvatarBox/Control"]
 margin_top = 20.0
@@ -156,9 +157,9 @@ __meta__ = {
 }
 
 [node name="Change" type="Button" parent="Main/MainVbox/MainHbox/AvatarBox"]
-margin_top = 232.0
+margin_top = 573.0
 margin_right = 160.0
-margin_bottom = 328.0
+margin_bottom = 669.0
 size_flags_horizontal = 3
 theme = ExtResource( 5 )
 text = "Modifier"
@@ -167,59 +168,59 @@ __meta__ = {
 }
 
 [node name="MainBox" type="VBoxContainer" parent="Main/MainVbox/MainHbox"]
-margin_left = 360.0
-margin_right = 570.0
-margin_bottom = 556.0
+margin_left = 334.0
+margin_right = 623.0
+margin_bottom = 669.0
 custom_constants/separation = 40
-alignment = 1
+alignment = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Main/MainVbox/MainHbox/MainBox"]
-margin_top = 102.0
-margin_right = 210.0
-margin_bottom = 182.0
+margin_top = 313.0
+margin_right = 289.0
+margin_bottom = 397.0
 
 [node name="Label" type="Label" parent="Main/MainVbox/MainHbox/MainBox/VBoxContainer"]
-margin_right = 210.0
+margin_right = 289.0
 margin_bottom = 36.0
 text = "Bienvenue "
 align = 1
 
 [node name="NamePlayer" type="Label" parent="Main/MainVbox/MainHbox/MainBox/VBoxContainer"]
 margin_top = 40.0
-margin_right = 210.0
-margin_bottom = 80.0
+margin_right = 289.0
+margin_bottom = 84.0
 theme = ExtResource( 4 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = ExtResource( 13 )
 text = "Xavier L'autiste"
 align = 1
 
 [node name="Play" type="Button" parent="Main/MainVbox/MainHbox/MainBox"]
-margin_top = 222.0
-margin_right = 210.0
-margin_bottom = 318.0
+margin_top = 437.0
+margin_right = 289.0
+margin_bottom = 533.0
 size_flags_horizontal = 3
 theme = ExtResource( 5 )
 text = "Jouer"
 
 [node name="Training" type="Button" parent="Main/MainVbox/MainHbox/MainBox"]
-margin_top = 358.0
-margin_right = 210.0
-margin_bottom = 454.0
+margin_top = 573.0
+margin_right = 289.0
+margin_bottom = 669.0
 size_flags_horizontal = 3
 theme = ExtResource( 5 )
 text = "M'entrainer"
 
 [node name="OrthoBox" type="VBoxContainer" parent="Main/MainVbox/MainHbox"]
-margin_left = 574.0
-margin_right = 828.0
-margin_bottom = 556.0
+margin_left = 627.0
+margin_right = 881.0
+margin_bottom = 669.0
 custom_constants/separation = 200
-alignment = 1
+alignment = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Main/MainVbox/MainHbox/OrthoBox"]
-margin_top = 162.0
+margin_top = 437.0
 margin_right = 254.0
-margin_bottom = 394.0
+margin_bottom = 669.0
 custom_constants/separation = 40
 
 [node name="Help" type="Button" parent="Main/MainVbox/MainHbox/OrthoBox/VBoxContainer"]
@@ -228,6 +229,7 @@ margin_bottom = 96.0
 size_flags_horizontal = 3
 theme = ExtResource( 5 )
 text = "Aide"
+expand_icon = true
 
 [node name="Admin" type="Button" parent="Main/MainVbox/MainHbox/OrthoBox/VBoxContainer"]
 margin_top = 136.0
@@ -267,9 +269,9 @@ __meta__ = {
 }
 
 [node name="title" type="Label" parent="Popup/VBoxContainer"]
-margin_top = 79.0
+margin_top = 150.0
 margin_right = 724.0
-margin_bottom = 141.0
+margin_bottom = 186.0
 text = "Connexion"
 align = 1
 __meta__ = {
@@ -277,33 +279,34 @@ __meta__ = {
 }
 
 [node name="id" type="LineEdit" parent="Popup/VBoxContainer"]
-margin_top = 166.0
+margin_top = 211.0
 margin_right = 724.0
-margin_bottom = 238.0
+margin_bottom = 257.0
 max_length = 20
 placeholder_text = "Identifiant"
 
 [node name="psswd" type="LineEdit" parent="Popup/VBoxContainer"]
-margin_top = 263.0
+margin_top = 282.0
 margin_right = 724.0
-margin_bottom = 335.0
+margin_bottom = 328.0
 max_length = 20
 secret = true
 placeholder_text = "Mot de passe"
 
 [node name="submit" type="Button" parent="Popup/VBoxContainer"]
-margin_top = 360.0
+margin_top = 353.0
 margin_right = 724.0
-margin_bottom = 428.0
+margin_bottom = 389.0
 text = "Envoyer"
 
 [node name="resetPsswd" type="Button" parent="Popup/VBoxContainer"]
-margin_top = 453.0
+margin_top = 414.0
 margin_right = 724.0
-margin_bottom = 521.0
+margin_bottom = 450.0
 text = "Reinitialiser le mot de passe"
 
 [node name="PopupReset" type="WindowDialog" parent="Popup"]
+visible = true
 margin_right = 784.0
 margin_bottom = 600.0
 script = ExtResource( 7 )
@@ -323,9 +326,9 @@ __meta__ = {
 }
 
 [node name="title" type="Label" parent="Popup/PopupReset/VBoxContainer"]
-margin_top = 77.0
+margin_top = 145.0
 margin_right = 724.0
-margin_bottom = 139.0
+margin_bottom = 181.0
 text = "Connexion"
 align = 1
 __meta__ = {
@@ -333,43 +336,39 @@ __meta__ = {
 }
 
 [node name="oldPsswd" type="LineEdit" parent="Popup/PopupReset/VBoxContainer"]
-margin_top = 164.0
+margin_top = 206.0
 margin_right = 724.0
-margin_bottom = 236.0
+margin_bottom = 252.0
 max_length = 20
 placeholder_text = "Ancien mot de passe"
 
 [node name="psswd" type="LineEdit" parent="Popup/PopupReset/VBoxContainer"]
-margin_top = 261.0
+margin_top = 277.0
 margin_right = 724.0
-margin_bottom = 333.0
+margin_bottom = 323.0
 max_length = 20
 secret = true
 placeholder_text = "Nouveau mot de passe"
 
 [node name="psswd2" type="LineEdit" parent="Popup/PopupReset/VBoxContainer"]
-margin_top = 358.0
+margin_top = 348.0
 margin_right = 724.0
-margin_bottom = 430.0
+margin_bottom = 394.0
 max_length = 20
 secret = true
 placeholder_text = "Confirmer le nouveau mot de passe"
 
 [node name="submit" type="Button" parent="Popup/PopupReset/VBoxContainer"]
-margin_top = 455.0
+margin_top = 419.0
 margin_right = 724.0
-margin_bottom = 523.0
+margin_bottom = 455.0
 text = "Envoyer"
 
-[node name="Details" type="Button" parent="."]
+[node name="Details" type="TextureButton" parent="."]
 margin_right = 100.0
 margin_bottom = 102.0
-icon = ExtResource( 12 )
-flat = true
-expand_icon = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture_normal = ExtResource( 12 )
+expand = true
 [connection signal="pressed" from="Main/MainVbox/MainHbox/AvatarBox/Change" to="." method="_on_Change_pressed"]
 [connection signal="pressed" from="Main/MainVbox/MainHbox/MainBox/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Main/MainVbox/MainHbox/MainBox/Training" to="." method="_on_Training_pressed"]

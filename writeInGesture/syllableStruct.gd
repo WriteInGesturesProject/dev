@@ -18,7 +18,7 @@ var margin = 0.05
 var marginVector 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-#	Global.make_margin(find_node("MainPage"), 0.015)
+	Global.make_margin(find_node("Margin"), margin)
 	marginVector = (get_viewport().size)*(1- margin)
 	
 	#Put responsive Vbox

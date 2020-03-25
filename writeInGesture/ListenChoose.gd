@@ -23,6 +23,7 @@ var plate : HBoxContainer
 var sizeViewPort : Vector2
 var cardSelected : Card
 var findCard : Card
+var indexWord : int
 
 #func mySize(word):
 #	var size = 0
@@ -48,6 +49,8 @@ func _ready():
 	var speakButton = find_node("speak")
 	speakButton.rect_size = Vector2(sizeViewPort.y*0.1, sizeViewPort.y*0.1)
 	speakControl.rect_size = speakButton.rect_size
+#	speakControl.rect_position.y = sizeViewPort.y*0.01
+#	speakControl.rect_position.x = (sizeViewPort.x/2) - speakButton.rect_size.x/2
 	speakButton.rect_position.y = sizeViewPort.y*0.01
 	speakButton.rect_position.x = (sizeViewPort.x/2) - speakButton.rect_size.x/2
 	
@@ -64,6 +67,7 @@ func _ready():
 			currentCard.setUpCard(myWords[index+b], Global.level, sizeCard)
 			currentCard.buttonSelection.connect("gui_input", self, "_cardSelected", [currentCard])
 			if b == rand : 
+				indexWord = index+b
 				findCard = currentCard
 		index += 3
 	else :
@@ -82,6 +86,7 @@ func _on_Back_pressed():
 	get_tree().change_scene("res://GameLevel.tscn")
 
 func _on_Speak_pressed():
+	print("coucou")
 	if(stt != null && stt.isListening()):
 		stt.stopListen()
 		find_node("Record").set_text("Enregistrer")
@@ -98,6 +103,7 @@ func _on_Validate_pressed():
 	if(findCard.wordLabel.text == cardSelected.wordLabel.text):
 		Global.score += 1
 		find_node("Good").playing = true
+		Global.listenExercise.setWordSuccess(Global.level, indexWord, Global.listenExercise.getWordSuccess(Global.level, indexWord) + 1)
 		Global.player.setSilver(Global.player.getSilver()+1)
 	else : 
 		find_node("Wrong").playing = true
@@ -106,3 +112,19 @@ func _on_Validate_pressed():
 	for i in range(0, plate.get_child_count()):
 		plate.get_child(i).queue_free()
 	_ready()
+
+
+func _on_speakControl_gui_input(event):
+	print("coucou")
+	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
+		if(stt != null && stt.isListening()):
+			stt.stopListen()
+			find_node("Record").set_text("Enregistrer")
+		if(tts != null):
+			var text = findCard.wordLabel.text
+			print(text)
+			match os:
+				"X11":
+					tts.speak(text, false)
+				"Android":
+					tts.speakText(text)

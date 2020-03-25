@@ -197,7 +197,7 @@ margin_right = 388.0
 margin_bottom = 96.0
 size_flags_horizontal = 3
 theme = ExtResource( 3 )
-text = "Creer l'exercice"
+text = "Créer l'exercice"
 
 [node name="retour" type="Button" parent="Main/Control"]
 margin_right = 100.0
@@ -451,8 +451,8 @@ resizable = true
 mode = 0
 access = 2
 filters = PoolStringArray( "*.png ; PNG Images", "*.jpg ; JPG Images", "*.jpeg ; JPEG Images" )
-current_dir = "/home/guillaume/Documents/RICM5/Projet/dev/writeInGesture"
-current_path = "/home/guillaume/Documents/RICM5/Projet/dev/writeInGesture/"
+current_dir = "/home/chabrema/5A/S10/dev/writeInGesture"
+current_path = "/home/chabrema/5A/S10/dev/writeInGesture/"
 __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""

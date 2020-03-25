@@ -79,6 +79,8 @@ func _ready():
 	
 
 func _changeColor():
+	if(Global.level == 1):
+		board[ind].texture = load("res://art/images/"+myWords[ind].getPath())
 	index += 1
 	ind = index
 	ind_prec = ind

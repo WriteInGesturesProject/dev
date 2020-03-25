@@ -14,6 +14,7 @@ var nbCard = 0
 var columns = 0
 var separationPercentage = 0.02
 var margin = 0.05
+var surMargin = 0.015
 
 
 func _ready():
@@ -22,9 +23,9 @@ func _ready():
 	#Make margin on the scene
 	var viewport = get_viewport().size
 	Global.make_margin(find_node("MarginContainer"),margin)
-	var sizeMargin = viewport * (1-2*margin)
+	var sizeMargin = viewport * (1-2*(margin+surMargin))
 	find_node("Back").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
-	Global.make_margin(find_node("Main"), 0.015)
+	Global.make_margin(find_node("Main"), surMargin)
 	#Put margin top for the top button
 	find_node("MarginContainer").set("custom_constants/margin_top", find_node("Back").rect_size.y+find_node("MarginContainer").get_constant("margin_top"))
 	sizeMargin.y -= find_node("Back").rect_size.y

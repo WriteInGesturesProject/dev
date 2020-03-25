@@ -109,7 +109,7 @@ func _change():
 	if(index >= myWords.size()):
 		get_tree().change_scene("res://GameEnd.tscn")
 	else :
-		scene.display(Global.level, myWords[index], Ex, index)
+		scene.display(Global.level, myWords[ind], Ex, ind)
 	find_node("WordDetails").popup_centered_ratio(1)
 	find_node("backgroundDark").visible = true
 
@@ -139,11 +139,8 @@ func _on_Timer_timeout():
 		find_node("WordDetails").popup_centered_ratio(1)
 		var classe = preload("res://DrawWord.tscn")
 		scene = classe.instance()
-#		var marginMain = MarginContainer.new()
-#		Global.make_margin(marginMain, 0.015)
-#		marginMain.add_child(scene)
 		find_node("WordDetails").add_child(scene)
-		scene.display(Global.level, myWords[index], Ex, index)
+		scene.display(Global.level, myWords[ind], Ex, ind)
 		scene.find_node("Next").visible = false
 		find_node("backgroundDark").visible = true
 	else :

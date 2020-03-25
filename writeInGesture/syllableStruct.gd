@@ -211,16 +211,9 @@ func _on_Popup_popup_hide():
 		find_node("Background").visible = false 
 
 func _on_Confirm_pressed():
+	var creation = CreationExercise.new()
 	if(wordFinal.size() >= 3) :
-		var creation = CreationExercise.new()
-		#print("Creation of custom exercise")
-		Global.customExercise = creation.creationExercise(Global.customExercise, wordFinal)
-		#print("Creation of goose exercise")
-		Global.gooseExercise = creation.creationExercise(Global.gooseExercise, wordFinal)
-		#print("Creation of listen and choose exercise")
-		Global.listenExercise = creation.creationExercise(Global.listenExercise, wordFinal)
-		#print("Creation of memory exercise")
-		Global.memoryExercise = creation.creationExercise(Global.memoryExercise, wordFinal)
+		creation.updateExercises(wordFinal)
 		_on_Popup_popup_hide()
 		find_node("Background").visible = true
 		find_node("ConfirmationPopup").popup_centered_ratio(0.75)

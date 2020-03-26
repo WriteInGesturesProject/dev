@@ -17,10 +17,7 @@ func _ready():
 	Global.make_margin(find_node("Main"), 0.015)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+#set the play variable and redirect to the game level page
 
 func _on_GooseGame_pressed():
 	Global.play = 1
@@ -33,7 +30,7 @@ func _on_ListenChoose_pressed():
 	Global.current_ex = Global.listenExercise
 	get_tree().change_scene("res://GameLevel.tscn")
 
-
+#redirect to the memory game because there is no levels
 func _on_MemoryGame_pressed():
 	Global.play = 3
 	Global.current_ex = Global.memoryExercise

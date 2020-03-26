@@ -9,37 +9,46 @@ var avatarToBuy
 var avatarCoin = Global.player.getCoinAvatar()
 
 func _ready():
+	#add margin for the main page and popup
 	find_node("marginButtons").add_constant_override("margin_left", get_viewport().size.x/2 - 220)
 	find_node("CancelBuy").rect_position.y = find_node("ValidateBuy").rect_position.y
-	var margintop=(get_viewport().size.y -3*get_viewport().size.y/4.5 - get_viewport().size.y*0.05 - get_node("LineEdit").rect_size.y - find_node("goldImage").rect_size.y)/2
-	get_node("MarginContainer").margin_left = (get_viewport().size.x -6*get_viewport().size.y/4.5 - get_viewport().size.y*0.08)/2
-	get_node("MarginContainer").margin_top = margintop
-	#making responsive UI elements
-	
-	get_node("LineEdit").rect_position.y = 3*get_viewport().size.y/ 4.5 +get_viewport().size.y*0.15 +margintop
-	get_node("LineEdit").rect_position.x = get_viewport().size.x * 0.25
-	get_node("LineEdit").rect_size.x = get_viewport().size.x/2
-	find_node("LineEdit").text = Global.player.getName()
-	
-	get_node("Button").rect_position.y = 3*get_viewport().size.y/ 4.5 +get_viewport().size.y*0.15 +margintop
-	get_node("Button").rect_size.x = get_viewport().size.x/3 
-	get_node("Button").rect_position.x = find_node("LineEdit").rect_position.x + find_node("LineEdit").rect_size.x + get_viewport().size.x *0.01
-	
+	var margintop=(get_viewport().size.y -3*get_viewport().size.y/4.5 - get_viewport().size.y*0.05 - find_node("LineEdit").rect_size.y - find_node("goldImage").rect_size.y)/2
+	find_node("MarginContainer").margin_left = (get_viewport().size.x -6*get_viewport().size.y/4.5 - get_viewport().size.y*0.08)/2
+	find_node("MarginContainer").margin_top = margintop
+	Global.make_margin(find_node("MainPage"), 0.015)
 	find_node("marginCoinBox").add_constant_override("margin_left", (get_viewport().size.x -6*get_viewport().size.y/4.5 - 50)/2)
-	find_node("Gold").rect_position.y =  get_node("LineEdit").rect_position.y - 50 - get_viewport().size.y * 0.01
-	find_node("Gold").text = str(Global.player.getGold())
+	
+	#Put the different element at the good position and with a size, all depending of the screen size 
+	find_node("LineEdit").rect_position.y = 3*get_viewport().size.y/ 4.5 +get_viewport().size.y*0.15 +margintop
+	find_node("LineEdit").rect_position.x = get_viewport().size.x * 0.25
+	find_node("LineEdit").rect_size.x = get_viewport().size.x/2
+	
+	find_node("Button").rect_position.y = 3*get_viewport().size.y/ 4.5 +get_viewport().size.y*0.15 +margintop
+	find_node("Button").rect_size.x = get_viewport().size.x/3 
+	find_node("Button").rect_position.x = find_node("LineEdit").rect_position.x + find_node("LineEdit").rect_size.x + get_viewport().size.x *0.01
+	
+	find_node("Gold").rect_position.y =  find_node("LineEdit").rect_position.y - 50 - get_viewport().size.y * 0.01
+	
 	find_node("Gold").rect_position.x = get_viewport().size.x * 0.35
-	find_node("Silver").rect_position.y = get_node("LineEdit").rect_position.y - 50 - get_viewport().size.y * 0.01
+	find_node("Silver").rect_position.y = find_node("LineEdit").rect_position.y - 50 - get_viewport().size.y * 0.01
 	find_node("Silver").rect_position.x = get_viewport().size.x * 0.35+ 60
-	find_node("Silver").text = str(Global.player.getSilver())
 	find_node("goldImage").rect_position.y = find_node("Gold").rect_position.y
 	find_node("silverImage").rect_position.y = find_node("Silver").rect_position.y
 	find_node("goldImage").rect_position.x = get_viewport().size.x * 0.35 - 60
 	find_node("silverImage").rect_position.x = get_viewport().size.x * 0.35
-	#addind avatars one by one
+	find_node("Back").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
+	
+	#fill labels size with initial value read in json files
+	find_node("LineEdit").text = Global.player.getName()
+	find_node("Gold").text = str(Global.player.getGold())
+	find_node("Silver").text = str(Global.player.getSilver())
+	
 	var avatar_number = 0
+	#add separation between different avatars of the grid
 	find_node("plate").add_constant_override("vseparation", get_viewport().size.y/4.5 + get_viewport().size.y *0.02)
 	find_node("plate").add_constant_override("hseparation", get_viewport().size.y/4.5 + get_viewport().size.y *0.02)
+	
+	#addind avatars one by one to the grid
 	for i in range(3):
 		for k in range(6):
 			var image = TextureButton.new()
@@ -57,6 +66,7 @@ func _ready():
 			find_node("plate").add_child(control_img)
 	_colorAvatars()
 
+#color avatars depending is they are available, to buy, or not available
 func _colorAvatars():
 	var list = find_node("plate").get_children()
 	for i in range(0, len(list)):
@@ -73,7 +83,8 @@ func _colorAvatars():
 		else : 
 			#not available
 			image.modulate = "484343"
-			
+		
+		#if avatar is not already buy, display the amount needed to have it
 		if(avatarCoin[n] != 0 && len(c.get_children())==1):
 			var contMoney = Control.new()
 			var iconMoney = TextureRect.new()
@@ -95,7 +106,9 @@ func _colorAvatars():
 			nbMoney.rect_position.x = iconMoney.rect_position.x + 40 + image.rect_size.x*0.03
 			c.add_child(contMoney)
 
+#function called when clicked on an avatar
 func _choice_pressed(avatar):
+	#if the avatar id in color to buy, display the popup for buying
 	if(avatar.modulate == Color("A9A9A9")):
 		avatarToBuy = avatar
 		find_node("ConfirmPopup").popup_centered_ratio(0.80)
@@ -105,11 +118,11 @@ func _choice_pressed(avatar):
 			find_node("nbCoin").text = str(Global.player.getCoinAvatar()[int(avatar.name)])+" pièces d'argent ?"
 		else :
 			find_node("nbCoin").text = str(Global.player.getCoinAvatar()[int(avatar.name)])+" pièces d'or ?"
-	elif (avatar.modulate == Color("484343")):  #test if avatar is opened according to player level
+	elif (avatar.modulate == Color("484343")):  #if avatar is too expensive, display message to inform the user
 		find_node("NotEnough").visible = true
 		find_node("backgroundDark").visible = true
 		find_node("Timer").start()
-	else :
+	else : #if avatar is already buy, select it and m	ke it current one
 		selected = true
 		if(current_texture !=null):
 			current_avatar.remove_child(current_avatar.get_child(0))
@@ -125,17 +138,18 @@ func _choice_pressed(avatar):
 		val.rect_size = avatar.rect_size
 		avatar.add_child(control_val)
 
+#when validate, change values of json files with current ones
 func _on_Button_pressed():
-		var name=get_node("LineEdit").text
+		var name=find_node("LineEdit").text
 		Global.player.setName(name)
 		if (selected):  #if avatar selected save selected avatar and name
 			var array = current_texture.resource_path.split('/')
 			Global.player.setPathPicture(array[4])
 		get_tree().change_scene("res://home.tscn")
 
-
-
+#when user validate a purchase of avatar, make it available
 func _on_ValidateBuy_pressed():
+	#update the amount of money available
 	if(int(avatarToBuy.name) < 12):
 		Global.player.setSilver(Global.player.getSilver() - avatarCoin[int(avatarToBuy.name)])
 	else : 
@@ -163,3 +177,7 @@ func _on_CancelBuy_pressed():
 func _on_Timer_timeout():
 	find_node("NotEnough").visible = false
 	_on_ConfirmPopup_popup_hide()
+
+
+func _on_Back_pressed():
+	get_tree().change_scene("res://home.tscn")

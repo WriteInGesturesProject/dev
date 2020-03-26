@@ -30,6 +30,7 @@ var RecordButton
 # Called when the node enters the scene tree for the first time.
 func _ready():	
 	find_node("MarginContainer").set("custom_constants/margin_top",get_viewport().size.y / 12)
+	#if my exercice contains more than 22 words, choose 22 words randomly
 	if(myWords.size() > 22):
 		temp = []
 		var rand = 0
@@ -44,20 +45,22 @@ func _ready():
 	Ex = Global.current_ex
 	var numb = 0
 	var i = 0
+	#fill the plate of goose game
 	for b in range(0,5):
 		for w in range(0,8):
 			if(board.size() >= myWords.size()):
 				break
+			#if you are in a part of the grid where you don't want picture to make the goose game effect
 			if((b==0 && w==7) || (b==2 && (w==7 || w ==0)) || (b==4 && w==0) || (b==1 && w!=7) || (b==3 && w!=0)):
 				var control_img = Control.new()
 				find_node("gridImage").add_child(control_img)
-			else :
+			else :#if you are in a part of the grid where you want a picture to make the goose game effect
 				var control_img = Control.new()
 				var image = TextureRect.new()
 				if(Global.level == 0 || Global.level == 2):
 					image.texture = Global.find_texture(myWords[i].getPath())
 					i += 1
-				elif(Global.level == 1):
+				elif(Global.level == 1): #if the game level is normal, doesn't display the image before find it
 					image.texture = load("res://assets/icons/help.png")
 				image.expand = true
 				image.stretch_mode = TextureRect.STRETCH_SCALE_ON_EXPAND
@@ -70,21 +73,23 @@ func _ready():
 				find_node("gridImage").add_child(control_img)
 		if(board.size() >= myWords.size()):
 			break
+	#change color of current image
 	board[0].modulate = "e86767"
 	Global.score = 0
+	#initialize try array with false because no word have been tried
 	for i in myWords:
 		Global.try.append(false)
+	#timer before display the popup
 	find_node("Timer").start()
 	
-	
-
+#change color of the current image on the plate 
 func _changeColor():
-	if(Global.level == 1):
+	if(Global.level == 1): #if the level is normal, change the help image with the real one when word already done
 		board[ind].texture = load("res://art/images/"+myWords[ind].getPath())
-	index += 1
+	index += 1 #change of index
 	ind = index
 	ind_prec = ind
-	if(index >= 8 && index <=13):
+	if(index >= 8 && index <=13): #if you are on the middle line, browse it backwards
 		if(index==8):
 			board[index-1].modulate = "A9A9A9"
 		else : 
@@ -100,15 +105,14 @@ func _changeColor():
 		if(index < myWords.size()):
 			board[index].modulate = "e86767"
 
-
-
+#change of words, display popup of the new word
 func _change():
 	if(index >= myWords.size()):
 		return 
 	count = 0
 	scene.find_node("Next").visible = false
 	display = false
-	if(index >= myWords.size()):
+	if(index >= myWords.size()): #if you are at the end of the plate 
 		get_tree().change_scene("res://GameEnd.tscn")
 	else :
 		scene.display(Global.level, myWords[ind], Ex, ind)
@@ -133,11 +137,11 @@ func _on_WordDetails_popup_hide():
 	find_node("WordDetails").visible = false
 	find_node("Timer").start()
 
-
+#display popup
 func _on_Timer_timeout():
 	if(index >= myWords.size()):
 		get_tree().change_scene("res://GameEnd.tscn")
-	elif(index == 0) :
+	elif(index == 0) : #if it is the first image
 		find_node("WordDetails").popup_centered_ratio(1)
 		var classe = preload("res://DrawWord.tscn")
 		scene = classe.instance()

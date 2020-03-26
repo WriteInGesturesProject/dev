@@ -6,6 +6,7 @@ var Ex : Exercise
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#load the current exercice depending of type of game chose
 	match Global.play:
 		1:
 			Global.current_ex = Global.gooseExercise
@@ -14,8 +15,11 @@ func _ready():
 		3:
 			Global.current_ex = Global.memoryExercise
 	var Ex = Global.current_ex
+	
+	#adjust size of button depending of screen size
 	find_node("Back").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
 
+	#lock normal and hard level if necessary ->if the previous level has less than 50 in success percentage 
 	if(Ex.getSuccessPercentage(0) >= 50):
 		find_node("lock1").visible = false
 		find_node("Normal").disabled = false
@@ -23,6 +27,7 @@ func _ready():
 		find_node("lock2").visible = false
 		find_node("Hard").disabled = false
 
+	#change margin and position for a good display, all depending of screen size 
 	find_node("MarginContainer").add_constant_override("margin_left",get_viewport().size.x/8)
 	find_node("MarginContainer").add_constant_override("margin_right",get_viewport().size.x/8)
 	find_node("Easy").rect_min_size.y = get_viewport().size.y/4
@@ -38,15 +43,10 @@ func _ready():
 	find_node("Normal").get_font("font").size = get_viewport().size.y/16
 	Global.make_margin(find_node("Main"), 0.015)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
 func _on_Back_pressed():
 	get_tree().change_scene("res://GameChoose.tscn")
 
+#set the level variable to the correponding button and redirect to the current game
 
 func _on_Easy_pressed():
 	if(Global.play == 1):
@@ -54,7 +54,6 @@ func _on_Easy_pressed():
 	elif (Global.play == 2):
 		get_tree().change_scene("res://ListenChoose.tscn")
 	Global.level = 0
-
 
 func _on_Normal_pressed():
 	if(Global.play == 1):

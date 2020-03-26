@@ -9,8 +9,10 @@ var size : Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#chrge name and avatar from json files
 	find_node("NamePlayer").text=Global.player.getName()
 	find_node("Picture").texture=load("res://art/users/"+Global.player.getPathPicture())
+	#change size of buttons depends on screen size
 	find_node("Play").rect_min_size.y = get_viewport().size.y/5
 	find_node("Training").rect_min_size.y = get_viewport().size.y/5
 	find_node("Change").rect_min_size.y = get_viewport().size.y/5
@@ -26,6 +28,7 @@ func _ready():
 	coinBox = find_node("CoinBox")
 	size = get_viewport().size
 	
+	#add marge on the main page
 	main.set("custom_constants/margin_right", size.x/20)
 	main.set("custom_constants/margin_left", size.x/20)
 	main.set("custom_constants/margin_top", size.y*0.03)
@@ -38,7 +41,6 @@ func _ready():
 	find_node("Details").rect_position.y = size.y*0.03
 	
 	###Adjust CoinBox 
-
 	find_node("goldCoinPicture").rect_size = Vector2(size.y/10,size.y/10)
 	find_node("silverCoinPicture").rect_size = Vector2(size.y/10,size.y/10)
 	find_node("CoinBox").rect_min_size = Vector2(size.y/10,size.y/10)
@@ -57,6 +59,7 @@ func _ready():
 	
 	find_node("Picture").rect_size = Vector2(avatarBox.rect_min_size.x,avatarBox.rect_min_size.x)
 	avatarBox.add_constant_override("separation",int(avatarBox.rect_min_size.x*1.2))
+	#charge amount of money from json files
 	find_node("Gold").text = str(Global.player.getGold())
 	find_node("Silver").text = str(Global.player.getSilver())
 	
@@ -67,7 +70,7 @@ func _ready():
 func _on_Change_pressed():
 	get_tree().change_scene("res://avatarspace.tscn")
 
-
+#display the popup for connexion by admin persons, here the doctor
 func _on_Admin_pressed():
 	if(!Global.dev) :
 		get_tree().change_scene("res://speechTherapistMenu.tscn")

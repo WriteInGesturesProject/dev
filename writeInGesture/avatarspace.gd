@@ -12,6 +12,7 @@ func _ready():
 	#add margin for the main page and popup
 	find_node("marginButtons").add_constant_override("margin_left", get_viewport().size.x/2 - 220)
 	find_node("CancelBuy").rect_position.y = find_node("ValidateBuy").rect_position.y
+	find_node("ValidateBuy").rect_position.x = find_node("ValidateBuy").rect_position.x - find_node("ValidateBuy").rect_size.x -10
 	var margintop=(get_viewport().size.y -3*get_viewport().size.y/4.5 - get_viewport().size.y*0.05 - find_node("LineEdit").rect_size.y - find_node("goldImage").rect_size.y)/2
 	find_node("MarginContainer").margin_left = (get_viewport().size.x -6*get_viewport().size.y/4.5 - get_viewport().size.y*0.08)/2
 	find_node("MarginContainer").margin_top = margintop

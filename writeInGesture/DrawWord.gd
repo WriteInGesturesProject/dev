@@ -22,9 +22,9 @@ var count = 0
 var testDifficulty = 1
 var wordTest
 # Called when the node enters the scene tree for the first time.
-func _ready():
-#	display(2,Global.wordDictionnary.getAllWord()[195],null,0)
 
+
+func _ready():
 	pass
 ##########################################DISPLAY_VIEW########################################################
 func display(level : int, word : Word, exercice : Exercise, ind : int) :
@@ -36,12 +36,14 @@ func display(level : int, word : Word, exercice : Exercise, ind : int) :
 	incremented = false
 	find_node("Record").disabled = false
 	
-	
+	#### Make margin for Back Button and Next Button
 	Global.make_margin(find_node("MainPage"), 0.015)
 	find_node("Next").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
 	find_node("Next").rect_position = Vector2(get_viewport().size.x*0.97 - get_viewport().size.y*0.15, get_viewport().size.y*0.82)
 	find_node("Back").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
 	VectorMarge = get_viewport().size * (1-2*margin)
+	
+	###We choose the difficulty of the game
 	if(level == 0) :
 		currentDisplay = easy
 		separation =VectorMarge.y *( (1 - (easy[0]+easy[1]+easy[2]))/2)
@@ -56,6 +58,7 @@ func display(level : int, word : Word, exercice : Exercise, ind : int) :
 		separation = 0
 		currentDisplay = hard
 	
+	##We put the size of each container if function of the difficulty 
 	find_node("VBox").add_constant_override("separation", separation)
 	find_node("WordContainer").rect_min_size = Vector2(VectorMarge.x, VectorMarge.y * currentDisplay[0])
 	find_node("ImageContainer").rect_min_size = Vector2(VectorMarge.x, VectorMarge.y * currentDisplay[1])
@@ -68,13 +71,13 @@ func display(level : int, word : Word, exercice : Exercise, ind : int) :
 	###Display Image Borel Container###
 	displayBorel(word)
 	
-	##Make the separation
+
 	
-func displayWord(word: Word) :
+func displayWord(word: Word) :###Display Word Container
 	find_node("Word").text = word.getWord()
 	find_node("Word").get_font("font").size = find_node("WordContainer").rect_min_size.y /2
 
-func displayImage(word : Word) :
+func displayImage(word : Word) :###Display Image Container
 
 	var img = Global.find_texture(word.getPath())
 	find_node("Image").texture = img
@@ -106,7 +109,7 @@ func displayImage(word : Word) :
 
 	pass
 
-func displayBorel(word : Word) :
+func displayBorel(word : Word) :###Display Borel Container
 	if(find_node("HBoxBorel").get_child_count() >0 && find_node("HBoxBorel").get_child(0) != null) :
 		find_node("HBoxBorel").get_child(0).remove_and_skip()
 	var arrayPicture = Global.phoneticToArrayPicturePath(word.getPhonetic())
@@ -124,7 +127,7 @@ func displayBorel(word : Word) :
 
 ###################################CONTROLLING_RECORDING######################################################
 
-func _process(delta):
+func _process(delta): #This function check if we speak the right word
 	if(stt != null && display && stt.isDetectDone()):
 		var words = stt.getWords()
 		if(Global.check_words(words, wordTest)):
@@ -143,7 +146,7 @@ func _process(delta):
 
 
 
-func _on_Speak_pressed():
+func _on_Speak_pressed(): #If we pressed on the speakButton
 	if(stt != null && stt.isListening()):
 		stt.stopListen()
 	if(tts != null):
@@ -155,7 +158,7 @@ func _on_Speak_pressed():
 				tts.speakText(text)
 
 
-func _on_Record_pressed():
+func _on_Record_pressed(): #If we pressed on the recordButton
 	find_node("Wrong").playing = false
 	find_node("Good").playing = false
 	incremented = false

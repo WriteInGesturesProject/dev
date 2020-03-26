@@ -17,10 +17,10 @@ func _ready():
 	find_node("Back").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
 
 	if(Ex.getSuccessPercentage(0) >= 50):
-		find_node("TextureRect").visible = false
+		find_node("lock1").visible = false
 		find_node("Normal").disabled = false
 	if(Ex.getSuccessPercentage(1) >= 50):
-		find_node("TextureRect2").visible = false
+		find_node("lock2").visible = false
 		find_node("Hard").disabled = false
 
 	find_node("MarginContainer").add_constant_override("margin_left",get_viewport().size.x/8)
@@ -28,6 +28,12 @@ func _ready():
 	find_node("Easy").rect_min_size.y = get_viewport().size.y/4
 	find_node("Normal").rect_min_size.y = get_viewport().size.y/4
 	find_node("Hard").rect_min_size.y = get_viewport().size.y/4
+	find_node("lock1").rect_size = Vector2(get_viewport().size.y/5, get_viewport().size.y/5)
+	find_node("lock2").rect_size = Vector2(get_viewport().size.y/5, get_viewport().size.y/5)
+	find_node("lock1").margin_top = get_viewport().size.y*0.04
+	find_node("lock1").margin_left = get_viewport().size.y*0.04
+	find_node("lock2").margin_top = get_viewport().size.y*0.04
+	find_node("lock2").margin_left = get_viewport().size.y*0.04
 	find_node("VBoxContainer").add_constant_override("separation",get_viewport().size.y/20)
 	find_node("Normal").get_font("font").size = get_viewport().size.y/16
 	Global.make_margin(find_node("Main"), 0.015)

@@ -17,9 +17,7 @@ func _ready():
 	find_node("Help").rect_min_size.y = get_viewport().size.y/5
 	find_node("Admin").rect_min_size.y = get_viewport().size.y/5
 	find_node("Admin").get_font("font").size = get_viewport().size.y/22
-	
-	find_node("Details").rect_min_size.y = get_viewport().size.y/5
-	find_node("Details").rect_position.x = get_viewport().size.x * 0.015
+	find_node("NamePlayer").get_font("font").size = get_viewport().size.y/22
 	
 	mainBox = find_node("MainBox")
 	avatarBox = find_node("AvatarBox")
@@ -33,14 +31,27 @@ func _ready():
 	main.set("custom_constants/margin_top", size.y*0.03)
 	main.set("custom_constants/margin_bottom", size.y*0.03)
 	
-	find_node("marginCoinBox").set("custom_constants/margin_right", int(size.x*7/120))
-#	coinBox.set("rect", marginCoinBox - int(size.x*7/120))
-#	coinBox.rect_size.x = coinBox.rect_size.x - int(size.x*7/120)
+	###Adjust Detail Texture Button
+	find_node("Details").rect_size.y = size.y/6
+	find_node("Details").rect_size.x = size.y/6
+	find_node("Details").rect_position.x = size.y*0.03
+	find_node("Details").rect_position.y = size.y*0.03
 	
+	###Adjust CoinBox 
+
+	find_node("goldCoinPicture").rect_size = Vector2(size.y/10,size.y/10)
+	find_node("silverCoinPicture").rect_size = Vector2(size.y/10,size.y/10)
+	find_node("CoinBox").rect_min_size = Vector2(size.y/10,size.y/10)
+	find_node("CoinGold").add_constant_override("separation",size.y/9)
+	find_node("CoinSilver").add_constant_override("separation",size.y/9)
+	find_node("CoinBox").add_constant_override("separation",size.y*0.03)
+	
+	
+	###Adjust the main box
 	mainBox.rect_min_size = Vector2(size.x/3,size.y*3/4)
 	mainBox.rect_position.y = size.y*2/4
-	avatarBox.rect_min_size = Vector2(size.x/6,size.y*3/4)
-	orthoBox.rect_min_size = Vector2(size.x/6,size.y*3/4)
+	avatarBox.rect_min_size = Vector2(size.x/5,size.y*3/4)
+	orthoBox.rect_min_size = Vector2(size.x/5,size.y*3/4)
 	
 	find_node("MainHbox").add_constant_override("separation",int(size.x*7/120))
 	

@@ -1,28 +1,24 @@
 extends Control
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var margin = 0.05
 var vectorMarge
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#make margin of the scene
 	Global.make_margin(find_node("MarginContainer"),margin)
 	vectorMarge = get_viewport().size *(1-2*margin)
 	find_node("MarginContributors").rect_min_size.x = vectorMarge.x / 4
 	find_node("MarginContributors").add_constant_override("margin_top",vectorMarge.y / 8)
 	find_node("MarginContributors").add_constant_override("margin_bottom",vectorMarge.y / 12)
 	Global.make_margin(find_node("MainPage"),0.015)
+	#change size of button depending on the screen size
 	find_node("Back").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
-	
-#	find_node("Link").get_font("font").size = find_node("Label3").get_font("font").size
-#	find_node("Link").rect_position.y = find_node("Link").rect_position.y + get_viewport().size.y * 0.01
 
 func _on_Back_pressed():
 	get_tree().change_scene("res://home.tscn")
 
-
+#open the url of the gitlab when click on it
 func _on_goLinkPressed(url):
 	OS.shell_open(url)
 
@@ -37,12 +33,10 @@ var swipe_mouse_start
 var swipe_mouse_times = []
 var swipe_mouse_positions = []
 
-
+#make a scroll if there is too much information in the page
 func _input(ev):
-	##print(ev)
 	if swiping and ev is InputEventMouseMotion:
 		var delta = ev.position - swipe_mouse_start
-		##print(delta.length())
 		if(delta.length()>10):
 			find_node("TextContributors").get_v_scroll().value = (swipe_start.y - delta.y)
 			swipe_mouse_times.append(OS.get_ticks_msec())
@@ -79,7 +73,6 @@ func _input(ev):
 				tween.interpolate_method(self, 'set_v_scroll', source.y, target.y, flick_dur, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 				tween.interpolate_callback(tween, flick_dur, 'queue_free')
 				tween.start()
-#			#print("is swipping :",isswipping)
 			if isswipping:
 				release = true
 			else:

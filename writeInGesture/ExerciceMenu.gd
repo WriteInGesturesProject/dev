@@ -4,6 +4,7 @@ extends Control
 func _ready():
 	Global.level = 0
 	Global.play = 0
+	#set margin and postion with screen size ratio
 	find_node("MarginContainer").add_constant_override("margin_left",get_viewport().size.x/8)
 	find_node("MarginContainer").add_constant_override("margin_right",get_viewport().size.x/8)
 	find_node("MyGame").rect_min_size.y = get_viewport().size.y/5
@@ -15,6 +16,7 @@ func _ready():
 	find_node("Back").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
 	Global.make_margin(find_node("Main"), 0.015)
 
+#set the game variable with the one choose and go to train scene with the exercice corresponding
 
 func _on_MyGame_pressed():
 	Global.game = 1

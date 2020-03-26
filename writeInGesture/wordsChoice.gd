@@ -10,7 +10,6 @@ const CreationExercise = preload("res://CreationExercise.gd")
 var nameFile = "wordsAvailable"
 var ImageFile = ""
 var ImagePath = ""
-
 var margin = 0.05
 var marginVector
 
@@ -23,8 +22,9 @@ var lastPopup
 
 #######################################FUNCTION_FOR_SCENE###############################
 func _ready():
+	
+	
 	#####Put margin
-
 	find_node("retour").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
 	find_node("retour").rect_position = Vector2(get_viewport().size.y*0.015, get_viewport().size.y*0.015)
 	Global.make_margin(find_node("Margin"), margin)
@@ -48,6 +48,7 @@ func _ready():
 	
 	var words : Array = wordsAvailable.getAllWords()
 	
+	
 	makeListWord()
 	_createKeyboard(find_node("editContainer").rect_min_size.x,find_node("keyBoardContainer").rect_min_size.y )
 	self.add_child(bg)
@@ -63,12 +64,11 @@ func _ready():
 	find_node("newWord").get_font("font","").size = find_node("Panel3").rect_size.y - 3
 
 
-func removeAllChildren(nameNode):
-	# remove all children of nameNode
+func removeAllChildren(nameNode): # remove all children of nameNode
 	for i in range(0, find_node(nameNode).get_child_count()):
 		find_node(nameNode).get_child(i).queue_free()
 
-func makeListWord() :
+func makeListWord() : # Make the list of choosen word of the new exercice 
 	removeAllChildren("wordsAvailableContainer")
 	if(wordsAvailable.getAllWords().size() == 0):
 		find_node("Creation").visible = false
@@ -78,13 +78,11 @@ func makeListWord() :
 		find_node("wordsAvailableContainer").add_child(createAvailableWordsList(word))
 	pass
 
-func _createKeyboard(lenghtX : float, lenghtY : float):
+func _createKeyboard(lenghtX : float, lenghtY : float): # create the phonetic keyboard
 	var sizeWord = 0
 	for b in Global.phoneticDictionnary:
 		for w in Global.phoneticDictionnary[b]:
 			sizeWord += 1
-	
-	
 	find_node("gridKeyboard").columns = sizeWord/4
 	var columsNbWords =  sizeWord/4
 	var rawNbWords = sizeWord/columsNbWords
@@ -105,9 +103,9 @@ func _createKeyboard(lenghtX : float, lenghtY : float):
 	find_node("HBoxContainerAdd").add_child(keyDeleteButton)
 	
 
-func _on_keyButton_pressed(keyButton):
+func _on_keyButton_pressed(keyButton): ## If we click on a button of the keyboard  we add the character in the "newWordLabel"
 	var newWordLabel = find_node("newWord")
-	if (keyButton.text == "Effacer") and (newWordLabel.text.length()>0) :
+	if (keyButton.text == "Effacer") and (newWordLabel.text.length()>0) : #If the button presses if "Effacer" we erase the last charactere
 		if(newWordLabel.text[-1].to_ascii()[0] == 3) :
 			newWordLabel.text[-1] = ""
 		newWordLabel.text[-1] = ""
@@ -115,7 +113,7 @@ func _on_keyButton_pressed(keyButton):
 		newWordLabel.text += keyButton.text.split("[")[1].split("]")[0]
 
 
-func _on_addWord_pressed():
+func _on_addWord_pressed(): ## If we click on "AddWord" button we add the word in the list of the new exercice
 	var text = find_node("newWord").get_text()
 	if(text == null || text == ""):
 		return
@@ -135,7 +133,8 @@ func _on_addWord_pressed():
 		bg.visible = true
 		find_node("Timer").start()
 
-func createAvailableWordsList(word : Word):
+func createAvailableWordsList(word : Word):  ## We create one item of the availableWordList of the new Exercice
+	#Creation of a new Hbox where there are the word, the phonetic of the word and a delete button
 	var hBoxContainer = HBoxContainer.new()
 	hBoxContainer.mouse_filter =Control.MOUSE_FILTER_PASS
 	var currentLabel = Label.new()
@@ -179,11 +178,9 @@ func createAvailableWordsList(word : Word):
 	
 	return marginContainer
 
-func _on_deleteButton_pressed(button, label):
-	#print("release : ", release)
+func _on_deleteButton_pressed(button, label): #If we delete a word from the wordAvailable list we remove it from the list
 	if(!release) :
 		button.get_parent().get_parent().remove_and_skip()
-		#print("label text : ",label.get_text())
 		swiping = false 
 		if(!wordsAvailable.removeWord(wordsAvailable.getWord(label.get_text()))) :
 			print ("le mot n'est pas supprimé dans le fichier'")
@@ -209,7 +206,7 @@ func _on_yes_pressed():
 	bg.visible = true
 	find_node("LinePhonetic").text = find_node("newWord").text
 
-func _on_Confirm_pressed():
+func _on_Confirm_pressed(): ###Whn we create a new word in a dictionnary
 	if(find_node("OpenButton").text != "Ouvrir une image") :
 		var newWord : Word = Word.new()
 		newWord.setAttribut("phonetic", find_node("LinePhonetic").text)
@@ -259,7 +256,7 @@ func findHomonym(word : String) :
 				res = homo
 	return res
 	
-func _on_OpenButton_pressed():
+func _on_OpenButton_pressed(): ### Open Internet navigator to find a picture for the new Word
 	var word = find_node("LineWord").text
 	if(word == null || word == ""):
 		find_node("Word").modulate = "ff0000"
@@ -294,7 +291,7 @@ func _on_FileDialog_file_selected(path):
 #######################################END_ADD_WORD_IN_DICTIONNARY###############################
 
 #######################################CREATION_OF_EXERCISE######################################
-func _on_Creation_pressed():
+func _on_Creation_pressed(): ### For create a new exercice we use the class CreationExercice.gd
 	var creation = CreationExercise.new()
 	if(wordsAvailable.getAllWords().size() >= 3) :
 		creation.updateExercises(wordsAvailable.getAllWords())
@@ -332,7 +329,6 @@ func _input(ev):
 	##print(ev)
 	if swiping and ev is InputEventMouseMotion:
 		var delta = ev.position - swipe_mouse_start
-		##print(delta.length())
 		if(delta.length()>10):
 			find_node("ScrollContainer").set_h_scroll(swipe_start.x - delta.x)
 			find_node("ScrollContainer").set_v_scroll(swipe_start.y - delta.y)

@@ -30,6 +30,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="backgroundDark" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.901961 )
+
 [node name="MainPage" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -142,12 +148,6 @@ max_length = 20
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="backgroundDark" type="ColorRect" parent="MainPage/Control"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.901961 )
 
 [node name="ConfirmPopup" type="WindowDialog" parent="MainPage/Control"]
 anchor_right = 1.0

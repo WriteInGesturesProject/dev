@@ -1763,7 +1763,8 @@
             "word": "papy",
             "path": "papy.jpg",
             "homonym": [
-               "papy"
+               "papy",
+               "papi"
             ],
             "nbSyllable": 2,
             "syllableStruct": "cvcv",
@@ -1775,7 +1776,8 @@
             "word": "mamy",
             "path": "mamy.jpg",
             "homonym": [
-               "mamy"
+               "mamy",
+               "mamie"
             ],
             "nbSyllable": 2,
             "syllableStruct": "cvcv",

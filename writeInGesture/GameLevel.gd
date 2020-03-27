@@ -20,12 +20,12 @@ func _ready():
 	find_node("Back").rect_size = Vector2(get_viewport().size.y*0.15, get_viewport().size.y*0.15)
 
 	#lock normal and hard level if necessary ->if the previous level has less than 50 in success percentage 
-#	if(Ex.getSuccessPercentage(0) >= 50):
-	find_node("lock1").visible = false
-	find_node("Normal").disabled = false
-#	if(Ex.getSuccessPercentage(1) >= 50):
-	find_node("lock2").visible = false
-	find_node("Hard").disabled = false
+	if(Ex.getSuccessPercentage(0) >= 50):
+		find_node("lock1").visible = false
+		find_node("Normal").disabled = false
+	if(Ex.getSuccessPercentage(1) >= 50):
+		find_node("lock2").visible = false
+		find_node("Hard").disabled = false
 
 	#change margin and position for a good display, all depending of screen size 
 	find_node("MarginContainer").add_constant_override("margin_left",get_viewport().size.x/8)

@@ -24,7 +24,7 @@ modules="org/godotengine/godot/GodotTextToSpeech,org/godotengine/godot/GodotSpee
 
 [application]
 
-config/name="ArtiGest"
+config/name="ArtiPhonie"
 run/main_scene="res://home.tscn"
 boot_splash/image="res://assets/logo.png"
 boot_splash/fullsize=false

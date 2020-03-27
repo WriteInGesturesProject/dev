@@ -208,7 +208,7 @@ margin_right = 274.0
 margin_bottom = 556.0
 size_flags_horizontal = 3
 theme = ExtResource( 5 )
-text = "M'entrainer"
+text = "Entrainement"
 
 [node name="OrthoBox" type="VBoxContainer" parent="Main/MainVbox/MainHbox"]
 margin_left = 606.0

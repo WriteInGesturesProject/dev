@@ -1,52 +1,52 @@
 # ![](https://github.com/WriteInGesturesProject/dev/blob/master/writeInGesture/assets/logo.png) 
 
-## Rappel du sujet/besoin et cahier des charges
-Ce projet porte sur le developpement d'une application mobile pour une utilisation sur tablette à usage des enfants atteints de trouble du langage.
-Il nous a été proposé par une ortophoniste du CHU de Grenoble (Estelle Gillet-Perret).
-Le but de cette application est d'aider les enfants à travailler leur prononciation de manière autonome, à la maison par l'intermédiaire de mini-jeux et de [la méthode Borel-Maisonny](https://fr.wikipedia.org/wiki/M%C3%A9thode_Borel-Maisonny).
-Ce genre d'application existe déjà, malheureusement toutes les alternatives à cette application sont soit payante soit dans une langue différentes du français. C'est pourquoi nous créons une application gratuite et collaborative.
+## Reminder of the subject/need and specifications
+This project involves the development of a mobile application for use on a tablet for children with language impairment.
+It was proposed to us by a speech therapist from the Grenoble University Hospital (Estelle Gillet-Perret).
+The aim of this application is to help children work on their pronunciation independently at home through mini-games and the [Borel-Maisonny method](https://fr.wikipedia.org/wiki/M%C3%A9thode_Borel-Maisonny).
+This kind of application already exists, unfortunately all the alternatives to this application are either paying or in a language other than French. This is why we are creating a free and collaborative application.
 
-## Architecture technique
-Notre application est une application mobile developpé avec le moteur de jeu [Godot Game Engine](https://godotengine.org).
-Nous utilisons des fichiers *JSON* pour le stockage de nos données en local.  
-Voici un exemple d'architecture pour une application Godot.  
+## Technical architecture
+Our application is a mobile application developed with the Godot Game Engine (https://godotengine.org).
+We use *JSON* files to store our data locally.  
+Here is an example of architecture for a Godot application.  
 ![](https://github.com/WriteInGesturesProject/docs/blob/master/Images/Architecture.png)  
 
-- Les [noeuds](http://docs.godotengine.org/fr/latest/getting_started/step_by_step/scenes_and_nodes.html#nodes) représentent les éléments fondamentaux dans la création de notre jeu. Il est équipé de plusieurs champs modifiable en fonction de son type. Il y a plusieurs type de noeuds : des labels, des boutons, des textures, des lecteurs multimédia etc...  
-- Les [scènes](http://docs.godotengine.org/fr/latest/getting_started/step_by_step/scenes_and_nodes.html#scenes) sont des groupes de noeuds et permettent donc de modéliser un écran de jeu.  
-- Les [scripts](https://docs.godotengine.org/fr/latest/getting_started/scripting/visual_script/getting_started.html) représentent toute la partie programmation du jeu que l'on va développé. Ce script est souvent rattaché à un noeud d'une scène et permet donc de controler son jeu. Les scripts sont très polyvalent étant donné qu'ils peuvent gérer d'une part la partie fonctionnel de l'application mais aussi la partie graphique de celle-ci.  Le langage de ces scripts est le langage propre a godot : [GDScript](https://docs.godotengine.org/fr/latest/getting_started/scripting/gdscript/gdscript_advanced.html). Godot est aussi capable de gérer le C# et le C++.
-- Les données sont toutes les ressources que l'application utilise, il peut s'agir d'images, vidéos, sons, fichiers texte. Nous pouvons aussi remarquer que ces données peuvent être utilisées par les noeuds, mais aussi par les scripts.
+- The [nodes](http://docs.godotengine.org/fr/latest/getting_started/step_by_step/scenes_and_nodes.html#nodes) represent the fundamental elements in the creation of our game. It is equipped with several fields that can be modified according to its type. There are several types of nodes: labels, buttons, textures, media players etc...  
+- The [scenes](http://docs.godotengine.org/fr/latest/getting_started/step_by_step/scenes_and_nodes.html#scenes) are groups of nodes and allow to model a game screen.  
+- The [scripts](https://docs.godotengine.org/fr/latest/getting_started/scripting/visual_script/getting_started.html) represent the whole programming part of the game we are going to develop. This script is often attached to a node of a scene and thus allows to control its play. Scripts are very versatile since they can manage the functional part of the application as well as the graphical part of the application.  The language of these scripts is godot's own language: [GDScript](https://docs.godotengine.org/fr/latest/getting_started/scripting/gdscript/gdscript_advanced.html). Godot is also able to handle C# and C++.
+- Data are all the resources that the application uses, it can be images, videos, sounds, text files. We can also notice that this data can be used by nodes, but also by scripts.
 
 
-## Réalisations techniques
-L'application peut se diviser en deux parties. D'une part, nous avons la partie utilisé par l'enfant et d'une autre nous avons la partie consacré au spécialiste.
+## Technical Achievements
+The application can be divided into two parts. On the one hand we have the part used by the child and on the other hand we have the part dedicated to the specialist.
 
 
-### La partie du spécialiste
-C'est dans cette partie que le spécialiste va pouvoir adapter l'application en fonction des besoins de l'enfant. Il va être possible de créer des exercices basé sur des mots (avec certaines [structures syllabique](https://www.sfu.ca/fren270/phonologie/page4_7.html) ou alors avec un certain nombre de syllabe) extraient d'un dictionnaire inclus dans l'application. Le spécialiste peut aussi créé son propre exercice en y ajoutant les mots qu'il désire avec une image, des homonymes, etc..
-Enfin, il est possible d'observé des statistiques par rapport au travail de l'enfant : nombre de réussite d'un exercice, nombre d'essai d'un mot, le mot le plus ou moins réussi, etc... Ces statistiques pourront également être utilisées par des chercheurs.
+### The specialist part
+It is in this part that the specialist will be able to adapt the application according to the needs of the child. It will be possible to create exercises based on words (with certain [syllabic structures](https://www.sfu.ca/fren270/phonologie/page4_7.html) or with a certain number of syllables) extracted from a dictionary included in the application. The specialist can also create his own exercise by adding the words he wants with a picture, homonyms, etc...
+Finally, it is possible to observe statistics in relation to the child's work: number of successful completion of an exercise, number of tries of a word, the word more or less successful, etc... These statistics can also be used by researchers.
 
 
-### La partie de l'enfant
-C'est dans cette partie que l'enfant va pouvoir travailler tout en joueant. Pour ce faire il dispose de 3 menus, décrit ci-dessous. 
+### The child's part
+This is where the child will be able to work while playing. To do this he has 3 menus, described below. 
 
-#### Le menu de jeu
-Dans ce menu nous avons trois jeux à lui proposé :
-- Le jeu de l'oie
-- L'écoute et choisis
-- Le jeu du Memory
-
-
-#### Le menu d'entrainement
-Ici l'enfant va pouvoir s'entrainer sur un certain thème :
-- Les mots choisi par le spécialiste
-- Les jours de la semaine
-- Les chiffres
-- Les couleurs
+#### The game menu
+In this menu we have three games for him:
+- The game of the goose
+- Listening and choosing
+- The Memory Game
 
 
-#### Le menu d'aide
-Ce menu regroupe tous les sons de la langue française avec en plus une vidéo regroupant explication du geste Borel et prononciation du son correspondant.
+#### The training menu
+Here the child will be able to practice on a certain theme:
+- The words chosen by the specialist
+- Days of the week
+- The numbers
+- The colors
+
+
+#### The help menu
+This menu gathers all the sounds of the French language with in addition a video explaining the Borel gesture and the pronunciation of the corresponding sound.
 
 #### Contact 
 artiphonie@gmail.com

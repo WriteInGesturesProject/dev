@@ -134,8 +134,8 @@ size_flags_vertical = 3
 alignment = 1
 
 [node name="AvatarBox" type="VBoxContainer" parent="Main/MainVbox/MainHbox"]
-margin_left = 164.0
-margin_right = 324.0
+margin_left = 179.0
+margin_right = 339.0
 margin_bottom = 556.0
 alignment = 2
 
@@ -168,35 +168,35 @@ __meta__ = {
 }
 
 [node name="MainBox" type="VBoxContainer" parent="Main/MainVbox/MainHbox"]
-margin_left = 328.0
-margin_right = 602.0
+margin_left = 343.0
+margin_right = 586.0
 margin_bottom = 556.0
 custom_constants/separation = 40
 alignment = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Main/MainVbox/MainHbox/MainBox"]
 margin_top = 172.0
-margin_right = 274.0
+margin_right = 243.0
 margin_bottom = 284.0
 
 [node name="Label" type="Label" parent="Main/MainVbox/MainHbox/MainBox/VBoxContainer"]
-margin_right = 274.0
+margin_right = 243.0
 margin_bottom = 36.0
 text = "Bienvenue "
 align = 1
 
 [node name="NamePlayer" type="Label" parent="Main/MainVbox/MainHbox/MainBox/VBoxContainer"]
 margin_top = 40.0
-margin_right = 274.0
+margin_right = 243.0
 margin_bottom = 112.0
 theme = ExtResource( 4 )
 custom_fonts/font = ExtResource( 13 )
-text = "Xavier L'autiste"
+text = "Nom"
 align = 1
 
 [node name="Play" type="Button" parent="Main/MainVbox/MainHbox/MainBox"]
 margin_top = 324.0
-margin_right = 274.0
+margin_right = 243.0
 margin_bottom = 420.0
 size_flags_horizontal = 3
 theme = ExtResource( 5 )
@@ -204,15 +204,15 @@ text = "Jouer"
 
 [node name="Training" type="Button" parent="Main/MainVbox/MainHbox/MainBox"]
 margin_top = 460.0
-margin_right = 274.0
+margin_right = 243.0
 margin_bottom = 556.0
 size_flags_horizontal = 3
 theme = ExtResource( 5 )
-text = "M'entrainer"
+text = "Entrainement"
 
 [node name="OrthoBox" type="VBoxContainer" parent="Main/MainVbox/MainHbox"]
-margin_left = 606.0
-margin_right = 860.0
+margin_left = 590.0
+margin_right = 844.0
 margin_bottom = 556.0
 custom_constants/separation = 200
 alignment = 2

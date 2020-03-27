@@ -96,7 +96,7 @@ alignment = 1
 [node name="Contributors" type="Label" parent="MainPage/Control/MarginContainer/VBoxContainer/MarginContributors/About"]
 margin_right = 1024.0
 margin_bottom = 36.0
-text = "Contributeur et License :"
+text = "Contributeurs et Licence :"
 align = 1
 
 [node name="TextContributors" type="RichTextLabel" parent="MainPage/Control/MarginContainer/VBoxContainer/MarginContributors/About"]
@@ -127,12 +127,12 @@ Les principaux contributeurs sont :
 Chabre Manon, Coscia Daniel, De Araujo Bastien, Denis Guillaume, Alacali Kadir et Gillet-Perret Estelle.
 
 Images BOREL : Estelle Gillet-Perret (Creative Common)
-Videos BOREL : Estelle Gillet-Perret (Tous droits réservé)
+Videos BOREL : Estelle Gillet-Perret (Tous droits réservés)
 Images/Icônes : De Araujo Bastien, Denis Guillaume (Tous droits réservés)
 
 « Les gestes illustrés et reproduits en vidéos sont issus de la méthode phonétique et gestuelle de Mme BOREL MAISONNY, qui sont également repris dans la méthode « Bien Lire et aimer lire » éditée chez ESF Sciences Humaines. »
 
-Nous sommes ouverts à toutes améliorations sur notre adresse mail. 
+Nous sommes ouverts à toute amélioration sur notre adresse mail. 
 
 L'équipe développement.
 

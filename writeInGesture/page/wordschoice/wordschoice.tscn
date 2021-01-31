@@ -1,0 +1,585 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://page/wordschoice/wordschoice.gd" type="Script" id=1]
+[ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=2]
+[ext_resource path="res://assets/theme/ButtonTheme.tres" type="Theme" id=3]
+[ext_resource path="res://assets/background.png" type="Texture" id=4]
+[ext_resource path="res://assets/icons/back.png" type="Texture" id=5]
+[ext_resource path="res://assets/fonts/RAVIE.TTF" type="DynamicFontData" id=6]
+[ext_resource path="res://assets/theme/backgroundPanel.tres" type="StyleBox" id=7]
+[ext_resource path="res://assets/fonts/DejaVuSans.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 8 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.937255, 0.854902, 0.721569, 1 )
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="DynamicFont" id=3]
+size = 46
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 6 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Main" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="Main"]
+margin_right = 1024.0
+margin_bottom = 600.0
+theme = ExtResource( 2 )
+
+[node name="Margin" type="MarginContainer" parent="Main/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainContainer" type="HBoxContainer" parent="Main/Control/Margin"]
+margin_right = 552.0
+margin_bottom = 85.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource( 2 )
+alignment = 1
+
+[node name="MarginWord" type="MarginContainer" parent="Main/Control/Margin/MainContainer"]
+margin_right = 211.0
+margin_bottom = 40.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="Main/Control/Margin/MainContainer/MarginWord"]
+modulate = Color( 1, 1, 1, 0.32549 )
+margin_right = 211.0
+margin_bottom = 40.0
+theme = ExtResource( 2 )
+custom_styles/panel = ExtResource( 7 )
+
+[node name="WordsContainer" type="VBoxContainer" parent="Main/Control/Margin/MainContainer/MarginWord"]
+margin_right = 211.0
+margin_bottom = 40.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource( 2 )
+
+[node name="availableWords" type="Label" parent="Main/Control/Margin/MainContainer/MarginWord/WordsContainer"]
+margin_right = 211.0
+margin_bottom = 36.0
+size_flags_vertical = 1
+theme = ExtResource( 2 )
+text = "Mots ajoutés :"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Main/Control/Margin/MainContainer/MarginWord/WordsContainer"]
+margin_top = 40.0
+margin_right = 211.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 2 )
+scroll_horizontal_enabled = false
+
+[node name="wordsAvailableContainer" type="VBoxContainer" parent="Main/Control/Margin/MainContainer/MarginWord/WordsContainer/ScrollContainer"]
+margin_right = 211.0
+size_flags_horizontal = 3
+theme = ExtResource( 2 )
+custom_constants/separation = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="Main/Control/Margin/MainContainer"]
+margin_left = 215.0
+margin_right = 552.0
+margin_bottom = 85.0
+theme = ExtResource( 2 )
+
+[node name="Panel2" type="Panel" parent="Main/Control/Margin/MainContainer/MarginContainer"]
+modulate = Color( 1, 1, 1, 0.32549 )
+margin_right = 337.0
+margin_bottom = 85.0
+theme = ExtResource( 2 )
+custom_styles/panel = ExtResource( 7 )
+
+[node name="editContainer" type="VBoxContainer" parent="Main/Control/Margin/MainContainer/MarginContainer"]
+margin_right = 337.0
+margin_bottom = 85.0
+theme = ExtResource( 2 )
+
+[node name="HBoxContainerAdd" type="HBoxContainer" parent="Main/Control/Margin/MainContainer/MarginContainer/editContainer"]
+margin_right = 337.0
+margin_bottom = 58.0
+rect_clip_content = true
+size_flags_horizontal = 3
+theme = ExtResource( 2 )
+custom_constants/separation = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="Main/Control/Margin/MainContainer/MarginContainer/editContainer/HBoxContainerAdd"]
+margin_right = 220.0
+margin_bottom = 58.0
+size_flags_horizontal = 3
+theme = ExtResource( 2 )
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="Panel3" type="Panel" parent="Main/Control/Margin/MainContainer/MarginContainer/editContainer/HBoxContainerAdd/MarginContainer"]
+modulate = Color( 1, 1, 1, 0.32549 )
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 210.0
+margin_bottom = 48.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 2 )
+custom_styles/panel = ExtResource( 7 )
+
+[node name="newWord" type="Label" parent="Main/Control/Margin/MainContainer/MarginContainer/editContainer/HBoxContainerAdd/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 210.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 200, 0 )
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.901961, 0.905882, 0.858824, 1 )
+valign = 1
+
+[node name="addWord" type="Button" parent="Main/Control/Margin/MainContainer/MarginContainer/editContainer/HBoxContainerAdd"]
+margin_left = 240.0
+margin_right = 337.0
+margin_bottom = 58.0
+theme = ExtResource( 3 )
+text = "Ajouter"
+
+[node name="keyBoardContainer" type="CenterContainer" parent="Main/Control/Margin/MainContainer/MarginContainer/editContainer"]
+margin_top = 62.0
+margin_right = 337.0
+margin_bottom = 62.0
+size_flags_horizontal = 3
+theme = ExtResource( 2 )
+
+[node name="gridKeyboard" type="GridContainer" parent="Main/Control/Margin/MainContainer/MarginContainer/editContainer/keyBoardContainer"]
+margin_left = 168.0
+margin_right = 168.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 2 )
+columns = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainerCreation" type="HBoxContainer" parent="Main/Control/Margin/MainContainer/MarginContainer/editContainer"]
+margin_top = 66.0
+margin_right = 337.0
+margin_bottom = 85.0
+rect_clip_content = true
+theme = ExtResource( 2 )
+
+[node name="Creation" type="Button" parent="Main/Control/Margin/MainContainer/MarginContainer/editContainer/HBoxContainerCreation"]
+margin_right = 337.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+theme = ExtResource( 3 )
+text = "Créer l'exercice"
+
+[node name="retour" type="Button" parent="Main/Control"]
+anchor_left = 0.0158777
+anchor_top = 0.0265151
+anchor_right = 0.0988855
+anchor_bottom = 0.168182
+theme = ExtResource( 2 )
+icon = ExtResource( 5 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Popup" type="Popup" parent="Main/Control"]
+anchor_left = 0.0766602
+anchor_top = 0.133333
+anchor_right = 0.92334
+anchor_bottom = 0.866667
+margin_top = -7.62939e-06
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel" type="Panel" parent="Main/Control/Popup"]
+anchor_top = 0.00227273
+anchor_right = 1.0
+anchor_bottom = 1.00227
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="addWordLabel" type="Label" parent="Main/Control/Popup"]
+anchor_left = 0.00115341
+anchor_top = 0.202273
+anchor_right = 1.00115
+anchor_bottom = 0.284091
+theme = ExtResource( 2 )
+text = "Test"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="yes" type="Button" parent="Main/Control/Popup"]
+anchor_left = 0.0807382
+anchor_top = 0.681818
+anchor_right = 0.459054
+anchor_bottom = 0.899999
+theme = ExtResource( 3 )
+text = "Oui"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="no" type="Button" parent="Main/Control/Popup"]
+anchor_left = 0.512111
+anchor_top = 0.681818
+anchor_right = 0.926182
+anchor_bottom = 0.899999
+margin_left = -3.05176e-05
+theme = ExtResource( 3 )
+text = "Non"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Button" parent="Main/Control/Popup"]
+anchor_left = 0.926182
+anchor_top = 0.0409091
+anchor_right = 0.975778
+anchor_bottom = 0.147727
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.729412, 0.152941, 0, 1 )
+text = "X"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Popup2" type="Popup" parent="Main/Control"]
+anchor_left = 0.0766602
+anchor_top = 0.133333
+anchor_right = 0.92334
+anchor_bottom = 0.866667
+margin_top = -7.62939e-06
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel2" type="Panel" parent="Main/Control/Popup2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="addWordLabel2" type="Label" parent="Main/Control/Popup2"]
+anchor_left = 0.0138408
+anchor_top = 0.0295455
+anchor_right = 1.01384
+anchor_bottom = 0.0977273
+margin_right = 6.10352e-05
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.843137, 0.411765, 0.211765, 1 )
+text = "Ajout du mot "
+align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Phonetic" type="Label" parent="Main/Control/Popup2"]
+anchor_left = 0.229527
+anchor_top = 0.109091
+anchor_right = 0.457901
+anchor_bottom = 0.190909
+theme = ExtResource( 2 )
+text = "Phonetique : "
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="LinePhonetic" type="LineEdit" parent="Main/Control/Popup2"]
+anchor_left = 0.479815
+anchor_top = 0.102273
+anchor_right = 0.635525
+anchor_bottom = 0.184091
+theme = ExtResource( 2 )
+max_length = 20
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Word" type="Label" parent="Main/Control/Popup2"]
+anchor_left = 0.359862
+anchor_top = 0.206818
+anchor_right = 0.44752
+anchor_bottom = 0.288636
+theme = ExtResource( 2 )
+text = "Mot :"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="LineWord" type="LineEdit" parent="Main/Control/Popup2"]
+anchor_left = 0.478662
+anchor_top = 0.213636
+anchor_right = 0.634371
+anchor_bottom = 0.295455
+theme = ExtResource( 2 )
+max_length = 20
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="NbSyllable" type="Label" parent="Main/Control/Popup2"]
+anchor_left = 0.0957324
+anchor_top = 0.318182
+anchor_right = 0.445213
+anchor_bottom = 0.4
+theme = ExtResource( 2 )
+text = "Nombre de Syllabe :"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="LineNbSyllable" type="LineEdit" parent="Main/Control/Popup2"]
+anchor_left = 0.478662
+anchor_top = 0.329545
+anchor_right = 0.634371
+anchor_bottom = 0.411364
+theme = ExtResource( 2 )
+max_length = 20
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Struct" type="Label" parent="Main/Control/Popup2"]
+anchor_left = 0.0738178
+anchor_top = 0.438636
+anchor_right = 0.44752
+anchor_bottom = 0.520455
+margin_left = 3.8147e-06
+margin_bottom = 1.52588e-05
+theme = ExtResource( 2 )
+text = "Structure Syllabique :"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="LineStruct" type="LineEdit" parent="Main/Control/Popup2"]
+anchor_left = 0.478662
+anchor_top = 0.447727
+anchor_right = 0.634371
+anchor_bottom = 0.529545
+theme = ExtResource( 2 )
+max_length = 20
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VoyelsType" type="Label" parent="Main/Control/Popup2"]
+anchor_left = 0.149942
+anchor_top = 0.663636
+anchor_right = 0.445213
+anchor_bottom = 0.745455
+theme = ExtResource( 2 )
+text = "Type de voyelle :"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="LineVoyelsType" type="LineEdit" parent="Main/Control/Popup2"]
+anchor_left = 0.478662
+anchor_top = 0.670455
+anchor_right = 0.634371
+anchor_bottom = 0.752273
+theme = ExtResource( 2 )
+max_length = 20
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ConsType" type="Label" parent="Main/Control/Popup2"]
+anchor_left = 0.107266
+anchor_top = 0.552273
+anchor_right = 0.446367
+anchor_bottom = 0.634091
+theme = ExtResource( 2 )
+text = "Type de consonne :"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="LineConsType" type="LineEdit" parent="Main/Control/Popup2"]
+anchor_left = 0.478662
+anchor_top = 0.561364
+anchor_right = 0.634371
+anchor_bottom = 0.643182
+theme = ExtResource( 2 )
+max_length = 20
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SearchButton" type="Button" parent="Main/Control/Popup2"]
+anchor_left = 0.238754
+anchor_top = 0.790909
+anchor_right = 0.553633
+anchor_bottom = 0.85
+theme = ExtResource( 3 )
+text = "Rechercher une image"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="OpenButton" type="Button" parent="Main/Control/Popup2"]
+anchor_left = 0.585928
+anchor_top = 0.793182
+anchor_right = 0.835063
+anchor_bottom = 0.847727
+theme = ExtResource( 3 )
+text = "Ouvrir une image"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Confirm" type="Button" parent="Main/Control/Popup2"]
+anchor_left = 0.355248
+anchor_top = 0.884091
+anchor_right = 0.515571
+anchor_bottom = 0.972727
+theme = ExtResource( 3 )
+text = "Confirmer"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Cancel" type="Button" parent="Main/Control/Popup2"]
+anchor_left = 0.554787
+anchor_top = 0.884091
+anchor_right = 0.697809
+anchor_bottom = 0.972727
+theme = ExtResource( 3 )
+text = "Annuler"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="FileDialog" type="FileDialog" parent="Main/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -328.0
+margin_top = -155.0
+margin_right = 330.0
+margin_bottom = 155.0
+theme = ExtResource( 2 )
+window_title = "Ouvrir un fichier"
+resizable = true
+mode = 0
+access = 2
+filters = PoolStringArray( "*.png ; PNG Images", "*.jpg ; JPG Images", "*.jpeg ; JPEG Images" )
+current_dir = "D:/projet/dev/writeInGesture"
+current_path = "D:/projet/dev/writeInGesture/"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="StatePopup" type="Popup" parent="Main/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/Control/StatePopup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 2 )
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="labelState" type="Label" parent="Main/Control/StatePopup/VBoxContainer"]
+margin_top = 282.0
+margin_right = 1024.0
+margin_bottom = 318.0
+size_flags_vertical = 1
+theme = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Exempel"
+align = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+[connection signal="pressed" from="Main/Control/Margin/MainContainer/MarginContainer/editContainer/HBoxContainerAdd/addWord" to="." method="_on_addWord_pressed"]
+[connection signal="pressed" from="Main/Control/Margin/MainContainer/MarginContainer/editContainer/HBoxContainerCreation/Creation" to="." method="_on_Creation_pressed"]
+[connection signal="pressed" from="Main/Control/retour" to="." method="_on_Retour_pressed"]
+[connection signal="hide" from="Main/Control/Popup" to="." method="_on_Popup_hide"]
+[connection signal="pressed" from="Main/Control/Popup/yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="Main/Control/Popup/no" to="." method="_on_no_pressed"]
+[connection signal="pressed" from="Main/Control/Popup/Label" to="." method="_on_Label_pressed"]
+[connection signal="hide" from="Main/Control/Popup2" to="." method="_on_Popup_hide"]
+[connection signal="pressed" from="Main/Control/Popup2/SearchButton" to="." method="_on_SearchButton_pressed"]
+[connection signal="pressed" from="Main/Control/Popup2/OpenButton" to="." method="_on_OpenButton_pressed"]
+[connection signal="pressed" from="Main/Control/Popup2/Confirm" to="." method="_on_Confirm_pressed"]
+[connection signal="pressed" from="Main/Control/Popup2/Cancel" to="." method="_on_no_pressed"]
+[connection signal="file_selected" from="Main/Control/FileDialog" to="." method="_on_FileDialog_file_selected"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -4,6 +4,11 @@
 		"version" : 1.0,
 		"pathExercisesFiles" : ["custom_1.0.json", "goose_1.0.json", "listen_1.0.json", "memory_1.0.json"],
 		"loginAdmin" : "admin",
-		"passWordAdmin" : "admin"
+		"passWordAdmin" : "admin",
+		"isRecordPermission" : false,
+		"isFirstLaunch" : true ,
+		"token" :"",
+		"refreshToken":"",
+		"localId" :""
 	}
 }

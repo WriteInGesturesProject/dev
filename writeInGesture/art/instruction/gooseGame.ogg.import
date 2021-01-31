@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/gooseGame.ogg-a862974fb08e8ace1e59ee9782bd7a15.oggstr"
+
+[deps]
+
+source_file="res://art/instruction/gooseGame.ogg"
+dest_files=[ "res://.import/gooseGame.ogg-a862974fb08e8ace1e59ee9782bd7a15.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

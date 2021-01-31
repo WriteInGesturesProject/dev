@@ -1,0 +1,118 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://page/help/interfaceGesture.gd" type="Script" id=1]
+[ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=2]
+[ext_resource path="res://assets/icons/back.png" type="Texture" id=3]
+[ext_resource path="res://assets/background.png" type="Texture" id=4]
+[ext_resource path="res://assets/theme/ScrollBarRemoveFromScrollContainer.tres" type="Theme" id=5]
+[ext_resource path="res://assets/theme/backgroundPanel.tres" type="StyleBox" id=6]
+[ext_resource path="res://assets/fonts/RAVIE.TTF" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 54
+font_data = ExtResource( 7 )
+
+[node name="Control45" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+expand = true
+
+[node name="MarginMainMain" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 0
+custom_constants/margin_left = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginMainMain"]
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Description" type="Label" parent="MarginMainMain/VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 55.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.843137, 0.411765, 0.211765, 1 )
+text = "Description"
+align = 1
+valign = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginMainMain/VBoxContainer"]
+margin_top = 59.0
+margin_right = 1024.0
+margin_bottom = 600.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="MarginMainMain/VBoxContainer/MarginContainer"]
+modulate = Color( 1, 1, 1, 0.32549 )
+margin_right = 1024.0
+margin_bottom = 541.0
+custom_styles/panel = ExtResource( 6 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginMainMain/VBoxContainer/MarginContainer"]
+margin_right = 1024.0
+margin_bottom = 541.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 5 )
+follow_focus = true
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginMain" type="MarginContainer" parent="MarginMainMain/VBoxContainer/MarginContainer/ScrollContainer"]
+margin_right = 1024.0
+margin_bottom = 541.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainContainer" type="VBoxContainer" parent="MarginMainMain/VBoxContainer/MarginContainer/ScrollContainer/MarginMain"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1004.0
+margin_bottom = 521.0
+size_flags_horizontal = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Button" parent="."]
+anchor_left = 0.0155321
+anchor_top = 0.0265081
+anchor_right = 0.0985399
+anchor_bottom = 0.168175
+icon = ExtResource( 3 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]

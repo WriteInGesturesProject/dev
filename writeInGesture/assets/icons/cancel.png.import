@@ -14,7 +14,7 @@ dest_files=[ "res://.import/cancel.png-def8cd0f9e332a3e8ebb51177e459b3e.stex" ]
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/lossy_quality=0.5
 compress/hdr_mode=0
 compress/bptc_ldr=0

@@ -14,7 +14,7 @@ dest_files=[ "res://.import/speaker.png-26e70c1e81b97f38635a9e49593800f8.stex" ]
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/lossy_quality=0.5
 compress/hdr_mode=0
 compress/bptc_ldr=0

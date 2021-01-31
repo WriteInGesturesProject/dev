@@ -1,0 +1,568 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://assets/icons/about.png" type="Texture" id=1]
+[ext_resource path="res://art/users/cashier.png" type="Texture" id=2]
+[ext_resource path="res://page/home/home.gd" type="Script" id=3]
+[ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=4]
+[ext_resource path="res://assets/theme/ButtonTheme.tres" type="Theme" id=5]
+[ext_resource path="res://assets/background.png" type="Texture" id=6]
+[ext_resource path="res://page/home/resetPassword.gd" type="Script" id=7]
+[ext_resource path="res://page/home/login.gd" type="Script" id=8]
+[ext_resource path="res://assets/fonts/RAVIE.TTF" type="DynamicFontData" id=9]
+[ext_resource path="res://assets/icons/silverCoin.png" type="Texture" id=10]
+[ext_resource path="res://assets/logo.png" type="Texture" id=11]
+[ext_resource path="res://assets/icons/goldCoin.png" type="Texture" id=12]
+[ext_resource path="res://assets/icons/option.png" type="Texture" id=13]
+[ext_resource path="res://assets/icons/train.png" type="Texture" id=14]
+[ext_resource path="res://assets/icons/play.png" type="Texture" id=15]
+[ext_resource path="res://assets/icons/learn.png" type="Texture" id=16]
+[ext_resource path="res://assets/icons/calendar.png" type="Texture" id=17]
+[ext_resource path="res://assets/theme/themePanelPopup.tres" type="StyleBox" id=18]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 9 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 46
+font_data = ExtResource( 9 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Logo" type="TextureRect" parent="."]
+anchor_left = 0.352539
+anchor_top = 0.0316667
+anchor_right = 0.646227
+anchor_bottom = 0.151667
+margin_right = 0.263992
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Learn" type="Button" parent="."]
+anchor_left = 0.0927734
+anchor_top = 0.453333
+anchor_right = 0.253906
+anchor_bottom = 0.71
+size_flags_horizontal = 3
+theme = ExtResource( 5 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="LearnLabel" type="Label" parent="Learn"]
+anchor_right = 1.0
+anchor_bottom = 0.415584
+custom_colors/font_color = Color( 0.937255, 0.854902, 0.721569, 1 )
+text = "Apprendre"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="Learn"]
+anchor_top = 0.415584
+anchor_right = 1.0
+anchor_bottom = 0.889609
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Train" type="Button" parent="."]
+anchor_left = 0.306641
+anchor_top = 0.458334
+anchor_right = 0.470703
+anchor_bottom = 0.71
+size_flags_horizontal = 3
+theme = ExtResource( 5 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="Train"]
+anchor_right = 1.0
+anchor_bottom = 0.403975
+custom_colors/font_color = Color( 0.937255, 0.854902, 0.721569, 1 )
+text = "S'entrainer"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="Train"]
+anchor_left = 0.089286
+anchor_top = 0.423842
+anchor_right = 0.904765
+anchor_bottom = 0.88742
+texture = ExtResource( 14 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Play" type="Button" parent="."]
+anchor_left = 0.526367
+anchor_top = 0.448333
+anchor_right = 0.689453
+anchor_bottom = 0.71
+margin_bottom = -3.05176e-05
+size_flags_horizontal = 3
+theme = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="Play"]
+anchor_right = 1.0
+anchor_bottom = 0.426751
+custom_colors/font_color = Color( 0.937255, 0.854902, 0.721569, 1 )
+text = "Jouer"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="Play"]
+anchor_top = 0.426751
+anchor_right = 1.0
+anchor_bottom = 0.891719
+texture = ExtResource( 15 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Daily" type="Button" parent="."]
+anchor_left = 0.738281
+anchor_top = 0.455
+anchor_right = 0.905273
+anchor_bottom = 0.71
+size_flags_horizontal = 3
+theme = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="Daily"]
+anchor_left = 0.08
+anchor_top = 0.076
+anchor_right = 0.914
+anchor_bottom = 0.418301
+margin_left = -13.68
+margin_top = -11.628
+margin_right = 14.706
+custom_colors/font_color = Color( 0.937255, 0.854902, 0.721569, 1 )
+text = "Mots Courants"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="Daily"]
+anchor_top = 0.418301
+anchor_right = 1.0
+anchor_bottom = 0.882353
+texture = ExtResource( 17 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Admin" type="Button" parent="."]
+anchor_left = 0.371917
+anchor_top = 0.871548
+anchor_right = 0.6268
+anchor_bottom = 0.971548
+size_flags_horizontal = 3
+theme = ExtResource( 5 )
+custom_colors/font_color_disabled = Color( 0.937255, 0.854902, 0.721569, 1 )
+text = "Orthophoniste"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="About" type="Button" parent="."]
+anchor_left = 0.836242
+anchor_top = 0.867387
+anchor_right = 0.91632
+anchor_bottom = 0.974053
+margin_right = -10.9999
+margin_bottom = 0.000366211
+size_flags_horizontal = 3
+theme = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="About"]
+anchor_top = 0.125001
+anchor_right = 1.0
+anchor_bottom = 0.875005
+margin_right = 7.62939e-06
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Option" type="Button" parent="."]
+anchor_left = 0.0914333
+anchor_top = 0.866667
+anchor_right = 0.160769
+anchor_bottom = 0.973333
+size_flags_horizontal = 3
+theme = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="Option"]
+anchor_top = 0.125
+anchor_right = 1.0
+anchor_bottom = 0.875
+texture = ExtResource( 13 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Gold" type="Label" parent="."]
+anchor_left = 0.470629
+anchor_top = 0.205088
+anchor_right = 0.510668
+anchor_bottom = 0.238421
+theme = SubResource( 2 )
+custom_colors/font_color = Color( 0.843137, 0.411765, 0.211765, 1 )
+text = "102"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Silver" type="Label" parent="."]
+anchor_left = 0.571251
+anchor_top = 0.207671
+anchor_right = 0.618126
+anchor_bottom = 0.241005
+theme = SubResource( 2 )
+custom_colors/font_color = Color( 0.843137, 0.411765, 0.211765, 1 )
+text = "230"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Picture" type="TextureRect" parent="."]
+anchor_left = 0.333008
+anchor_top = 0.19
+anchor_right = 0.448242
+anchor_bottom = 0.386667
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Change" type="Button" parent="."]
+anchor_left = 0.462791
+anchor_top = 0.312234
+anchor_right = 0.643455
+anchor_bottom = 0.373901
+theme = ExtResource( 5 )
+custom_colors/font_color_disabled = Color( 0.937255, 0.854902, 0.721569, 1 )
+text = "Modifier"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="NamePlayer" type="Label" parent="."]
+anchor_left = 0.464792
+anchor_top = 0.263684
+anchor_right = 0.656199
+anchor_bottom = 0.297018
+theme = SubResource( 2 )
+custom_colors/font_color = Color( 0.843137, 0.411765, 0.211765, 1 )
+text = "CHoisi ton nom"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="backgroundDark" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.878431 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Popup" type="Popup" parent="."]
+anchor_left = 0.117188
+anchor_top = 0.0966667
+anchor_right = 0.882813
+anchor_bottom = 0.888333
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel" type="Panel" parent="Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="Popup"]
+anchor_left = 0.0497449
+anchor_top = 0.08
+anchor_right = 0.973214
+anchor_bottom = 0.128421
+theme = ExtResource( 5 )
+custom_colors/font_color = Color( 0.843137, 0.411765, 0.211765, 1 )
+text = "Connexion"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="id" type="LineEdit" parent="Popup"]
+anchor_left = 0.0433673
+anchor_top = 0.162105
+anchor_right = 0.966837
+anchor_bottom = 0.290526
+theme = ExtResource( 4 )
+max_length = 20
+placeholder_text = "Identifiant"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="psswd" type="LineEdit" parent="Popup"]
+anchor_left = 0.04471
+anchor_top = 0.382936
+anchor_right = 0.968179
+anchor_bottom = 0.513463
+margin_left = -1.05261
+margin_top = 0.000259399
+margin_right = -1.05255
+margin_bottom = -0.999725
+theme = ExtResource( 4 )
+max_length = 20
+secret = true
+placeholder_text = "Mot de passe"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="submit" type="Button" parent="Popup"]
+anchor_left = 0.0333646
+anchor_top = 0.640554
+anchor_right = 0.479793
+anchor_bottom = 0.956344
+theme = ExtResource( 5 )
+text = "Envoyer"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="resetPsswd" type="Button" parent="Popup"]
+anchor_left = 0.504968
+anchor_top = 0.634681
+anchor_right = 0.969254
+anchor_bottom = 0.960997
+theme = ExtResource( 5 )
+text = "Reinitialiser le mot de passe"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Error" type="Label" parent="Popup"]
+anchor_left = 0.0483351
+anchor_top = 0.538504
+anchor_right = 0.320019
+anchor_bottom = 0.614294
+margin_bottom = -1.52588e-05
+text = "Message error"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="back" type="Button" parent="Popup"]
+anchor_left = 0.918368
+anchor_top = 0.033241
+anchor_right = 0.979592
+anchor_bottom = 0.132188
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.729412, 0.152941, 0, 1 )
+text = "X"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopupReset" type="Popup" parent="Popup"]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 7 )
+
+[node name="Panel2" type="Panel" parent="Popup/PopupReset"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="Popup/PopupReset"]
+anchor_left = 0.0469925
+anchor_top = 0.0404432
+anchor_right = 0.970462
+anchor_bottom = 0.105706
+theme = ExtResource( 5 )
+custom_colors/font_color = Color( 0.843137, 0.411765, 0.211765, 1 )
+text = "Re-Initialisation du mot de passe"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="oldPsswd" type="LineEdit" parent="Popup/PopupReset"]
+anchor_left = 0.0471939
+anchor_top = 0.141718
+anchor_right = 0.970663
+anchor_bottom = 0.270139
+theme = ExtResource( 4 )
+max_length = 20
+placeholder_text = "Ancien mot de passe"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="psswd" type="LineEdit" parent="Popup/PopupReset"]
+anchor_left = 0.0471939
+anchor_top = 0.312244
+anchor_right = 0.970663
+anchor_bottom = 0.440665
+theme = ExtResource( 4 )
+max_length = 20
+secret = true
+placeholder_text = "Nouveau mot de passe"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="psswd2" type="LineEdit" parent="Popup/PopupReset"]
+anchor_left = 0.0471939
+anchor_top = 0.477895
+anchor_right = 0.970663
+anchor_bottom = 0.606316
+theme = ExtResource( 4 )
+max_length = 20
+secret = true
+placeholder_text = "Confirmer le nouveau mot de passe"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="submit" type="Button" parent="Popup/PopupReset"]
+anchor_left = 0.0436359
+anchor_top = 0.650083
+anchor_right = 0.967105
+anchor_bottom = 0.927978
+theme = ExtResource( 5 )
+text = "Envoyer"
+
+[node name="back2" type="Button" parent="Popup/PopupReset"]
+anchor_left = 0.918368
+anchor_top = 0.033241
+anchor_right = 0.979592
+anchor_bottom = 0.132188
+margin_top = -9.53674e-07
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.729412, 0.152941, 0, 1 )
+text = "X"
+flat = true
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="GoldCoin" type="TextureRect" parent="."]
+anchor_left = 0.516961
+anchor_top = 0.188333
+anchor_right = 0.555047
+anchor_bottom = 0.248333
+texture = ExtResource( 12 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SilverCoin" type="TextureRect" parent="."]
+anchor_left = 0.621963
+anchor_top = 0.187717
+anchor_right = 0.659073
+anchor_bottom = 0.247717
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+[connection signal="pressed" from="Learn" to="." method="_on_Help_pressed"]
+[connection signal="pressed" from="Train" to="." method="_on_Train_pressed"]
+[connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Daily" to="." method="_on_Daily_pressed"]
+[connection signal="pressed" from="Admin" to="." method="_on_Admin_pressed"]
+[connection signal="pressed" from="About" to="." method="_on_About_pressed"]
+[connection signal="pressed" from="Option" to="." method="_on_Option_pressed"]
+[connection signal="pressed" from="Change" to="." method="_on_Change_pressed"]
+[connection signal="popup_hide" from="Popup" to="." method="_on_Popup_popup_hide"]
+[connection signal="pressed" from="Popup/submit" to="Popup" method="_on_submit_pressed"]
+[connection signal="pressed" from="Popup/resetPsswd" to="Popup" method="_on_resetPsswd_pressed"]
+[connection signal="pressed" from="Popup/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Popup/PopupReset/submit" to="Popup/PopupReset" method="_on_submit_pressed"]
+[connection signal="pressed" from="Popup/PopupReset/back2" to="." method="_on_back_pressed"]

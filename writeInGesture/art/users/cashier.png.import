@@ -14,7 +14,7 @@ dest_files=[ "res://.import/cashier.png-0e04b61fe96d65acabd09e90ac2daf2b.stex" ]
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/lossy_quality=0.5
 compress/hdr_mode=0
 compress/bptc_ldr=0

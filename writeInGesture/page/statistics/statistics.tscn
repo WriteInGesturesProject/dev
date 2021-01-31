@@ -1,0 +1,191 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/background.png" type="Texture" id=1]
+[ext_resource path="res://page/statistics/statistics.gd" type="Script" id=2]
+[ext_resource path="res://assets/theme/optionButton.tres" type="Theme" id=3]
+[ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=4]
+[ext_resource path="res://assets/icons/back.png" type="Texture" id=5]
+[ext_resource path="res://assets/theme/backgroundPanel.tres" type="StyleBox" id=6]
+[ext_resource path="res://assets/theme/progressBar.tres" type="Theme" id=7]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Main" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="Main"]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Main/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.01465
+margin_top = -1.50732
+margin_right = 3.01465
+margin_bottom = -1.50732
+custom_constants/margin_right = 120
+custom_constants/margin_top = 80
+custom_constants/margin_left = 120
+custom_constants/margin_bottom = 80
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Main/Control/MarginContainer"]
+margin_left = 120.0
+margin_top = 80.0
+margin_right = 904.0
+margin_bottom = 520.0
+custom_styles/panel = ExtResource( 6 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Main/Control/MarginContainer"]
+margin_left = 120.0
+margin_top = 80.0
+margin_right = 904.0
+margin_bottom = 520.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/Control/MarginContainer/ScrollContainer"]
+margin_right = 784.0
+margin_bottom = 440.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+
+[node name="title" type="Label" parent="Main/Control/MarginContainer/ScrollContainer/VBoxContainer"]
+margin_right = 784.0
+margin_bottom = 36.0
+custom_colors/font_color = Color( 0.937255, 0.854902, 0.721569, 1 )
+text = "Statistiques"
+align = 1
+
+[node name="mostPlayed" type="Label" parent="Main/Control/MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 56.0
+margin_right = 784.0
+margin_bottom = 92.0
+custom_colors/font_color = Color( 0.937255, 0.854902, 0.721569, 1 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="exerciseChoice" type="OptionButton" parent="Main/Control/MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 112.0
+margin_right = 784.0
+margin_bottom = 148.0
+theme = ExtResource( 3 )
+custom_constants/arrow_margin = 100
+text = "Objet 0"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="difficultyChoice" type="OptionButton" parent="Main/Control/MarginContainer/ScrollContainer/VBoxContainer"]
+visible = false
+margin_top = 132.0
+margin_right = 784.0
+margin_bottom = 194.0
+theme = ExtResource( 3 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="progressTitle" type="Label" parent="Main/Control/MarginContainer/ScrollContainer/VBoxContainer"]
+visible = false
+margin_top = 132.0
+margin_right = 784.0
+margin_bottom = 194.0
+custom_colors/font_color = Color( 0.937255, 0.854902, 0.721569, 1 )
+text = "Progression"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="Main/Control/MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 168.0
+margin_right = 784.0
+margin_bottom = 204.0
+theme = ExtResource( 7 )
+value = 34.0
+
+[node name="nbOccurs" type="Label" parent="Main/Control/MarginContainer/ScrollContainer/VBoxContainer"]
+visible = false
+margin_top = 168.0
+margin_right = 784.0
+margin_bottom = 204.0
+custom_colors/font_color = Color( 0.937255, 0.854902, 0.721569, 1 )
+text = "Vous avez fini le jeu n fois"
+align = 1
+
+[node name="phoneticsHard" type="VBoxContainer" parent="Main/Control/MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 224.0
+margin_right = 784.0
+margin_bottom = 224.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/Control/MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 244.0
+margin_right = 784.0
+margin_bottom = 294.0
+custom_constants/separation = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main/Control/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
+margin_right = 784.0
+
+[node name="wordsEasier" type="VBoxContainer" parent="Main/Control/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+margin_right = 390.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="wordsHarder" type="VBoxContainer" parent="Main/Control/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 394.0
+margin_right = 784.0
+size_flags_horizontal = 3
+
+[node name="statsExercises" type="VBoxContainer" parent="Main/Control/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
+margin_top = 50.0
+margin_right = 784.0
+margin_bottom = 50.0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back" type="Button" parent="."]
+anchor_left = 0.01542
+anchor_top = 0.0265112
+anchor_right = 0.0984278
+anchor_bottom = 0.168178
+icon = ExtResource( 5 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+[connection signal="item_selected" from="Main/Control/MarginContainer/ScrollContainer/VBoxContainer/exerciseChoice" to="." method="_on_exerciseChoice_item_selected"]
+[connection signal="item_selected" from="Main/Control/MarginContainer/ScrollContainer/VBoxContainer/difficultyChoice" to="." method="_on_difficultyChoice_item_selected"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

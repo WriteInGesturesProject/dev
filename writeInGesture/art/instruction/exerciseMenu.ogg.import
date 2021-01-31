@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/exerciseMenu.ogg-9170c2b434c8345c23dbb9ab0f4cb136.oggstr"
+
+[deps]
+
+source_file="res://art/instruction/exerciseMenu.ogg"
+dest_files=[ "res://.import/exerciseMenu.ogg-9170c2b434c8345c23dbb9ab0f4cb136.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

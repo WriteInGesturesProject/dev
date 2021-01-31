@@ -20,21 +20,21 @@ _global_script_class_icons={
 
 [android]
 
-modules="org/godotengine/godot/GodotTextToSpeech,org/godotengine/godot/GodotSpeech"
+modules="org/godotengine/godot/GodotTextToSpeech,org/godotengine/godot/GodotSpeech,org/godotengine/godot/AndroidPermissions"
 
 [application]
 
 config/name="ArtiPhonie"
-run/main_scene="res://home.tscn"
+run/main_scene="res://beginScene.tscn"
 boot_splash/image="res://assets/logo.png"
 boot_splash/fullsize=false
-boot_splash/bg_color=Color( 0.196078, 0.717647, 0.94902, 1 )
+boot_splash/bg_color=Color( 0.937255, 0.854902, 0.721569, 1 )
 config/icon="res://assets/icons/icon.png"
 
 [autoload]
 
+ManageJson="*res://tools/ManageJson.gd"
 Global="*res://Global.gd"
-ManageJson="*res://ManageJson.gd"
 
 [importer_defaults]
 
@@ -63,4 +63,3 @@ texture={
 
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
-environment/default_environment="res://default_env.tres"

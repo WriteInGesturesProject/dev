@@ -1,55 +1,73 @@
 extends Node
 class_name global
 
-const MyDictionnary = preload("res://Dictionnary.gd")
-const Player = preload("res://Player.gd")
-const WordsAvailable = preload("res://WordsAvailable.gd")
-const Exercise = preload("res://Exercise.gd")
-const Config = preload("res://Config.gd")
+const MyDictionnary = preload("res://entity/Dictionnary.gd")
+const Player = preload("res://entity/Player.gd")
+const WordsAvailable = preload("res://entity/WordsAvailable.gd")
+const Exercise = preload("res://entity/Exercise.gd")
+const Config = preload("res://entity/Config.gd")
+const ManageGame = preload("res://tools/ManageGame.gd")
+const ManageInstruction = preload("res://tools/ManageInstruction.gd")
+const ManageScreen = preload("res://tools/ManageScreen.gd")
+
+
 
 var os # Variable used to know on which plateform we are
 
 var tts = null # The Text To Speech Object
 var stt = null # The Speech To Text Object
 
-
-var current_ex : Exercise # The exercise we are playing
-
-var score # The score when in game
-var level = 0 # The difficulty (0 -> Easy, 1 -> Medium, 2 -> Hard)
 var nbDifficulty = 3
-var game = 0 # The type of training (1 -> MyGames, 2 -> Count, 3 -> Week, 4 -> Colors)
-var play = 0 # The type of game (1 -> Goose, 2 -> Listen & Choose, 3 -> Memory)
-var dev = 1 # Developper mode (0 -> Disabled, 1 -> Enabled)
-var max_cards = 12
 
-var try = [] # Check if the player tapped on record at least once on each word
+var dev = 0 # Developper mode (0 -> Disabled, 1 -> Enabled)
+var osRequest #If the record permission is active
 
 var config : Config = Config.new()
+
+
+
+var manageGame : ManageGame = ManageGame.new()
+var manageInstruction : ManageInstruction = ManageInstruction.new()
+var manageScreen : ManageScreen = ManageScreen.new()
+
 
 var customExercise : Exercise = Exercise.new()
 var gooseExercise : Exercise = Exercise.new()
 var listenExercise : Exercise = Exercise.new()
 var memoryExercise : Exercise = Exercise.new()
-
-
 var countExercise : Exercise = Exercise.new()
 var weekExercise : Exercise = Exercise.new()
 var colorExercise : Exercise = Exercise.new()
-var exercises = [customExercise, countExercise, weekExercise, colorExercise, gooseExercise, listenExercise]
+var exercises = [customExercise, countExercise, weekExercise, colorExercise, gooseExercise, listenExercise, memoryExercise]
+
+
 
 var player : Player = Player.new()
 var wordsAvailable : WordsAvailable = WordsAvailable.new()
-var wordDictionnary = MyDictionnary.new()
+var wordDictionnary  : MyDictionnary = MyDictionnary.new()
 var phoneticDictionnary
 
 
+###Size font 
+var h1Font : int
+var h2Font : int 
+var paragraph : int
+var permissions
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	os = OS.get_name()
+	loadConfig()
+	loadEntity()
+	manageInstruction.setUp()
+	initVoiceRecording()
+	makeFont()
+	manageScreen.setUp()
+
 	
-	var osRequest = OS.request_permissions()
 	
+func initVoiceRecording():
 	match os:
 		"X11":
 			#tts = TTSDriver.new()
@@ -62,8 +80,8 @@ func _ready():
 				tts.fireTTS()
 			if(Engine.has_singleton("GodotSpeech")):
 				stt = Engine.get_singleton("GodotSpeech")
-	
-	loadEntity()
+			else :
+				print("Can't record need Permission")
 
 func check_words(sentence, myword):
 	var words = sentence.split(" ")
@@ -85,11 +103,13 @@ func check_homonyms(w, myword):
 		if(w == h[i].to_lower()):
 			return true
 	return false
+	
+func loadConfig():
+	ManageJson.getElement("config.json", "Config", config)
+	config.setAttribut("nameFile", "config.json")
 
 func loadEntity():
 	#We need to remplace file by lastest version
-	ManageJson.getElement("config.json", "Config", config)
-	config.setAttribut("nameFile", "config.json")
 	
 	ManageJson.getElement(config.getPathExercisesFiles()[0], "Exercise", customExercise)
 	customExercise.setAttribut("nameFile", config.getPathExercisesFiles()[0])
@@ -126,6 +146,7 @@ func loadEntity():
 	
 	ManageJson.getElement("player.json", "User", player)
 	player.setAttribut("nameFile", "player.json")
+	
 
 #This function create an HboxContainer with the image path in array. the size of the hbox is legthX et lenghtY
 func putBorelInHboxContainer(array : Array, lenghtX, lenghtY) :
@@ -200,7 +221,17 @@ func find_texture(path : String):
 	var tex = load("res://art/images/" + path)
 	if(tex == null):
 		var image = Image.new()
-		image.load("user://art/" + path)
+		var err = image.load("user://art/" + path)
+		if(err) :
+			image.load("user://custom/"+path)
 		tex = ImageTexture.new()
 		tex.create_from_image(image)
 	return tex
+
+func makeFont():
+	h1Font = get_viewport().size.y * 0.08
+	h2Font = get_viewport().size.y * 0.05
+	paragraph = get_viewport().size.y * 0.03
+	
+	
+

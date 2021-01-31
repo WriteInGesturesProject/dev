@@ -1,0 +1,149 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/icons/back.png" type="Texture" id=1]
+[ext_resource path="res://page/about/about.gd" type="Script" id=2]
+[ext_resource path="res://assets/theme/DejaVuFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/theme/backgroundPanel.tres" type="StyleBox" id=4]
+[ext_resource path="res://assets/background.png" type="Texture" id=5]
+[ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=21]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 21 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainPage" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="MainPage"]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MainPage/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainPage/Control/MarginContainer"]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="Label" type="Label" parent="MainPage/Control/MarginContainer/VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 36.0
+text = "À Propos"
+align = 1
+
+[node name="Label2" type="Label" parent="MainPage/Control/MarginContainer/VBoxContainer"]
+margin_top = 40.0
+margin_right = 1024.0
+margin_bottom = 76.0
+text = "Contact : hiron.digital@gmail.com"
+align = 1
+
+[node name="MarginContributors" type="MarginContainer" parent="MainPage/Control/MarginContainer/VBoxContainer"]
+margin_top = 80.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="MainPage/Control/MarginContainer/VBoxContainer/MarginContributors"]
+modulate = Color( 1, 1, 1, 0.32549 )
+margin_right = 1024.0
+margin_bottom = 520.0
+custom_styles/panel = ExtResource( 4 )
+
+[node name="About" type="VBoxContainer" parent="MainPage/Control/MarginContainer/VBoxContainer/MarginContributors"]
+margin_right = 1024.0
+margin_bottom = 520.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Contributors" type="Label" parent="MainPage/Control/MarginContainer/VBoxContainer/MarginContributors/About"]
+margin_right = 1024.0
+margin_bottom = 36.0
+text = "Contributeurs et Licence :"
+align = 1
+
+[node name="TextContributors" type="RichTextLabel" parent="MainPage/Control/MarginContainer/VBoxContainer/MarginContributors/About"]
+margin_top = 56.0
+margin_right = 1024.0
+margin_bottom = 520.0
+size_flags_vertical = 3
+custom_fonts/mono_font = ExtResource( 3 )
+bbcode_enabled = true
+bbcode_text = "[fill]
+Cette application est une amélioration d'un projet open source d'Artiphonie disponible sur GitHub.
+Les principaux contributeurs sont : 
+De Araujo Bastien, Denis Guillaume et Gillet-Perret Estelle.
+
+En lien avec le centre référent des troubles du langage et des apprentissages du CHU de Grenoble
+
+Images BOREL : Estelle Gillet-Perret (Creative Common)
+Videos BOREL : Estelle Gillet-Perret (Tous droits réservés)
+Images/Icônes : De Araujo Bastien, Denis Guillaume (Tous droits réservés)
+
+« Les gestes illustrés et reproduits en vidéos sont issus de la méthode phonétique et gestuelle de Mme BOREL MAISONNY, qui sont également repris dans la méthode « Bien Lire et aimer lire » éditée chez ESF Sciences Humaines. »[/fill]
+
+Nous sommes ouverts à toutes améliorations sur notre adresse mail. 
+
+L'équipe développement.
+Tout droits réservés 
+
+[img=500x144]res://assets/logo.png[/img]"
+tab_size = 5
+text = "
+Cette application est une amélioration d'un projet open source d'Artiphonie disponible sur GitHub.
+Les principaux contributeurs sont : 
+De Araujo Bastien, Denis Guillaume et Gillet-Perret Estelle.
+
+En lien avec le centre référent des troubles du langage et des apprentissages du CHU de Grenoble
+
+Images BOREL : Estelle Gillet-Perret (Creative Common)
+Videos BOREL : Estelle Gillet-Perret (Tous droits réservés)
+Images/Icônes : De Araujo Bastien, Denis Guillaume (Tous droits réservés)
+
+« Les gestes illustrés et reproduits en vidéos sont issus de la méthode phonétique et gestuelle de Mme BOREL MAISONNY, qui sont également repris dans la méthode « Bien Lire et aimer lire » éditée chez ESF Sciences Humaines. »
+
+Nous sommes ouverts à toutes améliorations sur notre adresse mail. 
+
+L'équipe développement.
+Tout droits réservés 
+
+"
+
+[node name="Back" type="Button" parent="MainPage/Control"]
+anchor_left = 0.0151563
+anchor_top = 0.0264456
+anchor_right = 0.0981641
+anchor_bottom = 0.168112
+icon = ExtResource( 1 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+[connection signal="pressed" from="MainPage/Control/Back" to="." method="_on_Back_pressed"]

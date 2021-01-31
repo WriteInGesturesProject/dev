@@ -46,7 +46,8 @@
             "word": "nid",
             "path": "nid.jpg",
             "homonym": [
-               "nid"
+               "nid",
+               "ni"
             ],
             "nbSyllable": 1,
             "syllableStruct": "cv",
@@ -72,7 +73,9 @@
             "word": "pet",
             "path": "pet.png",
             "homonym": [
-               "pet"
+               "pet",
+               "pêt",
+               "pêts"
             ],
             "nbSyllable": 1,
             "syllableStruct": "cv",
@@ -139,7 +142,8 @@
             "word": "mou",
             "path": "mou.jpg",
             "homonym": [
-               "mou"
+               "mou",
+               "nous"
             ],
             "nbSyllable": 1,
             "syllableStruct": "cv",
@@ -196,6 +200,7 @@
             "vowelsType": "o",
             "consonantsType": "N"
          },
+         "eklɛr":{"phonetic":"eklɛr","word":"eclair","path":"eclair.png","homonym":["eclair"],"nbSyllable":2,"syllableStruct":"vccvc","vowelsType":"o","consonantsType":"o"},
          "bo": {
             "phonetic": "bo",
             "word": "beau",
@@ -479,7 +484,7 @@
          },
          "nwar": {
             "phonetic": "nwar",
-            "word": "noire",
+            "word": "noir",
             "path": "noir.jpg",
             "homonym": [
                "noire"
@@ -650,7 +655,8 @@
             "word": "bosse",
             "path": "bosse.png",
             "homonym": [
-               "bosse"
+               "bosse",
+               "boss"
             ],
             "nbSyllable": 1,
             "syllableStruct": "cvc",
@@ -662,7 +668,8 @@
             "word": "botte",
             "path": "botte.png",
             "homonym": [
-               "botte"
+               "botte",
+               "bottes"
             ],
             "nbSyllable": 1,
             "syllableStruct": "cvc",
@@ -1121,7 +1128,8 @@
             "word": "pente",
             "path": "pente.png",
             "homonym": [
-               "pente"
+               "pente",
+               "tente"
             ],
             "nbSyllable": 1,
             "syllableStruct": "cvc",
@@ -1289,7 +1297,8 @@
             "word": "tape",
             "path": "tape.jpg",
             "homonym": [
-               "tape"
+               "tape",
+               "top"
             ],
             "nbSyllable": 1,
             "syllableStruct": "cvc",
@@ -1423,7 +1432,11 @@
             "word": "bas",
             "path": "bas.png",
             "homonym": [
-               "bas"
+               "bas",
+               "bha",
+               "Bhah",
+               "Bah",
+               "Bha"
             ],
             "nbSyllable": 1,
             "syllableStruct": "cv",
@@ -1472,7 +1485,11 @@
             "word": "nez",
             "path": "nez.png",
             "homonym": [
-               "nez"
+               "nez",
+               "met",
+               "mets",
+               "neo",
+               "néo"
             ],
             "nbSyllable": 1,
             "syllableStruct": "cv",
@@ -1522,7 +1539,8 @@
             "word": "fée",
             "path": "fee.png",
             "homonym": [
-               "fée"
+               "fée",
+               "fait"
             ],
             "nbSyllable": 1,
             "syllableStruct": "cv",
@@ -1546,7 +1564,9 @@
             "word": "vent",
             "path": "vent.png",
             "homonym": [
-               "vent"
+               "vent",
+               "Vans",
+               "van"
             ],
             "nbSyllable": 1,
             "syllableStruct": "cv",
@@ -1558,7 +1578,8 @@
             "word": "veut",
             "path": "veut.png",
             "homonym": [
-               "veut"
+               "veut",
+               "veux"
             ],
             "nbSyllable": 1,
             "syllableStruct": "cv",
@@ -1570,7 +1591,8 @@
             "word": "scie",
             "path": "scie.png",
             "homonym": [
-               "scie"
+               "scie",
+               "6"
             ],
             "nbSyllable": 1,
             "syllableStruct": "cv",
@@ -1642,7 +1664,8 @@
             "word": "jeu",
             "path": "jeu.png",
             "homonym": [
-               "jeu"
+               "jeu",
+               "jeux"
             ],
             "nbSyllable": 1,
             "syllableStruct": "cv",
@@ -1655,7 +1678,8 @@
             "path": "lait.png",
             "homonym": [
                "lait",
-               "laid"
+               "laid",
+               "les"
             ],
             "nbSyllable": 1,
             "syllableStruct": "cv",
@@ -2114,6 +2138,7 @@
             "word": "photo",
             "path": "photo.png",
             "homonym": [
+               "photo",
                "photo"
             ],
             "nbSyllable": 2,
@@ -2210,7 +2235,8 @@
             "word": "oeil",
             "path": "oeil.png",
             "homonym": [
-               "oeil"
+               "oeil",
+               "œil"
             ],
             "nbSyllable": 1,
             "syllableStruct": "vv",

@@ -1,0 +1,174 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://assets/theme/ButtonTheme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/background.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/RAVIE.TTF" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/icons/back.png" type="Texture" id=4]
+[ext_resource path="res://assets/fonts/DejaVuSans.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://page/option/optionPage.gd" type="Script" id=6]
+[ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=7]
+[ext_resource path="res://assets/icons/check.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 54
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 26
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 53
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 43
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 44
+font_data = ExtResource( 3 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.301196
+anchor_top = 0.050627
+anchor_right = 0.696704
+anchor_bottom = 0.142294
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.729412, 0.152941, 0, 1 )
+text = "Paramètre"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TokenTitle" type="Label" parent="."]
+anchor_left = 0.231255
+anchor_top = 0.203575
+anchor_right = 0.774224
+anchor_bottom = 0.248575
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.729412, 0.152941, 0, 1 )
+text = "Le Token de mon orthophoniste :"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Token" type="Label" parent="."]
+anchor_left = 0.226062
+anchor_top = 0.263329
+anchor_right = 0.769031
+anchor_bottom = 0.368329
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.337255, 0.0588235, 0.054902, 1 )
+text = "BUI6"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.353227
+anchor_top = 0.3965
+anchor_right = 0.64229
+anchor_bottom = 0.548167
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Changer"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Consigne" type="CheckButton" parent="."]
+anchor_left = 0.335007
+anchor_top = 0.596421
+anchor_right = 0.663132
+anchor_bottom = 0.744754
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 5 )
+pressed = true
+text = "Consigne"
+align = 1
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Back" type="TextureButton" parent="."]
+anchor_left = 0.0151733
+anchor_top = 0.0262208
+anchor_right = 0.0981812
+anchor_bottom = 0.167888
+texture_normal = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Popup" type="Popup" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.643137 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="Popup"]
+anchor_left = 0.0634766
+anchor_top = 0.21
+anchor_right = 0.600586
+anchor_bottom = 0.305
+margin_top = 7.62939e-06
+theme = ExtResource( 7 )
+max_length = 5
+placeholder_text = "Nouveau token"
+placeholder_alpha = 0.474
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Button" type="TextureButton" parent="Popup"]
+anchor_left = 0.733398
+anchor_top = 0.135
+anchor_right = 0.888672
+anchor_bottom = 0.4
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": true
+}
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Consigne" to="." method="_on_Consigne_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="Popup/Button" to="." method="validate_pressed"]

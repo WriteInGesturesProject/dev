@@ -1,0 +1,9 @@
+package model;
+
+public class Enfant {
+	private long id;
+	private String firstname;
+	private String lastname;
+	
+
+}

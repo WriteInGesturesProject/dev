@@ -4,8 +4,10 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.widget.Toast;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
+//import android.support.v4.content.ContextCompat;
+import androidx.core.app.ActivityCompat;
+//import android.support.v4.app.ActivityCompat;
 
 public class AndroidPermissions extends Godot.SingletonBase {
 

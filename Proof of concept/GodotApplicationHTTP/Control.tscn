@@ -11,20 +11,20 @@ __meta__ = {
 }
 
 [node name="Button Get" type="Button" parent="."]
-margin_left = 356.389
-margin_top = 262.331
-margin_right = 438.389
-margin_bottom = 282.331
+margin_left = 337.147
+margin_top = 308.331
+margin_right = 419.147
+margin_bottom = 328.331
 text = "Button Get"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button Post" type="Button" parent="."]
-margin_left = 644.944
-margin_top = 263.071
-margin_right = 731.944
-margin_bottom = 283.071
+margin_left = 625.944
+margin_top = 308.071
+margin_right = 712.944
+margin_bottom = 328.071
 text = "Button Post"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -33,7 +33,92 @@ __meta__ = {
 [node name="HTTPRequestPost" type="HTTPRequest" parent="."]
 
 [node name="HTTPRequestGet" type="HTTPRequest" parent="."]
+
+[node name="LineEditFirstname" type="LineEdit" parent="."]
+margin_left = 622.0
+margin_top = 161.0
+margin_right = 732.0
+margin_bottom = 192.0
+rect_pivot_offset = Vector2( 133, 53 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelFirstname" type="Label" parent="LineEditFirstname"]
+margin_left = 6.0
+margin_top = -24.0
+margin_right = 70.0
+margin_bottom = -10.0
+rect_pivot_offset = Vector2( 127, 77 )
+text = "Firstname"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEditLastname" type="LineEdit" parent="."]
+margin_left = 623.0
+margin_top = 240.0
+margin_right = 733.0
+margin_bottom = 271.0
+rect_pivot_offset = Vector2( 133, 53 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelLastname" type="Label" parent="LineEditLastname"]
+margin_left = 3.0
+margin_top = -27.0
+margin_right = 67.0
+margin_bottom = -13.0
+rect_pivot_offset = Vector2( 127, 77 )
+text = "Lastname"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+modulate = Color( 0.831373, 0.121569, 0.121569, 1 )
+margin_left = 392.324
+margin_top = 11.48
+margin_right = 615.324
+margin_bottom = 68.0
+size_flags_stretch_ratio = 0.0
+text = "Application Godot HTTP"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="LabelRegister" type="Label" parent="."]
+margin_left = 625.471
+margin_top = 96.3242
+margin_right = 704.471
+margin_bottom = 124.324
+custom_colors/font_color = Color( 0.352941, 0.698039, 0.964706, 1 )
+text = "Register"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelSearch" type="Label" parent="."]
+margin_left = 339.416
+margin_top = 96.3242
+margin_right = 418.416
+margin_bottom = 124.324
+custom_colors/font_color = Color( 0.352941, 0.698039, 0.964706, 1 )
+text = "Search"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Button Get" to="." method="_on_Button_Get_pressed"]
 [connection signal="pressed" from="Button Post" to="." method="_on_Button_Post_pressed"]
 [connection signal="request_completed" from="HTTPRequestPost" to="." method="_on_HTTPRequestPost_request_completed"]
 [connection signal="request_completed" from="HTTPRequestGet" to="." method="_on_HTTPRequestGet_request_completed"]
+[connection signal="text_changed" from="LineEditFirstname" to="." method="_on_LineEditFirstname_text_changed"]
+[connection signal="text_changed" from="LineEditLastname" to="." method="_on_LineEditLastname_text_changed"]

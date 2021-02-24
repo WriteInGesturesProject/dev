@@ -5,8 +5,10 @@ package org.godotengine.godot;
 
 //imports
 import android.Manifest;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+//import android.support.v4.content.ContextCompat;
+import androidx.core.app.ActivityCompat;
+//import android.support.v4.app.ActivityCompat;
 import android.widget.Toast;
 import android.app.Activity;
 import android.content.Intent;

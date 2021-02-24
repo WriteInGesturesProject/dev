@@ -1,5 +1,6 @@
 extends Node
-class_name global
+
+const loadingScene = preload("res://page/loading/loading.tscn")
 
 const MyDictionnary = preload("res://entity/Dictionnary.gd")
 const Player = preload("res://entity/Player.gd")
@@ -63,25 +64,26 @@ func _ready():
 	manageInstruction.setUp()
 	initVoiceRecording()
 	makeFont()
-	manageScreen.setUp()
+	#manageScreen.setUp()
 
-	
-	
+func change_scene(newScenePath):
+	get_tree().change_scene_to(loadingScene)
+	var newScene = load(newScenePath)
+	get_tree().change_scene_to(newScene)
+
+
 func initVoiceRecording():
 	match os:
+		"Windows":
+			pass
 		"X11":
-			#tts = TTSDriver.new()
-			set_process(true)
-			if(tts != null):
-				tts.set_voice("French (France)")
+			pass
 		"Android":
 			if(Engine.has_singleton("GodotTextToSpeech")):
 				tts = Engine.get_singleton("GodotTextToSpeech")
 				tts.fireTTS()
 			if(Engine.has_singleton("GodotSpeech")):
 				stt = Engine.get_singleton("GodotSpeech")
-			else :
-				print("Can't record need Permission")
 
 func check_words(sentence, myword):
 	var words = sentence.split(" ")

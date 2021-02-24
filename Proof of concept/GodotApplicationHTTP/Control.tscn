@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Control.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button Get" type="Button" parent="."]
+margin_left = 356.389
+margin_top = 262.331
+margin_right = 438.389
+margin_bottom = 282.331
+text = "Button Get"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button Post" type="Button" parent="."]
+margin_left = 644.944
+margin_top = 263.071
+margin_right = 731.944
+margin_bottom = 283.071
+text = "Button Post"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HTTPRequestPost" type="HTTPRequest" parent="."]
+
+[node name="HTTPRequestGet" type="HTTPRequest" parent="."]
+[connection signal="pressed" from="Button Get" to="." method="_on_Button_Get_pressed"]
+[connection signal="pressed" from="Button Post" to="." method="_on_Button_Post_pressed"]
+[connection signal="request_completed" from="HTTPRequestPost" to="." method="_on_HTTPRequestPost_request_completed"]
+[connection signal="request_completed" from="HTTPRequestGet" to="." method="_on_HTTPRequestGet_request_completed"]

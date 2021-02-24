@@ -1,0 +1,47 @@
+package controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import RessourceNotFoundException.RessourceNotFoundException;
+import repo.EnfantRepository;
+import model.Enfant;
+import repo.EnfantRepository;
+
+@RestController
+@RequestMapping("/api/v1/")
+public class EnfantController {
+	@Autowired
+	private EnfantRepository enfantRepo;
+	
+	@GetMapping("Enfant")
+	public List<Enfant> getAllEnfant(){
+		return this.enfantRepo.findAll();
+		
+	}
+	@GetMapping("Enfant/{id}")
+	public ResponseEntity<Enfant> getEnfantByID(@PathVariable(value = "id") Long enfantID)
+			throws RessourceNotFoundException {
+		
+		Enfant enfant = enfantRepo.findById(enfantID).orElseThrow(() -> new RessourceNotFoundException("L'enfant n'a pas été trouvé pour cet ID ::" + enfantID));
+		return ResponseEntity.ok().body(enfant);
+	}
+	@GetMapping("Enfant")
+	public Enfant createEnfant(@RequestBody Enfant enfant) {
+		return this.enfantRepo.save(enfant);
+	}
+	@PutMapping("Enfant/{id}")
+	public ResponseEntity<Enfant> updateEnfant(@PathVariable(value = "id") Long enfantID,  @RequestBody Enfant enfantdetails)
+			throws RessourceNotFoundException {
+		Enfant enfant = enfantRepo.findById(enfantID).orElseThrow(() -> new RessourceNotFoundException("L'enfant n'a pas été trouvé pour cet ID ::" + enfantID));
+		
+	}
+}

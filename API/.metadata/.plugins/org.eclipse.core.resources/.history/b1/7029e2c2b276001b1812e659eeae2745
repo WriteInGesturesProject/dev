@@ -49,7 +49,7 @@ public class Enfant {
 		return token;
 	}
 	public void settoken(int token) {
-		this.token = token;
+		token = token;
 	}
 	
 	public Enfant() {

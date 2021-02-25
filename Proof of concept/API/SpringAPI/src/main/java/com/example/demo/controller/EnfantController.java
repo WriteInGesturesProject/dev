@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
-import java.net.URI;
-import java.net.URISyntaxException;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.Exception.RessourceNotFoundException;
 import com.example.demo.repo.EnfantRepository;
 import com.example.demo.model.Enfant;
-import com.example.demo.repo.EnfantRepository;
+
 
 @RestController
 @RequestMapping("/api/v1")

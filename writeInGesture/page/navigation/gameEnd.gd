@@ -33,7 +33,6 @@ func _ready():
 		everyWordsTried = true
 		total /= 3 # The total of word is divided by 3
 		
-
 	elif(Global.manageGame.play == 1 && total > 10): # We can only display 10 images on the GooseGame
 		total = 10
 	
@@ -148,3 +147,12 @@ func earnCoin(type :String) :
 
 func _on_Home_pressed():
 	Global.manageScreen.changeScene("res://page/home/home.tscn")
+	
+func _on_Replay_pressed():
+	if(Global.manageGame.play == 1): #GooseGame This is the  Game
+		Global.manageScreen.changeScene("res://page/goosegame/gooseGame.tscn")
+	elif(Global.manageGame.play == 2): #Listen & Choose
+		Global.manageScreen.changeScene("res://page/listenchoose/listenChoose.tscn")
+	elif(Global.manageGame.play == 3): #MemoryGame
+		Global.manageScreen.changeScene("res://page/memory/memoryGame.tscn")
+

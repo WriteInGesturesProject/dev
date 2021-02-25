@@ -14,7 +14,6 @@ var controlImageWord : Control
 var selected : bool
 var buttonSelection : Button
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	buttonSelection = Button.new()
 	backgroundColor = Panel.new()

@@ -145,7 +145,7 @@ func _on_Button_pressed():
 		if (selected):  #if avatar selected save selected avatar and name
 			var array = current_texture.resource_path.split('/')
 			Global.player.setPathPicture(array[4])
-		Global.manageScreen.changeScene("res://page/home/home.tscn")
+		Global.change_scene("res://page/home/home.tscn")
 
 #when user validate a purchase of avatar, make it available
 func _on_ValidateBuy_pressed():

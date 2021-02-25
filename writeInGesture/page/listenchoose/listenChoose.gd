@@ -25,20 +25,10 @@ var cardSelected : Card
 var findCard : Card
 var indexWord : int
 
-#func mySize(word):
-#	var size = 0
-#	for i in word:
-#		if(i.to_ascii()[0] != 3):
-#			size += 1
-#	if(size == 1):
-#		return 1.7
-#	return size
-
 var currentCard : Card
 var card2 : Card
 var card3 : Card
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	
 	add_child(Global.manageInstruction.instruction("listen"))
@@ -69,7 +59,7 @@ func _ready():
 				findCard = currentCard
 		index += 3
 	else :
-		Global.manageScreen.changeScene("res://page/navigation/gameEnd.tscn")
+		Global.change_scene("res://page/navigation/gameEnd.tscn")
 
 func _cardSelected(event : InputEvent, card : Card) -> void:
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
@@ -80,7 +70,7 @@ func _cardSelected(event : InputEvent, card : Card) -> void:
 		_on_Validate_pressed()
 
 func _on_Back_pressed():
-	Global.manageScreen.changeScene("res://page/navigation/gameChoose.tscn")
+	Global.change_scene("res://page/navigation/gameChoose.tscn")
 
 func _on_speak_pressed():
 	if(stt != null && stt.isListening()):

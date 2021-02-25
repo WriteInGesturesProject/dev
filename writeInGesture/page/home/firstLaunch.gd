@@ -4,7 +4,6 @@ var hasToken = false
 var url = "URL du site"
 var buttonCheckPressed = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.manageDatabase.connect("checkTokenResponse", self, "token")
 	pass # Replace with function body.

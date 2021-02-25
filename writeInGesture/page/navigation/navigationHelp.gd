@@ -62,4 +62,4 @@ func _process(delta):
 	
 
 func _on_Back_pressed():
-		Global.manageScreen.changeScene("res://page/home/home.tscn")
+		Global.change_scene("res://page/home/home.tscn")

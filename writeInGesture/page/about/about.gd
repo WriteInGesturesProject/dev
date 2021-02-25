@@ -3,7 +3,6 @@ extends Control
 var margin = 0.05
 var vectorMarge
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	#make margin of the scene
 	Global.make_margin(find_node("MarginContainer"),margin)
@@ -26,7 +25,7 @@ func loadAboutContent() -> String:
 	return content
 
 func _on_Back_pressed():
-	Global.manageScreen.changeScene("res://page/home/home.tscn")
+	Global.change_scene("res://page/home/home.tscn")
 
 #open the url of the gitlab when click on it
 func _on_goLinkPressed(url):

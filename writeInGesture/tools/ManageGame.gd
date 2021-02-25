@@ -12,9 +12,8 @@ var maxCardsMemory = 12
 var nbSilverWin : int = 0
 var time = 0
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 # if goos game add coin silver 
 func triedEveryWords():

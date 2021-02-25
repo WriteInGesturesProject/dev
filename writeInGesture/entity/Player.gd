@@ -90,9 +90,7 @@ func setInstruction(cons):
 	else :
 		consigne = 0
 	return ManageJson.putElement(nameFile, "User/instruction", consigne)
-	
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 

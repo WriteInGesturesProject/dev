@@ -8,10 +8,8 @@ var title : String
 var currenSound = 0
 var currentPage = 0
 
-
 var goodAnswer = [0, 0]
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	add_child(Global.manageInstruction.instruction("trainHelp"))
 	#Setup the current sound

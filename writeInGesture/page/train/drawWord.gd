@@ -22,8 +22,6 @@ var tryindex
 
 var testDifficulty = 1
 var wordTest
-# Called when the node enters the scene tree for the first time.
-
 
 func _ready():
 	pass

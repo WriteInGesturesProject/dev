@@ -10,7 +10,6 @@ var vowelsType : String = ""
 var consonantsType : String = ""
 var parent : Node = null # We need to know the parent's node for update word in file
 
-
 func updateParent() : 
 	if(parent != null) :
 		return parent.updateWord(self)
@@ -81,7 +80,6 @@ func setConsonantsType( ct : String) :
 	consonantsType = ct
 	return updateParent()
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 

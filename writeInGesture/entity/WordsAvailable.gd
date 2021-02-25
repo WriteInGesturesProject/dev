@@ -1,6 +1,5 @@
 extends Node
 
-
 var words : Array
 var nameFile : String;
 

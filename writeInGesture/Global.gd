@@ -9,9 +9,6 @@ const Exercise = preload("res://entity/Exercise.gd")
 const Config = preload("res://entity/Config.gd")
 const ManageGame = preload("res://tools/ManageGame.gd")
 const ManageInstruction = preload("res://tools/ManageInstruction.gd")
-const ManageScreen = preload("res://tools/ManageScreen.gd")
-
-
 
 var os # Variable used to know on which plateform we are
 
@@ -25,12 +22,8 @@ var osRequest #If the record permission is active
 
 var config : Config = Config.new()
 
-
-
 var manageGame : ManageGame = ManageGame.new()
 var manageInstruction : ManageInstruction = ManageInstruction.new()
-var manageScreen : ManageScreen = ManageScreen.new()
-
 
 var customExercise : Exercise = Exercise.new()
 var gooseExercise : Exercise = Exercise.new()
@@ -40,8 +33,6 @@ var countExercise : Exercise = Exercise.new()
 var weekExercise : Exercise = Exercise.new()
 var colorExercise : Exercise = Exercise.new()
 var exercises = [customExercise, countExercise, weekExercise, colorExercise, gooseExercise, listenExercise, memoryExercise]
-
-
 
 var player : Player = Player.new()
 var wordsAvailable : WordsAvailable = WordsAvailable.new()
@@ -64,7 +55,6 @@ func _ready():
 	manageInstruction.setUp()
 	initVoiceRecording()
 	makeFont()
-	#manageScreen.setUp()
 
 func change_scene(newScenePath):
 	get_tree().change_scene_to(loadingScene)

@@ -11,8 +11,6 @@ var indexInExercice = []
 var trainScene = preload("res://page/train/drawWord.tscn").instance()
 onready var background = $backgroundDark
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():	
 	##Put the sprite on the begin ligne
 	putSpriteOnBegin()
@@ -63,7 +61,7 @@ func _on_Validate_pressed():
 		goToCase()
 	else :
 		print("finish")
-		Global.manageScreen.changeScene("res://page/navigation/gameEnd.tscn")
+		Global.change_scene("res://page/navigation/gameEnd.tscn")
 
 	
 func goToCase() :
@@ -87,7 +85,7 @@ func back():
 	if(find_node("backgroundDark") != null):
 		find_node("backgroundDark").visible = false
 	find_node("WordDetails").visible = false
-	Global.manageScreen.changeScene("res://page/navigation/gameChoose.tscn")
+	Global.change_scene("res://page/navigation/gameChoose.tscn")
 
 
 func next():

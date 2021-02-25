@@ -15,7 +15,7 @@ var exerciseChoiceNode : Node
 var difficultyChoiceNode : Node
 var exerciseMostPlayed : Exercise
 var sizeViewPort : Vector2
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	print(Global.exercises[5])
 	print(Global.listenExercise)

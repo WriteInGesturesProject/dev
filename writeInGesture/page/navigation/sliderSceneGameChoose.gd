@@ -7,7 +7,6 @@ var play : int
 var scenePath : String
 var currentPage
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 	
@@ -53,7 +52,7 @@ func goScene(level : int ):
 	Global.manageGame.current_ex = Ex
 	Global.manageGame.level = level
 	Global.manageGame.play = play
-	Global.manageScreen.changeScene(scenePath)
+	Global.change_scene(scenePath)
 
 
 func _on_Memory_pressed():

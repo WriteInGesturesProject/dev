@@ -98,7 +98,7 @@ func initTimer():
 
 
 func _on_Back_pressed():
-	Global.manageScreen.changeScene("res://page/navigation/gameChoose.tscn")
+	Global.change_scene("res://page/navigation/gameChoose.tscn")
 
 func end():
 	var mini = Ex.getSuccessPercentage(0)
@@ -121,7 +121,7 @@ func end():
 		moy = ((moy*(nb-1))+time)/nb
 		Ex.setSuccessPercentage(1,time)
 	Global.manageGame.time = time
-	Global.manageScreen.changeScene("res://page/navigation/gameEnd.tscn")
+	Global.change_scene("res://page/navigation/gameEnd.tscn")
 
 func _on_Timer_timeout():
 	time += 1

@@ -1,27 +1,18 @@
 extends Control
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var errorMsg : Label
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	errorMsg = find_node("Error")
 	errorMsg.text = "Mauvais mot de passe ou identifiant."
 	errorMsg.add_color_override("font_color", Color(1,0,0))
 	errorMsg.visible = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 func _on_submit_pressed():
 	var login = Global.config.getLoginAdmin()
 	var psswd = Global.config.getPassWordAdmin()
 	if login == find_node("id").text && psswd == find_node("psswd").text :
-		Global.manageScreen.changeScene("res://page/navigation/speechTherapistMenu.tscn")
+		Global.change_scene("res://page/navigation/speechTherapistMenu.tscn")
 	else :
 		errorMsg.visible = true
 

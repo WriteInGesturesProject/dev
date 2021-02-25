@@ -10,7 +10,6 @@ func setUp():
 	wantInstruction = Global.player.getInstruction()
 	instructionTab = []
 
-
 func listenInstruction(instruction):
 	instructionTab.append(instruction)
 	

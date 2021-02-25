@@ -1,8 +1,5 @@
 extends Node
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var userPath = "user://data/"
 var resPath = "res://data/"
 
@@ -12,27 +9,8 @@ const Player = preload("res://entity/Player.gd")
 const WordsAvailable = preload("res://entity/WordsAvailable.gd")
 const Exercise = preload("res://entity/Exercise.gd")
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-#	var text = checkFileExistUserPath("test.json")
-#	if text == "": 
-#		return 0
-#	var tmp = JSON.parse(text)
-#	var test = tmp.result
-#	#print(test)
-#	var dictionnary = Dictionnary.new()
-#	var player = Player.new()
-#	var wordsAvailable = WordsAvailable.new()
-#	var exercice = Exercise.new()
-#	getElement("dictionnary.json", "Dictionnary", dictionnary)
-#	getElement("player.json", "User", player)
-#	getElement("wordsAvailable.json", "WordsAvailable", wordsAvailable)
-#	getElement("exercice.json", "Exercice", exercice)
-#	putElement("exercise.json", "Exercise/words/ni/phonetic", "test")
-#	addElement("wordsAvailable.json", "WordsAvailable/words", test)
-#	removeElement("wordsAvailable.json", "WordsAvailable/words", "test")
 	pass
-
 
 func removeFile(path):
 	#print("[REMOVEFILE]")

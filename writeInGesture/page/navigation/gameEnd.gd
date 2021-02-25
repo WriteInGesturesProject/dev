@@ -11,7 +11,6 @@ var size : Vector2
 var leftCoinSilver = 0
 var leftCoinGold = 0
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	mainBox = find_node("MainBox")
 	main = find_node("Main")
@@ -146,13 +145,12 @@ func earnCoin(type :String) :
 
 
 func _on_Home_pressed():
-	Global.manageScreen.changeScene("res://page/home/home.tscn")
+	Global.change_scene("res://page/home/home.tscn")
 	
 func _on_Replay_pressed():
 	if(Global.manageGame.play == 1): #GooseGame This is the  Game
-		Global.manageScreen.changeScene("res://page/goosegame/gooseGame.tscn")
+		Global.change_scene("res://page/goosegame/gooseGame.tscn")
 	elif(Global.manageGame.play == 2): #Listen & Choose
-		Global.manageScreen.changeScene("res://page/listenchoose/listenChoose.tscn")
+		Global.change_scene("res://page/listenchoose/listenChoose.tscn")
 	elif(Global.manageGame.play == 3): #MemoryGame
-		Global.manageScreen.changeScene("res://page/memory/memoryGame.tscn")
-
+		Global.change_scene("res://page/memory/memoryGame.tscn")

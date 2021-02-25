@@ -13,7 +13,7 @@ var margin = 0.05
 
 var array : Array
 var title : String
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	##Set up the Title
 	find_node("Description").text = title

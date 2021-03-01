@@ -11,20 +11,20 @@ __meta__ = {
 }
 
 [node name="Button Get" type="Button" parent="."]
-margin_left = 337.147
-margin_top = 308.331
-margin_right = 419.147
-margin_bottom = 328.331
+margin_left = 335.028
+margin_top = 371.899
+margin_right = 417.028
+margin_bottom = 391.899
 text = "Button Get"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button Post" type="Button" parent="."]
-margin_left = 625.944
-margin_top = 308.071
-margin_right = 712.944
-margin_bottom = 328.071
+margin_left = 633.36
+margin_top = 372.698
+margin_right = 720.36
+margin_bottom = 392.698
 text = "Button Post"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -83,7 +83,7 @@ margin_top = 11.48
 margin_right = 615.324
 margin_bottom = 68.0
 size_flags_stretch_ratio = 0.0
-text = "Application Godot HTTP"
+text = "Godot HTTP Application"
 align = 1
 valign = 1
 __meta__ = {
@@ -116,9 +116,76 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="LineEditToken" type="LineEdit" parent="."]
+margin_left = 620.822
+margin_top = 314.238
+margin_right = 725.822
+margin_bottom = 348.238
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelToken" type="Label" parent="LineEditToken"]
+margin_left = 4.23779
+margin_top = -18.0109
+margin_right = 44.2378
+margin_bottom = -4.01093
+text = "Token"
+
+[node name="LineID" type="LineEdit" parent="."]
+margin_left = 341.178
+margin_top = 155.584
+margin_right = 418.178
+margin_bottom = 191.584
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelID" type="Label" parent="LineID"]
+margin_left = 3.17841
+margin_top = -18.0109
+margin_right = 43.1784
+margin_bottom = -4.01088
+text = "ID"
+
+[node name="LabelResult" type="Label" parent="."]
+anchor_top = 0.175
+anchor_bottom = 0.175
+margin_left = 322.297
+margin_top = 217.93
+margin_right = 458.297
+margin_bottom = 260.93
+text = "Result of research"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelFirstnameResult" type="Label" parent="LabelResult"]
+margin_left = 16.9514
+margin_top = 32.8433
+margin_right = 80.9514
+margin_bottom = 46.8433
+
+[node name="LabelLasttnameResult" type="Label" parent="LabelResult"]
+margin_left = 19.0703
+margin_top = 73.1029
+margin_right = 83.0703
+margin_bottom = 87.1029
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelTokenResult" type="Label" parent="LabelResult"]
+margin_left = 18.0109
+margin_top = 117.6
+margin_right = 82.0109
+margin_bottom = 131.6
 [connection signal="pressed" from="Button Get" to="." method="_on_Button_Get_pressed"]
 [connection signal="pressed" from="Button Post" to="." method="_on_Button_Post_pressed"]
 [connection signal="request_completed" from="HTTPRequestPost" to="." method="_on_HTTPRequestPost_request_completed"]
 [connection signal="request_completed" from="HTTPRequestGet" to="." method="_on_HTTPRequestGet_request_completed"]
 [connection signal="text_changed" from="LineEditFirstname" to="." method="_on_LineEditFirstname_text_changed"]
 [connection signal="text_changed" from="LineEditLastname" to="." method="_on_LineEditLastname_text_changed"]
+[connection signal="text_changed" from="LineEditToken" to="." method="_on_LineEditToken_text_changed"]
+[connection signal="text_changed" from="LineID" to="." method="_on_LineID_text_changed"]

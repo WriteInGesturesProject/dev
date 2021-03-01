@@ -7,6 +7,7 @@ var firstname
 var lastname
 var token
 var ID
+var dictionnaryResult
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,6 +29,11 @@ func _on_HTTPRequestGet_request_completed(result, response_code, headers, body):
 		print(response_code)
 		if response_code==200:
 			print(body.get_string_from_utf8())
+			dictionnaryResult=parse_json(body.get_string_from_utf8())
+			print(dictionnaryResult)
+			get_node("LabelResult/LabelFirstnameResult").text=dictionnaryResult.firstname
+			get_node("LabelResult/LabelLasttnameResult").text=dictionnaryResult.lastname
+			get_node("LabelResult/LabelTokenResult").text=String(dictionnaryResult.token)
 		else:
 			print("HTTP Error")
 
@@ -40,7 +46,6 @@ func _on_Button_Post_pressed():
 		var query=JSON.print(data_to_send)
 		var header= ["Content-Type:application/json","Content-Length: "+str(query.length())]
 		print(query)
-		#$HTTPRequestPost.request("http://localhost:8080/api/v1/enfant",header,false,HTTPClient.METHOD_POST,query);
 		$HTTPRequestPost.request("http://localhost:8080/api/v1/enfant",header,false,HTTPClient.METHOD_POST,query);
 	else:
 		print("Error : Fields Null")

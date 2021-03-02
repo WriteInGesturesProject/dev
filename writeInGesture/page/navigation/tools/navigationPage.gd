@@ -102,5 +102,5 @@ func goToPage(page : int):
 
 ####UTILS
 func _on_retour_pressed():
-	Global.manageScreen.changeScene("res://page/home/home.tscn")
+	Global.change_scene("res://page/home/home.tscn")
 

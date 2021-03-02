@@ -17,17 +17,17 @@ func _ready():
 	var nodeArray : Array =[]
 
 	var current_scene = load("res://page/navigation/sliderSceneGameChoose.tscn").instance()
-	current_scene.setUp(Global.gooseExercise,1,"res://page/goosegame/gooseGame.tscn")
+	current_scene.setUp(Global.gooseExercise,1,Global.artiphonie.PATH_GOOSE_GAME)
 	current_scene.currentPage = 0
 	nodeArray.append(current_scene)
 	
 	current_scene = load("res://page/navigation/sliderSceneGameChoose.tscn").instance()
-	current_scene.setUp(Global.listenExercise,2,"res://page/listenchoose/listenChoose.tscn")
+	current_scene.setUp(Global.listenExercise,2,Global.artiphonie.PATH_LISTEN_CHOOSE)
 	current_scene.currentPage = 1
 	nodeArray.append(current_scene)
 	
 	current_scene = load("res://page/navigation/sliderSceneGameChoose.tscn").instance()
-	current_scene.setUp(Global.memoryExercise,3,"res://page/memory/memoryGame.tscn")
+	current_scene.setUp(Global.memoryExercise,3,Global.artiphonie.PATH_MEMORY)
 	current_scene.currentPage = 2
 	nodeArray.append(current_scene)
 	
@@ -59,4 +59,4 @@ func onChangePage(currentPage):
 			indicatorArray[i].modulate.a = 0.2
 
 func _on_Back_pressed():
-	Global.manageScreen.changeScene("res://page/home/home.tscn")
+	Global.change_scene("res://page/home/home.tscn")

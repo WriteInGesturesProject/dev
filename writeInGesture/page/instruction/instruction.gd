@@ -1,6 +1,5 @@
 extends Control
 
-
 var time
 var totalTime
 
@@ -11,7 +10,6 @@ var firstTime = 1
 
 signal on_Pass_Pressed()
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	time = 0.0
 	totalTime = $ListenInstruction.stream.get_length()

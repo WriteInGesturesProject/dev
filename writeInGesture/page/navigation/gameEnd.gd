@@ -11,7 +11,6 @@ var size : Vector2
 var leftCoinSilver = 0
 var leftCoinGold = 0
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	mainBox = find_node("MainBox")
 	main = find_node("Main")
@@ -33,7 +32,6 @@ func _ready():
 		everyWordsTried = true
 		total /= 3 # The total of word is divided by 3
 		
-
 	elif(Global.manageGame.play == 1 && total > 10): # We can only display 10 images on the GooseGame
 		total = 10
 	
@@ -147,4 +145,12 @@ func earnCoin(type :String) :
 
 
 func _on_Home_pressed():
-	Global.manageScreen.changeScene("res://page/home/home.tscn")
+	Global.change_scene("res://page/home/home.tscn")
+	
+func _on_Replay_pressed():
+	if(Global.manageGame.play == 1): #GooseGame This is the  Game
+		Global.change_scene(Global.artiphonie.PATH_GOOSE_GAME)
+	elif(Global.manageGame.play == 2): #Listen & Choose
+		Global.change_scene(Global.artiphonie.PATH_LISTEN_CHOOSE)
+	elif(Global.manageGame.play == 3): #MemoryGame
+		Global.change_scene(Global.artiphonie.PATH_MEMORY)

@@ -1,10 +1,6 @@
 extends Control
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-var tts = null
+var textToSpeech = null
 var margin =0.05
 var played = false
 var currentPage
@@ -12,13 +8,11 @@ var currentPage
 var array : Array
 var title : String
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	#Initialize TextToSpeech
 	if(Engine.has_singleton("GodotTextToSpeech")):
-		tts = Engine.get_singleton("GodotTextToSpeech")
-		tts.fireTTS()
-	
+		textToSpeech = Engine.get_singleton("GodotTextToSpeech")
+		textToSpeech.fireTTS()
 
 func _process(delta) : 
 	if(!played):

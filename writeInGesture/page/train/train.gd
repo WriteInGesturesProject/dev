@@ -1,26 +1,22 @@
 extends Control
 
-#const TTSDriver = preload("res://modules/TTS/TTSDriver.gdns")
-
 const Exercise = preload("res://entity/Exercise.gd")
 const MyDictionnary = preload("res://entity/Dictionnary.gd")
 
 var Ex : Exercise
-var tts = Global.tts
-var stt = Global.stt
+var textToSpeech = Global.textToSpeech
+var speechToText = Global.speechToText
 var words = ""
 var display = false
 var incremented = false
 var myWords : Array = []
 var index = 0
-var os = Global.os
 var margin = 0.05
 var VectorMarge
 var drawWord
 
 
 func _ready():
-	
 	Ex = Global.manageGame.current_ex
 	myWords = Ex.getAllWords()
 	Global.manageGame.try = []
@@ -42,13 +38,13 @@ func _ready():
 	
 
 func back():
-	Global.manageScreen.changeScene("res://page/home/home.tscn")
+	Global.change_scene("res://page/home/home.tscn")
 
 
 func next():
 	index += 1
 	if(index >= myWords.size()):
-		Global.manageScreen.changeScene("res://page/navigation/gameEnd.tscn")
+		Global.change_scene("res://page/navigation/gameEnd.tscn")
 	else :
 		drawWord.display(0,myWords[index],Ex,index)
 		drawWord.tryindex = index

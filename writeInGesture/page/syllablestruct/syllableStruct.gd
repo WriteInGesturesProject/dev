@@ -14,7 +14,6 @@ var lineStruct
 var margin = 0.05
 var marginVector 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.make_margin(find_node("Margin"), margin)
 	marginVector = (get_viewport().size)*(1- margin)
@@ -74,7 +73,7 @@ func _ready():
 	find_node("StructSyllableContainer").add_constant_override("separation", ybox/(struct.size()+4))
 
 func _on_retour_pressed():
-	Global.manageScreen.changeScene("res://page/navigation/speechTherapistMenu.tscn")
+	Global.change_scene("res://page/navigation/speechTherapistMenu.tscn")
 
 
 #When we created a new exercice we call this function 

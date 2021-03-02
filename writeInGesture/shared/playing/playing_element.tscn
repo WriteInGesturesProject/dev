@@ -1,0 +1,89 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/theme/ButtonTheme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/icons/goosePlate.png" type="Texture" id=2]
+[ext_resource path="res://shared/playing/element_difficulty.tscn" type="PackedScene" id=3]
+
+[node name="playing_element" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 0.975
+rect_min_size = Vector2( 1280, 702 )
+mouse_filter = 2
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="."]
+anchor_left = 0.02
+anchor_top = 0.05
+anchor_right = 0.98
+anchor_bottom = 0.05
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Jeu de l'oie"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="icon" type="TextureRect" parent="."]
+anchor_left = 0.55
+anchor_top = 0.2
+anchor_right = 0.98
+anchor_bottom = 0.9
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_left = 0.02
+anchor_top = 0.2
+anchor_right = 0.45
+anchor_bottom = 0.9
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="difficulty" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 530.0
+margin_bottom = 546.0
+alignment = 1
+
+[node name="element_difficulty" parent="ScrollContainer/difficulty" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 530.0
+margin_bottom = 106.0
+
+[node name="element_difficulty2" parent="ScrollContainer/difficulty" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 110.0
+margin_right = 530.0
+margin_bottom = 216.0
+
+[node name="element_difficulty3" parent="ScrollContainer/difficulty" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 220.0
+margin_right = 530.0
+margin_bottom = 326.0
+
+[node name="element_difficulty4" parent="ScrollContainer/difficulty" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 330.0
+margin_right = 530.0
+margin_bottom = 436.0
+
+[node name="element_difficulty5" parent="ScrollContainer/difficulty" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 440.0
+margin_right = 530.0
+margin_bottom = 546.0

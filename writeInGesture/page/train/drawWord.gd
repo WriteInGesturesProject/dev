@@ -11,8 +11,8 @@ var hard = [0,0.7,0]
 var currentDisplay
 var VectorMarge
 var separation 
-var tts = Global.tts
-var stt = Global.stt
+var textToSpeech = Global.textToSpeech
+var speechToText = Global.speechToText
 var display = false
 var incremented = false
 var index
@@ -22,8 +22,6 @@ var tryindex
 
 var testDifficulty = 1
 var wordTest
-# Called when the node enters the scene tree for the first time.
-
 
 func _ready():
 	pass
@@ -132,13 +130,13 @@ func displayBorel(word : Word) :###Display Borel Container
 ###################################CONTROLLING_RECORDING######################################################
 
 func _process(delta): #This function check if we speak the right word
-	if(stt != null):
-		if(!stt.isListening()):
+	if(speechToText != null):
+		if(!speechToText.isListening()):
 			find_node("Record").modulate = Color(1,1,1,1)
 	
-	if(stt != null && display && stt.isDetectDone()):
+	if(speechToText != null && display && speechToText.isDetectDone()):
 		find_node("Record").modulate = Color(1,1,1,1)
-		var words = stt.getWords()
+		var words = speechToText.getWords()
 		print(words)
 		if(Global.check_words(words, wordTest)):
 				find_node("Record").disabled = true
@@ -159,16 +157,16 @@ func _process(delta): #This function check if we speak the right word
 
 
 func _on_Speak_pressed(): #If we pressed on the speakButton
-	if(stt != null && stt.isListening()):
-		stt.stopListen()
+	if(speechToText != null && speechToText.isListening()):
+		speechToText.stopListen()
 		find_node("Record").modulate = Color(1,1,1,1)
-	if(tts != null):
+	if(textToSpeech != null):
 		var text = find_node("Word").text
-		match Global.os:
+		match OS.get_name():
 			"X11":
-				tts.speak(text, false)
+				textToSpeech.speak(text, false)
 			"Android":
-				tts.speakText(text)
+				textToSpeech.speakText(text)
 
 
 func _on_Record_pressed(): #If we pressed on the recordButton
@@ -181,16 +179,16 @@ func _on_Record_pressed(): #If we pressed on the recordButton
 		find_node("Next").visible = true
 	if(Ex.getName() == "Jeu de l'oie") :
 		count += 1
-	if(stt != null):
-		if(stt.isListening() == false):
-			stt.doListen()
+	if(speechToText != null):
+		if(speechToText.isListening() == false):
+			speechToText.doListen()
 			find_node("Record").modulate = Color(1,1,1,0.5)
 			display = true
 			Global.manageGame.try[tryindex] = true
 			Ex.setNbWordOccurrence(Global.manageGame.level, index, Ex.getNbWordOccurrence(Global.manageGame.level, index) + 1)
 		else :
 			find_node("Record").modulate = Color(1,1,1,1)
-			stt.stopListen()
+			speechToText.stopListen()
 
 func _on_Back_pressed():
 	if(self.get_parent() is Popup) :

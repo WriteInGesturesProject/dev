@@ -1,5 +1,14 @@
 extends Node
-class_name global
+
+const Artiphonie := preload("res://shared/artiphonie.gd")
+var artiphonie := Artiphonie.new()
+
+const loadingScene = preload("res://shared/loading/loading.tscn")
+
+#Useful for the back button
+var currentScene: int = 0
+var scenesChronology := {0: "res://main.tscn"}
+var scenesArgumentsChronology := {0: []}
 
 const MyDictionnary = preload("res://entity/Dictionnary.gd")
 const Player = preload("res://entity/Player.gd")
@@ -8,14 +17,9 @@ const Exercise = preload("res://entity/Exercise.gd")
 const Config = preload("res://entity/Config.gd")
 const ManageGame = preload("res://tools/ManageGame.gd")
 const ManageInstruction = preload("res://tools/ManageInstruction.gd")
-const ManageScreen = preload("res://tools/ManageScreen.gd")
 
-
-
-var os # Variable used to know on which plateform we are
-
-var tts = null # The Text To Speech Object
-var stt = null # The Speech To Text Object
+var textToSpeech = null # The Text To Speech Object
+var speechToText = null # The Speech To Text Object
 
 var nbDifficulty = 3
 
@@ -24,12 +28,8 @@ var osRequest #If the record permission is active
 
 var config : Config = Config.new()
 
-
-
 var manageGame : ManageGame = ManageGame.new()
 var manageInstruction : ManageInstruction = ManageInstruction.new()
-var manageScreen : ManageScreen = ManageScreen.new()
-
 
 var customExercise : Exercise = Exercise.new()
 var gooseExercise : Exercise = Exercise.new()
@@ -39,8 +39,6 @@ var countExercise : Exercise = Exercise.new()
 var weekExercise : Exercise = Exercise.new()
 var colorExercise : Exercise = Exercise.new()
 var exercises = [customExercise, countExercise, weekExercise, colorExercise, gooseExercise, listenExercise, memoryExercise]
-
-
 
 var player : Player = Player.new()
 var wordsAvailable : WordsAvailable = WordsAvailable.new()
@@ -56,54 +54,52 @@ var permissions
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
-	os = OS.get_name()
 	loadConfig()
 	loadEntity()
 	manageInstruction.setUp()
-	initVoiceRecording()
 	makeFont()
-	manageScreen.setUp()
 
-	
-	
-func initVoiceRecording():
-	match os:
-		"X11":
-			#tts = TTSDriver.new()
-			set_process(true)
-			if(tts != null):
-				tts.set_voice("French (France)")
-		"Android":
-			if(Engine.has_singleton("GodotTextToSpeech")):
-				tts = Engine.get_singleton("GodotTextToSpeech")
-				tts.fireTTS()
-			if(Engine.has_singleton("GodotSpeech")):
-				stt = Engine.get_singleton("GodotSpeech")
-			else :
-				print("Can't record need Permission")
+func change_scene(newScenePath: String, arguments: Array = []) -> void:
+	get_tree().change_scene_to(loadingScene)
+	currentScene += 1
+	scenesChronology[currentScene] = newScenePath
+	scenesArgumentsChronology[currentScene] = arguments
+	var newScene = load(newScenePath)
+	if arguments.size() != 0:
+		newScene.setup_auto(arguments)
+	get_tree().change_scene_to(newScene)
 
-func check_words(sentence, myword):
-	var words = sentence.split(" ")
-	if(words == null || len(words) == 0):
+func change_to_previous_scene() -> void:
+	if currentScene == 0:
+		return
+	get_tree().change_scene_to(loadingScene)
+	currentScene -= 1
+	var newScene = load(scenesChronology[currentScene])
+	var arguments = scenesArgumentsChronology[currentScene]
+	if arguments.size() != 0:
+		newScene.setup_auto(arguments)
+	get_tree().change_scene_to(newScene)
+
+#TODO: Merge check_words and check_homonyms
+func check_words(sentence, myword) -> bool:
+	var sentenceWords = sentence.split(" ")
+	if(sentenceWords == null || len(sentenceWords) == 0):
 		return false
-	for w in words:
+	for w in sentenceWords:
 		if(check_homonyms(w.to_lower(), myword)):
 			return true
 	return false
-
-	
 func check_homonyms(w, myword):
 	var word = wordDictionnary.getWord(myword.getPhonetic())
 	if(word == null):
-		#print("Word in check_homonyms is null")
 		return false
 	var h = word.getHomonym()
 	for i in range(0, len(h)):
 		if(w == h[i].to_lower()):
 			return true
 	return false
-	
+#==========================================
+
 func loadConfig():
 	ManageJson.getElement("config.json", "Config", config)
 	config.setAttribut("nameFile", "config.json")

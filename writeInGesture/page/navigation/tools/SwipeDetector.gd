@@ -13,7 +13,7 @@ var start = false
 var swipe_start_position = Vector2()
 var last_position = Vector2()
 var current_distance = Vector2()
-# Called when the node enters the scene tree for the first time.
+
 func _input(event : InputEvent):
 	if(start && event.position.distance_to(swipe_start_position) > BEGIN_SWIPE_MIN && event is InputEventMouseMotion ):
 #		print(event)

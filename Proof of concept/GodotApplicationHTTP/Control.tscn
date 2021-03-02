@@ -1,0 +1,191 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Control.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button Get" type="Button" parent="."]
+margin_left = 335.028
+margin_top = 371.899
+margin_right = 417.028
+margin_bottom = 391.899
+text = "Button Get"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button Post" type="Button" parent="."]
+margin_left = 633.36
+margin_top = 372.698
+margin_right = 720.36
+margin_bottom = 392.698
+text = "Button Post"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HTTPRequestPost" type="HTTPRequest" parent="."]
+
+[node name="HTTPRequestGet" type="HTTPRequest" parent="."]
+
+[node name="LineEditFirstname" type="LineEdit" parent="."]
+margin_left = 622.0
+margin_top = 161.0
+margin_right = 732.0
+margin_bottom = 192.0
+rect_pivot_offset = Vector2( 133, 53 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelFirstname" type="Label" parent="LineEditFirstname"]
+margin_left = 6.0
+margin_top = -24.0
+margin_right = 70.0
+margin_bottom = -10.0
+rect_pivot_offset = Vector2( 127, 77 )
+text = "Firstname"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEditLastname" type="LineEdit" parent="."]
+margin_left = 623.0
+margin_top = 240.0
+margin_right = 733.0
+margin_bottom = 271.0
+rect_pivot_offset = Vector2( 133, 53 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelLastname" type="Label" parent="LineEditLastname"]
+margin_left = 3.0
+margin_top = -27.0
+margin_right = 67.0
+margin_bottom = -13.0
+rect_pivot_offset = Vector2( 127, 77 )
+text = "Lastname"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+modulate = Color( 0.831373, 0.121569, 0.121569, 1 )
+margin_left = 392.324
+margin_top = 11.48
+margin_right = 615.324
+margin_bottom = 68.0
+size_flags_stretch_ratio = 0.0
+text = "Godot HTTP Application"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="LabelRegister" type="Label" parent="."]
+margin_left = 625.471
+margin_top = 96.3242
+margin_right = 704.471
+margin_bottom = 124.324
+custom_colors/font_color = Color( 0.352941, 0.698039, 0.964706, 1 )
+text = "Register"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelSearch" type="Label" parent="."]
+margin_left = 339.416
+margin_top = 96.3242
+margin_right = 418.416
+margin_bottom = 124.324
+custom_colors/font_color = Color( 0.352941, 0.698039, 0.964706, 1 )
+text = "Search"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEditToken" type="LineEdit" parent="."]
+margin_left = 620.822
+margin_top = 314.238
+margin_right = 725.822
+margin_bottom = 348.238
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelToken" type="Label" parent="LineEditToken"]
+margin_left = 4.23779
+margin_top = -18.0109
+margin_right = 44.2378
+margin_bottom = -4.01093
+text = "Token"
+
+[node name="LineID" type="LineEdit" parent="."]
+margin_left = 341.178
+margin_top = 155.584
+margin_right = 418.178
+margin_bottom = 191.584
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelID" type="Label" parent="LineID"]
+margin_left = 3.17841
+margin_top = -18.0109
+margin_right = 43.1784
+margin_bottom = -4.01088
+text = "ID"
+
+[node name="LabelResult" type="Label" parent="."]
+anchor_top = 0.175
+anchor_bottom = 0.175
+margin_left = 322.297
+margin_top = 217.93
+margin_right = 458.297
+margin_bottom = 260.93
+text = "Result of research"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelFirstnameResult" type="Label" parent="LabelResult"]
+margin_left = 16.9514
+margin_top = 32.8433
+margin_right = 80.9514
+margin_bottom = 46.8433
+
+[node name="LabelLasttnameResult" type="Label" parent="LabelResult"]
+margin_left = 19.0703
+margin_top = 73.1029
+margin_right = 83.0703
+margin_bottom = 87.1029
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelTokenResult" type="Label" parent="LabelResult"]
+margin_left = 18.0109
+margin_top = 117.6
+margin_right = 82.0109
+margin_bottom = 131.6
+[connection signal="pressed" from="Button Get" to="." method="_on_Button_Get_pressed"]
+[connection signal="pressed" from="Button Post" to="." method="_on_Button_Post_pressed"]
+[connection signal="request_completed" from="HTTPRequestPost" to="." method="_on_HTTPRequestPost_request_completed"]
+[connection signal="request_completed" from="HTTPRequestGet" to="." method="_on_HTTPRequestGet_request_completed"]
+[connection signal="text_changed" from="LineEditFirstname" to="." method="_on_LineEditFirstname_text_changed"]
+[connection signal="text_changed" from="LineEditLastname" to="." method="_on_LineEditLastname_text_changed"]
+[connection signal="text_changed" from="LineEditToken" to="." method="_on_LineEditToken_text_changed"]
+[connection signal="text_changed" from="LineID" to="." method="_on_LineID_text_changed"]

@@ -1,6 +1,7 @@
 
 # Godot-specific ignores
 .import/
+*.import
 export.cfg
 export_presets.cfg
 
@@ -10,3 +11,6 @@ data_*/
 
 #Andoid Build
 writeInGesture/android/build
+
+#POC
+Proof of concept/API/.metadata

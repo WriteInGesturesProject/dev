@@ -186,7 +186,7 @@ func _on_deleteButton_pressed(button, label): #If we delete a word from the word
 		return 
 
 func _on_Retour_pressed():
-	Global.manageScreen.changeScene("res://page/navigation/speechTherapistMenu.tscn")
+	Global.change_scene("res://page/navigation/speechTherapistMenu.tscn")
 
 #######################################END_FUNCTION_FOR_SCENE###############################
 

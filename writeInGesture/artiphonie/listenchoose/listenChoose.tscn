@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/fonts/RAVIE.TTF" type="DynamicFontData" id=1]
-[ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=2]
-[ext_resource path="res://assets/background.png" type="Texture" id=3]
-[ext_resource path="res://page/listenchoose/listenChoose.gd" type="Script" id=4]
-[ext_resource path="res://assets/sound/fail.ogg" type="AudioStream" id=5]
-[ext_resource path="res://assets/icons/back.png" type="Texture" id=6]
-[ext_resource path="res://assets/icons/speaker.png" type="Texture" id=7]
-[ext_resource path="res://assets/sound/success.ogg" type="AudioStream" id=8]
+[ext_resource path="res://assets/background.png" type="Texture" id=2]
+[ext_resource path="res://assets/sound/fail.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/icons/speaker.png" type="Texture" id=4]
+[ext_resource path="res://assets/sound/success.ogg" type="AudioStream" id=5]
+[ext_resource path="res://artiphonie/listenchoose/listenChoose.gd" type="Script" id=6]
+[ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=7]
+[ext_resource path="res://assets/icons/back.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 54
@@ -16,22 +16,22 @@ font_data = ExtResource( 1 )
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 2 )
-script = ExtResource( 4 )
+theme = ExtResource( 7 )
+script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Good" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
+stream = ExtResource( 5 )
 
 [node name="Wrong" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
+stream = ExtResource( 3 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 expand = true
 
 [node name="MainPage" type="MarginContainer" parent="."]
@@ -75,9 +75,9 @@ anchor_top = 0.856652
 anchor_right = 0.535319
 anchor_bottom = 0.973319
 size_flags_vertical = 3
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 7 )
-texture_hover = ExtResource( 7 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 4 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": true
@@ -102,7 +102,7 @@ anchor_left = 0.015625
 anchor_top = 0.0266667
 anchor_right = 0.0986328
 anchor_bottom = 0.168333
-icon = ExtResource( 6 )
+icon = ExtResource( 8 )
 flat = true
 expand_icon = true
 __meta__ = {

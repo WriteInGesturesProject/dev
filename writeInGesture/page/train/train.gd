@@ -4,14 +4,13 @@ const Exercise = preload("res://entity/Exercise.gd")
 const MyDictionnary = preload("res://entity/Dictionnary.gd")
 
 var Ex : Exercise
-var tts = Global.tts
-var stt = Global.stt
+var textToSpeech = Global.textToSpeech
+var speechToText = Global.speechToText
 var words = ""
 var display = false
 var incremented = false
 var myWords : Array = []
 var index = 0
-var os = Global.os
 var margin = 0.05
 var VectorMarge
 var drawWord

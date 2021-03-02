@@ -149,8 +149,8 @@ func _on_Home_pressed():
 	
 func _on_Replay_pressed():
 	if(Global.manageGame.play == 1): #GooseGame This is the  Game
-		Global.change_scene("res://page/goosegame/gooseGame.tscn")
+		Global.change_scene(Global.artiphonie.PATH_GOOSE_GAME)
 	elif(Global.manageGame.play == 2): #Listen & Choose
-		Global.change_scene("res://page/listenchoose/listenChoose.tscn")
+		Global.change_scene(Global.artiphonie.PATH_LISTEN_CHOOSE)
 	elif(Global.manageGame.play == 3): #MemoryGame
-		Global.change_scene("res://page/memory/memoryGame.tscn")
+		Global.change_scene(Global.artiphonie.PATH_MEMORY)

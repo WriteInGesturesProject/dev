@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/fonts/RAVIE.TTF" type="DynamicFontData" id=1]
-[ext_resource path="res://assets/logo.png" type="Texture" id=2]
-[ext_resource path="res://assets/background.png" type="Texture" id=3]
+[ext_resource path="res://assets/background.png" type="Texture" id=2]
+[ext_resource path="res://assets/logo.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 27
@@ -36,7 +36,7 @@ __meta__ = {
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -50,7 +50,7 @@ margin_left = 12.344
 margin_top = 32.15
 margin_right = -115.0
 margin_bottom = -160.05
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
 __meta__ = {

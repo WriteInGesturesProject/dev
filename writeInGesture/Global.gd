@@ -1,6 +1,13 @@
 extends Node
 
-const loadingScene = preload("res://page/loading/loading.tscn")
+const Artiphonie := preload("res://shared/artiphonie.gd")
+var artiphonie := Artiphonie.new()
+
+const loadingScene = preload("res://shared/loading/loading.tscn")
+
+#Useful for the back button
+var currentScene: int = 0
+var scenesChronology := {0: "res://main.tscn"} 
 
 const MyDictionnary = preload("res://entity/Dictionnary.gd")
 const Player = preload("res://entity/Player.gd")
@@ -10,10 +17,8 @@ const Config = preload("res://entity/Config.gd")
 const ManageGame = preload("res://tools/ManageGame.gd")
 const ManageInstruction = preload("res://tools/ManageInstruction.gd")
 
-var os # Variable used to know on which plateform we are
-
-var tts = null # The Text To Speech Object
-var stt = null # The Speech To Text Object
+var textToSpeech = null # The Text To Speech Object
+var speechToText = null # The Speech To Text Object
 
 var nbDifficulty = 3
 
@@ -48,54 +53,46 @@ var permissions
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
-	os = OS.get_name()
 	loadConfig()
 	loadEntity()
 	manageInstruction.setUp()
-	initVoiceRecording()
 	makeFont()
 
-func change_scene(newScenePath):
+func change_scene(newScenePath: String) -> void:
 	get_tree().change_scene_to(loadingScene)
+	currentScene += 1
+	scenesChronology[currentScene] = newScenePath
 	var newScene = load(newScenePath)
 	get_tree().change_scene_to(newScene)
 
+func change_to_previous_scene() -> void:
+	if currentScene == 0:
+		return
+	get_tree().change_scene_to(loadingScene)
+	currentScene -= 1
+	var newScene = load(scenesChronology[currentScene])
+	get_tree().change_scene_to(newScene)
 
-func initVoiceRecording():
-	match os:
-		"Windows":
-			pass
-		"X11":
-			pass
-		"Android":
-			if(Engine.has_singleton("GodotTextToSpeech")):
-				tts = Engine.get_singleton("GodotTextToSpeech")
-				tts.fireTTS()
-			if(Engine.has_singleton("GodotSpeech")):
-				stt = Engine.get_singleton("GodotSpeech")
-
-func check_words(sentence, myword):
-	var words = sentence.split(" ")
-	if(words == null || len(words) == 0):
+#TODO: Merge check_words and check_homonyms
+func check_words(sentence, myword) -> bool:
+	var sentenceWords = sentence.split(" ")
+	if(sentenceWords == null || len(sentenceWords) == 0):
 		return false
-	for w in words:
+	for w in sentenceWords:
 		if(check_homonyms(w.to_lower(), myword)):
 			return true
 	return false
-
-	
 func check_homonyms(w, myword):
 	var word = wordDictionnary.getWord(myword.getPhonetic())
 	if(word == null):
-		#print("Word in check_homonyms is null")
 		return false
 	var h = word.getHomonym()
 	for i in range(0, len(h)):
 		if(w == h[i].to_lower()):
 			return true
 	return false
-	
+#==========================================
+
 func loadConfig():
 	ManageJson.getElement("config.json", "Config", config)
 	config.setAttribut("nameFile", "config.json")

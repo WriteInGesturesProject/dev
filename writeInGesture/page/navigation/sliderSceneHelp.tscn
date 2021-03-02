@@ -44,39 +44,39 @@ __meta__ = {
 }
 
 [node name="MainMargin" type="MarginContainer" parent="Main"]
-margin_right = 171.0
-margin_bottom = 42.0
+margin_right = 375.0
+margin_bottom = 86.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="HBoxMain" type="HBoxContainer" parent="Main/MainMargin"]
-margin_right = 171.0
-margin_bottom = 42.0
+margin_right = 375.0
+margin_bottom = 86.0
 theme = ExtResource( 4 )
 
 [node name="ButtonContainer" type="VBoxContainer" parent="Main/MainMargin/HBoxMain"]
-margin_right = 167.0
-margin_bottom = 42.0
+margin_right = 371.0
+margin_bottom = 86.0
 theme = ExtResource( 4 )
 alignment = 1
 
 [node name="Learn" type="Button" parent="Main/MainMargin/HBoxMain/ButtonContainer"]
-margin_right = 167.0
-margin_bottom = 19.0
+margin_right = 371.0
+margin_bottom = 41.0
 theme = ExtResource( 3 )
 text = "J'apprends"
 
 [node name="Train" type="Button" parent="Main/MainMargin/HBoxMain/ButtonContainer"]
-margin_top = 23.0
-margin_right = 167.0
-margin_bottom = 42.0
+margin_top = 45.0
+margin_right = 371.0
+margin_bottom = 86.0
 theme = ExtResource( 3 )
 text = "Je m'entraine"
 
 [node name="Image" type="Control" parent="Main/MainMargin/HBoxMain"]
-margin_left = 171.0
-margin_right = 171.0
-margin_bottom = 42.0
+margin_left = 375.0
+margin_right = 375.0
+margin_bottom = 86.0
 theme = ExtResource( 4 )
 
 [node name="TextureRect" type="TextureRect" parent="Main/MainMargin/HBoxMain/Image"]

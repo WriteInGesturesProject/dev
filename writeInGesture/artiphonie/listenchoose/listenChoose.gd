@@ -1,9 +1,7 @@
 extends Control
 
-var os = Global.os
-
-var tts = Global.tts
-var stt = Global.stt
+var textToSpeech = Global.textToSpeech
+var speechToText = Global.speechToText
 
 const Card = preload("./cardListenChoose.gd")
 
@@ -73,15 +71,15 @@ func _on_Back_pressed():
 	Global.change_scene("res://page/navigation/gameChoose.tscn")
 
 func _on_speak_pressed():
-	if(stt != null && stt.isListening()):
-		stt.stopListen()
-	if(tts != null):
+	if(speechToText != null && speechToText.isListening()):
+		speechToText.stopListen()
+	if(textToSpeech != null):
 		var text = findCard.wordLabel.text
-		match os:
+		match OS.get_name():
 			"X11":
-				tts.speak(text, false)
+				textToSpeech.speak(text, false)
 			"Android":
-				tts.speakText(text)
+				textToSpeech.speakText(text)
 
 func _on_Validate_pressed():
 	Global.listenExercise.setNbWordOccurrence(Global.manageGame.level, indexWord, Global.listenExercise.getNbWordOccurrence(Global.manageGame.level, indexWord) + 1)
@@ -99,11 +97,11 @@ func _on_Validate_pressed():
 
 func _on_speakControl_gui_input(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
-		if(tts != null):
+		if(textToSpeech != null):
 			var text = findCard.wordLabel.text
 			print(text)
-			match os:
+			match OS.get_name():
 				"X11":
-					tts.speak(text, false)
+					textToSpeech.speak(text, false)
 				"Android":
-					tts.speakText(text)
+					textToSpeech.speakText(text)

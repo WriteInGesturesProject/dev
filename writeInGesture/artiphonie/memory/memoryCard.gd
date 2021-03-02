@@ -18,7 +18,7 @@ func init(word, size, selected_cards : Array):
 	set_stretch_mode(TextureButton.STRETCH_SCALE)
 	scale_img(texture_normal.get_size(), size)
 	imagePath = word.getPath()
-	imageWord = word.getWord()
+	imageWord = word.get_word()
 	connect("pressed", self, "_on_Card_pressed")
 
 

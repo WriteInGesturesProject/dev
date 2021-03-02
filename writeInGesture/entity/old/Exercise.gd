@@ -87,9 +87,9 @@ func setNbWords(nb : int):
 	nbWords = nb
 	return ManageJson.putElement(nameFile, "Exercise/nbWords", nbWords)
 
-func getWord(phonetic) -> Word :
+func get_word(phonetic) -> Word :
 	for currentWord in words :
-		if(currentWord.getPhonetic() == phonetic):
+		if(currentWord.get_phonetic() == phonetic):
 			return currentWord
 	#print("Mot avec la phonetic :"+phonetic+" non trouvé")
 	return null
@@ -97,7 +97,7 @@ func getWord(phonetic) -> Word :
 func addWord(word) -> int :
 	var result = words.append(word)
 	setNbWords(words.size())
-	return ManageJson.addElement(nameFile ,"Exercise/words", word.toDictionnary())
+	return ManageJson.addElement(nameFile ,"Exercise/words", word.to_dictionary())
 
 func setAllWord(array : Array) :
 	words = []
@@ -125,13 +125,13 @@ func setNameFile(nF : String):
 	nameFile = nF
 	return 1
 
-func getWordSuccess(difficulty : int, index : int): 
+func get_wordSuccess(difficulty : int, index : int): 
 	return wordsSuccess[difficulty][index]
 	
 func getAllWordSuccess(): 
 	return wordsSuccess
 
-func setWordSuccess(difficulty : int, index : int, value : int):
+func set_wordSuccess(difficulty : int, index : int, value : int):
 	wordsSuccess[difficulty][index] = value
 	return ManageJson.putElement(nameFile, "Exercise/wordsSuccess", wordsSuccess)
 
@@ -190,17 +190,17 @@ func setAttribut(field : String, input):
 			
 	return
 
-func toString() -> String : 
+func to_string() -> String : 
 	var res = "version : "+String(version)+"\n"
 	res += "userId : "+String(userId)+"\n"	
-	res += "type : "+type.toString()+"\n"	
+	res += "type : "+type.to_string()+"\n"	
 	res += "difficulty : "+String(difficulty)+"\n"	
 	res += "successPercentage : "+String(successPercentage)+"\n"	
 #	res += "nbWordsOccurrences : "+String(nbOccurrences)+"\n"	
 	res += "nbWords : "+String(nbWords)+"\n"	
 	res += "words : ["
 	for word in words :
-		res += "{" + word.toString() + "}\n"
+		res += "{" + word.to_string() + "}\n"
 	res+="] \n"
 	res += "nameFile : "+nameFile+"\n"	
 	return res

@@ -8,7 +8,7 @@ var coinBox : HBoxContainer
 var size : Vector2
 
 func _ready():
-	
+	print(Global.wordsAvailable.to_string())
 	add_child(Global.manageInstruction.instruction("home"))
 	
 	find_node("LearnLabel").get_font("font").size = Global.paragraph -2

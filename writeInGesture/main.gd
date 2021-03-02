@@ -4,6 +4,7 @@ const firstLaunch := "res://page/home/firstLaunch.tscn"
 const homePath := "res://page/home/home.tscn"
 
 func _ready():
+	randomize()
 	match OS.get_name():
 		"Android":
 			var recordAudioPermission := false

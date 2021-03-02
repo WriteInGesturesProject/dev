@@ -10,13 +10,13 @@ var currentScene: int = 0
 var scenesChronology := {0: "res://main.tscn"}
 var scenesArgumentsChronology := {0: []}
 
-const MyDictionnary = preload("res://entity/Dictionnary.gd")
-const Player = preload("res://entity/Player.gd")
-const WordsAvailable = preload("res://entity/WordsAvailable.gd")
-const Exercise = preload("res://entity/Exercise.gd")
-const Config = preload("res://entity/Config.gd")
-const ManageGame = preload("res://tools/ManageGame.gd")
-const ManageInstruction = preload("res://tools/ManageInstruction.gd")
+#const MyDictionnary = preload("res://entity/Dictionnary.gd")
+#const Player = preload("res://entity/Player.gd")
+#const WordsAvailable = preload("res://entity/WordsAvailable.gd")
+#const Exercise = preload("res://entity/Exercise.gd")
+#const Config = preload("res://entity/Config.gd")
+#const ManageGame = preload("res://tools/ManageGame.gd")
+#const ManageInstruction = preload("res://tools/ManageInstruction.gd")
 
 var textToSpeech = null # The Text To Speech Object
 var speechToText = null # The Speech To Text Object
@@ -78,6 +78,8 @@ func change_to_previous_scene() -> void:
 	var newScene = load(scenesChronology[currentScene])
 	get_tree().change_scene_to(newScene)
 
+# ============================================================================
+
 #TODO: Merge check_words and check_homonyms
 func check_words(sentence, myword) -> bool:
 	var sentenceWords = sentence.split(" ")
@@ -88,7 +90,7 @@ func check_words(sentence, myword) -> bool:
 			return true
 	return false
 func check_homonyms(w, myword):
-	var word = wordDictionnary.getWord(myword.getPhonetic())
+	var word = wordDictionnary.get_word(myword.get_phonetic())
 	if(word == null):
 		return false
 	var h = word.getHomonym()

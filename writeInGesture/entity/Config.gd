@@ -108,7 +108,7 @@ func setAttribut(field : String, input):
 			
 	return
 
-func toString() -> String : 
+func to_string() -> String : 
 	var res = "version : "+String(version)+"\n"
 	res += "[ \n"
 	for path in pathExercisesFiles:

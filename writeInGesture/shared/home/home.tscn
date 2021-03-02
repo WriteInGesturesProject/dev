@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/background.png" type="Texture" id=1]
 [ext_resource path="res://assets/logo.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/icons/play.png" type="Texture" id=6]
 [ext_resource path="res://assets/icons/learn.png" type="Texture" id=7]
 [ext_resource path="res://shared/back/back_button.tscn" type="PackedScene" id=8]
+[ext_resource path="res://shared/about/about_button.tscn" type="PackedScene" id=9]
 
 [node name="home" type="Control"]
 anchor_right = 1.0
@@ -125,6 +126,8 @@ __meta__ = {
 }
 
 [node name="back_button" parent="." instance=ExtResource( 8 )]
+
+[node name="about_button" parent="." instance=ExtResource( 9 )]
 [connection signal="pressed" from="learning" to="." method="learning_button_pressed"]
 [connection signal="pressed" from="training" to="." method="training_button_pressed"]
 [connection signal="pressed" from="playing" to="." method="playing_button_pressed"]

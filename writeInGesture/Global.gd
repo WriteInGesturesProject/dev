@@ -64,10 +64,11 @@ func change_scene(newScenePath: String, arguments: Array = []) -> void:
 	currentScene += 1
 	scenesChronology[currentScene] = newScenePath
 	scenesArgumentsChronology[currentScene] = arguments
-	var newScene = load(newScenePath)
-	if arguments.size() != 0:
-		newScene.setup_auto(arguments)
-	get_tree().change_scene_to(newScene)
+	var newSceneRessource = load(newScenePath)
+	get_tree().change_scene_to(newSceneRessource)
+
+func get_arguments() -> Array:
+	return scenesArgumentsChronology[currentScene].duplicate(true)
 
 func change_to_previous_scene() -> void:
 	if currentScene == 0:
@@ -75,9 +76,6 @@ func change_to_previous_scene() -> void:
 	get_tree().change_scene_to(loadingScene)
 	currentScene -= 1
 	var newScene = load(scenesChronology[currentScene])
-	var arguments = scenesArgumentsChronology[currentScene]
-	if arguments.size() != 0:
-		newScene.setup_auto(arguments)
 	get_tree().change_scene_to(newScene)
 
 #TODO: Merge check_words and check_homonyms

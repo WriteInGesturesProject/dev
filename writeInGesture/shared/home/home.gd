@@ -5,14 +5,16 @@ class_name Home
 var learnScenePath: String
 var trainScenePath: String
 var playScenePath: String
+var currentApp: String 
 
 func _ready():
 	pass
 
-func setup(_learnScenePath: String, _trainScenePath: String, _playScenePath: String, titleTexture: Texture = null, backgroundTexture: Texture = null):
+func setup(_learnScenePath: String, _trainScenePath: String, _playScenePath: String, _currentApp: String, titleTexture: Texture = null, backgroundTexture: Texture = null):
 	learnScenePath = _learnScenePath
 	trainScenePath = _trainScenePath
 	playScenePath = _playScenePath
+	$about_button.currentApp = _currentApp
 
 #	$title.texture = titleTexture
 #

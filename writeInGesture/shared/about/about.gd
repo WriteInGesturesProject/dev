@@ -2,6 +2,7 @@ extends Control
 
 var margin = 0.05
 var vectorMarge
+var currentApp: String
 
 func _ready():
 	#make margin of the scene
@@ -13,20 +14,25 @@ func _ready():
 	Global.make_margin(find_node("MainPage"),0.015)
 	#change size of button depending on the screen size
 	find_node("Label").get_font("font").size = Global.h2Font
-	find_node("TextContributors").set_selection_enabled(true)
 	var content = loadAboutContent()
 	find_node("TextContributors").set_text(content)
+	find_node("TextContributors").set_selection_enabled(true)
 	
 func loadAboutContent() -> String:
-	var file = File.new()
-	file.open("res://data/aboutContent.txt", File.READ)
-	var content = file.get_as_text()
-	file.close()
-	return content
-
-func _on_Back_pressed():
-	Global.change_scene("res://page/home/home.tscn")
+	currentApp = Global.get_arguments()[0]
+	print(currentApp)
+	if(currentApp != null):
+		var file = File.new()
+		file.open("res://data/"+currentApp+"/aboutContent.txt", File.READ)
+		var content = file.get_as_text()
+		file.close()
+		print("content"+content)
+		return content
+	else:
+		return ""
 
 #open the url of the gitlab when click on it
 func _on_goLinkPressed(url):
 	OS.shell_open(url)
+	
+

@@ -7,7 +7,8 @@ const loadingScene = preload("res://shared/loading/loading.tscn")
 
 #Useful for the back button
 var currentScene: int = 0
-var scenesChronology := {0: "res://main.tscn"} 
+var scenesChronology := {0: "res://main.tscn"}
+var scenesArgumentsChronology := {0: []}
 
 const MyDictionnary = preload("res://entity/Dictionnary.gd")
 const Player = preload("res://entity/Player.gd")
@@ -58,11 +59,14 @@ func _ready():
 	manageInstruction.setUp()
 	makeFont()
 
-func change_scene(newScenePath: String) -> void:
+func change_scene(newScenePath: String, arguments: Array = []) -> void:
 	get_tree().change_scene_to(loadingScene)
 	currentScene += 1
 	scenesChronology[currentScene] = newScenePath
+	scenesArgumentsChronology[currentScene] = arguments
 	var newScene = load(newScenePath)
+	if arguments.size() != 0:
+		newScene.setup_auto(arguments)
 	get_tree().change_scene_to(newScene)
 
 func change_to_previous_scene() -> void:
@@ -71,6 +75,9 @@ func change_to_previous_scene() -> void:
 	get_tree().change_scene_to(loadingScene)
 	currentScene -= 1
 	var newScene = load(scenesChronology[currentScene])
+	var arguments = scenesArgumentsChronology[currentScene]
+	if arguments.size() != 0:
+		newScene.setup_auto(arguments)
 	get_tree().change_scene_to(newScene)
 
 #TODO: Merge check_words and check_homonyms

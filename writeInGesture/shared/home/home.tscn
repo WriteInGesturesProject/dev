@@ -50,9 +50,9 @@ __meta__ = {
 }
 
 [node name="name" type="Label" parent="learning"]
-margin_left = 9.0
+margin_left = -9.68774
 margin_top = 24.0
-margin_right = 290.0
+margin_right = 271.312
 margin_bottom = 65.0
 text = "Apprendre"
 __meta__ = {
@@ -82,8 +82,10 @@ __meta__ = {
 }
 
 [node name="name" type="Label" parent="training"]
-margin_right = 40.0
-margin_bottom = 41.0
+margin_left = -20.0226
+margin_top = 18.6877
+margin_right = 289.977
+margin_bottom = 59.6877
 text = "S'entrainer"
 
 [node name="icon" type="TextureRect" parent="training"]
@@ -109,8 +111,10 @@ __meta__ = {
 }
 
 [node name="name" type="Label" parent="playing"]
-margin_right = 40.0
-margin_bottom = 41.0
+margin_left = 52.0587
+margin_top = 21.3574
+margin_right = 203.059
+margin_bottom = 62.3574
 text = "Jouer"
 
 [node name="icon" type="TextureRect" parent="playing"]

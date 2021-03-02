@@ -1,7 +1,7 @@
 extends Node
 
-var userPath = "user://data/"
-var resPath = "res://data/"
+const userPath = "user://data/"
+const resPath = "res://data/"
 
 const Dictionnary = preload("res://entity/Dictionnary.gd")
 const Word = preload("res://entity/Word.gd")
@@ -9,14 +9,9 @@ const Player = preload("res://entity/Player.gd")
 const WordsAvailable = preload("res://entity/WordsAvailable.gd")
 const Exercise = preload("res://entity/Exercise.gd")
 
-func _ready():
-	pass
-
 func removeFile(path):
-	#print("[REMOVEFILE]")
 	var dir = Directory.new()
 	dir.remove("user://data/"+path)
-	#print("[END_REMOVEFILE] : user://data/", path)
 
 
 func checkFileExistUserPath(nameFile:String)->String:
@@ -28,6 +23,7 @@ func checkFileExistUserPath(nameFile:String)->String:
 			#print("File not found : ", nameFile)
 			return "";
 		else :
+			
 			var writing = file.get_as_text()
 			rewriteFile(nameFile,writing)
 	var text = file.get_as_text()

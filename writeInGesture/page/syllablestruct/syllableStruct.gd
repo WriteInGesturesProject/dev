@@ -94,7 +94,7 @@ func _on_Creation_pressed():
 	for word in words:
 		var label = Label.new()
 		label.align = Label.ALIGN_CENTER
-		label.text = word.getWord()+" : "+word.getPhonetic()
+		label.text = word.get_word()+" : "+word.get_phonetic()
 		find_node("VBoxPopup").add_child(label)
 	
 	popup.visible = true

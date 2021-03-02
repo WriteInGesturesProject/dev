@@ -86,7 +86,7 @@ func _on_Validate_pressed():
 	if(findCard.wordLabel.text == cardSelected.wordLabel.text):
 		Global.manageGame.score += 1
 		find_node("Good").playing = true
-		Global.listenExercise.setWordSuccess(Global.manageGame.level, indexWord, Global.listenExercise.getWordSuccess(Global.manageGame.level, indexWord) + 1)
+		Global.listenExercise.set_wordSuccess(Global.manageGame.level, indexWord, Global.listenExercise.get_wordSuccess(Global.manageGame.level, indexWord) + 1)
 	else : 
 		find_node("Wrong").playing = true
 	cardSelected = null

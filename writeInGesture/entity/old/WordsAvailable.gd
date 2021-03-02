@@ -8,20 +8,20 @@ const Word = preload("res://entity/Word.gd")
 func getAllWords() -> Array :
 	return words
 
-func getWord(phonetic : String) -> Word :
+func get_word(phonetic : String) -> Word :
 	for currentWord in words :
-		if(currentWord.getPhonetic() == phonetic):
+		if(currentWord.get_phonetic() == phonetic):
 			return currentWord
 	#print("Mot avec la phonetic :"+phonetic+" non trouvé")
 	return null
 
 func addWord(word) -> int :
 	words.append(word)
-	return ManageJson.addElement(nameFile, "WordsAvailable/words", word.toDictionnary())
+	return ManageJson.addElement(nameFile, "WordsAvailable/words", word.to_dictionary())
 
 func removeWord(word) -> int :
 	var error = words.erase(word)
-	return ManageJson.removeElement(nameFile, "WordsAvailable/words", word.getPhonetic())
+	return ManageJson.removeElement(nameFile, "WordsAvailable/words", word.get_phonetic())
 
 func getNameFile() -> String : 
 	return nameFile
@@ -39,10 +39,10 @@ func setAttribut(field : String, input):
 			nameFile = input
 	return
 
-func toString() -> String : 
+func to_string() -> String : 
 	var res = "words : ["
 	for word in words :
-		res += "{" + word.toString() + "}\n"
+		res += "{" + word.to_string() + "}\n"
 	res+="] \n"
 	res += "nameFile : "+nameFile+"\n"	
 	return res

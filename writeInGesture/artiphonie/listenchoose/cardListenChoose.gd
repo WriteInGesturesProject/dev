@@ -72,7 +72,7 @@ func setUpCard(word : Word, level : int, size : Vector2) -> void:
 		setImgBorel()
 
 #	Create label word
-	wordLabel.text = word.getWord()
+	wordLabel.text = word.get_word()
 	wordLabel.set("custom_colors/font_color", Color(1,1,1))
 	
 	wordLabel.align = Label.ALIGN_CENTER
@@ -83,7 +83,7 @@ func setUpCard(word : Word, level : int, size : Vector2) -> void:
 	imageWord.texture = Global.find_texture(word.getPath())
 	imageWord.expand = true
 	if(Global.manageGame.level < 2):
-		if(mySize(word.getPhonetic()) > 3):
+		if(mySize(word.get_phonetic()) > 3):
 			_scaleImg(imageWord, vectorSize.y * 0.2)
 			yRest -= 0.2
 		else :
@@ -109,7 +109,7 @@ func setUpCard(word : Word, level : int, size : Vector2) -> void:
 
 func setImgBorel() -> void :
 #		Catch image borel
-		var phonetic = word.getPhonetic()
+		var phonetic = word.get_phonetic()
 		var arrayPicture = Global.phoneticToArrayPicturePath(phonetic)
 		var line1 : HBoxContainer
 #		More than 3 images borel

@@ -1,7 +1,7 @@
 extends Node
 
 
-const Word = preload("res://entity/Word.gd")
+const word = preload("res://entity/Word.gd")
 
 var version : float
 var userId : int
@@ -29,9 +29,9 @@ func setUserId(userId : int) -> void :
 func getAllWord() : 
 	return words
 
-func getWord(phonetic) -> Word :
+func get_word(phonetic) -> Word :
 	for currentWord in words :
-		if(currentWord.getPhonetic() == phonetic):
+		if(currentWord.get_phonetic() == phonetic):
 			return currentWord
 	#print("Mot avec la phonetic :"+phonetic+" non trouvé")
 	return null
@@ -40,12 +40,12 @@ func addWord(word) -> int :
 	var result = words.append(word)
 	var w = words.find(word)
 	word.setAttribut("parent", self)
-	return ManageJson.addElement(nameFile, "Dictionnary/words", word.toDictionnary())
+	return ManageJson.addElement(nameFile, "Dictionnary/words", word.to_dictionary())
 	
 func updateWord(word : Word) :
-	var err = ManageJson.removeElement(nameFile, "Dictionary/words", word.getPhonetic())
+	var err = ManageJson.removeElement(nameFile, "Dictionary/words", word.get_phonetic())
 	if(!err):
-		return ManageJson.addElement(nameFile, "Dictionnary/words", word.toDictionnary())
+		return ManageJson.addElement(nameFile, "Dictionnary/words", word.to_dictionary())
 	else :
 		return 0
 
@@ -67,12 +67,12 @@ func setAttribut(field : String, input):
 			nameFile = input
 	return
 
-func toString() -> String : 
+func to_string() -> String : 
 	var res = "version : "+ String(version) +"\n"
 	res += "userId : "+ String(userId) +"\n"	
 	res += "words : \n"	
 	for word in words :
-		res += "{"+ word.toString() +"}\n"
+		res += "{"+ word.to_string() +"}\n"
 	res += "] \n"	
 	res += "nameFile : "+ nameFile +"\n"	
 	return res

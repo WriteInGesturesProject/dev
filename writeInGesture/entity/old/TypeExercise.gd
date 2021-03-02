@@ -62,7 +62,7 @@ func setAttribut(field : String, input):
 			parent = input
 	return 
 	
-func toString() -> String : 
+func to_string() -> String : 
 	var res = "name : "+name+"\n"
 	res +="category : "+category+"\n"
 	res += "syllableStruct : "+syllableStruct+"\n"	

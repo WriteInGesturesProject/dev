@@ -25,6 +25,11 @@ _global_script_classes=[ {
 "path": "res://entity/Player.gd"
 }, {
 "base": "Node",
+"class": "Shop",
+"language": "GDScript",
+"path": "res://entity/Shop.gd"
+}, {
+"base": "Node",
 "class": "Word",
 "language": "GDScript",
 "path": "res://entity/Word.gd"
@@ -38,6 +43,7 @@ _global_script_class_icons={
 "Home": "",
 "Item": "",
 "Player": "",
+"Shop": "",
 "Word": "",
 "Words": ""
 }

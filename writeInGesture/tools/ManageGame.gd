@@ -1,5 +1,5 @@
 extends Node
-const Exercise = preload("res://entity/Exercise.gd")
+const Exercise = preload("res://entity/old/Exercise.gd")
 
 var current_ex : Exercise # The exercise we are playing
 

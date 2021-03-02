@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://page/avatarspace/avatarSpace.gd" type="Script" id=1]
+[ext_resource path="res://shared/avatarspace/avatarSpace.gd" type="Script" id=1]
 [ext_resource path="res://assets/icons/cancel.png" type="Texture" id=2]
 [ext_resource path="res://assets/icons/goldCoin.png" type="Texture" id=3]
 [ext_resource path="res://assets/icons/silverCoin.png" type="Texture" id=4]
@@ -38,8 +38,8 @@ __meta__ = {
 }
 
 [node name="Control" type="Control" parent="MainPage"]
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_right = 1280.0
+margin_bottom = 720.0
 
 [node name="marginCoinBox" type="MarginContainer" parent="MainPage/Control"]
 anchor_right = 1.0
@@ -49,12 +49,12 @@ __meta__ = {
 }
 
 [node name="CoinBox" type="HBoxContainer" parent="MainPage/Control/marginCoinBox"]
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_right = 1280.0
+margin_bottom = 720.0
 custom_constants/separation = 70
 
 [node name="Control" type="Control" parent="MainPage/Control/marginCoinBox/CoinBox"]
-margin_bottom = 600.0
+margin_bottom = 720.0
 
 [node name="goldImage" type="TextureRect" parent="MainPage/Control/marginCoinBox/CoinBox/Control"]
 margin_left = 27.0
@@ -82,7 +82,7 @@ __meta__ = {
 [node name="Control2" type="Control" parent="MainPage/Control/marginCoinBox/CoinBox"]
 margin_left = 70.0
 margin_right = 70.0
-margin_bottom = 600.0
+margin_bottom = 720.0
 
 [node name="silverImage" type="TextureRect" parent="MainPage/Control/marginCoinBox/CoinBox/Control2"]
 margin_left = 81.0
@@ -119,8 +119,8 @@ __meta__ = {
 }
 
 [node name="plate" type="GridContainer" parent="MainPage/Control/MarginContainer"]
-margin_right = 1024.0
-margin_bottom = 560.0
+margin_right = 1280.0
+margin_bottom = 680.0
 columns = 6
 
 [node name="Button" type="Button" parent="MainPage/Control"]
@@ -160,9 +160,9 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainPage/Control/ConfirmPopup/VBoxContainer2"]
-margin_top = 194.0
-margin_right = 1024.0
-margin_bottom = 306.0
+margin_top = 254.0
+margin_right = 1288.0
+margin_bottom = 366.0
 custom_constants/separation = 40
 alignment = 1
 __meta__ = {
@@ -170,28 +170,26 @@ __meta__ = {
 }
 
 [node name="confirmAsk" type="Label" parent="MainPage/Control/ConfirmPopup/VBoxContainer2/VBoxContainer"]
-margin_right = 1024.0
+margin_right = 1288.0
 margin_bottom = 36.0
 align = 1
 
 [node name="nbCoin" type="Label" parent="MainPage/Control/ConfirmPopup/VBoxContainer2/VBoxContainer"]
 margin_top = 76.0
-margin_right = 1024.0
+margin_right = 1288.0
 margin_bottom = 112.0
 align = 1
 
 [node name="marginButtons" type="MarginContainer" parent="MainPage/Control/ConfirmPopup/VBoxContainer2"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_top = 466.0
+margin_right = 1288.0
+margin_bottom = 466.0
 
 [node name="buttons" type="HBoxContainer" parent="MainPage/Control/ConfirmPopup/VBoxContainer2/marginButtons"]
-margin_right = 120.0
-margin_bottom = 40.0
+margin_right = 1288.0
 custom_constants/separation = 120
 
 [node name="Control" type="Control" parent="MainPage/Control/ConfirmPopup/VBoxContainer2/marginButtons/buttons"]
-margin_left = 452.0
-margin_right = 452.0
 
 [node name="ValidateBuy" type="TextureButton" parent="MainPage/Control/ConfirmPopup/VBoxContainer2/marginButtons/buttons/Control"]
 margin_top = -40.0
@@ -205,8 +203,8 @@ __meta__ = {
 }
 
 [node name="Control2" type="Control" parent="MainPage/Control/ConfirmPopup/VBoxContainer2/marginButtons/buttons"]
-margin_left = 572.0
-margin_right = 572.0
+margin_left = 120.0
+margin_right = 120.0
 
 [node name="CancelBuy" type="TextureButton" parent="MainPage/Control/ConfirmPopup/VBoxContainer2/marginButtons/buttons/Control2"]
 margin_right = 100.0
@@ -232,17 +230,17 @@ custom_constants/separation = 20
 alignment = 1
 
 [node name="Label" type="Label" parent="MainPage/Control/NotEnough/VBoxContainer"]
-margin_top = 254.0
-margin_right = 1024.0
-margin_bottom = 290.0
+margin_top = 314.0
+margin_right = 1280.0
+margin_bottom = 350.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Pas assez de pièces !"
 align = 1
 
 [node name="Label2" type="Label" parent="MainPage/Control/NotEnough/VBoxContainer"]
-margin_top = 310.0
-margin_right = 1024.0
-margin_bottom = 346.0
+margin_top = 370.0
+margin_right = 1280.0
+margin_bottom = 406.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Encore un effort !!"
 align = 1

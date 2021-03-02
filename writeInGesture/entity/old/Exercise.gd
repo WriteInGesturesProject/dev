@@ -1,6 +1,6 @@
 extends Node
 
-const Word = preload("./Word.gd")
+const Word = preload("../Word.gd")
 const TypeExercise = preload("./TypeExercise.gd")
 
 var version : float

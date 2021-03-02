@@ -3,11 +3,11 @@ extends Node
 const userPath = "user://data/"
 const resPath = "res://data/"
 
-const Dictionnary = preload("res://entity/Dictionnary.gd")
-const Word = preload("res://entity/Word.gd")
-const Player = preload("res://entity/Player.gd")
-const WordsAvailable = preload("res://entity/WordsAvailable.gd")
-const Exercise = preload("res://entity/Exercise.gd")
+#const Dictionnary = preload("res://entity/Dictionnary.gd")
+#const Word = preload("res://entity/Word.gd")
+#const Player = preload("res://entity/Player.gd")
+#const WordsAvailable = preload("res://entity/WordsAvailable.gd")
+#const Exercise = preload("res://entity/Exercise.gd")
 
 func removeFile(path):
 	var dir = Directory.new()

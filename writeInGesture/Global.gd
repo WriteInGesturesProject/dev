@@ -10,13 +10,13 @@ var currentScene: int = 0
 var scenesChronology := {0: "res://main.tscn"}
 var scenesArgumentsChronology := {0: []}
 
-#const MyDictionnary = preload("res://entity/Dictionnary.gd")
-#const Player = preload("res://entity/Player.gd")
-#const WordsAvailable = preload("res://entity/WordsAvailable.gd")
-#const Exercise = preload("res://entity/Exercise.gd")
-#const Config = preload("res://entity/Config.gd")
-#const ManageGame = preload("res://tools/ManageGame.gd")
-#const ManageInstruction = preload("res://tools/ManageInstruction.gd")
+const MyDictionnary = preload("res://entity/old/Dictionnary.gd")
+const Player = preload("res://entity/Player.gd")
+const WordsAvailable = preload("res://entity/old/WordsAvailable.gd")
+const Exercise = preload("res://entity/old/Exercise.gd")
+const Config = preload("res://entity/Config.gd")
+const ManageGame = preload("res://tools/ManageGame.gd")
+const ManageInstruction = preload("res://tools/ManageInstruction.gd")
 
 var textToSpeech = null # The Text To Speech Object
 var speechToText = null # The Speech To Text Object

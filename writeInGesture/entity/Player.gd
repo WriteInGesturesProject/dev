@@ -35,46 +35,46 @@ func set_gender(_gender: int) -> void:
 func get_gender() -> int:
 	return gender
 
-func set_equiped_items(_equipedItem: Array) -> void:
-	equipedItem = _equipedItem
+func set_equiped_items(_equipedItems: Array) -> void:
+	equipedItems = _equipedItems
 
 func get_equiped_items() -> Array:
-	return equipedItem.duplicate(true)
+	return equipedItems.duplicate(true)
 
-func add_equiped_item(item) -> bool:
+func add_equiped_item(item: Item) -> bool:
 	#TODO: Make sure that you can't add two item of the same type
-	equipedItem.append(item)
+	equipedItems.append(item)
 	return true
 
 func remove_equiped_item(position: int) -> bool:
 	#TODO: Make sure that the desired item is removed correctly
-	equipedItem.remove(position)
+	equipedItems.remove(position)
 	return true
 
-func erase_equiped_item(item) -> bool:
+func erase_equiped_item(item: Item) -> bool:
 	#TODO: Make sure that the disired item is erased correctly
 	equipedItems.erase(item)
 	return true
 
-func set_unlocked_items(_equipedItem: Array) -> void:
-	equipedItem = _equipedItem
+func set_unlocked_items(_unlockedItems: Array) -> void:
+	unlockedItems = _unlockedItems
 
 func get_unlocked_items() -> Array:
-	return equipedItem.duplicate(true)
+	return unlockedItems.duplicate(true)
 
-func add_unlocked_item(item) -> bool:
+func add_unlocked_item(item: Item) -> bool:
 	#TODO: Make sure that you can't add two item of the same item
-	equipedItem.append(item)
+	unlockedItems.append(item)
 	return true
 
 func remove_unlocked_item(position: int) -> bool:
 	#TODO: Make sure that the desired item is removed correctly
-	equipedItem.remove(position)
+	unlockedItems.remove(position)
 	return true
 
-func erase_unlocked_item(item) -> bool:
+func erase_unlocked_item(item: Item) -> bool:
 	#TODO: Make sure that the disired item is erased correctly
-	equipedItems.erase(item)
+	unlockedItems.erase(item)
 	return true
 
 func set_list_of_words(_listOfWords: Array) -> void:
@@ -125,7 +125,7 @@ func to_dictionary() -> Dictionary:
 		result["listOfWords"].append(words.to_dictionary())
 	return result
 
-func from_dictionary(content: Dictionary) -> Item:
+func from_dictionary(content: Dictionary) -> Player:
 	playerName = content["playerName"]
 	stars = content["stars"]
 	ethnicity = content["ethnicity"]

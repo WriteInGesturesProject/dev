@@ -1,6 +1,6 @@
 extends TextureButton
 
-var tts = Global.tts
+var textToSpeech = Global.textToSpeech
 var imageWord : String
 var imagePath : String
 var cardPath = "res://assets/icons/card.png" # This is the path of the back of the card
@@ -53,8 +53,8 @@ func scale_img(realSize, size) :
 func _on_Card_pressed():
 	if(selected_cards.size() < 2 && !selected_cards.has(self)):
 		selected_cards.append(self) # Add the card to the array
-		if(tts != null):
-			tts.speakText(imageWord) # Tell the word on the card
+		if(textToSpeech != null):
+			textToSpeech.speakText(imageWord) # Tell the word on the card
 		set_normal_texture(Global.find_texture(imagePath)) # Reveal the image of the card
 	else:
 		return

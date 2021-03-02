@@ -1,6 +1,6 @@
 extends Control
 
-var tts = null
+var textToSpeech = null
 var margin =0.05
 var played = false
 var currentPage
@@ -11,8 +11,8 @@ var title : String
 func _ready():
 	#Initialize TextToSpeech
 	if(Engine.has_singleton("GodotTextToSpeech")):
-		tts = Engine.get_singleton("GodotTextToSpeech")
-		tts.fireTTS()
+		textToSpeech = Engine.get_singleton("GodotTextToSpeech")
+		textToSpeech.fireTTS()
 
 func _process(delta) : 
 	if(!played):

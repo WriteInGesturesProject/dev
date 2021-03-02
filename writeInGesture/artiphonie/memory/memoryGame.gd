@@ -1,10 +1,8 @@
 extends Node
 
-
 const Exercise = preload("res://entity/Exercise.gd")
 const Card = preload("./memoryCard.gd")
 
-var os = Global.os
 var Ex : Exercise = Global.memoryExercise
 var words = Ex.getAllWords().duplicate(true)
 var cards : Array

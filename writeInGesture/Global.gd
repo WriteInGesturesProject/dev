@@ -10,13 +10,13 @@ var currentScene: int = 0
 var scenesChronology := {0: "res://main.tscn"}
 var scenesArgumentsChronology := {0: []}
 
-const MyDictionnary = preload("res://entity/old/Dictionnary.gd")
+#const MyDictionnary = preload("res://entity/old/Dictionnary.gd")
 const Player = preload("res://entity/Player.gd")
-const WordsAvailable = preload("res://entity/old/WordsAvailable.gd")
-const Exercise = preload("res://entity/old/Exercise.gd")
-const Config = preload("res://entity/Config.gd")
-const ManageGame = preload("res://tools/ManageGame.gd")
-const ManageInstruction = preload("res://tools/ManageInstruction.gd")
+#const WordsAvailable = preload("res://entity/old/WordsAvailable.gd")
+#const Exercise = preload("res://entity/old/Exercise.gd")
+#const Config = preload("res://entity/Config.gd")
+#const ManageGame = preload("res://tools/ManageGame.gd")
+#const ManageInstruction = preload("res://tools/ManageInstruction.gd")
 
 var textToSpeech = null # The Text To Speech Object
 var speechToText = null # The Speech To Text Object
@@ -46,7 +46,9 @@ var permissions
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	var file = File.new()
+	file.open("res://data/player.json", file.READ)
+	player.from_dictionary(JSON.parse(file.get_as_text()).result)
 
 func change_scene(newScenePath: String, arguments: Array = []) -> void:
 	get_tree().change_scene_to(loadingScene)

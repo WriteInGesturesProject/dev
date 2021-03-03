@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/theme/ButtonTheme.tres" type="Theme" id=1]
 [ext_resource path="res://assets/icons/lock.png" type="Texture" id=2]
+[ext_resource path="res://shared/playing/element_difficulty.gd" type="Script" id=3]
 
 [node name="element_difficulty" type="Control"]
 anchor_right = 1.0
@@ -9,6 +10,7 @@ anchor_bottom = 0.2
 rect_min_size = Vector2( 530, 106 )
 mouse_filter = 2
 theme = ExtResource( 1 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

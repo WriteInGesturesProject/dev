@@ -10,43 +10,28 @@ var currentScene: int = 0
 var scenesChronology := {0: "res://main.tscn"}
 var scenesArgumentsChronology := {0: []}
 
-#const MyDictionnary = preload("res://entity/Dictionnary.gd")
-#const Player = preload("res://entity/Player.gd")
-#const WordsAvailable = preload("res://entity/WordsAvailable.gd")
-#const Exercise = preload("res://entity/Exercise.gd")
-#const Config = preload("res://entity/Config.gd")
-#const ManageGame = preload("res://tools/ManageGame.gd")
-#const ManageInstruction = preload("res://tools/ManageInstruction.gd")
-
 var textToSpeech = null # The Text To Speech Object
 var speechToText = null # The Speech To Text Object
 
-var nbDifficulty = 3
-
-var dev = 0 # Developper mode (0 -> Disabled, 1 -> Enabled)
-var osRequest #If the record permission is active
-
-var customExercise 
-var gooseExercise 
-var listenExercise
-var memoryExercise 
-var countExercise 
-var weekExercise 
-var colorExercise
-var exercises = [customExercise, countExercise, weekExercise, colorExercise, gooseExercise, listenExercise, memoryExercise]
-
 var player : Player = Player.new()
-
-
-###Size font 
-var h1Font : int
-var h2Font : int 
-var paragraph : int
-var permissions
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	load_json(player, "res://data/arthur.json")
+
+func load_json(entity: Entity, jsonPath: String) -> Entity:
+	var file = File.new()
+	file.open(jsonPath, file.READ)
+	entity.from_dictionary(JSON.parse(file.get_as_text()).result)
+	file.close()
+	return entity
+
+func save_json(entity: Entity, jsonPath: String) -> bool:
+	var file = File.new()
+	file.open(jsonPath, file.WRITE)
+	file.store_string(JSON.print(entity.to_dictionary(), "\t"))
+	file.close()
+	return true
 
 func change_scene(newScenePath: String, arguments: Array = []) -> void:
 	get_tree().change_scene_to(loadingScene)
@@ -195,13 +180,6 @@ func change_to_previous_scene() -> void:
 #			compt += 1
 #	return arrayPicture
 
-func make_margin(margeContainer : MarginContainer, marge):
-	margeContainer.set("custom_constants/margin_top", get_viewport().size.y * marge)
-	margeContainer.set("custom_constants/margin_bottom", get_viewport().size.y * marge)
-	margeContainer.set("custom_constants/margin_left", get_viewport().size.x * marge)
-	margeContainer.set("custom_constants/margin_right", get_viewport().size.x * marge)
-	return
-	
 func find_texture(path : String):
 	var tex = load("res://art/images/" + path)
 	if(tex == null):
@@ -213,10 +191,5 @@ func find_texture(path : String):
 		tex.create_from_image(image)
 	return tex
 
-func makeFont():
-	h1Font = get_viewport().size.y * 0.08
-	h2Font = get_viewport().size.y * 0.05
-	paragraph = get_viewport().size.y * 0.03
-	
 	
 

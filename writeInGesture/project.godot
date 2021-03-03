@@ -9,37 +9,43 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "Entity",
+"language": "GDScript",
+"path": "res://entity/Entity.gd"
+}, {
 "base": "Control",
 "class": "Home",
 "language": "GDScript",
 "path": "res://shared/home/home.gd"
 }, {
-"base": "Node",
+"base": "Entity",
 "class": "Item",
 "language": "GDScript",
 "path": "res://entity/Item.gd"
 }, {
-"base": "Node",
+"base": "Entity",
 "class": "Player",
 "language": "GDScript",
 "path": "res://entity/Player.gd"
 }, {
-"base": "Node",
+"base": "Entity",
 "class": "Shop",
 "language": "GDScript",
 "path": "res://entity/Shop.gd"
 }, {
-"base": "Node",
+"base": "Entity",
 "class": "Word",
 "language": "GDScript",
 "path": "res://entity/Word.gd"
 }, {
-"base": "Node",
+"base": "Entity",
 "class": "Words",
 "language": "GDScript",
 "path": "res://entity/Words.gd"
 } ]
 _global_script_class_icons={
+"Entity": "",
 "Home": "",
 "Item": "",
 "Player": "",
@@ -63,7 +69,6 @@ config/icon="res://assets/icons/icon.png"
 
 [autoload]
 
-ManageJson="*res://tools/ManageJson.gd"
 Global="*res://Global.gd"
 
 [display]

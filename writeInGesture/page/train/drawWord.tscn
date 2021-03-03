@@ -11,8 +11,6 @@
 [ext_resource path="res://assets/icons/speaker.png" type="Texture" id=11]
 [ext_resource path="res://art/images/bleu.jpg" type="Texture" id=12]
 
-
-
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -38,8 +36,8 @@ __meta__ = {
 }
 
 [node name="Control" type="Control" parent="MainPage"]
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_right = 1280.0
+margin_bottom = 720.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -55,18 +53,18 @@ __meta__ = {
 }
 
 [node name="VBox" type="VBoxContainer" parent="MainPage/Control/MarginContainer"]
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_right = 1280.0
+margin_bottom = 720.0
 alignment = 1
 
 [node name="WordContainer" type="MarginContainer" parent="MainPage/Control/MarginContainer/VBox"]
-margin_top = 258.0
-margin_right = 1024.0
-margin_bottom = 330.0
+margin_top = 318.0
+margin_right = 1280.0
+margin_bottom = 390.0
 size_flags_vertical = 0
 
 [node name="Word" type="Label" parent="MainPage/Control/MarginContainer/VBox/WordContainer"]
-margin_right = 1024.0
+margin_right = 1280.0
 margin_bottom = 72.0
 theme = ExtResource( 4 )
 custom_fonts/font = ExtResource( 3 )
@@ -74,22 +72,22 @@ text = "Mot"
 align = 1
 
 [node name="ImageContainer" type="MarginContainer" parent="MainPage/Control/MarginContainer/VBox"]
-margin_top = 334.0
-margin_right = 1024.0
-margin_bottom = 338.0
+margin_top = 394.0
+margin_right = 1280.0
+margin_bottom = 398.0
 size_flags_vertical = 0
 custom_constants/margin_right = 50
 custom_constants/margin_left = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MainPage/Control/MarginContainer/VBox/ImageContainer"]
 margin_left = 50.0
-margin_right = 974.0
+margin_right = 1230.0
 margin_bottom = 4.0
 alignment = 1
 
 [node name="Box" type="HBoxContainer" parent="MainPage/Control/MarginContainer/VBox/ImageContainer/HBoxContainer"]
-margin_left = 460.0
-margin_right = 460.0
+margin_left = 588.0
+margin_right = 588.0
 margin_bottom = 4.0
 alignment = 1
 
@@ -106,8 +104,8 @@ __meta__ = {
 }
 
 [node name="VBoxContainerButton" type="VBoxContainer" parent="MainPage/Control/MarginContainer/VBox/ImageContainer/HBoxContainer"]
-margin_left = 464.0
-margin_right = 464.0
+margin_left = 592.0
+margin_right = 592.0
 margin_bottom = 4.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -143,16 +141,16 @@ __meta__ = {
 }
 
 [node name="ImgBorel" type="MarginContainer" parent="MainPage/Control/MarginContainer/VBox"]
-margin_top = 342.0
-margin_right = 1024.0
-margin_bottom = 342.0
+margin_top = 402.0
+margin_right = 1280.0
+margin_bottom = 402.0
 size_flags_vertical = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBoxBorel" type="HBoxContainer" parent="MainPage/Control/MarginContainer/VBox/ImgBorel"]
-margin_right = 1024.0
+margin_right = 1280.0
 alignment = 1
 
 [node name="Next" type="TextureButton" parent="MainPage/Control"]

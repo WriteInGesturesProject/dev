@@ -1,4 +1,4 @@
-extends Node
+extends Entity
 
 class_name Item
 
@@ -31,6 +31,15 @@ func set_item_type(_itemType: String) -> void:
 func get_item_type() -> String:
 	return itemType
 
+
+func equals(item: Item) -> bool:
+	var result = true
+	result = result and item.itemName == itemName
+	result = result and item.itemType == itemType
+	result = result and item.price == price
+	result = result and item.picturePath == picturePath
+	return result
+
 func to_string() -> String:
 	var result := ""
 	result += "itemName: " + itemName + "\n"
@@ -46,7 +55,7 @@ func to_dictionary() -> Dictionary:
 	result["itemType"] = itemType
 	return result
 
-func from_dictionary(content: Dictionary) -> Item:
+func from_dictionary(content: Dictionary) -> Entity:
 	itemName = content["itemName"]
 	price = content["price"]
 	picturePath = content["picturePath"]

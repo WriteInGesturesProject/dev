@@ -1,7 +1,5 @@
 extends Control
 
-const Exercise = preload("res://entity/Exercise.gd")
-
 var Ex = Global.gooseExercise
 
 var myWords = Global.customExercise.getAllWords()

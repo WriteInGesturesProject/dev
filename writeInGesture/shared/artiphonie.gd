@@ -46,3 +46,21 @@ func phonetic_to_array_picture_path(phonetic : String) -> Array:
 
 func get_word_icon(iconPath: String) -> Resource:
 	return load(WORD_ICON_PATH + iconPath)
+
+func check_words(sentence: String, word: Word) -> bool:
+	var sentenceWords = sentence.split(" ")
+	if(sentenceWords == null || len(sentenceWords) == 0):
+		return false
+	for w in sentenceWords:
+		if(check_homonyms(w.to_lower(), word)):
+			return true
+	return false
+
+func check_homonyms(sentenceWord: String, word: Word):
+	if word == null:
+		return false
+	var homonyms = word.getHomonym()
+	for h in homonyms:
+		if sentenceWord == h.to_lower():
+			return true
+	return false

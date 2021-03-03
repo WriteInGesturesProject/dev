@@ -1,0 +1,130 @@
+[
+    {
+        "phonetic": "i",
+        "ressource_path" : "i.png"
+    },
+    {
+        "phonetic": "e",
+        "ressource_path" : "et.png"
+    },
+    {
+        "phonetic": "ɛ",
+        "ressource_path" : "ai.png"
+    },
+    {
+        "phonetic": "a",
+        "ressource_path" : "a.png"
+    },
+    {
+        "phonetic": "y",
+        "ressource_path" : "y.png"
+    },
+    {
+        "phonetic": "ə",
+        "ressource_path" : "e.png"
+    },
+    {
+        "phonetic": "œ",
+        "ressource_path" : "eu.png"
+    },
+    {
+        "phonetic": "u",
+        "ressource_path" : "u.png"
+    },
+    {
+        "phonetic": "o",
+        "ressource_path" : "o.png"
+    },
+    {
+        "phonetic": "ɔ",
+        "ressource_path" : "o.png"
+    },
+    {
+        "phonetic": "ɛ̃",
+        "ressource_path" : "in.png"
+    },
+    {
+        "phonetic": "ɔ̃",
+        "ressource_path" : "on.png"
+    },
+    {
+        "phonetic": "ɑ̃",
+        "ressource_path" : "an.png"
+    },
+    {
+        "phonetic": "j",
+        "ressource_path" : "ill.png"
+    },
+    {
+        "phonetic": "w",
+        "ressource_path" : "oi.png"
+    },
+    {
+        "phonetic": "p",
+        "ressource_path" : "p.png"
+    },
+    {
+        "phonetic": "b",
+        "ressource_path" : "b.png"
+    },
+    {
+        "phonetic": "t",
+        "ressource_path" : "t.png"
+    },
+    {
+        "phonetic": "d",
+        "ressource_path" : "d.png"
+    },
+    {
+        "phonetic": "f",
+        "ressource_path" : "f.png"
+    },
+    {
+        "phonetic": "v",
+        "ressource_path" : "v.png"
+    },
+    {
+        "phonetic": "k",
+        "ressource_path" : "k.png"
+    },
+    {
+        "phonetic": "g",
+        "ressource_path" : "g.png"
+    },
+    {
+        "phonetic": "s",
+        "ressource_path" : "s.png"
+    },
+    {
+        "phonetic": "z",
+        "ressource_path" : "z.png"
+    },
+    {
+        "phonetic": "ʃ",
+        "ressource_path" : "ch.png"
+    },
+    {
+        "phonetic": "ʒ",
+        "ressource_path" : "j.png"
+    },
+    {
+        "phonetic": "r",
+        "ressource_path" : "r.png"
+    },
+    {
+        "phonetic": "l",
+        "ressource_path" : "l.png"
+    },
+    {
+        "phonetic": "m",
+        "ressource_path" : "m.png"
+    },
+    {
+        "phonetic": "n",
+        "ressource_path" : "n.png"
+    },
+    {
+        "phonetic": "ɲ",
+        "ressource_path" : "gn.png"
+    }
+]

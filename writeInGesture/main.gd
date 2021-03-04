@@ -44,7 +44,6 @@ func launch() -> void:
 	if false:
 		Global.change_scene("res://page/home/firstLaunch.tscn")
 #	Global.change_scene("res://artiphonie/artiphonie.tscn")
-	Global.change_scene("res://artiphonie/memory/memory_game.tscn")
 
 func _on_quit_timer_timeout() -> void:
 	get_tree().quit()

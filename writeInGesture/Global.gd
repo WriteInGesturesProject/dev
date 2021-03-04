@@ -1,23 +1,29 @@
 extends Node
 
+# ===== Globals specific to an application =====
 const Artiphonie := preload("res://shared/artiphonie.gd")
 var artiphonie := Artiphonie.new()
+# ===== ===== =====
 
 const loadingScene = preload("res://shared/loading/loading.tscn")
 
-#Useful for the back button
+# ===== Useful for the back button =====
 var currentScene: int = 0
 var scenesChronology := {0: "res://main.tscn"}
 var scenesArgumentsChronology := {0: []}
+# ===== ===== ====
 
-var textToSpeech = null # The Text To Speech Object
-var speechToText = null # The Speech To Text Object
+var textToSpeech 
+var speechToText
 
-var player : Player = Player.new()
+# ===== Globals variable available to all application =====
+var player: Player = Player.new()
+# ===== ===== =====
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	load_json(player, "res://data/arthur.json")
+
+# ===== JSON =====
 
 func load_json(entity: Entity, jsonPath: String) -> Entity:
 	var file = File.new()
@@ -32,6 +38,10 @@ func save_json(entity: Entity, jsonPath: String) -> bool:
 	file.store_string(JSON.print(entity.to_dictionary(), "\t"))
 	file.close()
 	return true
+
+# ===== ===== =====
+
+# ===== Scene changement =====
 
 func change_scene(newScenePath: String, arguments: Array = []) -> void:
 	get_tree().change_scene_to(loadingScene)
@@ -51,6 +61,8 @@ func change_to_previous_scene() -> void:
 	currentScene -= 1
 	var newScene = load(scenesChronology[currentScene])
 	get_tree().change_scene_to(newScene)
+
+# ===== ===== =====
 
 # ============================================================================
 

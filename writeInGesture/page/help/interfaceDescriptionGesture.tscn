@@ -109,18 +109,18 @@ text = "[u]"
 align = 1
 
 [node name="Name" type="Label" parent="EndBox"]
-margin_top = 24.0
-margin_right = 624.0
-margin_bottom = 60.0
+margin_top = 32.0
+margin_right = 780.0
+margin_bottom = 68.0
 theme = ExtResource( 4 )
 text = "Uluberlu"
 align = 1
 
 [node name="Listen" type="TextureButton" parent="EndBox"]
-margin_left = 312.0
-margin_top = 64.0
-margin_right = 312.0
-margin_bottom = 64.0
+margin_left = 390.0
+margin_top = 72.0
+margin_right = 390.0
+margin_bottom = 72.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme = ExtResource( 4 )

@@ -6,9 +6,9 @@ const memoryCard := preload("./memory_card.tscn")
 var listOfWords : Array
 var cards : Array
 var selected_cards : Array = []
-var max_cards = 7
+var max_cards : int = 12
 var nbCard : int
-var score = 0
+var score : int = 0
 var separationPercentage = 0.02
 
 
@@ -48,7 +48,7 @@ func _ready():
 	randomize()
 	listOfWords.shuffle() # Put the word in a random order
 	listOfWords.resize(nbCard / 2) # Select a number of card
-	for i in range(0, 2):
+	for i in range(0, 2): #create 2 cards for each word
 		for w in listOfWords: # For each words
 			var card = memoryCard.instance()
 			card.init_card(w, card_size)
@@ -60,7 +60,6 @@ func _ready():
 		
 	
 func on_card_pressed(card):
-	#if 
 	if(selected_cards.size() < 2 and !selected_cards.has(card)):
 		selected_cards.append(card) # Add the card to the array
 		if(card.textToSpeech != null):
@@ -87,14 +86,13 @@ func on_card_pressed(card):
 			if(score == nbCard): # The game is finished
 				end_game()
 				print("finis")
-
 		else: # If the two cards aren't the same image
 			for c in selected_cards:
 				c.set_texture(load(c.cardBackPath)) # Rehide the cards
 		selected_cards.clear()
 
 
-#This is the function that place the card properly in function of the number of cards
+#Calculat the number of col and row depending of the nuber of cards
 func findColumnsRows(size : int) :
 	var boolean = true
 	var restmp

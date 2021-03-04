@@ -52,20 +52,3 @@ func set_texture(img):
 #This function is called when a card is pressed by the user
 func _on_backCardImage_pressed():
 		emit_signal("card_pressed",self)
-		var t = Timer.new()
-		t.set_wait_time(1)
-		t.set_one_shot(true)
-		self.add_child(t)
-		t.start() # Wait for 1 second
-	
-
-
-func goToEnd():
-	print("end")
-	emit_signal("end")
-	
-	
-		
-
-
-

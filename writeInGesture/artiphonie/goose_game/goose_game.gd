@@ -52,6 +52,8 @@ func _on_pronounced(word: Word, result: bool):
 		if attempt > 0:
 			return
 	pronouncingScene.queue_free()
+	attempt = maxAttempt
+	Global.speechToText.stopListen()
 	currentTile += 1
 	move_player_to_next_position()
 

@@ -2,6 +2,8 @@ extends Control
 
 class_name Home
 
+var listSelectionRessource := load("res://shared/list_selection/list_selection.tscn")
+
 var learnScenePath: String
 var trainScenePath: String
 var playScenePath: String
@@ -28,4 +30,5 @@ func training_button_pressed():
 func playing_button_pressed():
 	Global.change_scene(playScenePath)
 
-
+func _on_list_change_pressed():
+	add_child(listSelectionRessource.instance())

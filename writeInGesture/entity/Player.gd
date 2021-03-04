@@ -11,6 +11,16 @@ var unlockedItems: Array setget set_unlocked_items, get_unlocked_items
 var listOfWords: Array setget set_list_of_words, get_list_of_words
 var playerPath: String setget set_player_path, get_player_path
 
+func _init():
+	playerName = ""
+	stars = 0
+	ethnicity = 0
+	gender = 0
+	equipedItems = []
+	unlockedItems = []
+	listOfWords = []
+	playerPath = ""
+
 func set_player_name(_playerName: String) -> void:
 	playerName = _playerName
 

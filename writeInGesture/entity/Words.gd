@@ -7,6 +7,12 @@ var listName: String setget set_list_name, get_list_name
 var listIconPath: String setget set_list_icon_path, get_list_icon_path
 var words: Array setget set_words, get_words
 
+func _init():
+	listPath = ""
+	listName = ""
+	listIconPath = ""
+	words = []
+
 func set_list_path(_listPath: String) -> void:
 	listPath = _listPath
 

@@ -59,9 +59,12 @@ func _on_record_pressed():
 	match OS.get_name():
 		"Android":
 			if not Global.speechToText.isListening():
+				currentLayout.find_node("record").modulate = Color(1,1,1,0.5)
+				Global.speechToText.stopListen()
 				Global.speechToText.doListen()
 				set_process(true)
 			else:
+				currentLayout.find_node("record").modulate = Color(1,1,1,1)
 				Global.speechToText.stopListen()
 				set_process(false)
 
@@ -73,7 +76,15 @@ func _on_record_pressed():
 func _process(_delta):
 	match OS.get_name():
 		"Android":
+			if not Global.speechToText.isListening():
+				currentLayout.find_node("record").modulate = Color(1,1,1,1)
+				set_process(false)
+			if Global.speechToText.isError():
+				currentLayout.find_node("record").modulate = Color(1,1,1,0.5)
+				Global.speechToText.stopListen()
+				Global.speechToText.doListen()
 			if Global.speechToText.isDetectDone():
+				currentLayout.find_node("record").modulate = Color(1,1,1,1)
 				var sentence = Global.speechToText.getWords()
 				set_process(false)
 				Global.speechToText.stopListen()
@@ -84,10 +95,10 @@ func _process(_delta):
 
 func _on_correct_finished():
 	#We wait for the sound to finish before signaling of the result
-	emit_signal("listen_and_speak_result", word, true)
-	queue_free()
+	emit_signal("pronounced", word, true)
+	pass
 
 func _on_incorrect_finished():
 	#We wait for the sound to finish before signaling of the result
-	emit_signal("listen_and_speak_result", word, false)
-	queue_free()
+	emit_signal("pronounced", word, false)
+	pass

@@ -4,7 +4,11 @@ class_name Shop
 
 var items: Array setget set_items, get_items
 
-var sortedItems: Dictionary = {}
+var sortedItems: Dictionary
+
+func _init():
+	items = []
+	sortedItems = {}
 
 func set_items(_items: Array) -> void:
 	items = _items

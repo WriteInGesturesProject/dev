@@ -18,10 +18,34 @@ var speechToText
 
 # ===== Globals variable available to all application =====
 var player: Player = Player.new()
+var activeList: Words
 # ===== ===== =====
 
 func _ready():
-	load_json(player, "res://data/arthur.json")
+	load_json(player, "res://data/alice.json")
+	activeList = player.listOfWords[0]
+#	var alice = Player.new()
+#	alice.playerName = "Alice"
+#	alice.playerPath = "res://data/alice.json"
+#	var tmpList: Words
+#	tmpList = Words.new()
+#	tmpList.words = get_n_word_from_active_list(16)
+#	tmpList.listName = "Nouveaux mots"
+#	tmpList.listIconPath = "res://art/images/ananas.png"
+#	alice.add_words(tmpList)
+#
+#	tmpList = Words.new()
+#	tmpList.words = get_n_word_from_active_list(16)
+#	tmpList.listName = "Mots pour l'école"
+#	tmpList.listIconPath = "res://art/images/crayon.png"
+#	alice.add_words(tmpList)
+#
+#	tmpList = Words.new()
+#	tmpList.words = get_n_word_from_active_list(16)
+#	tmpList.listName = "Mots pour la prochaine séance"
+#	alice.add_words(tmpList)
+#
+#	save_json(alice, alice.playerPath)
 
 # ===== JSON =====
 
@@ -63,6 +87,20 @@ func change_to_previous_scene() -> void:
 	get_tree().change_scene_to(newScene)
 
 # ===== ===== =====
+
+func get_n_word_from_active_list(n: int, repeat: bool = false) -> Array:
+	var randomPositions: Array = []
+	randomPositions.append(randi() % activeList.words.size())
+	for i in range(n):
+		var tmp = randi() % activeList.words.size()
+		if not repeat:
+			while tmp in randomPositions:
+				tmp = (tmp + 1) % activeList.words.size()
+		randomPositions.append(tmp)
+	var result: Array = []
+	for randomPosition in randomPositions:
+		result.append(activeList.words[randomPosition])
+	return result
 
 # ============================================================================
 

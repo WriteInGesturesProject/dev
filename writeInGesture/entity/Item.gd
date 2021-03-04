@@ -7,6 +7,12 @@ var price: int setget set_price, get_price
 var picturePath: String setget set_picture_path, get_picture_path
 var itemType: String setget set_item_type, get_item_type
 
+func _init():
+	itemName = ""
+	price = 0
+	picturePath = ""
+	itemType = ""
+
 func set_item_name(_itemName: String) -> void:
 	itemName = _itemName
 

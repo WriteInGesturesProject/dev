@@ -1,11 +1,24 @@
 extends Node
 
-const PATH_GOOSE_GAME := "res://artiphonie/goosegame/gooseGame.tscn"
-const PATH_LISTEN_CHOOSE := "res://artiphonie/listenchoose/listenChoose.tscn"
-const PATH_MEMORY := "res://artiphonie/memory/memoryGame.tscn"
+# ===== GOOSE GAME =====
+const GOOSE_GAME_NAME := "Jeu de l'oie"
+const PATH_GOOSE_GAME := "res://artiphonie/goose_game/goose_game.tscn"
+const PATH_GOOSE_GAME_ICON := "res://assets/icons/goosePlate.png"
+const GOOSE_GAME_DIFFICULTY := ["Facile", "Normal", "Difficile"]
+# ===== ===== =====
+
+# ===== MEMORY =====
+const MEMORY_NAME := "Jeu du mémorie"
+const PATH_MEMORY := "res://artiphonie/memory/memory_game.tscn"
+const PATH_MEMORY_ICON := "res://assets/icons/card.png"
+const MEMORY_DIFFICULTY := ["Facile"]
+# ===== ===== =====
 
 const PATH_LEARNING := "res://artiphonie/learning/learning.tscn"
+const PATH_TRAINING := "res://artiphonie/training/training.tscn"
 const PATH_PLAYING := "res://artiphonie/playing/playing.tscn"
+
+const PATH_PRONOUNCING := "res://artiphonie/utility/pronouncing/pronouncing.tscn"
 
 const PHONETIC_PICTURE_PATH := "res://art/imgBorel/"
 const PATH_PHONETIC_TABLE := "res://data/phonetic_table.json"
@@ -49,17 +62,17 @@ func get_word_icon(iconPath: String) -> Resource:
 
 func check_words(sentence: String, word: Word) -> bool:
 	var sentenceWords = sentence.split(" ")
-	if(sentenceWords == null || len(sentenceWords) == 0):
+	if sentenceWords == null or sentenceWords.size() == 0:
 		return false
 	for w in sentenceWords:
-		if(check_homonyms(w.to_lower(), word)):
+		if w == word.word or check_homonyms(w.to_lower(), word) :
 			return true
 	return false
 
 func check_homonyms(sentenceWord: String, word: Word):
 	if word == null:
 		return false
-	var homonyms = word.getHomonym()
+	var homonyms = word.get_homonym()
 	for h in homonyms:
 		if sentenceWord == h.to_lower():
 			return true

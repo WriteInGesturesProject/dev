@@ -7,6 +7,8 @@ const PATH_MEMORY := "res://artiphonie/memory/memoryGame.tscn"
 const PATH_LEARNING := "res://artiphonie/learning/learning.tscn"
 const PATH_PLAYING := "res://artiphonie/playing/playing.tscn"
 
+const PATH_PRONOUNCING := "res://artiphonie/utility/pronouncing/pronouncing.tscn"
+
 const PHONETIC_PICTURE_PATH := "res://art/imgBorel/"
 const PATH_PHONETIC_TABLE := "res://data/phonetic_table.json"
 var phonetic_table: Array
@@ -49,17 +51,17 @@ func get_word_icon(iconPath: String) -> Resource:
 
 func check_words(sentence: String, word: Word) -> bool:
 	var sentenceWords = sentence.split(" ")
-	if(sentenceWords == null || len(sentenceWords) == 0):
+	if sentenceWords == null or sentenceWords.size() == 0:
 		return false
 	for w in sentenceWords:
-		if(check_homonyms(w.to_lower(), word)):
+		if w == word.word or check_homonyms(w.to_lower(), word) :
 			return true
 	return false
 
 func check_homonyms(sentenceWord: String, word: Word):
 	if word == null:
 		return false
-	var homonyms = word.getHomonym()
+	var homonyms = word.get_homonym()
 	for h in homonyms:
 		if sentenceWord == h.to_lower():
 			return true

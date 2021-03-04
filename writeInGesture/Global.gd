@@ -18,10 +18,12 @@ var speechToText
 
 # ===== Globals variable available to all application =====
 var player: Player = Player.new()
+var activeList: Words
 # ===== ===== =====
 
 func _ready():
 	load_json(player, "res://data/arthur.json")
+	activeList = player.listOfWords[0]
 
 # ===== JSON =====
 
@@ -63,6 +65,20 @@ func change_to_previous_scene() -> void:
 	get_tree().change_scene_to(newScene)
 
 # ===== ===== =====
+
+func get_n_word_from_active_list(n: int, repeat: bool = false) -> Array:
+	var randomPositions: Array = []
+	randomPositions.append(randi() % activeList.words.size())
+	for i in range(n):
+		var tmp = randi() % activeList.words.size()
+		if not repeat:
+			while tmp in randomPositions:
+				tmp = (tmp + 1) % activeList.words.size()
+		randomPositions.append(tmp)
+	var result: Array = []
+	for randomPosition in randomPositions:
+		result.append(activeList.words[randomPosition])
+	return result
 
 # ============================================================================
 

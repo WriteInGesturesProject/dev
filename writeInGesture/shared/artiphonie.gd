@@ -1,10 +1,21 @@
 extends Node
 
-const PATH_GOOSE_GAME := "res://artiphonie/goosegame/gooseGame.tscn"
-const PATH_LISTEN_CHOOSE := "res://artiphonie/listenchoose/listenChoose.tscn"
-const PATH_MEMORY := "res://artiphonie/memory/memoryGame.tscn"
+# ===== GOOSE GAME =====
+const GOOSE_GAME_NAME := "Jeu de l'oie"
+const PATH_GOOSE_GAME := "res://artiphonie/goose_game/goose_game.tscn"
+const PATH_GOOSE_GAME_ICON := "res://assets/icons/goosePlate.png"
+const GOOSE_GAME_DIFFICULTY := ["Facile", "Normal", "Difficile"]
+# ===== ===== =====
+
+# ===== MEMORY =====
+const MEMORY_NAME := "Jeu du mémorie"
+const PATH_MEMORY := "res://artiphonie/memory/memory_game.tscn"
+const PATH_MEMORY_ICON := "res://assets/icons/card.png"
+const MEMORY_DIFFICULTY := ["Facile"]
+# ===== ===== =====
 
 const PATH_LEARNING := "res://artiphonie/learning/learning.tscn"
+const PATH_TRAINING := "res://artiphonie/training/training.tscn"
 const PATH_PLAYING := "res://artiphonie/playing/playing.tscn"
 
 const PATH_PRONOUNCING := "res://artiphonie/utility/pronouncing/pronouncing.tscn"

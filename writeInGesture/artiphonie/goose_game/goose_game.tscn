@@ -1,19 +1,19 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/background.jpg" type="Texture" id=1]
-[ext_resource path="res://artiphonie/goosegame/gooseGame.gd" type="Script" id=2]
-[ext_resource path="res://assets/icons/goosePlate.png" type="Texture" id=3]
-[ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=4]
+[ext_resource path="res://assets/icons/check.png" type="Texture" id=1]
+[ext_resource path="res://assets/icons/goosePlate.png" type="Texture" id=2]
+[ext_resource path="res://assets/icons/mascot.png" type="Texture" id=3]
+[ext_resource path="res://assets/background.jpg" type="Texture" id=4]
 [ext_resource path="res://assets/icons/help.png" type="Texture" id=5]
-[ext_resource path="res://assets/icons/check.png" type="Texture" id=6]
-[ext_resource path="res://assets/icons/mascot.png" type="Texture" id=7]
-[ext_resource path="res://shared/back/back_button.tscn" type="PackedScene" id=8]
+[ext_resource path="res://shared/back/back_button.tscn" type="PackedScene" id=6]
+[ext_resource path="res://artiphonie/goose_game/goose_game.gd" type="Script" id=7]
+[ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=8]
 
 [node name="goose_game" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 4 )
-script = ExtResource( 2 )
+theme = ExtResource( 8 )
+script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -21,7 +21,7 @@ __meta__ = {
 [node name="background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 1 )
+texture = ExtResource( 4 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -40,7 +40,7 @@ anchor_left = 0.05
 anchor_top = 0.05
 anchor_right = 0.95
 anchor_bottom = 0.95
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 expand = true
 stretch_mode = 6
 __meta__ = {
@@ -184,7 +184,7 @@ margin_top = -100.0
 margin_right = 100.0
 margin_bottom = 100.0
 disabled = true
-texture_normal = ExtResource( 6 )
+texture_normal = ExtResource( 1 )
 expand = true
 stretch_mode = 5
 __meta__ = {
@@ -213,7 +213,7 @@ __meta__ = {
 
 [node name="tween" type="Tween" parent="."]
 
-[node name="back_button" parent="." instance=ExtResource( 8 )]
+[node name="back_button" parent="." instance=ExtResource( 6 )]
 
 [node name="player" type="TextureRect" parent="."]
 margin_left = 568.0
@@ -221,7 +221,7 @@ margin_top = 9.0
 margin_right = 696.0
 margin_bottom = 137.0
 rect_pivot_offset = Vector2( 64, 128 )
-texture = ExtResource( 7 )
+texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
 __meta__ = {

@@ -15,12 +15,20 @@ var attempt: int
 func _ready():
 	var arguments = Global.get_arguments()
 	setup(arguments[0])
+	print(arguments[0])
 
 func setup(difficulty: String = "Facile"):
 	match difficulty:
 		"Facile":
 			pronouncingLayout = 1
 			maxAttempt = 5
+		"Normal":
+			pronouncingLayout = 3
+			maxAttempt = 2
+		"Difficile":
+			pronouncingLayout = 4
+			maxAttempt = 1
+	maxAttempt += 1
 	attempt = maxAttempt
 	tileWords = Global.get_n_word_from_active_list(NB_TILE)
 	move_player_to_next_position()

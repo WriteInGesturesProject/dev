@@ -11,6 +11,16 @@ var syllableStruct: String setget set_syllable_struct, get_syllable_struct
 var vowelsType: String setget set_vowels_type, get_vowels_type
 var consonantsType: String setget set_consonants_type, get_consonants_type
 
+func _init():
+	phonetic = ""
+	word = ""
+	iconPath = ""
+	homonym = []
+	nbSyllable = 0
+	syllableStruct = ""
+	vowelsType = ""
+	consonantsType = ""
+
 func set_phonetic(_phonetic : String) -> void:
 	phonetic = _phonetic
 

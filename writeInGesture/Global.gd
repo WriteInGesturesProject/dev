@@ -22,8 +22,30 @@ var activeList: Words
 # ===== ===== =====
 
 func _ready():
-	load_json(player, "res://data/arthur.json")
+	load_json(player, "res://data/alice.json")
 	activeList = player.listOfWords[0]
+#	var alice = Player.new()
+#	alice.playerName = "Alice"
+#	alice.playerPath = "res://data/alice.json"
+#	var tmpList: Words
+#	tmpList = Words.new()
+#	tmpList.words = get_n_word_from_active_list(16)
+#	tmpList.listName = "Nouveaux mots"
+#	tmpList.listIconPath = "res://art/images/ananas.png"
+#	alice.add_words(tmpList)
+#
+#	tmpList = Words.new()
+#	tmpList.words = get_n_word_from_active_list(16)
+#	tmpList.listName = "Mots pour l'école"
+#	tmpList.listIconPath = "res://art/images/crayon.png"
+#	alice.add_words(tmpList)
+#
+#	tmpList = Words.new()
+#	tmpList.words = get_n_word_from_active_list(16)
+#	tmpList.listName = "Mots pour la prochaine séance"
+#	alice.add_words(tmpList)
+#
+#	save_json(alice, alice.playerPath)
 
 # ===== JSON =====
 

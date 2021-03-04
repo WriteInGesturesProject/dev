@@ -6,7 +6,7 @@ const memoryCard := preload("./memory_card.tscn")
 var listOfWords : Array
 var cards : Array
 var selected_cards : Array = []
-var max_cards : int = 12
+var max_cards : int = 6
 var nbCard : int
 var score : int = 0
 var separationPercentage = 0.02
@@ -80,10 +80,11 @@ func on_card_pressed(card):
 		yield(t, "timeout")
 		if(correct): # If the two cards have the same image
 			score += 1
+			print(score)
 #			Global.player.setSilver(Global.player.getSilver() + 1)
 			selected_cards[0].get_node("backCardImage").visible = false # Hide the two cards
 			selected_cards[1].get_node("backCardImage").visible = false
-			if(score == nbCard): # The game is finished
+			if(score == nbCard/2): # The game is finished
 				end_game()
 				print("finis")
 		else: # If the two cards aren't the same image
@@ -109,32 +110,15 @@ func initTimer():
 	timer.start()
 
 func end_game():
-#	Global.change_scene("res://page/navigation/gameEnd.tscn")
-	pass
+	#args to send to game_end
+	var args : Array = []
+	args.append("res://artiphonie/memory/memory_game")
+	args.append("Memory")
+	args.append("")
+	args.append(score)
+	args.append(time)
+	Global.change_scene("res://shared/game_end/game_end.tscn", args)
 
-
-#func end():
-#	var mini = Ex.getSuccessPercentage(0)
-#	var moy = Ex.getSuccessPercentage(1)
-#	var maxi = Ex.getSuccessPercentage(2)
-#	var nb =  Ex.getNbSuccess() + 1
-#
-#	print(mini,moy,maxi)
-#
-#	##First time try
-#	if(mini == 0):
-#		Ex.setSuccessPercentage(0, time)
-#		Ex.setSuccessPercentage(1, time)
-#		Ex.setSuccessPercentage(2, time)
-#	else :
-#		if(time<mini) :
-#			Ex.setSuccessPercentage(0, time)
-#		if(time>maxi):
-#			Ex.setSuccessPercentage(2, time)
-#		moy = ((moy*(nb-1))+time)/nb
-#		Ex.setSuccessPercentage(1,time)
-#	Global.manageGame.time = time
-#	Global.change_scene("res://page/navigation/gameEnd.tscn")
 
 func _on_Timer_timeout():
 	time += 1

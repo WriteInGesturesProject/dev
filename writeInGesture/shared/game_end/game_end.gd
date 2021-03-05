@@ -12,12 +12,12 @@ var args : Array
 var gamePlayedScene : String
 var gamePlayedName : String
 var difficulty : String
+var scoreTmp : int
 var score : int
-var scoreUltime : int
 var time : int
+var starScale = Vector2(0.2,0.2)
 
 func _ready():
-	size = get_viewport().size
 
 	find_node("nbStars").text = str(Global.player.get_stars())
 	
@@ -26,9 +26,10 @@ func _ready():
 	gamePlayedName = args[1]
 	difficulty = args[2]
 	score = args[3]
-	time = args[4]	 
-	
-	scoreUltime = score
+	time = args[4] 
+
+	scoreTmp = score
+
 	$gameName.text = gamePlayedName
 
 
@@ -41,18 +42,18 @@ func animationStar(indexStar : int) :
 	var target : Vector2
 	
 	self.add_child(star)
-	star.scale = Vector2(0.2, 0.2)
+	star.scale = starScale
 	star.texture = load("res://assets/icons/centerStar.png")
 	
 	size = star.texture.get_size()*star.scale
 	#if there are too much star for the scree, star overlay each other
-	if (size.x*scoreUltime>(get_viewport().size.x/2)):
-		size.x = (get_viewport().size.x/2)/scoreUltime
+	if (size.x*score>(self.rect_size.x/2)):
+		size.x = (self.rect_size.x/2)/score
 		
 	target = Vector2(find_node("starsImage").rect_global_position.x+find_node("starsImage").rect_size.x/2, find_node("starsImage").rect_global_position.y+find_node("starsImage").rect_size.x/2)
 	
-	star.position.y = get_viewport().size.y / 2 - size.y
-	star.position.x = get_viewport().size.x/2 + (size.x * scoreUltime/2) - (size.x * indexStar)
+	star.position.y = self.rect_size.y/2 - size.y
+	star.position.x = self.rect_size.x/2 + (size.x * score/2) - (size.x * indexStar)
 
 	#create the animation
 	var tween = Tween.new()
@@ -68,9 +69,9 @@ func finishAnimation(star: Sprite):
 	find_node("nbStars").text = str(int(find_node("nbStars").text)+1)
 
 func earnStar() :
-	if(score > 0) :
-		animationStar(score)
-		score -= 1
+	if(scoreTmp > 0) :
+		animationStar(scoreTmp)
+		scoreTmp -= 1
 
 func _on_Replay_pressed():
 		Global.change_scene(gamePlayedScene)

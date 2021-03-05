@@ -76,9 +76,6 @@ func _on_record_pressed():
 func _process(_delta):
 	match OS.get_name():
 		"Android":
-			if not Global.speechToText.isListening():
-				currentLayout.find_node("record").modulate = Color(1,1,1,1)
-				set_process(false)
 			if Global.speechToText.isError():
 				currentLayout.find_node("record").modulate = Color(1,1,1,0.5)
 				Global.speechToText.stopListen()

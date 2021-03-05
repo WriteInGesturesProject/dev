@@ -1,130 +1,130 @@
 [
     {
         "phonetic": "i",
-        "ressource_path" : "i.png"
+        "ressourceName" : "i"
     },
     {
         "phonetic": "e",
-        "ressource_path" : "et.png"
+        "ressourceName" : "et"
     },
     {
         "phonetic": "ɛ",
-        "ressource_path" : "ai.png"
+        "ressourceName" : "ai"
     },
     {
         "phonetic": "a",
-        "ressource_path" : "a.png"
+        "ressourceName" : "a"
     },
     {
         "phonetic": "y",
-        "ressource_path" : "y.png"
+        "ressourceName" : "y"
     },
     {
         "phonetic": "ə",
-        "ressource_path" : "e.png"
+        "ressourceName" : "e"
     },
     {
         "phonetic": "œ",
-        "ressource_path" : "eu.png"
+        "ressourceName" : "eu"
     },
     {
         "phonetic": "u",
-        "ressource_path" : "u.png"
+        "ressourceName" : "u"
     },
     {
         "phonetic": "o",
-        "ressource_path" : "o.png"
+        "ressourceName" : "o"
     },
     {
         "phonetic": "ɔ",
-        "ressource_path" : "o.png"
+        "ressourceName" : "o"
     },
     {
         "phonetic": "ɛ̃",
-        "ressource_path" : "in.png"
+        "ressourceName" : "in"
     },
     {
         "phonetic": "ɔ̃",
-        "ressource_path" : "on.png"
+        "ressourceName" : "on"
     },
     {
         "phonetic": "ɑ̃",
-        "ressource_path" : "an.png"
+        "ressourceName" : "an"
     },
     {
         "phonetic": "j",
-        "ressource_path" : "ill.png"
+        "ressourceName" : "ill"
     },
     {
         "phonetic": "w",
-        "ressource_path" : "oi.png"
+        "ressourceName" : "oi"
     },
     {
         "phonetic": "p",
-        "ressource_path" : "p.png"
+        "ressourceName" : "p"
     },
     {
         "phonetic": "b",
-        "ressource_path" : "b.png"
+        "ressourceName" : "b"
     },
     {
         "phonetic": "t",
-        "ressource_path" : "t.png"
+        "ressourceName" : "t"
     },
     {
         "phonetic": "d",
-        "ressource_path" : "d.png"
+        "ressourceName" : "d"
     },
     {
         "phonetic": "f",
-        "ressource_path" : "f.png"
+        "ressourceName" : "f"
     },
     {
         "phonetic": "v",
-        "ressource_path" : "v.png"
+        "ressourceName" : "v"
     },
     {
         "phonetic": "k",
-        "ressource_path" : "k.png"
+        "ressourceName" : "k"
     },
     {
         "phonetic": "g",
-        "ressource_path" : "g.png"
+        "ressourceName" : "g"
     },
     {
         "phonetic": "s",
-        "ressource_path" : "s.png"
+        "ressourceName" : "s"
     },
     {
         "phonetic": "z",
-        "ressource_path" : "z.png"
+        "ressourceName" : "z"
     },
     {
         "phonetic": "ʃ",
-        "ressource_path" : "ch.png"
+        "ressourceName" : "ch"
     },
     {
         "phonetic": "ʒ",
-        "ressource_path" : "j.png"
+        "ressourceName" : "j"
     },
     {
         "phonetic": "r",
-        "ressource_path" : "r.png"
+        "ressourceName" : "r"
     },
     {
         "phonetic": "l",
-        "ressource_path" : "l.png"
+        "ressourceName" : "l"
     },
     {
         "phonetic": "m",
-        "ressource_path" : "m.png"
+        "ressourceName" : "m"
     },
     {
         "phonetic": "n",
-        "ressource_path" : "n.png"
+        "ressourceName" : "n"
     },
     {
         "phonetic": "ɲ",
-        "ressource_path" : "gn.png"
+        "ressourceName" : "gn"
     }
 ]

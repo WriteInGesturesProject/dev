@@ -91,7 +91,7 @@ func change_to_previous_scene() -> void:
 func get_n_word_from_active_list(n: int, repeat: bool = false) -> Array:
 	var randomPositions: Array = []
 	randomPositions.append(randi() % activeList.words.size())
-	for i in range(n):
+	for i in range(n-1):
 		var tmp = randi() % activeList.words.size()
 		if not repeat:
 			while tmp in randomPositions:

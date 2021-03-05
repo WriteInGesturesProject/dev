@@ -17,8 +17,8 @@ func init_card(word, size):
 	self.scale_img($backCardImage.texture_normal.get_size(), size)
 	imagePath = word.get_icon_path()
 	imageWord = word.get_word()
-	#when card is pressed, called the _on_card_pressed function from memory_game
-	connect("card_pressed", self, "_on_card_pressed")
+
+
 
 
 ##Scale the image to the proper size

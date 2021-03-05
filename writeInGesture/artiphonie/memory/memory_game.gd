@@ -116,6 +116,7 @@ func end_game():
 	#args to send to game_end
 	var args : Array = []
 	args.append("res://artiphonie/memory/memory_game.tscn")
+	args.append([])
 	args.append("Memory")
 	args.append("")
 	args.append(score)

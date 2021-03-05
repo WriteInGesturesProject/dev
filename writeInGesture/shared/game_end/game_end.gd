@@ -10,6 +10,7 @@ var leftCoinSilver = 0
 var leftCoinGold = 0
 var args : Array
 var gamePlayedScene : String
+var argsToRestartGame : Array
 var gamePlayedName : String
 var difficulty : String
 var scoreTmp : int
@@ -23,10 +24,11 @@ func _ready():
 	
 	args = Global.get_arguments()
 	gamePlayedScene = args[0]
-	gamePlayedName = args[1]
-	difficulty = args[2]
-	score = args[3]
-	time = args[4] 
+	argsToRestartGame = args[1]
+	gamePlayedName = args[2]
+	difficulty = args[3]
+	score = args[4]
+	time = args[5] 
 
 	scoreTmp = score
 
@@ -74,4 +76,4 @@ func earnStar() :
 		scoreTmp -= 1
 
 func _on_Replay_pressed():
-		Global.change_scene(gamePlayedScene)
+		Global.change_scene(gamePlayedScene, argsToRestartGame)

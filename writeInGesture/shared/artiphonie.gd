@@ -25,7 +25,7 @@ const PHONETIC_PICTURE_EXTENSION := ".png"
 const PHONETIC_VIDEO_PATH := "res://art/videoBorelASupprimer/"
 const PHONETIC_VIDEO_EXTENSION := ".ogv"
 const PATH_PHONETIC_TABLE_SORTED := "res://data/phonetic_table_sorted.json"
-const PATH_PHONETIC_TABLE := "res://data/phonetic_table.json"
+const PATH_PHONETIC_TABLE := "res://data/phonetic_table_old.json"
 var phonetic_table: Array
 
 const WORD_ICON_PATH := "res://art/images/"

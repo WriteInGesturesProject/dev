@@ -1,0 +1,156 @@
+[
+    {
+        "code lexique": "a",
+        "symbole API" : "a"
+    },
+    {
+        "code lexique": "i",
+        "symbole API" : "i"
+    },
+    {
+        "code lexique": "y",
+        "symbole API" : "y"
+    },
+    {
+        "code lexique": "u",
+        "symbole API" : "u"
+    },
+    {
+        "code lexique": "o",
+        "symbole API" : "o"
+    },
+    {
+        "code lexique": "O",
+        "symbole API" : "ɔ"
+    },
+    {
+        "code lexique": "e",
+        "symbole API" : "e"
+    },
+    {
+        "code lexique": "E",
+        "symbole API" : "ɛ"
+    },
+    {
+        "code lexique": "°",
+        "symbole API" : "ə"
+    },
+    {
+        "code lexique": "2",
+        "symbole API" : "ø"
+    },
+    {
+        "code lexique": "9",
+        "symbole API" : "œ"
+    },
+    {
+        "code lexique": "5",
+        "symbole API" : "ɛ̃"
+    },
+    {
+        "code lexique": "1",
+        "symbole API" : "œ̃"
+    },
+    {
+        "code lexique": "@",
+        "symbole API" : "ɑ̃"
+    },
+    {
+        "code lexique": "§",
+        "symbole API" : "ɔ̃"
+    },
+    {
+        "code lexique": "3",
+        "symbole API" : ""
+    },
+
+    {
+        "code lexique": "j",
+        "symbole API" : "j"
+    },
+    {
+        "code lexique": "8",
+        "symbole API" : "ɥ"
+    },
+    {
+        "code lexique": "w",
+        "symbole API" : "w"
+    },
+
+    {
+        "code lexique": "p",
+        "symbole API" : "p"
+    },
+    {
+        "code lexique": "b",
+        "symbole API" : "b"
+    },
+    {
+        "code lexique": "t",
+        "symbole API" : "t"
+    },
+    {
+        "code lexique": "d",
+        "symbole API" : "d"
+    },
+    {
+        "code lexique": "k",
+        "symbole API" : "k"
+    },
+    {
+        "code lexique": "g",
+        "symbole API" : "g"
+    },
+    {
+        "code lexique": "f",
+        "symbole API" : "f"
+    },
+    {
+        "code lexique": "v",
+        "symbole API" : "v"
+    },
+    {
+        "code lexique": "s",
+        "symbole API" : "s"
+    },
+    {
+        "code lexique": "z",
+        "symbole API" : "z"
+    },
+    {
+        "code lexique": "S",
+        "symbole API" : "ʃ"
+    },
+    {
+        "code lexique": "Z",
+        "symbole API" : "ʒ"
+    },
+    {
+        "code lexique": "m",
+        "symbole API" : "m"
+    },
+    {
+        "code lexique": "n",
+        "symbole API" : "n"
+    },
+    {
+        "code lexique": "N",
+        "symbole API" : ""
+    },
+    {
+        "code lexique": "l",
+        "symbole API" : "l"
+    },
+    {
+        "code lexique": "R",
+        "symbole API" : "ʁ"
+    },
+    {
+        "code lexique": "x",
+        "symbole API" : ""
+    },
+    {
+        "code lexique": "G",
+        "symbole API" : ""
+    }
+]

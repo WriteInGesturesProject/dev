@@ -1,4 +1,4 @@
-extends Node
+extends Entity
 
 class_name Word
 
@@ -10,6 +10,16 @@ var nbSyllable: int setget set_nb_syllable, get_nb_syllable
 var syllableStruct: String setget set_syllable_struct, get_syllable_struct
 var vowelsType: String setget set_vowels_type, get_vowels_type
 var consonantsType: String setget set_consonants_type, get_consonants_type
+
+func _init():
+	phonetic = ""
+	word = ""
+	iconPath = ""
+	homonym = []
+	nbSyllable = 0
+	syllableStruct = ""
+	vowelsType = ""
+	consonantsType = ""
 
 func set_phonetic(_phonetic : String) -> void:
 	phonetic = _phonetic
@@ -63,6 +73,19 @@ func set_consonants_type(_consonantsType: String) -> void:
 func get_consonants_type() -> String:
 	return consonantsType
 
+
+func equals(otherWord: Word) -> bool:
+	var result := true
+	result = result and otherWord.word == word
+	result = result and otherWord.phonetic == phonetic
+	result = result and otherWord.iconPath == iconPath
+	result = result and otherWord.nbSyllable == nbSyllable
+	result = result and otherWord.syllableStruct == syllableStruct
+	result = result and otherWord.vowelsType == vowelsType
+	result = result and otherWord.consonantsType
+	return result
+
+
 func to_string() -> String : 
 	var result :=""
 	result += "word: " + word + "\n"
@@ -87,7 +110,7 @@ func to_dictionary() -> Dictionary:
 	result["consonantsType"]  = consonantsType
 	return result
 
-func from_dictionary(content: Dictionary) -> Word:
+func from_dictionary(content: Dictionary) -> Entity:
 	phonetic = content["phonetic"]
 	word = content["word"]
 	iconPath = content["iconPath"]

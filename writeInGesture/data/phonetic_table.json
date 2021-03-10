@@ -1,0 +1,130 @@
+[
+    {
+        "phonetic": "i",
+        "ressourceName" : "i"
+    },
+    {
+        "phonetic": "e",
+        "ressourceName" : "et"
+    },
+    {
+        "phonetic": "ɛ",
+        "ressourceName" : "ai"
+    },
+    {
+        "phonetic": "a",
+        "ressourceName" : "a"
+    },
+    {
+        "phonetic": "y",
+        "ressourceName" : "y"
+    },
+    {
+        "phonetic": "ə",
+        "ressourceName" : "e"
+    },
+    {
+        "phonetic": "œ",
+        "ressourceName" : "eu"
+    },
+    {
+        "phonetic": "u",
+        "ressourceName" : "u"
+    },
+    {
+        "phonetic": "o",
+        "ressourceName" : "o"
+    },
+    {
+        "phonetic": "ɔ",
+        "ressourceName" : "o"
+    },
+    {
+        "phonetic": "ɛ̃",
+        "ressourceName" : "in"
+    },
+    {
+        "phonetic": "ɔ̃",
+        "ressourceName" : "on"
+    },
+    {
+        "phonetic": "ɑ̃",
+        "ressourceName" : "an"
+    },
+    {
+        "phonetic": "j",
+        "ressourceName" : "ill"
+    },
+    {
+        "phonetic": "w",
+        "ressourceName" : "oi"
+    },
+    {
+        "phonetic": "p",
+        "ressourceName" : "p"
+    },
+    {
+        "phonetic": "b",
+        "ressourceName" : "b"
+    },
+    {
+        "phonetic": "t",
+        "ressourceName" : "t"
+    },
+    {
+        "phonetic": "d",
+        "ressourceName" : "d"
+    },
+    {
+        "phonetic": "f",
+        "ressourceName" : "f"
+    },
+    {
+        "phonetic": "v",
+        "ressourceName" : "v"
+    },
+    {
+        "phonetic": "k",
+        "ressourceName" : "k"
+    },
+    {
+        "phonetic": "g",
+        "ressourceName" : "g"
+    },
+    {
+        "phonetic": "s",
+        "ressourceName" : "s"
+    },
+    {
+        "phonetic": "z",
+        "ressourceName" : "z"
+    },
+    {
+        "phonetic": "ʃ",
+        "ressourceName" : "ch"
+    },
+    {
+        "phonetic": "ʒ",
+        "ressourceName" : "j"
+    },
+    {
+        "phonetic": "r",
+        "ressourceName" : "r"
+    },
+    {
+        "phonetic": "l",
+        "ressourceName" : "l"
+    },
+    {
+        "phonetic": "m",
+        "ressourceName" : "m"
+    },
+    {
+        "phonetic": "n",
+        "ressourceName" : "n"
+    },
+    {
+        "phonetic": "ɲ",
+        "ressourceName" : "gn"
+    }
+]

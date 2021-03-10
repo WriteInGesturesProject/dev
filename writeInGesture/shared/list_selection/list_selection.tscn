@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/theme/ButtonTheme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/theme/transparent_panel_rounded_corner.tres" type="StyleBox" id=2]
+[ext_resource path="res://shared/list_selection/list_selection.gd" type="Script" id=4]
+
+[node name="list_selection" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -585.193, -166.066 )
+theme = ExtResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="Panel" parent="."]
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+custom_styles/panel = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="background"]
+anchor_top = 0.05
+anchor_right = 1.0
+anchor_bottom = 0.05
+text = "Choisie ta liste de mots"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="background"]
+anchor_left = 0.02
+anchor_top = 0.15
+anchor_right = 0.98
+anchor_bottom = 0.85
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="listes" type="VBoxContainer" parent="background/ScrollContainer"]
+
+[node name="done" type="Button" parent="background"]
+anchor_left = 0.4
+anchor_top = 0.88
+anchor_right = 0.6
+anchor_bottom = 0.96
+text = "Ok"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="background/done" to="." method="_on_done_pressed"]

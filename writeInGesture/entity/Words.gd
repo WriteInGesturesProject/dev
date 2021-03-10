@@ -1,4 +1,4 @@
-extends Node
+extends Entity
 
 class_name Words
 
@@ -6,6 +6,12 @@ var listPath: String setget set_list_path, get_list_path
 var listName: String setget set_list_name, get_list_name
 var listIconPath: String setget set_list_icon_path, get_list_icon_path
 var words: Array setget set_words, get_words
+
+func _init():
+	listPath = ""
+	listName = ""
+	listIconPath = ""
+	words = []
 
 func set_list_path(_listPath: String) -> void:
 	listPath = _listPath
@@ -32,19 +38,30 @@ func get_words() -> Array:
 	return words.duplicate(true)
 
 func add_word(word: Word) -> bool:
-	#TODO: Make sure a word is added correctly
+	for w in words:
+		if word.equals(w):
+			return false
 	words.append(word)
 	return true
 
 func erase_word(word: Word) -> bool:
-	#TODO: Make sure a word is erased correctly
-	words.erase(word)
-	return true
+	for i in range(words.size()):
+		if word.equals(words[i]):
+			return remove_word(i)
+	return false
 
 func remove_word(position: int) -> bool:
-	#TODO: Make sure a word is removed correctly
+	if position < 0 or position >= words.size():
+		return false
 	words.remove(position)
 	return true
+
+func equals(otherWords: Words) -> bool:
+	var result := true
+	result = result and otherWords.listName == listName
+	result = result and otherWords.listIconPath == listIconPath
+	result = result and otherWords.listPath == listPath
+	return result
 
 func to_string() -> String:
 	var result := ""
@@ -65,7 +82,7 @@ func to_dictionary() -> Dictionary:
 		result["words"].append(word.to_dictionary())
 	return result
 
-func from_dictionary(content: Dictionary) -> Words:
+func from_dictionary(content: Dictionary) -> Entity:
 	listPath = content["listPath"]
 	listName = content["listName"]
 	listIconPath = content["listIconPath"]

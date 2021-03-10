@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/theme/ButtonTheme.tres" type="Theme" id=1]
+[ext_resource path="res://shared/list_selection/list_element.gd" type="Script" id=2]
+
+[node name="list_element" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 0.25
+rect_min_size = Vector2( 1105, 180 )
+mouse_filter = 1
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="button" type="Button" parent="."]
+anchor_top = 0.05
+anchor_right = 1.0
+anchor_bottom = 0.95
+mouse_filter = 1
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="button" to="." method="_on_button_pressed"]

@@ -1,138 +1,122 @@
-extends Node
+extends Entity
 
-var phonetic : String = ""
-var word : String = ""
-var path : String = ""
-var homonym : Array = []
-var nbSyllable : int = 0
-var syllableStruct : String = ""
-var vowelsType : String = ""
-var consonantsType : String = ""
-var parent : Node = null # We need to know the parent's node for update word in file
+class_name Word
 
-func updateParent() : 
-	if(parent != null) :
-		return parent.updateWord(self)
-	else :
-		#print("this word has no parent node")
-		return 0
+var phonetic: String setget set_phonetic, get_phonetic
+var word: String setget set_word, get_word
+var iconPath: String setget set_icon_path, get_icon_path
+var homonym: Array setget set_homonym, get_homonym
+var nbSyllable: int setget set_nb_syllable, get_nb_syllable
+var syllableStruct: String setget set_syllable_struct, get_syllable_struct
+var vowelsType: String setget set_vowels_type, get_vowels_type
+var consonantsType: String setget set_consonants_type, get_consonants_type
 
-func getPhonetic():
+func _init():
+	phonetic = ""
+	word = ""
+	iconPath = ""
+	homonym = []
+	nbSyllable = 0
+	syllableStruct = ""
+	vowelsType = ""
+	consonantsType = ""
+
+func set_phonetic(_phonetic : String) -> void:
+	phonetic = _phonetic
+
+func get_phonetic() -> String:
 	return phonetic
 
-func setPhonetic(phon : String):
-	phonetic = phon
-	return updateParent()
-	
-func getWord():
+func set_word(_word : String) -> void:
+	word = _word
+
+func get_word() -> String:
 	return word
 
-func setWord(w : String):
-	word = w
-	return updateParent()
-	
-func getPath():
-	return path
+func set_icon_path(_iconPath : String) -> void:
+	iconPath = _iconPath
 
-func setPath(p : String):
-	path = p
-	return updateParent()
-	
-func getHomonym() -> Array :
-	return homonym
-	
-func addHomonym(word : String) : 
-	for el in homonym :
-		if el == word :
-			return 0
-	homonym.append(word)
-	return updateParent()
+func get_icon_path() -> String:
+	return iconPath
 
-func setHomonym(w : Array):
-	homonym = w
-	return updateParent()
+func set_homonym(_homonyme : Array) -> void:
+	homonym = _homonyme
 
-func getNbSyllable():
+func get_homonym() -> Array :
+	return homonym.duplicate(true)
+	
+func add_homonym(basic_word: String) -> void: 
+	if not basic_word in homonym:
+		homonym.append(basic_word)
+
+func set_nb_syllable(_nbSyllable : int) -> void:
+	nbSyllable = _nbSyllable
+
+func get_nb_syllable() -> int:
 	return nbSyllable
 
-func setNbSyllable(p : int):
-	nbSyllable = p
-	return updateParent()
+func set_syllable_struct(_syllableStruct: String) -> void:
+	syllableStruct = _syllableStruct
 
-func getSyllableStruct():
+func get_syllable_struct() -> String:
 	return syllableStruct
 
-func setSyllableStruct(p : String):
-	syllableStruct = p
-	return updateParent()
+func set_vowels_type(_vowelsType: String) -> void: 
+	vowelsType = _vowelsType
 
-func getVowelsType() :
+func get_vowels_type() -> String:
 	return vowelsType
 
-func setVowelsType( vt : String) : 
-	vowelsType = vt
-	return updateParent()
+func set_consonants_type(_consonantsType: String) -> void: 
+	consonantsType = _consonantsType
 
-func getConsonantsType() :
+func get_consonants_type() -> String:
 	return consonantsType
 
-func setConsonantsType( ct : String) : 
-	consonantsType = ct
-	return updateParent()
 
-func _ready():
-	pass # Replace with function body.
+func equals(otherWord: Word) -> bool:
+	var result := true
+	result = result and otherWord.word == word
+	result = result and otherWord.phonetic == phonetic
+	result = result and otherWord.iconPath == iconPath
+	result = result and otherWord.nbSyllable == nbSyllable
+	result = result and otherWord.syllableStruct == syllableStruct
+	result = result and otherWord.vowelsType == vowelsType
+	result = result and otherWord.consonantsType
+	return result
 
-func setAttribut(field : String, input):
-	match field : 
-		"phonetic" : 
-			phonetic = input
-		"word" : 
-			word = input
-		"path" : 
-			path = input
-		"phonetic" : 
-			phonetic = input
-		"homonym" : 
-			homonym = input
-		"nbSyllable" : 
-			nbSyllable = input
-		"syllableStruct" : 
-			syllableStruct = input
-		"vowelsType" : 
-			vowelsType = input
-		"consonantsType" : 
-			consonantsType = input
-		"parent" : 
-			parent = input
-	return
 
-func toString() -> String : 
-	var res = "phonetic : "+phonetic+"\n"
-	res += "word : "+word+"\n"	
-	res += "path : "+path+"\n"	
-	res += "homonym : "+ String(homonym) +"\n"	
-	res += "nbSyllable : "+String(nbSyllable) +"\n"	
-	res += "syllableStruct : "+ syllableStruct +"\n"	
-	res += "vowelsType : "+vowelsType+"\n"	
-	res += "consonantsType : "+consonantsType+"\n"	
-	#res += "parent Node : "+parent.to_string()+"\n"
-	return res
-	
-func toDictionnary() :
-	var res ={}
-	var dic = {}
-	
-	dic["phonetic"]  = getPhonetic()
-	dic["word"]  = getWord()
-	dic["path"]  = getPath()
-	dic["homonym"]  = getHomonym()
-	dic["nbSyllable"]  = getNbSyllable()
-	dic["syllableStruct"]  = getSyllableStruct()
-	dic["vowelsType"]  = getVowelsType()
-	dic["consonantsType"]  = getConsonantsType()
-	res[getPhonetic()] = dic
+func to_string() -> String : 
+	var result :=""
+	result += "word: " + word + "\n"
+	result += "phonetic: " + phonetic + "\n"
+	result += "iconPath: " + iconPath + "\n"
+	result += "homonym: " + String(homonym) + "\n"
+	result += "nbSyllable: " + String(nbSyllable) + "\n"
+	result += "syllableStruct: " + syllableStruct + "\n"
+	result += "vowelsType: " + vowelsType + "\n"
+	result += "consonantsType: " + consonantsType + "\n"
+	return result
 
-	##print("Dictionnary",res)
-	return res
+func to_dictionary() -> Dictionary:
+	var result ={}
+	result["phonetic"]  = phonetic
+	result["word"]  = word
+	result["iconPath"]  = iconPath
+	result["homonym"]  = homonym
+	result["nbSyllable"]  = nbSyllable
+	result["syllableStruct"]  = syllableStruct
+	result["vowelsType"]  = vowelsType
+	result["consonantsType"]  = consonantsType
+	return result
 
+func from_dictionary(content: Dictionary) -> Entity:
+	phonetic = content["phonetic"]
+	word = content["word"]
+	iconPath = content["iconPath"]
+	homonym = content["homonym"]
+	nbSyllable = content["nbSyllable"]
+	syllableStruct = content["syllableStruct"]
+	vowelsType = content["vowelsType"]
+	consonantsType = content["consonantsType"]
+	return self

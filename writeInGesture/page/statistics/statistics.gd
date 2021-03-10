@@ -122,7 +122,7 @@ func displayStatisticsWordsEasierHarder(nbMin : int):
 				wordsHarder.append(index)
 				var label = Label.new()
 				label.set("custom_colors/font_color", Color(1,1,1))
-				label.text = allWords[index].getWord()+" avec "+String(int(percentage))+"% de réussite"
+				label.text = allWords[index].get_word()+" avec "+String(int(percentage))+"% de réussite"
 				nodeRootHarder.add_child(label)
 				break;
 			index += 1
@@ -132,7 +132,7 @@ func displayStatisticsWordsEasierHarder(nbMin : int):
 				wordsEasier.append(index)
 				var label = Label.new()
 				label.set("custom_colors/font_color", Color(1,1,1))
-				label.text = allWords[index].getWord()+" avec "+String(int(percentage))+"% de réussite"
+				label.text = allWords[index].get_word()+" avec "+String(int(percentage))+"% de réussite"
 				nodeRootEasier.add_child(label)
 				break;
 			index += 1
@@ -148,11 +148,11 @@ func displayStatisticsAllWords():
 		var currentVbox = VBoxContainer.new()
 		var wordLabel = Label.new()
 		wordLabel.set("custom_colors/font_color", Color(1,1,1))
-		wordLabel.text = word.getWord()
+		wordLabel.text = word.get_word()
 		wordLabel.align = HALIGN_CENTER
 		currentVbox.add_child(wordLabel)
 		var nbOccurs = exerciseSelected.getNbWordOccurrence(difficultySelected-1, index)
-		var nbSuccess = exerciseSelected.getWordSuccess(difficultySelected-1, index)
+		var nbSuccess = exerciseSelected.get_wordSuccess(difficultySelected-1, index)
 		var stats = Label.new()
 		var currentpercentages = 0
 		if nbOccurs != 0:

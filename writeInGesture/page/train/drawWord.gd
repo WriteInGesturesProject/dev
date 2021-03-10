@@ -76,7 +76,7 @@ func display(level : int, word : Word, exercice : Exercise, ind : int) :
 func displayWord(word: Word) :###Display Word Container
 	if(Ex.getName() == "Jeu de l'oie") :
 		find_node("Word").add_color_override("font_color", Color(1,1,1))
-	find_node("Word").text = word.getWord()
+	find_node("Word").text = word.get_word()
 	find_node("Word").get_font("font").size = find_node("WordContainer").rect_min_size.y /2
 
 func displayImage(word : Word) :###Display Image Container
@@ -114,7 +114,7 @@ func displayImage(word : Word) :###Display Image Container
 func displayBorel(word : Word) :###Display Borel Container
 	if(find_node("HBoxBorel").get_child_count() >0 && find_node("HBoxBorel").get_child(0) != null) :
 		find_node("HBoxBorel").get_child(0).remove_and_skip()
-	var arrayPicture = Global.phoneticToArrayPicturePath(word.getPhonetic())
+	var arrayPicture = Global.phoneticToArrayPicturePath(word.get_phonetic())
 	var lengthY = find_node("ImgBorel").rect_min_size.y
 	var lengthX = lengthY * arrayPicture.size()
 	if(lengthX > VectorMarge.x) :
@@ -136,7 +136,7 @@ func _process(delta): #This function check if we speak the right word
 	
 	if(speechToText != null && display && speechToText.isDetectDone()):
 		find_node("Record").modulate = Color(1,1,1,1)
-		var words = speechToText.getWords()
+		var words = speechToText.get_words()
 		print(words)
 		if(Global.check_words(words, wordTest)):
 				find_node("Record").disabled = true
@@ -144,7 +144,7 @@ func _process(delta): #This function check if we speak the right word
 				if(incremented == false):
 						incremented = true
 						find_node("Good").playing = true
-						Ex.setWordSuccess(Global.manageGame.level, index, Ex.getWordSuccess(Global.manageGame.level, index) + 1)
+						Ex.set_wordSuccess(Global.manageGame.level, index, Ex.get_wordSuccess(Global.manageGame.level, index) + 1)
 						Global.manageGame.score += 1
 						if(Ex.getName() == "Jeu de l'oie") :
 							_on_Next_pressed()

@@ -1,0 +1,22 @@
+{
+	"Voyelles orales" : {
+		"iconPath": "res://assets/icons/bouchea.png",
+		"phonetics": ["i", "e", "ɛ", "a", "y", "ə", "œ", "u", "o", "ɔ"]
+	},
+	"Voyelles nasales": {
+		"iconPath": "res://assets/icons/neza.png",
+		"phonetics": ["ɛ̃", "ɔ̃", "ɑ̃"]
+	},
+	"Semi-consonnes": {
+		"iconPath": "res://assets/icons/semiConsonnes.png",
+		"phonetics": ["j", "w"]
+	},
+	"Consonnes orales": {
+		"iconPath": "res://assets/icons/boucheb.png",
+		"phonetics": ["p", "b", "t", "d", "f", "v", "k", "g", "s", "z", "ʃ", "ʒ", "r", "l"]
+	},
+	"Consonnes nasales": {
+		"iconPath": "res://assets/icons/nezb.png",
+		"phonetics": ["m", "n", "ɲ"]
+	}
+}

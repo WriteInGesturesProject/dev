@@ -1,9 +1,7 @@
 extends Node
 
-const firstLaunch := "res://page/home/firstLaunch.tscn"
-const homePath := "res://page/home/home.tscn"
-
 func _ready():
+	randomize()
 	match OS.get_name():
 		"Android":
 			var recordAudioPermission := false
@@ -42,9 +40,8 @@ func _process(delta):
 			set_process(false)
 
 func launch() -> void:
-	if(Global.config.getFirstLaunch()):
-		Global.change_scene("res://page/home/firstLaunch.tscn")
-	Global.change_scene("res://page/home/home.tscn")
+	#TODO: Make a main menu for all apps and make a first launch scene
+	Global.change_scene("res://artiphonie/artiphonie.tscn")
 
 func _on_quit_timer_timeout() -> void:
 	get_tree().quit()

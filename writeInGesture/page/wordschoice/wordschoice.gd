@@ -115,8 +115,8 @@ func _on_addWord_pressed(): ## If we click on "AddWord" button we add the word i
 	var text = find_node("newWord").get_text()
 	if(text == null || text == ""):
 		return
-	if !(wordsAvailable.getWord(text)) :# < 20:
-		var word = dictionnary.getWord(text)
+	if !(wordsAvailable.get_word(text)) :# < 20:
+		var word = dictionnary.get_word(text)
 		if(word != null) :
 			wordsAvailable.addWord(word)
 			find_node("newWord").text = ""
@@ -137,12 +137,12 @@ func createAvailableWordsList(word : Word):  ## We create one item of the availa
 	hBoxContainer.mouse_filter =Control.MOUSE_FILTER_PASS
 	var currentLabel = Label.new()
 	var wordLabel = Label.new()
-	currentLabel.name = word.getWord()
-	wordLabel.name = word.getWord()
+	currentLabel.name = word.get_word()
+	wordLabel.name = word.get_word()
 	wordLabel.size_flags_horizontal = SIZE_EXPAND_FILL
 	
 	var buttonDelete = Button.new()
-	buttonDelete.name = word.getWord()
+	buttonDelete.name = word.get_word()
 	buttonDelete.icon = load("res://assets/icons/trash.png")
 	buttonDelete.flat = true
 	buttonDelete.expand_icon = true
@@ -158,8 +158,8 @@ func createAvailableWordsList(word : Word):  ## We create one item of the availa
 	hBoxContainer.add_child(wordLabel)
 	hBoxContainer.add_child(control)
 	
-	currentLabel.set_text(word.getPhonetic())
-	wordLabel.set_text(" : " + word.getWord())
+	currentLabel.set_text(word.get_phonetic())
+	wordLabel.set_text(" : " + word.get_word())
 	
 	var panel = Panel.new()
 	var stylebox = load("res://assets/theme/ItemList.tres")
@@ -180,7 +180,7 @@ func _on_deleteButton_pressed(button, label): #If we delete a word from the word
 	if(!release) :
 		button.get_parent().get_parent().remove_and_skip()
 		swiping = false 
-		if(!wordsAvailable.removeWord(wordsAvailable.getWord(label.get_text()))) :
+		if(!wordsAvailable.removeWord(wordsAvailable.get_word(label.get_text()))) :
 			print ("le mot n'est pas supprimé dans le fichier'")
 		makeListWord()
 		return 
@@ -214,9 +214,9 @@ func _on_Confirm_pressed(): ###Whn we create a new word in a dictionnary
 		newWord.setAttribut("vowelsType", find_node("LineVoyelsType").text)
 		newWord.setAttribut("consonantsType", find_node("LineConsType").text)
 		newWord.setPath(ImageFile)
-		newWord.setHomonym(findHomonym(newWord.getWord()))
+		newWord.setHomonym(findHomonym(newWord.get_word()))
 		if(newWord.getHomonym().size() == 0) :
-			newWord.addHomonym(newWord.getWord())
+			newWord.addHomonym(newWord.get_word())
 		var err = dictionnary.addWord(newWord)
 		if(err) :
 			#print("le mot a bien été ajouté")

@@ -12,3 +12,7 @@ __meta__ = {
 }
 
 [node name="home" parent="." instance=ExtResource( 1 )]
+margin_left = -5.65674
+margin_top = -2.82837
+margin_right = -5.65674
+margin_bottom = -2.82837

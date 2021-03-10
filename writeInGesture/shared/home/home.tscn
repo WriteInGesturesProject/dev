@@ -137,6 +137,8 @@ text = "Listes de mots"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="about_button" parent="." instance=ExtResource( 9 )]
 [connection signal="pressed" from="learning" to="." method="learning_button_pressed"]
 [connection signal="pressed" from="training" to="." method="training_button_pressed"]
 [connection signal="pressed" from="playing" to="." method="playing_button_pressed"]

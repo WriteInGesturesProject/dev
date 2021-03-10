@@ -7,6 +7,13 @@ const PATH_GOOSE_GAME_ICON := "res://assets/icons/goosePlate.png"
 const GOOSE_GAME_DIFFICULTY := ["Facile", "Normal", "Difficile"]
 # ===== ===== =====
 
+# ===== LISTEN AND CHOOSE =====
+const LISTEN_AND_CHOOSE_GAME_NAME := "Ecoute et Choisis"
+const PATH_LISTEN_AND_CHOOSE_GAME := "res://artiphonie/listen_choose/listen_choose.tscn"
+const PATH_LISTEN_AND_CHOOSE_GAME_ICON := "res://assets/icons/ecoute.png"
+const LISTEN_AND_CHOOSE_GAME_DIFFICULTY := ["Facile", "Normal", "Difficile"]
+# ===== ===== =====
+
 # ===== MEMORY =====
 const MEMORY_NAME := "Jeu du mémorie"
 const PATH_MEMORY := "res://artiphonie/memory/memory_game.tscn"

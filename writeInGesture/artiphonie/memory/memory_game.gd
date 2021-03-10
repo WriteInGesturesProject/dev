@@ -73,7 +73,7 @@ func _on_card_pressed(card):
 			selected_cards[0].get_node("backCardImage").visible = false # Hide the two cards
 			selected_cards[1].get_node("backCardImage").visible = false
 			if(nbFound == nbWord): # The game is finished
-				end_game()
+				game_end()
 		else: # If the two cards aren't the same image
 			nbWrongTry +=1
 			for c in selected_cards:
@@ -111,7 +111,7 @@ func calculate_score():
 		score = 1
 	return score
 	
-func end_game():
+func game_end():
 	var score = calculate_score()
 	#args to send to game_end
 	var args : Array = []

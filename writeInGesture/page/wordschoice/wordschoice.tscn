@@ -9,8 +9,6 @@
 [ext_resource path="res://assets/theme/backgroundPanel.tres" type="StyleBox" id=7]
 [ext_resource path="res://assets/fonts/DejaVuSans.ttf" type="DynamicFontData" id=8]
 
-
-
 [sub_resource type="DynamicFont" id=1]
 size = 32
 font_data = ExtResource( 8 )
@@ -59,8 +57,8 @@ __meta__ = {
 }
 
 [node name="Control" type="Control" parent="Main"]
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_right = 1280.0
+margin_bottom = 720.0
 theme = ExtResource( 2 )
 
 [node name="Margin" type="MarginContainer" parent="Main/Control"]
@@ -72,8 +70,8 @@ __meta__ = {
 }
 
 [node name="MainContainer" type="HBoxContainer" parent="Main/Control/Margin"]
-margin_right = 552.0
-margin_bottom = 85.0
+margin_right = 671.0
+margin_bottom = 107.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource( 2 )
@@ -128,24 +126,24 @@ custom_constants/separation = 10
 
 [node name="MarginContainer" type="MarginContainer" parent="Main/Control/Margin/MainContainer"]
 margin_left = 215.0
-margin_right = 552.0
-margin_bottom = 85.0
+margin_right = 671.0
+margin_bottom = 107.0
 theme = ExtResource( 2 )
 
 [node name="Panel2" type="Panel" parent="Main/Control/Margin/MainContainer/MarginContainer"]
 modulate = Color( 1, 1, 1, 0.32549 )
-margin_right = 337.0
-margin_bottom = 85.0
+margin_right = 456.0
+margin_bottom = 107.0
 theme = ExtResource( 2 )
 custom_styles/panel = ExtResource( 7 )
 
 [node name="editContainer" type="VBoxContainer" parent="Main/Control/Margin/MainContainer/MarginContainer"]
-margin_right = 337.0
-margin_bottom = 85.0
+margin_right = 456.0
+margin_bottom = 107.0
 theme = ExtResource( 2 )
 
 [node name="HBoxContainerAdd" type="HBoxContainer" parent="Main/Control/Margin/MainContainer/MarginContainer/editContainer"]
-margin_right = 337.0
+margin_right = 456.0
 margin_bottom = 58.0
 rect_clip_content = true
 size_flags_horizontal = 3
@@ -188,21 +186,21 @@ valign = 1
 
 [node name="addWord" type="Button" parent="Main/Control/Margin/MainContainer/MarginContainer/editContainer/HBoxContainerAdd"]
 margin_left = 240.0
-margin_right = 337.0
+margin_right = 456.0
 margin_bottom = 58.0
 theme = ExtResource( 3 )
 text = "Ajouter"
 
 [node name="keyBoardContainer" type="CenterContainer" parent="Main/Control/Margin/MainContainer/MarginContainer/editContainer"]
 margin_top = 62.0
-margin_right = 337.0
+margin_right = 456.0
 margin_bottom = 62.0
 size_flags_horizontal = 3
 theme = ExtResource( 2 )
 
 [node name="gridKeyboard" type="GridContainer" parent="Main/Control/Margin/MainContainer/MarginContainer/editContainer/keyBoardContainer"]
-margin_left = 168.0
-margin_right = 168.0
+margin_left = 228.0
+margin_right = 228.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 2 )
@@ -213,14 +211,14 @@ __meta__ = {
 
 [node name="HBoxContainerCreation" type="HBoxContainer" parent="Main/Control/Margin/MainContainer/MarginContainer/editContainer"]
 margin_top = 66.0
-margin_right = 337.0
-margin_bottom = 85.0
+margin_right = 456.0
+margin_bottom = 107.0
 rect_clip_content = true
 theme = ExtResource( 2 )
 
 [node name="Creation" type="Button" parent="Main/Control/Margin/MainContainer/MarginContainer/editContainer/HBoxContainerCreation"]
-margin_right = 337.0
-margin_bottom = 19.0
+margin_right = 456.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 theme = ExtResource( 3 )
 text = "Créer l'exercice"
@@ -528,13 +526,13 @@ margin_top = -155.0
 margin_right = 330.0
 margin_bottom = 155.0
 theme = ExtResource( 2 )
-window_title = "Ouvrir un fichier"
+window_title = "Open a File"
 resizable = true
 mode = 0
 access = 2
 filters = PoolStringArray( "*.png ; PNG Images", "*.jpg ; JPG Images", "*.jpeg ; JPEG Images" )
-current_dir = "D:/projet/dev/writeInGesture"
-current_path = "D:/projet/dev/writeInGesture/"
+current_dir = "/Users/Claire548/Desktop/ArtiphonieClone/writeInGesture"
+current_path = "/Users/Claire548/Desktop/ArtiphonieClone/writeInGesture/"
 __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""

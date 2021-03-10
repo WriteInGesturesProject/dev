@@ -55,18 +55,6 @@
 					"consonantsType": "O"
 				},
 				{
-					"phonetic": "rɛstorɑ̃",
-					"word": "restaurant",
-					"iconPath": "restaurant.png",
-					"homonym": [
-						"restaurant"
-					],
-					"nbSyllable": 3,
-					"syllableStruct": "cvccvcv",
-					"vowelsType": "on",
-					"consonantsType": "lo"
-				},
-				{
 					"phonetic": "bobo",
 					"word": "bobo",
 					"iconPath": "bobo.png",
@@ -90,18 +78,6 @@
 					"syllableStruct": "cv",
 					"vowelsType": "o",
 					"consonantsType": "c"
-				},
-				{
-					"phonetic": "pwar",
-					"word": "poire",
-					"iconPath": "poire.png",
-					"homonym": [
-						"poire"
-					],
-					"nbSyllable": 1,
-					"syllableStruct": "cvvc",
-					"vowelsType": "so",
-					"consonantsType": "ol"
 				},
 				{
 					"phonetic": "nœf",
@@ -141,18 +117,6 @@
 					"consonantsType": "n"
 				},
 				{
-					"phonetic": "fɔrm",
-					"word": "forme",
-					"iconPath": "forme.png",
-					"homonym": [
-						"forme"
-					],
-					"nbSyllable": 1,
-					"syllableStruct": "cvcc",
-					"vowelsType": "o",
-					"consonantsType": "cln"
-				},
-				{
 					"phonetic": "twa",
 					"word": "toi",
 					"iconPath": "toi.png",
@@ -162,68 +126,6 @@
 					"nbSyllable": 1,
 					"syllableStruct": "cvv",
 					"vowelsType": "so",
-					"consonantsType": "o"
-				},
-				{
-					"phonetic": "prɛ̃s",
-					"word": "prince",
-					"iconPath": "prince.jpg",
-					"homonym": [
-						"prince"
-					],
-					"nbSyllable": 2,
-					"syllableStruct": "ccvc",
-					"vowelsType": "n",
-					"consonantsType": "olc"
-				},
-				{
-					"phonetic": "mɛrkrədi",
-					"word": "mercredi",
-					"iconPath": "mercredi.png",
-					"homonym": [
-						"mercredi"
-					],
-					"nbSyllable": 3,
-					"syllableStruct": "cvcccvcv",
-					"vowelsType": "o",
-					"consonantsType": "nlo"
-				},
-				{
-					"phonetic": "ku",
-					"word": "cou",
-					"iconPath": "cou.png",
-					"homonym": [
-						"cou",
-						"coup",
-						"coût"
-					],
-					"nbSyllable": 1,
-					"syllableStruct": "cv",
-					"vowelsType": "o",
-					"consonantsType": "o"
-				},
-				{
-					"phonetic": "kart",
-					"word": "carte",
-					"iconPath": "carte.png",
-					"homonym": [
-						"carte"
-					],
-					"nbSyllable": 2,
-					"syllableStruct": "cvcc",
-					"vowelsType": "o",
-					"consonantsType": "ol"
-				},
-				{
-					"phonetic": "eklɛr",
-					"word": "eclair",
-					"iconPath": "eclair.png",
-					"homonym": [
-						"eclair"
-					],
-					"nbSyllable": 2,
-					"syllableStruct": "vccvc",
-					"vowelsType": "o",
 					"consonantsType": "o"
 				}
 			]

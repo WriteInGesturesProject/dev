@@ -1,6 +1,6 @@
 {
 	"playerName": "Alice",
-	"stars": 0,
+	"stars": 10,
 	"ethnicity": 0,
 	"gender": 0,
 	"playerPath": "res://data/alice.json",

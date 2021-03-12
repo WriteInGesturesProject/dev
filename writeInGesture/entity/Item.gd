@@ -63,7 +63,7 @@ func to_dictionary() -> Dictionary:
 
 func from_dictionary(content: Dictionary) -> Entity:
 	itemName = content["itemName"]
-	price = content["price"]
+	price = int(content["price"])
 	picturePath = content["picturePath"]
 	itemType = content["itemType"]
 	return self

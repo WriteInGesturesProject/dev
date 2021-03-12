@@ -1,0 +1,65 @@
+{
+	"items": [
+		{
+			"itemName": "chapeauMarron",
+			"price": "2",
+			"itemType": "hat",
+			"picturePath": "chapeau.png",
+		},
+		{
+			"itemName": "bouchreRose",
+			"price": "3",
+			"itemType": "mouth",
+			"picturePath": "ananas.png",
+		},
+		{
+			"itemName": "botteJaune",
+			"price": "4",
+			"itemType": "shoes",
+			"picturePath": "ananas.png",
+		},
+		{
+			"itemName": "ananas",
+			"price": "4",
+			"itemType": "hat",
+			"picturePath": "ananas.png",
+		},
+		{
+			"itemName": "ananas",
+			"price": "4",
+			"itemType": "hat",
+			"picturePath": "ananas.png",
+		},
+		{
+			"itemName": "bouchreRose",
+			"price": "10",
+			"itemType": "mouth",
+			"picturePath": "ananas.png",
+		},
+		{
+			"itemName": "ananas",
+			"price": "1",
+			"itemType": "shoes",
+			"picturePath": "botte.png",
+		},
+		{
+			"itemName": "ananas",
+			"price": "2",
+			"itemType": "hat",
+			"picturePath": "ananas.png",
+		},
+		{
+			"itemName": "bouchreRose",
+			"price": "2",
+			"itemType": "mouth",
+			"picturePath": "bouche.png",
+		},
+		{
+			"itemName": "ananas",
+			"price": "2",
+			"itemType": "shoes",
+			"picturePath": "ananas.png",
+		}
+		]
+	}
+	

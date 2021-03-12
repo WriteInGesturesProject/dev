@@ -70,11 +70,13 @@ func erase_equiped_item(item: Item) -> bool:
 			return remove_equiped_item(i)
 	return false
 
+
 func set_unlocked_items(_unlockedItems: Array) -> void:
 	unlockedItems = _unlockedItems
 
 func get_unlocked_items() -> Array:
 	return unlockedItems.duplicate(true)
+
 
 func add_unlocked_item(item: Item) -> bool:
 	for i in unlockedItems:

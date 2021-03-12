@@ -32,4 +32,6 @@ anchor_bottom = 0.95
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 6
-[connection signal="pressed" from="name" to="." method="name_pressed"]
+__meta__ = {
+"_edit_use_anchors_": false
+}

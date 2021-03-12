@@ -13,8 +13,10 @@ var scenesChronology := {0: "res://main.tscn"}
 var scenesArgumentsChronology := {0: []}
 # ===== ===== ====
 
+
 var textToSpeech 
 var speechToText
+
 
 # ===== Globals variable available to all application =====
 var player: Player = Player.new()

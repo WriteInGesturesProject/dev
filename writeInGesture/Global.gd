@@ -1,5 +1,10 @@
 extends Node
 
+# ===== Globals variable specific for main menu =====
+#contain the name of the different sub app
+var apps : Array = ["artiphonie","artiphonie","artiphonie","artiphonie","artiphonie"]
+# ===== ===== =====
+
 # ===== Globals specific to an application =====
 const Artiphonie := preload("res://shared/artiphonie.gd")
 var artiphonie := Artiphonie.new()

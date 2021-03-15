@@ -13,14 +13,17 @@ var scenesChronology := {0: "res://main.tscn"}
 var scenesArgumentsChronology := {0: []}
 # ===== ===== ====
 
+# ===== Globals variable related to instruction =====
+var player: Player = Player.new()
+var activeList: Words
+# ===== ===== =====
 
 var textToSpeech 
 var speechToText
 
 
 # ===== Globals variable available to all application =====
-var player: Player = Player.new()
-var activeList: Words
+var instructionAlreadyPlayed: Array = []
 # ===== ===== =====
 
 func _ready():

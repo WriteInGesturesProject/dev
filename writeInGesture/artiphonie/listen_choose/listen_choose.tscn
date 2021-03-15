@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/fonts/RAVIE.TTF" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/background.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/sound/success.ogg" type="AudioStream" id=6]
 [ext_resource path="res://assets/sound/fail.ogg" type="AudioStream" id=7]
 [ext_resource path="res://shared/back/back_button.tscn" type="PackedScene" id=8]
+[ext_resource path="res://shared/instruction/instruction.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 54
@@ -37,38 +38,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control" type="Control" parent="."]
-margin_right = 1280.0
-margin_bottom = 720.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="marginCardGrid" type="MarginContainer" parent="Control"]
-margin_right = 1280.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cardGrid" type="HBoxContainer" parent="Control/marginCardGrid"]
-margin_right = 1280.0
+[node name="cardGrid" type="HBoxContainer" parent="."]
+anchor_top = 0.12
+anchor_right = 1.0
+anchor_bottom = 0.85
+margin_bottom = -0.599976
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 1280, 525 )
 size_flags_horizontal = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="speak" type="TextureButton" parent="Control"]
-anchor_left = 0.466959
-anchor_top = 0.856652
-anchor_right = 0.535319
-anchor_bottom = 0.973319
+[node name="speak" type="TextureButton" parent="."]
+anchor_top = 0.84
+anchor_right = 1.0
+anchor_bottom = 0.99
 size_flags_vertical = 3
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 5 )
 texture_hover = ExtResource( 5 )
 expand = true
+stretch_mode = 5
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Validate" type="Label" parent="Control"]
+[node name="Validate" type="Label" parent="."]
 anchor_left = 0.211103
 anchor_top = 0.0408944
 anchor_right = 0.824384
@@ -83,4 +81,6 @@ __meta__ = {
 }
 
 [node name="back_button" parent="." instance=ExtResource( 8 )]
+[node name="Instruction" parent="." instance=ExtResource( 9 )]
 [connection signal="pressed" from="Control/speak" to="." method="_on_speak_pressed"]
+

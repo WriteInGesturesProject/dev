@@ -2,22 +2,14 @@ extends Entity
 
 class_name Words
 
-var listPath: String setget set_list_path, get_list_path
 var listName: String setget set_list_name, get_list_name
 var listIconPath: String setget set_list_icon_path, get_list_icon_path
 var words: Array setget set_words, get_words
 
 func _init():
-	listPath = ""
 	listName = ""
 	listIconPath = ""
 	words = []
-
-func set_list_path(_listPath: String) -> void:
-	listPath = _listPath
-
-func get_list_path() -> String:
-	return listPath
 
 func set_list_name(_listName: String) -> void:
 	listName = _listName
@@ -60,13 +52,11 @@ func equals(otherWords: Words) -> bool:
 	var result := true
 	result = result and otherWords.listName == listName
 	result = result and otherWords.listIconPath == listIconPath
-	result = result and otherWords.listPath == listPath
 	return result
 
 func to_string() -> String:
 	var result := ""
 	result += "listName: " + listName + "\n"
-	result += "listPath: " + listPath + "\n"
 	result += "==== words ====\n"
 	for word in words:
 		result += word.to_string() + "==== ==== ====\n"
@@ -74,7 +64,6 @@ func to_string() -> String:
 
 func to_dictionary() -> Dictionary:
 	var result := {}
-	result["listPath"] = listPath
 	result["listName"] = listName
 	result["listIconPath"] = listIconPath
 	result["words"] = []
@@ -83,7 +72,6 @@ func to_dictionary() -> Dictionary:
 	return result
 
 func from_dictionary(content: Dictionary) -> Entity:
-	listPath = content["listPath"]
 	listName = content["listName"]
 	listIconPath = content["listIconPath"]
 	words = []

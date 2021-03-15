@@ -1,6 +1,9 @@
 extends Control
 
 func _ready():
+	var instruction = $Instruction
+	instruction.setUp("gameChoose")
+	
 	var gooseGameDifficulties := []
 	for difficulty in Global.artiphonie.GOOSE_GAME_DIFFICULTY:
 		gooseGameDifficulties.append([difficulty, false, ""])

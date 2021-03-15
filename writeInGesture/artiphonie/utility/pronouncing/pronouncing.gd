@@ -23,12 +23,12 @@ func setup(_word: Word, layout: int = 1):
 	currentLayout.visible = true
 	$background/word.text = word.word
 	extract_borel_maisonny()
-	currentLayout.find_node("picture").texture = Global.artiphonie.get_word_icon(word.iconPath)
+	currentLayout.find_node("picture").texture = Global.load_icon(word.iconPath)
 
 #This function extract all the borel maisonny sign picture out of all the
 #phonetic symbol of our function
 func extract_borel_maisonny() -> void:
-	for imgPath in Global.artiphonie.phonetic_to_array_picture_path(word.phonetic):
+	for imgPath in Global.phonetic_to_array_picture_path(word.phonetic):
 		add_borel_maisonny(currentLayout.find_node("borel_maisonny_container"), imgPath)
 
 #This function add a picture of a phonetic symbole in borel maisonny sign to

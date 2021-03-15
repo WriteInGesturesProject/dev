@@ -18,7 +18,10 @@ var difficulty : String
 var cardLayout : int
 
 func _ready():
-
+	#deal with the instruction
+	var instruction = $Instruction
+	instruction.setUp("listen_choose")
+	
 	var arguments = Global.get_arguments()
 	difficulty = arguments[0]
 
@@ -35,10 +38,11 @@ func _ready():
 	#set up of the gridCard section
 	cardGrid = find_node("cardGrid")
 	sizeScene = Vector2(self.rect_size.x,self.rect_size.y)
-	sizeCard = Vector2((sizeScene.x - 2*((sizeScene.x*0.25)/6))/3, sizeScene.y*0.6)
-	var yRest = - find_node("speak").rect_size.y - find_node("Validate").rect_size.y - sizeCard.y + sizeScene.y
-	find_node("marginCardGrid").add_constant_override("margin_left", (sizeScene.x*0.25)/6)
-	find_node("marginCardGrid").add_constant_override("margin_top", yRest/2 + find_node("speak").rect_size.y)
+	sizeCard = Vector2(sizeScene.x/3, sizeScene.y*0.6)
+#	sizeCard = Vector2((sizeScene.x - 2*((sizeScene.x*0.25)/6))/3, sizeScene.y*0.6)
+#	var yRest = - find_node("speak").rect_size.y - find_node("Validate").rect_size.y - sizeCard.y + sizeScene.y
+	#find_node("marginCardGrid").add_constant_override("margin_left", (sizeScene.x*0.25)/6)
+	#find_node("marginCardGrid").add_constant_override("margin_top", yRest/2 + find_node("speak").rect_size.y)
 	next_screen()
 	
 func next_screen():

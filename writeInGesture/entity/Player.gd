@@ -6,6 +6,7 @@ var playerName: String setget set_player_name, get_player_name
 var stars: int setget set_stars, get_stars
 var ethnicity: int setget set_ethnicity, get_ethnicity
 var gender: int setget set_gender, get_gender
+var instruction: bool setget set_instruction, get_instruction
 var equipedItems: Array setget set_equiped_items, get_equiped_items
 var unlockedItems: Array setget set_unlocked_items, get_unlocked_items
 var listOfWords: Array setget set_list_of_words, get_list_of_words
@@ -16,6 +17,7 @@ func _init():
 	stars = 0
 	ethnicity = 0
 	gender = 0
+	instruction = true
 	equipedItems = []
 	unlockedItems = []
 	listOfWords = []
@@ -44,6 +46,12 @@ func set_gender(_gender: int) -> void:
 
 func get_gender() -> int:
 	return gender
+	
+func set_instruction(_instruction: bool) -> void:
+	instruction = _instruction
+
+func get_instruction() -> bool:
+	return instruction
 
 func set_equiped_items(_equipedItems: Array) -> void:
 	equipedItems = _equipedItems
@@ -134,6 +142,7 @@ func to_string() -> String:
 	result += "stars: " + String(stars) + "\n"
 	result += "ethnicity: " + String(ethnicity) + "\n"
 	result += "gender: " + String(gender) + "\n"
+	result += "instruction: " + String(instruction) + "\n"
 	result += "==== equipedItems ==== \n"
 	for item in equipedItems:
 		result += item.to_string()
@@ -154,6 +163,7 @@ func to_dictionary() -> Dictionary:
 	result["stars"] = stars
 	result["ethnicity"] = ethnicity
 	result["gender"] = gender
+	result["instruction"] = instruction
 	result["playerPath"] = playerPath
 	result["equipedItems"] = []
 	for item in equipedItems:
@@ -171,6 +181,7 @@ func from_dictionary(content: Dictionary) -> Entity:
 	stars = content["stars"]
 	ethnicity = content["ethnicity"]
 	gender = content["gender"]
+	instruction = content["instruction"]
 	playerPath = content["playerPath"]
 	equipedItems = []
 	for item in content["equipedItems"]:

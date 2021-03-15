@@ -1,8 +1,9 @@
 {
 	"playerName": "Alice",
 	"stars": 10,
-	"ethnicity": 1,
-	"gender": 2,
+	"ethnicity": 0,
+	"gender": 0,
+	"instruction": true,
 	"playerPath": "res://data/alice.json",
 	"equipedItems": [
 

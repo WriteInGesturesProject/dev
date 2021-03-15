@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/icons/check.png" type="Texture" id=1]
 [ext_resource path="res://assets/icons/goosePlate.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://shared/back/back_button.tscn" type="PackedScene" id=6]
 [ext_resource path="res://artiphonie/goose_game/goose_game.gd" type="Script" id=7]
 [ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=8]
+[ext_resource path="res://shared/instruction/instruction.tscn" type="PackedScene" id=9]
 
 [node name="goose_game" type="Control"]
 anchor_right = 1.0
@@ -227,6 +228,8 @@ stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Instruction" parent="." instance=ExtResource( 9 )]
 [connection signal="pressed" from="Validate" to="." method="_on_Validate_pressed"]
 [connection signal="popup_hide" from="WordDetails" to="." method="_on_WordDetails_popup_hide"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

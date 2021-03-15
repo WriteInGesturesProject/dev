@@ -6,6 +6,10 @@ func _ready():
 	setup()
 
 func setup():
+	#deal with the instruction	
+	var instruction = $Instruction
+	instruction.setUp("train")
+	
 	var cmpt = 0
 	for word in Global.activeList.words:
 		var newPronouncing = pronouncingRessource.instance()

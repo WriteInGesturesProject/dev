@@ -18,6 +18,7 @@ func setUp(pageName: String) -> bool:
 		self.visible = false
 		return false
 	else:
+		self.visible = true
 		Global.instructionAlreadyPlayed.append(pageName)
 		makeInstruction(pageName)
 		return true

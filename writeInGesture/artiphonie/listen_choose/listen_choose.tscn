@@ -81,6 +81,11 @@ __meta__ = {
 }
 
 [node name="back_button" parent="." instance=ExtResource( 8 )]
-[node name="Instruction" parent="." instance=ExtResource( 9 )]
-[connection signal="pressed" from="Control/speak" to="." method="_on_speak_pressed"]
 
+[node name="Instruction" parent="." instance=ExtResource( 9 )]
+visible = false
+
+[node name="Sound" type="VideoPlayer" parent="."]
+__meta__ = {
+"_edit_use_anchors_": false
+}

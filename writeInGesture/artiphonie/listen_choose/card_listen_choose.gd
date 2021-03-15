@@ -10,9 +10,11 @@ var currentLayout : Control
 signal card_pressed(card)
 
 func setUpCard(_word : Word, difficulty : int, size : Vector2) -> void:
+	
 	#display the right layout depending on the difficulty 
 	currentLayout = find_node("layout_" + String(difficulty))
 	currentLayout.visible = true
+		
 	#set the paramter of the card
 	word = _word
 	currentLayout.find_node("word").text = _word.word
@@ -52,3 +54,4 @@ func add_borel_maisonny(container: HBoxContainer, imgPath: String) -> void:
 		otherBorelMaisonny.rect_min_size.x = correctSize
 		otherBorelMaisonny.rect_min_size.y = correctSize
 	container.add_child(newBorelMaisonny)
+

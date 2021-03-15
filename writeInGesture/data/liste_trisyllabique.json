@@ -1,0 +1,361 @@
+{
+	"listName": "Trisyllabique",
+	"listIconPath": "res://art/word_icon/trois.png",
+	"words": [
+		{
+			"word": "accepter",
+			"phonetic": "aksEpte",
+			"iconPath": "res://art/word_icon/accepter.png"
+		},
+		{
+			"word": "accident",
+			"phonetic": "aksid@",
+			"iconPath": "res://art/word_icon/accident.png"
+		},
+		{
+			"word": "ambulance",
+			"phonetic": "@byl@s",
+			"iconPath": "res://art/word_icon/ambulance.png"
+		},
+		{
+			"word": "amoureuse",
+			"phonetic": "amuR2z",
+			"iconPath": "res://art/word_icon/amoureux.png"
+		},
+		{
+			"word": "amusant",
+			"phonetic": "amyz@",
+			"iconPath": "res://art/word_icon/amusant.png"
+		},
+		{
+			"word": "animal",
+			"phonetic": "animal",
+			"iconPath": "res://art/word_icon/animal.png"
+		},
+		{
+			"word": "appareil",
+			"phonetic": "apaREj",
+			"iconPath": "res://art/word_icon/appareil.png"
+		},
+		{
+			"word": "ascenseur",
+			"phonetic": "as@s9R",
+			"iconPath": "res://art/word_icon/ascenseur.png"
+		},
+		{
+			"word": "assurance",
+			"phonetic": "asyR@s",
+			"iconPath": "res://art/word_icon/assurance.png"
+		},
+		{
+			"word": "attention",
+			"phonetic": "at@sj§",
+			"iconPath": "res://art/word_icon/attention.png"
+		},
+		{
+			"word": "attraper",
+			"phonetic": "atRape",
+			"iconPath": "res://art/word_icon/attraper.png"
+		},
+		{
+			"word": "aujourd'hui",
+			"phonetic": "oZuRd8i",
+			"iconPath": "res://art/word_icon/aujourd'hui.png"
+		},
+		{
+			"word": "avancer",
+			"phonetic": "av@se",
+			"iconPath": "res://art/word_icon/avancer.png"
+		},
+		{
+			"word": "aventure",
+			"phonetic": "av@tyR",
+			"iconPath": "res://art/word_icon/aventure.png"
+		},
+		{
+			"word": "avocat",
+			"phonetic": "avoka",
+			"iconPath": "res://art/word_icon/avocat.png"
+		},
+		{
+			"word": "capitaine",
+			"phonetic": "kapitEn",
+			"iconPath": "res://art/word_icon/capitaine.png"
+		},
+		{
+			"word": "cauchemar",
+			"phonetic": "koS°maR",
+			"iconPath": "res://art/word_icon/cauchemar.png"
+		},
+		{
+			"word": "changement",
+			"phonetic": "S@Z°m@",
+			"iconPath": "res://art/word_icon/changement.png"
+		},
+		{
+			"word": "chocolat",
+			"phonetic": "Sokola",
+			"iconPath": "res://art/word_icon/chocolat.png"
+		},
+		{
+			"word": "cigarette",
+			"phonetic": "sigaREt",
+			"iconPath": "res://art/word_icon/cigarette.png"
+		},
+		{
+			"word": "commencer",
+			"phonetic": "kom@se",
+			"iconPath": "res://art/word_icon/commencer.png"
+		},
+		{
+			"word": "continuer",
+			"phonetic": "k§tin8e",
+			"iconPath": "res://art/word_icon/continuer.png"
+		},
+		{
+			"word": "couverture",
+			"phonetic": "kuvERtyR",
+			"iconPath": "res://art/word_icon/couverture.png"
+		},
+		{
+			"word": "difficile",
+			"phonetic": "difisil",
+			"iconPath": "res://art/word_icon/difficile.png"
+		},
+		{
+			"word": "directeur",
+			"phonetic": "diREkt9R",
+			"iconPath": "res://art/word_icon/directeur.png"
+		},
+		{
+			"word": "direction",
+			"phonetic": "diREksj§",
+			"iconPath": "res://art/word_icon/direction.png"
+		},
+		{
+			"word": "discuter",
+			"phonetic": "diskyte",
+			"iconPath": "res://art/word_icon/discuter.png"
+		},
+		{
+			"word": "disparaître",
+			"phonetic": "dispaREtR",
+			"iconPath": "res://art/word_icon/disparaitre.png"
+		},
+		{
+			"word": "doucement",
+			"phonetic": "dus°m@",
+			"iconPath": "res://art/word_icon/doucement.png"
+		},
+		{
+			"word": "empereur",
+			"phonetic": "@p°R9R",
+			"iconPath": "res://art/word_icon/empereur.png"
+		},
+		{
+			"word": "entreprise",
+			"phonetic": "@tR°pRiz",
+			"iconPath": "res://art/word_icon/entreprise.png"
+		},
+		{
+			"word": "environ",
+			"phonetic": "@viR§",
+			"iconPath": "res://art/word_icon/environ.png"
+		},
+		{
+			"word": "escalier",
+			"phonetic": "Eskalje",
+			"iconPath": "res://art/word_icon/escalier.png"
+		},
+		{
+			"word": "estomac",
+			"phonetic": "Estoma",
+			"iconPath": "res://art/word_icon/estomac.png"
+		},
+		{
+			"word": "explosion",
+			"phonetic": "Eksplozj§",
+			"iconPath": "res://art/word_icon/explosion.png"
+		},
+		{
+			"word": "fantastique",
+			"phonetic": "f@tastik",
+			"iconPath": "res://art/word_icon/fantastique.png"
+		},
+		{
+			"word": "important",
+			"phonetic": "5pORt@",
+			"iconPath": "res://art/word_icon/important.png"
+		},
+		{
+			"word": "innocent",
+			"phonetic": "inos@",
+			"iconPath": "res://art/word_icon/innocent.png"
+		},
+		{
+			"word": "inspecteur",
+			"phonetic": "5spEkt9R",
+			"iconPath": "res://art/word_icon/inspecteur.png"
+		},
+		{
+			"word": "journaliste",
+			"phonetic": "ZuRnalist",
+			"iconPath": "res://art/word_icon/journaliste.png"
+		},
+		{
+			"word": "magasin",
+			"phonetic": "magaz5",
+			"iconPath": "res://art/word_icon/magasin.png"
+		},
+		{
+			"word": "maintenant",
+			"phonetic": "m5t°n@",
+			"iconPath": "res://art/word_icon/maintenant.png"
+		},
+		{
+			"word": "maladie",
+			"phonetic": "maladi",
+			"iconPath": "res://art/word_icon/maladie.png"
+		},
+		{
+			"word": "militaire",
+			"phonetic": "militER",
+			"iconPath": "res://art/word_icon/militaire.png"
+		},
+		{
+			"word": "mouvement",
+			"phonetic": "muv°m@",
+			"iconPath": "res://art/word_icon/mouvement.png"
+		},
+		{
+			"word": "nourriture",
+			"phonetic": "nuRityR",
+			"iconPath": "res://art/word_icon/nourriture.png"
+		},
+		{
+			"word": "obtenir",
+			"phonetic": "Opt°niR",
+			"iconPath": "res://art/word_icon/obtenir.png"
+		},
+		{
+			"word": "origine",
+			"phonetic": "oRiZin",
+			"iconPath": "res://art/word_icon/origine.png"
+		},
+		{
+			"word": "pantalon",
+			"phonetic": "p@tal§",
+			"iconPath": "res://art/word_icon/pantalon.png"
+		},
+		{
+			"word": "partager",
+			"phonetic": "paRtaZe",
+			"iconPath": "res://art/word_icon/partager.png"
+		},
+		{
+			"word": "personnel",
+			"phonetic": "pERsonEl",
+			"iconPath": "res://art/word_icon/personnel.png"
+		},
+		{
+			"word": "pistolet",
+			"phonetic": "pistolE",
+			"iconPath": "res://art/word_icon/pistolet.png"
+		},
+		{
+			"word": "politique",
+			"phonetic": "politik",
+			"iconPath": "res://art/word_icon/politique.png"
+		},
+		{
+			"word": "position",
+			"phonetic": "pozisj§",
+			"iconPath": "res://art/word_icon/position.png"
+		},
+		{
+			"word": "professeur",
+			"phonetic": "pRofEs9R",
+			"iconPath": "res://art/word_icon/professeur.png"
+		},
+		{
+			"word": "protection",
+			"phonetic": "pRotEksj§",
+			"iconPath": "res://art/word_icon/protection.png"
+		},
+		{
+			"word": "recevoir",
+			"phonetic": "R°s°vwaR",
+			"iconPath": "res://art/word_icon/recevoir.png"
+		},
+		{
+			"word": "religion",
+			"phonetic": "R°liZj§",
+			"iconPath": "res://art/word_icon/religion.png"
+		},
+		{
+			"word": "rendez-vous",
+			"phonetic": "R@devu",
+			"iconPath": "res://art/word_icon/rendez-vous.png"
+		},
+		{
+			"word": "respirer",
+			"phonetic": "REspiRe",
+			"iconPath": "res://art/word_icon/respirer.png"
+		},
+		{
+			"word": "responsable",
+			"phonetic": "REsp§sabl",
+			"iconPath": "res://art/word_icon/responsable.png"
+		},
+		{
+			"word": "restaurant",
+			"phonetic": "REstoR@",
+			"iconPath": "res://art/word_icon/restaurant.png"
+		},
+		{
+			"word": "revenir",
+			"phonetic": "R°v°niR",
+			"iconPath": "res://art/word_icon/revenir.png"
+		},
+		{
+			"word": "romantique",
+			"phonetic": "Rom@tik",
+			"iconPath": "res://art/word_icon/romantique.png"
+		},
+		{
+			"word": "sentiment",
+			"phonetic": "s@tim@",
+			"iconPath": "res://art/word_icon/sentiment.png"
+		},
+		{
+			"word": "supporter",
+			"phonetic": "sypoRte",
+			"iconPath": "res://art/word_icon/supporter.png"
+		},
+		{
+			"word": "traitement",
+			"phonetic": "tREt°m@",
+			"iconPath": "res://art/word_icon/traitement.png"
+		},
+		{
+			"word": "traverser",
+			"phonetic": "tRavERse",
+			"iconPath": "res://art/word_icon/traverser.png"
+		},
+		{
+			"word": "tribunal",
+			"phonetic": "tRibynal",
+			"iconPath": "res://art/word_icon/tribunal.png"
+		},
+		{
+			"word": "univers",
+			"phonetic": "ynivER",
+			"iconPath": "res://art/word_icon/univers.png"
+		},
+		{
+			"word": "visiter",
+			"phonetic": "vizite",
+			"iconPath": "res://art/word_icon/visiter.png"
+		}
+	]
+}

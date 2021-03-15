@@ -41,12 +41,9 @@ func _ready():
 	phoneticTableResource = JSON.parse(file.get_as_text()).result
 	file.close()
 	
-	var listGeneral:Words = Words.new()
-	load_json(listGeneral, "res://data/liste_general.json")
-	load_json(player, "res://data/titouan.json")
-	player.listOfWords = []
-	player.add_words(listGeneral)
+	load_json(player, "res://data/general.json")
 	activeList = player.listOfWords[0]
+	
 
 # ===== JSON =====
 
@@ -148,8 +145,8 @@ func phonetic_to_array_video_path(phonetic: String) -> Array:
 # ===== ===== =====
 
 func load_icon(path: String) -> Resource:
-	var fileExists = Directory.new().file_exists(path)
-	if fileExists:
+	var icon = load(path)
+	if icon != null:
 		return load(path)
 	else:
 		return null

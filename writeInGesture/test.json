@@ -1,8 +1,0 @@
-{
-  "listName": "Liste de mots 1",
-  "listIconPath": "./liste1.png",
-  "words": [
-      {"word": "maison"},
-      {"word": "chateau"}
-  ] 
-}

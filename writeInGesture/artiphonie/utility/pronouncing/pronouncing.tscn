@@ -7,7 +7,7 @@
 [ext_resource path="res://artiphonie/utility/pronouncing/pronouncing.gd" type="Script" id=5]
 [ext_resource path="res://assets/theme/ButtonTheme.tres" type="Theme" id=6]
 [ext_resource path="res://assets/theme/transparent_panel_rounded_corner.tres" type="StyleBox" id=7]
-[ext_resource path="res://art/images/clown.jpg" type="Texture" id=8]
+[ext_resource path="res://art/word_icon/bateau.png" type="Texture" id=8]
 
 [node name="pronouncing" type="Control"]
 anchor_right = 1.0
@@ -53,6 +53,7 @@ __meta__ = {
 }
 
 [node name="layout_1" type="Control" parent="background"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 1
@@ -137,7 +138,6 @@ anchor_left = 0.2
 anchor_top = 0.1
 anchor_right = 0.8
 anchor_bottom = 0.5
-texture = ExtResource( 8 )
 expand = true
 stretch_mode = 6
 __meta__ = {
@@ -195,7 +195,6 @@ anchor_left = 0.25
 anchor_top = 0.1
 anchor_right = 0.75
 anchor_bottom = 0.9
-texture = ExtResource( 8 )
 expand = true
 stretch_mode = 6
 __meta__ = {
@@ -256,7 +255,6 @@ anchor_left = 0.2
 anchor_top = 0.1
 anchor_right = 0.8
 anchor_bottom = 0.5
-texture = ExtResource( 8 )
 expand = true
 stretch_mode = 6
 __meta__ = {
@@ -317,7 +315,6 @@ anchor_left = 0.2
 anchor_top = 0.1
 anchor_right = 0.8
 anchor_bottom = 0.5
-texture = ExtResource( 8 )
 expand = true
 stretch_mode = 6
 __meta__ = {
@@ -376,7 +373,6 @@ anchor_left = 0.25
 anchor_top = 0.1
 anchor_right = 0.75
 anchor_bottom = 0.9
-texture = ExtResource( 8 )
 expand = true
 stretch_mode = 6
 __meta__ = {
@@ -438,7 +434,6 @@ anchor_left = 0.2
 anchor_top = 0.1
 anchor_right = 0.8
 anchor_bottom = 0.5
-texture = ExtResource( 8 )
 expand = true
 stretch_mode = 6
 __meta__ = {

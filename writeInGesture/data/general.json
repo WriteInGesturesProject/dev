@@ -1,8 +1,9 @@
 {
 	"playerName": "Titouan",
 	"stars": 10,
-	"ethnicity": 0,
-	"gender": 0,
+	"ethnicity": 1,
+	"gender": 1,
+	"instruction":true,
 	"playerPath": "res://data/general.json",
 	"equipedItems": [
 

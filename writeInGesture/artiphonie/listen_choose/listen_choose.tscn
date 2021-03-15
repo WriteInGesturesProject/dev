@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/fonts/RAVIE.TTF" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/background.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/sound/success.ogg" type="AudioStream" id=6]
 [ext_resource path="res://assets/sound/fail.ogg" type="AudioStream" id=7]
 [ext_resource path="res://shared/back/back_button.tscn" type="PackedScene" id=8]
+[ext_resource path="res://shared/instruction/instruction.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 54
@@ -52,9 +53,10 @@ __meta__ = {
 }
 
 [node name="speak" type="TextureButton" parent="."]
-anchor_top = 0.84
-anchor_right = 1.0
-anchor_bottom = 0.99
+anchor_left = 0.45
+anchor_top = 0.840278
+anchor_right = 0.55
+anchor_bottom = 0.990278
 size_flags_vertical = 3
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 5 )
@@ -80,4 +82,12 @@ __meta__ = {
 }
 
 [node name="back_button" parent="." instance=ExtResource( 8 )]
+
+[node name="Instruction" parent="." instance=ExtResource( 9 )]
+visible = false
+
+[node name="Sound" type="VideoPlayer" parent="."]
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="speak" to="." method="_on_speak_pressed"]

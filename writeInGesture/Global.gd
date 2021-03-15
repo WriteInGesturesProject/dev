@@ -1,5 +1,10 @@
 extends Node
 
+# ===== Globals variable specific for main menu =====
+#contain the name of the different sub app
+var apps : Array = ["artiphonie"]
+# ===== ===== =====
+
 # ===== Globals specific to an application =====
 const Artiphonie := preload("res://shared/artiphonie.gd")
 var artiphonie := Artiphonie.new()
@@ -12,6 +17,11 @@ var currentScene: int = 0
 var scenesChronology := {0: "res://main.tscn"}
 var scenesArgumentsChronology := {0: []}
 # ===== ===== ====
+
+# ===== Globals variable related to instruction =====
+var player: Player = Player.new()
+var activeList: Words
+# ===== ===== =====
 
 var textToSpeech 
 var speechToText
@@ -26,8 +36,7 @@ const PHONETIC_VIDEO_PATH := "res://art/borel_maisony/video/"
 const PHONETIC_VIDEO_EXTENSION := ".ogv"
 
 # ===== Globals variable available to all application =====
-var player: Player = Player.new()
-var activeList: Words
+var instructionAlreadyPlayed: Array = []
 # ===== ===== =====
 
 func _ready():
@@ -101,13 +110,14 @@ func get_n_word_from_active_list(n: int, repeat: bool = false) -> Array:
 	return result
 
 # ===== Phonetic =====
-
+#convert the code phonetic of a word into the visual API phonetic code
 func convert_phonetic(phonetic: String) -> String:
 	var result := ""
 	for p in phonetic:
 		result += phoneticTable[p]
 	return result
 
+#get an array of borelImage which represent the code phonetic
 func phonetic_to_array_picture_path(phonetic: String) -> Array:
 	var result: Array = []
 	for i in range(len(phonetic)):
@@ -125,6 +135,7 @@ func phonetic_to_array_picture_path(phonetic: String) -> Array:
 				result.append(PHONETIC_PICTURE_PATH + phoneticTableResource[phonetic[i]] + PHONETIC_PICTURE_EXTENSION)
 	return result
 
+#get an array of video  which represent the code phonetic
 func phonetic_to_array_video_path(phonetic: String) -> Array:
 	var result: Array = []
 	for i in range(len(phonetic)):

@@ -4,11 +4,10 @@ var CardScene = preload("./card_listen_choose.tscn")
 
 const NB_SCREEN_MAX = 10
 
-var cardGrid : HBoxContainer
-var sizeScene : Vector2
 var sizeCard : Vector2
 
 var listOfUndoneWords : Array
+var listOfUndoneSounds : Array
 
 var cardToFind : Word
 
@@ -18,28 +17,33 @@ var difficulty : String
 var cardLayout : int
 
 func _ready():
-
+	#deal with the instruction
+	var instruction = $Instruction
+	instruction.setUp("listen_choose")
+	
 	var arguments = Global.get_arguments()
 	difficulty = arguments[0]
 
 	match difficulty:
+		"[..] Phonetique":
+			cardLayout = 0
+			listOfUndoneWords = get_phonetic_list()
 		"Facile":
 			cardLayout = 1
+			listOfUndoneWords = Global.activeList.words.duplicate(true)
 		"Normal":
 			cardLayout = 2
+			listOfUndoneWords = Global.activeList.words.duplicate(true)
 		"Difficile":
 			cardLayout = 3
+			listOfUndoneWords = Global.activeList.words.duplicate(true)
 	
-	listOfUndoneWords = Global.activeList.words.duplicate(true)
 	
-	#set up of the gridCard section
-	cardGrid = find_node("cardGrid")
-	sizeScene = Vector2(self.rect_size.x,self.rect_size.y)
+	
+	#set up of the size of the cards
+	var sizeScene = Vector2(self.rect_size.x,self.rect_size.y)
 	sizeCard = Vector2(sizeScene.x/3, sizeScene.y*0.6)
-#	sizeCard = Vector2((sizeScene.x - 2*((sizeScene.x*0.25)/6))/3, sizeScene.y*0.6)
-#	var yRest = - find_node("speak").rect_size.y - find_node("Validate").rect_size.y - sizeCard.y + sizeScene.y
-	#find_node("marginCardGrid").add_constant_override("margin_left", (sizeScene.x*0.25)/6)
-	#find_node("marginCardGrid").add_constant_override("margin_top", yRest/2 + find_node("speak").rect_size.y)
+
 	next_screen()
 	
 func next_screen():
@@ -66,11 +70,15 @@ func next_screen():
 
 #tell the word to find when the button is pressed
 func _on_speak_pressed():
-	match OS.get_name():
-		"X11":
-			Global.textToSpeech.speak(cardToFind.word, false)
-		"Android":
-			Global.textToSpeech.speakText(cardToFind.word)
+	if difficulty == "[..] Phonetique":
+		$Sound.stream = load(str(Global.PHONETIC_VIDEO_PATH+cardToFind.word+Global.PHONETIC_VIDEO_EXTENSION))
+		$Sound.play()
+	else:
+		match OS.get_name():
+			"X11":
+				Global.textToSpeech.speak(cardToFind.word, false)
+			"Android":
+				Global.textToSpeech.speakText(cardToFind.word)
 
 #is called when a card is pressed
 func _on_Validate_pressed(card):
@@ -79,8 +87,8 @@ func _on_Validate_pressed(card):
 		find_node("Good").playing = true
 	else : 
 		find_node("Wrong").playing = true
-	for i in range(0, cardGrid.get_child_count()):
-		cardGrid.get_child(i).queue_free()
+	for i in range(0, $cardGrid.get_child_count()):
+		$cardGrid.get_child(i).queue_free()
 	next_screen()
 
 #return n word from the fiven list
@@ -114,3 +122,15 @@ func game_end():
 	args.append(score)
 	args.append(12)
 	Global.change_scene("res://shared/game_end/game_end.tscn", args)
+
+func get_phonetic_list() -> Array:
+	var dictionary = Global.phoneticTableResource.duplicate(true)
+	var listOfSound : Array = []
+	for sound in dictionary.keys():
+		if dictionary[sound] != "":
+			var w = Word.new()
+			w.word = dictionary[sound]
+			w.phonetic = sound
+			w.iconPath = str("res://art/borel_maisony/icon/"+w.word+".png")
+			listOfSound.append(w)
+	return listOfSound

@@ -11,7 +11,7 @@ const GOOSE_GAME_DIFFICULTY := ["Facile", "Normal", "Difficile"]
 const LISTEN_AND_CHOOSE_GAME_NAME := "Ecoute et Choisis"
 const PATH_LISTEN_AND_CHOOSE_GAME := "res://artiphonie/listen_choose/listen_choose.tscn"
 const PATH_LISTEN_AND_CHOOSE_GAME_ICON := "res://assets/icons/ecoute.png"
-const LISTEN_AND_CHOOSE_GAME_DIFFICULTY := ["Facile", "Normal", "Difficile"]
+const LISTEN_AND_CHOOSE_GAME_DIFFICULTY := ["[..] Phonetique", "Facile", "Normal", "Difficile"]
 # ===== ===== =====
 
 # ===== MEMORY =====

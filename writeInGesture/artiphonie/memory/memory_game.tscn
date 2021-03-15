@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/fonts/RAVIE.TTF" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/background.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=4]
 [ext_resource path="res://artiphonie/memory/memory_game.gd" type="Script" id=5]
 [ext_resource path="res://assets/theme/backgroundPanel.tres" type="StyleBox" id=6]
+[ext_resource path="res://shared/instruction/instruction.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 54
@@ -107,4 +108,6 @@ __meta__ = {
 }
 
 [node name="back_button" parent="." instance=ExtResource( 3 )]
+
+[node name="Instruction" parent="." instance=ExtResource( 7 )]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -16,6 +16,10 @@ var attemptPerWord: Array = []
 var difficulty: String
 
 func _ready():
+	#deal with the instruction
+	var instruction = $Instruction
+	instruction.setUp("gooseGame")
+	
 	var arguments = Global.get_arguments()
 	difficulty = arguments[0]
 	setup()

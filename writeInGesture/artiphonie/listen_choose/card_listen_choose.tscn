@@ -24,11 +24,66 @@ stream = ExtResource( 3 )
 stream = ExtResource( 4 )
 
 [node name="CardButton" type="Button" parent="."]
-anchor_left = 0.03
+anchor_left = 0.05
 anchor_top = 0.05
-anchor_right = 0.97
+anchor_right = 0.95
 anchor_bottom = 0.95
 theme = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="layout_0" type="Control" parent="CardButton"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.33484
+margin_right = 1.33484
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="word" type="Label" parent="CardButton/layout_0"]
+visible = false
+anchor_top = 0.04
+anchor_right = 1.0
+anchor_bottom = 0.05
+margin_top = -1.90735e-06
+margin_bottom = 34.52
+mouse_filter = 1
+text = "Clown"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="picture" type="TextureRect" parent="CardButton/layout_0"]
+anchor_left = 0.05
+anchor_top = 0.1
+anchor_right = 0.95
+anchor_bottom = 0.9
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VideoPlayer" type="VideoPlayer" parent="CardButton/layout_0"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="borel_maisonny_container" type="HBoxContainer" parent="CardButton/layout_0"]
+visible = false
+anchor_left = 0.02
+anchor_top = 0.55
+anchor_right = 0.98
+anchor_bottom = 0.97
+margin_left = 1.90735e-06
+grow_horizontal = 2
+alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -70,9 +125,9 @@ __meta__ = {
 }
 
 [node name="borel_maisonny_container" type="HBoxContainer" parent="CardButton/layout_1"]
-anchor_left = 0.01
+anchor_left = 0.02
 anchor_top = 0.55
-anchor_right = 0.99
+anchor_right = 0.98
 anchor_bottom = 0.97
 grow_horizontal = 2
 alignment = 1
@@ -163,9 +218,9 @@ __meta__ = {
 }
 
 [node name="borel_maisonny_container" type="HBoxContainer" parent="CardButton/layout_3"]
-anchor_left = 0.01
+anchor_left = 0.02
 anchor_top = 0.191
-anchor_right = 0.99
+anchor_right = 0.98
 anchor_bottom = 0.97
 grow_horizontal = 2
 rect_min_size = Vector2( 1105, 272 )

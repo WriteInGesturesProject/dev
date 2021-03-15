@@ -41,7 +41,7 @@ func _process(delta):
 
 func launch() -> void:
 	#TODO: Make a main menu for all apps and make a first launch scene
-	Global.change_scene("res://artiphonie/artiphonie.tscn")
+	Global.change_scene("res://shared/main_menu/main_menu.tscn")
 
 func _on_quit_timer_timeout() -> void:
 	get_tree().quit()

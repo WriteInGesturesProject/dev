@@ -15,7 +15,15 @@ onready var timer = $Timer
 var time = 0
 
 func _ready():
-	initTimer()
+	#deal with the instruction
+	var instruction = $Instruction
+	#if the instruction was played setYp return true
+	if(instruction.setUp("memory")):
+		#we wait for the player to press "passed" to init the timer
+		instruction.connect("on_Pass_Pressed", self, "initTimer")
+	else:
+		#the instruction wasn't played, then the timer is init right away
+		initTimer()
 
 	#setUp the list of card for this party
 	listOfWords = Global.get_n_word_from_active_list(nbWord)

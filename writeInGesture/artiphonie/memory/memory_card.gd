@@ -19,8 +19,6 @@ func init_card(word, size):
 	imageWord = word.get_word()
 
 
-
-
 ##Scale the image to the proper size
 func scale_img(realSize, size) :
 	if(size.y > size.x) :

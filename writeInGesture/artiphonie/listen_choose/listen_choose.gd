@@ -18,7 +18,10 @@ var difficulty : String
 var cardLayout : int
 
 func _ready():
-
+	#deal with the instruction
+	var instruction = $Instruction
+	instruction.setUp("listen_choose")
+	
 	var arguments = Global.get_arguments()
 	difficulty = arguments[0]
 

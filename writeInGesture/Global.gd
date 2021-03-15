@@ -2,7 +2,7 @@ extends Node
 
 # ===== Globals variable specific for main menu =====
 #contain the name of the different sub app
-var apps : Array = ["artiphonie","artiphonie","artiphonie","artiphonie","artiphonie"]
+var apps : Array = ["artiphonie"]
 # ===== ===== =====
 
 # ===== Globals specific to an application =====

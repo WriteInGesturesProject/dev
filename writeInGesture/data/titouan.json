@@ -3,6 +3,7 @@
 	"stars": 10,
 	"ethnicity": 0,
 	"gender": 0,
+	"instruction":true,
 	"playerPath": "res://data/titouan.json",
 	"equipedItems": [
 

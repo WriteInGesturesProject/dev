@@ -12,12 +12,9 @@ func init_card(word, size):
 	if(word == null):
 		return
 	$backCardImage.set_normal_texture(load(cardBackPath))
-	$backCardImage.set_expand(true)
-	$backCardImage.set_stretch_mode(TextureButton.STRETCH_SCALE)
 	self.scale_img($backCardImage.texture_normal.get_size(), size)
 	imagePath = word.get_icon_path()
 	imageWord = word.get_word()
-
 
 ##Scale the image to the proper size
 func scale_img(realSize, size) :
@@ -45,7 +42,7 @@ func scale_img(realSize, size) :
 			$backCardImage.rect_position.y += (size.y - $backCardImage.rect_min_size.y) / 2
 
 func set_texture(img):
-	return $backCardImage.set_normal_texture(img)
+	$backCardImage.set_normal_texture(img)
 
 #This function is called when a card is pressed by the user
 func _on_backCardImage_pressed():

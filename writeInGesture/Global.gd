@@ -21,36 +21,36 @@ var activeList: Words
 var textToSpeech 
 var speechToText
 
+const PHONETIC_TABLE_PATH := "res://data/phonetic_table.json"
+var phoneticTable: Dictionary
+const PHONETIC_TABLE_RESOURCE_PATH := "res://data/phonetic_table_resource.json"
+var phoneticTableResource: Dictionary
+const PHONETIC_PICTURE_PATH := "res://art/borel_maisony/icon/"
+const PHONETIC_PICTURE_EXTENSION := ".png"
+const PHONETIC_VIDEO_PATH := "res://art/borel_maisony/video/"
+const PHONETIC_VIDEO_EXTENSION := ".ogv"
 
 # ===== Globals variable available to all application =====
 var instructionAlreadyPlayed: Array = []
 # ===== ===== =====
 
 func _ready():
-	load_json(player, "res://data/alice.json")
+	var file = File.new()
+	file.open(PHONETIC_TABLE_PATH, file.READ)
+	phoneticTable = JSON.parse(file.get_as_text()).result
+	file.close()
+	
+	file = File.new()
+	file.open(PHONETIC_TABLE_RESOURCE_PATH, file.READ)
+	phoneticTableResource = JSON.parse(file.get_as_text()).result
+	file.close()
+	
+	var listGeneral:Words = Words.new()
+	load_json(listGeneral, "res://data/liste_general.json")
+	load_json(player, "res://data/titouan.json")
+	player.listOfWords = []
+	player.add_words(listGeneral)
 	activeList = player.listOfWords[0]
-#	var alice = Player.new()
-#	alice.playerName = "Alice"
-#	alice.playerPath = "res://data/alice.json"
-#	var tmpList: Words
-#	tmpList = Words.new()
-#	tmpList.words = get_n_word_from_active_list(16)
-#	tmpList.listName = "Nouveaux mots"
-#	tmpList.listIconPath = "res://art/images/ananas.png"
-#	alice.add_words(tmpList)
-#
-#	tmpList = Words.new()
-#	tmpList.words = get_n_word_from_active_list(16)
-#	tmpList.listName = "Mots pour l'école"
-#	tmpList.listIconPath = "res://art/images/crayon.png"
-#	alice.add_words(tmpList)
-#
-#	tmpList = Words.new()
-#	tmpList.words = get_n_word_from_active_list(16)
-#	tmpList.listName = "Mots pour la prochaine séance"
-#	alice.add_words(tmpList)
-#
-#	save_json(alice, alice.playerPath)
 
 # ===== JSON =====
 
@@ -107,144 +107,55 @@ func get_n_word_from_active_list(n: int, repeat: bool = false) -> Array:
 		result.append(activeList.words[randomPosition])
 	return result
 
-# ============================================================================
+# ===== Phonetic =====
 
-#TODO: Merge check_words and check_homonyms
-#func check_words(sentence, myword) -> bool:
-#	var sentenceWords = sentence.split(" ")
-#	if(sentenceWords == null || len(sentenceWords) == 0):
-#		return false
-#	for w in sentenceWords:
-#		if(check_homonyms(w.to_lower(), myword)):
-#			return true
-#	return false
-#func check_homonyms(w, myword):
-#	var word = wordDictionnary.get_word(myword.get_phonetic())
-#	if(word == null):
-#		return false
-#	var h = word.getHomonym()
-#	for i in range(0, len(h)):
-#		if(w == h[i].to_lower()):
-#			return true
-#	return false
-#==========================================
+func convert_phonetic(phonetic: String) -> String:
+	var result := ""
+	for p in phonetic:
+		result += phoneticTable[p]
+	return result
 
-#func loadConfig():
-#	ManageJson.getElement("config.json", "Config", config)
-#	config.setAttribut("nameFile", "config.json")
+func phonetic_to_array_picture_path(phonetic: String) -> Array:
+	var result: Array = []
+	for i in range(len(phonetic)):
+		if phonetic[i] == "w":
+			if i + 1 >= len(phonetic):
+				break
+			elif phonetic[i + 1] == "a":
+				result.append(PHONETIC_PICTURE_PATH + "wa" + PHONETIC_PICTURE_EXTENSION)
+				i += 1
+			elif phonetic[i + 1] == "5":
+				result.append(PHONETIC_PICTURE_PATH + "w5" + PHONETIC_PICTURE_EXTENSION)
+				i += 1
+		else:
+			if phoneticTableResource[phonetic[i]] != "":
+				result.append(PHONETIC_PICTURE_PATH + phoneticTableResource[phonetic[i]] + PHONETIC_PICTURE_EXTENSION)
+	return result
 
-#func loadEntity():
-#	#We need to remplace file by lastest version
-#
-#	ManageJson.getElement(config.getPathExercisesFiles()[0], "Exercise", customExercise)
-#	customExercise.setAttribut("nameFile", config.getPathExercisesFiles()[0])
-#
-#	ManageJson.getElement(config.getPathExercisesFiles()[1], "Exercise", gooseExercise)
-#	gooseExercise.setAttribut("nameFile", config.getPathExercisesFiles()[1])
-#
-#	ManageJson.getElement(config.getPathExercisesFiles()[2], "Exercise", listenExercise)
-#	listenExercise.setAttribut("nameFile", config.getPathExercisesFiles()[2])
-#
-#	ManageJson.getElement(config.getPathExercisesFiles()[3], "Exercise", memoryExercise)
-#	memoryExercise.setAttribut("nameFile", config.getPathExercisesFiles()[3])
-#
-#	ManageJson.getElement("wordsAvailable.json", "WordsAvailable", wordsAvailable)
-#	wordsAvailable.setAttribut("nameFile", "wordsAvailable.json")
-#
-#	ManageJson.getElement("dictionnary.json", "Dictionnary", wordDictionnary)
-#	wordDictionnary.setAttribut("nameFile", "dictionnary.json")
-#
-#	ManageJson.getElement("colors.json", "Exercise", colorExercise)
-#	colorExercise.setAttribut("nameFile", "colors.json")
-#
-#	ManageJson.getElement("week.json", "Exercise", weekExercise)
-#	weekExercise.setAttribut("nameFile", "week.json")
-#
-#	ManageJson.getElement("number.json", "Exercise", countExercise)
-#	countExercise.setAttribut("nameFile", "number.json")
-#
-#	var text = ManageJson.checkFileExistUserPath("phonetic.json")
-#	if text == "": 
-#		return 0
-#	var tmp = JSON.parse(text)
-#	phoneticDictionnary = tmp.result
-#
-#	ManageJson.getElement("player.json", "User", player)
-#	player.setAttribut("nameFile", "player.json")
-	
+func phonetic_to_array_video_path(phonetic: String) -> Array:
+	var result: Array = []
+	for i in range(len(phonetic)):
+		if phonetic[i] == "w":
+			if i + 1 >= len(phonetic):
+				break
+			elif phonetic[i + 1] == "a":
+				result.append(PHONETIC_VIDEO_PATH + "wa" + PHONETIC_VIDEO_EXTENSION)
+				i += 1
+			elif phonetic[i + 1] == "5":
+				result.append(PHONETIC_VIDEO_PATH + "w5" + PHONETIC_VIDEO_EXTENSION)
+				i += 1
+		else:
+			if phoneticTableResource[phonetic[i]] != "":
+				result.append(PHONETIC_VIDEO_PATH + phoneticTableResource[phonetic[i]] + PHONETIC_VIDEO_EXTENSION)
+	return result
 
-#This function create an HboxContainer with the image path in array. the size of the hbox is legthX et lenghtY
-#func putBorelInHboxContainer(array : Array, lenghtX, lenghtY) :
-#	var size = array.size()
-#	var hbox = HBoxContainer.new()
-#	hbox.rect_min_size = Vector2(lenghtX, lenghtY)
-#	hbox.rect_size = Vector2(lenghtX, lenghtY)
-#	hbox.alignment = HBoxContainer.ALIGN_CENTER
-#	hbox.add_constant_override("separation", -1)
-#	for picturePath in array :
-#		var imgBorel = TextureRect.new()
-#		var control = Control.new()
-#		control.add_child(imgBorel)
-#		hbox.add_child(control)
-#
-#		var image = load("res://art/imgBorel/"+picturePath)
-#		imgBorel.texture = image
-#		imgBorel.expand = true
-#		imgBorel.stretch_mode = TextureRect.STRETCH_SCALE_ON_EXPAND
-#
-#		if(size == 1) :
-#			imgBorel.rect_size = Vector2(min(lenghtY, lenghtX/size), min(lenghtY, lenghtX/size)) 
-#		else :
-#			imgBorel.rect_size = Vector2(min(lenghtY, lenghtX/size), min(lenghtY, lenghtX/size)) 
-#		if(image.get_size().x == 3000):
-#			imgBorel.rect_size.y = imgBorel.rect_size.y/1.5
-#			imgBorel.rect_position.y = control.rect_size.y/2+imgBorel.rect_size.y/4
-#		imgBorel.get_parent().size_flags_horizontal = Control.SIZE_EXPAND
-#		#Put the size of the controller parent
-#		imgBorel.get_parent().rect_size = Vector2(lenghtX/size, lenghtX/size)
-#		#put in center of the controller parent 
-#		imgBorel.rect_position.x = control.rect_size.x/2-imgBorel.rect_size.x/2
-#
-#	return hbox
-	
-#Create an array of picturePath from a phonetic 
-#func phoneticToArrayPicturePath(phonetic : String) :
-#	var arrayPicture = []
-#	var compt = 0
-#	var img = ""
-#	while (compt < len(phonetic)):
-#			if(compt+1 < len(phonetic) && phonetic[compt].to_ascii()[0] == 91 && phonetic[compt+1].to_ascii()[0] == 3):
-#				img = "in.png"
-#				compt += 1
-#			elif(compt + 1 < len(phonetic) && phonetic[compt].to_ascii()[0] == 84 && phonetic[compt + 1].to_ascii()[0] == 3):
-#				img = "on.png"
-#				compt += 1
-#			elif(phonetic[compt].to_ascii()[0] == 226):
-#				img = "an.png"
-#			else :
-#				var find = false
-#				for b in Global.phoneticDictionnary:
-#					for w in Global.phoneticDictionnary[b]:
-#						if(phonetic[compt] == w["phonetic"][1]):
-#							img = w["ressource_path"]
-#							find = true
-#							break
-#					if(find):
-#						break
-#			arrayPicture.append(img)
-#			compt += 1
-#	return arrayPicture
+# ===== ===== =====
 
-func find_texture(path : String):
-	var tex = load("res://art/images/" + path)
-	if(tex == null):
-		var image = Image.new()
-		var err = image.load("user://art/" + path)
-		if(err) :
-			image.load("user://custom/"+path)
-		tex = ImageTexture.new()
-		tex.create_from_image(image)
-	return tex
+func load_icon(path: String) -> Resource:
+	var fileExists = Directory.new().file_exists(path)
+	if fileExists:
+		return load(path)
+	else:
+		return null
 
-	
-
+# ===== ===== =====

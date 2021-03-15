@@ -9,9 +9,6 @@ var currentLayout : Control
 
 signal card_pressed(card)
 
-func _ready():
-	pass
-
 func setUpCard(_word : Word, difficulty : int, size : Vector2) -> void:
 	#display the right layout depending on the difficulty 
 	currentLayout = find_node("layout_" + String(difficulty))
@@ -19,8 +16,8 @@ func setUpCard(_word : Word, difficulty : int, size : Vector2) -> void:
 	#set the paramter of the card
 	word = _word
 	currentLayout.find_node("word").text = _word.word
-	currentLayout.find_node("picture").texture = Global.artiphonie.get_word_icon(word.iconPath)
-	currentLayout.find_node("borel_maisonny_container").rect_min_size.x = size.x*0.75
+	currentLayout.find_node("picture").texture = Global.load_icon(word.iconPath)
+	currentLayout.find_node("borel_maisonny_container").rect_min_size.x = size.x*0.85
 	currentLayout.find_node("borel_maisonny_container").rect_min_size.y = size.y/3
 	#set the card min size
 	self.rect_min_size = size
@@ -34,7 +31,7 @@ func _on_CardButton_pressed():
 #This function extract all the borel maisonny sign picture out of all the
 #phonetic symbol of our function
 func extract_borel_maisonny() -> void:
-	for imgPath in Global.artiphonie.phonetic_to_array_picture_path(word.phonetic):
+	for imgPath in Global.phonetic_to_array_picture_path(word.phonetic):
 		add_borel_maisonny(currentLayout.find_node("borel_maisonny_container"), imgPath)
 
 #This function add a picture of a phonetic symbole in borel maisonny sign to

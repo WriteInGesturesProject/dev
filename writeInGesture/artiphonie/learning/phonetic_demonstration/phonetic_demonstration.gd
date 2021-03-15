@@ -1,21 +1,16 @@
 extends Control
 
-func _ready():
-#	setup("a",
-#	Global.artiphonie.get_phonetic_picture("a"),
-#	Global.artiphonie.get_phonetic_video("a"))
-	pass
-
-func setup(phonetic: String, picture: Resource, video: Resource) -> void:
-	$background/title.text = "[" + phonetic + "]"
-	$background/picture.texture = picture
-	$background/video_frame/video.stream = video
+func setup(phonetic: String, picturePath: String, videoPath: String) -> void:
+	$background/title.text = "[" + Global.convert_phonetic(phonetic) + "]"
+	$background/picture.texture = load(picturePath)
+	$background/video_frame/video.stream = load(videoPath)
 	$background/video_frame/video.play()
 	scale_center_video()
 
 func scale_center_video() -> void:
 	var videoTexture: Texture = $background/video_frame/video.get_video_texture()
 	var videoSize = Vector2(videoTexture.get_width(), videoTexture.get_height())
+	print(videoSize)
 	$background/video_frame/video.rect_size = videoSize
 	var scale := 1.0
 	if max(videoSize.x, videoSize.y) == videoSize.x:

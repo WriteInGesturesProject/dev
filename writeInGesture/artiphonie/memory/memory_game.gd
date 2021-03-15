@@ -15,6 +15,15 @@ onready var timer = $Timer
 var time = 0
 
 func _ready():
+
+	match Global.get_arguments()[0]:
+		"Facile":
+			nbWord = 4
+		"Normal":
+			nbWord = 8
+		"Difficile":
+			nbWord = 12
+			
 	#deal with the instruction
 	var instruction = $Instruction
 	#if the instruction was played setYp return true
@@ -24,7 +33,7 @@ func _ready():
 	else:
 		#the instruction wasn't played, then the timer is init right away
 		initTimer()
-
+	
 	#setUp the list of card for this party
 	listOfWords = Global.get_n_word_from_active_list(nbWord)
 	var nbCard = nbWord*2
@@ -61,7 +70,7 @@ func _on_card_pressed(card):
 		selected_cards.append(card) # Add the card to the array
 		if(card.textToSpeech != null):
 			card.textToSpeech.speakText(card.imageWord) # Tell the word on the card
-		card.set_texture(Global.find_texture(card.imagePath)) # Reveal the image of the card
+		card.set_texture(Global.load_icon(card.imagePath)) # Reveal the image of the card
 	else:
 		#only one card is selected or the card selected was aleady selected
 		return

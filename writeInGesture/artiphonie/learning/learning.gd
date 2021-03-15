@@ -1,5 +1,7 @@
 extends Control
 
+const PHONETIC_PAGE_PATH := "res://artiphonie/learning/phonetic_page/phonetic_page.tscn"
+
 func _ready():
 	#deal with the instruction
 	var instruction = $Instruction
@@ -10,7 +12,7 @@ func _ready():
 	var phoneticType: Dictionary = JSON.parse(file.get_as_text()).result
 	for phoneticTypeName in phoneticType.keys():
 		$learning.add_learning_element(phoneticTypeName,
-		"res://artiphonie/learning/phonetic_page/phonetic_page.tscn",
+		PHONETIC_PAGE_PATH,
 		phoneticType[phoneticTypeName]["iconPath"],
 		[phoneticTypeName, phoneticType[phoneticTypeName]["phonetics"]])
 	

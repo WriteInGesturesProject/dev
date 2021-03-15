@@ -3,16 +3,6 @@
 	"listIconPath": "",
 	"words": [
 		{
-			"word": "accident",
-			"phonetic": "aksid@",
-			"iconPath": "res://art/word_icon/accident.png"
-		},
-		{
-			"word": "aide",
-			"phonetic": "Ed",
-			"iconPath": "res://art/word_icon/aide.png"
-		},
-		{
 			"word": "air",
 			"phonetic": "ER",
 			"iconPath": "res://art/word_icon/air.png"
@@ -23,39 +13,14 @@
 			"iconPath": "res://art/word_icon/ami.png"
 		},
 		{
-			"word": "amie",
-			"phonetic": "ami",
-			"iconPath": "res://art/word_icon/amie.png"
-		},
-		{
 			"word": "amour",
 			"phonetic": "amuR",
 			"iconPath": "res://art/word_icon/amour.png"
 		},
 		{
-			"word": "année",
-			"phonetic": "ane",
-			"iconPath": "res://art/word_icon/année.png"
-		},
-		{
-			"word": "après",
-			"phonetic": "apRE",
-			"iconPath": "res://art/word_icon/après.png"
-		},
-		{
 			"word": "argent",
 			"phonetic": "aRZ@",
 			"iconPath": "res://art/word_icon/argent.png"
-		},
-		{
-			"word": "arme",
-			"phonetic": "aRm",
-			"iconPath": "res://art/word_icon/arme.png"
-		},
-		{
-			"word": "attention",
-			"phonetic": "at@sj§",
-			"iconPath": "res://art/word_icon/attention.png"
 		},
 		{
 			"word": "aujourd'hui",
@@ -73,19 +38,9 @@
 			"iconPath": "res://art/word_icon/avant.png"
 		},
 		{
-			"word": "avion",
-			"phonetic": "avj§",
-			"iconPath": "res://art/word_icon/avion.png"
-		},
-		{
 			"word": "avoir",
 			"phonetic": "avwaR",
 			"iconPath": "res://art/word_icon/avoir.png"
-		},
-		{
-			"word": "bateau",
-			"phonetic": "bato",
-			"iconPath": "res://art/word_icon/bateau.png"
 		},
 		{
 			"word": "beau",
@@ -103,16 +58,6 @@
 			"iconPath": "res://art/word_icon/bien.png"
 		},
 		{
-			"word": "bizarre",
-			"phonetic": "bizaR",
-			"iconPath": "res://art/word_icon/bizarre.png"
-		},
-		{
-			"word": "bois",
-			"phonetic": "bwa",
-			"iconPath": "res://art/word_icon/bois.png"
-		},
-		{
 			"word": "bon",
 			"phonetic": "b§",
 			"iconPath": "res://art/word_icon/bon.png"
@@ -123,36 +68,6 @@
 			"iconPath": "res://art/word_icon/bonjour.png"
 		},
 		{
-			"word": "bout",
-			"phonetic": "bu",
-			"iconPath": "res://art/word_icon/bout.png"
-		},
-		{
-			"word": "bras",
-			"phonetic": "bRa",
-			"iconPath": "res://art/word_icon/bras.png"
-		},
-		{
-			"word": "bureau",
-			"phonetic": "byRo",
-			"iconPath": "res://art/word_icon/bureau.png"
-		},
-		{
-			"word": "bébé",
-			"phonetic": "bebe",
-			"iconPath": "res://art/word_icon/bébé.png"
-		},
-		{
-			"word": "café",
-			"phonetic": "kafe",
-			"iconPath": "res://art/word_icon/café.png"
-		},
-		{
-			"word": "capitaine",
-			"phonetic": "kapitEn",
-			"iconPath": "res://art/word_icon/capitaine.png"
-		},
-		{
 			"word": "cause",
 			"phonetic": "koz",
 			"iconPath": "res://art/word_icon/cause.png"
@@ -161,31 +76,6 @@
 			"word": "chance",
 			"phonetic": "S@s",
 			"iconPath": "res://art/word_icon/chance.png"
-		},
-		{
-			"word": "chemin",
-			"phonetic": "S°m5",
-			"iconPath": "res://art/word_icon/chemin.png"
-		},
-		{
-			"word": "cher",
-			"phonetic": "SER",
-			"iconPath": "res://art/word_icon/cher.png"
-		},
-		{
-			"word": "cheveux",
-			"phonetic": "S°v2",
-			"iconPath": "res://art/word_icon/cheveu.png"
-		},
-		{
-			"word": "chien",
-			"phonetic": "Sj5",
-			"iconPath": "res://art/word_icon/chien.png"
-		},
-		{
-			"word": "ciel",
-			"phonetic": "sjEl",
-			"iconPath": "res://art/word_icon/ciel.png"
 		},
 		{
 			"word": "combien",
@@ -203,29 +93,9 @@
 			"iconPath": "res://art/word_icon/comment.png"
 		},
 		{
-			"word": "compte",
-			"phonetic": "k§t",
-			"iconPath": "res://art/word_icon/compte.png"
-		},
-		{
-			"word": "content",
-			"phonetic": "k§t@",
-			"iconPath": "res://art/word_icon/content.png"
-		},
-		{
 			"word": "corps",
 			"phonetic": "kOR",
 			"iconPath": "res://art/word_icon/corps.png"
-		},
-		{
-			"word": "cours",
-			"phonetic": "kuR",
-			"iconPath": "res://art/word_icon/cours.png"
-		},
-		{
-			"word": "dehors",
-			"phonetic": "d2OR",
-			"iconPath": "res://art/word_icon/dehors.png"
 		},
 		{
 			"word": "demain",
@@ -233,24 +103,9 @@
 			"iconPath": "res://art/word_icon/demain.png"
 		},
 		{
-			"word": "depuis",
-			"phonetic": "d°p8i",
-			"iconPath": "res://art/word_icon/depuis.png"
-		},
-		{
-			"word": "dernier",
-			"phonetic": "dERnje",
+			"word": "dernière",
+			"phonetic": "dERnjER",
 			"iconPath": "res://art/word_icon/dernier.png"
-		},
-		{
-			"word": "dessus",
-			"phonetic": "d°sy",
-			"iconPath": "res://art/word_icon/dessus.png"
-		},
-		{
-			"word": "difficile",
-			"phonetic": "difisil",
-			"iconPath": "res://art/word_icon/difficile.png"
 		},
 		{
 			"word": "docteur",
@@ -258,74 +113,14 @@
 			"iconPath": "res://art/word_icon/docteur.png"
 		},
 		{
-			"word": "dollars",
-			"phonetic": "dolaR",
-			"iconPath": "res://art/word_icon/dollar.png"
-		},
-		{
-			"word": "dormir",
-			"phonetic": "dORmiR",
-			"iconPath": "res://art/word_icon/dormir.png"
-		},
-		{
-			"word": "dos",
-			"phonetic": "do",
-			"iconPath": "res://art/word_icon/dos.png"
-		},
-		{
-			"word": "doucement",
-			"phonetic": "dus°m@",
-			"iconPath": "res://art/word_icon/doucement.png"
-		},
-		{
-			"word": "drôle",
-			"phonetic": "dRol",
-			"iconPath": "res://art/word_icon/drôle.png"
-		},
-		{
-			"word": "dur",
-			"phonetic": "dyR",
-			"iconPath": "res://art/word_icon/dur.png"
-		},
-		{
-			"word": "début",
-			"phonetic": "deby",
-			"iconPath": "res://art/word_icon/début.png"
-		},
-		{
 			"word": "eau",
 			"phonetic": "o",
 			"iconPath": "res://art/word_icon/eau.png"
 		},
 		{
-			"word": "en",
-			"phonetic": "@",
-			"iconPath": "res://art/word_icon/en.png"
-		},
-		{
-			"word": "endroit",
-			"phonetic": "@dRwa",
-			"iconPath": "res://art/word_icon/endroit.png"
-		},
-		{
 			"word": "enfant",
 			"phonetic": "@f@",
 			"iconPath": "res://art/word_icon/enfant.png"
-		},
-		{
-			"word": "ensuite",
-			"phonetic": "@s8it",
-			"iconPath": "res://art/word_icon/ensuite.png"
-		},
-		{
-			"word": "facile",
-			"phonetic": "fasil",
-			"iconPath": "res://art/word_icon/facile.png"
-		},
-		{
-			"word": "faim",
-			"phonetic": "f5",
-			"iconPath": "res://art/word_icon/faim.png"
 		},
 		{
 			"word": "famille",
@@ -348,11 +143,6 @@
 			"iconPath": "res://art/word_icon/fille.png"
 		},
 		{
-			"word": "film",
-			"phonetic": "film",
-			"iconPath": "res://art/word_icon/film.png"
-		},
-		{
 			"word": "fils",
 			"phonetic": "fis",
 			"iconPath": "res://art/word_icon/fils.png"
@@ -368,41 +158,6 @@
 			"iconPath": "res://art/word_icon/fois.png"
 		},
 		{
-			"word": "fond",
-			"phonetic": "f§",
-			"iconPath": "res://art/word_icon/fond.png"
-		},
-		{
-			"word": "force",
-			"phonetic": "fORs",
-			"iconPath": "res://art/word_icon/force.png"
-		},
-		{
-			"word": "fort",
-			"phonetic": "fOR",
-			"iconPath": "res://art/word_icon/fort.png"
-		},
-		{
-			"word": "fou",
-			"phonetic": "fu",
-			"iconPath": "res://art/word_icon/fou.png"
-		},
-		{
-			"word": "frère",
-			"phonetic": "fRER",
-			"iconPath": "res://art/word_icon/frère.png"
-		},
-		{
-			"word": "fête",
-			"phonetic": "fEt",
-			"iconPath": "res://art/word_icon/fête.png"
-		},
-		{
-			"word": "garçon",
-			"phonetic": "gaRs§",
-			"iconPath": "res://art/word_icon/garçon.png"
-		},
-		{
 			"word": "gens",
 			"phonetic": "Z@",
 			"iconPath": "res://art/word_icon/gens.png"
@@ -413,29 +168,14 @@
 			"iconPath": "res://art/word_icon/grand.png"
 		},
 		{
-			"word": "gros",
-			"phonetic": "gRo",
-			"iconPath": "res://art/word_icon/gros.png"
-		},
-		{
 			"word": "guerre",
 			"phonetic": "gER",
 			"iconPath": "res://art/word_icon/guerre.png"
 		},
 		{
-			"word": "génial",
-			"phonetic": "Zenjal",
-			"iconPath": "res://art/word_icon/génial.png"
-		},
-		{
 			"word": "heure",
 			"phonetic": "9R",
 			"iconPath": "res://art/word_icon/heure.png"
-		},
-		{
-			"word": "heureux",
-			"phonetic": "2R2",
-			"iconPath": "res://art/word_icon/heureux.png"
 		},
 		{
 			"word": "hier",
@@ -453,39 +193,9 @@
 			"iconPath": "res://art/word_icon/homme.png"
 		},
 		{
-			"word": "honneur",
-			"phonetic": "on9R",
-			"iconPath": "res://art/word_icon/honneur.png"
-		},
-		{
-			"word": "honte",
-			"phonetic": "§t",
-			"iconPath": "res://art/word_icon/honte.png"
-		},
-		{
-			"word": "hôpital",
-			"phonetic": "opital",
-			"iconPath": "res://art/word_icon/hôpital.png"
-		},
-		{
-			"word": "hôtel",
-			"phonetic": "otEl",
-			"iconPath": "res://art/word_icon/hôtel.png"
-		},
-		{
 			"word": "ici",
 			"phonetic": "isi",
 			"iconPath": "res://art/word_icon/ici.png"
-		},
-		{
-			"word": "important",
-			"phonetic": "5pORt@",
-			"iconPath": "res://art/word_icon/important.png"
-		},
-		{
-			"word": "instant",
-			"phonetic": "5st@",
-			"iconPath": "res://art/word_icon/instant.png"
 		},
 		{
 			"word": "jamais",
@@ -493,19 +203,9 @@
 			"iconPath": "res://art/word_icon/jamais.png"
 		},
 		{
-			"word": "jeu",
-			"phonetic": "Z2",
-			"iconPath": "res://art/word_icon/jeu.png"
-		},
-		{
 			"word": "jeune",
 			"phonetic": "Z9n",
 			"iconPath": "res://art/word_icon/jeune.png"
-		},
-		{
-			"word": "jolie",
-			"phonetic": "Zoli",
-			"iconPath": "res://art/word_icon/joli.png"
 		},
 		{
 			"word": "jour",
@@ -513,44 +213,14 @@
 			"iconPath": "res://art/word_icon/jour.png"
 		},
 		{
-			"word": "lettre",
-			"phonetic": "lEtR",
-			"iconPath": "res://art/word_icon/lettre.png"
-		},
-		{
-			"word": "libre",
-			"phonetic": "libR",
-			"iconPath": "res://art/word_icon/libre.png"
-		},
-		{
-			"word": "lit",
-			"phonetic": "li",
-			"iconPath": "res://art/word_icon/lit.png"
-		},
-		{
-			"word": "livre",
-			"phonetic": "livR",
-			"iconPath": "res://art/word_icon/livre.png"
-		},
-		{
 			"word": "loin",
 			"phonetic": "lw5",
 			"iconPath": "res://art/word_icon/loin.png"
 		},
 		{
-			"word": "lumière",
-			"phonetic": "lymjER",
-			"iconPath": "res://art/word_icon/lumière.png"
-		},
-		{
 			"word": "là",
 			"phonetic": "la",
-			"iconPath": "res://art/word_icon/là.png"
-		},
-		{
-			"word": "là-bas",
-			"phonetic": "laba",
-			"iconPath": "res://art/word_icon/là-bas.png"
+			"iconPath": "res://art/word_icon/la.png"
 		},
 		{
 			"word": "madame",
@@ -578,11 +248,6 @@
 			"iconPath": "res://art/word_icon/mal.png"
 		},
 		{
-			"word": "malade",
-			"phonetic": "malad",
-			"iconPath": "res://art/word_icon/malade.png"
-		},
-		{
 			"word": "maman",
 			"phonetic": "mam@",
 			"iconPath": "res://art/word_icon/maman.png"
@@ -593,39 +258,14 @@
 			"iconPath": "res://art/word_icon/mari.png"
 		},
 		{
-			"word": "mariage",
-			"phonetic": "maRjaZ",
-			"iconPath": "res://art/word_icon/mariage.png"
-		},
-		{
 			"word": "matin",
 			"phonetic": "mat5",
 			"iconPath": "res://art/word_icon/matin.png"
 		},
 		{
-			"word": "mauvais",
-			"phonetic": "movE",
-			"iconPath": "res://art/word_icon/mauvais.png"
-		},
-		{
-			"word": "maître",
-			"phonetic": "mEtR",
-			"iconPath": "res://art/word_icon/maître.png"
-		},
-		{
 			"word": "merci",
 			"phonetic": "mERsi",
 			"iconPath": "res://art/word_icon/merci.png"
-		},
-		{
-			"word": "messieurs",
-			"phonetic": "mesj2",
-			"iconPath": "res://art/word_icon/monsieur.png"
-		},
-		{
-			"word": "minute",
-			"phonetic": "minyt",
-			"iconPath": "res://art/word_icon/minute.png"
 		},
 		{
 			"word": "moins",
@@ -648,34 +288,14 @@
 			"iconPath": "res://art/word_icon/monde.png"
 		},
 		{
+			"word": "monsieur",
+			"phonetic": "m°sj2",
+			"iconPath": "res://art/word_icon/monsieur.png"
+		},
+		{
 			"word": "mort",
 			"phonetic": "mOR",
 			"iconPath": "res://art/word_icon/mort.png"
-		},
-		{
-			"word": "mot",
-			"phonetic": "mo",
-			"iconPath": "res://art/word_icon/mot.png"
-		},
-		{
-			"word": "musique",
-			"phonetic": "myzik",
-			"iconPath": "res://art/word_icon/musique.png"
-		},
-		{
-			"word": "mère",
-			"phonetic": "mER",
-			"iconPath": "res://art/word_icon/mère.png"
-		},
-		{
-			"word": "médecin",
-			"phonetic": "mEds5",
-			"iconPath": "res://art/word_icon/médecin.png"
-		},
-		{
-			"word": "même",
-			"phonetic": "mEm",
-			"iconPath": "res://art/word_icon/même.png"
 		},
 		{
 			"word": "non",
@@ -683,24 +303,9 @@
 			"iconPath": "res://art/word_icon/non.png"
 		},
 		{
-			"word": "nouveau",
-			"phonetic": "nuvo",
-			"iconPath": "res://art/word_icon/nouveau.png"
-		},
-		{
-			"word": "nouvelle",
-			"phonetic": "nuvEl",
-			"iconPath": "res://art/word_icon/nouvelle.png"
-		},
-		{
 			"word": "nuit",
 			"phonetic": "n8i",
 			"iconPath": "res://art/word_icon/nuit.png"
-		},
-		{
-			"word": "numéro",
-			"phonetic": "nymeRo",
-			"iconPath": "res://art/word_icon/numéro.png"
 		},
 		{
 			"word": "ok",
@@ -708,39 +313,14 @@
 			"iconPath": "res://art/word_icon/ok.png"
 		},
 		{
-			"word": "oncle",
-			"phonetic": "§kl",
-			"iconPath": "res://art/word_icon/oncle.png"
-		},
-		{
-			"word": "or",
-			"phonetic": "OR",
-			"iconPath": "res://art/word_icon/or.png"
-		},
-		{
 			"word": "oui",
 			"phonetic": "wi",
 			"iconPath": "res://art/word_icon/oui.png"
 		},
 		{
-			"word": "paix",
-			"phonetic": "pE",
-			"iconPath": "res://art/word_icon/paix.png"
-		},
-		{
 			"word": "papa",
 			"phonetic": "papa",
 			"iconPath": "res://art/word_icon/papa.png"
-		},
-		{
-			"word": "parfois",
-			"phonetic": "paRfwa",
-			"iconPath": "res://art/word_icon/parfois.png"
-		},
-		{
-			"word": "partie",
-			"phonetic": "paRti",
-			"iconPath": "res://art/word_icon/partie.png"
 		},
 		{
 			"word": "partir",
@@ -753,29 +333,9 @@
 			"iconPath": "res://art/word_icon/pas.png"
 		},
 		{
-			"word": "passé",
-			"phonetic": "pase",
-			"iconPath": "res://art/word_icon/passé.png"
-		},
-		{
-			"word": "pauvre",
-			"phonetic": "povR",
-			"iconPath": "res://art/word_icon/pauvre.png"
-		},
-		{
 			"word": "pays",
 			"phonetic": "pei",
 			"iconPath": "res://art/word_icon/pays.png"
-		},
-		{
-			"word": "perdre",
-			"phonetic": "pERdR",
-			"iconPath": "res://art/word_icon/perdre.png"
-		},
-		{
-			"word": "personne",
-			"phonetic": "pERsOn",
-			"iconPath": "res://art/word_icon/personne.png"
 		},
 		{
 			"word": "petit",
@@ -793,39 +353,14 @@
 			"iconPath": "res://art/word_icon/peur.png"
 		},
 		{
-			"word": "photo",
-			"phonetic": "foto",
-			"iconPath": "res://art/word_icon/photo.png"
-		},
-		{
-			"word": "pièce",
-			"phonetic": "pjEs",
-			"iconPath": "res://art/word_icon/pièce.png"
-		},
-		{
 			"word": "place",
 			"phonetic": "plas",
 			"iconPath": "res://art/word_icon/place.png"
 		},
 		{
-			"word": "plan",
-			"phonetic": "pl@",
-			"iconPath": "res://art/word_icon/plan.png"
-		},
-		{
-			"word": "plein",
-			"phonetic": "pl5",
-			"iconPath": "res://art/word_icon/plein.png"
-		},
-		{
 			"word": "plus",
 			"phonetic": "ply",
 			"iconPath": "res://art/word_icon/plus.png"
-		},
-		{
-			"word": "point",
-			"phonetic": "pw5",
-			"iconPath": "res://art/word_icon/point.png"
 		},
 		{
 			"word": "police",
@@ -843,51 +378,6 @@
 			"iconPath": "res://art/word_icon/pourquoi.png"
 		},
 		{
-			"word": "pouvoir",
-			"phonetic": "puvwaR",
-			"iconPath": "res://art/word_icon/pouvoir.png"
-		},
-		{
-			"word": "premier",
-			"phonetic": "pR2mje",
-			"iconPath": "res://art/word_icon/premier.png"
-		},
-		{
-			"word": "prison",
-			"phonetic": "pRiz§",
-			"iconPath": "res://art/word_icon/prison.png"
-		},
-		{
-			"word": "prix",
-			"phonetic": "pRi",
-			"iconPath": "res://art/word_icon/prix.png"
-		},
-		{
-			"word": "problème",
-			"phonetic": "pRoblEm",
-			"iconPath": "res://art/word_icon/problème.png"
-		},
-		{
-			"word": "propre",
-			"phonetic": "pROpR",
-			"iconPath": "res://art/word_icon/propre.png"
-		},
-		{
-			"word": "président",
-			"phonetic": "pRezid@",
-			"iconPath": "res://art/word_icon/président.png"
-		},
-		{
-			"word": "prêt",
-			"phonetic": "pRE",
-			"iconPath": "res://art/word_icon/prêt.png"
-		},
-		{
-			"word": "père",
-			"phonetic": "pER",
-			"iconPath": "res://art/word_icon/père.png"
-		},
-		{
 			"word": "question",
 			"phonetic": "kEstj§",
 			"iconPath": "res://art/word_icon/question.png"
@@ -896,41 +386,6 @@
 			"word": "raison",
 			"phonetic": "REz§",
 			"iconPath": "res://art/word_icon/raison.png"
-		},
-		{
-			"word": "rentrer",
-			"phonetic": "R@tRe",
-			"iconPath": "res://art/word_icon/rentrer.png"
-		},
-		{
-			"word": "revenir",
-			"phonetic": "R°v°niR",
-			"iconPath": "res://art/word_icon/revenir.png"
-		},
-		{
-			"word": "roi",
-			"phonetic": "Rwa",
-			"iconPath": "res://art/word_icon/roi.png"
-		},
-		{
-			"word": "route",
-			"phonetic": "Rut",
-			"iconPath": "res://art/word_icon/route.png"
-		},
-		{
-			"word": "rue",
-			"phonetic": "Ry",
-			"iconPath": "res://art/word_icon/rue.png"
-		},
-		{
-			"word": "sac",
-			"phonetic": "sak",
-			"iconPath": "res://art/word_icon/sac.png"
-		},
-		{
-			"word": "sale",
-			"phonetic": "sal",
-			"iconPath": "res://art/word_icon/sale.png"
 		},
 		{
 			"word": "salut",
@@ -948,39 +403,9 @@
 			"iconPath": "res://art/word_icon/savoir.png"
 		},
 		{
-			"word": "semaine",
-			"phonetic": "s°mEn",
-			"iconPath": "res://art/word_icon/semaine.png"
-		},
-		{
-			"word": "sens",
-			"phonetic": "s@s",
-			"iconPath": "res://art/word_icon/sens.png"
-		},
-		{
-			"word": "service",
-			"phonetic": "sERvis",
-			"iconPath": "res://art/word_icon/service.png"
-		},
-		{
 			"word": "seul",
 			"phonetic": "s9l",
 			"iconPath": "res://art/word_icon/seul.png"
-		},
-		{
-			"word": "silence",
-			"phonetic": "sil@s",
-			"iconPath": "res://art/word_icon/silence.png"
-		},
-		{
-			"word": "simple",
-			"phonetic": "s5pl",
-			"iconPath": "res://art/word_icon/simple.png"
-		},
-		{
-			"word": "soleil",
-			"phonetic": "solEj",
-			"iconPath": "res://art/word_icon/soleil.png"
 		},
 		{
 			"word": "sortir",
@@ -988,29 +413,14 @@
 			"iconPath": "res://art/word_icon/sortir.png"
 		},
 		{
-			"word": "souvent",
-			"phonetic": "suv@",
-			"iconPath": "res://art/word_icon/souvent.png"
-		},
-		{
 			"word": "suite",
 			"phonetic": "s8it",
 			"iconPath": "res://art/word_icon/suite.png"
 		},
 		{
-			"word": "super",
-			"phonetic": "sypER",
-			"iconPath": "res://art/word_icon/super.png"
-		},
-		{
-			"word": "sécurité",
-			"phonetic": "sekyRite",
-			"iconPath": "res://art/word_icon/sécurité.png"
-		},
-		{
-			"word": "table",
-			"phonetic": "tabl",
-			"iconPath": "res://art/word_icon/table.png"
+			"word": "sûr",
+			"phonetic": "syR",
+			"iconPath": "res://art/word_icon/sur.png"
 		},
 		{
 			"word": "tant",
@@ -1028,19 +438,9 @@
 			"iconPath": "res://art/word_icon/terre.png"
 		},
 		{
-			"word": "tomber",
-			"phonetic": "t§be",
-			"iconPath": "res://art/word_icon/tomber.png"
-		},
-		{
 			"word": "toujours",
 			"phonetic": "tuZuR",
 			"iconPath": "res://art/word_icon/toujours.png"
-		},
-		{
-			"word": "tour",
-			"phonetic": "tuR",
-			"iconPath": "res://art/word_icon/tour.png"
 		},
 		{
 			"word": "tous",
@@ -1058,34 +458,9 @@
 			"iconPath": "res://art/word_icon/travail.png"
 		},
 		{
-			"word": "très",
-			"phonetic": "tRE",
-			"iconPath": "res://art/word_icon/très.png"
-		},
-		{
-			"word": "télé",
-			"phonetic": "tele",
-			"iconPath": "res://art/word_icon/télé.png"
-		},
-		{
-			"word": "téléphone",
-			"phonetic": "telefOn",
-			"iconPath": "res://art/word_icon/téléphone.png"
-		},
-		{
-			"word": "tête",
-			"phonetic": "tEt",
-			"iconPath": "res://art/word_icon/tête.png"
-		},
-		{
 			"word": "venir",
 			"phonetic": "v°niR",
 			"iconPath": "res://art/word_icon/venir.png"
-		},
-		{
-			"word": "verre",
-			"phonetic": "vER",
-			"iconPath": "res://art/word_icon/verre.png"
 		},
 		{
 			"word": "vie",
@@ -1093,19 +468,9 @@
 			"iconPath": "res://art/word_icon/vie.png"
 		},
 		{
-			"word": "vieux",
-			"phonetic": "vj2",
-			"iconPath": "res://art/word_icon/vieux.png"
-		},
-		{
 			"word": "ville",
 			"phonetic": "vil",
 			"iconPath": "res://art/word_icon/ville.png"
-		},
-		{
-			"word": "visage",
-			"phonetic": "vizaZ",
-			"iconPath": "res://art/word_icon/visage.png"
 		},
 		{
 			"word": "voiture",
@@ -1113,39 +478,14 @@
 			"iconPath": "res://art/word_icon/voiture.png"
 		},
 		{
-			"word": "voyage",
-			"phonetic": "vwajaZ",
-			"iconPath": "res://art/word_icon/voyage.png"
-		},
-		{
 			"word": "vrai",
 			"phonetic": "vRE",
 			"iconPath": "res://art/word_icon/vrai.png"
 		},
 		{
-			"word": "vérité",
-			"phonetic": "veRite",
-			"iconPath": "res://art/word_icon/vérité.png"
-		},
-		{
 			"word": "yeux",
 			"phonetic": "j2",
 			"iconPath": "res://art/word_icon/oeil.png"
-		},
-		{
-			"word": "âge",
-			"phonetic": "aZ",
-			"iconPath": "res://art/word_icon/âge.png"
-		},
-		{
-			"word": "école",
-			"phonetic": "ekOl",
-			"iconPath": "res://art/word_icon/école.png"
-		},
-		{
-			"word": "équipe",
-			"phonetic": "ekip",
-			"iconPath": "res://art/word_icon/équipe.png"
 		}
 	]
 }

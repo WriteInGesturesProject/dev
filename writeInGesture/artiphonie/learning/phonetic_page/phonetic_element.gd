@@ -8,6 +8,7 @@ func setup(_phoneticName: String):
 	$button.text = "[" + Global.convert_phonetic(phoneticName) + "]"
 
 func _on_button_pressed():
+	print(phoneticDemonstrationRessource)
 	var newPhoneticDemonstration: Control = phoneticDemonstrationRessource.instance()
 	newPhoneticDemonstration.setup(phoneticName,
 	Global.phonetic_to_array_picture_path(phoneticName)[0],

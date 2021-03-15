@@ -1,7 +1,5 @@
 extends Control
 
-class_name Home
-
 var listSelectionRessource := load("res://shared/list_selection/list_selection.tscn")
 
 var learnScenePath: String

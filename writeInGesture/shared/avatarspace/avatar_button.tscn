@@ -6,16 +6,15 @@
 [ext_resource path="res://shared/avatarspace/avatar_button.gd" type="Script" id=4]
 [ext_resource path="res://shared/avatarspace/profilPicture.tscn" type="PackedScene" id=5]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 20
 font_data = ExtResource( 3 )
 
 [node name="avatar_button" type="Button"]
-anchor_left = 0.9
-anchor_top = 0.02
-anchor_right = 0.98
+anchor_left = 0.88
+anchor_top = 0.01
+anchor_right = 0.99
 anchor_bottom = 0.2
-margin_left = -19.0
 margin_top = -0.4
 margin_right = -0.400024
 theme = ExtResource( 1 )
@@ -25,41 +24,33 @@ __meta__ = {
 }
 
 [node name="profilPicture" parent="." instance=ExtResource( 5 )]
-anchor_left = 0.085
-anchor_right = 0.804
-anchor_bottom = 0.772
+anchor_top = 0.03
 margin_right = 0.0540009
 margin_bottom = -0.359993
 rect_min_size = Vector2( 100, 100 )
 mouse_filter = 1
 
-[node name="Control" type="Control" parent="."]
-anchor_top = 0.7
-anchor_right = 0.878
-anchor_bottom = 0.95
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Star" type="TextureRect" parent="Control"]
-anchor_left = 0.25
-anchor_top = 0.2
-anchor_right = 0.5
-anchor_bottom = 1.0
+[node name="Star" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.01
+anchor_right = 0.9
+anchor_bottom = 0.2
 texture = ExtResource( 2 )
 expand = true
+stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="nbStars" type="Label" parent="Control"]
-anchor_left = 0.5
-anchor_top = 0.402
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_fonts/font = SubResource( 2 )
-text = "120
-"
+[node name="nbStars" type="Label" parent="."]
+anchor_left = 0.1
+anchor_top = 0.05
+anchor_right = 0.5
+anchor_bottom = 0.2
+mouse_filter = 1
+custom_fonts/font = SubResource( 1 )
+text = "120"
+align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false

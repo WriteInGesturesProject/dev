@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/background.png" type="Texture" id=1]
 [ext_resource path="res://assets/GlobalAppLogo.png" type="Texture" id=2]
 [ext_resource path="res://shared/avatarspace/avatar_button.tscn" type="PackedScene" id=3]
-[ext_resource path="res://shared/back/back_button.tscn" type="PackedScene" id=4]
 [ext_resource path="res://shared/about/about_button.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/theme/ButtonTheme.tres" type="Theme" id=6]
 [ext_resource path="res://shared/main_menu/main_menu.gd" type="Script" id=7]
@@ -11,6 +10,7 @@
 [node name="main_menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -188.302, 322.283 )
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -56,7 +56,9 @@ margin_right = 405.0
 margin_bottom = 300.0
 rect_min_size = Vector2( 405, 300 )
 
-[node name="back_button" parent="." instance=ExtResource( 4 )]
+[node name="about_button" parent="." instance=ExtResource( 5 )]
+
+[node name="avatar_button" parent="." instance=ExtResource( 3 )]
 
 [node name="list_change" type="Button" parent="."]
 anchor_left = 0.3
@@ -68,8 +70,4 @@ text = "Listes de mots"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="about_button" parent="." instance=ExtResource( 5 )]
-
-[node name="avatar_button" parent="." instance=ExtResource( 3 )]
 [connection signal="pressed" from="list_change" to="." method="_on_list_change_pressed"]

@@ -19,11 +19,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://entity/Entity.gd"
 }, {
-"base": "Control",
-"class": "Home",
-"language": "GDScript",
-"path": "res://shared/home/home.gd"
-}, {
 "base": "Entity",
 "class": "Item",
 "language": "GDScript",
@@ -52,7 +47,6 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "CardScene": "",
 "Entity": "",
-"Home": "",
 "Item": "",
 "Player": "",
 "Shop": "",

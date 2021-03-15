@@ -1,5 +1,7 @@
 extends Control
 
+var listSelectionRessource := load("res://shared/list_selection/list_selection.tscn")
+
 var appElementResource := load("res://shared/main_menu/app_element.tscn")
 
 func _ready():
@@ -8,4 +10,5 @@ func _ready():
 		newApp.setUp(app)
 		$ScrollContainer/HBoxContainer.add_child_below_node($ScrollContainer/HBoxContainer/filler_start, newApp)
 
-
+func _on_list_change_pressed():
+	add_child(listSelectionRessource.instance())

@@ -13,10 +13,17 @@ var scenesChronology := {0: "res://main.tscn"}
 var scenesArgumentsChronology := {0: []}
 # ===== ===== ====
 
-
 var textToSpeech 
 var speechToText
 
+const PHONETIC_TABLE_PATH := "res://data/phonetic_table.json"
+var phoneticTable: Dictionary
+const PHONETIC_TABLE_RESOURCE_PATH := "res://data/phonetic_table_resource.json"
+var phoneticTableResource: Dictionary
+const PHONETIC_PICTURE_PATH := "res://art/borel_maisony/icon/"
+const PHONETIC_PICTURE_EXTENSION := ".png"
+const PHONETIC_VIDEO_PATH := "res://art/borel_maisony/video/"
+const PHONETIC_VIDEO_EXTENSION := ".ogv"
 
 # ===== Globals variable available to all application =====
 var player: Player = Player.new()
@@ -24,7 +31,21 @@ var activeList: Words
 # ===== ===== =====
 
 func _ready():
-	load_json(player, "res://data/alice.json")
+	var file = File.new()
+	file.open(PHONETIC_TABLE_PATH, file.READ)
+	phoneticTable = JSON.parse(file.get_as_text()).result
+	file.close()
+	
+	file = File.new()
+	file.open(PHONETIC_TABLE_RESOURCE_PATH, file.READ)
+	phoneticTableResource = JSON.parse(file.get_as_text()).result
+	file.close()
+	
+	var listGeneral:Words = Words.new()
+	load_json(listGeneral, "res://data/liste_general.json")
+	load_json(player, "res://data/titouan.json")
+	player.listOfWords = []
+	player.add_words(listGeneral)
 	activeList = player.listOfWords[0]
 
 # ===== JSON =====
@@ -82,6 +103,49 @@ func get_n_word_from_active_list(n: int, repeat: bool = false) -> Array:
 		result.append(activeList.words[randomPosition])
 	return result
 
+# ===== Phonetic =====
+
+func convert_phonetic(phonetic: String) -> String:
+	var result := ""
+	for p in phonetic:
+		result += phoneticTable[p]
+	return result
+
+func phonetic_to_array_picture_path(phonetic: String) -> Array:
+	var result: Array = []
+	for i in range(len(phonetic)):
+		if phonetic[i] == "w":
+			if i + 1 >= len(phonetic):
+				break
+			elif phonetic[i + 1] == "a":
+				result.append(PHONETIC_PICTURE_PATH + "wa" + PHONETIC_PICTURE_EXTENSION)
+				i += 1
+			elif phonetic[i + 1] == "5":
+				result.append(PHONETIC_PICTURE_PATH + "w5" + PHONETIC_PICTURE_EXTENSION)
+				i += 1
+		else:
+			if phoneticTableResource[phonetic[i]] != "":
+				result.append(PHONETIC_PICTURE_PATH + phoneticTableResource[phonetic[i]] + PHONETIC_PICTURE_EXTENSION)
+	return result
+
+func phonetic_to_array_video_path(phonetic: String) -> Array:
+	var result: Array = []
+	for i in range(len(phonetic)):
+		if phonetic[i] == "w":
+			if i + 1 >= len(phonetic):
+				break
+			elif phonetic[i + 1] == "a":
+				result.append(PHONETIC_VIDEO_PATH + "wa" + PHONETIC_VIDEO_EXTENSION)
+				i += 1
+			elif phonetic[i + 1] == "5":
+				result.append(PHONETIC_VIDEO_PATH + "w5" + PHONETIC_VIDEO_EXTENSION)
+				i += 1
+		else:
+			if phoneticTableResource[phonetic[i]] != "":
+				result.append(PHONETIC_VIDEO_PATH + phoneticTableResource[phonetic[i]] + PHONETIC_VIDEO_EXTENSION)
+	return result
+
+# ===== ===== =====
 
 func load_icon(path: String) -> Resource:
 	var fileExists = Directory.new().file_exists(path)
@@ -90,17 +154,4 @@ func load_icon(path: String) -> Resource:
 	else:
 		return null
 
-
-func find_texture(path : String):
-	var tex = load("res://art/images/" + path)
-	if(tex == null):
-		var image = Image.new()
-		var err = image.load("user://art/" + path)
-		if(err) :
-			image.load("user://custom/"+path)
-		tex = ImageTexture.new()
-		tex.create_from_image(image)
-	return tex
-
-	
-
+# ===== ===== =====

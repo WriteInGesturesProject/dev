@@ -18,7 +18,7 @@ const LISTEN_AND_CHOOSE_GAME_DIFFICULTY := ["Facile", "Normal", "Difficile"]
 const MEMORY_NAME := "Jeu du mémorie"
 const PATH_MEMORY := "res://artiphonie/memory/memory_game.tscn"
 const PATH_MEMORY_ICON := "res://assets/icons/card.png"
-const MEMORY_DIFFICULTY := ["Facile"]
+const MEMORY_DIFFICULTY := ["Facile", "Normal", "Difficile"]
 # ===== ===== =====
 
 const PATH_LEARNING := "res://artiphonie/learning/learning.tscn"
@@ -33,7 +33,7 @@ const PHONETIC_VIDEO_PATH := "res://art/videoBorelASupprimer/"
 const PHONETIC_VIDEO_EXTENSION := ".ogv"
 const PATH_PHONETIC_TABLE_SORTED := "res://data/phonetic_table_sorted.json"
 const PATH_PHONETIC_TABLE := "res://data/phonetic_table.json"
-var phonetic_table: Array
+var phonetic_table: Dictionary
 
 const WORD_ICON_PATH := "res://art/images/"
 

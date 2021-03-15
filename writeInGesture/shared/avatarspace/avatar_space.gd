@@ -28,7 +28,7 @@ func add_item_type() -> void:
 		if (itemArray[0] != null):
 			var item = itemArray[0]
 			var newItemType = ItemTypeScene.instance()
-			newItemType.find_node("TextureRect").texture = load("res://art/shopImages/"+item.picturePath)
+			newItemType.setUp(item)
 			newItemType.connect("item_type_button_pressed", self, "_item_type_signal_received")
 			$HScrollBar/ItemCategory.add_child(newItemType)
 			typeAlreadyIn.append(item.itemType)

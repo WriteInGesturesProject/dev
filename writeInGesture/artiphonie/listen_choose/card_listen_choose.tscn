@@ -24,9 +24,9 @@ stream = ExtResource( 3 )
 stream = ExtResource( 4 )
 
 [node name="CardButton" type="Button" parent="."]
-anchor_left = 0.05
+anchor_left = 0.03
 anchor_top = 0.05
-anchor_right = 0.95
+anchor_right = 0.97
 anchor_bottom = 0.95
 theme = ExtResource( 6 )
 __meta__ = {
@@ -70,9 +70,9 @@ __meta__ = {
 }
 
 [node name="borel_maisonny_container" type="HBoxContainer" parent="CardButton/layout_1"]
-anchor_left = 0.02
+anchor_left = 0.01
 anchor_top = 0.55
-anchor_right = 0.98
+anchor_right = 0.99
 anchor_bottom = 0.97
 grow_horizontal = 2
 alignment = 1
@@ -163,9 +163,9 @@ __meta__ = {
 }
 
 [node name="borel_maisonny_container" type="HBoxContainer" parent="CardButton/layout_3"]
-anchor_left = 0.02
+anchor_left = 0.01
 anchor_top = 0.191
-anchor_right = 0.98
+anchor_right = 0.99
 anchor_bottom = 0.97
 grow_horizontal = 2
 rect_min_size = Vector2( 1105, 272 )

@@ -17,5 +17,4 @@ func setup(_gameScenePath: String, _difficultyName: String, locked: bool, _locke
 		$name.anchor_right = 0.75
 
 func name_pressed():
-	print("Lien: " + gameScenePath)
 	Global.change_scene(gameScenePath, [difficultyName])

@@ -35,3 +35,4 @@ stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="pressed" from="name" to="." method="name_pressed"]

@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/theme/ButtonTheme.tres" type="Theme" id=1]
 [ext_resource path="res://assets/icons/goosePlate.png" type="Texture" id=2]
-[ext_resource path="res://shared/playing/element_difficulty.tscn" type="PackedScene" id=3]
 [ext_resource path="res://shared/playing/playing_element.gd" type="Script" id=4]
 
 [node name="playing_element" type="Control"]
@@ -52,40 +51,4 @@ __meta__ = {
 }
 
 [node name="difficulty" type="VBoxContainer" parent="ScrollContainer"]
-margin_right = 530.0
-margin_bottom = 546.0
 alignment = 1
-
-[node name="element_difficulty" parent="ScrollContainer/difficulty" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 530.0
-margin_bottom = 106.0
-
-[node name="element_difficulty2" parent="ScrollContainer/difficulty" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 110.0
-margin_right = 530.0
-margin_bottom = 216.0
-
-[node name="element_difficulty3" parent="ScrollContainer/difficulty" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 220.0
-margin_right = 530.0
-margin_bottom = 326.0
-
-[node name="element_difficulty4" parent="ScrollContainer/difficulty" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 330.0
-margin_right = 530.0
-margin_bottom = 436.0
-
-[node name="element_difficulty5" parent="ScrollContainer/difficulty" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 440.0
-margin_right = 530.0
-margin_bottom = 546.0

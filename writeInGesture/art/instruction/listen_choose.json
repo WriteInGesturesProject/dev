@@ -1,4 +1,4 @@
 {
-    "sound" : "listen.ogg",
-    "text": "Ici trois cartes vont apparaître devant toi. Appuie sur le haut parleur pour écouter le mot à trouver. Ensuite, clique sur la carte qui correspond au mot que tu viens d’entendre."
+    "sound" : "listen_choose.ogg",
+    "text": "Bienvenue dans la partie jeux. Ici tu vas voir on va bien rigoler !  Tout d'abord, tu peux faire défiler les pages pour choisir un jeu. Après tu choisis ton niveau. Au début, tu n’as pas le choix : tu es obligé de cliquer sur le niveau facile. Plus tu vas devenir fort, plus tu vas débloquer des niveaux difficiles. J’ai hâte de commencer ! On y va ?"
 }

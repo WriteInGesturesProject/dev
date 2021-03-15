@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/background.png" type="Texture" id=1]
-[ext_resource path="res://assets/logo.png" type="Texture" id=2]
+[ext_resource path="res://assets/GlobalAppLogo.png" type="Texture" id=2]
 [ext_resource path="res://shared/avatarspace/avatar_button.tscn" type="PackedScene" id=3]
 [ext_resource path="res://shared/back/back_button.tscn" type="PackedScene" id=4]
 [ext_resource path="res://shared/about/about_button.tscn" type="PackedScene" id=5]
@@ -27,12 +27,13 @@ __meta__ = {
 }
 
 [node name="title" type="TextureRect" parent="."]
-anchor_left = 0.25
+anchor_left = 0.2
 anchor_top = 0.05
-anchor_right = 0.75
+anchor_right = 0.8
 anchor_bottom = 0.35
 texture = ExtResource( 2 )
 expand = true
+stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -47,13 +48,13 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
-margin_right = 360.0
+margin_right = 405.0
 margin_bottom = 300.0
 
 [node name="filler_start" type="Control" parent="ScrollContainer/HBoxContainer"]
-margin_right = 360.0
+margin_right = 405.0
 margin_bottom = 300.0
-rect_min_size = Vector2( 360, 300 )
+rect_min_size = Vector2( 405, 300 )
 
 [node name="back_button" parent="." instance=ExtResource( 4 )]
 

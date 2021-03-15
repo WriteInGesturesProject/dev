@@ -1,6 +1,6 @@
 extends Control
 
-var CardScene = preload("./card_listen_choose.tscn")
+var CardSceneRessource = preload("res://artiphonie/listen_choose/card_listen_choose.tscn")
 
 const NB_SCREEN_MAX = 10
 
@@ -47,14 +47,14 @@ func _ready():
 	next_screen()
 	
 func next_screen():
-	var currentCard : CardScene
+	var currentCard
 	#the game continue while we all the screen haven't been done
 	#bt while there are still enough word available in listOfUndoneWords
 	if(nb_screen < NB_SCREEN_MAX && listOfUndoneWords.size() >= 3):
 		var wordsToShow = get_n_word_from_given_list(listOfUndoneWords,3)
 		#for the 3 cards that will be displayed
 		for i in range (0,3):
-			currentCard = CardScene.instance()
+			currentCard = CardSceneRessource.instance()
 			currentCard.name = String(i)
 			find_node("cardGrid").add_child(currentCard)
 			currentCard.setUpCard(wordsToShow[i], cardLayout, sizeCard)

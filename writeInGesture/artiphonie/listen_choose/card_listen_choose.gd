@@ -1,9 +1,5 @@
 extends Control
 
-class_name CardScene
-
-const Word = preload("res://entity/Word.gd")
-
 var word : Word
 var currentLayout : Control
 
@@ -12,6 +8,9 @@ signal card_pressed(card)
 func setUpCard(_word : Word, difficulty : int, size : Vector2) -> void:
 	
 	#display the right layout depending on the difficulty 
+	print("layout_" + String(difficulty))
+	print(find_node("layout_" + String(difficulty)))
+	print($CardButton.get_children())
 	currentLayout = find_node("layout_" + String(difficulty))
 	currentLayout.visible = true
 		

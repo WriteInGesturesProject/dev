@@ -1,6 +1,10 @@
 extends Control
 
 func _ready():
+	#deal with the instruction
+	var instruction = $Instruction
+	instruction.setUp("learning")
+	
 	var file = File.new()
 	file.open(Global.artiphonie.PATH_PHONETIC_TABLE_SORTED, file.READ)
 	var phoneticType: Dictionary = JSON.parse(file.get_as_text()).result

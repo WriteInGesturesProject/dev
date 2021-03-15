@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/theme/transparent_panel_rounded_corner.tres" type="StyleBox" id=1]
+[ext_resource path="res://shared/main_menu/app_element.gd" type="Script" id=2]
+[ext_resource path="res://assets/theme/ButtonTheme.tres" type="Theme" id=4]
+
+[node name="app_element" type="Control"]
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+margin_left = 3.1748
+margin_right = 3.1748
+rect_min_size = Vector2( 470, 300 )
+mouse_filter = 2
+theme = ExtResource( 4 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.15
+anchor_right = 0.85
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="icon" type="TextureRect" parent="Panel"]
+anchor_left = 0.2
+anchor_top = 0.05
+anchor_right = 0.8
+anchor_bottom = 0.65
+margin_left = 1.5874
+margin_top = 1.90735e-06
+margin_right = 1.5874
+margin_bottom = 3.05176e-05
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button" type="Button" parent="Panel"]
+anchor_left = 0.1
+anchor_top = 0.7
+anchor_right = 0.9
+anchor_bottom = 0.9
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="logo" type="TextureRect" parent="Panel/button"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.5874
+margin_right = 1.5874
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Panel/button" to="." method="button_pressed"]

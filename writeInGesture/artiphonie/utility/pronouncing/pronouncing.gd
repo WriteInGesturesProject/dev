@@ -85,7 +85,7 @@ func _process(_delta):
 				var sentence = Global.speechToText.getWords()
 				set_process(false)
 				Global.speechToText.stopListen()
-				if Global.artiphonie.check_words(sentence, word):
+				if Global.cmp_string_word(sentence, word):
 					$correct.playing = true
 				else:
 					$incorrect.playing = true

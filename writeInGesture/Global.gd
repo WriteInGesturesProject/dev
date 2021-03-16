@@ -4,7 +4,6 @@ extends Node
 #contain the name of the different sub app
 var apps : Array = ["artiphonie"]
 var currentApp : String 
-
 # ===== ===== =====
 
 # ===== Globals specific to an application =====
@@ -12,6 +11,7 @@ const Artiphonie := preload("res://shared/artiphonie.gd")
 var artiphonie := Artiphonie.new()
 # ===== ===== =====
 
+# ===== Scene shown when loading another scene
 const loadingScene = preload("res://shared/loading/loading.tscn")
 
 # ===== Useful for the back button =====
@@ -28,6 +28,7 @@ var activeList: Words
 var textToSpeech 
 var speechToText
 
+# ===== Everything related to the phonetic functions =====
 const PHONETIC_TABLE_PATH := "res://data/phonetic_table.json"
 var phoneticTable: Dictionary
 const PHONETIC_TABLE_RESOURCE_PATH := "res://data/phonetic_table_resource.json"
@@ -36,6 +37,13 @@ const PHONETIC_PICTURE_PATH := "res://art/borel_maisony/icon/"
 const PHONETIC_PICTURE_EXTENSION := ".png"
 const PHONETIC_VIDEO_PATH := "res://art/borel_maisony/video/"
 const PHONETIC_VIDEO_EXTENSION := ".ogv"
+# ===== ===== =====
+
+# Lexique383 dictionary with ortho as the key and phon as the value
+# Used to compare words when one is said
+# (for exemple coup, coût sound the same in french so we have to compare their phonetic)
+const LEXIQUE_LIGHT_PATH := "res://data/Lexique/Lexique383_ortho_phon_light.json"
+var lexiqueLight: Dictionary = {}
 
 # ===== Globals variable available to all application =====
 var instructionAlreadyPlayed: Array = []
@@ -54,7 +62,6 @@ func _ready():
 	
 	load_json(player, "res://data/general.json")
 	activeList = player.listOfWords[0]
-	
 
 # ===== JSON =====
 
@@ -165,3 +172,22 @@ func load_icon(path: String) -> Resource:
 		return null
 
 # ===== ===== =====
+
+func cmp_string_word(sentence: String, word: Word) -> bool:
+	sentence = sentence.to_lower()
+	var sentenceWords = sentence.split(" ")
+	if sentenceWords == null or sentenceWords.size() == 0:
+		return false
+	for w in sentenceWords:
+		if w == word.word:
+			return true
+		if lexiqueLight.empty():
+			var file = File.new()
+			file.open(LEXIQUE_LIGHT_PATH, file.READ)
+			lexiqueLight = JSON.parse(file.get_as_text()).result
+			file.close()
+		if not lexiqueLight.has(w):
+			continue
+		if lexiqueLight[w] == word.phonetic:
+			return true
+	return false

@@ -10,8 +10,11 @@ func _ready():
 func setUp(_item : Item):
 	item = _item
 	find_node("ItemImage").texture = load("res://art/shopImages/"+item.picturePath)
-	find_node("ItemImage").expand = true
-	find_node("ItemImage").stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	match Global.player.gender:
+		1:
+			$Button/Head.texture = load("res://art/avatar/boy"+str(Global.player.ethnicity)+".png")
+		2:
+			$Button/Head.texture = load("res://art/avatar/girl"+str(Global.player.ethnicity)+".png")
 	var alreadyHas : bool = false
 	for i in Global.player.unlockedItems:
 		if item.equals(i):

@@ -63,6 +63,8 @@ func add_equiped_item(item: Item) -> bool:
 	for i in equipedItems:
 		if item.equals(i):
 			return false
+		elif item.itemType == i.itemType:
+			erase_equiped_item(i)
 	equipedItems.append(item)
 	return true
 
@@ -78,6 +80,11 @@ func erase_equiped_item(item: Item) -> bool:
 			return remove_equiped_item(i)
 	return false
 
+func has_equiped_item(item: Item) -> bool:
+	for i in equipedItems:
+		if item.equals(i):
+			return true
+	return false
 
 func set_unlocked_items(_unlockedItems: Array) -> void:
 	unlockedItems = _unlockedItems

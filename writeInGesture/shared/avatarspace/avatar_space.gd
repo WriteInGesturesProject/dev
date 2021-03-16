@@ -30,7 +30,7 @@ func add_item_type() -> void:
 			var newItemType = ItemTypeScene.instance()
 			newItemType.setUp(item)
 			newItemType.connect("item_type_button_pressed", self, "_item_type_signal_received")
-			$HScrollBar/ItemCategory.add_child(newItemType)
+			$HScrollBar/ItemType.add_child(newItemType)
 			typeAlreadyIn.append(item.itemType)
 
 			var newNode = GridContainer.new()
@@ -59,7 +59,7 @@ func _item_type_signal_received():
 func _item_signal_received(itemScene :Control):
 	#if the item wasn't already bought
 	if not Global.player.unlockedItems.has(itemScene.item):
-		#we chack that the player have enough stars
+		#we check that the player have enough stars
 		if itemScene.item.price <= Global.player.get_stars():
 			itemBying = itemScene
 			$ConfirmPurchase.visible = true
@@ -69,15 +69,23 @@ func _item_signal_received(itemScene :Control):
 	#then it can equip it
 	else:
 		Global.player.add_equiped_item(itemScene.item)
+		updateShopVu()
 		$profilPicture.update()
 
 func _on_Validate_pressed():
+	#substract the item price on the player's stars
 	Global.player.set_stars(Global.player.get_stars() - itemBying.item.price)
 	$Stars/StarsNumber.text = str(Global.player.get_stars())
+	#reset the button aspect
 	itemBying.find_node("Star").visible = false
 	itemBying.find_node("Price").visible = false
 	$ConfirmPurchase.visible = false
+	itemBying.find_node("Equiped").visible = true
+	#add item to unlocked item and equiped it
 	Global.player.add_unlocked_item(itemBying.item)
+	Global.player.add_equiped_item(itemBying.item)
+	updateShopVu()
+	$profilPicture.update()
 
 
 func _on_Cancel_pressed():
@@ -90,3 +98,13 @@ func _on_Ok_pressed():
 
 func _on_ValidateName_pressed():
 	Global.player.set_player_name($playerName.text) 
+
+#need to be called when the profil picture is updated
+#update the world "equiped" to the button related to equiped items
+func updateShopVu():
+	for containerType in $ScrollContainer2.get_children():
+		for i in containerType.get_children():
+			if Global.player.has_equiped_item(i.item):
+				i.find_node("Equiped").visible = true
+			else: 
+				i.find_node("Equiped").visible = false

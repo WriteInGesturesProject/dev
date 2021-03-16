@@ -16,10 +16,10 @@ func _ready():
 
 #GET PARTY
 func _on_Button_Get_pressed():
-	print ("GET HTTP")
+	print ("GET HTTPS")
 	var header= [] #To Complete
 	if ID!=null:
-		$HTTPRequestGet.request("https://51.124.109.83:8443/api/v1/enfant/"+ID,header,false,HTTPClient.METHOD_GET);
+		$HTTPRequestGet.request("https://artiphonie.westeurope.cloudapp.azure.com:8443//api/v1/enfant/"+ID,header,false,HTTPClient.METHOD_GET);
 	else:
 		print("Error ID")
 
@@ -35,18 +35,18 @@ func _on_HTTPRequestGet_request_completed(result, response_code, headers, body):
 			get_node("LabelResult/LabelLasttnameResult").text=dictionnaryResult.nom
 			get_node("LabelResult/LabelAgeResult").text=String(dictionnaryResult.age)
 		else:
-			print("HTTP Error")
+			print("HTTPS Error")
 
 
 #POST PARTY
 func _on_Button_Post_pressed():
-	print("POST HTTP")
+	print("POST HTTPS")
 	if firstname!=null && lastname!=null:
 		var data_to_send={"prenom":firstname,"nom":lastname,"age":age}
 		var query=JSON.print(data_to_send)
 		var header= ["Content-Type:application/json","Content-Length: "+str(query.length())]
 		print(query)
-		$HTTPRequestPost.request("https://51.124.109.83:8443/api/v1/enfant",header,false,HTTPClient.METHOD_POST,query);
+		$HTTPRequestPost.request("https://artiphonie.westeurope.cloudapp.azure.com:8443/api/v1/enfant",header,false,HTTPClient.METHOD_POST,query);
 	else:
 		print("Error : Fields Null")
 
@@ -58,7 +58,7 @@ func _on_HTTPRequestPost_request_completed(result, response_code, headers, body)
 		if response_code==200:
 			print(body.get_string_from_utf8())
 		else:
-			print("HTTP Error")
+			print("HTTPS Error")
 
 func _on_LineEditFirstname_text_changed(new_text):
 	firstname=new_text

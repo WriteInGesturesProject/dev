@@ -19,10 +19,6 @@ config/name="POC HTTPS Godot"
 run/main_scene="res://Control.tscn"
 config/icon="res://icon.png"
 
-[network]
-
-ssl/certificates="res://.import/myCertificate.crt"
-
 [rendering]
 
 environment/default_environment="res://default_env.tres"

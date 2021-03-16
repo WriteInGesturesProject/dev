@@ -82,6 +82,8 @@ __meta__ = {
 }
 
 [node name="back_button" parent="." instance=ExtResource( 8 )]
+redirection = 2
+customPath = "res://artiphonie/playing/playing.tscn"
 
 [node name="Instruction" parent="." instance=ExtResource( 9 )]
 visible = false

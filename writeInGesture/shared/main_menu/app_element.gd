@@ -11,4 +11,5 @@ func setUp( _appName: String = "") -> void:
 	self.visible = true
 
 func button_pressed():
+	Global.currentApp = appScenePath
 	Global.change_scene(appScenePath)

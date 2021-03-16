@@ -108,6 +108,8 @@ __meta__ = {
 }
 
 [node name="back_button" parent="." instance=ExtResource( 3 )]
+redirection = 2
+customPath = "res://artiphonie/playing/playing.tscn"
 
 [node name="Instruction" parent="." instance=ExtResource( 7 )]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

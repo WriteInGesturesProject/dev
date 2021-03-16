@@ -214,10 +214,6 @@ __meta__ = {
 
 [node name="tween" type="Tween" parent="."]
 
-[node name="back_button" parent="." instance=ExtResource( 6 )]
-redirection = 2
-customPath = "res://artiphonie/playing/playing.tscn"
-
 [node name="player" type="TextureRect" parent="."]
 margin_left = 568.0
 margin_top = 9.0
@@ -230,6 +226,10 @@ stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="back_button" parent="." instance=ExtResource( 6 )]
+redirection = 2
+customPath = "res://artiphonie/playing/playing.tscn"
 
 [node name="Instruction" parent="." instance=ExtResource( 9 )]
 [connection signal="pressed" from="Validate" to="." method="_on_Validate_pressed"]

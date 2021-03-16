@@ -5,15 +5,12 @@ var vectorMarge
 var currentApp: String
 
 func _ready():
-
 	var content = loadAboutContent()
 	find_node("TextContributors").set_text(content)
 	find_node("TextContributors").set_selection_enabled(true)
-	
+
 func loadAboutContent() -> String:
 	currentApp = Global.get_arguments()[0]
-	print("hllo")
-	print(currentApp)
 	if(currentApp != null):
 		var file = File.new()
 		file.open("res://data/"+currentApp+"/aboutContent.txt", File.READ)

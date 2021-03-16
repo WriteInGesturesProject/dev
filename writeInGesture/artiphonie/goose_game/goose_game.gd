@@ -52,7 +52,7 @@ func _on_Validate_pressed():
 	pronouncingScene = pronouncingRessource.instance()
 	pronouncingScene.setup(tileWords[currentTile-1], pronouncingLayout)
 	pronouncingScene.connect("pronounced", self, "_on_pronounced")
-	add_child(pronouncingScene)
+	add_child_below_node($player, pronouncingScene)
 
 func _on_pronounced(word: Word, result: bool):
 	if not result:

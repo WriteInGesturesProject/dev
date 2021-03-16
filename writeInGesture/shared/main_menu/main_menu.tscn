@@ -57,6 +57,7 @@ margin_bottom = 300.0
 rect_min_size = Vector2( 405, 300 )
 
 [node name="about_button" parent="." instance=ExtResource( 5 )]
+currentAppOverride = "main_menu"
 
 [node name="avatar_button" parent="." instance=ExtResource( 3 )]
 

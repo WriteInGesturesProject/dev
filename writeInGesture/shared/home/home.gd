@@ -16,10 +16,6 @@ func setup(_learnScenePath: String, _trainScenePath: String, _playScenePath: Str
 	playScenePath = _playScenePath
 	$about_button.currentApp = _currentApp
 
-#	$title.texture = titleTexture
-#
-#	backgroundTexture.set("Size", Vector2(1280, 720))
-#	$background.texture = backgroundTexture
 
 func learning_button_pressed():
 	Global.change_scene(learnScenePath)

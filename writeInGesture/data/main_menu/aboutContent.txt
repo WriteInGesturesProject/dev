@@ -1,0 +1,16 @@
+Cette application est une amélioration d'un projet open source d'Artiphonie disponible sur GitHub.
+Les principaux contributeurs sont : 
+De Araujo Bastien, Denis Guillaume et Gillet-Perret Estelle.
+
+En lien avec le centre référent des troubles du langage et des apprentissages du CHU de Grenoble.
+
+Images BOREL : Estelle Gillet-Perret (Creative Common)
+Videos BOREL : Estelle Gillet-Perret (Tous droits réservés)
+Images/Icônes : De Araujo Bastien, Denis Guillaume (Tous droits réservés)
+
+« Les gestes illustrés et reproduits en vidéos sont issus de la méthode phonétique et gestuelle de Mme BOREL MAISONNY, qui sont également repris dans la méthode « Bien Lire et aimer lire » éditée chez ESF Sciences Humaines. »
+
+Nous sommes ouverts à toutes améliorations sur notre adresse mail. 
+
+L'équipe développement.
+Tout droits réservés

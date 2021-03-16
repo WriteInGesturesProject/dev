@@ -31,3 +31,23 @@
 **/!\ Important**
 * Vérifier que l'API est le champ mot de passe compléter dans ses propriétés pour autoriser l'accès vers la BDD
 * Vérifier que les adresses privées/publiques ou localhost qu'ainsi les ports correspondents sur Godot et l'API
+
+## 2/ Application GODOT avec requetes HTTPS
+
+### *Outils et logiciels prerequis :*
+
+- l'outil de développeur **Godot**
+- un **serveur** hebergeant **un service en HTTPS** (dans notre cas il s'agit de notre API avec la BDD) avec un accès sécurisé à l'aide d'un certificat délivré par une CA
+- **Wireshark** pour anlayser le flux de donnée
+
+### *Objectif :*
+> L'objectif de cette preuve de concept est de parvenir à établir des requêtes HTTPS de l'application Godot vers la BDD par l'intermédiaire de l'API. Pour cela, nous devons renforcer la sécurité de l'application en lui permettant d'effectuer des requêtes HTTPS sans rique d'attaque "Man of the Middle".
+
+### *Etapes :*
+
+1. Installer les outils et logiciles necessaires
+2. Vérifier que le serveur hébergeant le service HTTPS est bien configuré
+3. Lancer le serveur
+4. S'assurer que le certificat de notre dDNS est bien à jour, valide et officiel
+5. Lancer l'application Godot HTTPS recupérée auparavant sur le Git
+6. S'assurer que les requetes HTTPS vers le serveur sont bien sécurisées 

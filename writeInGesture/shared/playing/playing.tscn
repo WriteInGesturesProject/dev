@@ -32,3 +32,4 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
 
 [node name="back_button" parent="." instance=ExtResource( 3 )]
+redirection = 1

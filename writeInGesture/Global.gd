@@ -3,6 +3,8 @@ extends Node
 # ===== Globals variable specific for main menu =====
 #contain the name of the different sub app
 var apps : Array = ["artiphonie"]
+var currentApp : String 
+
 # ===== ===== =====
 
 # ===== Globals specific to an application =====

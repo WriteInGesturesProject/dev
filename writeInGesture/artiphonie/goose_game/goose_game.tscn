@@ -215,6 +215,8 @@ __meta__ = {
 [node name="tween" type="Tween" parent="."]
 
 [node name="back_button" parent="." instance=ExtResource( 6 )]
+redirection = 2
+customPath = "res://artiphonie/playing/playing.tscn"
 
 [node name="player" type="TextureRect" parent="."]
 margin_left = 568.0

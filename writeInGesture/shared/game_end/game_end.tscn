@@ -133,5 +133,4 @@ __meta__ = {
 }
 
 [node name="back_button" parent="." instance=ExtResource( 3 )]
-toHome = true
 [connection signal="pressed" from="Replay" to="." method="_on_Replay_pressed"]

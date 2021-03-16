@@ -161,6 +161,8 @@ __meta__ = {
 }
 
 [node name="back_button" parent="." instance=ExtResource( 8 )]
+redirection = 2
+customPath = "res://shared/main_menu/main_menu.tscn"
 
 [node name="list_change" type="Button" parent="."]
 anchor_left = 0.3

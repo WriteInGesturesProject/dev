@@ -94,21 +94,3 @@ func get_phonetic_picture(phoneticName: String) -> Resource:
 
 func get_phonetic_video(phoneticName: String) -> Resource:
 	return load(PHONETIC_VIDEO_PATH + phoneticName + PHONETIC_VIDEO_EXTENSION)
-
-func check_words(sentence: String, word: Word) -> bool:
-	var sentenceWords = sentence.split(" ")
-	if sentenceWords == null or sentenceWords.size() == 0:
-		return false
-	for w in sentenceWords:
-		if w == word.word or check_homonyms(w.to_lower(), word) :
-			return true
-	return false
-
-func check_homonyms(sentenceWord: String, word: Word):
-	if word == null:
-		return false
-	var homonyms = word.get_homonym()
-	for h in homonyms:
-		if sentenceWord == h.to_lower():
-			return true
-	return false

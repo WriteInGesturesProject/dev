@@ -5,18 +5,18 @@ const memoryCard := preload("./memory_card.tscn")
 var listOfWords : Array
 var cards : Array
 var selected_cards : Array = []
-var nbWord : int = 4
+var nbWord : int 
 var nbFound : int = 0
 var separationPercentage = 0.02
 var nbWrongTry : int = 0
-var difficulty = String
+var difficulty : String
 
 ##Timer
 onready var timer = $Timer
 var time = 0
 
 func _ready():
-	var difficulty = Global.get_arguments()[0]
+	difficulty = Global.get_arguments()[0]
 	match difficulty:
 		"Facile":
 			nbWord = 4
@@ -24,6 +24,8 @@ func _ready():
 			nbWord = 8
 		"Difficile":
 			nbWord = 12
+		_:
+			nbWord = 6
 			
 	#deal with the instruction
 	var instruction = $Instruction
@@ -141,7 +143,7 @@ func game_end():
 	args.append("res://artiphonie/memory/memory_game.tscn")
 	args.append([difficulty])
 	args.append("Memory")
-	args.append("")
+	args.append(difficulty)
 	args.append(score)
 	args.append(time)
 	Global.change_scene("res://shared/game_end/game_end.tscn", args)

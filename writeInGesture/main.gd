@@ -10,6 +10,8 @@ extends Node
 # It is important to note, that godot needs to restart to enable fully the
 # speech to text, we have not found a way around it.
 
+
+
 func _ready():
 	randomize()
 	match OS.get_name():
@@ -50,8 +52,10 @@ func _process(delta):
 			set_process(false)
 
 func launch() -> void:
+	
 	#TODO: Make a main menu for all apps and make a first launch scene
 	Global.change_scene("res://shared/main_menu/main_menu.tscn")
 
 func _on_quit_timer_timeout() -> void:
 	get_tree().quit()
+

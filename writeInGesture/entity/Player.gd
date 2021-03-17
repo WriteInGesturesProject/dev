@@ -5,6 +5,7 @@ class_name Player
 # The player entity is what is used when using the app
 # By default if a player is not logged in Global.gd will load a default player where nothing can be saved (data/default.json)
 
+var idPlayer : int setget set_id_player,get_id_player
 var playerName: String setget set_player_name, get_player_name
 var stars: int setget set_stars, get_stars
 # Determines the skin color of the player
@@ -23,6 +24,7 @@ var listOfWords: Array setget set_list_of_words, get_list_of_words
 var playerPath: String setget set_player_path, get_player_path
 
 func _init():
+	idPlayer= 0
 	playerName = ""
 	stars = 0
 	ethnicity = 0
@@ -32,6 +34,12 @@ func _init():
 	unlockedItems = []
 	listOfWords = []
 	playerPath = ""
+
+func set_id_player(_id: int) -> void:
+	idPlayer = _id
+
+func get_id_player() -> int:
+	return idPlayer
 
 func set_player_name(_playerName: String) -> void:
 	playerName = _playerName
@@ -194,6 +202,7 @@ func to_dictionary() -> Dictionary:
 	return result
 
 func from_dictionary(content: Dictionary) -> Entity:
+	idPlayer=content["idPlayer"]
 	playerName = content["playerName"]
 	stars = content["stars"]
 	ethnicity = content["ethnicity"]

@@ -6,7 +6,10 @@ var listSelectionRessource := load("res://shared/list_selection/list_selection.t
 
 var appElementResource := load("res://shared/main_menu/app_element.tscn")
 
+var dictionnaryResult
+
 func _ready():
+	
 	for app in Global.apps:
 		var newApp = appElementResource.instance()
 		newApp.setup(app)
@@ -14,3 +17,5 @@ func _ready():
 
 func _on_list_change_pressed():
 	add_child(listSelectionRessource.instance())
+
+

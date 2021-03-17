@@ -1,6 +1,7 @@
 {
-	"playerName": "Titouan",
-	"stars": 10,
+	"idPlayer" : 2,
+	"playerName": "",
+	"stars": 0,
 	"ethnicity": 1,
 	"gender": 1,
 	"instruction":true,

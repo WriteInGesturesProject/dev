@@ -92,6 +92,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
 [node name="ValidateName" type="Button" parent="."]
 anchor_left = 0.26
 anchor_top = 0.607
@@ -205,6 +207,7 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="ValidateName" to="." method="_on_ValidateName_pressed"]
 [connection signal="pressed" from="ConfirmPurchase/Validate" to="." method="_on_Validate_pressed"]
 [connection signal="pressed" from="ConfirmPurchase/Cancel" to="." method="_on_Cancel_pressed"]

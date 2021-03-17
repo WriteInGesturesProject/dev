@@ -66,6 +66,7 @@ func _ready():
 	file.close()
 	
 	load_json(player, "res://data/general.json")
+	
 	activeList = player.listOfWords[0]
 
 # ===== JSON =====

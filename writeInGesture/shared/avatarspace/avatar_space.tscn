@@ -12,7 +12,7 @@
 [ext_resource path="res://assets/icons/next.png" type="Texture" id=10]
 [ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=21]
 
-[node name="Control" type="Control"]
+[node name="avatar_space" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 21 )

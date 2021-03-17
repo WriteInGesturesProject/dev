@@ -1,5 +1,10 @@
 extends Control
 
+# A scene which display the avatar of the player with all his equiped items
+
+func _ready():
+	update()
+
 func update():
 	match Global.player.gender:
 		1:

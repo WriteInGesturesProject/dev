@@ -1,11 +1,9 @@
 extends Control
 
+# Scene which display an item and its price
 
 signal item_button_pressed(Control)
 var item : Item
-
-func _ready():
-	pass 
 
 func setUp(_item : Item):
 	item = _item

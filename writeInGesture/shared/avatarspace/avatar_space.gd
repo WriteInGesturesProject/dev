@@ -1,25 +1,20 @@
 extends Control
 
-
+# Avatar space is the place where the player can buy and equiped items
 
 var ItemTypeScene := preload("./item_type.tscn")
 var ItemScene := preload("./item.tscn")
 var shop : Shop
 var itemBying : Control
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
-	$profilPicture.update()
 	$playerName.text = Global.player.get_player_name()
 	$Stars/StarsNumber.text = str(Global.player.get_stars())
 	shop = Shop.new()
 	shop = Global.load_json(shop, "res://data/shopItem.json") 
-
+	
 	add_item_type()
 	add_item()
-	pass # Replace with function body.
-
-func set_background():
-	pass
 
 #Add the item type button on top of the page
 func add_item_type() -> void:
@@ -87,14 +82,11 @@ func _on_Validate_pressed():
 	updateShopVu()
 	$profilPicture.update()
 
-
 func _on_Cancel_pressed():
 	$ConfirmPurchase.visible = false
 
-
 func _on_Ok_pressed():
 	$NotEnoughStars.visible = false
-
 
 func _on_ValidateName_pressed():
 	Global.player.set_player_name($playerName.text) 

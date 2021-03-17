@@ -1,11 +1,9 @@
 extends Control
 
+# Scene which represent an item type button in the shop (a category)
 
 var nodeShop : GridContainer
 signal item_type_button_pressed 
-
-func _ready():
-	pass 
 
 func setUp(item: Item):
 	find_node("itemTypePicture").texture = load("res://art/shopImages/"+item.picturePath)

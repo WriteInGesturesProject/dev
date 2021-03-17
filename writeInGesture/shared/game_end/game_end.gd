@@ -85,4 +85,4 @@ func earnStar() :
 		scoreTmp -= 1
 
 func _on_Replay_pressed():
-		Global.change_scene(gamePlayedScene, argsToRestartGame)
+	Global.change_scene(gamePlayedScene, argsToRestartGame)

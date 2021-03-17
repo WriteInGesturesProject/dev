@@ -123,7 +123,7 @@ func game_end():
 	args.append("res://artiphonie/listen_choose/listen_choose.tscn")
 	args.append([difficulty])
 	args.append("Ecoute et choisis")
-	args.append("")
+	args.append(difficulty)
 	args.append(score)
 	args.append(12)
 	Global.change_scene("res://shared/game_end/game_end.tscn", args)

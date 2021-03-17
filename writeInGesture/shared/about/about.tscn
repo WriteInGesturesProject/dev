@@ -7,7 +7,7 @@
 [ext_resource path="res://shared/back/back_button.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/theme/DejaVuFont.tres" type="DynamicFont" id=6]
 
-[node name="Control" type="Control"]
+[node name="about" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 2 )

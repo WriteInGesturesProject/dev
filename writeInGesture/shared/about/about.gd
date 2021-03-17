@@ -1,22 +1,22 @@
 extends Control
 
-var margin = 0.05
-var vectorMarge
-var currentApp: String
+# The about scene is pretty self-explanatory, it show the about information
+# related to the current app
 
 func _ready():
-	var content = loadAboutContent()
-	find_node("TextContributors").set_text(content)
+	find_node("TextContributors").set_text(loadAboutContent())
 	find_node("TextContributors").set_selection_enabled(true)
 
+# This load the content of the about section, to know which content
+# should be loaded it takes the arguments given when the scene changed
+# which means when the about button pressed (see about_button.tscn/.gd)
 func loadAboutContent() -> String:
-	currentApp = Global.get_arguments()[0]
+	var currentApp: String = Global.get_arguments()[0]
 	if(currentApp != null):
 		var file = File.new()
 		file.open("res://data/"+currentApp+"/aboutContent.txt", File.READ)
 		var content = file.get_as_text()
 		file.close()
-		print("content"+content)
 		return content
 	else:
 		return ""
@@ -24,5 +24,3 @@ func loadAboutContent() -> String:
 #open the url of the gitlab when click on it
 func _on_goLinkPressed(url):
 	OS.shell_open(url)
-	
-

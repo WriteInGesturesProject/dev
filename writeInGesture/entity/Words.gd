@@ -2,8 +2,14 @@ extends Entity
 
 class_name Words
 
+# The words entity is the entity representing a list of words
+# The name words is poorly choosen sorry
+
+# Name of the list
 var listName: String setget set_list_name, get_list_name
+# Path to the icon of the list (the path could be the same as a word)
 var listIconPath: String setget set_list_icon_path, get_list_icon_path
+# An array of all the word in the list
 var words: Array setget set_words, get_words
 
 func _init():

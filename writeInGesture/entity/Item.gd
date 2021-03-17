@@ -2,9 +2,14 @@ extends Entity
 
 class_name Item
 
+# The Item entity is the entity for all the items in the shop
+
+# Every item of the same type has to have a different name
+
 var itemName: String setget set_item_name, get_item_name
 var price: int setget set_price, get_price
 var picturePath: String setget set_picture_path, get_picture_path
+# itemType reprensent for example: "hats", "t-shirts", ...
 var itemType: String setget set_item_type, get_item_type
 
 func _init():

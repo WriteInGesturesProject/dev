@@ -2,14 +2,24 @@ extends Entity
 
 class_name Player
 
+# The player entity is what is used when using the app
+# By default if a player is not logged in Global.gd will load a default player where nothing can be saved (data/default.json)
+
 var playerName: String setget set_player_name, get_player_name
 var stars: int setget set_stars, get_stars
+# Determines the skin color of the player
 var ethnicity: int setget set_ethnicity, get_ethnicity
+# 1 == Male | 2 == Female
 var gender: int setget set_gender, get_gender
+# If the player wants to see the instruction on every screen
 var instruction: bool setget set_instruction, get_instruction
+# The equiped items shown on his avatar
 var equipedItems: Array setget set_equiped_items, get_equiped_items
+# All the items that the player has bought/unlocked, the equiped items are supposed to be in it as well
 var unlockedItems: Array setget set_unlocked_items, get_unlocked_items
+# All the list of word a player can choose to use (for example: liste monosyllabique, liste bisyllabique, ...)
 var listOfWords: Array setget set_list_of_words, get_list_of_words
+# Where to save the player entity when a modification is done
 var playerPath: String setget set_player_path, get_player_path
 
 func _init():

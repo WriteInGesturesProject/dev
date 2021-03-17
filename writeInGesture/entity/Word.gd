@@ -2,8 +2,13 @@ extends Entity
 
 class_name Word
 
+# The word entity which represent a word duh...
+
+# The phonetic code of the word (this is made following lexique [http://www.lexique.org/] phonetic code)
 var phonetic: String setget set_phonetic, get_phonetic
+# word is what we would call orthographe in french
 var word: String setget set_word, get_word
+# The icon of the word can be located on "res://" or "user://" if dynamically loaded
 var iconPath: String setget set_icon_path, get_icon_path
 
 func _init():

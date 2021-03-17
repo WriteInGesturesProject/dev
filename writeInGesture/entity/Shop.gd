@@ -2,8 +2,15 @@ extends Entity
 
 class_name Shop
 
+# The shop entity is usefull when viewing the shop on the avatar space
+# It contains every items available in the shop
+
+# items is mainly used to store every items but is not recommanded to use it to find anything
 var items: Array setget set_items, get_items
 
+# sortedItems is meant to be used as every items are stored in this dictionary
+# every items are stored under their item types ("hats": ["chapeau melon", "haut de forme"]
+# and every items are sorted by their price within their types
 var sortedItems: Dictionary
 
 func _init():
@@ -16,6 +23,7 @@ func set_items(_items: Array) -> void:
 func get_items() -> Array:
 	return items
 
+# Add item is a bit complex as it add the item to items and to sortedItems
 func add_item(item: Item) -> bool:
 	for i in items:
 		if item.equals(i):

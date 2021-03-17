@@ -1,5 +1,7 @@
 extends Control
 
+# List selection scene which enables the user to change their list.
+
 var listElementRessource := load("res://shared/list_selection/list_element.tscn")
 
 signal active_list_changed(newListName)

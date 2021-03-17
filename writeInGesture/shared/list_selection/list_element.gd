@@ -1,5 +1,7 @@
 extends Control
 
+# List element is a brick of list selection
+
 var list: Words
 
 signal active_list_changed(newList)

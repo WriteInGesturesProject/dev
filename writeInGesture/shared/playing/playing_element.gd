@@ -1,5 +1,8 @@
 extends Control
 
+# playing element is a game the user can play
+# When setting it up it creates all the difficulty needed
+
 var elementDifficultyRessource := preload("./element_difficulty.tscn")
 var gameScenePath: String
 

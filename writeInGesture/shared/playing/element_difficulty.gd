@@ -1,5 +1,10 @@
 extends Control
 
+# Element difficulty see playing.tscn and playing_element.tscn 
+
+# TODO: Rebuild element difficulty to display the reason why a difficulty is
+# locked (the information should be stored in locked info).
+
 var gameScenePath: String
 var lockedInfo: String
 var difficultyName: String

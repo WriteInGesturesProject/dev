@@ -1,13 +1,23 @@
 extends Control
 
-#const Exercise = preload("res://entity/Exercise.gd")
-#
-#var Ex : Exercise
+# Template scene for when a game ends 
 
+# When a game ends he should change scene to this one
+# and he should give those arguments:
+# args[0]: String -> Path to the scene of the game just played
+# args[1]: Array -> Arguments to give to the scene of the game just
+#					played, to replay it with the same difficulty
+#					(or other if the arguments are used for something else)
+# args[2]: String -> Name of the game just played
+# args[3]: String -> Difficulty played
+# args[4]: int -> Number of stars gained (score in a way)
+# args[5]: int -> If the game played relied on time then this is used to
+#				  display the time in end game scene
 
-var size : Vector2
-var leftCoinSilver = 0
-var leftCoinGold = 0
+# Not every arguments are used now, but they are sent anyway in the case
+# where the end game scene is remade and needs more arguments. Because right now
+# the game end scene is pretty bare-bone.
+
 var args : Array
 var gamePlayedScene : String
 var argsToRestartGame : Array
@@ -19,7 +29,6 @@ var time : int
 var starScale = Vector2(0.2,0.2)
 
 func _ready():
-
 	find_node("nbStars").text = str(Global.player.get_stars())
 	
 	args = Global.get_arguments()
@@ -29,9 +38,9 @@ func _ready():
 	difficulty = args[3]
 	score = args[4]
 	time = args[5] 
-
+	
 	scoreTmp = score
-
+	
 	$gameName.text = gamePlayedName
 
 

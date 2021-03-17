@@ -1,5 +1,7 @@
 extends Control
 
+# Listen and choose card
+
 var word : Word
 var currentLayout : Control
 

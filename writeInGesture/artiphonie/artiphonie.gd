@@ -1,5 +1,7 @@
 extends Control
 
+# Home scene of artiphonie
+
 func _ready():
 	#deal with the instruction
 	$Instruction.setUp("home")

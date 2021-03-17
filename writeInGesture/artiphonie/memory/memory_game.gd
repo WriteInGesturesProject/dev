@@ -1,5 +1,7 @@
 extends Node
 
+# Memory card game scene
+
 const memoryCard := preload("./memory_card.tscn")
 
 var listOfWords : Array

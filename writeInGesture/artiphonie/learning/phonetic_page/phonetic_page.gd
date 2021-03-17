@@ -1,5 +1,11 @@
 extends Control
 
+# Phonetic page is the page launched when the user select a
+# category under learning in Artiphonie
+# It is a page with phonetic sound, which are separated by type (voyelle nasalle, ...)
+
+# The phonetic element are the button with the phonetic symbol on it
+
 var phoneticElementResource := load("res://artiphonie/learning/phonetic_page/phonetic_element.tscn")
 
 func _ready():

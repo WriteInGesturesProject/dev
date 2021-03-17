@@ -1,5 +1,7 @@
 extends Control
 
+# Training scene for artiphonie
+
 var pronouncingRessource := load(Global.artiphonie.PATH_PRONOUNCING)
 
 func _ready():

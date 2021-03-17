@@ -1,5 +1,7 @@
 extends Node
 
+# Memory card scene
+
 var textToSpeech = Global.textToSpeech
 var imageWord : String
 var imagePath : String

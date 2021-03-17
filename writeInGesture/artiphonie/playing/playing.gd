@@ -1,5 +1,8 @@
 extends Control
 
+# Playing scene for artiphonie
+# It loads the different games of artiphonie and their difficulties
+
 func _ready():
 	var instruction = $Instruction
 	instruction.setUp("gameChoose")

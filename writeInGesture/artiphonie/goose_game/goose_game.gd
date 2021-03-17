@@ -1,5 +1,7 @@
 extends Control
 
+# Goose game
+
 const NB_TILE: int = 10
 
 var pronouncingRessource := load(Global.artiphonie.PATH_PRONOUNCING)

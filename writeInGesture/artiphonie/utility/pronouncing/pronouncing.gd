@@ -1,5 +1,9 @@
 extends Control
 
+# Pronouncing scene which display a word in different layout
+# Then the user can train by pronouncing the given words
+# See the layout under to see what each layout does
+
 var word: Word
 var currentLayout: Control
 

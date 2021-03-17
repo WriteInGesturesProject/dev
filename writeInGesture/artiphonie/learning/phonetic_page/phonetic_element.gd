@@ -1,5 +1,7 @@
 extends Control
 
+# Phonetic element is a button, see phonetic page
+
 var phoneticDemonstrationRessource := load("res://artiphonie/learning/phonetic_demonstration/phonetic_demonstration.tscn")
 var phoneticName: String
 

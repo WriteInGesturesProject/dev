@@ -1,5 +1,7 @@
 extends Control
 
+# Listen and choose scene
+
 var CardSceneRessource = preload("res://artiphonie/listen_choose/card_listen_choose.tscn")
 
 const NB_SCREEN_MAX = 10

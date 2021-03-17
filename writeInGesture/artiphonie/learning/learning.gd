@@ -1,5 +1,7 @@
 extends Control
 
+# Learning scene for Artiphonie
+
 const PHONETIC_PAGE_PATH := "res://artiphonie/learning/phonetic_page/phonetic_page.tscn"
 
 func _ready():

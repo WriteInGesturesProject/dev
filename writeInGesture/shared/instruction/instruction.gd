@@ -1,5 +1,14 @@
 extends Control
 
+# Instruction template which is meant to be launch when you enter a scene
+# which might need explanation to the user.
+# TODO: Redo this template so that we can change the character speaking to the user.
+#		As of right now only the tiger is speaking... This should be done in the setUp
+#		function.
+# TODO: I think the template is called as is in the Artiphonie app, it shouldn't do that.
+#		We should make a new scene (ie. instruction_artiphonie) which contains this template,
+#		and which gives it its tiger character.
+
 var time
 var totalTime
 
@@ -10,9 +19,6 @@ var firstTime = 1
 
 signal on_Pass_Pressed()
 
-func _ready():
-	pass
-	
 func setUp(pageName: String) -> bool:
 	if(Global.instructionAlreadyPlayed.has(pageName) || !Global.player.instruction):
 		self.visible = false

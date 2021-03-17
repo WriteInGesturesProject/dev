@@ -1,5 +1,9 @@
 extends Control
 
+# Learning template
+# This template rely on learning element which contains an icon and a name, 
+# and in this scene you can scroll through all the learning elements.
+
 var learningElementResource := load("res://shared/learning/learning_element.tscn")
 
 #add_learning_element -> add a learning element to the current scene

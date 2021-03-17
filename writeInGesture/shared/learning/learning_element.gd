@@ -1,5 +1,7 @@
 extends Control
 
+# The learning element scene is a brick of the learning scene
+
 var defaultIcon := load("res://assets/icons/icon.png")
 
 var changeScene: bool

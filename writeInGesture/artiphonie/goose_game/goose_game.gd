@@ -93,12 +93,10 @@ func calculate_score():
 
 func end_game():
 	var score = calculate_score()
-	var argsToStartGame : Array = []
-	argsToStartGame.append(difficulty)
 	#args to send to game_end
 	var args : Array = []
 	args.append("res://artiphonie/goose_game/goose_game.tscn")
-	args.append(argsToStartGame)
+	args.append([difficulty])
 	args.append("Jeu de l'oie")
 	args.append(difficulty)
 	args.append(score)

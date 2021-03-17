@@ -9,14 +9,15 @@ var nbWord : int = 4
 var nbFound : int = 0
 var separationPercentage = 0.02
 var nbWrongTry : int = 0
+var difficulty = String
 
 ##Timer
 onready var timer = $Timer
 var time = 0
 
 func _ready():
-
-	match Global.get_arguments()[0]:
+	var difficulty = Global.get_arguments()[0]
+	match difficulty:
 		"Facile":
 			nbWord = 4
 		"Normal":
@@ -126,6 +127,11 @@ func calculate_score():
 		score = 2
 	else: 
 		score = 1
+	match difficulty:
+		"Normal":
+			score+=2
+		"Difficile":
+			score+=4
 	return score
 	
 func game_end():
@@ -133,7 +139,7 @@ func game_end():
 	#args to send to game_end
 	var args : Array = []
 	args.append("res://artiphonie/memory/memory_game.tscn")
-	args.append([])
+	args.append([difficulty])
 	args.append("Memory")
 	args.append("")
 	args.append(score)

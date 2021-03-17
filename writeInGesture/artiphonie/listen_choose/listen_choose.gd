@@ -109,6 +109,11 @@ func calculate_score():
 	var score = (5 * nbRight)/nb_screen
 	if score == 0:
 		score+=1
+	match difficulty:
+		"Normal":
+			score+=2
+		"Difficile":
+			score+=4
 	return score
 	
 func game_end():

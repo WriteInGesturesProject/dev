@@ -1,5 +1,15 @@
 extends Node
 
+# This scene is called when we launch the application
+# Its goal is pretty simple, trying to get the correct permission from
+# the android OS. And if that is OK, then it tries to launch the 
+# text to speech and the speech to text. In the future, this might change
+# as we want to have an offline/supervisor mode which does not 
+# relies on the speech to text.
+
+# It is important to note, that godot needs to restart to enable fully the
+# speech to text, we have not found a way around it.
+
 func _ready():
 	randomize()
 	match OS.get_name():

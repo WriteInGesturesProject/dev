@@ -1,0 +1,101 @@
+{
+	"items": [
+		{
+			"itemName": "chapeau_haut_forme",
+			"price": "3",
+			"itemType": "hat",
+			"picturePath": "chapeau_haut_forme.png",
+		},
+		{
+			"itemName": "fleur",
+			"price": "5",
+			"itemType": "hat",
+			"picturePath": "fleur.png",
+		},
+		{
+			"itemName": "lunette_lune_bleu",
+			"price": "3",
+			"itemType": "glasses",
+			"picturePath": "lunette_lune_bleu.png",
+		},
+		{
+			"itemName": "lunette_lune_vert",
+			"price": "4",
+			"itemType": "glasses",
+			"picturePath": "lunette_lune_vert.png",
+		},
+		{
+			"itemName": "lunette_lune_jaune",
+			"price": "5",
+			"itemType": "glasses",
+			"picturePath": "lunette_lune_jaune.png",
+		},
+		{
+			"itemName": "lunette_lune_rouge",
+			"price": "6",
+			"itemType": "glasses",
+			"picturePath": "lunette_lune_rouge.png",
+		},
+		{
+			"itemName": "lunette_ronde_bleu",
+			"price": "3",
+			"itemType": "glasses",
+			"picturePath": "lunette_ronde_bleu.png",
+		},
+		{
+			"itemName": "lunette_ronde_vert",
+			"price": "4",
+			"itemType": "glasses",
+			"picturePath": "lunette_ronde_vert.png",
+		},
+		{
+			"itemName": "lunette_ronde_jaune",
+			"price": "5",
+			"itemType": "glasses",
+			"picturePath": "lunette_ronde_jaune.png",
+		},
+		{
+			"itemName": "lunette_ronde_rouge",
+			"price": "6",
+			"itemType": "glasses",
+			"picturePath": "lunette_ronde_rouge.png",
+		},
+		{
+			"itemName": "tshirt_violet",
+			"price": "4",
+			"itemType": "tshirt",
+			"picturePath": "tshirt_violet.png",
+		},
+		{
+			"itemName": "tshirt_bleu",
+			"price": "4",
+			"itemType": "tshirt",
+			"picturePath": "tshirt_bleu.png",
+		},
+		{
+			"itemName": "tshirt_vert",
+			"price": "4",
+			"itemType": "tshirt",
+			"picturePath": "tshirt_vert.png",
+		},
+		{
+			"itemName": "tshirt_jaune",
+			"price": "7",
+			"itemType": "tshirt",
+			"picturePath": "tshirt_jaune.png",
+		},
+		{
+			"itemName": "tshirt_orange",
+			"price": "7",
+			"itemType": "tshirt",
+			"picturePath": "tshirt_orange.png",
+		},
+		{
+			"itemName": "tshirt_rouge",
+			"price": "7",
+			"itemType": "tshirt",
+			"picturePath": "tshirt_rouge.png",
+		}
+		]
+	}
+	

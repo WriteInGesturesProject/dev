@@ -1,0 +1,238 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/icons/check.png" type="Texture" id=1]
+[ext_resource path="res://assets/icons/goosePlate.png" type="Texture" id=2]
+[ext_resource path="res://assets/icons/mascot.png" type="Texture" id=3]
+[ext_resource path="res://assets/background.jpg" type="Texture" id=4]
+[ext_resource path="res://assets/icons/help.png" type="Texture" id=5]
+[ext_resource path="res://shared/back/back_button.tscn" type="PackedScene" id=6]
+[ext_resource path="res://artiphonie/goose_game/goose_game.gd" type="Script" id=7]
+[ext_resource path="res://assets/theme/PhoneticTheme.tres" type="Theme" id=8]
+[ext_resource path="res://shared/instruction/instruction.tscn" type="PackedScene" id=9]
+
+[node name="goose_game" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 8 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="backgroundDark" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.12549 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="board" type="TextureRect" parent="."]
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="tiles" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tile_1" type="TextureRect" parent="tiles"]
+margin_left = 718.065
+margin_top = 106.256
+margin_right = 768.065
+margin_bottom = 156.256
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tile_2" type="TextureRect" parent="tiles"]
+margin_left = 925.72
+margin_top = 166.869
+margin_right = 975.72
+margin_bottom = 216.869
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tile_3" type="TextureRect" parent="tiles"]
+margin_left = 1077.25
+margin_top = 350.952
+margin_right = 1127.25
+margin_bottom = 400.952
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tile_4" type="TextureRect" parent="tiles"]
+margin_left = 923.475
+margin_top = 532.791
+margin_right = 973.475
+margin_bottom = 582.791
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tile_5" type="TextureRect" parent="tiles"]
+margin_left = 714.697
+margin_top = 590.037
+margin_right = 764.697
+margin_bottom = 640.037
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tile_6" type="TextureRect" parent="tiles"]
+margin_left = 500.307
+margin_top = 585.547
+margin_right = 550.307
+margin_bottom = 635.547
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tile_7" type="TextureRect" parent="tiles"]
+margin_left = 300.509
+margin_top = 532.792
+margin_right = 350.509
+margin_bottom = 582.792
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tile_8" type="TextureRect" parent="tiles"]
+margin_left = 148.976
+margin_top = 355.443
+margin_right = 198.976
+margin_bottom = 405.443
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tile_9" type="TextureRect" parent="tiles"]
+margin_left = 293.774
+margin_top = 167.991
+margin_right = 343.774
+margin_bottom = 217.991
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tile_10" type="TextureRect" parent="tiles"]
+margin_left = 509.287
+margin_top = 108.501
+margin_right = 559.287
+margin_bottom = 158.501
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Validate" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -100.0
+margin_right = 100.0
+margin_bottom = 100.0
+disabled = true
+texture_normal = ExtResource( 1 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WordDetails" type="Popup" parent="."]
+margin_right = 48.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="BeginCase" type="TextureRect" parent="."]
+anchor_left = 0.467414
+anchor_top = 0.122281
+anchor_right = 0.531867
+anchor_bottom = 0.232281
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="tween" type="Tween" parent="."]
+
+[node name="player" type="TextureRect" parent="."]
+margin_left = 568.0
+margin_top = 9.0
+margin_right = 696.0
+margin_bottom = 137.0
+rect_pivot_offset = Vector2( 64, 128 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back_button" parent="." instance=ExtResource( 6 )]
+redirection = 2
+customPath = "res://artiphonie/playing/playing.tscn"
+
+[node name="Instruction" parent="." instance=ExtResource( 9 )]
+[connection signal="pressed" from="Validate" to="." method="_on_Validate_pressed"]
+[connection signal="popup_hide" from="WordDetails" to="." method="_on_WordDetails_popup_hide"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="tween_all_completed" from="tween" to="." method="_on_tween_tween_all_completed"]

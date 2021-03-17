@@ -1,11 +1,22 @@
 extends Control
 
+# Learning scene for Artiphonie
+
+const PHONETIC_PAGE_PATH := "res://artiphonie/learning/phonetic_page/phonetic_page.tscn"
+
 func _ready():
-	$learning.add_learning_element("Consonnes Orales", "", "res://assets/icons/boucheb.png")
-	$learning.add_learning_element("Consonnes Nasales", "", "res://assets/icons/nezb.png")
-	$learning.add_learning_element("Semi-consonnes", "", "res://assets/icons/semiConsonnes.png")
-	$learning.add_learning_element("Voyelles Orales", "", "res://assets/icons/bouchea.png")
-	$learning.add_learning_element("Voyelles Nasales", "", "res://assets/icons/neza.png")
+	#deal with the instruction
+	var instruction = $Instruction
+	instruction.setUp("learning")
+	
+	var file = File.new()
+	file.open(Global.artiphonie.PATH_PHONETIC_TABLE_SORTED, file.READ)
+	var phoneticType: Dictionary = JSON.parse(file.get_as_text()).result
+	for phoneticTypeName in phoneticType.keys():
+		$learning.add_learning_element(phoneticTypeName,
+		PHONETIC_PAGE_PATH,
+		phoneticType[phoneticTypeName]["iconPath"],
+		[phoneticTypeName, phoneticType[phoneticTypeName]["phonetics"]])
 	
 	
 	

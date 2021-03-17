@@ -1,4 +1,8 @@
 extends Control
 
+# Home scene of artiphonie
+
 func _ready():
-	$home.setup(Global.artiphonie.PATH_LEARN, "", "") 
+	#deal with the instruction
+	$Instruction.setUp("home")
+	$home.setup(Global.artiphonie.PATH_LEARNING, Global.artiphonie.PATH_TRAINING, Global.artiphonie.PATH_PLAYING, "artiphonie") 

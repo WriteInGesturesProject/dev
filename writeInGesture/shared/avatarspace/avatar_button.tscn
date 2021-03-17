@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/theme/ButtonTheme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/icons/centerStar.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/RAVIE.TTF" type="DynamicFontData" id=3]
+[ext_resource path="res://shared/avatarspace/avatar_button.gd" type="Script" id=4]
+[ext_resource path="res://shared/avatarspace/profilPicture.tscn" type="PackedScene" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 3 )
+
+[node name="avatar_button" type="Button"]
+anchor_left = 0.88
+anchor_top = 0.01
+anchor_right = 0.99
+anchor_bottom = 0.2
+margin_top = -0.4
+margin_right = -0.400024
+theme = ExtResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="profilPicture" parent="." instance=ExtResource( 5 )]
+anchor_top = 0.03
+margin_right = 0.0540009
+margin_bottom = -0.359993
+rect_min_size = Vector2( 100, 100 )
+mouse_filter = 1
+
+[node name="Star" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.01
+anchor_right = 0.9
+anchor_bottom = 0.2
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="nbStars" type="Label" parent="."]
+anchor_left = 0.1
+anchor_top = 0.05
+anchor_right = 0.5
+anchor_bottom = 0.2
+mouse_filter = 1
+custom_fonts/font = SubResource( 1 )
+text = "120"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="." to="." method="_on_avatar_button_pressed"]

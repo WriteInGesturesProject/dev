@@ -1,9 +1,17 @@
 extends Node
 
-const firstLaunch := "res://page/home/firstLaunch.tscn"
-const homePath := "res://page/home/home.tscn"
+# This scene is called when we launch the application
+# Its goal is pretty simple, trying to get the correct permission from
+# the android OS. And if that is OK, then it tries to launch the 
+# text to speech and the speech to text. In the future, this might change
+# as we want to have an offline/supervisor mode which does not 
+# relies on the speech to text.
+
+# It is important to note, that godot needs to restart to enable fully the
+# speech to text, we have not found a way around it.
 
 func _ready():
+	randomize()
 	match OS.get_name():
 		"Android":
 			var recordAudioPermission := false
@@ -42,9 +50,8 @@ func _process(delta):
 			set_process(false)
 
 func launch() -> void:
-	if(Global.config.getFirstLaunch()):
-		Global.change_scene("res://page/home/firstLaunch.tscn")
-	Global.change_scene("res://page/home/home.tscn")
+	#TODO: Make a main menu for all apps and make a first launch scene
+	Global.change_scene("res://shared/main_menu/main_menu.tscn")
 
 func _on_quit_timer_timeout() -> void:
 	get_tree().quit()

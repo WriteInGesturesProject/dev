@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://shared/playing/playing.gd" type="Script" id=1]
 [ext_resource path="res://assets/background.png" type="Texture" id=2]
 [ext_resource path="res://shared/back/back_button.tscn" type="PackedScene" id=3]
-[ext_resource path="res://shared/playing/playing_element.tscn" type="PackedScene" id=4]
 
 [node name="playing" type="Control"]
 anchor_right = 1.0
@@ -31,20 +30,6 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
-margin_right = 2564.0
-margin_bottom = 702.0
-
-[node name="playing_element" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 4 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 1280.0
-margin_bottom = 702.0
-
-[node name="playing_element2" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 4 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 1284.0
-margin_right = 2564.0
-margin_bottom = 702.0
 
 [node name="back_button" parent="." instance=ExtResource( 3 )]
+redirection = 1
